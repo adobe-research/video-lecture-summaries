@@ -1,0 +1,17 @@
+0:00
+0:00Let's now expand our knowledge of calculus
+0:03to the third dimension.
+0:05So first of all, just what does a function look like
+0:09in three dimensions?
+0:09And actually we'll go over the different types.
+0:11Because you can have a line in three dimensions, or kind of
+0:13a curve in three dimensions.
+0:14You can have a surface.
+0:15You could have a vector field.
+0:18There are different types of representations we'll see,
+0:20when we start working with three dimensions.
+0:21But I think the most intuitive-- and none of these
+0:24are directly intuitive-- I think you have to really be
+0:26able to visualize them.
+0:28But the most intuitive, to me at least, is a surface
+0:30in three dimensions.

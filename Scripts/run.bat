@@ -1,0 +1,2 @@
+python comparekeyframes.py framediff_localmin_keyframes 
+python comparekeyframes.py gradzero500_keyframes
