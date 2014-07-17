@@ -1,0 +1,29 @@
+<html>
+<head><title>07.07.2014</title></head>
+    <body>
+        
+        Parameters in feature detection and feature matching<br>
+        <ul>
+            <li>SURF detection threshold</li>
+            <li>Threshold distance for good matches</li>
+            <li>Minimum number of good matches, proportion of good matches</li>
+            
+        </ul>
+   
+        <ul>
+            <li>Feature matching is not perfect. Adjust the minimum  number of good mathces. </li>
+            <li>Switched to SIFT, since it seems to work better, but this needs to be further tested.</li>
+            <li>When computing bounding box of features to extract objects, add padding of 25 pixels on x,y sides.</li>
+            <li>When subtracting obj1 from img1, take the minimum of (img1, img1-obj1)</li>
+        </ul>
+        
+        <h3>Scoring segmentation</h3>
+        <ul>
+            <li>Subsample and smooth "foreground pixel number"</li>
+            <li>Pick local minimum of the gradient of gradient. Why?</li>
+            <li>TODO: compute a total score for each keyframe selection scheme</li>
+            <li>TODO: Try other schemes for picking</li>
+            <li>TODO: Finish for slides and pentimento</li>
+        </ul>
+    </body>   
+</html>

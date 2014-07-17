@@ -1,0 +1,42 @@
+ So I want to spend a little time talking about the question--
+ What's going on when we test software?
+ It turns out the answer is a lot of different things are going on.
+ So here I'd like to start off with the output produced by a test case.
+ It's going to pass through the acceptability check.
+ What we're doing when we check the output of a test case for acceptability
+ is we're running a little experiment, and this experiment can have two possible results.
+ One result is the output is okay. In which case, we are to go run another test case.
+ And the question is, what do we learn in that case? And the answer is unfortunately not very much.
+ What we might have done at best is increased our confidence just a tiny, tiny bit
+ but the software under test is correct.
+ And as it so happens, we stand to learn a whole lot more when the output is not okay.
+ And the process I'm going to talk about right now is if the acceptability check fails
+ that is to say the test output is not okay, we have to discover what's happened.
+ And so of course what we expect is much of the time we'll find a bug in the software under test.
+ If that's the case, we're going to go fix it. And if not, there's still plenty of other possibilities.
+ And one of the main ones is a bug in our acceptability check. If so, we're going to fix it.
+ If not, we should consider the possibility that there might be a bug in our specification.
+ As is often the case, the bug in the specification is a fairly large part of debugging
+ because the specification often is not written down or it's not written down particularly formally.
+ It's just an English document or an understanding among a group of people.
+ And very often, we're learning what it is that we needed to implement
+ as we're implementing the software.
+ If that's not the case though, if the bug was not in our acceptability check,
+ not in the software under test, and not in the specification, we still have some possibilities
+ but they're getting more difficult to deal with.
+ Some of the worst debugging stories that you hear of stem from a flaw in the operating system
+ in the compiler, in run time libraries, or even in the hardware.
+ Since fixing this kind of bugs is often not an option for us because we've purchased these things
+ or otherwise gotten these from some other vendor, often they have to be worked around
+ and these can be extremely painful.
+ If that is the case, we have a hard road ahead of us but at least we know where the flaw is.
+ If that's not the case, we're at a bit of an impasse.
+ What is it that's really going on here? What's the big picture here?
+ Well as I was saying, what the test is it's a tiny experiment where a failed test
+ reveals that something is wrong.
+ It reveals that something is flawed in either the understanding
+ of the system or in some part of the system.
+ And there might be a fairly elaborate process in figuring out what the problem is.
+ These kinds of discoveries that we're making about the system that we're using
+ are not necessarily a problem because these are things that we need to know
+ if we're going to create correct software in the future.

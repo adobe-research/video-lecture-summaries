@@ -1,0 +1,78 @@
+<html>
+<head><title>07.07.2014</title></head>
+    <body>
+        
+        <a href="https://00a524fed703c3eb33de95706bfb4cec7f148761.googledrive.com/host/0B-oCBLVOvxYQVWRnemZaQXAtUVE/video_navigation.html">Main page</a><br><br>        
+        
+  <h2>Highlighting points of interest: detect parts of the frame that is new</h2>
+    <ol>
+        <li>Manullay pick out keyframes</li>
+        <li>Iterate through images while:
+            <ol>
+          <li> For all objects in set, do feature matching and subtract object from image</li>                
+          <li> Do feature detection on (remainder) image</li>
+          <li> Get bounding box and save to "set of objects"</li>        
+          <li> Repeat</li>
+            </ol>
+        </li>
+    </ol>   
+        
+ <h3>Summary</h3>
+        <ul>
+            <li>This works well, especially for videos that have static views. For example:
+                <table>
+                    <tr><td><a href=https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/capture000000.png><img src = https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/thumbnails/capture000000.png></a></td><td><a href=https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/capture000001.png><img src=https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/thumbnails/capture000001.png></a></td><td><a href=https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/capture000002.png><img src=https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/thumbnails/capture000002.png></a></td><td><a href="https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/capture000003.png"><img src=https://bfa20876c4af0026af45e2eb63cf241d88b19c87.googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/thumbnails/capture000003.png></a></td></tr>
+                    <tr><td><a href="https://261b331abe00245b8889b82d0d93ba633b271f2f.googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/capture000000.png"><img src="https://261b331abe00245b8889b82d0d93ba633b271f2f.googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/thumbnails/capture000000.png"></a></td>
+                    <td><a href="https://261b331abe00245b8889b82d0d93ba633b271f2f.googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/capture000001.png"><img src="https://261b331abe00245b8889b82d0d93ba633b271f2f.googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/thumbnails/capture000001.png"></a></td>
+                    <td><a href="https://261b331abe00245b8889b82d0d93ba633b271f2f.googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/capture000002.png"><img src="https://261b331abe00245b8889b82d0d93ba633b271f2f.googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/thumbnails/capture000002.png"></a></td></tr>
+                    <tr><td><img src=https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/thumbnails/capture000000.png></td><td><img src=https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/thumbnails/capture000001.png></td><td><img src="https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/thumbnails/capture000002.png"></td><td><img src=https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/thumbnails/capture000003.png></td></tr>
+                </table>
+            </li>
+            <li>Removing logo and mouse pointer is importnat
+            <table>
+            <tr><td><a href="https://9790898462972f54ce891d7a1d6d3bf51fe0c2df.googledrive.com/host/0B-oCBLVOvxYQdmNhdVFLWm9HaUU/capture000003.png"><img src=https://9790898462972f54ce891d7a1d6d3bf51fe0c2df.googledrive.com/host/0B-oCBLVOvxYQdmNhdVFLWm9HaUU/thumbnails/capture000003.png></a></td></tr></table>
+            </li>
+            <li>Imperfections and bugs: Partial detection, Double subtraction etc, Dependency on parameters when detecting features/matching features etc.
+            <table>
+                <tr><td><a href=https://e01fb06b155ab5841b1168010159f85f12c3cc9c.googledrive.com/host/0B-oCBLVOvxYQbW1WaWpBWVppdVU/capture000000.png><img src=https://e01fb06b155ab5841b1168010159f85f12c3cc9c.googledrive.com/host/0B-oCBLVOvxYQbW1WaWpBWVppdVU/thumbnails/capture000000.png></a></td></tr>
+                <tr><td><a href="https://44a763b1ccbb25c02e27a2fc2eff14938a182034.googledrive.com/host/0B-oCBLVOvxYQaGxTbXlmWThOUVE/capture000005.png"><img src="https://44a763b1ccbb25c02e27a2fc2eff14938a182034.googledrive.com/host/0B-oCBLVOvxYQaGxTbXlmWThOUVE/thumbnails/capture000005.png"></a></td><td><a href="https://44a763b1ccbb25c02e27a2fc2eff14938a182034.googledrive.com/host/0B-oCBLVOvxYQaGxTbXlmWThOUVE/capture000006.png"><img src="https://44a763b1ccbb25c02e27a2fc2eff14938a182034.googledrive.com/host/0B-oCBLVOvxYQaGxTbXlmWThOUVE/thumbnails/capture000006.png"></a></td></tr>
+               <tr><td><a href="https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/capture000003.png"><img src="https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/thumbnails/capture000003.png"></a></td>
+                <td><a href="https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/capture000004.png"><img src="https://a842be3bba869ee354b306b530d1659ab4e6d47d.googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/thumbnails/capture000004.png"></a></td></tr>
+                
+            </table></li>
+            
+            
+        </ul>        
+        
+        <h2>Providing context: Making an overall picture</h2>
+        
+        <table title ="Manual results" border = 2><tr><td align=center colspan=2>Manual results</td></tr><tr><td>Feature matching and stitching</td><td>Segmenting and laying out sequentially</td></tr><tr><td align=center><a href="figures/armando1_whole.gif"><img src="figures/armando1_whole.gif" height=300></a></td><td align=center width=500><a href="figures/armando1_whole.gif"><img src="figures/armando1_whole2.gif" height=500></a></td></tr>
+        <tr></tr></table>
+        
+        
+        
+        <h3>Lecture Video Data set</h3>
+<ol>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQbW1WaWpBWVppdVU/index.html">Khan 1</a>: 3D divergence theorem intution,  (No scrolling) </li>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQb1hvOFZtSWRhdjA/index.html">Khan 2</a>: Green's theorem proof part 1 </li>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQdmNhdVFLWm9HaUU/index.html">MIT 201x 1</a> : Axial force diagrams</li>
+    <li>MIT 201x 2: Axial force diagrams - integration of distributed loads, part 2</li> 
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQdDJLcHA0LVo5RzQ/index.html">MIT 3</a>: Introduction to Aerodynamics</li>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQTlNSRlhRQUhJNFk/index.html">HandWritten Tutorials 1</a>: Anatomy of the Heart </li>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQcFQ3V19zZUZ2WTg/index.html">HandWritten Tutorials 2</a>: Anatomy of the Eye 
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQT1FYU0NIa05sWE0/index.html">Armando Hasudungan 1</a>: Emphysema Treatment</li>
+     <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQaGxTbXlmWThOUVE/index.html">Armando Hasudungan 2</a>: Cancer Introduction</li>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQczBrV1BkTUlZV1U/index.html">Tecmath 1</a>: Fractions addition and subtraction trick</li>
+       <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQeTNRVndBYy02QkE/index.html">Tecmath 2</a>: How to multiply 2 digit numbers up to 100</li>
+    <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQVjJ6dnEydmtsYkk/index.html">Udacity CS101</a>: Programming</li>
+     <li><a href="https://googledrive.com/host/0B-oCBLVOvxYQdWxzS3hzWWFGU00/index.html">Udacity CS101</a>: Web Crawler</li>
+    <li>Slide 1: Berkeley Computer Graphics 1</li>
+    <li>Slide 2: Berkeley Computer Graphics 2</li>    
+    <li>Pentimento 1: Diffraction</li>
+</ol>
+        
+   
+        
+        
+    </body>   
+</html>
