@@ -1,0 +1,52 @@
+0:00[D. Evans] Let's get started with programming.
+0:02Programming is really the core of computer science.
+0:05Most machines are designed to do just one thing.
+0:08This is supposed to be a toaster.
+0:11It's more of a representational drawing than an accurate one.
+0:14A toaster - well, we can do more than one thing with a toaster maybe.
+0:18We can put different things in it.
+0:20We can toast bread, we can toast muffins.
+0:22Maybe it has some things we can use to change its behavior a little bit.
+0:26We can turn a setting to make it toast for longer or shorter.
+0:30But it's pretty limited what it can do.
+0:32Everything it can do is a variation on this basic functionality that it was designed for,
+0:36this basic process of putting toast in, heating it up, and getting the toast to pop out.
+0:42If we want to change its behavior to do something really different,
+0:45we'd have to physically alter the machine.
+0:48We could maybe take the parts out, put them together in a new way.
+0:51If we're really creative we could make a bicycle from the toaster.
+0:54That would be a pretty big project, though.
+0:57So without a program, a computer is even less useful than a toaster.
+1:00Can't do anything without a program.
+1:02The program is what tells the computer what to do.
+1:05And the power of a computer is that, unlike a toaster,
+1:08which is really designed to only do a few things,
+1:10a computer can do anything.
+1:12A computer is a universal machine.
+1:14We can program it to do essentially any computation.
+1:17So anything that we can imagine,
+1:19anything that we can figure out how to write a program for,
+1:21we can make the computer do.
+1:23And what the program needs to be is a very precise sequence of steps.
+1:27The computer by itself doesn't know how to do anything.
+1:30It has a few simple instructions that it can execute.
+1:33And to make a program do something useful,
+1:35we need to put those instructions together in a way that does what we want.
+1:38So we can turn the computer into a web browser, into a server,
+1:42into a game-playing machine, into a toaster without anywhere to put the bread,
+1:48but into anything that we can imagine - at least any computation we want to do.
+1:52And the power of the computer is that it can execute those steps super, super fast,
+1:56so we can execute billions of instructions in one second.
+2:00The program gives us a way to tell the computer what steps to take.
+2:04There are many different languages for programming computers.
+2:07The language we're going to learn in this course is a language called Python, like the snake.
+2:11It's also named after Monty Python.
+2:14The important thing about Python is it gives us a nice high level language
+2:18that we can use to write programs.
+2:20And that means instead of our program running directly on the computer,
+2:23the programs that we write will be an input to the Python program,
+2:26which runs on the computer.
+2:28What Python is is called an interpreter.
+2:30That means it runs our programs, it interprets them,
+2:33executes the program that we wrote in the Python language
+2:36by running a program in the language that the computer can understand directly.
