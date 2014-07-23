@@ -15,7 +15,7 @@ if __name__ == "__main__":
     maxw = 0
     totalh = 0
     for filename in filelist:
-        if "object" in filename and "feature" not in filename:
+        if "capture" in filename and "feature" not in filename:
             objectfiles.append(filename)
             obj_img = cv2.imread(sys.argv[1] + "\\" + filename)
             objects.append(obj_img)
@@ -37,4 +37,7 @@ if __name__ == "__main__":
         view[curh:curh+h, (maxw-curw)/2:(maxw-curw)/2+curw, :] = obj
         curh += h
     
-    cv2.imwrite(sys.argv[1] + "\\capture_sum.jpg", view)
+    cv2.namedWindow("vew", cv2.WINDOW_NORMAL)
+    cv2.imshow("vew", view)
+    cv2.waitKey(0)
+    cv2.imwrite("capture_sum.jpg", view)

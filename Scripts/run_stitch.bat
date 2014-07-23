@@ -1,11 +1,11 @@
-#python stitchimage.py ..\SampleVideos\more\armando1\armando1_framediff_absmin_keyframes 
-#python stitchimage.py ..\SampleVideos\more\armando2\armando2_framediff_absmin_keyframes 
+python stitchimage.py ..\SampleVideos\more\armando1\armando1_framediff_absmin_keyframes 
+python stitchimage.py ..\SampleVideos\more\armando2\armando2_framediff_absmin_keyframes 
 
 
-#python stitchimage.py ..\SampleVideos\more\hwt1\hwt1_framediff_absmin_keyframes 
-#python stitchimage.py ..\SampleVideos\more\hwt2\hwt2_framediff_absmin_keyframes 
+python stitchimage.py ..\SampleVideos\more\hwt1\hwt1_framediff_absmin_keyframes 
+python stitchimage.py ..\SampleVideos\more\hwt2\hwt2_framediff_absmin_keyframes 
 
-#python stitchimage.py ..\SampleVideos\more\khan1\khan1_framediff_absmin_keyframes
+python stitchimage.py ..\SampleVideos\more\khan1\khan1_framediff_absmin_keyframes
 python stitchimage.py ..\SampleVideos\more\khan2\khan2_framediff_absmin_keyframes
 
 python stitchimage.py ..\SampleVideos\more\mit1\mit1_framediff_absmin_keyframes 

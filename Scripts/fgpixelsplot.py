@@ -14,7 +14,7 @@ if __name__ == "__main__":
     #             "..\\SampleVideos\\more\\tecmath1\\tecmath1.mp4", "..\\SampleVideos\\more\\tecmath2\\tecmath2.mp4",
     #              "..\\SampleVideos\\more\\udacity1\\udacity1.mp4", "..\\SampleVideos\\more\\udacity2\\udacity2.mp4"]
   
-    videolist = ["..\\SampleVideos\\more\\slide1\\slide1.mp4"]
+    videolist = ["..\\SampleVideos\\more\\khan1\\khan1.mp4", "..\\SampleVideos\\more\\khan2\\khan2.mp4"]
     for video in videolist:
         pv = processvideo.ProcessVideo(video)  
        
@@ -24,22 +24,22 @@ if __name__ == "__main__":
         pv.printfgpix(counts)
         
         # Subsample and smooth
-        print "Subsample and smooth foreground pixel count"
-        fgpixtxt = pv.videoname+"_numfgpix.txt"
-        fgpixfile = open(fgpixtxt, "r")
-        counts = []
-        for val in fgpixfile.readlines():
-            counts.append(int(val))
-        subsample = counts[0:len(counts):int(pv.framerate)]
-        smoothsample = util.smooth(np.array(subsample))
-        t = np.linspace(0, len(smoothsample), len(smoothsample))
-        plt.plot(t, smoothsample, color = "g")
-        plt.xlabel("time(sec)")
-        plt.ylabel("Number of foreground pixels")
-        plt.title("Subsampled and smoothed")
-        plt.xlim(0, len(smoothsample))
-        plt.savefig(pv.videoname + "_sub_smooth.jpg")
-        plt.close()        
+        #print "Subsample and smooth foreground pixel count"
+        #fgpixtxt = pv.videoname+"_numfgpix.txt"
+        #fgpixfile = open(fgpixtxt, "r")
+        #counts = []
+        #for val in fgpixfile.readlines():
+        #    counts.append(int(val))
+        #subsample = counts[0:len(counts):int(pv.framerate)]
+        #smoothsample = util.smooth(np.array(subsample))
+        #t = np.linspace(0, len(smoothsample), len(smoothsample))
+        #plt.plot(t, smoothsample, color = "g")
+        #plt.xlabel("time(sec)")
+        #plt.ylabel("Number of foreground pixels")
+        #plt.title("Subsampled and smoothed")
+        #plt.xlim(0, len(smoothsample))
+        #plt.savefig(pv.videoname + "_sub_smooth.jpg")
+        #plt.close()        
 
         
 

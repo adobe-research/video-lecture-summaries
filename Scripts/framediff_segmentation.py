@@ -11,21 +11,20 @@ from scipy.signal import argrelextrema
 
 
 if __name__ == "__main__":     
-    videolist = ["..\\SampleVideos\\more\\armando1\\armando1.mp4", "..\\SampleVideos\\more\\armando2\\armando2.mp4",
-                 "..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4",
-                 "..\\SampleVideos\\more\\khan1\\khan1.mp4", "..\\SampleVideos\\more\khan2\\khan2.mp4",
-                 "..\\SampleVideos\\more\\mit1\\mit1.mp4", "..\\SampleVideos\\more\\mit2\\mit2.mp4",
-                 "..\\SampleVideos\\more\\mit3\\mit3.mp4",
-                 "..\\SampleVideos\\more\\tecmath1\\tecmath1.mp4", "..\\SampleVideos\\more\\tecmath2\\tecmath2.mp4",
-                 "..\\SampleVideos\\more\\udacity1\\udacity1.mp4", "..\\SampleVideos\\more\\udacity2\\udacity2.mp4",
-                 "..\\SampleVideos\\more\\pentimento1\\pentimento1.mp4",
-                 "..\\SampleVideos\\more\\slide1\\slide1.mp4"]
-    
+    #videolist = ["..\\SampleVideos\\more\\armando1\\armando1.mp4", "..\\SampleVideos\\more\\armando2\\armando2.mp4"]
+    #videolist = ["..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4"]
+                 #"..\\SampleVideos\\more\\khan1\\khan1.mp4", "..\\SampleVideos\\more\khan2\\khan2.mp4",
+                 #"..\\SampleVideos\\more\\mit1\\mit1.mp4", "..\\SampleVideos\\more\\mit2\\mit2.mp4",
+                 #"..\\SampleVideos\\more\\mit3\\mit3.mp4",
+                 #"..\\SampleVideos\\more\\tecmath1\\tecmath1.mp4", "..\\SampleVideos\\more\\tecmath2\\tecmath2.mp4",
+                 #"..\\SampleVideos\\more\\udacity1\\udacity1.mp4", "..\\SampleVideos\\more\\udacity2\\udacity2.mp4",
+                 #"..\\SampleVideos\\more\\pentimento1\\pentimento1.mp4",
+                 #"..\\SampleVideos\\more\\slide1\\slide1.mp4"]
+    videolist = ["..\\SampleVideos\\more\\khan1\\khan1.mp4"]    
     min_width = 5 #seconds
     for video in videolist:
                
         pv = processvideo.ProcessVideo(video)
-        outvideo = pv.videoname+"_proc1.avi"
        
         # Count frame difference
         print "Read framediff.txt"
@@ -47,9 +46,9 @@ if __name__ == "__main__":
         
         
         average = np.mean(subsample)
-        thres = float(sys.argv[1]) * average
+        thres = 0.10* average
         
-        fn_filename = pv.videoname +"_framediff_absmin_"+str(sys.argv[1])+"_keyframes.txt"
+        fn_filename = pv.videoname +"_framediff_absmin_keyframes.txt"
         keyframe = open(fn_filename, "w")
         frame = []
         fnumbers = []
@@ -67,7 +66,7 @@ if __name__ == "__main__":
                 capturing = False
             sec += 1
         plt.axhline(thres, color="r")
-        plt.savefig(pv.videoname + "_framediff_absmin_"+str(sys.argv[1])+".jpg")
+        plt.savefig(pv.videoname + "_framediff_absmin.jpg")
         plt.close()
         keyframe.close()
     
@@ -81,7 +80,7 @@ if __name__ == "__main__":
         
         print fnumbers
         print "Capture Key Frames"
-        capturedir = "_framediff_absmin_keyframes_"+str(sys.argv[1])
+        capturedir = "_framediff_absmin_keyframes"
         if not os.path.exists(pv.videoname + capturedir):
             os.makedirs(pv.videoname + capturedir)
         pv.captureframes(fnumbers, pv.videoname + capturedir + "\\")

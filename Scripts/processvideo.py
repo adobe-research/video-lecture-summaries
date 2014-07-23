@@ -61,7 +61,22 @@ class ProcessVideo:
         cap.release()
         out.release()
         return
-   
+    
+    def getframe_at_time(self, sec):
+        """Get frame at specified time"""
+        cap = cv2.VideoCapture(self.video)
+        framei = 0
+        while(cap.isOpened()):          
+            ret, frame = cap.read()
+            if (ret == True):
+                if(framei == sec*self.framerate):
+                    cap.release()
+                    return frame
+                framei += 1
+            else:
+                break
+        return
+       
     def countfgpix(self):
         """Return number of foreground pixels"""    
         cap = cv2.VideoCapture(self.video)    
@@ -79,6 +94,14 @@ class ProcessVideo:
         cap.release()
         return counts    
 
+    def readfgpix(self):
+        """Return number of foreground pixels"""
+        fgpixtxt = self.videoname+"_numfgpix.txt"
+        fgpixfile = open(fgpixtxt, "r")
+        fgpix = []
+        for val in fgpixfile:
+            fgpix.append((int(val)))
+        return fgpix
 
     def printfgpix(self, counts, txtfilename=None):
         """Print and plot number of foreground pixels per frame"""
@@ -116,51 +139,33 @@ class ProcessVideo:
         cap.release()
         out.release()
     
-    #def getchangeframes(self, counts, gradthres):
-    #    subsample = counts[0:len(counts):15]
-    #    smoothsample = util.smooth(np.array(subsample))
-    #    samplegrad = np.gradient(smoothsample)
-    #    return        
-
-    #def getfgpeaks(self, fgpixfilename=None):
-    #    """Return frame number where peak of drawing activity occurs"""
-    #    if fgpixfilename==None:
-    #        fgpixfilename = printfgpix()
-    #    fgpixfile = open(fgpixfilename, "r")
-    #    counts = []
-    #    for val in fgpixfile.readlines():
-    #        counts.append(int(val))
-    #    array = np.array(counts)
-    #    peaks = sp.signal.find_peaks_cwt(array, np.arange(2*framerate, 4*framerate, framerate), None, None, None, None, 1, 10)
-    #    return peaks
-    #
-    #def printfgpeaks(self, fgpixfilename=None, outfile="fgpeaks"):
-    #    """Print peak frames by counting foreground pixels per frame"""
-    #    peaks = getfgpeaks(fgpixfilename)
-    #    peaktxt = open(outfile+".txt", "w")
-    #    for peak in peaks:
-    #        peaktxt.write("%i\n" % peak)    
-    #    peaktxt.close()
-    #    return
-    #
-    #def plotfgpeaks(self, fgpixfilename, fgpeaksfilename, outfile="fgpeaks.png"):
-    #    fgpixfile = open(fgpixfilename, "r")
-    #    peaks = open(fgpeaksfilename, "r")
-    #    numfgpix = []
-    #    
-    #    plt.figure(1)
-    #    t = np.linspace(0, numframe, numframe)        
-    #    for val in fgpixfile.readlines():
-    #        numfgpix.append(int(val))
-    #    plt.plot(t, numfgpix, 'b')
-    #    
-    #    for peak in fgpeaksfilename.readlines():
-    #        plt.axvline(peak, color="r")
-    #    
-    #    plt.xlim(0, numframe)
-    #    plt.xlabel("time (frame id)")
-    #    plt.ylabel("Number of Foreground pixels")
-    #    plt.savefig(outfile)
+    def removelogo(self, gray_logos, color):
+        cap = cv2.VideoCapture(self.video)
+        
+        outvideo = self.videoname+"_removelogo.avi"
+        fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
+        out = cv2.VideoWriter(outvideo, int(fourcc), int(self.framerate), (int(self.width), int(self.height)))
+        
+        while(cap.isOpened()):
+            ret, frame = cap.read()
+            if (frame == None):
+                break
+                       
+            for gray_logo in gray_logos:
+                gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                wlogo, hlogo = gray_logo.shape[::-1]
+                tlx, tly = pf.matchtemplate(gray_frame, gray_logo)
+                brx = tlx + wlogo
+                bry = tly + hlogo
+                frame[tly:bry, tlx:brx, 0] = color[0]
+                frame[tly:bry, tlx:brx, 1] = color[1]
+                frame[tly:bry, tlx:brx, 2] = color[2]
+            
+            out.write(frame)
+        cap.release()
+        out.release()
+        print 'output:' , outvideo
+    
 
     def captureframes(self, fnumbers, outdir= "./"):
         cap = cv2.VideoCapture(self.video)

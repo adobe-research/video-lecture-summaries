@@ -7,13 +7,13 @@ import logging
 from PIL import Image
 import sys
 import scipy as sp
+from objectcandidate import ObjectCandidate
+import cluster
+from itertools import cycle
 
 logging.basicConfig(stream=sys.stderr, level=logging.ERROR)
 
 def importantregion(gray_img, path=None, index=0):
-    #surf = cv2.SURF(5000)
-    #surf.upright = True
-    #kp, d = surf.detectAndCompute(gray_img, None)
     sift = cv2.SIFT(1000, 3, 0.12, 12)
     kp, d = sift.detectAndCompute(gray_img, None)
     if (path != None):
@@ -39,17 +39,69 @@ def importantregion(gray_img, path=None, index=0):
     
     return minx, miny, maxx, maxy
 
-def removetemplate(img, obj, M):
-    rows, cols = img.shape[0:2]
-    neg_warp_obj = cv2.warpPerspective(255-obj, M, (cols,rows))
-    #cv2.imshow("object", obj)
-    #cv2.imshow("warped image", 255-neg_warp_obj)
-    #cv2.waitKey()
+def candidateobjects(image, siftthres=3000):
+    sift = cv2.SIFT(siftthres)
+    kp, d = sift.detectAndCompute(image, None)   
     
-    neg_img = 255 -img
+    points = []
+    for point in kp:
+        points.append(point.pt)
+    
+    n_points = np.array(points)
+    indices, labels = cluster.dbscan(n_points)
+    n_kp = np.array(kp)    
+    
+    return
+    
+
+def removetemplate(gray_img, gray_obj, M):
+    rows, cols = gray_img.shape[0:2]
+    neg_warp_obj = cv2.warpPerspective(255-gray_obj, M, (cols,rows))
+    
+    neg_img = 255 -gray_img
     negdiff = np.minimum(neg_img, cv2.absdiff(neg_img, neg_warp_obj))
     diff = 255-negdiff
+    
+    #h1,w1 = neg_warp_obj.shape
+    #h2,w2 = neg_img.shape
+    #h3,w3 = diff.shape
+    #view = sp.zeros((max(h1, h2, h3), w1+w2+w3), sp.uint8)
+    #view[:h1, :w1] =neg_warp_obj
+    #view[:h2, w1:w1+w2] = neg_img
+    #view[:h3, w1+w2:w1+w2+w3] = negdiff
+    #cv2.namedWindow("remove template", cv2.WINDOW_NORMAL)
+    #cv2.imshow("remove template", view)
+    #cv2.waitKey(0)
+    
     return diff
+
+def subtractobject(image, obj, M):
+    shape = image.shape
+    warp_obj = cv2.warpPerspective(obj_mask, M, shape)
+    
+    #diff = cv2.absdiff(fg_mask, warp_obj)
+    #
+    #h1,w1 = warp_obj.shape
+    #h2,w2 = fg_mask.shape
+    #h3,w3 = diff.shape
+    #view = sp.zeros((max(h1, h2, h3), w1+w2+w3), sp.uint8)
+    #view[:h1, :w1] =warp_obj
+    #view[:h2, w1:w1+w2] = fg_mask
+    #view[:h3, w1+w2:w1+w2+w3] = diff
+    #cv2.namedWindow("mask obj", cv2.WINDOW_NORMAL)
+    #cv2.imshow("mask obj", view)
+    #cv2.waitKey(0)
+    #return diff
+
+def commonregion(gray_img1, gray_img2, M):
+    rows, cols = gray_img1.shape[0:2]
+    warp_img2 = cv2.warpPerspective(gray_img2, M, (cols,rows))
+    diff = cv2.absdiff(gray_img1, warp_img2)
+    diff = 255 - diff    
+    return diff
+
+
+
 
 def detectobject(gray_img, gray_obj):
     """Return 3x3 transformation matrix which transforms gray_obj to match inside gray_img
@@ -116,14 +168,24 @@ def detectobject(gray_img, gray_obj):
     image[:h2, w1:w1+w2] = gray_img
   
     ## Draw yellow lines connecting corresponding features.
-    print 'len(src_pts)', len(src_pts)
-    print 'len(dst_pts)', len(dst_pts)
+    #print 'len(src_pts)', len(src_pts)
+    #print 'len(dst_pts)', len(dst_pts)
     for (x1, y1), (x2, y2) in zip(np.int32(src_pts), np.int32(dst_pts)):
          cv2.line(image, (x1, y1), (x2+w1, y2), (0, 255, 255), lineType=cv2.CV_AA)
     #cv2.namedWindow("correspondence", cv2.WINDOW_NORMAL)
     #cv2.imshow("correspondence", image)
 
     return M
+
+def drawKeypointClusters(img, n_kp, labels):          
+    unique_labels = set(labels)   
+    n_clusters_ = len(unique_labels)    
+    colors = cycle([(255,0,0), (0,255,0), (0,0,255), (255,255,0), (255,0,255), (0, 255,255)])
+    for k, col in zip(unique_labels, colors):
+        class_members = labels == k
+        img = cv2.drawKeypoints(img, n_kp[class_members], None, col, 4)
+    return img
+
 
 def drawMatches(img1, img2, k1, k2, matches, maxline=100):
     
