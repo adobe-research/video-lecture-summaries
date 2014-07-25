@@ -10,10 +10,17 @@
                 
         <script>
         $(document).ready(function(){
-            $('.bxslider').bxSlider({
+            $('#hwt1').bxSlider({
                 slideWidth: 700,                
                 mode: 'fade', 
-                pagerCustom: '#bx-pager'
+                pagerCustom: '#hwt1-pager'
+                
+            });
+            
+            $('#hwt2').bxSlider({
+                slideWidth: 700,                
+                mode: 'fade', 
+                pagerCustom: '#hwt2-pager'
                 
             });
         });            
@@ -22,7 +29,9 @@
         <title>Example of a slide show summary</title>
     </head>
     <body align=middle>
-        <ul class="bxslider">
+        <p>
+        <h1>Heart Lecture</h1>
+        <ul id="hwt1">
             <li><img src="test_sequential/hwt1/highlight/highlight_0.png" width=500 title="Slide 0" /></li>
             <li><img src="test_sequential/hwt1/highlight/highlight_2.png" width=500 title="Slide 2" /></li>
             <li><img src="test_sequential/hwt1/highlight/highlight_3.png" width=500 title="Slide 3" /></li>
@@ -40,7 +49,7 @@
             <li><img src="test_sequential/hwt1/highlight/highlight_17.png" width=500 title="Slide 17" /></li>
         </ul>
         
-        <div id="bx-pager">
+        <div id="hwt1-pager">
           <a data-slide-index="0" href=""><img src="test_sequential/hwt1/highlight/highlight_0.png" width=30 /></a>
           <a data-slide-index="1" href=""><img src="test_sequential/hwt1/highlight/highlight_2.png" width=30 /></a>
           <a data-slide-index="2" href=""><img src="test_sequential/hwt1/highlight/highlight_3.png" width=30 /></a>
@@ -57,6 +66,47 @@
           <a data-slide-index="13" href=""><img src="test_sequential/hwt1/highlight/highlight_16.png" width=30 /></a>
           <a data-slide-index="14" href=""><img src="test_sequential/hwt1/highlight/highlight_17.png" width=30 /></a>
         </div>
+        </p>
+        <p>
+        <h1>Eye lecture</h1>
+        <ul id="hwt2">
+            <li><img src="test_sequential/hwt2/highlight/highlight_0.png" width=500 title="Slide 0" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_1.png" width=500 title="Slide 1" /></li>            
+            <li><img src="test_sequential/hwt2/highlight/highlight_2.png" width=500 title="Slide 2" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_3.png" width=500 title="Slide 3" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_4.png" width=500 title="Slide 4" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_5.png" width=500 title="Slide 5" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_6.png" width=500 title="Slide 6" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_7.png" width=500 title="Slide 7" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_8.png" width=500 title="Slide 8" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_9.png" width=500 title="Slide 9" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_10.png" width=500 title="Slide 10" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_11.png" width=500 title="Slide 11" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_12.png" width=500 title="Slide 12" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_13.png" width=500 title="Slide 13" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_14.png" width=500 title="Slide 14" /></li>
+            <li><img src="test_sequential/hwt2/highlight/highlight_15.png" width=500 title="Slide 15" /></li>
+        </ul>
+        
+        <div id="hwt2-pager">
+          <a data-slide-index="0" href=""><img src="test_sequential/hwt2/highlight/highlight_0.png" width=30 /></a>
+          <a data-slide-index="1" href=""><img src="test_sequential/hwt2/highlight/highlight_1.png" width=30 /></a>
+          <a data-slide-index="2" href=""><img src="test_sequential/hwt2/highlight/highlight_2.png" width=30 /></a>
+          <a data-slide-index="3" href=""><img src="test_sequential/hwt2/highlight/highlight_3.png" width=30 /></a>
+          <a data-slide-index="4" href=""><img src="test_sequential/hwt2/highlight/highlight_4.png" width=30 /></a>
+          <a data-slide-index="5" href=""><img src="test_sequential/hwt2/highlight/highlight_5.png" width=30 /></a>
+          <a data-slide-index="6" href=""><img src="test_sequential/hwt2/highlight/highlight_6.png" width=30 /></a>
+          <a data-slide-index="7" href=""><img src="test_sequential/hwt2/highlight/highlight_7.png" width=30 /></a>
+          <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_8.png" width=30 /></a>
+          <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_9.png" width=30 /></a>
+          <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_10.png" width=30 /></a>
+          <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_11.png" width=30 /></a>
+          <a data-slide-index="9" href=""><img src="test_sequential/hwt2/highlight/highlight_12.png" width=30 /></a>
+          <a data-slide-index="10" href=""><img src="test_sequential/hwt2/highlight/highlight_13.png" width=30 /></a>
+          <a data-slide-index="11" href=""><img src="test_sequential/hwt2/highlight/highlight_14.png" width=30 /></a>
+          <a data-slide-index="12" href=""><img src="test_sequential/hwt2/highlight/highlight_15.png" width=30 /></a>
+        </div>
+        </p>
 
     </body>
     
