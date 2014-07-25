@@ -8,19 +8,28 @@ import os
 from PIL import Image
 import images2gif
 import processvideo
-
+from sentence import Sentence
+import processscript as ps
 
 
 if __name__ == "__main__":
     
-    videopath = sys.argv[1]
-    framepath = sys.argv[2]
+    
+    scriptpath = sys.argv[1]
+    scriptfile = os.path.basename(scriptpath)
+    endtime = sys.argv[2]
+    endtime = ps.time_in_sec(endtime)
+    videopath = sys.argv[3]
+    framepath = sys.argv[4]
     
     pv = processvideo.ProcessVideo(videopath)
+    sentences = ps.get_sentences(scriptpath, endtime)
     
-    img1 = cv2.imread(sys.argv[1])
-    img2 = cv2.imread(sys.argv[2])
-    print 'here'
+    keyframes = []
+    filelist = os.listdir(framepath)
+    for filename in filelist:
+        if "capture" in filename and ".png" in filename:
+            keyframes.append(filename)
+        
     
-    GifWriter.writeGif("test.gif", [img1, img2], duration=1)
-    
+        

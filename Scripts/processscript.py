@@ -3,6 +3,7 @@ import re
 from sentence import Sentence
 import sys
 import processvideo
+import os
 
 def find_time(regex, s):
     """Find time expression in s specified by regex"""
@@ -16,6 +17,7 @@ def find_time(regex, s):
 
 def get_sentences(filename, endtime):
     """Parse transcript and return list of time-stamped sentences"""
+        
     stcs = []
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     fp = open(filename)
