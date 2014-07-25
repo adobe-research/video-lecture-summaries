@@ -1,4 +1,13 @@
 import numpy
+from PIL import Image
+
+def array_to_pil(data, mode="RGB"):
+    image = Image.fromarray(data, "RGB")
+    b, g, r = image.split()
+    image = Image.merge("RGB", (r, g, b))
+    if (mode != "RGB"):
+        image = image.convert(mode)
+    return image
 
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  

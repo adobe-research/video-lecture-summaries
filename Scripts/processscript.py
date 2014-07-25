@@ -86,6 +86,17 @@ def print_sentences(transcript="transcript.txt", time="10:00", fps=15.0, outtxt=
         sentencetxt.write("\t%i\n" % int(sentence.endt * fps))
     sentencetxt.close()
 
+def get_sentences_intime(sentences, tbegin, tend):
+    segment = []
+    for sentence in sentences:
+        s_begin = sentence.startt
+        s_end = sentence.endt
+        if (s_begin >= tbegin and s_end <= tend):
+            segment.append(sentence)
+        if (s_begin > tend):
+            return segment
+    return segment
+
 
 if __name__ == "__main__":
     

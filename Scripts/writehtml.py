@@ -2,10 +2,10 @@
 
 
 class WriteHtml:
-    def __init__(self, filename):
+    def __init__(self, filename, title="no title"):
         self.filename = filename
         self.htmlfile = open(filename, 'w')
-        self.htmlfile.write("<html>\n\t<head>\n\t\t<title>Title</title>\n\t</head>\n")
+        self.htmlfile.write("<html>\n\t<head>\n\t\t<title>"+title+"</title>\n\t</head>\n")
         
     def openbody(self):
         self.htmlfile.write("<body>\n")
@@ -14,13 +14,13 @@ class WriteHtml:
         self.htmlfile.write("\n</body>")
     
     def imagelink(self, filename, width):
-        self.htmlfile.write("<a href=\"%s\"><img src=\"%s\" width = %s></a>" % (filename, filename, width))
+        self.htmlfile.write("<a href=\"%s\"><img src=\"%s\" height = %s></a>" % (filename, filename, width))
 
     def breakline(self):
         self.htmlfile.write("</br>")
         
-    def opentable(self):
-        self.htmlfile.write("<table>\n")
+    def opentable(self, border=0):
+        self.htmlfile.write("<table border="+str(border)+">\n")
         
     def closetable(self):
         self.htmlfile.write("\n</table>")
