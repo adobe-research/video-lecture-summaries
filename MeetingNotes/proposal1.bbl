@@ -1,0 +1,72 @@
+\begin{thebibliography}{10}
+
+\bibitem{Anderson2004}
+Richard Anderson, Ruth Anderson, Beth Simon, Steven~A. Wolfman, Tammy
+  VanDeGrift, and Ken Yasuhara.
+\newblock Experiences with a tablet pc based lecture presentation system in
+  computer science courses.
+\newblock In {\em Proceedings of the 35th SIGCSE Technical Symposium on
+  Computer Science Education}, SIGCSE '04, pages 56--60, New York, NY, USA,
+  2004. ACM.
+
+\bibitem{Chi2012}
+Pei-Yu Chi, Sally Ahn, Amanda Ren, Mira Dontcheva, Wilmot Li, and Bj\"{o}rn
+  Hartmann.
+\newblock Mixt: Automatic generation of step-by-step mixed media tutorials.
+\newblock In {\em Proceedings of the 25th Annual ACM Symposium on User
+  Interface Software and Technology}, UIST '12, pages 93--102, New York, NY,
+  USA, 2012. ACM.
+
+\bibitem{Cross2013}
+Andrew Cross, Mydhili Bayyapunedi, Edward Cutrell, Anant Agarwal, and William
+  Thies.
+\newblock Typerighting: combining the benefits of handwriting and typeface in
+  online educational videos.
+\newblock In {\em CHI}, pages 793--796, 2013.
+
+\bibitem{Cross2014}
+Andrew Cross, Mydhili Bayyapunedi, Dilip Ravindran, Edward Cutrell, and William
+  Thies.
+\newblock Vidwiki: enabling the crowd to improve the legibility of online
+  educational videos.
+\newblock In {\em CSCW}, pages 1167--1175, 2014.
+
+\bibitem{Davis2008}
+Richard~C. Davis, Brien Colwell, and James~A. Landay.
+\newblock K-sketch: A 'kinetic' sketch pad for novice animators.
+\newblock In {\em Proceedings of the SIGCHI Conference on Human Factors in
+  Computing Systems}, CHI '08, pages 413--422, New York, NY, USA, 2008. ACM.
+
+\bibitem{Guo2014}
+Philip~J. Guo, Juho Kim, and Rob Rubin.
+\newblock How video production affects student engagement: An empirical study
+  of {MOOC} videos.
+\newblock In {\em Proceedings of the ACM Conference on Learning at Scale}, L@S
+  '14, New York, NY, USA, 2014. ACM.
+
+\bibitem{Kim2013}
+Juho Kim, Philip Guo, Daniel Seaton, Piotr Mitros, Krzysztof Gajos, and Robert
+  Miller.
+\newblock Understanding in-video dropouts and interaction peakes in online
+  lecture videos.
+\newblock In {\em Learning at Scale (To Appear)}, 2014.
+
+\bibitem{Oviatt05}
+Sharon Oviatt, Rebecca Lunsford, and Rachel Coulston.
+\newblock Individual differences in multimodal integration patterns: What are
+  they and why do they exist.
+\newblock In {\em Proc. CHI’05}, pages 241--249, 2005.
+
+\bibitem{Schnepf96}
+James~A. Schnepf, Yen-Jen Lee, David~H.C. Du, Lan Lai, and Liang wei Kang.
+\newblock Building a framework for flexible interactive presentations.
+\newblock In {\em Proceedings of Pacific Workshop on Distriubted Multimedia
+  Systems, Hong Kong}, 1996.
+
+\bibitem{Yu2003}
+Bin Yu, Wei-Ying Ma, Klara Nahrstedt, and Hong-Jiang Zhang.
+\newblock Video summarization based on user log enhanced link analysis.
+\newblock In {\em Proceedings of the Eleventh ACM International Conference on
+  Multimedia}, MULTIMEDIA '03, pages 382--391, New York, NY, USA, 2003. ACM.
+
+\end{thebibliography}
