@@ -24,12 +24,18 @@
                 
             });
             
-            $('#khan1').bxSlider({
+            var khan1slide = $('#khan1').bxSlider({
                 slideWidth: 700,                
                 mode: 'fade', 
-                pagerCustom: '#khan1-pager'
+                pagerCustom: '#khan1-pager',
                 
-            });
+                onSlideAfter: function(){
+                    var current = khan1slide.getCurrentSlide();
+                    $('#khan1text').text();
+                }                
+            });           
+            
+           
         });            
         </script>
         
@@ -151,6 +157,7 @@
                 <a data-slide-index="13" href=""><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_13.png" width=30 border = 1></a>
             </ul>
         </p>
+        <p id = "khan1text">Here I am </p>
 
     </body>
     

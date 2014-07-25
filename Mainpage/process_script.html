@@ -1,0 +1,23 @@
+<html>
+    <head><title>Transcript Processing</title></head>
+    <body>
+        <ol>
+        <li>Divide Transcript into slides
+            <ul>
+                <li>Given a sentence, s_begin, s_end, slide_begin and slide_end following cases can happen:
+                    <ol>
+                        <li>Sentence begins and ends before slide segment<br>sentence_begin &lt sentence_end &lt slide_begin &lt slide_end: Do not include</li>
+                        <li>Sentence begins and ends after slide segment<br>slide_begin &lt slide_end &lt sentence_begin &lt sentence_end: Do not include</li>
+                        <li>Sentence entirely contained within slide segment<br>slide_begin &lt sentence_begin &lt sentence_end &lt slide_end: Include</li>
+                        <li>Sentence begins before slide segment, ends within slide segment<br>
+                        sentence_begin &lt slide_begin &lt sentence_end &lt slide_end: Do not include</li>
+                        <li>Sentence begins within slide segment and ends after<br>
+                        slide_begin &lt sentence_begin &lt slide_end &lt sentence_end: Include</li>
+                    </ol>
+                    <li>Include all sentences that begin at or after (greater than or equal to) slide segment begins, and ends before or at the end of the slide segment. </li>
+                </li>
+            </ul>
+        </li>
+        </ol>
+    </body>
+</html>
