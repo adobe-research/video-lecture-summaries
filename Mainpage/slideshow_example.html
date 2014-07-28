@@ -1,7 +1,7 @@
 <html>
     <head>
         <!-- jQuery library (served from Google) -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <!-- bxSlider Javascript file -->
         <script src="js/jquery.bxslider.min.js"></script>
         <!-- bxSlider CSS file -->
@@ -10,29 +10,128 @@
                 
         <script>
         $(document).ready(function(){
-            $('#hwt1').bxSlider({
+             var hwt1slide = $('#hwt1').bxSlider({
                 slideWidth: 700,                
                 mode: 'fade', 
-                pagerCustom: '#hwt1-pager'
+                pagerCustom: '#hwt1-pager',
+                                
+                onSlideAfter: function(){
+                    var current = hwt1slide.getCurrentSlide();
+                    switch(current){
+case 0:
+	$('#hwt1text').text("hi in this beer I'm gonna talk about the anatomy of the heart and this is just going to be in overview the gross anatomy a hard and the Chamber's showed quickly here and I'm gonna grow this so that it's being dissected to show all the changes all the heart and all the valves for small ");
+	break;
+case 1:
+	$('#hwt1text').text("blood flows through the heart like into the heart here and from here and this comes from the body is plugged into this chain me here and flew them through here ");
+	break;
+case 2:
+	$('#hwt1text').text("then up through the chain that and up the special ago that to the lungs here ");
+	break;
+case 3:
+	$('#hwt1text').text("and income back in through these bands ");
+	break;
+case 4:
+	$('#hwt1text').text("here in here in the blood moves down through these two chambers and then back up through this girl ");
+	break;
+case 5:
+	$('#hwt1text').text("and out through this vessel and label these vessels now ");
+	break;
+case 6:
+	$('#hwt1text').text("and the Chandos and the belts so these two vessels other vina caber this is a superior the makeover ");
+	break;
+case 7:
+	$('#hwt1text').text("this is the inferior being caper ");
+	break;
+case 8:
+	$('#hwt1text').text("the blood the in goes into the right atrium and that this chamber the heart yeah then it moves through the TriCaster Bell named truck of that because it has broadcast into ");
+	break;
+case 9:
+	$('#hwt1text').text("the brought ventricle but then for after the right ventricle through the pulmonary valve ");
+	break;
+case 10:
+	$('#hwt1text').text("into the pulmonary trunk at this point because to the lungs then returning from the lungs inches the next chamber by the pulmonary bangs missed ");
+	break;
+case 11:
+	$('#hwt1text').text("oranges is the left atrium below the left atrium ");
+	break;
+case 12:
+	$('#hwt1text').text("is the mitral bow also known as the bike us the bell because it only has 2 cups then it flows into the left ventricle which is the main pumping chamber %uh ha the blood inflows ");
+	break;
+case 13:
+	$('#hwt1text').text("out through the or dick dale's and out the aorta body now just label some other things here the pulmonary valve is this Dell ");
+	break;
+case 14:
+	$('#hwt1text').text("here at proximal and pulmonary trunk is the in her ventricular septem this is a certain lies between two ventricles here see apex and finally here's the high water missus an overview the Inn at me up haha for more free tutorials and the PDF this tutorial visit WWW dot hand written tutorials dot com ");
+	break;
+
+                     
+                            
+                    }
+                }   
                 
             });
             
-            $('#hwt2').bxSlider({
+            var hwt2slide = $('#hwt2').bxSlider({
                 slideWidth: 700,                
                 mode: 'fade', 
-                pagerCustom: '#hwt2-pager'
+                pagerCustom: '#hwt2-pager',
                 
+                onSlideAfter: function(){
+                    var current = hwt2slide.getCurrentSlide();
+                    switch(current){
+                            case 0:
+case 0:
+	$('#hwt2text').text("hi in this video I'm going to discuss the anatomy of the eye so to illustrate with I'm gonna draw the eye in cross-section splitting it down here and al point up you will be from here so let me just great quickly ");
+	break;
+case 1:
+	$('#hwt2text').text("the icon to look like this and I'll stop by labeling some the major features the anterior chamber is this space at the front of the eye here ");
+	break;
+case 2:
+	$('#hwt2text').text("and just behind it we have the post Area Chamber these two chambers filled with a fluid ");
+	break;
+case 3:
+	$('#hwt2text').text("called the acquiesce humor the anterior and posterior chambers separated by the onerous which is the colored part of the eye ");
+	break;
+case 4:
+	$('#hwt2text').text("the lens then sits in behind the iris ");
+	break;
+case 5:
+	$('#hwt2text').text("and palm the post jury award the post Area Chamber behind the lens life a large space called the peak reached chamber which is filled with the tool at Northampton's called the Beatrice Yuma not to be confused with the ok with you man ");
+	break;
+case 6:
+	$('#hwt2text').text("in the anterior and posted chambers holding the lens in place we have tiny ciliary muscle which ");
+	break;
+case 7:
+	$('#hwt2text').text("touched zone newell's small fibrous strand connective tissue ");
+	break;
+case 8:
+	$('#hwt2text').text("that attach to the lens by contracting and relaxing the ciliary muscles and zone UAL's change the shape lanes to help me i focus at the back the I we have a small hit called will be a which is an area with a high density up color photoreceptors called ");
+	break;
+case 9:
+	$('#hwt2text').text("homes this is the part retin-a used to high security prison at the back in the eyeball we also have the optic disc this is the point almond from the potala receptors ");
+	break;
+case 10:
+	$('#hwt2text').text("dive back through the retina and then on wood to the brain through the optic nerve the optic disc is responsible for the Blind Spot in ambition of course I should also labeled this whole section as the retina which is the party I responsible sensing lot ");
+	break;
+case 11:
+	$('#hwt2text').text("out here we have the sclera which is the white part of the eye and that the front we have the cornea which is ");
+	break;
+case 12:
+	$('#hwt2text').text("the Cleopatra the I at the back ");
+	break;
+case 13:
+	$('#hwt2text').text("this is the optic nerve extending back toward the brain ");
+	break;
+                    }
+                }
+                     
             });
             
             var khan1slide = $('#khan1').bxSlider({
                 slideWidth: 700,                
                 mode: 'fade', 
                 pagerCustom: '#khan1-pager',
-                
-                onSlideAfter: function(){
-                    var current = khan1slide.getCurrentSlide();
-                    $('#khan1text').text();
-                }                
+             
             });           
             
            
@@ -42,6 +141,8 @@
         <title>Example of a slide show summary</title>
     </head>
     <body align=middle>
+        <table border = 3 align=center >
+            <tr><td align=center width=800 >
         <p>
         <h1>Heart Lecture</h1>
         <ul id="hwt1">
@@ -80,6 +181,9 @@
           <a data-slide-index="14" href=""><img src="test_sequential/hwt1/highlight/highlight_17.png" width=30 border = 1 /></a>
         </div>
         </p>
+     <p id = "hwt1text" align=left>hi in this beer I'm gonna talk about the anatomy of the heart and this is just going to be in overview the gross anatomy a hard and the Chamber's showed quickly here and I'm gonna grow this so that it's being dissected to show all the changes all the heart and all the valves for small</p>
+    </td></tr></table><br><br>
+    <table border=3 align=center><tr><td align=center width=800>
         <p>
         <h1>Eye lecture</h1>
         <ul id="hwt2">
@@ -92,7 +196,6 @@
             <li><img src="test_sequential/hwt2/highlight/highlight_6.png" width=500 title="Slide 6" /></li>
             <li><img src="test_sequential/hwt2/highlight/highlight_7.png" width=500 title="Slide 7" /></li>
             <li><img src="test_sequential/hwt2/highlight/highlight_8.png" width=500 title="Slide 8" /></li>
-            <li><img src="test_sequential/hwt2/highlight/highlight_9.png" width=500 title="Slide 9" /></li>
             <li><img src="test_sequential/hwt2/highlight/highlight_10.png" width=500 title="Slide 10" /></li>
             <li><img src="test_sequential/hwt2/highlight/highlight_11.png" width=500 title="Slide 11" /></li>
             <li><img src="test_sequential/hwt2/highlight/highlight_12.png" width=500 title="Slide 12" /></li>
@@ -111,16 +214,18 @@
           <a data-slide-index="6" href=""><img src="test_sequential/hwt2/highlight/highlight_6.png" width=30 border = 1 /></a>
           <a data-slide-index="7" href=""><img src="test_sequential/hwt2/highlight/highlight_7.png" width=30 border = 1 /></a>
           <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_8.png" width=30 border = 1 /></a>
-          <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_9.png" width=30 border = 1 /></a>
           <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_10.png" width=30 border = 1 /></a>
-          <a data-slide-index="8" href=""><img src="test_sequential/hwt2/highlight/highlight_11.png" width=30 border = 1 /></a>
-          <a data-slide-index="9" href=""><img src="test_sequential/hwt2/highlight/highlight_12.png" width=30 border = 1 /></a>
-          <a data-slide-index="10" href=""><img src="test_sequential/hwt2/highlight/highlight_13.png" width=30 border = 1 /></a>
-          <a data-slide-index="11" href=""><img src="test_sequential/hwt2/highlight/highlight_14.png" width=30 border = 1 /></a>
-          <a data-slide-index="12" href=""><img src="test_sequential/hwt2/highlight/highlight_15.png" width=30 border = 1 /></a>
+          <a data-slide-index="9" href=""><img src="test_sequential/hwt2/highlight/highlight_11.png" width=30 border = 1 /></a>
+          <a data-slide-index="10" href=""><img src="test_sequential/hwt2/highlight/highlight_12.png" width=30 border = 1 /></a>
+          <a data-slide-index="11" href=""><img src="test_sequential/hwt2/highlight/highlight_13.png" width=30 border = 1 /></a>
+          <a data-slide-index="12" href=""><img src="test_sequential/hwt2/highlight/highlight_14.png" width=30 border = 1 /></a>
+          <a data-slide-index="13" href=""><img src="test_sequential/hwt2/highlight/highlight_15.png" width=30 border = 1 /></a>
         </div>
         </p>
+    <p id ="hwt2text" align=left>hi in this video I'm going to discuss the anatomy of the eye so to illustrate with I'm gonna draw the eye in cross-section splitting it down here and al point up you will be from here so let me just great quickly</p>
+</td></tr></table><br><br>
 
+<table border=3 align=center><tr><td align=center width=800>
         <p>
             <h1>Khan Academy Lecture</h1>
             <ul id = "khan1">
@@ -133,7 +238,6 @@
                 <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_6.png"></li>
                 <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_7.png"></li>
                 <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_8.png"></li>
-                <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_9.png"></li>
                 <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_10.png"></li>
                 <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_11.png"></li>
                 <li><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_12.png"></li>
@@ -157,8 +261,9 @@
                 <a data-slide-index="13" href=""><img src="../SampleVideos/more/khan1/khan1_manual_keyframes/highlight/highlight_13.png" width=30 border = 1></a>
             </ul>
         </p>
-        <p id = "khan1text">Here I am </p>
-
+    <p id="khan1text"></p>
+       
+</td></tr></table>
     </body>
     
 </html>
