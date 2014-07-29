@@ -23,6 +23,8 @@ class ProcessVideo:
         self.framerate = np.rint(cap.get(5))
         self.numframes = np.rint(cap.get(7))
         self.startt = 0
+        print self.numframes
+        print self.framerate
         self.endt = self.numframes/self.framerate
         if ("mit" in self.videoname or
             "tecmath" in self.videoname or

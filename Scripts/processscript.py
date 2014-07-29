@@ -14,6 +14,35 @@ def find_time(regex, s):
         print "starting time stamp not found"
         return -1
     
+def add_space_aft_regex(data, regex):
+    processed = re.sub(regex, r'\1 ', data)   
+    return processed
+
+def get_timed_segments(filename, endtime=None):
+    fp = open(filename)
+    data = fp.read()
+    slist = data.split("\n")
+    tregex = r"([0-9]+:[0-9][0-9])"
+    stcs = []
+    for i in range(0, len(slist)):
+        startt = find_time(tregex, slist[i])
+        startt = time_in_sec(startt)
+        if (i < len(slist)-1):
+            endt = find_time(tregex, slist[i+1])            
+            endt = time_in_sec(endt)
+        elif endtime != None and endtime > startt:            
+            endt = endtime
+        else: # end time not specified
+            endt = startt + 10            
+        content = re.sub(tregex, '', slist[i])
+        content = re.sub('\n', ' ', content)
+        content =  content.lstrip(" ")
+        stc = Sentence(content, startt, endt)
+        stcs.append(stc)
+        
+        #print stc.startt, stc.endt, stc.content
+    return stcs
+    
 
 def get_sentences(filename, endtime):
     """Parse transcript and return list of time-stamped sentences"""
@@ -22,11 +51,16 @@ def get_sentences(filename, endtime):
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     fp = open(filename)
     data = fp.read()
+    
+    #preprocess
+    tregex = r"([0-9]+:[0-9][0-9])"
+    data = add_space_aft_regex(data, tregex)
     slist = tokenizer.tokenize(data)
-    tregex = "[0-9]+:[0-9]+"
+    #print len(slist)
+    
     for i in xrange(0, len(slist)):
         # find start time
-        s = slist[i]        
+        s = slist[i]
         cur = i
         startt = find_time(tregex, slist[cur])
         
@@ -47,8 +81,9 @@ def get_sentences(filename, endtime):
             
         while endt == -1 and cur < len(slist):
             cur += 1
-            endt = find_time(tregex, slist[cur]) 
-            
+            endt = find_time(tregex, slist[cur])
+        
+        #print (endt)            
         endt = time_in_sec(endt)
         
         # remove punctuation and get content
@@ -56,8 +91,8 @@ def get_sentences(filename, endtime):
         content = re.sub('\n', ' ', content)
         content =  content.lstrip(" ")
         stc = Sentence(content, startt, endt)
-        print stc.content
-        print "----------------------------------"
+        #print stc.content
+        #print "----------------------------------"
         stcs.append(stc)
     return stcs
         
@@ -84,20 +119,38 @@ def print_sentences(transcript="transcript.txt", time="10:00", fps=15.0, outtxt=
     sentencetxt = open(outtxt, "w+")
     for sentence in my_sentences:
         sentencetxt.write("%s" % sentence.content)
-        sentencetxt.write("\t%i" % int(sentence.startt*fps))
-        sentencetxt.write("\t%i\n" % int(sentence.endt * fps))
+        sentencetxt.write("\t%i" % int(sentence.startt))
+        sentencetxt.write("\t%i\n" % int(sentence.endt))
     sentencetxt.close()
 
-def get_sentences_intime(sentences, tbegin, tend):
-    segment = []
-    for sentence in sentences:
-        s_begin = sentence.startt
-        s_end = sentence.endt
-        if (s_begin >= tbegin and s_end <= tend):
-            segment.append(sentence)
-        if (s_begin > tend):
-            return segment
-    return segment
+def sentences_to_slides(sentences, endts):
+    slidetexts = []
+    eps = 3.0
+    count = 0
+    #print 'num segments', len(sentences)
+    for endt in endts:
+        #print 'endt of frame', endt
+        text = []
+        for i in range(count, len(sentences)):                    
+            sentence = sentences[i]
+            #print 'endt of sentence', sentence.endt
+            s_begin = sentence.startt
+            s_end = sentence.endt
+            #print s_end
+            if (s_end <= endt+eps):
+                text.append(sentence)
+            else:
+                count = i
+                break
+        slidetexts.append(text)
+    
+    # add rest of text to last slide
+    text = slidetexts[len(slidetexts)-1]
+    for i in range(count, len(sentences)):
+        sentence = sentences[i]
+        text.append(sentence)
+        
+    return slidetexts
 
 
 if __name__ == "__main__":
