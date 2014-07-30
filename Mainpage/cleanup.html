@@ -1,0 +1,41 @@
+<html>
+<head><title>Cleanup tasks</title></head>
+    <body>
+        <h1>Cleanup for sequential highlight slideshow</h1>        
+        <ol>
+            <li>Select keyframe
+                <ol>
+                    <li><a href="foregroundpix.html">Compute difference between frames</a></li>
+                    <li><font size = 1 color=red>Need cleanup!:</font>Capture static moments: when framedifference &lt threshold</li>
+                    </ol>
+            </li>
+            <li><font size = 1 color=red>Need cleanup!: </font>Extract foreground: constant threshold does not work well across keyframes / nor across lectures</li>
+            <br>e.g. threshold = 225 works well for Khan, but not for Armando. Currently, I am manually selecting threshold parameter. <br>
+            <table border = 3>
+                <tr><td><img src= "/SampleVideos/more/armando1/armando1_manual_keyframes/foreground/foreground_000003.png" width = 500></td><td><img src= "/SampleVideos/more/khan1/khan1_manual_keyframes/foreground/foreground_000011.png" width = 500></td></tr>
+            </table>
+            <br>
+            <li>Removing mouse  pointers and hands: <br>                
+                <ul>
+                    <li>Logos are easy since they are fixed, don't cover other images</li>
+                    <li><font size = 1 color=red>Need cleanup!: </font>But in case of cursors, need to leave rest of the board image</li>
+                    <br>
+                        e.g. Image is missing in the right region after whiting-out mouse cursro
+                        <table border =3><tr><td><img src="/SampleVideos/more/khan1/khan1_manual_keyframes/foreground/foreground_000004.png" width=500></td></tr></table>
+                    <br>
+                    <li><font size = 1 color=red>Need cleanup!: </font>Or selecting keyframes w/o hand or cursor</li>
+                </ul>
+            </li>
+            <li><font size = 1 color=red>Need cleanup!: </font>Identify redundant parts keyframe image:
+                <ul>
+                    <li>SIFT feature + BruteForce matcher</li>
+                    <li>Template matching</li>
+                </ul><br>
+                This part is not robust yet. There are parameters controlling <ol><li> switching between template matching versus sift feature matching</li><li>sift feature threshold</li><li>good match vs bad match to discard</li></ol>
+                
+            </li>
+            <li>Discard keyframe without any new part / Only highlight new parts in each keyframe</li>
+            <li><font size = 1 color=red>Need cleanup!: </font>Automatically generated transcripts</li>
+        </ol>
+    </body>
+</html>
