@@ -105,7 +105,7 @@ def removetemplate(gray_img, gray_obj, M):
     
     return diff
 
-def fgmask(image):
+def fgmask(image, threshold=225):
     #b = image[:,:,0]
     #g = image[:,:,1]
     #r = image[:,:,2]
@@ -113,7 +113,7 @@ def fgmask(image):
     img2gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     #cv2.imshow("im2gray", img2gray)
     #cv2.waitKey(0)
-    ret, mask = cv2.threshold(img2gray, 225, 255, cv2.THRESH_BINARY_INV)
+    ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)
     
     return mask
 
@@ -129,7 +129,7 @@ def fgbbox(mask):
 
 
 def maskimage_white(image, mask):
-    # mask is a single channel array; mask_region is blacked
+    # mask is a single channel array; mask_region is whited
     maskimg = cv2.bitwise_and(image, image, mask = mask)
     inv_mask = cv2.bitwise_not(mask)
     maskimg = cv2.bitwise_not(maskimg, maskimg, mask = inv_mask)
@@ -332,6 +332,8 @@ def getnewobj(image_and_mask, objlist):
     fgmask = image_and_mask[1]
     fgimg = maskimage_white(image, fgmask)
     
+    if objlist == None:
+        return fgimg, fgmask
     for i in range(0, len(objlist)):
         obj = objlist[i][0]
         objmask = objlist[i][1]

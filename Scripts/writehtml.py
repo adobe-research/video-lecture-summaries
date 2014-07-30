@@ -34,6 +34,16 @@ class WriteHtml:
     def opentablecell(self):
         self.htmlfile.write("<td>")
         
+    def cellstring(self, mystring):
+        self.opentablecell()
+        self.writestring(mystring)
+        self.closetablecell()
+        
+    def cellimagelink(self, filename, width):
+        self.opentablecell()
+        self.imagelink(filename, width)
+        self.closetablecell()    
+        
     def closetablecell(self):        
         self.htmlfile.write("</td>")
         

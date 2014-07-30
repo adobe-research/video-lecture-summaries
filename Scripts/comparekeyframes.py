@@ -70,13 +70,13 @@ if __name__ == "__main__":
     
     videolist = ["armando1", "armando2",
                  "hwt1", "hwt2",
-#                 "khan1", "khan2",
+                 "khan1", "khan2",
                  "mit1", "mit2",
                  "mit3",
                  "tecmath1", "tecmath2",
                  "udacity1", "udacity2",
-                 "pentimento1"]
-#                 "slide1"]
+                 "pentimento1",
+                 "slide1"]
     
     comparename = sys.argv[1]
     
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         print video
         videoname = video
         
-        diff_dirpath = "..\\SampleVideos\\more\\" + videoname + "\\" + videoname + "_" + comparename + "diff_keyframes"
+        diff_dirpath = "..\\SampleVideos\\more\\" + videoname + "\\" + videoname + "_keyframe_diffs"
         if not os.path.exists(diff_dirpath):
                 os.makedirs(diff_dirpath)
         scores = []    
@@ -101,10 +101,10 @@ if __name__ == "__main__":
                 html.opentable()
                 html.opentablerow()
                 html.opentablecell()
-                html.writestring('Automatic Segmentation Frame')
+                html.writestring('Selected Frame')
                 html.closetablecell()
                 html.opentablecell()
-                html.writestring('Ground Truth Frame')
+                html.writestring('Closest Ground Truth Frame')
                 html.closetablecell()
                 html.opentablecell()
                 html.writestring('Frame Difference')
@@ -116,16 +116,16 @@ if __name__ == "__main__":
                 html.closetablerow()
                 
                 
-            elif('recall' in testing):
-                groundtruth_dirpath = "..\\SampleVideos\\more\\"+ videoname + "\\" + videoname + "_manual_keyframes"
+            elif('recall' in testing):                
                 alg_dirpath = "..\\SampleVideos\\more\\" + videoname + "\\" + videoname + "_" + comparename
+                groundtruth_dirpath = "..\\SampleVideos\\more\\"+ videoname + "\\" + videoname + "_manual_keyframes"
                 html.opentable()
                 html.opentablerow()
                 html.opentablecell()
                 html.writestring('Ground Truth Frame')
                 html.closetablecell()
                 html.opentablecell()
-                html.writestring('Automatic Segmentation Frame')
+                html.writestring('Closest Selected Frame')
                 html.closetablecell()
                 html.opentablecell()
                 html.writestring('Frame Difference')
@@ -198,14 +198,10 @@ if __name__ == "__main__":
             allscores.append(average_score)
             
         
-        numframe_score = abs(float(len(alg_imagefiles) - len(groundtruth_imagefiles)) / float(len(alg_imagefiles) + len(groundtruth_imagefiles)))
-        for s in scores:
-            html.writestring("<h3>Average Frame Difference ("+testing+"): %f</h3>" % (s))                      
-        html.writestring("<h3>||n1 - n2||/(n1+n2)           :%f</h3>" % numframe_score)
-        html.writestring("<h3># Algorithm Frames (n1) : %i</h3>" % len(alg_imagefiles))
-        html.writestring("<h3># Test Frames (n2)        : %i</h3>" % len(groundtruth_imagefiles))
-    
+        for i in range(0, len(scores)):
+            html.writestring("<h3>Average Frame Difference ("+test[i]+"): %f</h3>" % (scores[i]))                      
+        
     tot_score = np.sum(np.array(allscores))
-    html.writestring("<h1>Total Average score: %f</h1>" % tot_score)
+    html.writestring("<h1>Total Score: %f</h1>" % tot_score)
     html.closebody()
     html.closehtml()           

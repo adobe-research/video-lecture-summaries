@@ -26,7 +26,7 @@ def get_objectmasks(keyframes):
 if __name__ == "__main__":
     
     dirname = sys.argv[1]
-    filelist = os.listdir(sys.argv[1])
+    filelist = os.listdir(dirname)
     keyframes = []
     keyframefiles = []
     for filename in filelist:
