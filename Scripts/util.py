@@ -9,6 +9,10 @@ def array_to_pil(data, mode="RGB"):
         image = image.convert(mode)
     return image
 
+def showimages(list_of_images):      
+    pass
+
+
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  
     This method is based on the convolution of a scaled window with the signal.

@@ -36,6 +36,9 @@ if __name__ == "__main__":
 
     objlist = []        
     index = 0
+    if (os.path.exists(dirname + "\\objects")):
+        os.makedirs(dirname + "\\objects")
+    
     for keyframe in keyframes:
         print 'keyframe', index
         keyframe_mask = pf.fgmask(keyframe)
@@ -51,7 +54,7 @@ if __name__ == "__main__":
         objimage = Image.merge("RGB", (r, g, b))
         maskimage = Image.fromarray(newobjmask).convert('L')
         objimage.putalpha(maskimage)
-        objimage.save(dirname + "\\object" + str(index)+".png")
+        objimage.save(dirname + "\\objects\\object" + str(index)+".png")
         index+=1
         
     html = WriteHtml(dirname + "\\objects.html")    
@@ -61,13 +64,13 @@ if __name__ == "__main__":
     for i in range(0, len(keyframefiles)):
         html.opentablerow()
         html.opentablecell()
-        html.imagelink(keyframefiles[i], 500)
+        html.imagelink("objects\\"+keyframefiles[i], 500)
         html.closetablecell()
         
         objfile = "object" + str(i) + ".png"
         html.opentablecell()
-        if (os.path.exists(dirname + "\\"+ objfile)):                       
-            html.imagelink(objfile, 500)            
+        if (os.path.exists(dirname + "\\objects\\"+ objfile)):                       
+            html.imagelink("objects\\"+objfile, 500)            
         else:
             html.writestring("no new object")
         html.closetablecell()

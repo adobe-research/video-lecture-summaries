@@ -11,6 +11,8 @@ import processvideo
 from sentence import Sentence
 import processscript as ps
 import re
+import process_aligned_json as pj
+from video import Video
 
 def frame_num(filename):
     number = re.findall(r'\d+', filename)
@@ -18,46 +20,12 @@ def frame_num(filename):
 
 
 if __name__ == "__main__":
-    """arguments:
-        script file path
-        video file path
-        keyframes path"""
-                
-    scriptpath = sys.argv[1]
-    scriptfile = os.path.basename(scriptpath)   
     
-   
-    videopath = sys.argv[2]
-    pv = processvideo.ProcessVideo(videopath)
-    framerate = pv.framerate
+    videopath = sys.argv[1]
+    startt = int(sys.argv[2])
+    endt = int(sys.argv[3])
+    myvideo = Video(videopath)
+    cutvideo = myvideo.cut(startt, endt)
+    print cutvideo
+
     
-    framepath = sys.argv[3]
-    keyframes = []
-    filelist = os.listdir(framepath)
-    
-    for filename in filelist:
-        if "capture" in filename and ".png" in filename:
-            keyframes.append(filename)            
-    
-    # segment script into timed sentences
-    sentences = ps.get_timed_segments(scriptpath, pv.endt)
-    
-    # get segment time associated with keyframes
-    endts = []
-    for filename in keyframes:
-        endframe = frame_num(filename)
-        endts.append(endframe/framerate)
-        
-    notes = ps.sentences_to_slides(sentences, endts)    
-    txtfile = open(scriptpath + "_slide", "w")
-    for i in range(len(notes)):        
-        txtfile.write("case " + str(i) + ":\n")
-        txtfile.write("\t")
-        txtfile.write("$('#hwt1text').text(\"")
-        
-        for n in notes[i]:            
-            txtfile.write(n.content + " ")
-        txtfile.write("\");\n")
-        txtfile.write("\tbreak;\n")
-    txtfile.close()    
-        

@@ -328,6 +328,10 @@ def findobject_exact(fgimg_gray, obj_gray):
 
 
 def getnewobj(image_and_mask, objlist):
+    """objlist-- obj, obj_mask"""
+    #show image and mask
+    
+    
     image = image_and_mask[0]
     fgmask = image_and_mask[1]
     fgimg = maskimage_white(image, fgmask)
@@ -348,8 +352,7 @@ def getnewobj(image_and_mask, objlist):
             print 'using exact template match'
             M = M0
             
-        if isgoodmatch(M):
-          
+        if isgoodmatch(M):          
             fgimg = subtractobject(fgimg, objmask, M, 255) #TODO: subtract object_white
             fgmask = subtractobject(fgmask, objmask, M, 0) #TODO: subtract object_black
             #cv2.imshow("fgimg", fgimg)

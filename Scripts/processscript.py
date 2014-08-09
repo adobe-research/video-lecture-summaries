@@ -150,7 +150,7 @@ def sentences_to_slides(sentences, endts):
         sentence = sentences[i]
         text.append(sentence)
         
-    return slidetexts
+    return slidetexts      
 
 
 if __name__ == "__main__":
