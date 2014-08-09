@@ -1,0 +1,322 @@
+0:00
+0:00One of the most fundamental ideas in all of physics
+0:03is the idea of work.
+0:05Now when you first learn work, you just say, oh, that's
+0:08just force times distance.
+0:10But then later on, when you learn a little bit about
+0:12vectors, you realize that the force isn't always going in
+0:14the same direction as your displacement.
+0:17So you learn that work is really the magnitude, let me
+0:21write this down, the magnitude of the force, in the direction,
+0:33or the component of the force in the direction
+0:39of displacement.
+0:41Displacement is just distance with some direction.
+0:44
+0:49Times the magnitude of the displacement, or you could say,
+0:55times the distance displaced.
+0:56
+1:00And the classic example.
+1:02Maybe you have an ice cube, or some type of block.
+1:06I just ice so that there's not a lot of friction.
+1:08Maybe it's standing on a bigger lake or ice or something.
+1:12And maybe you're pulling on that ice cube at an angle.
+1:15Let's say, you're pulling at an angle like that.
+1:17That is my force, right there.
+1:20Let's say my force is equal to-- well, that's
+1:24my force vector.
+1:25Let's say the magnitude of my force vector, let's
+1:33say it's 10 newtons.
+1:35And let's say the direction of my force vector, right, any
+1:37vector has to have a magnitude and a direction, and the
+1:41direction, let's say it has a 30 degree angle, let's say a 60
+1:44degree angle, above horizontal.
+1:47So that's the direction I'm pulling in.
+1:49And let's say I displace it.
+1:52This is all review, hopefully.
+1:55If you're displacing it, let's say you displace it 5 newtons.
+1:59So let's say the displacement, that's the displacement vector
+2:02right there, and the magnitude of it is equal to 5 meters.
+2:10So you've learned from the definition of work, you can't
+2:13just say, oh, I'm pulling with 10 newtons of force and
+2:16I'm moving it 5 meters.
+2:18You can't just multiply the 10 newtons times the 5 meters.
+2:22You have to find the magnitude of the component going in the
+2:25same direction as my displacement.
+2:29So what I essentially need to do is, the length, if you
+2:31imagine the length of this vector being 10, that's the
+2:34total force, but you need to figure out the length of the
+2:37vector, that's the component of the force, going in the same
+2:40direction as my displacement.
+2:43And a little simple trigonometry, you know that
+2:45this is 10 times the cosine of 60 degrees, or that's equal to,
+2:53cosine of 60 degrees is 1/2, so that's just equal to 5.
+2:58So this magnitude, the magnitude of the force going
+3:00in the same direction of the displacement in this
+3:02case, is 5 newtons.
+3:04
+3:07And then you can figure out the work.
+3:09You could say that the work is equal to 5 newtons times, I'll
+3:19just write a dot for times.
+3:20I don't want you to think it's cross product.
+3:22Times 5 meters, which is 25 newton meters, or you could
+3:26even say 25 Joules of work have been done.
+3:31And this is all review of somewhat basic physics.
+3:35But just think about what happened, here.
+3:36What was the work?
+3:37If I write in the abstract.
+3:39The work is equal to the 5 newtons.
+3:42That was the magnitude of my force vector, so it's the
+3:46magnitude of my force vector, times the cosine of this angle.
+3:52So you know, let's call that theta.
+3:53Let's say it a little generally.
+3:55So times the cosine of the angle.
+3:58This is the amount of my force in the direction of the
+4:01displacement, the cosine of the angle between them, times the
+4:04magnitude of the displacement.
+4:06So times the magnitude of the displacement.
+4:12Or if I wanted to rewrite that, I could just write that as, the
+4:15magnitude of the displacement times the magnitude of
+4:18the force times the cosine of theta.
+4:23And I've done multiple videos of this, in the linear algebra
+4:26playlist, in the physics playlist, where I talk about
+4:28the dot product and the cross product and all of that, but
+4:31this is the dot product of the vectors d and f.
+4:40So in general, if you're trying to find the work for a constant
+4:43displacement, and you have a constant force, you just take
+4:46the dot product of those two vectors.
+4:48And if the dot product is a completely foreign concept to
+4:51you, might want to watch, I think I've made multiple, 4
+4:53or 5 videos on the dot product, and its intuition,
+4:56and how it compares.
+4:57But just to give you a little bit of that intuition right
+4:59here, the dot product, when I take f dot d, or d dot f,
+5:03what it's giving me is, I'm multiplying the magnitude, well
+5:08I could just read this out.
+5:10But the idea of the dot product is, take how much of this
+5:13vector is going in the same direction as this vector,
+5:16in this case, this much.
+5:18And then multiply the two magnitudes.
+5:21And that's what we did right here.
+5:22So the work is going to be the force vector, dot, taking the
+5:26dot part of the force vector with the displacement vector,
+5:28and this, of course, is a scalar value.
+5:30And we'll work out some examples in the future where
+5:33you'll see that that's true.
+5:34So this is all review of fairly elementary physics.
+5:39Now let's take a more complex example, but it's
+5:42really the same idea.
+5:43Let's define a vector field.
+5:45
+5:48So let's say that I have a vector field f, and we're
+5:51going to think about what this means in a second.
+5:54It's a function of x and y, and it's equal to some scalar
+5:58function of x and y times the i-unit vector, or the
+6:04horizontal unit vector, plus some other function, scalar
+6:08function of x and y, times the vertical unit vector.
+6:14So what would something like this be?
+6:15This is a vector field.
+6:17This is a vector field in 2-dimensional space.
+6:20We're on the x-y plane.
+6:21
+6:31Or you could even say, on R2.
+6:35Either way, I don't want to get too much into
+6:37the mathiness of it.
+6:39But what does this do?
+6:40Well, if I were to draw my x-y plane, so that is my, again,
+6:47having trouble drawing a straight line.
+6:49All right, there we go.
+6:50That's my y-axis, and that's my x-axis.
+6:54I'm just drawing the first quadrant, and but you could
+6:56go negative in either direction, if you like.
+6:59What does this thing do?
+7:01Well, it's essentially saying, look.
+7:02You give me any x, any y, you give any x, y in the x-y plane,
+7:06and these are going to end up with some numbers, right?
+7:09When you put x, y here, you're going to get some value, when
+7:12you put x, y here, you're going to get some value.
+7:14So you're going to get some combination of the i-
+7:16and j-unit vectors.
+7:18So you're going to get some vector.
+7:19So what this does, it defines a vector that's associated with
+7:23every point on x-y plane.
+7:24So you could say, if I take this point on the x-y plane,
+7:28and I would pop it into this, I'll get something times i plus
+7:32something times j, and when you add those 2, maybe I get a
+7:34vector that something like that.
+7:37And you could do that on every point.
+7:38I'm just taking random samples.
+7:39Maybe when I go here, the vector looks
+7:41something like that.
+7:42Maybe when I go here, the victor looks like this.
+7:44Maybe when I go here, the vector looks like that.
+7:47And maybe when I go up here, the vector goes like that.
+7:50I'm just randomly picking points.
+7:52It defines a vector on all of the x, y coordinates where
+7:57these scalar functions are properly defined.
+8:00And that's why it's called a vector field.
+8:02It defines what a potential, maybe, force would be,
+8:06or some other type of force, at any point.
+8:11At any point, if you happen to have something there.
+8:14Maybe that's what the function is.
+8:15And I could keep doing this forever, and
+8:17filling in all the gaps.
+8:18But I think you get the idea.
+8:19It associates a vector with every point on x-y plane.
+8:24Now, this is called a vector field, so it probably makes a
+8:29lot of sense that this could be used to describe
+8:30any type of field.
+8:31It could be a gravitation field.
+8:33It could be an electric field, it could be a magnetic field.
+8:36And this could be essentially telling you how much force
+8:39there would be on some particle in that field.
+8:43That's exactly what this would describe.
+8:44Now, let's say that in this field, I have some particle
+8:48traveling on x-y plane.
+8:51Let's say it starts there, and by virtue of all of these crazy
+8:58forces that are acting on it, and maybe it's on some tracks
+9:03or something, so it won't always move exactly in the
+9:06direction that the field is trying to move it at.
+9:09Let's say it moves in a path that moves something like this.
+9:14And let's say that this path, or this curve, is defined by
+9:17a position vector function.
+9:22So let's say that that's defined by r of t, which is
+9:25just x of t times i plus y of t times our unit factor j.
+9:33That's r of t right there.
+9:35Well, in order for this to be a finite path, this is true
+9:37before t is greater than or equal to a, and less
+9:42than or equal to b.
+9:45This is the path that the particle just happens to
+9:47take, due to all of these wacky forces.
+9:50So when the particle is right here, maybe the vector field
+9:54acting on it, maybe it's putting a force like that.
+9:56But since the thing is on some type of tracks, it moves
+9:59in this direction.
+10:00And then when it's here, maybe the vector field is like that,
+10:03but it moves in that direction, because it's on some
+10:05type of tracks.
+10:06Now, everything I've done in this video is to build up
+10:09to a fundamental question.
+10:11What was the work done on the particle by the field?
+10:13
+10:24To answer that question, we could zoom in a little bit.
+10:28I'm going to zoom in on only a little small
+10:31snippet of our path.
+10:34And let's try to figure out what the work is done in a very
+10:38small part of our path, because it's constantly changing.
+10:40The field is changing direction.
+10:42my object is changing direction.
+10:43So let's say when I'm here, and let's say I move a
+10:47small amount of my path.
+10:49So let's say I move, this is an infinitesimally
+10:55small dr. Right?
+10:58I have a differential, it's a differential vector, infinitely
+11:00small displacement.
+11:02and let's say over the course of that, the vector field is
+11:06acting in this local area, let's say it looks
+11:08something like that.
+11:10It's providing a force that looks something like that.
+11:13So that's the vector field in that area, or the force
+11:16directed on that particle right when it's at that point.
+11:18Right?
+11:18It's an infinitesimally small amount of time in space.
+11:22You could say, OK, over that little small point, we
+11:24have this constant force.
+11:26What was the work done over this small period?
+11:29You could say, what's the small interval of work?
+11:32You could say d work, or a differential of work.
+11:36Well, by the same exact logic that we did with the simple
+11:38problem, it's the magnitude of the force in the direction of
+11:43our displacement times the magnitude of our displacement.
+11:48And we know what that is, just from this example up here.
+11:52That's the dot product.
+11:54It's the dot product of the force and our super-small
+11:58displacement.
+11:59So that's equal to the dot product of our force and our
+12:07super-small displacement.
+12:09Now, just by doing this, we're just figuring out the work
+12:13over, maybe like a really small, super-small dr. But
+12:16what we want to do, is we want to sum them all up.
+12:18We want to sum up all of the drs to figure out the total,
+12:21all of the f dot drs to figure out the total work done.
+12:25And that's where the integral comes in.
+12:27We will do a line integral over-- I mean, you could
+12:32think of it two ways.
+12:33You could write just d dot w there, but we could say, we'll
+12:37do a line integral along this curve c, could call that c
+12:42or along r, whatever you want to say it, of dw.
+12:46That'll give us the total work.
+12:47So let's say, work is equal to that.
+12:49Or we could also write it over the integral, over the same
+12:54curve of f of f dot dr.
+13:00And this might seem like a really, you know, gee, this
+13:03is really abstract, Sal.
+13:05How do we actually calculate something like this?
+13:09Especially because we have everything parameterized
+13:13in terms of t.
+13:14How do we get this in terms of t?
+13:16And if you just think about it, what is f dot r?
+13:19Or what is f dot dr?
+13:21Well, actually, to answer that, let's remember
+13:23what dr looked like.
+13:25If you remember, dr/dt is equal to x prime of t, I'm writing it
+13:36like, I could have written dx dt if I wanted to do, times the
+13:39i-unit vector, plus y prime of t, times the j-unit vector.
+13:45And if we just wanted to dr, we could multiply both sides, if
+13:49we're being a little bit more hand-wavy with the
+13:51differentials, not too rigorous.
+13:53We'll get dr is equal to x prime of t dt times the unit
+13:58vector i plus y prime of t times the differential dt
+14:05times the unit vector j.
+14:07So this is our dr right here.
+14:09
+14:12And remember what our vector field was.
+14:16It was this thing up here.
+14:17Let me copy and paste it.
+14:19And we'll see that the dot product is
+14:21actually not so crazy.
+14:23So copy, and let me paste it down here.
+14:26
+14:31So what's this integral going to look like?
+14:33This integral right here, that gives the total work done by
+14:37the field, on the particle, as it moves along that path.
+14:40Just super fundamental to pretty much any serious physics
+14:44that you might eventually find yourself doing.
+14:47So you could say, well gee.
+14:48It's going to be the integral, let's just say from t is equal
+14:52to a, to t is equal to b.
+14:55Right? a is where we started off on the path, t is equal
+14:58to a to t is equal to b.
+14:59You can imagine it as being timed, as a particle
+15:01moving, as time increases.
+15:03And then what is f dot dr?
+15:07Well, if you remember from just what the dot product is, you
+15:10can essentially just take the product of the corresponding
+15:15components of your of vector, and add them up.
+15:17So this is going to be the integral from t equals a to t
+15:20equals b, of p of p of x, really, instead of writing x,
+15:27y, it's x of t, right? x as a function of t, y as
+15:30a function of t.
+15:32So that's that.
+15:33Times this thing right here, times this component, right?
+15:37We're multiplying the i-components.
+15:39So times x prime of t d t, and then that plus, we're going
+15:50to do the same thing with the q function.
+15:52So this is q plus, I'll go to another line.
+15:56Hopefully you realize I could have just kept writing, but
+15:57I'm running out of space.
+15:59Plus q of x of t, y of t, times the component of our dr. Times
+16:09the y-component, or the j-component.
+16:11y prime of t dt.
+16:15And we're done!
+16:16And we're done.
+16:17This might still seem a little bit abstract, but we're going
+16:19to see in the next video, everything is now in terms of
+16:23t, so this is just a straight-up integration,
+16:25with respect to dt.
+16:27If we want, we could take the dt's outside of the equation,
+16:30and it'll look a little bit more normal for you.
+16:32But this is essentially all that we have to do.
+16:34And we're going to see some concrete examples of taking a
+16:38line integral through a vector field, or using vector
+16:43functions, in the next video.
+16:45
