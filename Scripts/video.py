@@ -3,6 +3,7 @@ import os
 import re
 import cv2
 import numpy as np
+import processframe as pf
 
 class Video:
     def __init__(self, filepath):
@@ -21,7 +22,8 @@ class Video:
    
     def cut(self, ms_start, ms_end, outfile=None):
         """Cut the video from start time to end time (in milliseconds) and write to outpath
-            Hack: use CV_FOURCC('D','I','V','X') and save as .avi file, then rename back to orignal extension"""
+            Hack: use CV_FOURCC('D','I','V','X') and save as .avi file, then rename back to orignal extension
+            TODO: audio lost in cutting"""
         
         cap = cv2.VideoCapture(self.filepath)
         if outfile==None:
@@ -31,7 +33,7 @@ class Video:
         print 'width', self.width
         print 'height', self.height
         fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-        out = cv2.VideoWriter(outfile, fourcc, self.fps, (self.width, self.height))
+        out = cv2.VideoWriter(outfile, int(fourcc), self.fps, (self.width, self.height))
         while(cap.isOpened()):          
             ret, frame = cap.read()
             if (ret == True):
@@ -43,4 +45,29 @@ class Video:
                 break
         cap.release()
         out.release()
-        return outfile
+        newoutfile = self.videoname + "_" + str(ms_start) + "_" + str(ms_end) + ".mp4"
+        os.rename(outfile, newoutfile)
+        return newoutfile
+    
+    def highlight_new(self):
+        cap = cv2.VideoCapture(self.filepath)
+        prevframe = np.empty((self.height, self.width, 3), dtype=np.uint8)
+        while (True):
+            ret, frame = cap.read()
+            if (not ret):
+                break
+            
+            diff = cv2.absdiff(frame, prevframe)
+            diff = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+            ret, mask = cv2.threshold(diff, 100, 255, cv2.THRESH_BINARY)
+            highlight_frame = pf.highlight(frame, mask)
+            cv2.imshow("frame", highlight_frame)
+            cv2.imshow("mask", mask)
+            prevframe = frame
+            
+            if  cv2.waitKey(int(1000/self.fps)) & 0xFF == ord('q'):
+                break
+        cap.release()
+        cv2.destroyAllWindows()
+        pass
+    

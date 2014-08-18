@@ -14,18 +14,21 @@ import re
 import process_aligned_json as pj
 from video import Video
 
-def frame_num(filename):
-    number = re.findall(r'\d+', filename)
-    return int(number[len(number)-1])
-
 
 if __name__ == "__main__":
     
     videopath = sys.argv[1]
-    startt = int(sys.argv[2])
-    endt = int(sys.argv[3])
-    myvideo = Video(videopath)
-    cutvideo = myvideo.cut(startt, endt)
-    print cutvideo
+    jsonpath = sys.argv[2]
+    
+    video = Video(videopath)
+    list_of_words = pj.get_words(jsonpath)
+    pj.assign_frame_to_words(video, list_of_words)
+    
+    for word in list_of_words:
+        cv2.imshow("word frame", word.frame)
+        cv2.imshow("word mask", word.mask)
+        print word.original_word
+        cv2.waitKey()
+    
 
     
