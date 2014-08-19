@@ -128,7 +128,11 @@ span.reference a:hover{
 	border:1px solid #E6E3C2;
 }
 a#next_page_button,
-a#prev_page_button{
+a#prev_page_button,
+a#next_page_button2,
+a#prev_page_button2,
+a#next_page_button3,
+a#prev_page_button3{
 	display:none;
 	position:absolute;
 	width:41px;
@@ -138,17 +142,33 @@ a#prev_page_button{
 	top:50%;
 	background:transparent url(../images/buttons.png) no-repeat 0px -40px;
 }
-a#prev_page_button{
+a#prev_page_button,
+a#prev_page_button2,
+a#prev_page_button3{
 	left:-30px;
 }
-a#next_page_button{
+a#next_page_button,
+a#next_page_button2,
+a#next_page_button3{
 	right:-30px;
 	background-position:-41px -40px;
 }
 a#next_page_button:hover{
 	background-position:-41px 0px;
 }
+a#next_page_button3:hover{
+	background-position:-41px 0px;
+}
+a#next_page_button2:hover{
+	background-position:-41px 0px;
+}
 a#prev_page_button:hover{
+	background-position:0px 0px;
+}
+a#prev_page_button3:hover{
+	background-position:0px 0px;
+}
+a#prev_page_button2:hover{
 	background-position:0px 0px;
 }
 .loading{
