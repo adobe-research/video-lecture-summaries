@@ -1,5 +1,7 @@
 import numpy
 from PIL import Image
+import scipy as sp
+import cv2
 
 def stringlist_from_txt(filepath):
     txtfile = open(filepath, "r")
@@ -22,8 +24,34 @@ def array_to_pil(data, mode="RGB"):
         image = image.convert(mode)
     return image
 
-def showimages(list_of_images):      
-    pass
+def showimages(list_of_images):
+    htotal = 0
+    wtotal = 0
+    hmax = 0
+    wmax = 0
+    for img in list_of_images:
+        h, w = img.shape[:2]
+        htotal += h
+        wtotal += w
+        hmax = max(hmax, h)
+        wmax = max(wmax, w)
+        
+    view = sp.zeros((hmax, wtotal, 3), sp.uint8)
+    curw = 0
+    for img in list_of_images:
+        h,w = img.shape[:2]
+        if (len(img.shape) == 2):
+            view[:h,curw:curw+w, 0] = img
+            view[:,::h,curw:curw+w,1] = img
+            view[:h,curw:curw+w,2] = img
+        else:
+            view[:h,curw:curw+w, 0] = img[:,:,0]
+            view[:h,curw:curw+w, 1] = img[:,:,1]
+            view[:h,curw:curw+w, 2] = img[:,:,2]
+        curw = curw+w
+    cv2.namedWindow("show images", cv2.WINDOW_NORMAL)
+    cv2.imshow("show images", view)
+    cv2.waitKey()
 
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  

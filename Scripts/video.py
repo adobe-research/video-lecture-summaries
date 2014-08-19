@@ -82,6 +82,7 @@ class Video:
         return keyframes
     
     def captureframes_ms(self, ts, outdir="."):
+        tol =  1000.0/self.fps
         if not os.path.exists(os.path.abspath(outdir)):
             os.makedirs(os.path.abspath(outdir))
             
@@ -93,7 +94,7 @@ class Video:
             ret, frame = cap.read()
             if (frame == None):
                 break           
-            if (abs(pos - float(ts[i])) < 1e-6):
+            if (abs(pos - float(ts[i])) < tol):
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06f" % ts[i]) + "ms.png"
                 cv2.imwrite(filename, frame)

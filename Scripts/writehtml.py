@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 class WriteHtml:
     def __init__(self, filename, title="no title"):
         self.filename = filename
@@ -62,7 +61,20 @@ class WriteHtml:
         self.htmlfile.write("<p>")
         for word in list_of_words:
             self.htmlfile.write(word + " ")
-        self.htmlfile.write("</p>")    
+        self.htmlfile.write("</p>")
+        
+    def highlighted_script(self, list_of_words):
+        self.htmlfile.write("<p>")
+        for word in list_of_words:
+            if word.issilent:
+                continue
+            elif word.highlight_path != None:
+                self.htmlfile.write("<a href=" + word.highlight_path + ">")
+                self.htmlfile.write(word.original_word + " ")
+                self.htmlfile.write("</a>")
+            else:
+                self.htmlfile.write(word.original_word + " ")            
+        self.htmlfile.write("</p>")            
     
     def lectureseg(self, lecseg):
         self.htmlfile.write("<div>\n")

@@ -17,8 +17,9 @@ class Word:
         self.line_idx = int(line_idx)
         self.speaker = speaker
         self.issilent = (original_word == "{p}")
-        self.frame = None
+        self.keyframe = None
         self.mask = None
+        self.highlight_path = None
         self.stc_idx = -1
 
 def assign_frame_to_words(video, list_of_words):

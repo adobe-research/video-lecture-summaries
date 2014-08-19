@@ -13,21 +13,22 @@ import processscript as ps
 import re
 import process_aligned_json as pj
 from video import Video
+from lecture import Lecture
+from writehtml import WriteHtml
 
 
 if __name__ == "__main__":
     
-    jsonpath = sys.argv[1]
+    videopath = sys.argv[1]
+    jsonpath = sys.argv[2]
+    outdir = sys.argv[3]
     
-    list_of_words = pj.get_words(jsonpath)
+    lecture = Lecture(videopath, jsonpath)
+    lecture.assign_keyframe_to_words(outdir=outdir)
     
-    prev_stc_idx = 0
-    for word in list_of_words:
-        if word.stc_idx > prev_stc_idx:
-            print ' \n'
-        print(word.original_word ),
-        prev_stc_idx = word.stc_idx
-        
     
-
-    
+    html = WriteHtml(outdir + "/script_align.html", "Script Alignment")
+    html.openbody()
+    html.highlighted_script(lecture.list_of_words)
+    html.closebody()
+    html.closehtml()
