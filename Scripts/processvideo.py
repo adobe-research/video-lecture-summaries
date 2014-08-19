@@ -181,8 +181,9 @@ class ProcessVideo:
                 filename = filename + ("%06i" % fid) + ".png"
                 cv2.imwrite(filename, frame)               
             fid += 1
-        return
         cap.release()
+        return
+    
 
     def captureframediffs(self, fnumbers, indir="./", outdir="./"):
         for x in range(0, len(fnumbers)-1):

@@ -1,6 +1,19 @@
 import numpy
 from PIL import Image
 
+def stringlist_from_txt(filepath):
+    txtfile = open(filepath, "r")
+    list_of_strings = []
+    for val in txtfile.readlines():
+        list_of_strings.append(val)
+    return list_of_strings
+
+def strings2ints(stringlist):
+    int_list = []
+    for s in stringlist:
+        int_list.append(int(s))
+    return int_list
+
 def array_to_pil(data, mode="RGB"):
     image = Image.fromarray(data, "RGB")
     b, g, r = image.split()
@@ -11,7 +24,6 @@ def array_to_pil(data, mode="RGB"):
 
 def showimages(list_of_images):      
     pass
-
 
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  

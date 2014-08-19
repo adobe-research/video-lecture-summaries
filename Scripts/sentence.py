@@ -13,19 +13,6 @@ class Sentence:
     def numwords(self):
         return len(words)
 
-class Word:
-    def __init__(self, original_word, aligned_word, startt, endt, line_idx, speaker):
-        self.original_word = original_word
-        self.aligned_word = aligned_word
-        self.startt = float(startt)
-        self.endt = float(endt)
-        self.duration = self.endt - self.startt
-        self.rep_time = self.endt - self.duration/2.0
-        self.line_idx = int(line_idx)
-        self.speaker = speaker
-        self.issilent = (original_word == "{p}")
-        self.frame = None
-        self.mask = None
-        self.stc_idx = -1
+
         
     

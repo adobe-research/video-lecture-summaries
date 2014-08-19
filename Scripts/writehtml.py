@@ -5,7 +5,11 @@ class WriteHtml:
     def __init__(self, filename, title="no title"):
         self.filename = filename
         self.htmlfile = open(filename, 'w')
-        self.htmlfile.write("<html>\n\t<head>\n\t\t<title>"+title+"</title>\n\t</head>\n")
+        self.htmlfile.write("<html>\n")
+        self.htmlfile.write("<head>\n")
+        self.htmlfile.write("<link href=\"C:/Users/vshin/Desktop/video-lecture-summaries/Mainpage/mystyle.css\" rel=\"stylesheet\" />\n")
+        self.htmlfile.write("<title>"+title+"</title>\n")
+        self.htmlfile.write("</head>\n")
         
     def openbody(self):
         self.htmlfile.write("<body>\n")
@@ -53,4 +57,20 @@ class WriteHtml:
     def closehtml(self):
         self.htmlfile.write("\n</html>")
         self.htmlfile.close()
-        
+    
+    def paragraph(self, list_of_words):
+        self.htmlfile.write("<p>")
+        for word in list_of_words:
+            self.htmlfile.write(word + " ")
+        self.htmlfile.write("</p>")    
+    
+    def lectureseg(self, lecseg):
+        self.htmlfile.write("<div>\n")
+        self.htmlfile.write("<img src=" + lecseg.keyframe.frame_path+" />\n")
+        self.htmlfile.write("<h1>" + lecseg.title + "</h1>\n")
+        words = []
+        for word in lecseg.list_of_words:
+            if not word.issilent:
+                words.append(word.original_word)
+        self.paragraph(words)
+        self.htmlfile.write("</div>")

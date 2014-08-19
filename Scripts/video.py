@@ -6,7 +6,8 @@ import numpy as np
 import processframe as pf
 
 class Keyframe:
-    def __init__(self, frame, time, framenum):
+    def __init__(self, frame_path, frame, time, framenum):
+        self.frame_path = os.path.abspath(frame_path)
         self.frame = frame
         self.time = time
         self.framenum = framenum
@@ -29,8 +30,7 @@ class Video:
     def cut(self, ms_start, ms_end, outfile=None):
         """Cut the video from start time to end time (in milliseconds) and write to outpath
             Hack: use CV_FOURCC('D','I','V','X') and save as .avi file, then rename back to orignal extension
-            TODO: audio lost in cutting"""
-        
+            TODO: audio lost in cutting"""        
         cap = cv2.VideoCapture(self.filepath)
         if outfile==None:
             outfile = self.videoname + "_" + str(ms_start) + "_" + str(ms_end) + ".avi"
@@ -54,6 +54,57 @@ class Video:
         newoutfile = self.videoname + "_" + str(ms_start) + "_" + str(ms_end) + ".mp4"
         os.rename(outfile, newoutfile)
         return newoutfile
+    
+    def fid2ms(self, fid):
+        return int(fid/self.fps * 1000)
+    
+    def ms2fid(self, ms):
+        return int(ms*self.fps)
+            
+    def captureframes_fid(self, fnumbers, outdir= "."):
+        if not os.path.exists(os.path.abspath(outdir)):
+            os.makedirs(os.path.abspath(outdir))
+            
+        keyframes = []
+        cap = cv2.VideoCapture(self.filepath)
+        fid = 0
+        while(cap.isOpened()):
+            ret, frame = cap.read()
+            if (frame == None):
+                break
+            if (fid in fnumbers):
+                filename = outdir + "/capture_"        
+                filename = filename + ("%06i" % fid) + ".png"
+                cv2.imwrite(filename, frame)
+                keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid))
+            fid += 1
+        cap.release()
+        return keyframes
+    
+    def captureframes_ms(self, ts, outdir="."):
+        if not os.path.exists(os.path.abspath(outdir)):
+            os.makedirs(os.path.abspath(outdir))
+            
+        keyframes = []
+        cap = cv2.VideoCapture(self.filepath)
+        i = 0
+        pos = float(0.0)
+        while(cap.isOpened()):                        
+            ret, frame = cap.read()
+            if (frame == None):
+                break           
+            if (abs(pos - float(ts[i])) < 1e-6):
+                filename = outdir + "/capture_"        
+                filename = filename + ("%06f" % ts[i]) + "ms.png"
+                cv2.imwrite(filename, frame)
+                print 'writing', filename
+                keyframes.append(Keyframe(filename, frame, ts[i], self.ms2fid(ts[i])))                
+                i += 1
+                if (i == len(ts)):
+                    break
+            pos += float(1000.0/self.fps )
+        cap.release()
+        return keyframes
     
     def highlight_new(self):
         """Highlight new part in each frame using absdiff with previous frame"""

@@ -1,11 +1,25 @@
 #!/usr/bin/env python
-from sentence import Word
 import re
 from matplotlib import pyplot as plt
 from video import Video
 import cv2
 import numpy as np
 import processframe as pf
+
+class Word:
+    def __init__(self, original_word, aligned_word, startt, endt, line_idx, speaker):
+        self.original_word = original_word
+        self.aligned_word = aligned_word
+        self.startt = float(startt)*1000
+        self.endt = float(endt)*1000
+        self.duration = self.endt - self.startt
+        self.rep_time = self.endt - self.duration/2.0
+        self.line_idx = int(line_idx)
+        self.speaker = speaker
+        self.issilent = (original_word == "{p}")
+        self.frame = None
+        self.mask = None
+        self.stc_idx = -1
 
 def assign_frame_to_words(video, list_of_words):
     cap = cv2.VideoCapture(video.filepath)

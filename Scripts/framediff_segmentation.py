@@ -7,12 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 from scipy.signal import argrelextrema
+from lecture import Lecture, LectureSegment
+from writehtml import WriteHtml
 
-
-
-if __name__ == "__main__":     
     #videolist = ["..\\SampleVideos\\more\\armando1\\armando1.mp4", "..\\SampleVideos\\more\\armando2\\armando2.mp4"]
-    #videolist = ["..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4"]
+                 #"..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4"]
                  #"..\\SampleVideos\\more\\khan1\\khan1.mp4", "..\\SampleVideos\\more\khan2\\khan2.mp4",
                  #"..\\SampleVideos\\more\\mit1\\mit1.mp4", "..\\SampleVideos\\more\\mit2\\mit2.mp4",
                  #"..\\SampleVideos\\more\\mit3\\mit3.mp4",
@@ -20,6 +19,8 @@ if __name__ == "__main__":
                  #"..\\SampleVideos\\more\\udacity1\\udacity1.mp4", "..\\SampleVideos\\more\\udacity2\\udacity2.mp4",
                  #"..\\SampleVideos\\more\\pentimento1\\pentimento1.mp4",
                  #"..\\SampleVideos\\more\\slide1\\slide1.mp4"]
+    
+def test_init():
     videolist = ["..\\SampleVideos\\more\\khan1\\khan1.mp4"]    
     min_width = 5 #seconds
     for video in videolist:
@@ -37,7 +38,7 @@ if __name__ == "__main__":
         # Smooth and subsample 1 frame per second
         print "Smooth and subsmaple 1 frame per second"
         smoothsample = util.smooth(np.array(counts))
-        subsample = counts[0:len(smoothsample):int(pv.framerate)]
+        subsample = smoothsample[0:len(smoothsample):int(pv.framerate)]
         t = np.linspace(0, len(subsample)-1, len(subsample))        
         plt.plot(t, subsample, "bo-")
         plt.xlabel("time(sec)")       
@@ -84,5 +85,55 @@ if __name__ == "__main__":
         if not os.path.exists(pv.videoname + capturedir):
             os.makedirs(pv.videoname + capturedir)
         pv.captureframes(fnumbers, pv.videoname + capturedir + "\\")
+        
+def get_keyframe_times(lecture, framediffs):
+    smooth = util.smooth(np.array(framediffs))
+    sub_smooth = smooth[0:len(smooth):int(lecture.video.fps)]
+    avg = np.mean(sub_smooth)
+    thres = 0.10 * avg
+    keyframes_ms  = []
+    capturing = False
+    ms = 0
+    for diff in sub_smooth:
+            if diff < thres and not capturing:                
+                    keyframes_ms.append(int(ms))
+                    capturing = True
+            elif diff > thres:
+                capturing = False
+            ms += 1000
+    return keyframes_ms
+
+if __name__ == "__main__":
+    videopath = sys.argv[1]
+    scriptpath = sys.argv[2]
+    framediffpath = sys.argv[3]
+    outdir = sys.argv[4]
+        
+    lecture = Lecture(videopath, scriptpath)
+    print 'video fps', lecture.video.fps
+    
+    framediffs = util.stringlist_from_txt(framediffpath)
+    framediffs = util.strings2ints(framediffs)    
+    keyframes_ms = get_keyframe_times(lecture, framediffs)
+    
+    keyframes = lecture.capture_keyframes_ms(keyframes_ms, outdir)
+    print keyframes_ms
+    segments = lecture.segment_script(keyframes_ms)
+    
+    html = WriteHtml(outdir + "/framediff_segmentation.html", "Frame Difference Segmentation")
+    html.openbody()
+    prevt = 0
+    for i in range(0, len(keyframes_ms)):
+        t = keyframes_ms[i]
+        lecseg = LectureSegment()
+        lecseg.startt = prevt
+        lecseg.endt = t
+        lecseg.keyframe = keyframes[i]
+        lecseg.list_of_words = segments[i]
+        prevt = t
+        html.lectureseg(lecseg)
+    html.closebody()
+    html.closehtml()
+    
         
     
