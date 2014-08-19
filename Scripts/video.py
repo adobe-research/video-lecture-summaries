@@ -5,6 +5,12 @@ import cv2
 import numpy as np
 import processframe as pf
 
+class Keyframe:
+    def __init__(self, frame, time, framenum):
+        self.frame = frame
+        self.time = time
+        self.framenum = framenum
+
 class Video:
     def __init__(self, filepath):
         self.filepath = filepath
@@ -50,6 +56,7 @@ class Video:
         return newoutfile
     
     def highlight_new(self):
+        """Highlight new part in each frame using absdiff with previous frame"""
         cap = cv2.VideoCapture(self.filepath)
         prevframe = np.empty((self.height, self.width, 3), dtype=np.uint8)
         while (True):
@@ -61,8 +68,7 @@ class Video:
             diff = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
             ret, mask = cv2.threshold(diff, 100, 255, cv2.THRESH_BINARY)
             highlight_frame = pf.highlight(frame, mask)
-            cv2.imshow("frame", highlight_frame)
-            cv2.imshow("mask", mask)
+            cv2.imshow("highlight", highlight_frame)
             prevframe = frame
             
             if  cv2.waitKey(int(1000/self.fps)) & 0xFF == ord('q'):

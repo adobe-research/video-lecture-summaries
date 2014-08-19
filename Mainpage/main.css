@@ -72,3 +72,15 @@ img {
         -webkit-filter: grayscale(0%);
     }
 }
+
+div {
+    max-width: 90%;
+    border-width: thick;
+    border-style: solid;
+}
+
+img {
+    align-content: center;
+}
+
+

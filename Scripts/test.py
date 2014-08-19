@@ -17,18 +17,17 @@ from video import Video
 
 if __name__ == "__main__":
     
-    videopath = sys.argv[1]
-    jsonpath = sys.argv[2]
+    jsonpath = sys.argv[1]
     
-    video = Video(videopath)
     list_of_words = pj.get_words(jsonpath)
-    pj.assign_frame_to_words(video, list_of_words)
     
+    prev_stc_idx = 0
     for word in list_of_words:
-        cv2.imshow("word frame", word.frame)
-        cv2.imshow("word mask", word.mask)
-        print word.original_word
-        cv2.waitKey()
+        if word.stc_idx > prev_stc_idx:
+            print ' \n'
+        print(word.original_word ),
+        prev_stc_idx = word.stc_idx
+        
     
 
     

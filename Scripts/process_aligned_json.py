@@ -41,11 +41,15 @@ def get_words(aligned_json):
     fp = open(aligned_json)    
     line = fp.readline()
     list_of_words = []
+    stc_idx = 0
     while(True):
         if not line:
             break
         if ("{" in line):
             word = parse_word(fp)
+            word.stc_idx = stc_idx
+            if ('.' in word.original_word):
+                stc_idx += 1
             list_of_words.append(word)
         line = fp.readline()
     return list_of_words

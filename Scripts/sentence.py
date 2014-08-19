@@ -15,7 +15,6 @@ class Sentence:
 
 class Word:
     def __init__(self, original_word, aligned_word, startt, endt, line_idx, speaker):
-        print original_word, aligned_word, startt, endt, line_idx, speaker
         self.original_word = original_word
         self.aligned_word = aligned_word
         self.startt = float(startt)
@@ -27,5 +26,6 @@ class Word:
         self.issilent = (original_word == "{p}")
         self.frame = None
         self.mask = None
+        self.stc_idx = -1
         
     
