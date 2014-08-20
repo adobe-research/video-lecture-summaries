@@ -17,6 +17,9 @@ a {
     color: #0083e8; 
 }
 
+a img { display:none;}
+a:hover img{display:block;}
+
 b, strong {
     font-weight: 600;
 }
@@ -27,7 +30,8 @@ img {
     border-radius: 4px;
     display: block;
     margin: 1.3em auto;
-    max-width: 95%;
+    max-width: 50%;
+    align-content: center;
 }
 
 div {
@@ -36,10 +40,4 @@ div {
     border-style: solid;
     border-color: #008188;
 }
-
-img {
-    align-content: center;
-    max-width: 50%
-}
-
 

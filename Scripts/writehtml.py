@@ -69,7 +69,7 @@ class WriteHtml:
             if word.issilent:
                 continue
             elif word.highlight_path != None:
-                self.htmlfile.write("<a href=" + word.highlight_path + ">")
+                self.htmlfile.write("<a href=\"#\">" + "<img src = \"" + word.highlight_path + "\">")
                 self.htmlfile.write(word.original_word + " ")
                 self.htmlfile.write("</a>")
             else:
