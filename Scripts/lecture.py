@@ -12,20 +12,24 @@ class Lecture:
         self.video_path = video_path
         self.video = Video(video_path)        
         self.aligned_transcript_path = aligned_transcript_path
-        self.list_of_words = pjson.get_words(aligned_transcript_path)                
+        self.list_of_words = pjson.get_words(aligned_transcript_path)
         
     def segment_script(self, list_of_t):
-        idx = 0
+        
         segments = [ [] for i in range(0, len(list_of_t))]
-        for word in self.list_of_words:            
-            if (idx < len(list_of_t)):
-                t = list_of_t[idx]
-            else:
-                t = float("inf")
-                idx = len(list_of_t) - 1
-            if word.endt > t:
-                idx = min(idx+1, len(segments)-1)
-            segments[idx].append(word)
+        sentences = pjson.get_sentences(self.list_of_words)
+        
+        temp = [] + list_of_t
+        temp.append(float("inf"))
+        
+        for stc in sentences:
+            for idx in range(0, len(temp)):
+                t = temp[idx]                
+                if stc[len(stc)-1].endt <= t:
+                    seg = min(idx, len(segments)-1)
+                    for word in stc:
+                        segments[seg].append(word)
+                    break            
         return segments
     
     def capture_keyframes_ms(self, list_of_t, outdir="."):
@@ -42,6 +46,8 @@ class Lecture:
             if word.original_word in emph_words:
                 endts.append(word.endt)
                 startts .append(word.startt)
+        if (len(startts) == 0):
+            return
 
         endframes = self.capture_keyframes_ms(endts, outdir)
         startframes = self.capture_keyframes_ms(startts, outdir)
@@ -61,13 +67,21 @@ class Lecture:
                 i += 1                
 
 class LectureSegment:
-    def __init__(self, ):        
-        self.startt = -1
-        self.endt = -1
-        self.keyframe = None
-        self.mask = None
-        self.list_of_words = []
-        self.title =''        
+    def __init__(self, startt=-1, endt=-1, keyframe=None, mask=None, list_of_words=[], title=''):        
+        self.startt = startt
+        self.endt = endt
+        self.keyframe = keyframe
+        self.mask = mask
+        self.list_of_words = list_of_words
+        self.title = title    
+    
+        
+    def num_nonsilent_words(self,):
+        count = 0
+        for word in self.list_of_words:
+            if not word.issilent:
+                count += 1
+        return count    
         
     def display(self, ):
         print '---------------------------------------------------------------'
@@ -77,3 +91,18 @@ class LectureSegment:
             print word.original_word,
         print ''
         print '---------------------------------------------------------------'
+        
+    def merge_next(self, next_lecseg):
+        #assert(self.endt == next_lecseg.startt)
+        merged = LectureSegment()
+        merged.startt = self.startt
+        merged.endt = next_lecseg.endt
+        merged.keyframe = next_lecseg.keyframe
+        merged.mask = cv2.bitwise_or(self.mask, next_lecseg.mask)
+        merged.list_of_words = self.list_of_words + next_lecseg.list_of_words        
+        merged.title = self.title
+        if (next_lecseg.title != ''):
+            merged.title += " "
+            merged.title += next_lecseg.title
+        return merged
+        

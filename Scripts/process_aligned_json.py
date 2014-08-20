@@ -21,6 +21,18 @@ class Word:
         self.mask = None
         self.highlight_path = None
         self.stc_idx = -1
+        
+def get_sentences(list_of_words):
+    if (len(list_of_words) <= 0):
+        return []
+    num_stc = list_of_words[len(list_of_words) - 1].stc_idx + 1
+    if (num_stc <= 0):
+        return []
+    sentences = [[] for i in range(0, num_stc)]    
+    for word in list_of_words:        
+        sentences[word.stc_idx].append(word)
+    return sentences
+    
 
 def assign_frame_to_words(video, list_of_words):
     cap = cv2.VideoCapture(video.filepath)

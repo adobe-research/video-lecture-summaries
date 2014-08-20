@@ -110,19 +110,19 @@ if __name__ == "__main__":
     outdir = sys.argv[4]
         
     lecture = Lecture(videopath, scriptpath)
-    print 'video fps', lecture.video.fps
+    lecture.assign_keyframe_to_words(outdir=outdir)
     
     framediffs = util.stringlist_from_txt(framediffpath)
-    framediffs = util.strings2ints(framediffs)    
+    framediffs = util.strings2ints(framediffs)
     keyframes_ms = get_keyframe_times(lecture, framediffs)
     
-    keyframes = lecture.capture_keyframes_ms(keyframes_ms, outdir)
-    print keyframes_ms
+    keyframes = lecture.capture_keyframes_ms(keyframes_ms, outdir)    
     segments = lecture.segment_script(keyframes_ms)
     
-    html = WriteHtml(outdir + "/framediff_segmentation.html", "Frame Difference Segmentation")
+    html = WriteHtml(outdir + "/framediff_segmentation_nonempty_stc.html", "Frame Difference Segmentation")
     html.openbody()
     prevt = 0
+    lecture_segs = []
     for i in range(0, len(keyframes_ms)):
         t = keyframes_ms[i]
         lecseg = LectureSegment()
@@ -131,7 +131,11 @@ if __name__ == "__main__":
         lecseg.keyframe = keyframes[i]
         lecseg.list_of_words = segments[i]
         prevt = t
-        html.lectureseg(lecseg)
+        lecture_segs.append(lecseg)
+        
+    for lecseg in lecture_segs:
+        if (lecseg.num_nonsilent_words() > 0):
+            html.lectureseg(lecseg)
     html.closebody()
     html.closehtml()
     

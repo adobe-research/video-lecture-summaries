@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
+import os
+
 class WriteHtml:
     def __init__(self, filename, title="no title"):
-        self.filename = filename
+        self.filename = os.path.abspath(filename)
         self.htmlfile = open(filename, 'w')
         self.htmlfile.write("<html>\n")
         self.htmlfile.write("<head>\n")
@@ -69,20 +71,20 @@ class WriteHtml:
             if word.issilent:
                 continue
             elif word.highlight_path != None:
-                self.htmlfile.write("<a href=\"#\">" + "<img src = \"" + word.highlight_path + "\">")
-                self.htmlfile.write(word.original_word + " ")
+                self.htmlfile.write("<a href=\"#\">" + word.original_word + " <img src = \"" + self.relpath(word.highlight_path) + "\">")                
                 self.htmlfile.write("</a>")
             else:
                 self.htmlfile.write(word.original_word + " ")            
-        self.htmlfile.write("</p>")            
+        self.htmlfile.write("</p>")
+    
+    def relpath(self, path):
+        relpath = os.path.relpath(path, __file__)
+        return relpath      
+    
     
     def lectureseg(self, lecseg):
         self.htmlfile.write("<div>\n")
         self.htmlfile.write("<img src=" + lecseg.keyframe.frame_path+" />\n")
         self.htmlfile.write("<h1>" + lecseg.title + "</h1>\n")
-        words = []
-        for word in lecseg.list_of_words:
-            if not word.issilent:
-                words.append(word.original_word)
-        self.paragraph(words)
+        self.highlighted_script(lecseg.list_of_words)
         self.htmlfile.write("</div>")

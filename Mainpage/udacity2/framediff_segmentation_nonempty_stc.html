@@ -1,0 +1,54 @@
+<html>
+<head>
+<link href="C:/Users/vshin/Desktop/video-lecture-summaries/Mainpage/mystyle.css" rel="stylesheet" />
+<title>Frame Difference Segmentation</title>
+</head>
+<body>
+<div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_30000.000000ms.png />
+<h1></h1>
+<p>So what's your take on how to build a search engine, you've build one before, right? Yes. I think the most important thing if you're going to build a search engine is to have a really good corpus to start out with. In our case we used the world wide web, which at time was certainly smaller than it is today. But it was also very new and exciting. There were all sorts of unexpected things there. So the goal for the first three units for the course is to build that corpus. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_47000.000000ms.png />
+<h1></h1>
+<p>And we want to build the corpus for our search engine by crawling the web and that's what a web crawler does. What a web crawler is, it's a program that collects content from the web. If you think of a web page that you see in your browser, you have a page like this. And we'll use the udacity site as an example web page. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_61000.000000ms.png />
+<h1></h1>
+<p>It has lot's of content, it has some images, it has some text. All of this comes into your browser when you request the page. The important thing that it has is links. And what a link is, is something that goes to another page. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_80000.000000ms.png />
+<h1></h1>
+<p>So we have a link to the frequently asked questions, we have a link to CS 101 page. There's some other links on the page. And that link may show in you browser with an underscore, it may not, depending on how your browser is set. But the important thing that it does, is it's a pointer to some other web page. And those other web pages may also have links so we have another link on this page. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_88000.000000ms.png />
+<h1></h1>
+<p>Maybe it's to my name, you can follow to my home page. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_112000.000000ms.png />
+<h1></h1>
+<p>And all the pages that we can find with our web crawler are found by following the links. So it won't necessarily find every page on the web If we start with a good seed page we'll find lot's of pages, though. And what the crawler's gonna do is start with one page, find all the links on that page, follow them to find other pages and then on those other pages it will follow the links on those pages to find other pages and there will be lot's more links on those pages. And eventually we'll have a collection of lot's of pages on the web. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_124000.000000ms.png />
+<h1></h1>
+<p>So that's what we want to do to build a web crawler. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_140000.000000ms.png />
+<h1></h1>
+<p>We want to find some way to start from one seed page, extract the links on that page, follow those links to other pages, then collect the links on those other pages, follow them, collect all that. So that sounds like a lot to do. We're not going to all that this first class. What we're going to do this first unit, is just extract a link. So we're going to start with a bunch of text. It's going to have a link in it with a URL. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_148000.000000ms.png />
+<h1></h1>
+<p>What we want to find is that URL, so we can request the next page. The goal for the second unit is be able to keep going. if there's many links on one page, you will want to be able to find them all. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_166000.000000ms.png />
+<h1></h1>
+<p>So that's what we'll do in unit 2, is to figure out how to keep going to extract all those links. In unit three, well, we want to go beyond just one page. So by the end of unit two we can print out all the links on one page. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_173000.000000ms.png />
+<h1></h1>
+<p>For unit 3 we want to collect all those links, so we can keep going, end up following our crawler to collect many, many pages. So by the end of unit three we'll have built a web crawler. We'll have a way of building our corpus. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_193000.000000ms.png />
+<h1></h1>
+<p>Then the remaining three units will look at how to actually respond to queries. So in unit four we'll figure out how to give a good response. So if you search for a keyword, you want to get a response that's a list of the pages where that keyword appears. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_202000.000000ms.png />
+<h1></h1>
+<p>And we'll figure out in unit five a way to do that, that scales, if we have a large corpus. And then in unit six what we want to do is, well, we don't just want to find a list, we want to find the best one. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_208000.000000ms.png />
+<h1></h1>
+<p>So we'll figure out how to rank all the pages where that keyword appears. </p></div><div>
+<img src=C:\Users\vshin\Desktop\video-lecture-summaries\Mainpage\udacity2\capture_213000.000000ms.png />
+<h1></h1>
+<p>So we're getting a little ahead of ourselves now, because all we're going to do for unit one, is to figure out how to extract a link from the page. And the search engine that we'll build at the end of this will be a functional search engine. It will have the main components that a search engine like Google has. It certainly won't be as powerful as Google will be, we want to keep things simple. We want to have a small amount of code to write. And we should remember that our real goal is not as much to build a search engine, but to use the goal of building a search engine as a vehicle for learning about computer science and learning about programming so the things we learn by doing this will allow us to solve lot's and lot's of other problems. </p></div>
+</body>
+</html>

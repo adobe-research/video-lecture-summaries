@@ -62,6 +62,8 @@ class Video:
         return int(ms*self.fps)
             
     def captureframes_fid(self, fnumbers, outdir= "."):
+        if len(fnumbers) == 0:
+            return []
         if not os.path.exists(os.path.abspath(outdir)):
             os.makedirs(os.path.abspath(outdir))
             
@@ -75,13 +77,16 @@ class Video:
             if (fid in fnumbers):
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06i" % fid) + ".png"
-                cv2.imwrite(filename, frame)
+                if not os.isfile(os.path.abspath(filename)):
+                    cv2.imwrite(filename, frame)
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid))
             fid += 1
         cap.release()
         return keyframes
     
     def captureframes_ms(self, ts, outdir="."):
+        if len(ts) == 0:
+            return []
         tol =  1000.0/self.fps
         if not os.path.exists(os.path.abspath(outdir)):
             os.makedirs(os.path.abspath(outdir))
@@ -93,12 +98,13 @@ class Video:
         while(cap.isOpened()):                        
             ret, frame = cap.read()
             if (frame == None):
-                break           
+                break          
             if (abs(pos - float(ts[i])) < tol):
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06f" % ts[i]) + "ms.png"
-                cv2.imwrite(filename, frame)
-                print 'writing', filename
+                if not os.path.isfile(os.path.abspath(filename)):
+                    print 'writing', filename
+                    cv2.imwrite(filename, frame)
                 keyframes.append(Keyframe(filename, frame, ts[i], self.ms2fid(ts[i])))                
                 i += 1
                 if (i == len(ts)):
