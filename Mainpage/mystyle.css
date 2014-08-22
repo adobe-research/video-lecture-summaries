@@ -31,13 +31,34 @@ img {
     display: block;
     margin: 1.3em auto;
     max-width: 50%;
-    align-content: center;
+    min-width: 300px;
 }
+
+
 
 div {
     max-width: 90%;
+    float: none;
+
     border-width: thick;
     border-style: solid;
     border-color: #008188;
+    clear:both;
+    overflow: hidden;
 }
 
+
+
+
+table {
+    max-width: 95%;
+}
+
+td:first-child{
+    width: 40%;
+    
+}
+
+p.debug {
+    color: red;    
+}

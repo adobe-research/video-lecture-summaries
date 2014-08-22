@@ -1,0 +1,54 @@
+<html>
+<head>
+<link href="..\..\Mainpage\mystyle.css" rel="stylesheet" />
+<title>Frame Difference Segmentation with Full Sentences</title>
+</head>
+<body>
+<div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_030000ms.png /></td>
+<td><h1></h1>
+<p>So what's your take on how to build a search engine, you've build one before, right? Yes. I think the most important thing if you're going to build a search engine is to have a really good corpus to start out with. In our case we used the world wide web, which at time was certainly smaller than it is today. But it was also very new and exciting. There were all sorts of unexpected things there. So the goal for the first three units for the course is to build that corpus. </p><p class="debug">start time:0:00:00<br>end time: 0:00:30<br>num sentences: 6<br>num words: 101<br>num nonsilent words: 93<br>keyframe new visual:5758<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_047000ms.png /></td>
+<td><h1></h1>
+<p>And we want to build the corpus for our search engine by crawling the web and that's what a web crawler does. What a web crawler is, it's a program that collects content from the web. If you think of a web page that you see in your browser, you have a page like this. And we'll use the udacity site as an example web page. </p><p class="debug">start time:0:00:30<br>end time: 0:00:47<br>num sentences: 4<br>num words: 76<br>num nonsilent words: 66<br>keyframe new visual:13885<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_061000ms.png /></td>
+<td><h1></h1>
+<p>It has lot's of content, it has some images, it has some text. All of this comes into your browser when you request the page. The important thing that it has is links. And what a link is, is something that goes to another page. </p><p class="debug">start time:0:00:47<br>end time: 0:01:01<br>num sentences: 4<br>num words: 54<br>num nonsilent words: 45<br>keyframe new visual:14782<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_080000ms.png /></td>
+<td><h1></h1>
+<p>So we have a link to the frequently asked questions, we have a link to CS 101 page. There's some other links on the page. And that link may show in you browser with an underscore, it may not, depending on how your browser is set. But the important thing that it does, is it's a pointer to some other web page. And those other web pages may also have links so we have another link on this page. </p><p class="debug">start time:0:01:01<br>end time: 0:01:20<br>num sentences: 5<br>num words: 94<br>num nonsilent words: 79<br>keyframe new visual:8239<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_088000ms.png /></td>
+<td><h1></h1>
+<p>Maybe it's to my name, you can follow to my home page. </p><p class="debug">start time:0:01:20<br>end time: 0:01:28<br>num sentences: 1<br>num words: 15<br>num nonsilent words: 12<br>keyframe new visual:0<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_112000ms.png /></td>
+<td><h1></h1>
+<p>And all the pages that we can find with our web crawler are found by following the links. So it won't necessarily find every page on the web If we start with a good seed page we'll find lot's of pages, though. And what the crawler's gonna do is start with one page, find all the links on that page, follow them to find other pages and then on those other pages it will follow the links on those pages to find other pages and there will be lot's more links on those pages. And eventually we'll have a collection of lot's of pages on the web. </p><p class="debug">start time:0:01:28<br>end time: 0:01:52<br>num sentences: 4<br>num words: 120<br>num nonsilent words: 107<br>keyframe new visual:20174<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_124000ms.png /></td>
+<td><h1></h1>
+<p>So that's what we want to do to build a web crawler. </p><p class="debug">start time:0:01:52<br>end time: 0:02:04<br>num sentences: 1<br>num words: 13<br>num nonsilent words: 12<br>keyframe new visual:24<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_140000ms.png /></td>
+<td><h1></h1>
+<p>We want to find some way to start from one seed page, extract the links on that page, follow those links to other pages, then collect the links on those other pages, follow them, collect all that. So that sounds like a lot to do. We're not going to all that this first class. What we're going to do this first unit, is just extract a link. So we're going to start with a bunch of text. It's going to have a link in it with a URL. </p><p class="debug">start time:0:02:04<br>end time: 0:02:20<br>num sentences: 6<br>num words: 101<br>num nonsilent words: 88<br>keyframe new visual:1242<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_148000ms.png /></td>
+<td><h1></h1>
+<p>What we want to find is that URL, so we can request the next page. The goal for the second unit is be able to keep going. if there's many links on one page, you will want to be able to find them all. </p><p class="debug">start time:0:02:20<br>end time: 0:02:28<br>num sentences: 3<br>num words: 49<br>num nonsilent words: 44<br>keyframe new visual:165<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_166000ms.png /></td>
+<td><h1></h1>
+<p>So that's what we'll do in unit 2, is to figure out how to keep going to extract all those links. In unit three, well, we want to go beyond just one page. So by the end of unit two we can print out all the links on one page. </p><p class="debug">start time:0:02:32<br>end time: 0:02:46<br>num sentences: 3<br>num words: 56<br>num nonsilent words: 50<br>keyframe new visual:25<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_173000ms.png /></td>
+<td><h1></h1>
+<p>For unit 3 we want to collect all those links, so we can keep going, end up following our crawler to collect many, many pages. So by the end of unit three we'll have built a web crawler. We'll have a way of building our corpus. </p><p class="debug">start time:0:02:46<br>end time: 0:02:53<br>num sentences: 3<br>num words: 50<br>num nonsilent words: 46<br>keyframe new visual:834<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_193000ms.png /></td>
+<td><h1></h1>
+<p>Then the remaining three units will look at how to actually respond to queries. So in unit four we'll figure out how to give a good response. So if you search for a keyword, you want to get a response that's a list of the pages where that keyword appears. </p><p class="debug">start time:0:02:57<br>end time: 0:03:13<br>num sentences: 3<br>num words: 65<br>num nonsilent words: 50<br>keyframe new visual:4287<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_202000ms.png /></td>
+<td><h1></h1>
+<p>And we'll figure out in unit five a way to do that, that scales, if we have a large corpus. And then in unit six what we want to do is, well, we don't just want to find a list, we want to find the best one. </p><p class="debug">start time:0:03:13<br>end time: 0:03:22<br>num sentences: 2<br>num words: 50<br>num nonsilent words: 47<br>keyframe new visual:550<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_208000ms.png /></td>
+<td><h1></h1>
+<p>So we'll figure out how to rank all the pages where that keyword appears. </p><p class="debug">start time:0:03:22<br>end time: 0:03:28<br>num sentences: 1<br>num words: 15<br>num nonsilent words: 14<br>keyframe new visual:0<br></p></td></tr></table></div><div>
+<table><tr><td><img src=..\..\Mainpage\udacity2\capture_213000ms.png /></td>
+<td><h1></h1>
+<p>So we're getting a little ahead of ourselves now, because all we're going to do for unit one, is to figure out how to extract a link from the page. And the search engine that we'll build at the end of this will be a functional search engine. It will have the main components that a search engine like Google has. It certainly won't be as powerful as Google will be, we want to keep things simple. We want to have a small amount of code to write. And we should remember that our real goal is not as much to build a search engine, but to use the goal of building a search engine as a vehicle for learning about computer science and learning about programming so the things we learn by doing this will allow us to solve lot's and lot's of other problems. </p><p class="debug">start time:0:03:28<br>end time: 0:03:33<br>num sentences: 7<br>num words: 162<br>num nonsilent words: 146<br>keyframe new visual:28<br></p></td></tr></table></div>
+</body>
+</html>
