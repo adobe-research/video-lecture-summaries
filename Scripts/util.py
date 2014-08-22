@@ -2,6 +2,7 @@ import numpy
 from PIL import Image
 import scipy as sp
 import cv2
+import re
 
 def stringlist_from_txt(filepath):
     txtfile = open(filepath, "r")
@@ -24,6 +25,27 @@ def array_to_pil(data, mode="RGB"):
         image = image.convert(mode)
     return image
 
+def filename_comp(name1, name2):
+    num1 = re.findall("\d+.\d+", name1)
+    num1 = float(num1[0])
+    num2 = re.findall("\d+.\d+", name2)
+    num2 = float(num2[0])
+    return int(num1 - num2)
+
+def bbox_overlap(box1, box2):
+    tlx = max(box1[0], box2[0])
+    tly = max(box1[1], box2[1])
+    brx = min(box1[2], box2[2])
+    bry = min(box1[3], box2[3])
+    
+    return (tlx, tly, brx, bry)
+     
+def boxarea(box):
+    if (box[0] > box[2] or box[1] > box[3]):
+        return -1
+    else:
+        return (box[2] - box[0]) * (box[3] - box[1])
+
 def showimages(list_of_images):
     htotal = 0
     wtotal = 0
@@ -42,7 +64,7 @@ def showimages(list_of_images):
         h,w = img.shape[:2]
         if (len(img.shape) == 2):
             view[:h,curw:curw+w, 0] = img
-            view[:,::h,curw:curw+w,1] = img
+            view[:h,curw:curw+w,1] = img
             view[:h,curw:curw+w,2] = img
         else:
             view[:h,curw:curw+w, 0] = img[:,:,0]

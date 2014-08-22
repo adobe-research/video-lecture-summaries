@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import datetime
 
 class WriteHtml:
     def __init__(self, filename, title="no title"):
@@ -8,7 +9,9 @@ class WriteHtml:
         self.htmlfile = open(filename, 'w')
         self.htmlfile.write("<html>\n")
         self.htmlfile.write("<head>\n")
-        self.htmlfile.write("<link href=\"C:/Users/vshin/Desktop/video-lecture-summaries/Mainpage/mystyle.css\" rel=\"stylesheet\" />\n")
+        self.htmlfile.write("<link href=\"" )
+        self.htmlfile.write(self.relpath("C:/Users/vshin/Desktop/video-lecture-summaries/Mainpage/mystyle.css"))
+        self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("<title>"+title+"</title>\n")
         self.htmlfile.write("</head>\n")
         
@@ -34,7 +37,7 @@ class WriteHtml:
         self.htmlfile.write("<tr>")
         
     def closetablerow(self):
-        self.htmlfile.write("</tr>\n")
+        self.htmlfile.write("</tr>\n\n")
         
     def opentablecell(self):
         self.htmlfile.write("<td>")
@@ -82,9 +85,21 @@ class WriteHtml:
         return relpath      
     
     
-    def lectureseg(self, lecseg):
+    def lectureseg(self, lecseg, debug=False):
         self.htmlfile.write("<div>\n")
-        self.htmlfile.write("<img src=" + lecseg.keyframe.frame_path+" />\n")
+        self.htmlfile.write("<table><tr>")
+        self.htmlfile.write("<td><img src=" + self.relpath(lecseg.keyframe.frame_path)+" /></td>\n")        
+        self.htmlfile.write("<td>")
         self.htmlfile.write("<h1>" + lecseg.title + "</h1>\n")
         self.highlighted_script(lecseg.list_of_words)
+        if (debug):
+            self.htmlfile.write("<p class=\"debug\">")
+            self.htmlfile.write("start time:" + str(datetime.timedelta(milliseconds=lecseg.startt)) + "<br>")
+            self.htmlfile.write("end time: "  + str(datetime.timedelta(milliseconds= lecseg.endt)) +"<br>")
+            self.htmlfile.write("num sentences: " + str(lecseg.num_stcs()) +"<br>" )            
+            self.htmlfile.write("num words: " + str(len(lecseg.list_of_words)) +"<br>" )
+            self.htmlfile.write("num nonsilent words: " + str(lecseg.num_nonsilent_words()) +"<br>" )
+            self.htmlfile.write("keyframe new visual:" + str(lecseg.keyframe.new_visual()) +"<br>" )            
+            self.htmlfile.write("</p>")
+        self.htmlfile.write("</td></tr></table>")
         self.htmlfile.write("</div>")

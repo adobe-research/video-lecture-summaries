@@ -4,6 +4,7 @@ import os
 import cv2
 import processframe as pf
 from writehtml import WriteHtml
+import util
 
 def get_objectmasks(keyframes):
     objlist = []
@@ -22,18 +23,19 @@ def get_objectmasks(keyframes):
         objlist.append((newobj, newobjmask))
     return objectmasks
 
-if __name__ == "__main__":
-        
+if __name__ == "__main__":      
     
     dirname = sys.argv[1]
     filelist = os.listdir(dirname)
+    filelist = [ x for x in filelist if "capture" in x and ".png" in x ]
+    filelist.sort(cmp=util.filename_comp)
+    
     keyframes = []
     keyframefiles = []
     for filename in filelist:
-        if "capture" in filename and ".png" in filename:
             keyframes.append(cv2.imread(dirname + "\\" + filename))
-            keyframefiles.append(filename)
-
+            keyframefiles.append(filename)    
+    
     objectmasks = get_objectmasks(keyframes)          
     
     highdir = "highlight"
@@ -57,7 +59,8 @@ if __name__ == "__main__":
     for filename in filelist:
         if "foreground" in filename and ".png" in filename:
             fgimages.append(cv2.imread(dirname + "\\" + fgdir + "\\"+ filename))
-            fgfiles.append(filename)    
+            fgfiles.append(filename)
+    fgfiles.sort(cmp=util.filename_comp)
                 
     html = WriteHtml(dirname + "\\sequential_highlight.html", title = "sequential highlighting")    
     html.openbody()

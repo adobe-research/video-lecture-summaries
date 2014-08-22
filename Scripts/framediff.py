@@ -20,8 +20,7 @@ if __name__ == "__main__":
                  #"..\\SampleVideos\\more\\pentimento1\\pentimento1.mp4",
                  #"..\\SampleVideos\\more\\slide1\\slide1.mp4"]
                  
-    videolist = ["..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4",
-                 "..\\SampleVideos\\more\\khan1\\khan1.mp4"]
+    videolist = ["..\\SampleVideos\\more\\khan2\\khan2_negate.mp4" ]
     for video in videolist:
         pv = processvideo.ProcessVideo(video)
        
@@ -45,31 +44,31 @@ if __name__ == "__main__":
             framediff.write("%i\n" % int(val))
         framediff.close()
         
-        t = np.linspace(0, len(counts), len(counts))
-        plt.plot(t, counts, color = "b")
-        plt.xlabel("frames")
-        plt.ylabel("Frame Difference")
-        plt.xlim(0, len(counts))
-        plt.savefig(pv.videoname + "_framediff.jpg")
-        plt.close()
+        #t = np.linspace(0, len(counts), len(counts))
+        #plt.plot(t, counts, color = "b")
+        #plt.xlabel("frames")
+        #plt.ylabel("Frame Difference")
+        #plt.xlim(0, len(counts))
+        #plt.savefig(pv.videoname + "_framediff.jpg")
+        #plt.close()
         
         # Count frame difference
-        print "Read framediff.txt"
-        framedifftxt = pv.videoname+"_framediff.txt"
-        framedifffile = open(framedifftxt, "r")
-        counts = []
-        for val in framedifffile.readlines():
-            counts.append(int(val))
+        #print "Read framediff.txt"
+        #framedifftxt = pv.videoname+"_framediff.txt"
+        #framedifffile = open(framedifftxt, "r")
+        #counts = []
+        #for val in framedifffile.readlines():
+        #    counts.append(int(val))
         
         # Smooth and subsample 1 frame per second
-        print "Smooth and subsmaple 1 frame per second"
-        smoothsample = util.smooth(np.array(counts))
-        subsample = counts[0:len(smoothsample):int(pv.framerate)]
-        t = np.linspace(0, len(subsample)-1, len(subsample))        
-        plt.plot(t, subsample, "bo-")
-        plt.xlabel("time(sec)")       
-        plt.ylabel("Frame Difference")
-        plt.xlim(0, len(subsample))                      
+        #print "Smooth and subsmaple 1 frame per second"
+        #smoothsample = util.smooth(np.array(counts))
+        #subsample = counts[0:len(smoothsample):int(pv.framerate)]
+        #t = np.linspace(0, len(subsample)-1, len(subsample))        
+        #plt.plot(t, subsample, "bo-")
+        #plt.xlabel("time(sec)")       
+        #plt.ylabel("Frame Difference")
+        #plt.xlim(0, len(subsample))                      
       
         
         #print "Manual Segmentation"

@@ -13,9 +13,9 @@ class Lecture:
         self.video = Video(video_path)        
         self.aligned_transcript_path = aligned_transcript_path
         self.list_of_words = pjson.get_words(aligned_transcript_path)
+        self.default_objects = []    
         
-    def segment_script(self, list_of_t):
-        
+    def segment_script(self, list_of_t):        
         segments = [ [] for i in range(0, len(list_of_t))]
         sentences = pjson.get_sentences(self.list_of_words)
         
@@ -49,8 +49,8 @@ class Lecture:
         if (len(startts) == 0):
             return
 
-        endframes = self.capture_keyframes_ms(endts, outdir)
-        startframes = self.capture_keyframes_ms(startts, outdir)
+        endframes = self.capture_keyframes_ms(endts, "temp")
+        startframes = self.capture_keyframes_ms(startts, "temp")
   
         i = 0
         for word in self.list_of_words:
@@ -67,21 +67,25 @@ class Lecture:
                 i += 1                
 
 class LectureSegment:
-    def __init__(self, startt=-1, endt=-1, keyframe=None, mask=None, list_of_words=[], title=''):        
+    def __init__(self, startt=-1, endt=-1, keyframe=None, list_of_words=[], title=''):        
         self.startt = startt
         self.endt = endt
         self.keyframe = keyframe
-        self.mask = mask
         self.list_of_words = list_of_words
-        self.title = title    
-    
+        self.title = title        
         
     def num_nonsilent_words(self,):
         count = 0
         for word in self.list_of_words:
             if not word.issilent:
                 count += 1
-        return count    
+        return count
+    
+    def num_stcs(self, ):
+        start_i = self.list_of_words[0].stc_idx
+        end_i = self.list_of_words[-1].stc_idx
+        return (end_i - start_i + 1)
+    
         
     def display(self, ):
         print '---------------------------------------------------------------'
@@ -98,11 +102,15 @@ class LectureSegment:
         merged.startt = self.startt
         merged.endt = next_lecseg.endt
         merged.keyframe = next_lecseg.keyframe
-        merged.mask = cv2.bitwise_or(self.mask, next_lecseg.mask)
+        merged.keyframe.mask = cv2.bitwise_or(self.keyframe.mask, next_lecseg.keyframe.mask)        
         merged.list_of_words = self.list_of_words + next_lecseg.list_of_words        
         merged.title = self.title
         if (next_lecseg.title != ''):
             merged.title += " "
             merged.title += next_lecseg.title
         return merged
-        
+    
+    def merge_prev(self, prev_lecseg):
+        return prev_lecseg.merge_next(self)    
+
+    

@@ -11,6 +11,7 @@ from objectcandidate import ObjectCandidate
 import cluster
 from itertools import cycle
 import util
+from video import Video, Keyframe
 
 logging.basicConfig(stream=sys.stderr, level=logging.ERROR)
 
@@ -113,8 +114,7 @@ def fgmask(image, threshold=225):
     img2gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     #cv2.imshow("im2gray", img2gray)
     #cv2.waitKey(0)
-    ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)
-    
+    ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)    
     return mask
 
 def fgbbox(mask):   
@@ -310,7 +310,7 @@ def findobject_exact(fgimg_gray, obj_gray):
     #plt.show()
     #cv2.waitKey(0)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-    print min_val
+    #print min_val
     if (min_val > 0.08):
         print "Exact match not found:", min_val
         return None
@@ -326,12 +326,9 @@ def findobject_exact(fgimg_gray, obj_gray):
     #cv2.waitKey(0)
     return M
 
-
-def getnewobj(image_and_mask, objlist):
+def get_newobj_and_mask(image_and_mask, objlist):
     """objlist-- obj, obj_mask"""
-    #show image and mask
-    
-    
+    #show image and mask       
     image = image_and_mask[0]
     fgmask = image_and_mask[1]
     fgimg = maskimage_white(image, fgmask)
@@ -341,25 +338,47 @@ def getnewobj(image_and_mask, objlist):
     for i in range(0, len(objlist)):
         obj = objlist[i][0]
         objmask = objlist[i][1]
+        if (obj == None):
+            continue
 
         fgimg_gray = cv2.cvtColor(fgimg, cv2.COLOR_BGR2GRAY)
         obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
         M0 = findobject_exact(fgimg, obj)
         if M0 == None:
-            print 'using feature match'
+            #print 'using feature match'
             M = findobject(fgimg_gray, obj_gray)
         else:
-            print 'using exact template match'
+            #print 'using exact template match'
             M = M0
             
         if isgoodmatch(M):          
             fgimg = subtractobject(fgimg, objmask, M, 255) #TODO: subtract object_white
-            fgmask = subtractobject(fgmask, objmask, M, 0) #TODO: subtract object_black
-            #cv2.imshow("fgimg", fgimg)
-            #cv2.imshow("fgmask", fgmask)
-            #cv2.waitKey(0)
-            #print 'Found object', i       
+            fgmask = subtractobject(fgmask, objmask, M, 0) #TODO: subtract object_black              
     return fgimg, fgmask
+
+def getnewobj(image, objlist):
+    fg_mask = fgmask(image)
+    fgimg = maskimage_white(image, fg_mask)
+    
+    if objlist==None or len(objlist) == 0:
+        return fgimg
+    for i in range(0, len(objlist)):
+        obj = objlist[i]        
+        if (obj == None):
+            continue
+        objmask = fgmask(obj)
+        obj, objmask = croptofg(obj, objmask)
+        if (obj == None):
+            continue
+        fgimg_gray = cv2.cvtColor(fgimg, cv2.COLOR_BGR2GRAY)        
+        obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
+        M = findobject_exact(fgimg, obj)
+        if M == None:            
+            M = findobject(fgimg_gray, obj_gray)
+            
+        if isgoodmatch(M):            
+            fgimg = subtractobject(fgimg, objmask, M, 255) 
+    return fgimg
 
 def croptofg(fgimg, fgmask):
     if (fgimg == None or fgmask == None):
@@ -472,6 +491,22 @@ def removebackground(gray_img, gray_bgsample, thres=50):
     sub[sub < thres] = 0
     sub[sub >= thres] = 255
     return sub
+
+def keyframe_masks_new_from_prev(list_of_keyframes):
+    # first frame
+    if (len(list_of_keyframes) == 0):
+        return list_of_keyframes
+    
+    list_of_keyframes[0].mask = fgmask(list_of_keyframes[0].frame)
+    prevframe = list_of_keyframes[0]
+
+    for i in range(1, len(list_of_keyframes)):        
+        curframe = list_of_keyframes[i]
+        curframe.mask_new(prevframe)
+        prevframe = curframe
+        
+    return list_of_keyframes
+
 
 if __name__ == "__main__":
     src = cv2.imread("udacity1_capture.png", 0) #3 channel BGR image

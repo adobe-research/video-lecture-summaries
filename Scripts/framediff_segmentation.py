@@ -9,6 +9,7 @@ import sys
 from scipy.signal import argrelextrema
 from lecture import Lecture, LectureSegment
 from writehtml import WriteHtml
+import processframe as pframe
 
     #videolist = ["..\\SampleVideos\\more\\armando1\\armando1.mp4", "..\\SampleVideos\\more\\armando2\\armando2.mp4"]
                  #"..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4"]
@@ -108,34 +109,53 @@ if __name__ == "__main__":
     scriptpath = sys.argv[2]
     framediffpath = sys.argv[3]
     outdir = sys.argv[4]
+    visual_thres = int(sys.argv[5])
         
     lecture = Lecture(videopath, scriptpath)
-    lecture.assign_keyframe_to_words(outdir=outdir)
+    #lecture.assign_keyframe_to_words(outdir=outdir)
     
     framediffs = util.stringlist_from_txt(framediffpath)
     framediffs = util.strings2ints(framediffs)
     keyframes_ms = get_keyframe_times(lecture, framediffs)
     
     keyframes = lecture.capture_keyframes_ms(keyframes_ms, outdir)    
-    segments = lecture.segment_script(keyframes_ms)
-    
-    html = WriteHtml(outdir + "/framediff_segmentation_nonempty_stc.html", "Frame Difference Segmentation")
-    html.openbody()
+    keyframes = pframe.keyframe_masks_new_from_prev(keyframes)
+
+    text_segments = lecture.segment_script(keyframes_ms)
     prevt = 0
-    lecture_segs = []
+    list_of_lecsegs = []
     for i in range(0, len(keyframes_ms)):
         t = keyframes_ms[i]
-        lecseg = LectureSegment()
-        lecseg.startt = prevt
-        lecseg.endt = t
-        lecseg.keyframe = keyframes[i]
-        lecseg.list_of_words = segments[i]
+        startt = prevt
+        endt = t
+        keyframe = keyframes[i]
+        list_of_words = text_segments[i]
+        lecseg = LectureSegment(startt, endt, keyframe, list_of_words)
         prevt = t
-        lecture_segs.append(lecseg)
-        
-    for lecseg in lecture_segs:
+        list_of_lecsegs.append(lecseg)
+
+     #merge segments with empty-object keyframes
+    print "Merging segments"
+    print "before: ", len(list_of_lecsegs)
+    merged_lecsegs= []
+    while (len(list_of_lecsegs) > 0):
+        curseg = list_of_lecsegs.pop(0)       
+        while (curseg.keyframe.new_visual() <= visual_thres and len(merged_lecsegs) > 0):
+            prevseg = merged_lecsegs.pop()
+            curseg = curseg.merge_prev(prevseg)
+        if (curseg.keyframe.new_visual() <= visual_thres and len(list_of_lecsegs) > 0):
+            nextseg = list_of_lecsegs.pop(0)
+            curseg = curseg.merge_next(nextseg)
+        merged_lecsegs.append(curseg)
+    print "after: ", len(merged_lecsegs)
+    list_of_lecsegs = merged_lecsegs
+    
+    print "Writing to html"
+    html = WriteHtml(outdir + "/framediff_stc_vt_" +str(visual_thres)+".html", "Frame Difference Segmentation with Full Sentences")
+    html.openbody()       
+    for lecseg in list_of_lecsegs:
         if (lecseg.num_nonsilent_words() > 0):
-            html.lectureseg(lecseg)
+            html.lectureseg(lecseg, debug=True)
     html.closebody()
     html.closehtml()
     

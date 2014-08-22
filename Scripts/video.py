@@ -6,12 +6,55 @@ import numpy as np
 import processframe as pf
 
 class Keyframe:
-    def __init__(self, frame_path, frame, time, framenum):
+    def __init__(self, frame_path, frame, time, framenum, video=None):
         self.frame_path = os.path.abspath(frame_path)
         self.frame = frame
+        self.height, self.width = frame.shape[:2]
         self.time = time
         self.framenum = framenum
-
+        self.startt = -1
+        self.endt = -1
+        self.newobj_mask = None
+        self.video = video
+        self.default_objs = []
+        if (video != None):
+            self.default_objs += video.default_objs
+        self.fg_mask = self.mask_objs(self.default_objs)
+        
+    def new_visual(self, ):
+        if (self.newobj_mask == None):
+            return -1
+        return np.count_nonzero(self.new_objmask)
+    
+    def add_default_objs(self, objs):
+        self.default_objs += objs
+        return
+        
+    def mask_objs(self, objlist):
+        fgimg = pf.getnewobj(self.frame, objlist+self.default_objs)
+        mask = pf.fgmask(fgimg)
+        self.mask = mask
+        return 
+    
+    def get_newobj(self, ):
+        obj = pf.maskimage_white(self.frame, self.mask)
+        return obj
+    
+    def get_fgobj(self, ):
+        return
+    
+        
+    def fg_bbox(self, default_objs=[]):
+        bbox = pf.fgbbox(self.fgmask)    
+        return bbox
+    
+    def mask_bbox(self, ):
+        if self.mask == None:
+            return self.fg_bbox
+        bbox = pf.fgbbox(self.mask)
+        return bbox    
+    
+    
 class Video:
     def __init__(self, filepath):
         self.filepath = filepath
@@ -26,6 +69,30 @@ class Video:
         self.endt = (self.numframes / self.fps)*1e3
         self.fourcc = int(tempcap.get(6))
         tempcap.release()
+        self.default_objs = []
+        
+    def add_default_obj(self, obj):
+        self.default_objs.append(obj)
+        return    
+        
+    def negate(self, outfile=None):
+        cap = cv2.VideoCapture(self.filepath)
+        if outfile==None:
+            outfile = self.videoname + "_neagte.avi"
+        fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
+        out = cv2.VideoWriter(outfile, int(fourcc), self.fps, (self.width, self.height))
+        while(cap.isOpened()):          
+            ret, frame = cap.read()
+            if (ret == True):
+                negframe = 255 - frame
+                out.write(negframe)
+            else:
+                break
+        cap.release()
+        out.release()
+        newoutfile = self.videoname + "_negate.mp4"
+        os.rename(outfile, newoutfile)
+        return newoutfile    
    
     def cut(self, ms_start, ms_end, outfile=None):
         """Cut the video from start time to end time (in milliseconds) and write to outpath
@@ -79,7 +146,7 @@ class Video:
                 filename = filename + ("%06i" % fid) + ".png"
                 if not os.isfile(os.path.abspath(filename)):
                     cv2.imwrite(filename, frame)
-                keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid))
+                keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid), self)
             fid += 1
         cap.release()
         return keyframes
@@ -101,11 +168,11 @@ class Video:
                 break          
             if (abs(pos - float(ts[i])) < tol):
                 filename = outdir + "/capture_"        
-                filename = filename + ("%06f" % ts[i]) + "ms.png"
+                filename = filename + ("%06.0f" % ts[i]) + "ms.png"
                 if not os.path.isfile(os.path.abspath(filename)):
                     print 'writing', filename
                     cv2.imwrite(filename, frame)
-                keyframes.append(Keyframe(filename, frame, ts[i], self.ms2fid(ts[i])))                
+                keyframes.append(Keyframe(filename, frame, ts[i], self.ms2fid(ts[i])), self)                
                 i += 1
                 if (i == len(ts)):
                     break
@@ -133,5 +200,5 @@ class Video:
                 break
         cap.release()
         cv2.destroyAllWindows()
-        pass
+
     
