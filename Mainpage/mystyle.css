@@ -17,7 +17,7 @@ a {
     color: #0083e8; 
 }
 
-a img { display:none;}
+
 a:hover img{display:block;}
 
 b, strong {
@@ -26,12 +26,12 @@ b, strong {
 
 img {
     background: transparent;
-    border: 10px solid rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
+    border: 3px solid rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
     display: block;
-    margin: 1.3em auto;
-    max-width: 50%;
-    min-width: 300px;
+    margin: 1.0em auto;
+    max-width: 95%;
+    -webkit-animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
 }
 
 
@@ -51,14 +51,19 @@ div {
 
 
 table {
-    max-width: 95%;
+    margin:0;
+	padding:0;
+    max-width: 100%;
+    table-layout: fixed;
 }
 
-td:first-child{
-    width: 40%;
-    
-}
+
 
 p.debug {
     color: red;    
+}
+
+td {
+    width: 25%;
+    vertical-align: center; 
 }
