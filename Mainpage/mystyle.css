@@ -17,7 +17,7 @@ a {
     color: #0083e8; 
 }
 
-a.highlight:hover img{display:none;}
+a.highlight:hover img{display:block;}
 a.highlight img{display:none;}
 
 b, strong {
