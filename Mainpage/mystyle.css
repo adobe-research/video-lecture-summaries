@@ -17,7 +17,8 @@ a {
     color: #0083e8; 
 }
 
-a:hover img{display:block;}
+a.highlight:hover img{display:none;}
+a.highlight img{display:none;}
 
 b, strong {
     font-weight: 600;
@@ -33,6 +34,10 @@ img {
     -webkit-animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
 }
 
+#mainpic {
+    position: relative;
+    top: 20px;
+}
 
 
 div {
@@ -63,6 +68,6 @@ p.debug {
 }
 
 td {
-    width: 25%;
-    vertical-align: center; 
+    width:50%;
+    vertical-align: top; 
 }
