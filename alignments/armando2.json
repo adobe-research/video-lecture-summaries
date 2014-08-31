@@ -1,0 +1,6344 @@
+{
+    "words": [
+        {
+            "start": 0.01247,
+            "end": 1.06009,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 1.34943,
+            "alignedWord": "ARMANDO",
+            "start": 1.06009,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Armando"
+        },
+        {
+            "end": 1.8483,
+            "alignedWord": "HASUDUNGAN",
+            "start": 1.34943,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Hasudungan"
+        },
+        {
+            "end": 2.26735,
+            "alignedWord": "BIOLOGY",
+            "start": 1.8483,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Biology"
+        },
+        {
+            "end": 2.38707,
+            "alignedWord": "AND",
+            "start": 2.26735,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 2.68639,
+            "alignedWord": "MEDICINE",
+            "start": 2.38707,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Medicine"
+        },
+        {
+            "end": 2.91587,
+            "alignedWord": "ARMANDO",
+            "start": 2.68639,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Armando"
+        },
+        {
+            "end": 3.24512,
+            "alignedWord": "HASUDUNGAN",
+            "start": 2.91587,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Hasudungan"
+        },
+        {
+            "end": 3.42472,
+            "alignedWord": "VIDEOS",
+            "start": 3.24512,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "videos."
+        },
+        {
+            "end": 3.61429,
+            "alignedWord": "PLEASE",
+            "start": 3.42472,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Please"
+        },
+        {
+            "end": 3.75397,
+            "alignedWord": "MAKE",
+            "start": 3.61429,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "make"
+        },
+        {
+            "end": 3.89365,
+            "alignedWord": "SURE",
+            "start": 3.75397,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "sure"
+        },
+        {
+            "end": 3.95351,
+            "alignedWord": "TO",
+            "start": 3.89365,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 4.46236,
+            "alignedWord": "SUBSCRIBE",
+            "start": 3.95351,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "subscribe."
+        },
+        {
+            "end": 4.64195,
+            "alignedWord": "JOIN",
+            "start": 4.46236,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Join"
+        },
+        {
+            "end": 4.7517,
+            "alignedWord": "THE",
+            "start": 4.64195,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 5.05102,
+            "alignedWord": "FORUM",
+            "start": 4.7517,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "forum"
+        },
+        {
+            "end": 5.1907,
+            "alignedWord": "AND",
+            "start": 5.05102,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 5.44014,
+            "alignedWord": "GROUP",
+            "start": 5.1907,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "group"
+        },
+        {
+            "end": 5.54989,
+            "alignedWord": "FOR",
+            "start": 5.44014,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "for"
+        },
+        {
+            "end": 5.63968,
+            "alignedWord": "THE",
+            "start": 5.54989,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 5.92902,
+            "alignedWord": "LATEST",
+            "start": 5.63968,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "latest"
+        },
+        {
+            "end": 6.32812,
+            "alignedWord": "VIDEOS",
+            "start": 5.92902,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "videos."
+        },
+        {
+            "end": 6.57755,
+            "alignedWord": "PLEASE",
+            "start": 6.32812,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Please"
+        },
+        {
+            "end": 6.81701,
+            "alignedWord": "VISIT",
+            "start": 6.57755,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "visit"
+        },
+        {
+            "end": 7.27596,
+            "alignedWord": "FACEBOOK",
+            "start": 6.81701,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Facebook,"
+        },
+        {
+            "end": 7.67506,
+            "alignedWord": "ARMANDO",
+            "start": 7.27596,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Armando"
+        },
+        {
+            "end": 8.43333,
+            "alignedWord": "HASUDUNGAN",
+            "start": 7.67506,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Hasudungan."
+        },
+        {
+            "start": 8.43333,
+            "end": 9.94989,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 10.27914,
+            "alignedWord": "SO",
+            "start": 9.94989,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "end": 10.67823,
+            "alignedWord": "CANCER",
+            "start": 10.27914,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer."
+        },
+        {
+            "end": 10.98753,
+            "alignedWord": "UH",
+            "start": 10.67823,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Uh,"
+        },
+        {
+            "start": 10.98753,
+            "end": 12.04512,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 12.70363,
+            "alignedWord": "CANCER",
+            "start": 12.04512,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "start": 12.70363,
+            "end": 12.73356,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 12.92313,
+            "alignedWord": "IS",
+            "start": 12.73356,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 13.15261,
+            "alignedWord": "WHERE",
+            "start": 12.92313,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "where"
+        },
+        {
+            "end": 13.26236,
+            "alignedWord": "YOU",
+            "start": 13.15261,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "you"
+        },
+        {
+            "end": 13.50181,
+            "alignedWord": "HAVE",
+            "start": 13.26236,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 14.22018,
+            "alignedWord": "UNCONTROLLED",
+            "start": 13.50181,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "uncontrolled"
+        },
+        {
+            "end": 15.0483,
+            "alignedWord": "PROLIFERATION",
+            "start": 14.22018,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "proliferation"
+        },
+        {
+            "end": 15.14807,
+            "alignedWord": "OF",
+            "start": 15.0483,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 15.74671,
+            "alignedWord": "CELLS",
+            "start": 15.14807,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cells"
+        },
+        {
+            "end": 15.87642,
+            "alignedWord": "THAT",
+            "start": 15.74671,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 16.26553,
+            "alignedWord": "ARISE",
+            "start": 15.87642,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "arise"
+        },
+        {
+            "end": 16.47506,
+            "alignedWord": "FROM",
+            "start": 16.26553,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "from"
+        },
+        {
+            "end": 17.17347,
+            "alignedWord": "VIRTUALLY",
+            "start": 16.47506,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "virtually"
+        },
+        {
+            "start": 17.17347,
+            "end": 17.59252,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 18.02154,
+            "alignedWord": "ANY",
+            "start": 17.59252,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "any"
+        },
+        {
+            "end": 18.23107,
+            "alignedWord": "TYPE",
+            "start": 18.02154,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "type"
+        },
+        {
+            "end": 18.31088,
+            "alignedWord": "OF",
+            "start": 18.23107,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 18.6102,
+            "alignedWord": "CELL",
+            "start": 18.31088,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cell"
+        },
+        {
+            "end": 18.70998,
+            "alignedWord": "IN",
+            "start": 18.6102,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 18.82971,
+            "alignedWord": "THE",
+            "start": 18.70998,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 19.21882,
+            "alignedWord": "BODY",
+            "start": 18.82971,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "body."
+        },
+        {
+            "start": 19.21882,
+            "end": 20.1966,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 20.38617,
+            "alignedWord": "SO",
+            "start": 20.1966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "end": 20.95488,
+            "alignedWord": "BASICALLY",
+            "start": 20.38617,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "basically,"
+        },
+        {
+            "end": 21.14444,
+            "alignedWord": "YOU",
+            "start": 20.95488,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "you"
+        },
+        {
+            "end": 21.2542,
+            "alignedWord": "CAN",
+            "start": 21.14444,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 21.42381,
+            "alignedWord": "HAVE",
+            "start": 21.2542,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 21.79297,
+            "alignedWord": "BONE",
+            "start": 21.42381,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "bone"
+        },
+        {
+            "end": 22.25193,
+            "alignedWord": "CELLS",
+            "start": 21.79297,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cells,"
+        },
+        {
+            "end": 22.56122,
+            "alignedWord": "SKIN",
+            "start": 22.25193,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "skin"
+        },
+        {
+            "end": 23.03016,
+            "alignedWord": "CELLS",
+            "start": 22.56122,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cells,"
+        },
+        {
+            "end": 23.26961,
+            "alignedWord": "GUT",
+            "start": 23.03016,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "gut"
+        },
+        {
+            "end": 23.71859,
+            "alignedWord": "CELLS",
+            "start": 23.26961,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cells,"
+        },
+        {
+            "end": 23.81837,
+            "alignedWord": "AND",
+            "start": 23.71859,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 23.91814,
+            "alignedWord": "THEY",
+            "start": 23.81837,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "they"
+        },
+        {
+            "end": 24.02789,
+            "alignedWord": "CAN",
+            "start": 23.91814,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 24.25737,
+            "alignedWord": "ALL",
+            "start": 24.02789,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "all"
+        },
+        {
+            "end": 24.75624,
+            "alignedWord": "DEVELOP",
+            "start": 24.25737,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "develop"
+        },
+        {
+            "end": 24.84603,
+            "alignedWord": "AND",
+            "start": 24.75624,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 25.19524,
+            "alignedWord": "BECOME",
+            "start": 24.84603,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "become"
+        },
+        {
+            "end": 25.58435,
+            "alignedWord": "CANCER",
+            "start": 25.19524,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 26.14308,
+            "alignedWord": "CELLS",
+            "start": 25.58435,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cells."
+        },
+        {
+            "start": 26.14308,
+            "end": 27.89909,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 28.03878,
+            "alignedWord": "THE",
+            "start": 27.89909,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "The"
+        },
+        {
+            "end": 28.51769,
+            "alignedWord": "WORD",
+            "start": 28.03878,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "word"
+        },
+        {
+            "start": 28.51769,
+            "end": 28.63741,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 29.11633,
+            "alignedWord": "CANCER",
+            "start": 28.63741,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 29.63515,
+            "alignedWord": "ITSELF",
+            "start": 29.11633,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "itself"
+        },
+        {
+            "start": 29.63515,
+            "end": 29.66508,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 29.97438,
+            "alignedWord": "COMES",
+            "start": 29.66508,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "comes"
+        },
+        {
+            "end": 30.06417,
+            "alignedWord": "FROM",
+            "start": 29.97438,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "from"
+        },
+        {
+            "end": 30.12404,
+            "alignedWord": "THE",
+            "start": 30.06417,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 30.54308,
+            "alignedWord": "GREEK",
+            "start": 30.12404,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Greek"
+        },
+        {
+            "end": 30.79252,
+            "alignedWord": "WORD",
+            "start": 30.54308,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "word"
+        },
+        {
+            "end": 31.43107,
+            "alignedWord": "KARKINOMA",
+            "start": 30.79252,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "karkinoma,"
+        },
+        {
+            "end": 31.9,
+            "alignedWord": "WHICH",
+            "start": 31.43107,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "which"
+        },
+        {
+            "end": 32.14943,
+            "alignedWord": "MEANS",
+            "start": 31.9,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "means"
+        },
+        {
+            "end": 32.52857,
+            "alignedWord": "CRAB",
+            "start": 32.14943,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "crab."
+        },
+        {
+            "start": 32.52857,
+            "end": 32.9576,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 33.23696,
+            "alignedWord": "HENCE",
+            "start": 32.9576,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Hence,"
+        },
+        {
+            "end": 33.33673,
+            "alignedWord": "THE",
+            "start": 33.23696,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 33.91542,
+            "alignedWord": "HOROSCOPE",
+            "start": 33.33673,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "horoscope"
+        },
+        {
+            "end": 34.31451,
+            "alignedWord": "STUFF",
+            "start": 33.91542,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "stuff,"
+        },
+        {
+            "start": 34.31451,
+            "end": 34.95306,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 35.39206,
+            "alignedWord": "THE",
+            "start": 34.95306,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "start": 35.39206,
+            "end": 35.51179,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 35.9907,
+            "alignedWord": "PEOPLE",
+            "start": 35.51179,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "people"
+        },
+        {
+            "end": 36.0805,
+            "alignedWord": "WHO",
+            "start": 35.9907,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "who"
+        },
+        {
+            "end": 36.20023,
+            "alignedWord": "ARE",
+            "start": 36.0805,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 36.3898,
+            "alignedWord": "BORN",
+            "start": 36.20023,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "born"
+        },
+        {
+            "end": 36.52948,
+            "alignedWord": "IN",
+            "start": 36.3898,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 36.9585,
+            "alignedWord": "CANCER",
+            "start": 36.52948,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Cancer"
+        },
+        {
+            "end": 37.50726,
+            "alignedWord": "ALSO",
+            "start": 36.9585,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "also"
+        },
+        {
+            "end": 37.74671,
+            "alignedWord": "HAS",
+            "start": 37.50726,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "has"
+        },
+        {
+            "end": 37.85646,
+            "alignedWord": "A",
+            "start": 37.74671,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 38.21565,
+            "alignedWord": "CRAB",
+            "start": 37.85646,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "crab"
+        },
+        {
+            "end": 38.75442,
+            "alignedWord": "SYMBOL",
+            "start": 38.21565,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "symbol."
+        },
+        {
+            "start": 38.75442,
+            "end": 40.62018,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 40.72993,
+            "alignedWord": "LET",
+            "start": 40.62018,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Let"
+        },
+        {
+            "end": 40.90952,
+            "alignedWord": "US",
+            "start": 40.72993,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "us"
+        },
+        {
+            "end": 41.12902,
+            "alignedWord": "LOOK",
+            "start": 40.90952,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "look"
+        },
+        {
+            "end": 41.21882,
+            "alignedWord": "AT",
+            "start": 41.12902,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "end": 41.28866,
+            "alignedWord": "AN",
+            "start": 41.21882,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "an"
+        },
+        {
+            "end": 42.1068,
+            "alignedWord": "EXAMPLE",
+            "start": 41.28866,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "example"
+        },
+        {
+            "end": 42.16667,
+            "alignedWord": "OF",
+            "start": 42.1068,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 42.71542,
+            "alignedWord": "CANCER",
+            "start": 42.16667,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 42.91497,
+            "alignedWord": "THAT",
+            "start": 42.71542,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 43.08458,
+            "alignedWord": "MAY",
+            "start": 42.91497,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "may"
+        },
+        {
+            "end": 43.59342,
+            "alignedWord": "OCCUR",
+            "start": 43.08458,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "occur"
+        },
+        {
+            "end": 43.84286,
+            "alignedWord": "IN",
+            "start": 43.59342,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 44.05238,
+            "alignedWord": "THE",
+            "start": 43.84286,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 44.70091,
+            "alignedWord": "COLON",
+            "start": 44.05238,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colon,"
+        },
+        {
+            "start": 44.70091,
+            "end": 46.17755,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 46.40703,
+            "alignedWord": "OR",
+            "start": 46.17755,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "or"
+        },
+        {
+            "end": 46.55669,
+            "alignedWord": "IN",
+            "start": 46.40703,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 46.98571,
+            "alignedWord": "THE",
+            "start": 46.55669,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the,"
+        },
+        {
+            "start": 46.98571,
+            "end": 47.46463,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 47.67415,
+            "alignedWord": "UH",
+            "start": 47.46463,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "uh,"
+        },
+        {
+            "end": 47.89365,
+            "alignedWord": "LARGE",
+            "start": 47.67415,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "large"
+        },
+        {
+            "end": 48.64195,
+            "alignedWord": "INTESTINES",
+            "start": 47.89365,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "intestines."
+        },
+        {
+            "start": 48.64195,
+            "end": 49.44014,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 49.73946,
+            "alignedWord": "SO",
+            "start": 49.44014,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "end": 50.1585,
+            "alignedWord": "HERE",
+            "start": 49.73946,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "end": 50.32812,
+            "alignedWord": "I'M",
+            "start": 50.1585,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "I'm"
+        },
+        {
+            "end": 50.61746,
+            "alignedWord": "DRAWING",
+            "start": 50.32812,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "drawing"
+        },
+        {
+            "end": 50.69728,
+            "alignedWord": "THE",
+            "start": 50.61746,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 50.92676,
+            "alignedWord": "LARGE",
+            "start": 50.69728,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "large"
+        },
+        {
+            "end": 51.66508,
+            "alignedWord": "INTESTINES",
+            "start": 50.92676,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "intestines,"
+        },
+        {
+            "end": 51.95442,
+            "alignedWord": "ALS-",
+            "start": 51.66508,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "als-,"
+        },
+        {
+            "end": 52.20385,
+            "alignedWord": "ALSO",
+            "start": 51.95442,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "also"
+        },
+        {
+            "end": 52.51315,
+            "alignedWord": "REFERRED",
+            "start": 52.20385,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "referred"
+        },
+        {
+            "end": 52.60295,
+            "alignedWord": "TO",
+            "start": 52.51315,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 52.77256,
+            "alignedWord": "AS",
+            "start": 52.60295,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "as"
+        },
+        {
+            "end": 52.83243,
+            "alignedWord": "THE",
+            "start": 52.77256,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 53.33129,
+            "alignedWord": "COLON",
+            "start": 52.83243,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colon."
+        },
+        {
+            "start": 53.33129,
+            "end": 53.79025,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 54.03968,
+            "alignedWord": "THESE",
+            "start": 53.79025,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "These"
+        },
+        {
+            "end": 54.32902,
+            "alignedWord": "RED",
+            "start": 54.03968,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "red"
+        },
+        {
+            "end": 55.03741,
+            "alignedWord": "MUSHY LOOKING",
+            "start": 54.32902,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "mushy-looking"
+        },
+        {
+            "end": 55.35669,
+            "alignedWord": "THINGS",
+            "start": 55.03741,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "things"
+        },
+        {
+            "end": 55.91542,
+            "alignedWord": "REPRESENTS",
+            "start": 55.35669,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "represents"
+        },
+        {
+            "end": 56.00522,
+            "alignedWord": "A",
+            "start": 55.91542,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 56.6737,
+            "alignedWord": "TUMOR",
+            "start": 56.00522,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor."
+        },
+        {
+            "start": 56.6737,
+            "end": 58.01066,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 58.30998,
+            "alignedWord": "TUMOR",
+            "start": 58.01066,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "\"Tumor\""
+        },
+        {
+            "end": 59.03832,
+            "alignedWord": "REFERS",
+            "start": 58.30998,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "refers"
+        },
+        {
+            "end": 59.74671,
+            "alignedWord": "TO",
+            "start": 59.03832,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "start": 59.74671,
+            "end": 59.87642,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 60.41519,
+            "alignedWord": "SOME",
+            "start": 59.87642,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "some"
+        },
+        {
+            "end": 60.70454,
+            "alignedWord": "FORM",
+            "start": 60.41519,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "form"
+        },
+        {
+            "end": 60.84422,
+            "alignedWord": "OF",
+            "start": 60.70454,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 61.16349,
+            "alignedWord": "NEW",
+            "start": 60.84422,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "new"
+        },
+        {
+            "end": 61.62245,
+            "alignedWord": "GROWTH",
+            "start": 61.16349,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "growth."
+        },
+        {
+            "start": 61.62245,
+            "end": 62.261,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 62.45057,
+            "alignedWord": "BUT",
+            "start": 62.261,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "end": 62.76984,
+            "alignedWord": "WHEN",
+            "start": 62.45057,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "when"
+        },
+        {
+            "end": 63.26871,
+            "alignedWord": "DEALING",
+            "start": 62.76984,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "dealing"
+        },
+        {
+            "end": 63.39841,
+            "alignedWord": "WITH",
+            "start": 63.26871,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "end": 63.91723,
+            "alignedWord": "CANCER",
+            "start": 63.39841,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 64.17664,
+            "alignedWord": "LIKE",
+            "start": 63.91723,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "end": 64.76531,
+            "alignedWord": "TUMORS",
+            "start": 64.17664,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors,"
+        },
+        {
+            "end": 64.84512,
+            "alignedWord": "IT",
+            "start": 64.76531,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 65.05465,
+            "alignedWord": "IS",
+            "start": 64.84512,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 65.34399,
+            "alignedWord": "BETTER",
+            "start": 65.05465,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "better"
+        },
+        {
+            "end": 65.54354,
+            "alignedWord": "TO",
+            "start": 65.34399,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 66.15215,
+            "alignedWord": "REFER",
+            "start": 65.54354,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "refer"
+        },
+        {
+            "end": 66.45147,
+            "alignedWord": "TO",
+            "start": 66.15215,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 67.29955,
+            "alignedWord": "TUMORS",
+            "start": 66.45147,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "start": 67.29955,
+            "end": 67.73855,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 68.0678,
+            "alignedWord": "AS",
+            "start": 67.73855,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "as"
+        },
+        {
+            "end": 69.0356,
+            "alignedWord": "NEOPLASIA",
+            "start": 68.0678,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "neoplasia,"
+        },
+        {
+            "start": 69.0356,
+            "end": 69.6542,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 70.16304,
+            "alignedWord": "WHICH",
+            "start": 69.6542,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "which"
+        },
+        {
+            "end": 70.6619,
+            "alignedWord": "MEANS",
+            "start": 70.16304,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "means"
+        },
+        {
+            "start": 70.6619,
+            "end": 70.78163,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 71.09093,
+            "alignedWord": "NEW",
+            "start": 70.78163,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "new"
+        },
+        {
+            "end": 71.5,
+            "alignedWord": "GROWTH",
+            "start": 71.09093,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "growth."
+        },
+        {
+            "start": 71.5,
+            "end": 72.78707,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 73.07642,
+            "alignedWord": "BUT",
+            "start": 72.78707,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "end": 73.42562,
+            "alignedWord": "EITHER",
+            "start": 73.07642,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "either"
+        },
+        {
+            "end": 73.83469,
+            "alignedWord": "WAY",
+            "start": 73.42562,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "way,"
+        },
+        {
+            "start": 73.83469,
+            "end": 73.9644,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 74.6229,
+            "alignedWord": "TUMOR",
+            "start": 73.9644,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 74.75261,
+            "alignedWord": "AND",
+            "start": 74.6229,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 75.52086,
+            "alignedWord": "NEOPLASIA",
+            "start": 74.75261,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "neoplasia"
+        },
+        {
+            "end": 75.83016,
+            "alignedWord": "MEAN",
+            "start": 75.52086,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "mean"
+        },
+        {
+            "end": 75.89002,
+            "alignedWord": "THE",
+            "start": 75.83016,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 76.2093,
+            "alignedWord": "SAME",
+            "start": 75.89002,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "same"
+        },
+        {
+            "end": 76.53855,
+            "alignedWord": "THING",
+            "start": 76.2093,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "thing,"
+        },
+        {
+            "start": 76.53855,
+            "end": 76.71814,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 77.19705,
+            "alignedWord": "WHICH",
+            "start": 76.71814,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "which"
+        },
+        {
+            "end": 77.3966,
+            "alignedWord": "MEANS",
+            "start": 77.19705,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "means"
+        },
+        {
+            "end": 77.55624,
+            "alignedWord": "NEW",
+            "start": 77.3966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "new"
+        },
+        {
+            "end": 77.93537,
+            "alignedWord": "GROWTH",
+            "start": 77.55624,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "growth."
+        },
+        {
+            "start": 77.93537,
+            "end": 78.1449,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 78.2746,
+            "alignedWord": "BUT",
+            "start": 78.1449,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "end": 78.38435,
+            "alignedWord": "IN",
+            "start": 78.2746,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 78.59388,
+            "alignedWord": "THIS",
+            "start": 78.38435,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 79.07279,
+            "alignedWord": "VIDEO",
+            "start": 78.59388,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "video,"
+        },
+        {
+            "end": 79.15261,
+            "alignedWord": "I",
+            "start": 79.07279,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "I"
+        },
+        {
+            "end": 79.44195,
+            "alignedWord": "WILL",
+            "start": 79.15261,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "end": 80.03061,
+            "alignedWord": "USE",
+            "start": 79.44195,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "use"
+        },
+        {
+            "end": 80.12041,
+            "alignedWord": "THE",
+            "start": 80.03061,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 80.71905,
+            "alignedWord": "WORD",
+            "start": 80.12041,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "word"
+        },
+        {
+            "start": 80.71905,
+            "end": 80.84875,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 81.32766,
+            "alignedWord": "TUMORS",
+            "start": 80.84875,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 81.63696,
+            "alignedWord": "MORE",
+            "start": 81.32766,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "more,"
+        },
+        {
+            "end": 81.9263,
+            "alignedWord": "RATHER",
+            "start": 81.63696,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "rather"
+        },
+        {
+            "end": 82.05601,
+            "alignedWord": "THAN",
+            "start": 81.9263,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "than"
+        },
+        {
+            "end": 82.73447,
+            "alignedWord": "NEOPLASIA",
+            "start": 82.05601,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "neoplasia."
+        },
+        {
+            "start": 82.73447,
+            "end": 84.74989,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 84.96939,
+            "alignedWord": "NOW",
+            "start": 84.74989,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Now,"
+        },
+        {
+            "end": 85.59796,
+            "alignedWord": "CANCER",
+            "start": 84.96939,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 85.70771,
+            "alignedWord": "IS",
+            "start": 85.59796,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 85.8873,
+            "alignedWord": "A",
+            "start": 85.70771,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "start": 85.8873,
+            "end": 85.98707,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 86.23651,
+            "alignedWord": "TYPE",
+            "start": 85.98707,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "type"
+        },
+        {
+            "end": 86.40612,
+            "alignedWord": "OF",
+            "start": 86.23651,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 86.99478,
+            "alignedWord": "TUMOR",
+            "start": 86.40612,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 87.22426,
+            "alignedWord": "THAT",
+            "start": 86.99478,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 87.78299,
+            "alignedWord": "USUALLY",
+            "start": 87.22426,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "usually"
+        },
+        {
+            "end": 88.36168,
+            "alignedWord": "GROWS",
+            "start": 87.78299,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "grows"
+        },
+        {
+            "end": 88.98027,
+            "alignedWord": "RAPIDLY",
+            "start": 88.36168,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "rapidly,"
+        },
+        {
+            "start": 88.98027,
+            "end": 89.22971,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 89.44921,
+            "alignedWord": "BUT",
+            "start": 89.22971,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "but"
+        },
+        {
+            "end": 89.79841,
+            "alignedWord": "NOT",
+            "start": 89.44921,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "not"
+        },
+        {
+            "end": 90.46689,
+            "alignedWord": "ALWAYS",
+            "start": 89.79841,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "always."
+        },
+        {
+            "start": 90.46689,
+            "end": 90.53673,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 91.11542,
+            "alignedWord": "SOME",
+            "start": 90.53673,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Some"
+        },
+        {
+            "start": 91.11542,
+            "end": 91.26508,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 91.89365,
+            "alignedWord": "TUMORS",
+            "start": 91.26508,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 92.15306,
+            "alignedWord": "ARE",
+            "start": 91.89365,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 92.56213,
+            "alignedWord": "SLOW",
+            "start": 92.15306,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "slow"
+        },
+        {
+            "end": 93.01111,
+            "alignedWord": "GROWING",
+            "start": 92.56213,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "growing,"
+        },
+        {
+            "start": 93.01111,
+            "end": 93.36032,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 93.72948,
+            "alignedWord": "SUCH",
+            "start": 93.36032,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "such"
+        },
+        {
+            "end": 94.03878,
+            "alignedWord": "AS",
+            "start": 93.72948,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "as"
+        },
+        {
+            "start": 94.03878,
+            "end": 94.36803,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 94.4678,
+            "alignedWord": "THE",
+            "start": 94.36803,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 94.75714,
+            "alignedWord": "ONES",
+            "start": 94.4678,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "ones"
+        },
+        {
+            "end": 95.03651,
+            "alignedWord": "THAT",
+            "start": 94.75714,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 95.37574,
+            "alignedWord": "OCCUR",
+            "start": 95.03651,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "occur"
+        },
+        {
+            "end": 95.47551,
+            "alignedWord": "IN",
+            "start": 95.37574,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 95.56531,
+            "alignedWord": "THE",
+            "start": 95.47551,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 96.24376,
+            "alignedWord": "LUNGS",
+            "start": 95.56531,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lungs."
+        },
+        {
+            "start": 96.24376,
+            "end": 98.84785,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 99.3068,
+            "alignedWord": "ANOTHER",
+            "start": 98.84785,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Another"
+        },
+        {
+            "end": 99.85556,
+            "alignedWord": "FUNDAMENTAL",
+            "start": 99.3068,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "fundamental"
+        },
+        {
+            "end": 99.98526,
+            "alignedWord": "THING",
+            "start": 99.85556,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "thing"
+        },
+        {
+            "end": 100.12494,
+            "alignedWord": "TO",
+            "start": 99.98526,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 100.43424,
+            "alignedWord": "TAKE",
+            "start": 100.12494,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "take"
+        },
+        {
+            "end": 100.78345,
+            "alignedWord": "IN",
+            "start": 100.43424,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 100.94308,
+            "alignedWord": "IS",
+            "start": 100.78345,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 101.09274,
+            "alignedWord": "THAT",
+            "start": 100.94308,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 101.23243,
+            "alignedWord": "THE",
+            "start": 101.09274,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 101.95079,
+            "alignedWord": "TERM",
+            "start": 101.23243,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "term"
+        },
+        {
+            "start": 101.95079,
+            "end": 102.09048,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 102.77891,
+            "alignedWord": "CANCER",
+            "start": 102.09048,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "\"cancer\""
+        },
+        {
+            "start": 102.77891,
+            "end": 103.19796,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 103.76667,
+            "alignedWord": "REFERS",
+            "start": 103.19796,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "refers"
+        },
+        {
+            "end": 103.94626,
+            "alignedWord": "TO",
+            "start": 103.76667,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 104.03605,
+            "alignedWord": "A",
+            "start": 103.94626,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 105.00385,
+            "alignedWord": "MALIGNANT",
+            "start": 104.03605,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 105.41293,
+            "alignedWord": "TUMOR",
+            "start": 105.00385,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "start": 105.41293,
+            "end": 105.60249,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 105.79206,
+            "alignedWord": "AND",
+            "start": 105.60249,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 106.1712,
+            "alignedWord": "NOT",
+            "start": 105.79206,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "not"
+        },
+        {
+            "end": 106.23107,
+            "alignedWord": "A",
+            "start": 106.1712,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 106.56032,
+            "alignedWord": "BENIGN",
+            "start": 106.23107,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign"
+        },
+        {
+            "end": 107.11905,
+            "alignedWord": "TUMOR",
+            "start": 106.56032,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor."
+        },
+        {
+            "start": 107.11905,
+            "end": 107.67778,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 107.81746,
+            "alignedWord": "BUT",
+            "start": 107.67778,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "end": 107.93719,
+            "alignedWord": "WHAT",
+            "start": 107.81746,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "what"
+        },
+        {
+            "end": 108.05692,
+            "alignedWord": "IS",
+            "start": 107.93719,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 108.21655,
+            "alignedWord": "THE",
+            "start": 108.05692,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 108.79524,
+            "alignedWord": "DIFFERENCE",
+            "start": 108.21655,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "difference"
+        },
+        {
+            "end": 109.28413,
+            "alignedWord": "BETWEEN",
+            "start": 108.79524,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "between"
+        },
+        {
+            "start": 109.28413,
+            "end": 109.43379,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 109.52358,
+            "alignedWord": "A",
+            "start": 109.43379,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 110.15215,
+            "alignedWord": "MALIGNANT",
+            "start": 109.52358,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 110.4415,
+            "alignedWord": "TUMOR",
+            "start": 110.15215,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 110.58118,
+            "alignedWord": "AND",
+            "start": 110.4415,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 110.64104,
+            "alignedWord": "A",
+            "start": 110.58118,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 111.12993,
+            "alignedWord": "BENIGN",
+            "start": 110.64104,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign"
+        },
+        {
+            "end": 111.33946,
+            "alignedWord": "ONE",
+            "start": 111.12993,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "one?"
+        },
+        {
+            "start": 111.33946,
+            "end": 112.11769,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 112.27732,
+            "alignedWord": "WELL",
+            "start": 112.11769,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Well,"
+        },
+        {
+            "end": 112.42698,
+            "alignedWord": "LET'S",
+            "start": 112.27732,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "start": 112.42698,
+            "end": 112.46689,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 112.5966,
+            "alignedWord": "HAVE",
+            "start": 112.46689,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 112.64649,
+            "alignedWord": "A",
+            "start": 112.5966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 113.09546,
+            "alignedWord": "CLOSER",
+            "start": 112.64649,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "closer"
+        },
+        {
+            "end": 113.61429,
+            "alignedWord": "LOOK",
+            "start": 113.09546,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "look"
+        },
+        {
+            "end": 113.76395,
+            "alignedWord": "AT",
+            "start": 113.61429,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "end": 113.82381,
+            "alignedWord": "THE",
+            "start": 113.76395,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 114.46236,
+            "alignedWord": "COLON",
+            "start": 113.82381,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colon"
+        },
+        {
+            "end": 114.90136,
+            "alignedWord": "TUMORS",
+            "start": 114.46236,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 115.27052,
+            "alignedWord": "HERE",
+            "start": 114.90136,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "end": 115.39025,
+            "alignedWord": "AND",
+            "start": 115.27052,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 115.84921,
+            "alignedWord": "SEE",
+            "start": 115.39025,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "see"
+        },
+        {
+            "end": 115.90907,
+            "alignedWord": "IF",
+            "start": 115.84921,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "if"
+        },
+        {
+            "end": 116.0288,
+            "alignedWord": "WE",
+            "start": 115.90907,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 116.17846,
+            "alignedWord": "CAN",
+            "start": 116.0288,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 117.04649,
+            "alignedWord": "DIFFERENTIATE",
+            "start": 116.17846,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "differentiate"
+        },
+        {
+            "end": 117.17619,
+            "alignedWord": "IT",
+            "start": 117.04649,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it."
+        },
+        {
+            "start": 117.17619,
+            "end": 118.78254,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 119.01202,
+            "alignedWord": "SO",
+            "start": 118.78254,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "end": 119.31134,
+            "alignedWord": "HERE",
+            "start": 119.01202,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "end": 119.39116,
+            "alignedWord": "WE",
+            "start": 119.31134,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 119.53084,
+            "alignedWord": "HAVE",
+            "start": 119.39116,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 119.56077,
+            "alignedWord": "A",
+            "start": 119.53084,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 120.1195,
+            "alignedWord": "SECTION",
+            "start": 119.56077,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "section"
+        },
+        {
+            "end": 120.23923,
+            "alignedWord": "OF",
+            "start": 120.1195,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 120.30907,
+            "alignedWord": "THE",
+            "start": 120.23923,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 120.88776,
+            "alignedWord": "COLON",
+            "start": 120.30907,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colon."
+        },
+        {
+            "start": 120.88776,
+            "end": 124.14036,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 124.61927,
+            "alignedWord": "THIS",
+            "start": 124.14036,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "This"
+        },
+        {
+            "end": 125.02834,
+            "alignedWord": "TUMOR",
+            "start": 124.61927,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 125.65692,
+            "alignedWord": "HERE",
+            "start": 125.02834,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here,"
+        },
+        {
+            "start": 125.65692,
+            "end": 125.87642,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 126.1059,
+            "alignedWord": "LET'S",
+            "start": 125.87642,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "end": 126.28549,
+            "alignedWord": "JUST",
+            "start": 126.1059,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "just"
+        },
+        {
+            "end": 126.5449,
+            "alignedWord": "SAY",
+            "start": 126.28549,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "say,"
+        },
+        {
+            "end": 126.69456,
+            "alignedWord": "WILL",
+            "start": 126.5449,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "end": 127.26327,
+            "alignedWord": "REPRESENT",
+            "start": 126.69456,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "represent"
+        },
+        {
+            "end": 127.4229,
+            "alignedWord": "A",
+            "start": 127.26327,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 127.85193,
+            "alignedWord": "BENIGN",
+            "start": 127.4229,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign"
+        },
+        {
+            "end": 128.33084,
+            "alignedWord": "TUMOR",
+            "start": 127.85193,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor."
+        },
+        {
+            "start": 128.33084,
+            "end": 129.46825,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 129.81746,
+            "alignedWord": "NOW",
+            "start": 129.46825,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Now,"
+        },
+        {
+            "end": 129.84739,
+            "alignedWord": "A",
+            "start": 129.81746,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 130.22653,
+            "alignedWord": "BENIGN",
+            "start": 129.84739,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign"
+        },
+        {
+            "end": 130.7254,
+            "alignedWord": "TUMOR",
+            "start": 130.22653,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 130.83515,
+            "alignedWord": "IS",
+            "start": 130.7254,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 131.79297,
+            "alignedWord": "SLOW GROWING",
+            "start": 130.83515,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "slow-growing."
+        },
+        {
+            "start": 131.79297,
+            "end": 132.89048,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 133.02018,
+            "alignedWord": "IT",
+            "start": 132.89048,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "It"
+        },
+        {
+            "end": 133.15986,
+            "alignedWord": "IS",
+            "start": 133.02018,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 133.80839,
+            "alignedWord": "RELATIVELY",
+            "start": 133.15986,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "relatively"
+        },
+        {
+            "end": 134.51678,
+            "alignedWord": "LOCALIZED",
+            "start": 133.80839,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "localized,"
+        },
+        {
+            "end": 134.80612,
+            "alignedWord": "AND",
+            "start": 134.51678,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 134.80612,
+            "end": 134.9458,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 135.24512,
+            "alignedWord": "HAS",
+            "start": 134.9458,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "has"
+        },
+        {
+            "end": 135.31497,
+            "alignedWord": "A",
+            "start": 135.24512,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 136.39252,
+            "alignedWord": "WELL DEFINED",
+            "start": 135.31497,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "well-defined"
+        },
+        {
+            "end": 137.02109,
+            "alignedWord": "CAPSULE",
+            "start": 136.39252,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "capsule,"
+        },
+        {
+            "start": 137.02109,
+            "end": 137.1907,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 137.40023,
+            "alignedWord": "SO",
+            "start": 137.1907,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "so"
+        },
+        {
+            "end": 137.47007,
+            "alignedWord": "IT",
+            "start": 137.40023,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 137.68957,
+            "alignedWord": "DOESN'T",
+            "start": 137.47007,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "doesn't"
+        },
+        {
+            "end": 138.09864,
+            "alignedWord": "REALLY",
+            "start": 137.68957,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "really"
+        },
+        {
+            "end": 138.47778,
+            "alignedWord": "BREAK",
+            "start": 138.09864,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "break"
+        },
+        {
+            "end": 138.76712,
+            "alignedWord": "OFF",
+            "start": 138.47778,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "off."
+        },
+        {
+            "start": 138.76712,
+            "end": 138.86689,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 139.07642,
+            "alignedWord": "IT'S",
+            "start": 138.86689,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "It's"
+        },
+        {
+            "end": 139.46553,
+            "alignedWord": "THERE",
+            "start": 139.07642,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "there."
+        },
+        {
+            "start": 139.46553,
+            "end": 141.14172,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 141.2415,
+            "alignedWord": "IT",
+            "start": 141.14172,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "It"
+        },
+        {
+            "end": 141.63061,
+            "alignedWord": "ALS-",
+            "start": 141.2415,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "als-,"
+        },
+        {
+            "end": 142.18934,
+            "alignedWord": "UM",
+            "start": 141.63061,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "um,"
+        },
+        {
+            "start": 142.18934,
+            "end": 142.48866,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 143.28685,
+            "alignedWord": "THE",
+            "start": 142.48866,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 143.65601,
+            "alignedWord": "COLON",
+            "start": 143.28685,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colon"
+        },
+        {
+            "end": 144.07506,
+            "alignedWord": "NATURALLY",
+            "start": 143.65601,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "naturally"
+        },
+        {
+            "end": 144.30454,
+            "alignedWord": "HAS",
+            "start": 144.07506,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "has"
+        },
+        {
+            "end": 144.53401,
+            "alignedWord": "A",
+            "start": 144.30454,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 144.96304,
+            "alignedWord": "BLOOD",
+            "start": 144.53401,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "blood,"
+        },
+        {
+            "end": 145.26236,
+            "alignedWord": "UH",
+            "start": 144.96304,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "uh,"
+        },
+        {
+            "end": 145.49184,
+            "alignedWord": "BLOOD",
+            "start": 145.26236,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "blood"
+        },
+        {
+            "end": 145.80113,
+            "alignedWord": "SUPPLY",
+            "start": 145.49184,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "supply"
+        },
+        {
+            "end": 146.03061,
+            "alignedWord": "AND",
+            "start": 145.80113,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 146.25011,
+            "alignedWord": "NERVE",
+            "start": 146.03061,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "nerve"
+        },
+        {
+            "end": 146.93855,
+            "alignedWord": "INNERVATION",
+            "start": 146.25011,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "innervation"
+        },
+        {
+            "start": 146.93855,
+            "end": 147.27778,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 147.5771,
+            "alignedWord": "HERE",
+            "start": 147.27778,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here,"
+        },
+        {
+            "end": 147.93628,
+            "alignedWord": "SHOWN",
+            "start": 147.5771,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "shown"
+        },
+        {
+            "end": 148.2356,
+            "alignedWord": "HERE",
+            "start": 147.93628,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here."
+        },
+        {
+            "start": 148.2356,
+            "end": 149.05374,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 149.23333,
+            "alignedWord": "OF",
+            "start": 149.05374,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Of"
+        },
+        {
+            "end": 149.68231,
+            "alignedWord": "COURSE",
+            "start": 149.23333,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "course,"
+        },
+        {
+            "end": 149.81202,
+            "alignedWord": "A",
+            "start": 149.68231,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 150.27098,
+            "alignedWord": "BENIGN",
+            "start": 149.81202,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign"
+        },
+        {
+            "end": 150.7,
+            "alignedWord": "TUMOR",
+            "start": 150.27098,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 150.90952,
+            "alignedWord": "IS",
+            "start": 150.7,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 151.32857,
+            "alignedWord": "NOT",
+            "start": 150.90952,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "not"
+        },
+        {
+            "end": 151.62789,
+            "alignedWord": "VERY",
+            "start": 151.32857,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "very"
+        },
+        {
+            "end": 152.34626,
+            "alignedWord": "DANGEROUS",
+            "start": 151.62789,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "dangerous."
+        },
+        {
+            "start": 152.34626,
+            "end": 152.56576,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 152.91497,
+            "alignedWord": "BUT",
+            "start": 152.56576,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "end": 153.09456,
+            "alignedWord": "AS",
+            "start": 152.91497,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "as"
+        },
+        {
+            "end": 153.37392,
+            "alignedWord": "IT",
+            "start": 153.09456,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 153.75306,
+            "alignedWord": "GROWS",
+            "start": 153.37392,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "grows,"
+        },
+        {
+            "end": 153.88277,
+            "alignedWord": "IT",
+            "start": 153.75306,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 154.15215,
+            "alignedWord": "CAN",
+            "start": 153.88277,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 154.661,
+            "alignedWord": "INCREASE",
+            "start": 154.15215,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "increase"
+        },
+        {
+            "end": 154.74082,
+            "alignedWord": "IN",
+            "start": 154.661,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 155.48912,
+            "alignedWord": "SEVERITY",
+            "start": 154.74082,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "severity"
+        },
+        {
+            "end": 155.87823,
+            "alignedWord": "BECAUSE",
+            "start": 155.48912,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "because"
+        },
+        {
+            "start": 155.87823,
+            "end": 156.12766,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 156.29728,
+            "alignedWord": "IT",
+            "start": 156.12766,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 156.40703,
+            "alignedWord": "CAN",
+            "start": 156.29728,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 156.77619,
+            "alignedWord": "START",
+            "start": 156.40703,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "start"
+        },
+        {
+            "end": 157.31497,
+            "alignedWord": "PRESSING",
+            "start": 156.77619,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "pressing"
+        },
+        {
+            "end": 157.75397,
+            "alignedWord": "AGAINST",
+            "start": 157.31497,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "against"
+        },
+        {
+            "start": 157.75397,
+            "end": 157.91361,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 158.30272,
+            "alignedWord": "NERVE",
+            "start": 157.91361,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "nerve"
+        },
+        {
+            "end": 158.94127,
+            "alignedWord": "FIBERS",
+            "start": 158.30272,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "fibers,"
+        },
+        {
+            "end": 159.13084,
+            "alignedWord": "FOR",
+            "start": 158.94127,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "for"
+        },
+        {
+            "end": 159.68957,
+            "alignedWord": "EXAMPLE",
+            "start": 159.13084,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "example,"
+        },
+        {
+            "end": 159.90907,
+            "alignedWord": "AND",
+            "start": 159.68957,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 159.90907,
+            "end": 160.00884,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 160.26825,
+            "alignedWord": "CAN",
+            "start": 160.00884,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 160.6873,
+            "alignedWord": "PRODUCE",
+            "start": 160.26825,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "produce"
+        },
+        {
+            "end": 161.04649,
+            "alignedWord": "PAIN",
+            "start": 160.6873,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "pain."
+        },
+        {
+            "start": 161.04649,
+            "end": 161.6551,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 162.53311,
+            "alignedWord": "BUT",
+            "start": 161.6551,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "start": 162.53311,
+            "end": 162.58299,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 162.83243,
+            "alignedWord": "OTHER",
+            "start": 162.58299,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "other"
+        },
+        {
+            "end": 163.022,
+            "alignedWord": "THAN",
+            "start": 162.83243,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "than"
+        },
+        {
+            "end": 163.41111,
+            "alignedWord": "THAT",
+            "start": 163.022,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that,"
+        },
+        {
+            "end": 163.74036,
+            "alignedWord": "BENIGN",
+            "start": 163.41111,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign"
+        },
+        {
+            "end": 164.23923,
+            "alignedWord": "TUMORS",
+            "start": 163.74036,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 164.40884,
+            "alignedWord": "ARE",
+            "start": 164.23923,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 164.78798,
+            "alignedWord": "NOT",
+            "start": 164.40884,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "not"
+        },
+        {
+            "start": 164.78798,
+            "end": 165.04739,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 165.73583,
+            "alignedWord": "CANCEROUS",
+            "start": 165.04739,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancerous."
+        },
+        {
+            "start": 165.73583,
+            "end": 169.76667,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 169.99615,
+            "alignedWord": "NOW",
+            "start": 169.76667,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Now"
+        },
+        {
+            "end": 170.2356,
+            "alignedWord": "LET'S",
+            "start": 169.99615,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "end": 170.38526,
+            "alignedWord": "LOOK",
+            "start": 170.2356,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "look"
+        },
+        {
+            "end": 170.46508,
+            "alignedWord": "AT",
+            "start": 170.38526,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "end": 170.50499,
+            "alignedWord": "A",
+            "start": 170.46508,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 171.23333,
+            "alignedWord": "MALIGNANT",
+            "start": 170.50499,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 171.57256,
+            "alignedWord": "TUMOR",
+            "start": 171.23333,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor,"
+        },
+        {
+            "end": 171.822,
+            "alignedWord": "WHICH",
+            "start": 171.57256,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "which"
+        },
+        {
+            "start": 171.822,
+            "end": 171.84195,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 171.98163,
+            "alignedWord": "CAN",
+            "start": 171.84195,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 172.35079,
+            "alignedWord": "START",
+            "start": 171.98163,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "start"
+        },
+        {
+            "end": 172.49048,
+            "alignedWord": "OFF",
+            "start": 172.35079,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "off"
+        },
+        {
+            "end": 172.75986,
+            "alignedWord": "FAIRLY",
+            "start": 172.49048,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "fairly"
+        },
+        {
+            "end": 173.36848,
+            "alignedWord": "SMALL",
+            "start": 172.75986,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "small."
+        },
+        {
+            "start": 173.36848,
+            "end": 175.04467,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 175.24422,
+            "alignedWord": "BUT",
+            "start": 175.04467,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "But"
+        },
+        {
+            "end": 175.52358,
+            "alignedWord": "AS",
+            "start": 175.24422,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "as"
+        },
+        {
+            "end": 175.70317,
+            "alignedWord": "IT",
+            "start": 175.52358,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 176.54127,
+            "alignedWord": "GROWS",
+            "start": 175.70317,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "grows,"
+        },
+        {
+            "end": 176.63107,
+            "alignedWord": "THE",
+            "start": 176.54127,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 177.69864,
+            "alignedWord": "SEVERITY",
+            "start": 176.63107,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "severity,"
+        },
+        {
+            "end": 178.1576,
+            "alignedWord": "UH",
+            "start": 177.69864,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "uh,"
+        },
+        {
+            "end": 179.09546,
+            "alignedWord": "INCREASES",
+            "start": 178.1576,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "increases"
+        },
+        {
+            "start": 179.09546,
+            "end": 179.21519,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 180.43243,
+            "alignedWord": "DRASTICALLYTHE",
+            "start": 179.21519,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "drastically.The"
+        },
+        {
+            "start": 180.43243,
+            "end": 181.49002,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 182.44785,
+            "alignedWord": "TUMOR",
+            "start": 181.49002,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 182.64739,
+            "alignedWord": "IS",
+            "start": 182.44785,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is..."
+        },
+        {
+            "end": 183.1263,
+            "alignedWord": "THIS",
+            "start": 182.64739,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "This"
+        },
+        {
+            "end": 183.61519,
+            "alignedWord": "MALIGNANT",
+            "start": 183.1263,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 183.88458,
+            "alignedWord": "TUMOR",
+            "start": 183.61519,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor,"
+        },
+        {
+            "end": 184.03424,
+            "alignedWord": "IS",
+            "start": 183.88458,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 184.44331,
+            "alignedWord": "NOT",
+            "start": 184.03424,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "not"
+        },
+        {
+            "end": 185.1517,
+            "alignedWord": "CONTAINED",
+            "start": 184.44331,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "contained,"
+        },
+        {
+            "end": 185.31134,
+            "alignedWord": "AND",
+            "start": 185.1517,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 185.461,
+            "alignedWord": "CAN",
+            "start": 185.31134,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 185.90998,
+            "alignedWord": "START",
+            "start": 185.461,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "start"
+        },
+        {
+            "end": 186.34898,
+            "alignedWord": "DIGGING",
+            "start": 185.90998,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "digging"
+        },
+        {
+            "end": 187.36667,
+            "alignedWord": "UNDERNEATH",
+            "start": 186.34898,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "underneath"
+        },
+        {
+            "start": 187.36667,
+            "end": 187.55624,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 187.66599,
+            "alignedWord": "THE",
+            "start": 187.55624,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 188.12494,
+            "alignedWord": "LAYERS",
+            "start": 187.66599,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "layers"
+        },
+        {
+            "end": 188.30454,
+            "alignedWord": "OF",
+            "start": 188.12494,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 188.8932,
+            "alignedWord": "TISSUES",
+            "start": 188.30454,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tissues"
+        },
+        {
+            "end": 189.07279,
+            "alignedWord": "LIKE",
+            "start": 188.8932,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "end": 189.68141,
+            "alignedWord": "SO",
+            "start": 189.07279,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "so."
+        },
+        {
+            "start": 189.68141,
+            "end": 190.72902,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 190.97846,
+            "alignedWord": "AND",
+            "start": 190.72902,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 191.40748,
+            "alignedWord": "DURING",
+            "start": 190.97846,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "during"
+        },
+        {
+            "end": 191.63696,
+            "alignedWord": "THIS",
+            "start": 191.40748,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 192.06599,
+            "alignedWord": "TIME",
+            "start": 191.63696,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "time,"
+        },
+        {
+            "end": 192.1458,
+            "alignedWord": "THE",
+            "start": 192.06599,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 192.71451,
+            "alignedWord": "TUMOR",
+            "start": 192.1458,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 192.91406,
+            "alignedWord": "WILL",
+            "start": 192.71451,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "end": 193.40295,
+            "alignedWord": "PRODUCE",
+            "start": 192.91406,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "produce"
+        },
+        {
+            "end": 194.34082,
+            "alignedWord": "CHEMICALS",
+            "start": 193.40295,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "chemicals"
+        },
+        {
+            "end": 194.46054,
+            "alignedWord": "THAT",
+            "start": 194.34082,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 194.64014,
+            "alignedWord": "WILL",
+            "start": 194.46054,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "end": 194.94943,
+            "alignedWord": "CAUSE",
+            "start": 194.64014,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cause"
+        },
+        {
+            "end": 195.84739,
+            "alignedWord": "SURROUNDING",
+            "start": 194.94943,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "surrounding"
+        },
+        {
+            "end": 196.05692,
+            "alignedWord": "BLOOD",
+            "start": 195.84739,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "blood"
+        },
+        {
+            "end": 196.42608,
+            "alignedWord": "VESSELS",
+            "start": 196.05692,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "vessels"
+        },
+        {
+            "end": 196.62562,
+            "alignedWord": "TO",
+            "start": 196.42608,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 197.23424,
+            "alignedWord": "GROW",
+            "start": 196.62562,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "grow."
+        },
+        {
+            "start": 197.23424,
+            "end": 198.45147,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 198.62109,
+            "alignedWord": "AND",
+            "start": 198.45147,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 198.92041,
+            "alignedWord": "SO",
+            "start": 198.62109,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "so"
+        },
+        {
+            "end": 199.1898,
+            "alignedWord": "BIG",
+            "start": 198.92041,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "big"
+        },
+        {
+            "end": 199.64875,
+            "alignedWord": "TUMORS",
+            "start": 199.1898,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 199.88821,
+            "alignedWord": "OFTEN",
+            "start": 199.64875,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "often"
+        },
+        {
+            "end": 200.2873,
+            "alignedWord": "HAVE",
+            "start": 199.88821,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "start": 200.2873,
+            "end": 200.47687,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 201.21519,
+            "alignedWord": "MASSIVE",
+            "start": 200.47687,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "massive"
+        },
+        {
+            "start": 201.21519,
+            "end": 201.38481,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 201.77392,
+            "alignedWord": "BLOOD",
+            "start": 201.38481,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "blood"
+        },
+        {
+            "end": 202.24286,
+            "alignedWord": "SUPPLY",
+            "start": 201.77392,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "supply"
+        },
+        {
+            "start": 202.24286,
+            "end": 202.47234,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 202.69184,
+            "alignedWord": "TO",
+            "start": 202.47234,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 203.31043,
+            "alignedWord": "FEED",
+            "start": 202.69184,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "feed"
+        },
+        {
+            "start": 203.31043,
+            "end": 203.51995,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 203.60975,
+            "alignedWord": "THE",
+            "start": 203.51995,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 204.00884,
+            "alignedWord": "GROWING",
+            "start": 203.60975,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "growing"
+        },
+        {
+            "end": 204.34807,
+            "alignedWord": "NEED",
+            "start": 204.00884,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "need."
+        },
+        {
+            "start": 204.34807,
+            "end": 206.23379,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 206.86236,
+            "alignedWord": "SO",
+            "start": 206.23379,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "start": 206.86236,
+            "end": 206.95215,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 207.0619,
+            "alignedWord": "THE",
+            "start": 206.95215,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 207.57075,
+            "alignedWord": "MALIGNANT",
+            "start": 207.0619,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 208.01973,
+            "alignedWord": "TUMOR",
+            "start": 207.57075,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor"
+        },
+        {
+            "end": 208.24921,
+            "alignedWord": "IS",
+            "start": 208.01973,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 209.25692,
+            "alignedWord": "CHARACTERIZED",
+            "start": 208.24921,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "characterized,"
+        },
+        {
+            "start": 209.25692,
+            "end": 209.60612,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 210.1449,
+            "alignedWord": "UM",
+            "start": 209.60612,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "um,"
+        },
+        {
+            "start": 210.1449,
+            "end": 210.6737,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 211.41202,
+            "alignedWord": "BY",
+            "start": 210.6737,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "by,"
+        },
+        {
+            "start": 211.41202,
+            "end": 212.18027,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 212.55941,
+            "alignedWord": "FIRST",
+            "start": 212.18027,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "first"
+        },
+        {
+            "end": 212.65918,
+            "alignedWord": "OF",
+            "start": 212.55941,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 212.85873,
+            "alignedWord": "ALL",
+            "start": 212.65918,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "all,"
+        },
+        {
+            "end": 213.07823,
+            "alignedWord": "IT'S",
+            "start": 212.85873,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it's"
+        },
+        {
+            "start": 213.07823,
+            "end": 213.1381,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 213.96621,
+            "alignedWord": "CANCEROUS",
+            "start": 213.1381,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancerous."
+        },
+        {
+            "start": 213.96621,
+            "end": 214.35533,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 214.57483,
+            "alignedWord": "IT",
+            "start": 214.35533,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "It"
+        },
+        {
+            "end": 215.13356,
+            "alignedWord": "GROWS",
+            "start": 214.57483,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "grows"
+        },
+        {
+            "end": 215.84195,
+            "alignedWord": "RAPIDLY",
+            "start": 215.13356,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "rapidly."
+        },
+        {
+            "start": 215.84195,
+            "end": 215.92177,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 216.25102,
+            "alignedWord": "IT'S",
+            "start": 215.92177,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "It's"
+        },
+        {
+            "end": 217.4483,
+            "alignedWord": "UNCAPSULATED",
+            "start": 216.25102,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "uncapsulated,"
+        },
+        {
+            "start": 217.4483,
+            "end": 217.69773,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 218.07687,
+            "alignedWord": "AND",
+            "start": 217.69773,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 218.18662,
+            "alignedWord": "IT",
+            "start": 218.07687,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 218.60567,
+            "alignedWord": "CONSISTS",
+            "start": 218.18662,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "consists"
+        },
+        {
+            "end": 218.82517,
+            "alignedWord": "OF",
+            "start": 218.60567,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 219.18435,
+            "alignedWord": "DIFFERENT",
+            "start": 218.82517,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "different"
+        },
+        {
+            "end": 219.53356,
+            "alignedWord": "TYPES",
+            "start": 219.18435,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "types"
+        },
+        {
+            "end": 219.62336,
+            "alignedWord": "OF",
+            "start": 219.53356,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 220.16213,
+            "alignedWord": "CELLS",
+            "start": 219.62336,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cells"
+        },
+        {
+            "start": 220.16213,
+            "end": 220.49138,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 220.74082,
+            "alignedWord": "BECAUSE",
+            "start": 220.49138,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "because"
+        },
+        {
+            "end": 220.8805,
+            "alignedWord": "OF",
+            "start": 220.74082,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 221.23968,
+            "alignedWord": "VARIOUS",
+            "start": 220.8805,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "various"
+        },
+        {
+            "end": 222.05782,
+            "alignedWord": "MUTATIONS",
+            "start": 221.23968,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "mutations,"
+        },
+        {
+            "start": 222.05782,
+            "end": 222.3771,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 222.71633,
+            "alignedWord": "UM",
+            "start": 222.3771,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "um,"
+        },
+        {
+            "end": 222.84603,
+            "alignedWord": "THAT",
+            "start": 222.71633,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 223.23515,
+            "alignedWord": "OCCUR",
+            "start": 222.84603,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "occur."
+        },
+        {
+            "start": 223.23515,
+            "end": 225.61973,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 225.83923,
+            "alignedWord": "AND",
+            "start": 225.61973,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "And,"
+        },
+        {
+            "end": 226.0288,
+            "alignedWord": "OF",
+            "start": 225.83923,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 226.49773,
+            "alignedWord": "COURSE",
+            "start": 226.0288,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "course,"
+        },
+        {
+            "end": 226.70726,
+            "alignedWord": "WHEN",
+            "start": 226.49773,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "when"
+        },
+        {
+            "end": 226.82698,
+            "alignedWord": "I",
+            "start": 226.70726,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "I"
+        },
+        {
+            "end": 226.9966,
+            "alignedWord": "MEAN",
+            "start": 226.82698,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "mean"
+        },
+        {
+            "end": 227.02653,
+            "alignedWord": "A",
+            "start": 226.9966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 227.82472,
+            "alignedWord": "MALIGNANT",
+            "start": 227.02653,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 228.42336,
+            "alignedWord": "TUMOR",
+            "start": 227.82472,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor,"
+        },
+        {
+            "end": 228.56304,
+            "alignedWord": "I",
+            "start": 228.42336,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "I"
+        },
+        {
+            "end": 228.77256,
+            "alignedWord": "MEAN",
+            "start": 228.56304,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "mean"
+        },
+        {
+            "end": 229.2415,
+            "alignedWord": "MALIGNANT",
+            "start": 228.77256,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "end": 229.76032,
+            "alignedWord": "TUMORS",
+            "start": 229.2415,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 229.94989,
+            "alignedWord": "CAN",
+            "start": 229.76032,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 230.339,
+            "alignedWord": "ALSO",
+            "start": 229.94989,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "also"
+        },
+        {
+            "end": 230.81791,
+            "alignedWord": "BREAK",
+            "start": 230.339,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "break"
+        },
+        {
+            "end": 231.06735,
+            "alignedWord": "OFF",
+            "start": 230.81791,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "off"
+        },
+        {
+            "start": 231.06735,
+            "end": 231.86553,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 232.10499,
+            "alignedWord": "AND",
+            "start": 231.86553,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 232.10499,
+            "end": 232.24467,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 232.64376,
+            "alignedWord": "TRAVEL",
+            "start": 232.24467,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "travel"
+        },
+        {
+            "end": 232.91315,
+            "alignedWord": "TO",
+            "start": 232.64376,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 233.29229,
+            "alignedWord": "OTHER",
+            "start": 232.91315,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "other"
+        },
+        {
+            "end": 233.89093,
+            "alignedWord": "AREAS",
+            "start": 233.29229,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "areas"
+        },
+        {
+            "end": 234.13039,
+            "alignedWord": "OR",
+            "start": 233.89093,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "or"
+        },
+        {
+            "start": 234.13039,
+            "end": 234.18027,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 234.48957,
+            "alignedWord": "OTHER",
+            "start": 234.18027,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "other"
+        },
+        {
+            "end": 234.91859,
+            "alignedWord": "ORGANS",
+            "start": 234.48957,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "organs"
+        },
+        {
+            "end": 234.99841,
+            "alignedWord": "IN",
+            "start": 234.91859,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 235.05828,
+            "alignedWord": "THE",
+            "start": 234.99841,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 235.3576,
+            "alignedWord": "BODY",
+            "start": 235.05828,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "body"
+        },
+        {
+            "end": 235.47732,
+            "alignedWord": "AND",
+            "start": 235.3576,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 236.26553,
+            "alignedWord": "CAUSE",
+            "start": 235.47732,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cause"
+        },
+        {
+            "end": 236.69456,
+            "alignedWord": "TUMORS",
+            "start": 236.26553,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumors"
+        },
+        {
+            "end": 237.08367,
+            "alignedWord": "THERE",
+            "start": 236.69456,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "there."
+        },
+        {
+            "start": 237.08367,
+            "end": 237.97166,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 238.20113,
+            "alignedWord": "SO",
+            "start": 237.97166,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "end": 238.36077,
+            "alignedWord": "IT'S",
+            "start": 238.20113,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it's"
+        },
+        {
+            "end": 238.7,
+            "alignedWord": "VERY",
+            "start": 238.36077,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "very"
+        },
+        {
+            "end": 239.31859,
+            "alignedWord": "DANGEROUS",
+            "start": 238.7,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "dangerous."
+        },
+        {
+            "start": 239.31859,
+            "end": 240.52585,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 240.81519,
+            "alignedWord": "SO",
+            "start": 240.52585,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "end": 241.55351,
+            "alignedWord": "BENIGN",
+            "start": 240.81519,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "benign,"
+        },
+        {
+            "end": 241.99252,
+            "alignedWord": "NOT",
+            "start": 241.55351,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "not"
+        },
+        {
+            "end": 242.25193,
+            "alignedWord": "SO",
+            "start": 241.99252,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "so"
+        },
+        {
+            "end": 242.82063,
+            "alignedWord": "DANGEROUS",
+            "start": 242.25193,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "dangerous."
+        },
+        {
+            "end": 243.45918,
+            "alignedWord": "MALIGNANT",
+            "start": 242.82063,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Malignant,"
+        },
+        {
+            "start": 243.45918,
+            "end": 243.55896,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 243.85828,
+            "alignedWord": "VERY",
+            "start": 243.55896,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "very"
+        },
+        {
+            "end": 244.40703,
+            "alignedWord": "DANGEROUS",
+            "start": 243.85828,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "dangerous."
+        },
+        {
+            "start": 244.40703,
+            "end": 246.29274,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 246.622,
+            "alignedWord": "SO",
+            "start": 246.29274,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "end": 246.70181,
+            "alignedWord": "OFF",
+            "start": 246.622,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "off"
+        },
+        {
+            "end": 246.92132,
+            "alignedWord": "TO",
+            "start": 246.70181,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 246.96122,
+            "alignedWord": "A",
+            "start": 246.92132,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 247.32041,
+            "alignedWord": "DIFFERENT",
+            "start": 246.96122,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "different"
+        },
+        {
+            "end": 247.65964,
+            "alignedWord": "TOPIC",
+            "start": 247.32041,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "topic."
+        },
+        {
+            "end": 247.86916,
+            "alignedWord": "LET'S",
+            "start": 247.65964,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Let's"
+        },
+        {
+            "end": 248.01882,
+            "alignedWord": "LOOK",
+            "start": 247.86916,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "look"
+        },
+        {
+            "end": 248.09864,
+            "alignedWord": "AT",
+            "start": 248.01882,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "end": 248.3381,
+            "alignedWord": "SOME",
+            "start": 248.09864,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "some"
+        },
+        {
+            "end": 248.97664,
+            "alignedWord": "COMMONLY",
+            "start": 248.3381,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "commonly"
+        },
+        {
+            "end": 249.72494,
+            "alignedWord": "DIAGNOSED",
+            "start": 248.97664,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "diagnosed"
+        },
+        {
+            "start": 249.72494,
+            "end": 249.78481,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 250.50317,
+            "alignedWord": "CANCERS",
+            "start": 249.78481,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancers."
+        },
+        {
+            "start": 250.50317,
+            "end": 251.40113,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 251.60068,
+            "alignedWord": "SO",
+            "start": 251.40113,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "end": 252.07959,
+            "alignedWord": "HERE",
+            "start": 251.60068,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "end": 252.23923,
+            "alignedWord": "I",
+            "start": 252.07959,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "I"
+        },
+        {
+            "end": 252.29909,
+            "alignedWord": "AM",
+            "start": 252.23923,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "am"
+        },
+        {
+            "end": 252.63832,
+            "alignedWord": "DRAWING",
+            "start": 252.29909,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "drawing"
+        },
+        {
+            "end": 252.68821,
+            "alignedWord": "A",
+            "start": 252.63832,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 253.15714,
+            "alignedWord": "LUNG",
+            "start": 252.68821,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lung,"
+        },
+        {
+            "end": 253.40658,
+            "alignedWord": "BECAUSE",
+            "start": 253.15714,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "because"
+        },
+        {
+            "end": 253.48639,
+            "alignedWord": "THE",
+            "start": 253.40658,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 254.01519,
+            "alignedWord": "LUNG",
+            "start": 253.48639,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lung,"
+        },
+        {
+            "start": 254.01519,
+            "end": 254.30454,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 254.93311,
+            "alignedWord": "UM",
+            "start": 254.30454,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "um,"
+        },
+        {
+            "start": 254.93311,
+            "end": 255.22245,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 255.5517,
+            "alignedWord": "LUNG",
+            "start": 255.22245,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lung"
+        },
+        {
+            "end": 255.87098,
+            "alignedWord": "CANCERS",
+            "start": 255.5517,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancers"
+        },
+        {
+            "end": 255.92086,
+            "alignedWord": "ARE",
+            "start": 255.87098,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 255.9907,
+            "alignedWord": "THE",
+            "start": 255.92086,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 256.50952,
+            "alignedWord": "SECOND",
+            "start": 255.9907,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "second"
+        },
+        {
+            "end": 256.9585,
+            "alignedWord": "OR",
+            "start": 256.50952,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "or"
+        },
+        {
+            "end": 257.44739,
+            "alignedWord": "THIRD",
+            "start": 256.9585,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "third"
+        },
+        {
+            "end": 257.75669,
+            "alignedWord": "MOST",
+            "start": 257.44739,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "most"
+        },
+        {
+            "end": 258.13583,
+            "alignedWord": "COMMON",
+            "start": 257.75669,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "common"
+        },
+        {
+            "end": 258.78435,
+            "alignedWord": "DIAGNOSED",
+            "start": 258.13583,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "diagnosed"
+        },
+        {
+            "end": 259.12358,
+            "alignedWord": "CANCERS",
+            "start": 258.78435,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancers"
+        },
+        {
+            "end": 259.32313,
+            "alignedWord": "IN",
+            "start": 259.12358,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 259.55261,
+            "alignedWord": "MALE",
+            "start": 259.32313,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "male"
+        },
+        {
+            "end": 259.71224,
+            "alignedWord": "AND",
+            "start": 259.55261,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 259.71224,
+            "end": 259.74218,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 260.34082,
+            "alignedWord": "FEMALES",
+            "start": 259.74218,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "females."
+        },
+        {
+            "start": 260.34082,
+            "end": 261.02925,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 261.32857,
+            "alignedWord": "AND",
+            "start": 261.02925,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 261.51814,
+            "alignedWord": "THIS",
+            "start": 261.32857,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 261.62789,
+            "alignedWord": "IS",
+            "start": 261.51814,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 262.20658,
+            "alignedWord": "BECAUSE",
+            "start": 261.62789,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "because,"
+        },
+        {
+            "start": 262.20658,
+            "end": 262.4161,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 263.15442,
+            "alignedWord": "ONE",
+            "start": 262.4161,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "one,"
+        },
+        {
+            "start": 263.15442,
+            "end": 263.21429,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 263.41383,
+            "alignedWord": "THERE",
+            "start": 263.21429,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "there"
+        },
+        {
+            "end": 263.57347,
+            "alignedWord": "ARE",
+            "start": 263.41383,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 263.86281,
+            "alignedWord": "MANY",
+            "start": 263.57347,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "many"
+        },
+        {
+            "end": 264.42154,
+            "alignedWord": "SMOKERS",
+            "start": 263.86281,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "smokers"
+        },
+        {
+            "end": 264.49138,
+            "alignedWord": "IN",
+            "start": 264.42154,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 264.55125,
+            "alignedWord": "THE",
+            "start": 264.49138,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 265.05011,
+            "alignedWord": "WORLD",
+            "start": 264.55125,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "world."
+        },
+        {
+            "start": 265.05011,
+            "end": 265.30952,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 265.64875,
+            "alignedWord": "AND",
+            "start": 265.30952,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 266.19751,
+            "alignedWord": "TWO",
+            "start": 265.64875,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "two,"
+        },
+        {
+            "start": 266.19751,
+            "end": 266.29728,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 266.60658,
+            "alignedWord": "WHEN",
+            "start": 266.29728,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "when"
+        },
+        {
+            "end": 267.02562,
+            "alignedWord": "CANCER",
+            "start": 266.60658,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 267.85374,
+            "alignedWord": "SPREADS",
+            "start": 267.02562,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "spreads"
+        },
+        {
+            "end": 268.02336,
+            "alignedWord": "FROM",
+            "start": 267.85374,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "from"
+        },
+        {
+            "end": 268.93129,
+            "alignedWord": "SOMEWHERE",
+            "start": 268.02336,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "somewhere,"
+        },
+        {
+            "start": 268.93129,
+            "end": 269.64966,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 269.82925,
+            "alignedWord": "FROM",
+            "start": 269.64966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "from"
+        },
+        {
+            "end": 270.03878,
+            "alignedWord": "ONE",
+            "start": 269.82925,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "one"
+        },
+        {
+            "end": 270.31814,
+            "alignedWord": "AREA",
+            "start": 270.03878,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "area"
+        },
+        {
+            "end": 270.378,
+            "alignedWord": "IN",
+            "start": 270.31814,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 270.43787,
+            "alignedWord": "THE",
+            "start": 270.378,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 270.69728,
+            "alignedWord": "BODY",
+            "start": 270.43787,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "body,"
+        },
+        {
+            "end": 270.78707,
+            "alignedWord": "IT",
+            "start": 270.69728,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 271.08639,
+            "alignedWord": "USUALLY",
+            "start": 270.78707,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "usually"
+        },
+        {
+            "end": 271.60522,
+            "alignedWord": "SPREADS",
+            "start": 271.08639,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "spreads"
+        },
+        {
+            "end": 271.71497,
+            "alignedWord": "TO",
+            "start": 271.60522,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 271.78481,
+            "alignedWord": "THE",
+            "start": 271.71497,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 272.31361,
+            "alignedWord": "LUNGS",
+            "start": 271.78481,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lungs"
+        },
+        {
+            "start": 272.31361,
+            "end": 272.57302,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 273.11179,
+            "alignedWord": "FIRST",
+            "start": 272.57302,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "first."
+        },
+        {
+            "start": 273.11179,
+            "end": 274.84785,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 275.16712,
+            "alignedWord": "SO",
+            "start": 274.84785,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "end": 275.3966,
+            "alignedWord": "FOR",
+            "start": 275.16712,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "for"
+        },
+        {
+            "end": 275.86553,
+            "alignedWord": "FEMALES",
+            "start": 275.3966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "females,"
+        },
+        {
+            "end": 275.96531,
+            "alignedWord": "THE",
+            "start": 275.86553,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 276.30454,
+            "alignedWord": "MOST",
+            "start": 275.96531,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "most"
+        },
+        {
+            "end": 276.83333,
+            "alignedWord": "COMMONLY",
+            "start": 276.30454,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "commonly"
+        },
+        {
+            "end": 277.72132,
+            "alignedWord": "DIAGNOSED",
+            "start": 276.83333,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "diagnosed"
+        },
+        {
+            "end": 278.11043,
+            "alignedWord": "CANCERS",
+            "start": 277.72132,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancers"
+        },
+        {
+            "end": 278.26009,
+            "alignedWord": "ARE",
+            "start": 278.11043,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 278.8288,
+            "alignedWord": "BREAST",
+            "start": 278.26009,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "breast,"
+        },
+        {
+            "end": 279.18798,
+            "alignedWord": "LUNG",
+            "start": 278.8288,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lung,"
+        },
+        {
+            "end": 279.36757,
+            "alignedWord": "AND",
+            "start": 279.18798,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 280.1458,
+            "alignedWord": "COLORECTAL",
+            "start": 279.36757,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colorectal."
+        },
+        {
+            "start": 280.1458,
+            "end": 280.6746,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 281.34308,
+            "alignedWord": "COLORECTAL",
+            "start": 280.6746,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Colorectal"
+        },
+        {
+            "end": 281.74218,
+            "alignedWord": "MEANS",
+            "start": 281.34308,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "means"
+        },
+        {
+            "end": 282.11134,
+            "alignedWord": "ANYWHERE",
+            "start": 281.74218,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "anywhere"
+        },
+        {
+            "end": 282.18118,
+            "alignedWord": "IN",
+            "start": 282.11134,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 282.27098,
+            "alignedWord": "THE",
+            "start": 282.18118,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 282.72993,
+            "alignedWord": "COLON",
+            "start": 282.27098,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colon"
+        },
+        {
+            "end": 282.89955,
+            "alignedWord": "OR",
+            "start": 282.72993,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "or"
+        },
+        {
+            "end": 283.2288,
+            "alignedWord": "RECTAL",
+            "start": 282.89955,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "rectal"
+        },
+        {
+            "end": 283.59796,
+            "alignedWord": "AREA",
+            "start": 283.2288,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "area."
+        },
+        {
+            "start": 283.59796,
+            "end": 284.91497,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 285.20431,
+            "alignedWord": "FOR",
+            "start": 284.91497,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "For"
+        },
+        {
+            "end": 285.62336,
+            "alignedWord": "MEN",
+            "start": 285.20431,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "men,"
+        },
+        {
+            "end": 285.6932,
+            "alignedWord": "THE",
+            "start": 285.62336,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 285.98254,
+            "alignedWord": "MOST",
+            "start": 285.6932,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "most"
+        },
+        {
+            "end": 286.31179,
+            "alignedWord": "COMMONLY",
+            "start": 285.98254,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "commonly"
+        },
+        {
+            "end": 286.86054,
+            "alignedWord": "DIAGNOSED",
+            "start": 286.31179,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "diagnosed"
+        },
+        {
+            "end": 287.15986,
+            "alignedWord": "CANCERS",
+            "start": 286.86054,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancers"
+        },
+        {
+            "end": 287.29955,
+            "alignedWord": "ARE",
+            "start": 287.15986,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 287.80839,
+            "alignedWord": "PROSTATE",
+            "start": 287.29955,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "prostate,"
+        },
+        {
+            "end": 288.13764,
+            "alignedWord": "LUNG",
+            "start": 287.80839,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "lung,"
+        },
+        {
+            "end": 288.31723,
+            "alignedWord": "AND",
+            "start": 288.13764,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 289.02562,
+            "alignedWord": "COLORECTAL",
+            "start": 288.31723,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "colorectal."
+        },
+        {
+            "start": 289.02562,
+            "end": 291.22063,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 291.36032,
+            "alignedWord": "NOW",
+            "start": 291.22063,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Now,"
+        },
+        {
+            "end": 291.53991,
+            "alignedWord": "THE",
+            "start": 291.36032,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 291.89909,
+            "alignedWord": "CURRENT",
+            "start": 291.53991,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "end": 292.40794,
+            "alignedWord": "FIVE YEAR",
+            "start": 291.89909,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "five-year"
+        },
+        {
+            "end": 293.31587,
+            "alignedWord": "SURVIVAL",
+            "start": 292.40794,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "survival"
+        },
+        {
+            "end": 293.63515,
+            "alignedWord": "RATE",
+            "start": 293.31587,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "rate"
+        },
+        {
+            "end": 293.78481,
+            "alignedWord": "OF",
+            "start": 293.63515,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 294.4034,
+            "alignedWord": "60",
+            "start": 293.78481,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "60"
+        },
+        {
+            "end": 295.01202,
+            "alignedWord": "PERCENT",
+            "start": 294.4034,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "percent"
+        },
+        {
+            "start": 295.01202,
+            "end": 295.0619,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 295.36122,
+            "alignedWord": "AFTER",
+            "start": 295.0619,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "after"
+        },
+        {
+            "end": 295.75034,
+            "alignedWord": "CANCER",
+            "start": 295.36122,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 296.66825,
+            "alignedWord": "DIAGNOSIS",
+            "start": 295.75034,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "diagnosis"
+        },
+        {
+            "start": 296.66825,
+            "end": 296.9576,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 297.20703,
+            "alignedWord": "MEANS",
+            "start": 296.9576,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "means"
+        },
+        {
+            "end": 297.3966,
+            "alignedWord": "THAT",
+            "start": 297.20703,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 297.84558,
+            "alignedWord": "PEOPLE",
+            "start": 297.3966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "people"
+        },
+        {
+            "end": 298.1449,
+            "alignedWord": "ARE",
+            "start": 297.84558,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 298.54399,
+            "alignedWord": "LIVING",
+            "start": 298.1449,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "living,"
+        },
+        {
+            "start": 298.54399,
+            "end": 299.88095,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 300.0805,
+            "alignedWord": "AND",
+            "start": 299.88095,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 300.27007,
+            "alignedWord": "THIS",
+            "start": 300.0805,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 300.44966,
+            "alignedWord": "IS",
+            "start": 300.27007,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 300.93855,
+            "alignedWord": "GREAT",
+            "start": 300.44966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "great."
+        },
+        {
+            "start": 300.93855,
+            "end": 301.46735,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 301.89637,
+            "alignedWord": "HOPEFULLY",
+            "start": 301.46735,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Hopefully"
+        },
+        {
+            "end": 301.98617,
+            "alignedWord": "IN",
+            "start": 301.89637,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 302.07596,
+            "alignedWord": "THE",
+            "start": 301.98617,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 302.37528,
+            "alignedWord": "NEAR",
+            "start": 302.07596,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "near"
+        },
+        {
+            "end": 303.00385,
+            "alignedWord": "FUTURE",
+            "start": 302.37528,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "future,"
+        },
+        {
+            "end": 303.14354,
+            "alignedWord": "THERE",
+            "start": 303.00385,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "there"
+        },
+        {
+            "end": 303.23333,
+            "alignedWord": "WILL",
+            "start": 303.14354,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "end": 303.58254,
+            "alignedWord": "BE",
+            "start": 303.23333,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 303.58254,
+            "end": 303.67234,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 304.41066,
+            "alignedWord": "IMPROVED",
+            "start": 303.67234,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "improved"
+        },
+        {
+            "end": 304.82971,
+            "alignedWord": "TREATMENT",
+            "start": 304.41066,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "treatment"
+        },
+        {
+            "end": 304.94943,
+            "alignedWord": "AND",
+            "start": 304.82971,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 305.70771,
+            "alignedWord": "INTERVENTIONS",
+            "start": 304.94943,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "interventions"
+        },
+        {
+            "end": 305.85737,
+            "alignedWord": "THAT",
+            "start": 305.70771,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 306.08685,
+            "alignedWord": "WILL",
+            "start": 305.85737,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "end": 306.57574,
+            "alignedWord": "HELP",
+            "start": 306.08685,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "help"
+        },
+        {
+            "start": 306.57574,
+            "end": 306.93492,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 307.42381,
+            "alignedWord": "PEOPLE",
+            "start": 306.93492,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "people"
+        },
+        {
+            "end": 307.6034,
+            "alignedWord": "WI-",
+            "start": 307.42381,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "wi-,"
+        },
+        {
+            "end": 308.07234,
+            "alignedWord": "WITH",
+            "start": 307.6034,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "end": 308.61111,
+            "alignedWord": "CANCER",
+            "start": 308.07234,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer"
+        },
+        {
+            "end": 308.83061,
+            "alignedWord": "TO",
+            "start": 308.61111,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 309.35941,
+            "alignedWord": "SURVIVE",
+            "start": 308.83061,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "survive"
+        },
+        {
+            "end": 309.92812,
+            "alignedWord": "LONGER",
+            "start": 309.35941,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "longer"
+        },
+        {
+            "start": 309.92812,
+            "end": 310.47687,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 310.65646,
+            "alignedWord": "AND",
+            "start": 310.47687,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 310.8161,
+            "alignedWord": "IN",
+            "start": 310.65646,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 311.29501,
+            "alignedWord": "COMFORT",
+            "start": 310.8161,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "comfort."
+        },
+        {
+            "start": 311.29501,
+            "end": 315.55533,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 315.75488,
+            "alignedWord": "NOW",
+            "start": 315.55533,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Now,"
+        },
+        {
+            "end": 315.95442,
+            "alignedWord": "LET'S",
+            "start": 315.75488,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "end": 316.0941,
+            "alignedWord": "LEARN",
+            "start": 315.95442,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "learn"
+        },
+        {
+            "end": 316.12404,
+            "alignedWord": "A",
+            "start": 316.0941,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 316.30363,
+            "alignedWord": "BIT",
+            "start": 316.12404,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "bit"
+        },
+        {
+            "end": 316.59297,
+            "alignedWord": "MORE",
+            "start": 316.30363,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "more"
+        },
+        {
+            "end": 316.82245,
+            "alignedWord": "ABOUT",
+            "start": 316.59297,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "about"
+        },
+        {
+            "end": 316.94218,
+            "alignedWord": "THE",
+            "start": 316.82245,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 317.19161,
+            "alignedWord": "PATH",
+            "start": 316.94218,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "path"
+        },
+        {
+            "end": 317.26145,
+            "alignedWord": "OF",
+            "start": 317.19161,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 318.14943,
+            "alignedWord": "PHYSIO PATH",
+            "start": 317.26145,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "physio-...path..."
+        },
+        {
+            "start": 318.14943,
+            "end": 318.17937,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 319.20703,
+            "alignedWord": "PATHOPHYSIOLOGY",
+            "start": 318.17937,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "pathophysiology"
+        },
+        {
+            "end": 319.43651,
+            "alignedWord": "AND",
+            "start": 319.20703,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 320.1449,
+            "alignedWord": "PROGRESSION",
+            "start": 319.43651,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "progression"
+        },
+        {
+            "end": 320.30454,
+            "alignedWord": "OF",
+            "start": 320.1449,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "start": 320.30454,
+            "end": 320.35442,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 320.8932,
+            "alignedWord": "CANCER",
+            "start": 320.35442,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "cancer,"
+        },
+        {
+            "start": 320.8932,
+            "end": 321.18254,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 321.38209,
+            "alignedWord": "SO",
+            "start": 321.18254,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "so"
+        },
+        {
+            "end": 321.51179,
+            "alignedWord": "WE'RE",
+            "start": 321.38209,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "we're"
+        },
+        {
+            "end": 321.79116,
+            "alignedWord": "LOOKING",
+            "start": 321.51179,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "looking"
+        },
+        {
+            "end": 321.9907,
+            "alignedWord": "AT",
+            "start": 321.79116,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "start": 321.9907,
+            "end": 322.18027,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 322.27007,
+            "alignedWord": "A",
+            "start": 322.18027,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 323.39751,
+            "alignedWord": "MALIGNANT",
+            "start": 322.27007,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "malignant"
+        },
+        {
+            "start": 323.39751,
+            "end": 324.0161,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 334.08322,
+            "alignedWord": "TUMOR",
+            "start": 324.0161,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "tumor."
+        }
+    ]
+}
