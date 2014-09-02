@@ -16,12 +16,12 @@ from video import Video, Keyframe
 from lecture import Lecture
 from writehtml import WriteHtml
 import util
-import framediff_segmentation as fdseg
+
 
 def get_keyframes(dirname):
     filelist = os.listdir(dirname)
     filelist = [ x for x in filelist if "capture" in x and ".png" in x and "fg" not in x and "overlap" not in x]
-    filelist.sort(cmp=util.filename_comp)
+    #filelist.sort(cmp=util.filename_comp)
     
     keyframes = []   
     for filename in filelist:
@@ -29,8 +29,7 @@ def get_keyframes(dirname):
         keyframe = Keyframe(dirname + "\\" + filename, frame, -1, -1)
         keyframes.append(keyframe)
     return keyframes
-    
-    
+        
 def mask_new_from_prev_keyframes(dirname):       
     filelist = os.listdir(dirname)
     filelist = [ x for x in filelist if "capture" in x and ".png" in x and "fg" not in x and "overlap" not in x]
@@ -60,10 +59,6 @@ def mask_new_from_prev_keyframes(dirname):
         prevframe = curframe
     
     return keyframes
-        #cv2.imshow("curframe", curframe.frame)
-        #if (curframe.mask != None):
-        #    cv2.imshow("mask", curframe.mask)       
-        #cv2.waitKey(0)
         
 def fgbbox(keyframes):    
     for keyframe in keyframes:
@@ -87,69 +82,221 @@ def new_fgbbox(keyframes):
         prevobjs = [curobj]        
         #cv2.imwrite(dirname + "/" + os.path.splitext(os.path.basename(keyframe.frame_path))[0]+ "new_fgbbox.png", temp)
         i += 1
-    return       
+    return
 
-if __name__ == "__main__":      
-    dirname = sys.argv[1]
-    logodir = sys.argv[2]
-    logolist = os.listdir(logodir)
+def get_logos(dirname):
     logos = []
-    for filename in logolist:
-        logo = cv2.imread(logodir + "\\" + filename)
-        logos.append(logo)
+    
+    if not os.path.exists(dirname):
+        return logos
+    
+    filelist = os.listdir(dirname)
+    for filename in filelist:
+        if ('logo' in filename and 'png' in filename):
+            logo = cv2.imread(dirname + "\\" + filename)
+            logos.append(logo)
+    return logos
+
+def test_overlap(framedir, logodir):   
+   
+    keyframes = Keyframe.get_keyframes(framedir)
+    logos = get_logos(logodir)
+    
+    print "Save foreground images"
+    fgdir = framedir + "\\foreground_highlight"
+    if not os.path.exists(os.path.abspath(fgdir)):
+        os.makedirs(os.path.abspath(fgdir))
         
-    keyframes = get_keyframes(dirname)
     for keyframe in keyframes:
         keyframe.add_default_objs(logos)
+        fgframe = np.array(keyframe.frame)
+        fgframe = pf.highlight(fgframe, keyframe.fg_mask)
+        fgbbox = keyframe.fg_bbox()
+        cv2.rectangle(fgframe, (fgbbox[0], fgbbox[1]), (fgbbox[2], fgbbox[3]), (255,0,0,255), 2)
+        fgfilename = fgdir + "\\" + keyframe.frame_filename        
+        if not os.path.isfile(os.path.abspath(fgfilename)):
+            print 'writing', (fgdir + "\\" + keyframe.frame_filename)
+        cv2.imwrite(fgdir + "\\" + keyframe.frame_filename, fgframe)
+        
     
-    #fgbbox(keyframes)
-    new_fgbbox(keyframes)
-        
-        
+    "Highlight new objects from each image using previous one frame"
+    objdir = framedir + "\\new_obj_highlight"
+    if not os.path.exists(os.path.abspath(objdir)):
+        os.makedirs(os.path.abspath(objdir))        
+    prevframe = None
+    for keyframe in keyframes:
+        if (prevframe == None):
+            prev_obj = []
+        else:
+            prev_obj = [prevframe.get_fgobj(includelogo=True)]
+        keyframe.set_newobj_mask(prev_obj)
+        #objframe = np.array(keyframe.frame)
+        #objframe = pf.highlight(objframe, keyframe.newobj_mask)
+        #objbbox = keyframe.newobj_bbox()
+        #cv2.rectangle(objframe, (objbbox[0], objbbox[1]), (objbbox[2], objbbox[3]), (0,0,255,255), 2)
+        #objfilename = objdir + "\\" + keyframe.frame_filename
+        #print 'writing', (objdir + "\\" + keyframe.frame_filename)
+        #cv2.imwrite(objdir + "\\" + keyframe.frame_filename, objframe)        
+        prevframe  = keyframe
     
+    overlapdir = framedir + "\\overlap_objects"
+    if not os.path.exists(os.path.abspath(overlapdir)):
+        os.makedirs(os.path.abspath(overlapdir))        
     
-    #keyframes = mask_new_from_prev_keyframes(dirname)
-    #new_fgbbox(keyframes)
-    #
-    #
-    #print "Writing to html"
-    #html = WriteHtml(dirname + "/test_visaul.html", "Visual Information in Keyframes")
-    #html.openbody()
-    #html.opentable()
-    #prevframe = None
-    #for keyframe in keyframes:
-    #    html.opentablerow()
-    #    html.writestring("<td><img src=" +html.relpath(keyframe.frame_path)+"></td>\n")
-    #    html.writestring("<td><img src=" + html.relpath(dirname + "/" + os.path.splitext(os.path.basename(keyframe.frame_path))[0]+ "new_fgbbox.png")+"></td>\n")
-    #    
-    #    overlaparea = -1
-    #    if (prevframe != None):
-    #        prev_fgbbox = prevframe.fgbbox()            
-    #        newbbox = keyframe.newbbox()            
-    #        overlap = util.bbox_overlap(prev_fgbbox, newbbox)
-    #        overlaparea = util.boxarea(overlap)
-    #        if (overlaparea > 0):
-    #            cv2.rectangle(keyframe.frame, (overlap[0], overlap[1]), (overlap[2], overlap[3]), 0, 2)
-    #            cv2.imwrite(dirname + "/" + os.path.splitext(os.path.basename(keyframe.frame_path))[0]+ "_new_overlap.png", keyframe.frame)
-    #            html.writestring("<td><img src="  +html.relpath(dirname + "/" + os.path.splitext(os.path.basename(keyframe.frame_path))[0]+ "_new_overlap.png ") + "></td>\n")
-    #            
-    #    
-    #    html.opentablecell()
-    #    html.writestring("keyframe new visual:" + str(keyframe.new_visual()) +"<br>" )
-    #    html.writestring("keyframe overlap:" + str(overlaparea) + "<br>")        
-    #    html.closetablecell()
-    #    prevframe = keyframe
-    #    html.closetablerow()   
-    #html.closetable()
-    #html.closebody()
-    #html.closehtml()
+    prevframe = None
+    for keyframe in keyframes:
+        overlapframe = np.array(keyframe.frame)
+        new_visual = keyframe.new_visual_score()
+        if (new_visual <= 0):            
+            continue        
+        if prevframe == None:
+            overlap_area = 0
+        else:
+            prevfgbbox = prevframe.fg_bbox()
+            if prevfgbbox[0] >= 0:
+                cv2.rectangle(overlapframe, (prevfgbbox[0], prevfgbbox[1]), (prevfgbbox[2], prevfgbbox[3]), (0, 0, 255, 255), 4)
+        curobjbbox = keyframe.newobj_bbox()
+        if curobjbbox[0] >= 0:
+            cv2.rectangle(overlapframe, (curobjbbox[0], curobjbbox[1]), (curobjbbox[2], curobjbbox[3]), (255, 0, 0, 255), 4)
+            
+        if (prevframe != None and prevfgbbox[0] >= 0 and curobjbbox[0] >= 0):
+            overlap = util.bbox_overlap(prevfgbbox, curobjbbox)
+            overlap_area = util.boxarea(overlap)
+        else:
+            overlap_area = 0
+        if (overlap_area > 0):
+            cv2.rectangle(overlapframe, (overlap[0], overlap[1]), (overlap[2], overlap[3]), (0, 255, 0, 50), -1)
+        prevframe = keyframe
+        cv2.imwrite(overlapdir + "\\" + keyframe.frame_filename, overlapframe)          
         
+        html.opentablerow()
+        fgfilename = fgdir + "\\" + keyframe.frame_filename                
+        html.cellimagelink(fgfilename, "300")
+        objfilename = objdir + "\\" + keyframe.frame_filename
+        html.cellimagelink(objfilename, "300")
+        overlapfilename = overlapdir + "\\" + keyframe.frame_filename
+        html.cellimagelink(overlapfilename, "300")
+        html.cellstring( "new visual: " + str(new_visual) + " \n" + "overlap: " + str(overlap_area) + "\n")        
+        html.closetablerow()
         
+    html.closetable()
+    html.closebody()
+    html.closehtml()
+    
+def test_keyframe_object_in_panorama(framedir, logodir, panorama):
+    keyframes = Keyframe.get_keyframes(framedir)
+    logos = get_logos(logodir)
+    
+    print "Detect logos in each key frame"
+    for keyframe in keyframes:
+        keyframe.add_default_objs(logos)    
+    
+    print "Set new objects in each key frame using previous one frame"
+    prevframe = None
+    for keyframe in keyframes:
+        if (prevframe == None):
+            prev_obj = []
+        else:
+            prev_obj = [prevframe.get_fgobj(includelogo=True)]
+        keyframe.set_newobj_mask(prev_obj)
+        prevframe  = keyframe
         
+    print "Find object in panorama"
+    for keyframe in keyframes:
+        if (keyframe.new_visual_score() <= 0):
+            continue
+        objcrop, objcropmask = pf.croptofg(keyframe.frame, keyframe.newobj_mask)
+        if objcrop == None:
+            continue
+        #M = pf.findobject_exact(panorama, objcrop)
+        #if not pf.isgoodmatch(M):
+        M = pf.detectobject(panorama, objcrop)
+        if not pf.isgoodmatch(M):
+            continue
+        h, w = objcrop.shape[:2]
+        pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
+        dst = cv2.perspectiveTransform(pts,M)
+        cv2.polylines(panorama, [np.int32(dst)], True,(0, 0, 0, 255),2)
+        util.showimages([pf.highlight(objcrop,objcropmask), panorama])
+        
+    cv2.imwrite(framedir+ "\\panoarama_objects.png", panorama)
 
+def test_panorama(framedir, logodir):
+    keyframes = get_keyframes(framedir)
+    logos = get_logos(logodir)
     
+    for keyframe in keyframes:
+        keyframe.add_default_objs(logos)
+        
+    prevframe = None
+    for keyframe in keyframes:
+        if (prevframe == None):
+            prev_obj = []
+        else:
+            prev_obj = [prevframe.get_fgobj(includelogo=True)]
+        keyframe.set_newobj_mask(prev_obj)
+        prevframe  = keyframe    
     
+    list_of_frames = []
+    for keyframe in keyframes:
+        if (keyframe.new_visual_score() > 0):
+            frame = pf.maskimage_white(keyframe.frame, keyframe.fg_mask)            
+            #fgcrop = pf.croptofg(frame, keyframe.fg_mask )
+            list_of_frames.append(frame)
+            
+    panorama = pf.panorama(list_of_frames)
     
+    cv2.imwrite(framedir + "\\panorama_new.png", panorama)
+    return panorama        
     
-  
+def test_panorama_path(panorama, keyframes):    
+    panorama_gray = cv2.cvtColor(panorama, cv2.COLOR_BGRA2GRAY)    
+    pathimg = np.array(panorama)
+        
+    for keyframe in keyframes:        
+        M = None
+        M = pf.findobject_exact(panorama, keyframe.frame)        
+        if (M == None or not pf.isgoodmatch(M)):
+            print 'Did not find frame in panorama'
+            continue
+        else:
+            print 'Found  a good match'
+            print M
+        h,w = keyframe.frame.shape[:2]
+        print h, w
+        pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
+        dst = cv2.perspectiveTransform(pts,M)
+        cv2.polylines(pathimg,[np.int32(dst)],True,(0, 255, 0, 255),1)
+        cv2.imshow("Frame foreground", keyframe.frame)
+        cv2.imshow("path", pathimg)
+        cv2.waitKey(0)
+        
+    return pathimg
+
+def test_highlight_in_panorama(panorama, frame, highlight_mask):
+    panorama_gray = cv2.cvtColor(panorama, cv2.COLOR_BGR2GRAY)
+    frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+    M = pf.detectobject(panorama_gray, frame_gray)
+    if M == None:
+        print 'frame not found'
+        return
+    h,w = panorama.shape[:2]
+    #util.showimages([highlight_mask])
+    print 'mask.shape before warp', highlight_mask.shape
+    #mask = cv2.perspectiveTransform(highlight_mask,M)
+    mask = cv2.warpPerspective(highlight_mask, M, (w,h), borderValue = 0, borderMode = cv2.BORDER_CONSTANT )
+    #util.showimages([mask])
+    print 'mask.shape after warp', mask.shape
+    temp = np.array(panorama)
+    high = pf.highlight(temp, mask)
+    #util.showimages([high])
+    return high
+        
+if __name__ == "__main__":
+    framedir = sys.argv[1]
+    logodir = sys.argv[2]
+    panorama = cv2.imread(sys.argv[3])
+    test_keyframe_object_in_panorama(framedir, logodir, panorama)
+    
     

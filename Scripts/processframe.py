@@ -12,6 +12,7 @@ import cluster
 from itertools import cycle
 import util
 from video import Video, Keyframe
+import math
 
 logging.basicConfig(stream=sys.stderr, level=logging.ERROR)
 
@@ -55,7 +56,7 @@ def candidateobjects(image, siftthres=3000):
     
     return
     
-def highlight(image, mask, (r,g,b,a) = (251, 175, 23, 100)):
+def highlight(image, mask, (r,g,b,a) = (23, 175, 251, 100)):
    
     # Create a semi-transparent highlight layer the size of image    
     h,w,bgra =  image.shape  
@@ -67,11 +68,13 @@ def highlight(image, mask, (r,g,b,a) = (251, 175, 23, 100)):
     
     blurmask = expandmask(mask)
     layer = maskimage(layer, blurmask)
-    
+        
     fg_mask = fgmask(image)
     fgimg = alphaimage(image, fg_mask)
     img = Image.fromarray(fgimg, "RGBA")
-    b, g, r,a = img.split()
+    b, g, r, a = img.split()
+    
+        
     img = Image.merge("RGBA", (r, g, b, a))
     
     highlight = Image.fromarray(layer, "RGBA")
@@ -82,6 +85,7 @@ def highlight(image, mask, (r,g,b,a) = (251, 175, 23, 100)):
     data[:,:,1] = g
     data[:,:,2] = r
     data[:,:,3] = a
+    
     return data
     
     
@@ -106,15 +110,18 @@ def removetemplate(gray_img, gray_obj, M):
     
     return diff
 
-def fgmask(image, threshold=225):
-    #b = image[:,:,0]
-    #g = image[:,:,1]
-    #r = image[:,:,2]
-    #cv2.imshow("minimum", img2gray)
+def fgmask(image, threshold=225, var_threshold=255):
+    var = np.var(image, 2, dtype=np.uint8)    
+    ret, var_mask = cv2.threshold(var, var_threshold, 255, cv2.THRESH_BINARY)       
+    #cv2.imshow("var_mask", var_mask)
+    #cv2.waitKey(0)
     img2gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     #cv2.imshow("im2gray", img2gray)
     #cv2.waitKey(0)
-    ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)    
+    ret, lum_mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)
+    #cv2.imshow("lum_mask", lum_mask)
+    #cv2.waitKey(0)
+    mask = cv2.bitwise_or(var_mask, lum_mask)
     return mask
 
 def fgbbox(mask):   
@@ -126,7 +133,6 @@ def fgbbox(mask):
     tly = min(cols)
     bry = max(cols)
     return (tlx, tly, brx, bry)
-
 
 def maskimage_white(image, mask):
     # mask is a single channel array; mask_region is whited
@@ -189,7 +195,8 @@ def findobject(gray_img, gray_obj):
         print 'No matches: Not enough correspondence'
         return None
     
-    #match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
+    match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
+    util.showimages([match_img])
     #cv2.imshow("match img", match_img)
     #cv2.waitKey(0)
     #
@@ -211,20 +218,22 @@ def findobject(gray_img, gray_obj):
     return M    
     
 
-def detectobject(gray_img, gray_obj):
+def detectobject(img, obj):
+    gray_img = util.grayimage(img)
+    gray_obj = util.grayimage(obj)
     """Return 3x3 transformation matrix which transforms gray_obj to match inside gray_img
-    Return None if no good match"""
+    Return None if no good match"""    
     
-    #surf = cv2.SURF(500)
-    #surf.upright = True
-    #kp1, d1 = surf.detectAndCompute(gray_obj, None)
-    #kp2, d2 = surf.detectAndCompute(gray_img, None)
     sift = cv2.SIFT()
     kp1, d1 = sift.detectAndCompute(gray_obj, None)
     kp2, d2 = sift.detectAndCompute(gray_img, None)
     
-    obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
-    img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
+    #surf = cv2.SURF() 
+    #kp1_ext, d1_ext = surf.detectAndCompute(gray_obj, None)
+    #kp2_ext, d2_ext = surf.detectAndCompute(gray_img, None)
+    
+    #obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
+    #img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
     
     bf = cv2.BFMatcher(cv2.NORM_L2, True)
     if d1 == None or d2 == None:
@@ -235,6 +244,9 @@ def detectobject(gray_img, gray_obj):
     logging.info("gray_img # features: %i", len(kp2))
     
     matches = bf.match(d1, d2)
+    #matches_ext = bf.match(d1_ext, d2_ext)
+
+    #matches = matches + matches_ext
     dist = [m.distance for m in matches]
     if (len(dist) == 0):
         #print 'no matches'
@@ -249,18 +261,22 @@ def detectobject(gray_img, gray_obj):
     logging.info("Number of good matches: %i", len(good_matches))
     
     if (len(good_matches) <= 3):
-        #print 'not enough good match'
+        print 'not enough good match'
         return None
     
+    #kp1 = kp1 + kp1_ext
+    #kp2 = kp2 + kp2_ext
     
     good_matches = sorted(good_matches, key = lambda x:x.distance)
     match_img = drawMatches(gray_obj, gray_img, kp1, kp2, good_matches)
+    util.showimages([match_img])
     #cv2.imshow("matching features", match_img)
     #cv2.waitKey(0)
     
     src_pts = np.float32([kp1[m.queryIdx].pt for m in good_matches])
     dst_pts = np.float32([kp2[m.trainIdx].pt for m in good_matches])
-    M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
+    M, mask = cv2.findHomography(src_pts, dst_pts, cv2.LMEDS)
+    #M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
     if (mask.ravel().tolist().count(1) < len(good_matches)*0.3):
         logging.info("mask count %i", mask.ravel().tolist().count(1))
         logging.info("no good transform")
@@ -299,27 +315,54 @@ def isgoodmatch(M):
     unitsquare = np.array([unitsquare])
     tsquare = cv2.perspectiveTransform(unitsquare, M)    
     tarea = cv2.contourArea(tsquare)
-    if tarea < 0.1 or tarea > 10:
+    print 'tarea = ', tarea
+    if tarea < 0.5 or tarea >5:
         print "Not a good homography, scaling factor:", tarea
         return False
     return True
 
-def findobject_exact(fgimg_gray, obj_gray):
-    res = cv2.matchTemplate(fgimg_gray, obj_gray, cv2.TM_SQDIFF_NORMED)
+
+def findobject_exact(fgimg, obj):
+    
+    imgh,imgw = fgimg.shape[:2]
+    objh, objw = obj.shape[:2]
+    
+    if (len(fgimg.shape) == 3):        
+        img = np.ones((imgh + 2*objh, imgw + 2*objw, 3), dtype = np.uint8) *0 
+        img[objh:objh+imgh, objw:objw+imgw,:] = fgimg[:,:,:3]
+    else:
+        img = np.ones((imgh + 2*objh, imgw + 2*objw), dtype = np.uint8) * 0 # use 255?
+        img[objh:objh+imgh, objw:objw+imgw] = fgimg[:,:]
+    
+    #util.showimages([img, obj])
+    
+    res = cv2.matchTemplate(img, obj, cv2.TM_SQDIFF)
     #plt.imshow(res,cmap = 'gray')
     #plt.show()
     #cv2.waitKey(0)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-    #print min_val
-    if (min_val > 0.08):
+    min_val = math.sqrt(min_val) / (objh * objw)
+    threshold = 2.0
+    if (min_val > threshold):
         print "Exact match not found:", min_val
         return None
+    else:
+        print "Exact match found: ", min_val
     top_left = min_loc
+    
+    #print 'top left', top_left
+    #print min_val
+    #cv2.imshow("obj", obj)
+    #cv2.imshow("img", img)   
+    #cv2.imshow("res", res)
+    #cv2.waitKey(0)
+              
     M = np.identity(3, dtype = np.float32)
-    M[0,2] = top_left[0]
-    M[1,2] = top_left[1]
-    h,w = obj_gray.shape[0:2]
-    bottom_right = (top_left[0] + w, top_left[1] + h)
+    M[0,2] = top_left[0] -objw
+    M[1,2] = top_left[1] -objh
+        
+    #h,w = obj.shape[0:2]
+    #bottom_right = (top_left[0] + w, top_left[1] + h)
     #cv2.imshow("object", obj_gray)
     #cv2.rectangle(fgimg_gray, top_left, bottom_right, 0, 2)
     #cv2.imshow("findobject exact", fgimg_gray)
@@ -373,6 +416,7 @@ def getnewobj(image, objlist):
         fgimg_gray = cv2.cvtColor(fgimg, cv2.COLOR_BGR2GRAY)        
         obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
         M = findobject_exact(fgimg, obj)
+        #M = None
         if M == None:            
             M = findobject(fgimg_gray, obj_gray)
             
@@ -387,10 +431,10 @@ def croptofg(fgimg, fgmask):
     if (tlx == -1 or brx - tlx == 0 or bry - tly == 0): # nothing new in this image
         return None, None
     h,w = fgimg.shape[0:2]
-    tlx = int(max(0, tlx-5))
-    tly = int(max(0, tly-5))
-    brx = int(min(brx+5, w))
-    bry = int(min(bry+5, h))
+    tlx = int(max(0, tlx-10))
+    tly = int(max(0, tly-10))
+    brx = int(min(brx+10, w))
+    bry = int(min(bry+10, h))
     newobj = cropimage(fgimg, tlx, tly, brx, bry)
     newobjmask = cropimage(fgmask, tlx, tly, brx, bry)
     return newobj, newobjmask
@@ -492,20 +536,76 @@ def removebackground(gray_img, gray_bgsample, thres=50):
     sub[sub >= thres] = 255
     return sub
 
-def keyframe_masks_new_from_prev(list_of_keyframes):
-    # first frame
-    if (len(list_of_keyframes) == 0):
-        return list_of_keyframes
-    
-    list_of_keyframes[0].mask = fgmask(list_of_keyframes[0].frame)
-    prevframe = list_of_keyframes[0]
 
-    for i in range(1, len(list_of_keyframes)):        
-        curframe = list_of_keyframes[i]
-        curframe.mask_new(prevframe)
-        prevframe = curframe
-        
-    return list_of_keyframes
+def calculate_size(size_image1, size_image2, H):
+  
+  col1, row1 = size_image1
+  col2, row2 = size_image2
+  min_row = 1
+  min_col = 1
+  max_row = 0
+  max_col = 0
+  
+  im2T = np.array([[1,1,1], [1, col2,1], [row2, 1, 1], [row2, col2, 1]])
+  im2 = im2T.T
+  result = H.dot(im2)
+  min_row = math.floor(min(min_row, min(result[0])))
+  max_row = math.ceil(max(max_row, max(result[0])))
+  min_col = math.floor(min(min_col, min(result[1])))
+  max_col = math.ceil(max(max_col, max(result[1])))
+    
+  im_rows = max(max_row, row1) - min(min_row, row1) + 1
+  im_cols = max(max_col, col1) - min(min_col, col1) + 1
+  
+  size = (im_rows, im_cols)
+  offset = (min_row, min_col)
+  return (size, offset)
+
+def stitch_images(previmage, curimage):  
+  if (previmage == None):
+    return curimage
+  
+  curimage = cv2.cvtColor(curimage, cv2.COLOR_BGR2BGRA)
+  curimage_gray = cv2.cvtColor(curimage, cv2.COLOR_BGR2GRAY)  
+  previmage = cv2.cvtColor(previmage, cv2.COLOR_BGR2BGRA)
+  previmage_gray = cv2.cvtColor(previmage, cv2.COLOR_BGR2GRAY)
+  
+  #util.showimages([curimage, previmage])
+  
+  (curh, curw) = curimage.shape[:2]
+  (prevh, prevw) = previmage.shape[:2]
+  
+  M = detectobject(previmage_gray, curimage_gray)
+  if not isgoodmatch(M):
+        tx = 0.0
+        ty = prevh
+        M = np.array([[1.0, 0.0, tx], [0.0, 1.0, ty], [0.0, 0.0, 1.0]])
+   
+  (warpsize, offset) = calculate_size((prevh, prevw), (curh, curw), M)
+  
+  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue = (255,255,255,0), borderMode = cv2.BORDER_CONSTANT)
+  
+  xoff = int(offset[0])
+  yoff = int(offset[1])
+  M0 = np.array([[1.0, 0.0, -(xoff-1)], [0.0, 1.0, -(yoff-1)], [0.0, 0.0, 1.0]])      
+  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])),  borderValue = (255,255,255,0), borderMode = cv2.BORDER_CONSTANT)        
+  
+  #util.showimages([curimage_warp, previmage_warp])
+  
+  pil_curimage_warp = util.array_to_pil(curimage_warp, "RGBA") #Image.fromarray(curimage_warp, "RGBA")
+  pil_previmage_warp = util.array_to_pil(previmage_warp, "RGBA")#Image.fromarray(previmage_warp, "RGBA")
+  pil_previmage_warp.paste(pil_curimage_warp, (-(xoff-1),-(yoff-1)), pil_curimage_warp)
+  merged = np.array(pil_previmage_warp)  
+  merged = cv2.cvtColor(merged, cv2.COLOR_RGB2BGR)
+  return merged
+  
+def panorama(list_of_frames):
+  previmage = list_of_frames[0]
+  for i in range(1, len(list_of_frames)):
+    print "%i of %i"  %(i, len(list_of_frames))
+    curimage = list_of_frames[i]
+    previmage = stitch_images(previmage, curimage)    
+  return previmage
 
 
 if __name__ == "__main__":

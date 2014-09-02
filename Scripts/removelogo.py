@@ -47,6 +47,6 @@ if __name__ == "__main__":
             img1[tly:bry, tlx:brx, 1] = 255
             img1[tly:bry, tlx:brx, 2] = 255
             
-            cv2.imwrite(dir_path+"\\"+imagefiles[i], img1)
+            cv2.imwrite(processed_path+"\\"+imagefiles[i], img1)
            
     

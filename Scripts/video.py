@@ -4,56 +4,93 @@ import re
 import cv2
 import numpy as np
 import processframe as pf
+import ntpath
+import sys
+
 
 class Keyframe:
     def __init__(self, frame_path, frame, time, framenum, video=None):
         self.frame_path = os.path.abspath(frame_path)
+        self.frame_filename = ntpath.basename(self.frame_path)
         self.frame = frame
         self.height, self.width = frame.shape[:2]
         self.time = time
         self.framenum = framenum
         self.startt = -1
         self.endt = -1
-        self.newobj_mask = None
         self.video = video
         self.default_objs = []
+        self.fg_mask = None
         if (video != None):
-            self.default_objs += video.default_objs
-        self.fg_mask = self.mask_objs(self.default_objs)
+            self.add_default_objs(video.default_objs)
+        else:
+            self.add_default_objs([])
+        self.newobj_mask = None
         
-    def new_visual(self, ):
+    def new_visual_score(self, ):
         if (self.newobj_mask == None):
             return -1
-        return np.count_nonzero(self.new_objmask)
+        return np.count_nonzero(self.newobj_mask)
     
     def add_default_objs(self, objs):
-        self.default_objs += objs
+        if objs != None:
+            self.default_objs += objs
+        fgimg = pf.getnewobj(self.frame, self.default_objs)
+        self.fg_mask = pf.fgmask(fgimg)        
         return
-        
-    def mask_objs(self, objlist):
-        fgimg = pf.getnewobj(self.frame, objlist+self.default_objs)
-        mask = pf.fgmask(fgimg)
-        self.mask = mask
-        return 
     
-    def get_newobj(self, ):
-        obj = pf.maskimage_white(self.frame, self.mask)
+    def set_newobj_mask(self, objlist):
+        objimg = pf.getnewobj(self.frame, objlist)
+        mask = pf.fgmask(objimg)
+        self.newobj_mask = cv2.bitwise_and(mask, self.fg_mask)
+        return        
+        
+    def get_newobj(self, objlist):        
+        fgimg = pf.getnewobj(self.frame, objlist + self.default_objs)
+        newobj_mask = pf.fgmask(fgimg)       
+        obj = pf.maskimage_white(self.frame)
         return obj
     
-    def get_fgobj(self, ):
-        return
+    def find_obj(self, obj):
+        if obj == None:
+            return None
+        M = pf.detectobject(obj)
+        h,w = obj.shape[:2]
+        pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
+        dst = cv2.perspectiveTransform(pts,M)
+        return dst
+    
+    def get_fgobj(self, includelogo = False):
+        if includelogo:
+            mask = pf.fgmask(self.frame)
+        else:
+            mask = self.fg_mask
+        obj = pf.maskimage_white(self.frame, mask)
+        return obj    
     
         
     def fg_bbox(self, default_objs=[]):
-        bbox = pf.fgbbox(self.fgmask)    
+        bbox = pf.fgbbox(self.fg_mask)    
         return bbox
     
-    def mask_bbox(self, ):
-        if self.mask == None:
-            return self.fg_bbox
-        bbox = pf.fgbbox(self.mask)
-        return bbox    
+    def newobj_bbox(self, ):
+        if self.newobj_mask == None:
+            return self.fg_bbox()
+        bbox = pf.fgbbox(self.newobj_mask)
+        return bbox
     
+    @staticmethod
+    def get_keyframes(dirname):
+        filelist = os.listdir(dirname)
+        filelist = [ x for x in filelist if "capture" in x and ".png" in x and "fg" not in x and "overlap" not in x]
+        #filelist.sort(cmp=util.filename_comp)
+        
+        keyframes = []   
+        for filename in filelist:
+            frame = cv2.imread(dirname + "\\" + filename)
+            keyframe = Keyframe(dirname + "\\" + filename, frame, -1, -1)
+            keyframes.append(keyframe)
+        return keyframes
     
 class Video:
     def __init__(self, filepath):
@@ -143,8 +180,8 @@ class Video:
                 break
             if (fid in fnumbers):
                 filename = outdir + "/capture_"        
-                filename = filename + ("%06i" % fid) + ".png"
-                if not os.isfile(os.path.abspath(filename)):
+                filename = filename + ("%06i" % fid2ms(fid)) + ".png"
+                if not os.path.isfile(os.path.abspath(filename)):
                     cv2.imwrite(filename, frame)
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid), self)
             fid += 1
@@ -172,7 +209,7 @@ class Video:
                 if not os.path.isfile(os.path.abspath(filename)):
                     print 'writing', filename
                     cv2.imwrite(filename, frame)
-                keyframes.append(Keyframe(filename, frame, ts[i], self.ms2fid(ts[i])), self)                
+                keyframes.append(Keyframe(filename, frame, ts[i], self.ms2fid(ts[i]), self))
                 i += 1
                 if (i == len(ts)):
                     break

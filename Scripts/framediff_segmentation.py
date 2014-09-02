@@ -104,6 +104,22 @@ def get_keyframe_times(lecture, framediffs):
             ms += 1000
     return keyframes_ms
 
+def keyframe_masks_new_from_prev(list_of_keyframes):
+    if (len(list_of_keyframes) == 0):
+        return list_of_keyframes    
+    
+    prevframe = None
+    for keyframe in list_of_keyframes:
+        if (prevframe == None):
+            prev_obj = []
+        else:
+            prev_obj = [prevframe.get_fgobj(includelogo=True)]
+        keyframe.set_newobj_mask(prev_obj)
+        prevframe  = keyframe
+        
+    return list_of_keyframes
+
+
 if __name__ == "__main__":
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
@@ -112,14 +128,14 @@ if __name__ == "__main__":
     visual_thres = int(sys.argv[5])
         
     lecture = Lecture(videopath, scriptpath)
-    #lecture.assign_keyframe_to_words(outdir=outdir)
+    lecture.assign_keyframe_to_words(outdir=outdir + "\\highlight")
     
     framediffs = util.stringlist_from_txt(framediffpath)
     framediffs = util.strings2ints(framediffs)
     keyframes_ms = get_keyframe_times(lecture, framediffs)
     
     keyframes = lecture.capture_keyframes_ms(keyframes_ms, outdir)    
-    keyframes = pframe.keyframe_masks_new_from_prev(keyframes)
+    keyframes = keyframe_masks_new_from_prev(keyframes)
 
     text_segments = lecture.segment_script(keyframes_ms)
     prevt = 0
@@ -140,10 +156,10 @@ if __name__ == "__main__":
     merged_lecsegs= []
     while (len(list_of_lecsegs) > 0):
         curseg = list_of_lecsegs.pop(0)       
-        while (curseg.keyframe.new_visual() <= visual_thres and len(merged_lecsegs) > 0):
+        while (curseg.keyframe.new_visual_score() <= visual_thres and len(merged_lecsegs) > 0):
             prevseg = merged_lecsegs.pop()
             curseg = curseg.merge_prev(prevseg)
-        if (curseg.keyframe.new_visual() <= visual_thres and len(list_of_lecsegs) > 0):
+        if (curseg.keyframe.new_visual_score() <= visual_thres and len(list_of_lecsegs) > 0):
             nextseg = list_of_lecsegs.pop(0)
             curseg = curseg.merge_next(nextseg)
         merged_lecsegs.append(curseg)
@@ -151,7 +167,7 @@ if __name__ == "__main__":
     list_of_lecsegs = merged_lecsegs
     
     print "Writing to html"
-    html = WriteHtml(outdir + "/framediff_stc_vt_" +str(visual_thres)+".html", "Frame Difference Segmentation with Full Sentences")
+    html = WriteHtml(outdir + "/framediff_stc_vt_" +str(visual_thres)+".html", "Level of detail Summarization")
     html.openbody()       
     for lecseg in list_of_lecsegs:
         if (lecseg.num_nonsilent_words() > 0):

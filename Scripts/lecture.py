@@ -44,7 +44,7 @@ class Lecture:
 
         for word in self.list_of_words:
             if word.original_word in emph_words:
-                endts.append(word.endt)
+                endts.append(word.endt) # 1 second buffer
                 startts .append(word.startt)
         if (len(startts) == 0):
             return
@@ -60,10 +60,10 @@ class Lecture:
                 diff = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
                 ret, mask = cv2.threshold(diff, 100, 255, cv2.THRESH_BINARY)
                 word.mask = mask                
-                highlight_frame = pframe.highlight(word.keyframe.frame, word.mask)
-                highlight_path = outdir + "/highlight_" + ("%06i" % i) + ".png"
-                cv2.imwrite(highlight_path, highlight_frame)
-                word.highlight_path = os.path.abspath(highlight_path)
+                #highlight_frame = pframe.highlight(word.keyframe.frame, word.mask)
+                word.highlight_path = word.keyframe.frame_path #outdir + "/word_highlight_" + ("%06i" % word.startt) + ".png"
+                #cv2.imwrite(highlight_path, highlight_frame)
+                #word.highlight_path = os.path.abspath(highlight_path)
                 i += 1                
 
 class LectureSegment:
@@ -102,7 +102,8 @@ class LectureSegment:
         merged.startt = self.startt
         merged.endt = next_lecseg.endt
         merged.keyframe = next_lecseg.keyframe
-        merged.keyframe.mask = cv2.bitwise_or(self.keyframe.mask, next_lecseg.keyframe.mask)        
+        merged.keyframe.fg_mask = cv2.bitwise_or(self.keyframe.fg_mask, next_lecseg.keyframe.fg_mask)
+        merged.keyframe.newobj_mask = cv2.bitwise_or(self.keyframe.newobj_mask, next_lecseg.keyframe.newobj_mask)        
         merged.list_of_words = self.list_of_words + next_lecseg.list_of_words        
         merged.title = self.title
         if (next_lecseg.title != ''):

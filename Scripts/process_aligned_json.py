@@ -32,33 +32,33 @@ def get_sentences(list_of_words):
     for word in list_of_words:        
         sentences[word.stc_idx].append(word)
     return sentences
-    
+
 
 def assign_frame_to_words(video, list_of_words):
     cap = cv2.VideoCapture(video.filepath)
-    i = 0
+    
     prevframe = np.empty((video.height, video.width, 3), dtype=np.uint8)
-
+    i = 0
     while (cap.isOpened()):
         ret, frame = cap.read()
         if (ret == True and i < len(list_of_words)):
             word = list_of_words[i]
             word_time = word.startt * 1000
             frame_time = cap.get(0)
-            print 'frame time', frame_time
-            print 'word time', word_time
+            #print 'frame time', frame_time
+            #print 'word time', word_time
             if (frame_time >= word_time ):
                 diff = cv2.absdiff(frame, prevframe)
                 diff = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
                 ret, mask = cv2.threshold(diff, 100, 255, cv2.THRESH_BINARY)
-                highlight_frame = pf.highlight(frame, mask)
+                #highlight_frame = pf.highlight(frame, mask)
                 word.frame = frame
-                word.mask = highlight_frame
+                word.mask = mask
                 i += 1
-                print word.original_word
-                cv2.imshow("word frame", word.frame)
-                cv2.imshow("word mask", word.mask)
-                cv2.waitKey()
+                #print word.original_word
+                #cv2.imshow("word frame", word.frame)
+                #cv2.imshow("word mask", word.mask)
+                #cv2.waitKey()
         else:
             break
         prevframe = frame

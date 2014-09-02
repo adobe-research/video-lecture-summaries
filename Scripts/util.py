@@ -4,6 +4,19 @@ import scipy as sp
 import cv2
 import re
 
+def grayimage(img):
+    if len(img.shape) <= 2:
+        return img
+    depth = img.shape[2]
+    if (depth ==3):
+        return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    elif (depth == 4):
+        return cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)
+    else:
+        print "Image format not recognized"
+        return img
+
+
 def stringlist_from_txt(filepath):
     txtfile = open(filepath, "r")
     list_of_strings = []
@@ -18,11 +31,14 @@ def strings2ints(stringlist):
     return int_list
 
 def array_to_pil(data, mode="RGB"):
-    image = Image.fromarray(data, "RGB")
-    b, g, r = image.split()
-    image = Image.merge("RGB", (r, g, b))
-    if (mode != "RGB"):
-        image = image.convert(mode)
+    if (mode == "RGB"):
+        image = Image.fromarray(data, "RGB")
+        b, g, r = image.split()
+        image = Image.merge("RGB", (r, g, b))
+    elif (mode == "RGBA"):
+        image = Image.fromarray(data, "RGBA")
+        b, g, r, a = image.split()
+        image = Image.merge("RGBA", (r, g, b,a))
     return image
 
 def filename_comp(name1, name2):
@@ -42,7 +58,7 @@ def bbox_overlap(box1, box2):
      
 def boxarea(box):
     if (box[0] > box[2] or box[1] > box[3]):
-        return -1
+        return 0
     else:
         return (box[2] - box[0]) * (box[3] - box[1])
 

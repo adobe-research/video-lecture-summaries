@@ -22,7 +22,9 @@ class WriteHtml:
         self.htmlfile.write("\n</body>")
     
     def imagelink(self, filename, width):
-        self.htmlfile.write("<a href=\"%s\"><img src=\"%s\" height = %s></a>" % (filename, filename, width))
+        self.htmlfile.write("<a href= \"" + self.relpath(filename) + "\">")
+        self.htmlfile.write("<img src=\"" + self.relpath(filename) + "\" max-width =" + width + ">")
+        self.htmlfile.write("</a>")
 
     def breakline(self):
         self.htmlfile.write("</br>")
@@ -74,7 +76,10 @@ class WriteHtml:
             if word.issilent:
                 continue
             elif word.highlight_path != None:
-                self.htmlfile.write("<a href=\"#\">" + word.original_word + " <img src = \"" + self.relpath(word.highlight_path) + "\">")                
+                #self.htmlfile.write("<a  class=\"highlight\" href=\"#\"  onmouseover=\"document.getElementById(''mainpic').src='"+ self.relpath(word.highlight_path) + "'\"")
+                #self.htmlfile.write(" onmouseout=\"document.getElementById('mainpic').src='mainpic.png'\">")
+                self.htmlfile.write("<a class=\"highlight\" href=\"#\"> <img src = " + word.highlight_path + "  >")
+                self.htmlfile.write(word.original_word + " ")
                 self.htmlfile.write("</a>")
             else:
                 self.htmlfile.write(word.original_word + " ")            
@@ -99,7 +104,7 @@ class WriteHtml:
             self.htmlfile.write("num sentences: " + str(lecseg.num_stcs()) +"<br>" )            
             self.htmlfile.write("num words: " + str(len(lecseg.list_of_words)) +"<br>" )
             self.htmlfile.write("num nonsilent words: " + str(lecseg.num_nonsilent_words()) +"<br>" )
-            self.htmlfile.write("keyframe new visual:" + str(lecseg.keyframe.new_visual()) +"<br>" )            
+            self.htmlfile.write("keyframe new visual:" + str(lecseg.keyframe.new_visual_score()) +"<br>" )            
             self.htmlfile.write("</p>")
         self.htmlfile.write("</td></tr></table>")
         self.htmlfile.write("</div>")
