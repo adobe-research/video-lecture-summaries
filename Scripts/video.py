@@ -180,7 +180,7 @@ class Video:
                 break
             if (fid in fnumbers):
                 filename = outdir + "/capture_"        
-                filename = filename + ("%06i" % fid2ms(fid)) + ".png"
+                filename = filename + ("%06i" % self.fid2ms(fid)) + ".png"
                 if not os.path.isfile(os.path.abspath(filename)):
                     cv2.imwrite(filename, frame)
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid), self)

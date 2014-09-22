@@ -44,6 +44,18 @@ class ProcessVideo:
         print self.videotype
         print 'framerate', self.framerate
     
+    def tracktemplate(self, template):
+        cap = cv2.VideoCapture(self.video)
+        pos = []
+        while (cap.isOpened()):
+            ret, frame = cap.read()
+            if (ret == True):                
+                loc = pf.findloc(frame, template)
+                pos.append(loc)                
+            else:
+                break                    
+        return pos
+    
     def cutvideo(self, start, end):
         """Cut the video from start time to end time"""
         cap = cv2.VideoCapture(self.video)
@@ -234,6 +246,8 @@ class ProcessVideo:
         cap.release()
         out.release()
         return
+    
+    
 
 if __name__ == "__main__":     
     videolist = ["..\\SampleVideos\\more\\mit1.mp4", "..\\SampleVideos\\more\\mit2.mp4"]

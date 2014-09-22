@@ -13,6 +13,7 @@ from itertools import cycle
 import util
 from video import Video, Keyframe
 import math
+from nltk.tbl import template
 
 logging.basicConfig(stream=sys.stderr, level=logging.ERROR)
 
@@ -216,8 +217,18 @@ def findobject(gray_img, gray_obj):
     #image[:h1, :w1] = gray_obj
     #image[:h2, w1:w1+w2] = gray_img
     return M    
-    
 
+def findloc(frame, template):
+    grayframe = util.grayimage(frame)
+    graytemp = util.grayimage(template)
+    wtemp, htemp = graytemp.shape[::-1]
+    top_left = matchtemplate(grayframe, graytemp)
+    if (top_left == None):
+        return None
+    else:
+        center = (top_left[0] + wtemp/2, top_left[1] + htemp/2)
+    return center    
+     
 def detectobject(img, obj):
     gray_img = util.grayimage(img)
     gray_obj = util.grayimage(obj)
@@ -344,10 +355,10 @@ def findobject_exact(fgimg, obj):
     min_val = math.sqrt(min_val) / (objh * objw)
     threshold = 2.0
     if (min_val > threshold):
-        print "Exact match not found:", min_val
+        logging.info("Exact match NOT found: %f", min_val)
         return None
     else:
-        print "Exact match found: ", min_val
+        logging.info("Exact match found: %f", min_val)        
     top_left = min_loc
     
     #print 'top left', top_left
@@ -504,18 +515,23 @@ def numfgpix(img, bgcolor):
     count = np.count_nonzero(sub)
     return count
 
-def numfgpix(sub_img):
+def numfgpix(sub_img): 
     return (sub_img == 255).sum()    
 
 def matchtemplate(gray_img, gray_template):
-    """Return the top left corner of the rectangle that matches template inside img"""
-    method = 4 
-    w, h = gray_template.shape[::-1]
-    
+    """Return the top left corner of the rectangle that matches template inside img"""  
+    w, h = gray_template.shape[::-1]    
     # Apply template Matching
-    res = cv2.matchTemplate(gray_img,gray_template,method, 2)
+    res = cv2.matchTemplate(gray_img,gray_template, cv2.TM_SQDIFF)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-    top_left = max_loc
+    min_val = math.sqrt(min_val) / (h*w)
+    threshold = 2.0
+    if (min_val > threshold):
+        logging.info("Exact match NOT found: %f", min_val)        
+        return None
+    else:
+        logging.info("Exact match found: %f", min_val)        
+    top_left = min_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
     return top_left;
 

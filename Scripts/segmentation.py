@@ -11,12 +11,14 @@ if __name__ == "__main__":
     videolist = ["..\\SampleVideos\\more\\armando1\\armando1.mp4", "..\\SampleVideos\\more\\armando2\\armando2.mp4",
                  "..\\SampleVideos\\more\\hwt1\\hwt1.mp4" , "..\\SampleVideos\\more\\hwt2\\hwt2.mp4",
                  "..\\SampleVideos\\more\\khan1\\khan1.mp4", "..\\SampleVideos\\more\khan2\\khan2.mp4",
-                 "..\\SampleVidoes\\more\\mit1\\mit1.mp4", "..\\SampleVidoes\\more\\mit2\\mit2.mp4",
+                 "..\\SampleVideos\\more\\mit1\\mit1.mp4", "..\\SampleVideos\\more\\mit2\\mit2.mp4",
                  "..\\SampleVideos\\more\\mit3\\mit3.mp4",
                  "..\\SampleVideos\\more\\tecmath1\\tecmath1.mp4", "..\\SampleVideos\\more\\tecmath2\\tecmath2.mp4",
                  "..\\SampleVideos\\more\\udacity1\\udacity1.mp4", "..\\SampleVideos\\more\\udacity2\\udacity2.mp4",
                  "..\\SampleVideos\\more\\pentimento1\\pentimento1.mp4",
-                 "..\\SampleVidoes\\more\\slide1\\slide1.mp4"]
+                 "..\\SampleVideos\\more\\slide1\\slide1.mp4"]
+    
+    videolist = ["..\\SampleVideos\\more\\bigbang\\bigbang.mp4"]
     for video in videolist:
         pv = processvideo.ProcessVideo(video)
         outvideo = pv.videoname+"_proc1.avi"

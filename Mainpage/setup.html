@@ -4,11 +4,25 @@
     <ol>
 <li><a href="http://docs.opencv.org/trunk/doc/py_tutorials/py_setup/py_setup_in_windows/py_setup_in_windows.html#install-opencv-python-in-windows">OpenCV-Python, Check for latest versions</a></li>
         <ol>
-        <li>Download and install Python 2.7</li>
-        <li>Download and install Numpy </li>
-        <li>Download and install Matplotlib </li>
-        <li>Download openCV <b>(Check for actual latest version)</b></li>
+        <li>Download and install Python 2.7.x: I installed from windows version from <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> </li>        
+        <li>Download and install Numpy: I installed numpy‑MKL‑1.8.2.win32‑py2.7.exe from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy">http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy</a> </li> 
+        <li>Download and install Matplotlib: I installed matplotlib-1.4.0.win32‑py2.7.exe from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib">http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib</a>  </li>
+        <li>Download and install six: I installed six‑1.8.0.win32‑py2.7.exe from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#six">http://www.lfd.uci.edu/~gohlke/pythonlibs/#six</a></li>
+        <li>Download and install python-dateutil: I installed python‑dateutil‑2.2.win32‑py2.7.exe from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#python-dateutil">http://www.lfd.uci.edu/~gohlke/pythonlibs/#python-dateutil</a></li>
+        <li>Donwload and install pyparsing: I installed pyparsing‑2.0.2.win32‑py2.7.exe from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyparsing">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyparsing</a></li>
+        <li>Download and install scipy: I installed scipy‑0.14.0.win32‑py2.7.exe from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy">http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy</a></li>        
+        <li>Download openCV <b>(Check for actual latest version)</b>: I installed opencv-2.4.9 for windows, and then copied opencv/build/python/2.7/x86/cv2.pyd</li>
         </ol>
+<li>
+    Install scikit
+    <ol><li>Download and install <a href="http://pip.readthedocs.org/en/latest/installing.html">pip</a></li>
+        <li>Add C:\Python27\Scripts to PATH environment variable</li>
+        <li>Follow rest of instruction in <a href="http://scikit-learn.org/stable/install.html">http://scikit-learn.org/stable/install.html</a></li>
+    </ol>
+</li>
+<li>Install PIL: I installed Python Imaging Library 1.1.7 for Python 2.7 from <a href="http://www.pythonware.com/products/pil/">http://www.pythonware.com/products/pil/</a></li>
+    
+        
 <li>To work with mp4 videos: Copy opencv_ffmpeg_64.dll to C:\Python27 directory and rename it to opencv_ffmpeg249_64.dll</li>
 <li><a href=http://www.lfd.uci.edu/~gohlke/pythonlibs/>Useful Python Extension packages for windows </a>
     <ol><li>Download dateutil, pyparsing, six as needed </li></ol>
@@ -17,12 +31,18 @@
     <ol>
         <li>Install <a href="https://pypi.python.org/pypi/setuptools">setuptool</a> for 64bit python</li>
         <li>Follow rest of instruction in <a href="http://www.nltk.org/install.html">http://www.nltk.org/install.html</a></li>
-    </ol></li>
-        <li>Install NLTK Data:<a href="http://www.nltk.org/data.html">http://www.nltk.org/data.html</a></li>
-    <li>Install <a href="http://sigal.saimon.org/en/latest/">sigal</a> for quick html generation:<br>
+    </ol>
+</li>
+<li>Install NLTK Data:<a href="http://www.nltk.org/data.html">http://www.nltk.org/data.html</a></li>
+<li>Install <a href="http://sigal.saimon.org/en/latest/">sigal</a> for quick html generation:<br>
         C:\Python27\Scripts\easy_install sigal        
-    </li>
+</li>
+<li>Install Python IDE: I installed Eclipse with PyDev <a href="http://pydev.org/manual_101_install.html">http://pydev.org/manual_101_install.html</a></li>
 </ol>
 
+<p>Helpful links for problem solving</p>
+<ul>
+    <li><a href="http://stackoverflow.com/questions/9684254/i-cannot-install-numpy-because-it-cant-find-python-2-7-althought-i-have-instal">When installing numpy or matplotlib, you see the error message: "Python version 2.7 required, which can't find in registry"</a></li>
+</ul>
 </body>
 </html>

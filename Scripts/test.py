@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 import os
 from PIL import Image
 import images2gif
-import processvideo
+import processvideo as pv
 import processframe as pf
 import processscript as ps
 import process_aligned_json as pj
@@ -60,7 +60,8 @@ def mask_new_from_prev_keyframes(dirname):
     
     return keyframes
         
-def fgbbox(keyframes):    
+def fgbbox(keyframes):   
+    dirname = "temp" 
     for keyframe in keyframes:
         fgbbox = keyframe.fg_bbox()        
         temp1 = np.array(keyframe.frame)
@@ -142,7 +143,8 @@ def test_overlap(framedir, logodir):
     overlapdir = framedir + "\\overlap_objects"
     if not os.path.exists(os.path.abspath(overlapdir)):
         os.makedirs(os.path.abspath(overlapdir))        
-    
+
+    html = WriteHtml(overlapdir + "\\overlap.html", "Overlap test")    
     prevframe = None
     for keyframe in keyframes:
         overlapframe = np.array(keyframe.frame)
@@ -168,6 +170,7 @@ def test_overlap(framedir, logodir):
             cv2.rectangle(overlapframe, (overlap[0], overlap[1]), (overlap[2], overlap[3]), (0, 255, 0, 50), -1)
         prevframe = keyframe
         cv2.imwrite(overlapdir + "\\" + keyframe.frame_filename, overlapframe)          
+        
         
         html.opentablerow()
         fgfilename = fgdir + "\\" + keyframe.frame_filename                
@@ -294,9 +297,17 @@ def test_highlight_in_panorama(panorama, frame, highlight_mask):
     return high
         
 if __name__ == "__main__":
-    framedir = sys.argv[1]
-    logodir = sys.argv[2]
-    panorama = cv2.imread(sys.argv[3])
-    test_keyframe_object_in_panorama(framedir, logodir, panorama)
-    
+    videoname = sys.argv[1]
+    cursorfile = sys.argv[2]
+    video = pv.ProcessVideo(videoname)
+    cursor = cv2.imread(cursorfile)
+    pos = video.tracktemplate(cursor)
+    cursorpostxt = video.videoname+"_cursorpos.txt"
+    cursorpos = open(cursorpostxt, "w")
+    for p in pos:
+        if (p == None):
+            cursorpos.write("-1\t-1")
+        else:
+            cursorpos.write("%i\t%i\n" % int(p[0]), int(p[1]))
+    cursorpos.close()
     
