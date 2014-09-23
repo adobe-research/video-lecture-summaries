@@ -163,7 +163,7 @@ class Video:
         return int(fid/self.fps * 1000)
     
     def ms2fid(self, ms):
-        return int(ms*self.fps)
+        return int(ms/1000.0*self.fps)
             
     def captureframes_fid(self, fnumbers, outdir= "."):
         if len(fnumbers) == 0:
@@ -216,6 +216,22 @@ class Video:
             pos += float(1000.0/self.fps )
         cap.release()
         return keyframes
+    
+    def getframe_ms(self, t):
+        cap = cv2.VideoCapture(self.filepath)
+        frame_t = 0.0
+        tol = 1000.0/self.fps
+        while(cap.isOpened()):          
+            ret, frame = cap.read()
+            if (ret == True):
+                if(abs(t - frame_t) < tol):
+                    cap.release()
+                    return frame
+                frame_t += 1000.0/self.fps
+            else:
+                break
+        cap.release()
+        return
     
     def highlight_new(self):
         """Highlight new part in each frame using absdiff with previous frame"""

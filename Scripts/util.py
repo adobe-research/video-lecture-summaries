@@ -24,6 +24,18 @@ def stringlist_from_txt(filepath):
         list_of_strings.append(val)
     return list_of_strings
 
+def list_of_vecs_from_txt(filepath, n=2):
+    txtfile = open(filepath, "r")
+    list_of_vecs = []
+    for line in txtfile:
+        values = line.split()
+        vec = []
+        for i in range(0, n):
+            vec.append(values[i])
+        list_of_vecs.append(vec)
+    return list_of_vecs
+    
+
 def strings2ints(stringlist):
     int_list = []
     for s in stringlist:

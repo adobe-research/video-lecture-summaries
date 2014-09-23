@@ -47,13 +47,17 @@ class ProcessVideo:
     def tracktemplate(self, template):
         cap = cv2.VideoCapture(self.video)
         pos = []
+        i = 0
         while (cap.isOpened()):
             ret, frame = cap.read()
             if (ret == True):                
                 loc = pf.findloc(frame, template)
                 pos.append(loc)                
             else:
-                break                    
+                break
+            print i
+            i += 1  
+        cap.release()                  
         return pos
     
     def cutvideo(self, start, end):
@@ -89,6 +93,7 @@ class ProcessVideo:
                 framei += 1
             else:
                 break
+        cap.release()
         return
        
     def countfgpix(self):

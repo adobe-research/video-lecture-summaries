@@ -11,7 +11,6 @@ from objectcandidate import ObjectCandidate
 import cluster
 from itertools import cycle
 import util
-from video import Video, Keyframe
 import math
 from nltk.tbl import template
 
@@ -79,7 +78,7 @@ def highlight(image, mask, (r,g,b,a) = (23, 175, 251, 100)):
     img = Image.merge("RGBA", (r, g, b, a))
     
     highlight = Image.fromarray(layer, "RGBA")
-    result = Image.alpha_composite(img, highlight)
+    result = Image.alpha_composite(img, highlight) 
     r,g,b,a = result.split()    
     data = np.empty((h,w,4), dtype=np.uint8)
     data[:,:,0] = b
@@ -504,7 +503,7 @@ def removebg_khan(gray_frame):
     return dest
 
 def numfgpix(img, bgcolor):
-    """Return number of foreground pixels in gimg, where bg color denotes the background colors"""
+    """Return number of foreground pixels in img, where bg color denotes the background colors"""
     sub = np.empty(img.shape)
     print 'img.shape', img.shape
     sub.fill(1)
@@ -514,9 +513,6 @@ def numfgpix(img, bgcolor):
         sub =  np.maximum(np.zeros(img.shape), np.abs(img - bg))
     count = np.count_nonzero(sub)
     return count
-
-def numfgpix(sub_img): 
-    return (sub_img == 255).sum()    
 
 def matchtemplate(gray_img, gray_template):
     """Return the top left corner of the rectangle that matches template inside img"""  
@@ -623,6 +619,9 @@ def panorama(list_of_frames):
     previmage = stitch_images(previmage, curimage)    
   return previmage
 
+def writetext(img, text, bottomleft, fontscale=10.0, color=(0,0,0)):
+    cv2.putText(img, text, bottomleft, cv2.FONT_HERSHEY_PLAIN, fontscale, color)
+    return img
 
 if __name__ == "__main__":
     src = cv2.imread("udacity1_capture.png", 0) #3 channel BGR image
