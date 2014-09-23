@@ -1,0 +1,86 @@
+0:00[Sebastian Thrun] So what's your take on how to build a search engine,
+0:02you've build one before, right?
+0:03[Sergey Brin - Co-Founder, Google] Yes. I think the most important thing
+0:06if you're going to build a search engine
+0:08is to have a really good corpus to start out with.
+0:12In our case we used the world wide web, which at time was certainly smaller than it is today.
+0:19But it was also very new and exciting.
+0:21There were all sorts of unexpected things there.
+0:23[David Evans] So the goal for the first three units for the course is to build that corpus.
+0:27And we want to build the corpus for our search engine
+0:30by crawling the web and that's what a web crawler does.
+0:32What a web crawler is, it's a program that collects content from the web.
+0:36If you think of a web page that you see in your browser, you have a page like this.
+0:40And we'll use the udacity site as an example web page.
+0:43It has lot's of content, it has some images, it has some text.
+0:47All of this comes into your browser when you request the page.
+0:51The important thing that it has is links.
+0:53And what a link is, is something that goes to another page.
+0:57So we have a link to the frequently asked questions,
+1:00we have a link to CS 101 page.
+1:02There's some other links on the page.
+1:04And that link may show in you browser with an underscore,
+1:07it may not, depending on how your browser is set.
+1:09But the important thing that it does,
+1:11is it's a pointer to some other web page.
+1:13And those other web pages may also have links
+1:16so we have another link on this page.
+1:19Maybe it's to my name, you can follow to my home page.
+1:23And all the pages that we can find with our web crawler
+1:26are found by following the links.
+1:29So it won't necessarily find every page on the web
+1:31If we start with a good seed page
+1:33we'll find lot's of pages, though.
+1:35And what the crawler's gonna do is start with one page,
+1:37find all the links on that page, follow them to find other pages
+1:41and then on those other pages it will follow the links on those pages
+1:45to find other pages and there will be lot's more links on those pages.
+1:48And eventually we'll have a collection of lot's of pages on the web.
+1:51So that's what we want to do to build a web crawler.
+1:54We want to find some way to start from one seed page,
+1:56extract the links on that page,
+1:59follow those links to other pages,
+2:01then collect the links on those other pages,
+2:03follow them, collect all that.
+2:05So that sounds like a lot to do.
+2:07We're not going to all that this first class.
+2:09What we're going to do this first unit, is just extract a link.
+2:12So we're going to start with a bunch of text.
+2:14It's going to have a link in it with a URL.
+2:17What we want to find is that URL,
+2:19so we can request the next page.
+2:21The goal for the second unit
+2:23is be able to keep going.
+2:25if there's many links on one page, you will want to be able to find them all.
+2:28So that's what we'll do in unit 2,
+2:30is to figure out how to keep going to extract all those links.
+2:32In unit three, well, we want to go beyond just one page.
+2:36So by the end of unit two we can print out all the links on one page.
+2:40For unit 3 we want to collect all those links, so we can keep going,
+2:44end up following our crawler to collect many, many pages.
+2:47So by the end of unit three we'll have built a web crawler.
+2:50We'll have a way of building our corpus.
+2:52Then the remaining three units will look at how to actually respond to queries.
+2:57So in unit four we'll figure out how to give a good response.
+3:01So if you search for a keyword, you want to get a response that's a list of the pages
+3:08where that keyword appears.
+3:10And we'll figure out in unit five a way to do that, that scales, if we have a large corpus.
+3:15And then in unit six what we want to do is, well, we don't just want to find a list,
+3:19we want to find the best one.
+3:21So we'll figure out how to rank all the pages where that keyword appears.
+3:24So we're getting a little ahead of ourselves now,
+3:27because all we're going to do for unit one,
+3:30is to figure out how to extract a link from the page.
+3:32And the search engine that we'll build at the end of this
+3:35will be a functional search engine.
+3:37It will have the main components that a search engine like Google has.
+3:40It certainly won't be as powerful as Google will be,
+3:43we want to keep things simple.
+3:44We want to have a small amount of code to write.
+3:46And we should remember that our real goal
+3:48is not as much to build a search engine,
+3:50but to use the goal of building a search engine as a vehicle
+3:52for learning about computer science
+3:55and learning about programming
+3:56so the things we learn by doing this
+3:58will allow us to solve lot's and lot's of other problems.

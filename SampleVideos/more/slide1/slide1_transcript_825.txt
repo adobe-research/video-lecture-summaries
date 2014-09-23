@@ -1,0 +1,98 @@
+0:00We are going to consider the basic setup and the buffers. What is a buffer? As well as
+0:06basic matrix operations that you already saw for transformations.
+0:11So, the first question is what is a buffer? In OpenGL see, these are some common types
+0:17of buffer. First, the color buffer.
+0:20And you can have a front buffer, a back buffer, left and right. Left and right is for stereo.
+0:25We don't need to consider it too much in this course. Front and back is interesting because
+0:30you only see the front buffer, but there is a technique known as double buffering that
+0:35draws into the back buffer and then swaps them. There is also a depth buffer to hold
+0:40the z values, an accumulation buffer to add up contributions from many images, and things
+0:46like a stencil buffer.
+0:47Any drawing that you do writes to some buffer, and that's why these are very important concepts
+0:53in OpenGL. Most commonly you would write to the front buffer or the back buffer if you
+0:58were doing double buffering.
+1:01And you would also modify the depth, because you will use the technique known as Z-buffering
+1:06to only draw the objects that are directly visible, and eliminate objects that lie behind
+1:12them. OpenGL does not include any specific aspects of window system interactions. And
+1:19this is done mostly for portability. But we can use alternatives, such as GLUT, which
+1:25you will be using. And there are a number of other tool kits (Motif, GLX, Tcl/Tk).
+1:30And all of these implement callbacks, that is functions the user registers to handle
+1:36events such as a mouse moving or a key press. And if you have looked at the source code
+1:41for homework 0, you see the way these things are handled.
+1:46So this is the basic setup code. And again we're showing a lot of code on these slides.
+1:50You are welcome to use any of it if you think it's helpful in your assignments. So here
+1:55is the main function. And this code is really just from the homework 0 program. And I'm
+2:01going to build that program out slowly. So here's my main function. I initialized GLUT.
+2:07And then I come to this quantity here. So glutInitDisplayMode.
+2:12And what I'm going to do is request the single buffer, so I can have also double buffering,
+2:17but this is single buffer, and I'm requesting the color buffer, RGB, red green and blue.
+2:23I set the window size, window position, create the window and then this is something that
+2:29happens just in order to setup my program, we won't go into it in detail, it's required
+2:35to get all the functions to work correctly, glewInit, and finally I call my own initialization.
+2:41In the next screen, I'm going to show you that I register callbacks for various keyboard
+2:45and mouse actions.
+2:47So, this was the earlier part of the main function. And now see, the display function
+2:52is some function known as display. reshape, if I try to reshape my window, if I try to
+2:58press the keyboard, I press the mouse, and also if I drag the mouse. After this you go
+3:02to glutMainLoop, and all this does is, it waits for events, such as moving the mouse,
+3:08pressing the keyboard, and then it calls the user function.
+3:12The next part is to discuss matrix modes and we will talk about viewing in OpenGL. Of course
+3:19you already have a reasonable idea of how this works in previous two lectures. We did
+3:24consider gluLookAt and gluPerspective, and we did derive the matrices for them, in fact
+3:29you will be implementing this in homework 1.
+3:32Viewing in OpenGL we've already discussed consists of two parts. The first is to position
+3:38the object and also to position the camera appropriately.
+3:42This is known as the ModelView transformation matrix, and so Model and View. So View is
+3:49for the camera, Model is for the model transformation.
+3:53The final step is to project the 3D world onto the image, and that is known as the projection
+4:01transformation matrix.
+4:03We'll talk both about modern OpenGL, and we'll talk a little bit about old style OpenGL.
+4:10In some cases, the concepts are actually easier to understand in old style OpenGL. But modern
+4:15OpenGL responds to the notion that, today, you have programmable shaders. And there are
+4:20therefore better ways of doing certain things. Now, I should mention that the old style OpenGL,
+4:25for the most part, is still supported. There's a lot of legacy code out there. And in terms
+4:30of doing your homeworks, you're welcome to use either, within the limits described in
+4:36the homework assignment.
+4:37So in older OpenGL there are two matrix stacks, the GL_MODELVIEW_MATRIX and the GL_PROJECTION_MATRIX.
+4:45And what you do is, push and pop matrices onto these stacks. In new style OpenGL, you
+4:51use the C++ standard template libraries to make stacks as needed, and in fact for homework
+4:572 we do require that you use those. So in order to actually learn the material and homework
+5:012, you can't just use the transformation stacks and old style OpenGL.
+5:06This is in C++. For those of you who are not familiar, stack is a primitive type in C++
+5:12in the template library and this is a template, so I'm saying it's a stack of mat4. mat4 is
+5:19defined in GLM, which is the auxiliary library provided, which is 4x4 matrices, and I defined
+5:26modelview. So that's just a stack of modelview. And I can say modelview push the matrix on
+5:31to the stack, in this case, the identity, and can pop from it, and so on.
+5:35Now of course, old style OpenGL supported a lot of things that are removed in new OpenGL.
+5:41So what do you do if you want to use them? The modern way to handle this is to use an
+5:46auxiliary library, the GLmath library, which supports many of the deprecated commands in
+5:53a modern way. And it includes the mat4 type, for example.
+5:57OpenGL's camera is always at the origin, and it points in the -z direction. We've already
+6:03seen this when we considered transformations. Therefore, transformations conceptually in
+6:08OpenGL move objects relative to the camera. Of course, they are exactly equivalent, whether
+6:14you think of the camera itself moving or whether you think of objects moving.
+6:18We have in fact considered both viewpoints. So we have considered the viewpoint of the
+6:23camera at a given location and how do you transform objects into that reference frame.
+6:28But the 4x4 matrix we derived is exactly what's needed for the OpenGL convention or fixing
+6:33the camera and moving objects.
+6:35In old style OpenGL, matrices are column-major. This is a source of great confusion because
+6:42the standard mathematical way of writing them is row-major.
+6:46And furthermore, they right multiply on the top of the stack. So if you say I put another
+6:51matrix on the stack, then it'll be the first transform applied. So the last transform in
+6:57the code is the first transform actually applied.
+7:01And there is some confusion in GLM because it stores things in row major order but then
+7:05it seeks to support OpenGL, and so you should really be sure you are doing the right thing
+7:11when you use OpenGL and GLM. So here is our basic initialization code for viewing, and
+7:17I will go over each of the individual steps. So we've included GLUT, we've included the
+7:23standard library.
+7:25And these are just initializations of variables. So here is the clear color, so I just wanted
+7:30it to be black. And these colors are red, green, blue and then there is an alpha channel
+7:35and that's not relevant at this stage but it's used for compositing and for transparency.
+7:40So, now I'm going to the matrix mode, GL_PROJECTION, and I'm setting it to the identity.
+7:46Then I go to the matrix mode ModelView, load the identity, and then give my gluLookAt command.
+7:52Remember that gluLookAt is first the eye. So 0, -2 and +2. So remember that eyeloc is
+8:01equal to 2. Then what am I looking at? In this case, the origin. And then the up direction.
+8:06So I set it to (0, 1, 1). Note that it's not normalized, but OpenGL will automatically
+8:12normalize it and create a coordinate frame, as we discussed in gluLookAt.
+8:17We will continue discussing the initialization later, and we'll discuss the geometry and
+8:23shader setup that you will need.

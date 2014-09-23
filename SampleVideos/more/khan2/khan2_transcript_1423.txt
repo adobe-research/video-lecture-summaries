@@ -1,0 +1,257 @@
+0:00
+0:00Let's say we have a path in the xy plane.
+0:04That's my y-axis, that is my x-axis, in my path
+0:09will look like this.
+0:11Let's say it looks like that; trying to draw a bit of an
+0:16arbitrary path, and let's say we go in a counter clockwise
+0:19direction like that along our path.
+0:23And we could call this path-- so we're going in a counter
+0:26clockwise direction --we could call that path c.
+0:29And let's say we also have a vector field.
+0:31And our vector field is going to be a little unusual;
+0:34I'll call it p.
+0:36p of xy.
+0:37It only has an i component, or all of its vectors are only
+0:40multiples of the i-unit vector.
+0:43So it's capital P of xy times the unit vector i.
+0:48There is no j component, so if you have to visualize this
+0:51vector field, all of the vectors, they're all multiples
+0:57of the i-unit vector.
+0:59Or they could be negative multiples, so they could
+1:02also go in that direction.
+1:03But they don't go diagonal or they don't go up.
+1:06They all go left to right or right to left.
+1:09That's what this vector field would look like.
+1:12Now what I'm interested in doing is figuring out the line
+1:15integral over a closed loop-- the closed loop c, or the
+1:20closed path c --of p dot dr, which is just our standard
+1:27kind of way of solving for a line integral.
+1:29And we've seen what dr is in the past.
+1:32dr is equal to dx times i plus dy times the j-unit vector.
+1:40And you might say, isn't it dx, dt times dt?
+1:45Let me write that: can't dr be written as dx, dt times
+1:51dti plus dy, dt times dtj?
+1:56And it could, but if you imagine these differentials
+1:59could cancel out, and you're just left with the dx and
+2:01a dy, and we've seen that multiple times.
+2:03And I'm going to leave it in this form because hopefully, if
+2:06we're careful, we won't have to deal with the third
+2:09parameter, t.
+2:10So let's just look at it in this form right here with
+2:13just the dx's and the dy's.
+2:16So this integral can be rewritten as the line integral,
+2:21the curve c-- actually let me do it over down here.
+2:25The line integral over the path of the curve c of p dot dr. So
+2:32we take the product of each of the coefficients, let's say the
+2:35coefficient of the i component, so we get p-- I'll do that in
+2:39green, actually do that purple color --so we get p of xy times
+2:47dx plus-- well there's no 0 times j times dy; 0 times dy id
+2:54just going to be 0 --so this our line integral simplified
+2:58to this right here.
+2:59This is equal to this original integral up here, so we're
+3:02literally just taking the line integral around this path.
+3:06Now I said that we play our cards right, we're not going to
+3:09have to deal with the third variable, t; that we might be
+3:12able just solve this integral only in terms of x.
+3:15And so let's see if we can do that.
+3:16So let's look at our minimum and maximum x points.
+3:19That looks like our minimum x point.
+3:22Let's call that a.
+3:24Let's call that our maximum x point; let's call that b.
+3:29What we could do is we can break up this curve into
+3:33two functions of x. y is functions of x.
+3:36So this bottom one right here we could call as y1 of x.
+3:40This is just a standard curve; you know when we were just
+3:44dealing with standard calculus, this is just you can
+3:47imagine this is f of x and it's a function of x.
+3:50And this is y2 of x.
+3:51
+3:55Just like that.
+3:56So you can imagine two paths; one path defined by y1 of x--
+4:01let me do that in a different color; magenta --one path
+4:04defined by y1 of x as we go from x is equal to a to x is
+4:09equal to b, and then another path defined by y2 of x as we
+4:14go from x is equal to b to x is equal to a.
+4:19That is our curve.
+4:21So what we could do is, we could rewrite this integral--
+4:24which is the same thing as that integral --as this is equal to
+4:29the integral-- we'll first do this first path --of x going
+4:33from a to b of p of x.
+4:40And I could to say p of x and y, but we know along this
+4:43path y is a function of x.
+4:47So we say x and y1 of x.
+4:51Wherever we see a y we substitute it with
+4:53a y1 of x, dx.
+4:56So that covers that first path; I'll do it in the same color.
+5:02We could imagine this is c1.
+5:04This is kind of the first half of our curve-- well it's not
+5:07exactly the half --but that takes us right from that
+5:09point to that point.
+5:10And then we want to complete the circle.
+5:13Maybe I'll do that, and I'll do that in yellow.
+5:16That's going to be equal to-- sorry we're going to have to
+5:19add these two --plus the integral from x is equal to b
+5:25to x is equal to a of-- do it in that same color --of p of x.
+5:37And now y is going to be y2 of x.
+5:40Wherever you see a y, you can substitute with y2
+5:42of x along this curve.
+5:44y2 of x, dx.
+5:49This is already getting interesting and you
+5:51might already see where I'm going with this.
+5:53So this is the curve c2.
+5:56too I think you appreciate if you take the union of c1 and
+6:00c2, we've got our whole curve.
+6:02So let's see if we can simplify this integral a little bit.
+6:05Well one thing we want to do, we might want to make
+6:07their end points the same.
+6:09So if you swap a and b here, it just turns
+6:12the integral negative.
+6:13So you make this into a b, that into an a, and then make that
+6:17plus sign into a minus sign.
+6:20And now we can rewrite this whole thing as being equal to
+6:24the integral from a to b of this thing, of p of x and y1 of
+6:33x minus this thing, minus p of x and y2 of x, and then
+6:44all of that times dx.
+6:46I'll write it in a third color.
+6:48
+6:51Now, I'm going to do something a little bit arbitrary, but I
+6:53think you'll appreciate why I did this by the end of this
+6:56video, and it's just a very simple operation.
+6:58What I'm going to do is I'm going to swap these two.
+6:59So I'm essentially going to multiply this whole thing by
+7:02negative 1, or essentially multiply and divide
+7:05by negative 1.
+7:05So I can multiply this by negative 1 and then multiply
+7:08the outside by negative 1, and I will not have changed the
+7:10integral; I'm multiplying by negative 1 twice.
+7:13So if I swap these two things, if I multiply the inside times
+7:16negative 1, so this is going to be equal to-- do the outside
+7:20of the integral, a to b.
+7:22If I multiply the inside-- I'll do a dx out here --if I
+7:26multiply the inside of the integral by negative 1,
+7:28these two guys switch.
+7:30So it becomes p of x of y2 of x.
+7:36And then you're going to have minus p of x and y1 of x.
+7:46My handwriting's getting a little messy.
+7:47But I can't just multiply just the inside by minus 1.
+7:51I don't want to change the integral, so I multiplied the
+7:53inside by minus 1, let me multiply the outside
+7:55by minus 1.
+7:56And since I multiplied by minus 1 twice, these two
+7:59things are equivalent.
+8:00Or you could say this is the negative of that.
+8:04Either way, I think you appreciate that I haven't
+8:06changed the integral at all, numerically.
+8:08I multiplied the inside and the outside by minus 1.
+8:11And now the next step I'm going to do, it might look a little
+8:15bit foreign to you, but I think you'll appreciate it.
+8:17
+8:20It might be obvious to you if you've recently done
+8:23some double integrals.
+8:24So this thing can be rewritten as minus the integral from a to
+8:30b of-- and let me do a new color --of the function p of x,
+8:38y evaluated at y2 of x minus-- and let me make it very clear;
+8:49this is y is equal to y2 of x --minus this function evaluated
+8:54at y is equal to y1 of x.
+8:59And of course all of that times dx.
+9:03This statement and what we saw right here-- this
+9:08statement right here --are completely identical.
+9:14And then if we assume that a partial derivative of capital P
+9:20with respect to y exists, hopefully you'll realize-- and
+9:24I'll focus on this a little bit because I don't want to
+9:26confuse you on this step.
+9:27Let me write the outside of this integral.
+9:28So this is going to be equal to-- and this is kind of a neat
+9:32outcome, and we're starting to build up to a very neat
+9:35outcome, which will probably have to take the next video to
+9:38do --so we do the outside dx.
+9:41
+9:43If we assume that capital P has a partial derivative, this
+9:48right here is the exact same thing.
+9:51This right here is the exact same thing as the partial
+9:54derivative of P with respect to y, dy, the antiderivative of
+10:01that from y1 of x to y2 of x.
+10:10I want to make you feel comfortable that these two
+10:13things are equivalent.
+10:14And to realize they're equivalent, you'll probably
+10:16just have to start here and then go to that.
+10:19We're used to seeing this; we're used to seeing a double
+10:21integral like this, and then the very first step we say, OK
+10:25to solve this double integral we start on the inside integral
+10:29right there, and we say, OK let's take the antiderivative
+10:33of this with respect to y.
+10:34So if you take the antiderivative of the partial
+10:37of p with respect to y, you're going to end up with p.
+10:41And since this is a definite integral, the boundaries are
+10:44going to be in terms of x, you're going to evaluate that
+10:47from y is equal to y2 of x, and you're going to subtract from
+10:51that y is equal to y1 of x.
+10:53Normally we start with something like this, and we
+10:55go to something like this.
+10:56This is kind of unusual that we started, we kind of solved, we
+10:59started with the solution of the definite integral, and then
+11:02we slowly built back to the definite integral.
+11:05So hopefully you realize that this is true, that this is
+11:08just we're kind of going in a reverse direction
+11:10than we normally do.
+11:11And if you do realize that, then we've just established
+11:13a pretty neat outcome.
+11:14Because what is this right here?
+11:18Let me go back, let me see if I can fit everything.
+11:21I have some function-- and I'm assuming that the partial of
+11:25P with respect to y exists --but I have some function
+11:29defined over the xy plane.
+11:31You know, you could imagine we're dealing in
+11:33three dimensions now.
+11:35We'll draw a little bit neater.
+11:37So that's y, that's x, that's z, so this, you could imagine,
+11:46is some surface; it just happens to be the partial
+11:48of P with respect to x.
+11:50So it's some surface on the xy plane like that.
+11:55And what are we doing?
+11:57We're taking the double integral under that surface,
+12:01around this region.
+12:02The region's boundaries in terms of y are defined
+12:04by y2 and y1 of x.
+12:06
+12:08So you literally have that curve.
+12:11That's y2 on top, y1 on the bottom.
+12:16And so we're essentially taking the volume above.
+12:18
+12:22So if you imagine with the base is-- the whole floor of this is
+12:27going to be the area inside of this curve, and then the height
+12:32is going to be the function partial of P with respect to y.
+12:36
+12:40It's going to be a little hard for me to draw, but this is
+12:42essentially some type of a volume, if you want to
+12:44visualize it that way.
+12:45But the really neat outcome here is if you call this region
+12:52r, we've just simplified this line integral.
+12:56And this was a special one.
+12:57It only had an x-component, the vector field, but we've just
+13:01simplified this line integral to being equivalent to-- maybe
+13:06I should write this line integral because that's what's
+13:09the really neat outcome.
+13:10We've just established that this thing right here, which
+13:13is the same as our original one, so let me write that.
+13:16The closed line integral around the curve c of p of xy, dx,
+13:22we've just established that that's the same thing as the
+13:25double integral over the region r-- this is the region
+13:31r --of the partial of P with respect to y.
+13:40
+13:47And we could write dy, dx, or we could write da, whatever you
+13:52want to write, but this is the double integral
+13:53over that region.
+13:55The neat thing here is using a vector field that only had an
+13:59x-component, we were able to connect its line integral to
+14:02the double integral over region-- oh, and I forgot
+14:04something very important.
+14:06We had a negative sign out here.
+14:07So this was a minus sign out here.
+14:10Or we could even put the minus in here, but I think you
+14:12get the general idea.
+14:13In the next video, I'm going to do the same exact thing with
+14:16the vector field that only has vectors in the y-direction.
+14:20And then we'll connect the two and we'll end up
+14:22with Green's theorem.
+14:23

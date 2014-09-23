@@ -1,0 +1,244 @@
+0:00[MUSIC PLAYING]
+0:25SIMONA SOCRATE: Let's work now a little bit on how we obtain the axial
+0:28force resultant at different positions along the length of the bar and how we
+0:34obtain the reactions at the support for bars in axial loading.
+0:37So let's say that we have a bar, AB, and that this bar is supported at A,
+0:43where it is fixed to a wall.
+0:45The only forces that are acting on the bar are forces acting along the length
+0:50of the bar.
+0:51Let's put a coordinate axis, x, along the axis of the bar.
+0:56Let's say that there is a concentrated load acting at the
+0:59free end of the bar.
+1:00That's section B. But let's say that there are also concentrated loads
+1:04acting along the bar at internal sections.
+1:08Let's say that there are loads acting as section C and section D.
+1:11When we drew forces in 201, we drew arrows pointing in the direction in
+1:15which the force is acting.
+1:17And then, we indicate the magnitude of the force on top of the arrow.
+1:21The magnitude can be either symbolic--
+1:24so for instance, here we can simply write FB as the magnitude of the force
+1:29acting at point B, and then we will specify separately the fact that FB is
+1:3410 newtons--
+1:35or we can directly write 10 newtons on top of the arrow.
+1:38So the arrow points in the direction along which the force acts.
+1:42The symbol on top, or directly the number of newtons, indicates the
+1:48magnitude of the force.
+1:50So let's say that at sections B, C and D, there are forces acting in the
+1:54direction indicated of magnitude, respectively, 10 newtons, 7 newtons,
+1:59and 5 newtons.
+2:01Before we move forward, let's talk a little bit about sign conventions.
+2:04We discussed, in lecture, the fact that axial force resultants are
+2:09considered positive if the bar is in tension.
+2:12So that means that if we cut the bar at any section, the positive axial
+2:18force will be coming out of the cut section of the bar.
+2:22Also, we discussed, in lecture, the fact that in order to keep the bar in
+2:26equilibrium, since all the forces act along the x-axis, the support only
+2:31needs to provide a reaction force, R, with a single known zero Cartesian
+2:37component, which is the x component of the reaction force.
+2:41So if we have the x-axis going from left to right, if we want to draw a
+2:48reaction force with a positive Cartesian component, we simply draw an
+2:52arrow from left to right to indicate the direction of the force and write
+2:57Rx on top as the magnitude of the reaction force.
+3:01If the x-axis is going from right to left, then a reaction force with a
+3:06positive Rx component will be acting also from right to left.
+3:10So we draw an arrow from right to left.
+3:13And again, we put the magnitude of the reaction force on top as Rx.
+3:18So let's put our schematics up here to remind us in which direction the axial
+3:23force, N, and the reaction at the support, Rx, would act
+3:27if they were positive.
+3:29So let's first calculate the reaction at the support A.
+3:32The first thing that we do is a free body diagram of the entire bar.
+3:36So we get rid of the wall.
+3:38And we substitute the wall with what the wall was doing to the bar, which
+3:41is providing a reaction force, RA, with only nonzero component Rx A. So
+3:48Rx A Is our unknown.
+3:50We draw our unknowns always in the direction in which they would act if
+3:55they were positive.
+3:56So a positive Rx A will be from left to right.
+4:00And that's how we draw it acting on the bar.
+4:03So now here is a free body diagram of the bar.
+4:06You see the bar is not attached to any support.
+4:10And we can then impose conditions of equilibrium in the x
+4:14direction for the bar.
+4:16And this means imposing the condition that the sum of the x components of
+4:20all forces acting on the bar must be equal to zero.
+4:23So when we do the sum of the forces in the x direction, we look at the
+4:27direction of the arrows that represent the force.
+4:30If the arrow agrees with the direction of x, we sum in the magnitude of the
+4:36force with the plus sign in the sum of the force's x.
+4:40If the arrow is against the direction of x, the magnitude of that force will
+4:44be subtracted in the total sum of forces in the direction x.
+4:48So we have 10 newtons minus 7 newtons, plus 5 newtons, plus Rx A must be
+4:54equal to 0, from which we have Rx A equal to minus 8 newtons.
+4:59So if Rx A is equal to minus 8 newton, that means that the reaction force RA
+5:05is minus 8 newton times the unit vector in direction xi.
+5:10Or, in other words, the reaction force has a magnitude of 8 newtons and is
+5:16pointing in the direction opposite to the x-axis.
+5:20It is always a good idea, after you've solved for an unknown, using a free
+5:25body diagram to draw again the free body diagram with the value that you
+5:30found for the unknown.
+5:31So now, where we used to have our unknown Rx A, we can
+5:35substitute its value.
+5:37Because the value came out negative, it means that we need to draw the
+5:41arrow in the direction opposite to the one in which we drew it, assuming it
+5:46was positive.
+5:47So now we have 8 newtons pointing against the x-axis.
+5:52And when we draw this load, in conjunction with the other loads
+5:55applied to the bar, we see that the bar is in equilibrium, because it's
+5:59pulled to the left by 7 plus 8, 15 newtons.
+6:02It's pulled to the right by 10 plus 5, equal to 15 newtons.
+6:07So it is in equilibrium.
+6:09This conventions of always drawing the unknown forces in the direction in
+6:14which they would point if they were positive seems an overkill in this
+6:19simple problem.
+6:20You could already look at these forces and immediately see in which direction
+6:25the reaction should go to balance the load.
+6:27But in general, for more complicated problems, if you simply follow this
+6:32procedure of drawing your unknown forces in the positive direction, then
+6:37you will be much better off avoiding algebra mistakes.
+6:41Let's consider now what happens inside the bar.
+6:44We want to calculate the axial force resultant that is
+6:48carried along the bar.
+6:49And we see that it changes from position to position, because there
+6:53are forces applied along the bar that cause the axial force to change.
+6:58We see that in order to understand everything of what happens inside the
+7:02bar, it's going to be enough to examine what is the level of force
+7:08that is carried in a section between D and the wall-- let's call
+7:13this section 1--
+7:14between D and C--
+7:15this is going to be our section 2--
+7:18and between C and B, and this is going to be our section 3.
+7:22So our task is to obtain N at these three sections.
+7:26The way we're going to do is by cutting the bar at the sections in
+7:30which we are interested in and putting a portion of the bar in equilibrium.
+7:35So let's start with section 1.
+7:38If we cut the bar at section 1, we can then decide if we want to keep the
+7:42portion of the bar to the left of the cut or the portion to the
+7:45right of the cut.
+7:47Let's start by keeping the section to the right of the cut.
+7:50If the x at section 1 is x1, then what is coming out of the section, when we
+7:56get rid of the left side of the bar, is the axial force of section 1, which
+8:01is n of x1.
+8:03We draw it the way it would act if it was positive, that is tensile, and
+8:08that would be coming out of the section.
+8:11So this is our unknown, N of x1.
+8:14We see that this portion of the bar is free.
+8:18It's not attached to any support.
+8:20So this is already a free body diagram of the bar.
+8:23And we can obtain N of x1 by putting this section of the bar in
+8:28equilibrium.
+8:29So we impose that the sum of the forces in the x direction, acting on
+8:33this portion of the bar, must sum to 0.
+8:37Now when you do this, don't get confused between the sign convention
+8:40for N, which is positive coming out, and the sign, plus or minus, that you
+8:45need to use when you account for N in the sum of the forces x equal 0.
+8:51Remember, this is a very simple.
+8:52When you sum forces in this expression, look at the arrow.
+8:57If the arrow of the force points in the same direction as the x-axis, the
+9:03magnitude of the force sums in positive.
+9:06If the arrow of the force points against the direction of x, then the
+9:12magnitude of the force sums in negative.
+9:16So if we look at these forces, we see that we're going to be positive sign
+9:20for the 10 newtons, a negative sign for the 7 newtons, a positive sign for
+9:26the 5 newtons, and a negative sign for N of x1--
+9:31as simple as that--
+9:32from which we see that we can obtain that N of x1 is 8 newtons.
+9:39N of x1 is positive.
+9:40So it means it acts in the same direction in which we had originally
+9:45drawn it, coming out of the section.
+9:47A positive axial force means that the bar is in tension, means that the part
+9:52of the bar that we removed was pulling on the bar.
+9:55Let's save this information up here.
+9:57Now, what would have happened if, instead of choosing the right side of
+10:01the bar to obtain N of x1, we had kept the left side of the bar?
+10:06Let's say that we cut again at x1, and we get rid of everything, and we keep
+10:11the left side.
+10:12So again, out of the section comes N of x1, the same N of x1 that we
+10:18already found to be 8 newton meters.
+10:20But we don't know this yet.
+10:22So how do we find it now?
+10:24First of all, you see, this part of the bar is attached to the wall.
+10:29This is not a free body diagram, because there is a support.
+10:33And we do not know in this sketch what is the support doing to the bar.
+10:38So if we want to keep the left side of the bar, we cannot
+10:41have the wall there.
+10:42We need to get rid of the wall and replace the wall with the force that
+10:46the wall was giving to the bar.
+10:48We have already calculated this.
+10:50This was 8 newtons.
+10:52And it was pulling in the direction against the x-axis.
+10:57So we can get rid of the wall and replace it with the
+11:00reaction at the support.
+11:02Only after we do this, this is a free body diagram.
+11:06And only at this point, we can use equilibrium to calculate the unknown
+11:11axial force N of x1.
+11:13So lets impose equilibrium of this portion of the body.
+11:16And let's impose that the sum on the force is x is equal to zero.
+11:20And you see that N of x1 now sums positive, because it's pointing in the
+11:26direction of the x-axis, while the 8 newtons from the reaction force sums
+11:31in negative, which we should have expected because the x component is
+11:35minus 8 newtons.
+11:37So from this equilibrium condition, we obtain, again, that the axial force at
+11:43section x1 is 8 newtons.
+11:46You see, you can obtain the correct result if you choose the part of the
+11:50body to the left of the cut or to the right of the cut.
+11:53Both of them will give you the correct axial force if you do your free body
+11:58diagram correctly.
+11:59Never leave supports in your free body diagram.
+12:03Always substitute the support with the reaction that the support is giving to
+12:07the structure.
+12:08Let's use now the same method to calculate the internal force of
+12:12section x2.
+12:13We can choose, we said, the left or the right side.
+12:16Which one should we choose?
+12:17In general, it is a good idea to choose the part that
+12:19makes the algebra easier.
+12:21I tend to use the part of the structure that is not attached to the
+12:25support, because in some problems, we do not even need to calculate the
+12:29reaction at the supports.
+12:30And we can always obtain the internal resultant if we start from the free
+12:35end, because then we have all the loads acting on the body.
+12:39So let's keep the right side of the bar to calculate the internal
+12:42resultant at x2.
+12:44So N of x2 is our unknown.
+12:46We draw it positive, or tensile, coming out of section x2.
+12:51Now we have our free body diagram.
+12:53We can impose that the sum of the forces x is equal to 0.
+12:57And we sum in the 10 newtons positive, because it is with x, the 7 newtons
+13:02negative, because it is opposite to x, and the N of x2 with a negative sign
+13:08because, again, you see, it points in the direction opposite to the x-axis.
+13:13Out of this simple equation, we obtain that N of x2 is equal to 3 newtons.
+13:19So we see that also at section 2 the axial force is positive.
+13:22It's tensile.
+13:24It pulls on this section just in this direction in which we drew it in our
+13:28free body diagram.
+13:29And we can save this information up here, right next to N of x1.
+13:33Finally, the free body diagram to obtain N of x3 is very simple.
+13:38And you see immediately summing the forces x equal 0 that N of x3 is going
+13:44to be equal to 10 newtons.
+13:47So now, with this information, we can construct our axial force diagram,
+13:51which is a plot of how the axial force changes along the axis of the bar.
+13:57It is always a good idea to line up your axial force diagram underneath
+14:03the sketch of the structure so that you can mark every point along the
+14:07x-axis where something happens.
+14:10In this case, the only thing that happens in this bar is that there are
+14:13forces acting at point B, C and D, so you mark those position.
+14:19Now, you know that the axial force is equal to 8 newtons between the wall
+14:25and section D. Then you know that it is equal to 3 newtons between section
+14:31D and section C. And you know that it is equal to 10 newtons between section
+14:37C and section B. So here is your axial force diagram.
+14:41There is an example problem following this video segment where you can
+14:44practice these ideas.
+14:46In these examples, we ask you to flip around the direction of x or flip
+14:50around the orientation on the bar and think about what happens to the
+14:54internal axial force and to the reactions at the support.
+14:58Well, I do not want to spoil a good surprise.
+15:01But just think physically.
+15:03If the axial force measures the fact that the bar is in tension or
+15:08compression, should it matter which direction the x-axis goes?
+15:12Vice versa, the reaction at the support is a Cartesian component of
+15:17the reaction force.
+15:19It relates to the direction of the x-axis.
+15:22So, sorry about the spoilers.
+15:24Go ahead and do your example problem to solidify these ideas.
+15:29
