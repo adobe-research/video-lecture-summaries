@@ -3,6 +3,8 @@ from PIL import Image
 import scipy as sp
 import cv2
 import re
+import numpy as np
+import os
 
 def grayimage(img):
     if len(img.shape) <= 2:
@@ -33,8 +35,7 @@ def list_of_vecs_from_txt(filepath, n=2):
         for i in range(0, n):
             vec.append(values[i])
         list_of_vecs.append(vec)
-    return list_of_vecs
-    
+    return list_of_vecs    
 
 def strings2ints(stringlist):
     int_list = []
@@ -102,6 +103,12 @@ def showimages(list_of_images):
     cv2.namedWindow("show images", cv2.WINDOW_NORMAL)
     cv2.imshow("show images", view)
     cv2.waitKey()
+    
+def saveimage(img, outdir, filename):
+    if not os.path.exists(os.path.abspath(outdir)):
+        os.makedirs(os.path.abspath(outdir))
+    cv2.imwrite(outdir + "/" + filename, img)
+
 
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  
@@ -157,3 +164,23 @@ def smooth(x,window_len=11,window='hanning'):
     y=numpy.convolve(w/w.sum(),s,mode='valid')
     return y[(window_len/2-1):-(window_len/2)]
 
+
+def get_keyframe_ts_framediff(framediff_txt, fps, thresh_scale=0.10):
+    framediff = stringlist_from_txt(framediff_txt)
+    framediff = strings2ints(framediff)
+    
+    keyframe_ms = []
+    blur = smooth(np.array(framediff))
+    sub_blur = blur[0:len(blur):int(fps)]
+    avg = np.mean(sub_blur)
+    thres = thresh_scale * avg
+    capturing = False
+    ms = 0
+    for diff in sub_blur:
+            if diff < thres and not capturing:                
+                    keyframe_ms.append(int(ms))
+                    capturing = True
+            elif diff > thres:
+                capturing = False
+            ms += 1000
+    return keyframe_ms    

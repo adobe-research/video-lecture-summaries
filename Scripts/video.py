@@ -12,6 +12,8 @@ class Keyframe:
     def __init__(self, frame_path, frame, time, framenum, video=None):
         self.frame_path = os.path.abspath(frame_path)
         self.frame_filename = ntpath.basename(self.frame_path)
+        self.extension = os.path.splitext(frame_path)[1]
+        self.basename = re.sub(self.extension, '', frame_path) 
         self.frame = frame
         self.height, self.width = frame.shape[:2]
         self.time = time
@@ -150,7 +152,7 @@ class Video:
                 if (cap.get(0) >= ms_start and cap.get(0) < ms_end):
                     out.write(frame)
                 elif (cap.get(0) >= ms_end):
-                  break
+                    break
             else:
                 break
         cap.release()

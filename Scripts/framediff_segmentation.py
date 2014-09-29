@@ -37,7 +37,7 @@ def test_init():
             counts.append(int(val))
         
         # Smooth and subsample 1 frame per second
-        print "Smooth and subsmaple 1 frame per second"
+        print "Smooth and subsample 1 frame per second"
         smoothsample = util.smooth(np.array(counts))
         subsample = smoothsample[0:len(smoothsample):int(pv.framerate)]
         t = np.linspace(0, len(subsample)-1, len(subsample))        
@@ -76,8 +76,7 @@ def test_init():
         fnumbers = []
         frametxt = open(fn_filename, "r")
         for val in frametxt.readlines():
-            fnumbers.append(int(val))
-        array = np.array(fnumbers)
+            fnumbers.append(int(val))       
         frametxt.close()
         
         print fnumbers
@@ -150,7 +149,7 @@ if __name__ == "__main__":
         prevt = t
         list_of_lecsegs.append(lecseg)
 
-     #merge segments with empty-object keyframes
+    #merge segments with empty-object keyframes
     print "Merging segments"
     print "before: ", len(list_of_lecsegs)
     merged_lecsegs= []

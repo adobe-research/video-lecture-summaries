@@ -17,8 +17,7 @@ class Lecture:
         
     def segment_script(self, list_of_t):        
         segments = [ [] for i in range(0, len(list_of_t))]
-        sentences = pjson.get_sentences(self.list_of_words)
-        
+        sentences = pjson.get_sentences(self.list_of_words)        
         temp = [] + list_of_t
         temp.append(float("inf"))
         
@@ -64,7 +63,21 @@ class Lecture:
                 word.highlight_path = word.keyframe.frame_path #outdir + "/word_highlight_" + ("%06i" % word.startt) + ".png"
                 #cv2.imwrite(highlight_path, highlight_frame)
                 #word.highlight_path = os.path.abspath(highlight_path)
-                i += 1                
+                i += 1         
+                
+    def segment(self, list_of_t, outdir="temp"):
+        keyframes = self.capture_keyframes_ms(list_of_t, outdir)
+        script_segments = self.segment_script(list_of_t)
+        prevt = 0
+        list_of_lecsegs = []
+        for i in range(0, len(list_of_t)):
+            t = list_of_t[i]
+            lecseg = LectureSegment(prevt, t, keyframes[i], script_segments[i])
+            list_of_lecsegs.append(lecseg)
+            prevt = t
+        
+        return list_of_lecsegs
+               
 
 class LectureSegment:
     def __init__(self, startt=-1, endt=-1, keyframe=None, list_of_words=[], title=''):        
@@ -85,6 +98,13 @@ class LectureSegment:
         start_i = self.list_of_words[0].stc_idx
         end_i = self.list_of_words[-1].stc_idx
         return (end_i - start_i + 1)
+    
+    def getsentence(self, idx):
+        num_stc = self.num_stcs()
+        if (idx >= num_stc):
+            print "LectureSegment.getsentences(idx): sentence index out of bound"
+        
+        
     
         
     def display(self, ):

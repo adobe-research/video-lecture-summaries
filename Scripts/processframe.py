@@ -620,6 +620,7 @@ def panorama(list_of_frames):
   return previmage
 
 def writetext(img, text, bottomleft, fontscale=10.0, color=(0,0,0)):
+    img
     cv2.putText(img, text, bottomleft, cv2.FONT_HERSHEY_PLAIN, fontscale, color)
     return img
 
