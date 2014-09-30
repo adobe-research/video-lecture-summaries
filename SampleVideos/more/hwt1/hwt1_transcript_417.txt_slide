@@ -1,0 +1,45 @@
+case 0:
+	$('#hwt1text').text("hi in this beer I'm gonna talk about the anatomy of the heart and this is just going to be in overview the gross anatomy a hard and the Chamber's showed quickly here and I'm gonna grow this so that it's being dissected to show all the changes all the heart and all the valves for small ");
+	break;
+case 1:
+	$('#hwt1text').text("blood flows through the heart like into the heart here and from here and this comes from the body is plugged into this chain me here and flew them through here ");
+	break;
+case 2:
+	$('#hwt1text').text("then up through the chain that and up the special ago that to the lungs here ");
+	break;
+case 3:
+	$('#hwt1text').text("and income back in through these bands ");
+	break;
+case 4:
+	$('#hwt1text').text("here in here in the blood moves down through these two chambers and then back up through this girl ");
+	break;
+case 5:
+	$('#hwt1text').text("and out through this vessel and label these vessels now ");
+	break;
+case 6:
+	$('#hwt1text').text("and the Chandos and the belts so these two vessels other vina caber this is a superior the makeover ");
+	break;
+case 7:
+	$('#hwt1text').text("this is the inferior being caper ");
+	break;
+case 8:
+	$('#hwt1text').text("the blood the in goes into the right atrium and that this chamber the heart yeah then it moves through the TriCaster Bell named truck of that because it has broadcast into ");
+	break;
+case 9:
+	$('#hwt1text').text("the brought ventricle but then for after the right ventricle through the pulmonary valve ");
+	break;
+case 10:
+	$('#hwt1text').text("into the pulmonary trunk at this point because to the lungs then returning from the lungs inches the next chamber by the pulmonary bangs missed ");
+	break;
+case 11:
+	$('#hwt1text').text("oranges is the left atrium below the left atrium ");
+	break;
+case 12:
+	$('#hwt1text').text("is the mitral bow also known as the bike us the bell because it only has 2 cups then it flows into the left ventricle which is the main pumping chamber %uh ha the blood inflows ");
+	break;
+case 13:
+	$('#hwt1text').text("out through the or dick dale's and out the aorta body now just label some other things here the pulmonary valve is this Dell ");
+	break;
+case 14:
+	$('#hwt1text').text("here at proximal and pulmonary trunk is the in her ventricular septem this is a certain lies between two ventricles here see apex and finally here's the high water missus an overview the Inn at me up haha for more free tutorials and the PDF this tutorial visit WWW dot hand written tutorials dot com ");
+	break;

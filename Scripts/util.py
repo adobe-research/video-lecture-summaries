@@ -165,20 +165,23 @@ def smooth(x,window_len=11,window='hanning'):
     return y[(window_len/2-1):-(window_len/2)]
 
 
-def get_keyframe_ts_framediff(framediff_txt, fps, thresh_scale=0.10):
+def get_keyframe_ts_framediff(framediff_txt, fps):
     framediff = stringlist_from_txt(framediff_txt)
     framediff = strings2ints(framediff)
     
     keyframe_ms = []
     blur = smooth(np.array(framediff))
-    sub_blur = blur[0:len(blur):int(fps)]
+    sub_blur = blur[0:len(blur):int(fps)]    
     avg = np.mean(sub_blur)
-    thres = thresh_scale * avg
+    
+    thres = 50000
+    print 'threshold', thres
     capturing = False
     ms = 0
     for diff in sub_blur:
             if diff < thres and not capturing:                
                     keyframe_ms.append(int(ms))
+                    print 'ms', ms
                     capturing = True
             elif diff > thres:
                 capturing = False

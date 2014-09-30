@@ -1,0 +1,45 @@
+case 0:
+	$('#hwt2text').text("hi in this video I'm going to discuss the anatomy of the eye so to illustrate with I'm gonna draw the eye in cross-section splitting it down here and al point up you will be from here so let me just great quickly ");
+	break;
+case 1:
+	$('#hwt2text').text("the icon to look like this and I'll stop by labeling some the major features the anterior chamber is this space at the front of the eye here ");
+	break;
+case 2:
+	$('#hwt2text').text("and just behind it we have the post Area Chamber these two chambers filled with a fluid ");
+	break;
+case 3:
+	$('#hwt2text').text("called the acquiesce humor the anterior and posterior chambers separated by the onerous which is the colored part of the eye ");
+	break;
+case 4:
+	$('#hwt2text').text("the lens then sits in behind the iris ");
+	break;
+case 5:
+	$('#hwt2text').text("and palm the post jury award the post Area Chamber behind the lens life a large space called the peak reached chamber which is filled with the tool at Northampton's called the Beatrice Yuma not to be confused with the ok with you man ");
+	break;
+case 6:
+	$('#hwt2text').text("in the anterior and posted chambers holding the lens in place we have tiny ciliary muscle which ");
+	break;
+case 7:
+	$('#hwt2text').text("touched zone newell's small fibrous strand connective tissue ");
+	break;
+case 8:
+	$('#hwt2text').text("that attach to the lens by contracting and relaxing the ciliary muscles and zone UAL's change the shape lanes to help me i focus at the back the I we have a small hit called will be a which is an area with a high density up color photoreceptors called ");
+	break;
+case 9:
+	$('#hwt2text').text("homes this is the part retin-a used to high security prison at the back in the eyeball we also have the optic disc this is the point almond from the potala receptors ");
+	break;
+case 10:
+	$('#hwt2text').text("dive back through the retina and then on wood to the brain through the optic nerve the optic disc is responsible for the Blind Spot in ambition of course I should also labeled this whole section as the retina which is the party I responsible sensing lot ");
+	break;
+case 11:
+	$('#hwt2text').text("out here we have the sclera which is the white part of the eye and that the front we have the cornea which is ");
+	break;
+case 12:
+	$('#hwt2text').text("the Cleopatra the I at the back ");
+	break;
+case 13:
+	$('#hwt2text').text("this is the optic nerve extending back toward the brain ");
+	break;
+case 14:
+	$('#hwt2text').text("");
+	break;

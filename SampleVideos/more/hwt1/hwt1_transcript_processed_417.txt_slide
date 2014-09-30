@@ -1,0 +1,45 @@
+case 0:
+	$('#hwt1text').text("Hi.In this video  I'm gonna talk about the anatomy of the heart, and this is just going to be an  overview  of the gross anatomy of the heart and the chambers.So I just draw the heart  quickly here and I'm gonna draw this so that  it's been dissected to show  all the chambers of the heart and all the valves.");
+	break;
+case 1:
+	$('#hwt1text').text("So, first of all let's have a look at the way  blood flows through the heart.Blood comes  into the heart here and from here  and this comes from the body.");
+	break;
+case 2:
+	$('#hwt1text').text("This flows into  this chamber here and flows down through here  then up through this chamber then out this vessel.");
+	break;
+case 3:
+	$('#hwt1text').text("");
+	break;
+case 4:
+	$('#hwt1text').text("It goes out to the lungs here,  and then come back in  through these veins  here and here.");
+	break;
+case 5:
+	$('#hwt1text').text("Then the blood moves down through these two chambers  and then back up through this valve,  and out through this vessel.");
+	break;
+case 6:
+	$('#hwt1text').text("I am going to label these vessels now  and the chambers and the valves.So these two vessels  are the vena cava.This is the superior  vena cava.");
+	break;
+case 7:
+	$('#hwt1text').text("This is the inferior vena   cava.");
+	break;
+case 8:
+	$('#hwt1text').text("The blood  from there goes into the right  atrium, and that is this chamber of the heart here.");
+	break;
+case 9:
+	$('#hwt1text').text("Then  it moves through the Tricuspid valve, named tricuspid because it has  three cusps, into  the right ventricle.");
+	break;
+case 10:
+	$('#hwt1text').text("Blood then flows  out of the right ventricle through the pulmonary valve  into the pulmonary  trunk.At this point because  to the lungs then returning from the lungs  it inches the next chamber by  the pulmonary veins.");
+	break;
+case 11:
+	$('#hwt1text').text("And this chambered entrances   is the left atrium.");
+	break;
+case 12:
+	$('#hwt1text').text("Below the left atrium  is the mitral valve,  also known as the bicuspid valve because it only has  two cusps.then   it flows into the left ventricle which is the main pumping chamber  of the heart.");
+	break;
+case 13:
+	$('#hwt1text').text("The blood then flows  out through the aortic valve and out the aorta to the  body.Now just label  some other things here.");
+	break;
+case 14:
+	$('#hwt1text').text("The pulmonary valve is this valve  here at proximal end of the pulmonary trunk.Here is the  inter-ventricular septum.This is a septum that  lies between two ventricles.Here is the apex  and finally here's the aorta.And this is an overview of the anatomy of the heart.");
+	break;
