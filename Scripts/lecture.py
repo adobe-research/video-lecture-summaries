@@ -103,15 +103,14 @@ class LectureSegment:
         num_stc = self.num_stcs()
         if (idx < 0 or idx >= num_stc):
             print "LectureSegment.getsentences(idx): sentence index out of bound"
-								stc = []
-								start_idx = self.list_of_words[0].stc_idx
+        stc = []
+        start_idx = self.list_of_words[0].stc_idx
         for word in self.list_of_words:
-								    if word.stc_idx - start_idx == idx:
-																stc.append(word)
-												else:
-																break
-								return stc
-	
+            if word.stc_idx - start_idx == idx:
+                stc.append(word)
+            else:
+                break
+        return stc
         
     def display(self, ):
         print '---------------------------------------------------------------'

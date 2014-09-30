@@ -22,15 +22,27 @@ class Word:
         self.highlight_path = None
         self.stc_idx = -1
         
+def listofwords2text(list_of_words):
+    text = ''
+    for word in list_of_words:
+        if word.issilent:
+            continue
+        else: 
+            text = text + ' ' + word.original_word
+    return text
+        
 def get_sentences(list_of_words):
     if (len(list_of_words) <= 0):
         return []
-    num_stc = list_of_words[len(list_of_words) - 1].stc_idx + 1
+    
+    start_idx = list_of_words[0].stc_idx
+    end_idx = list_of_words[-1].stc_idx
+    num_stc = end_idx - start_idx + 1    
     if (num_stc <= 0):
         return []
     sentences = [[] for i in range(0, num_stc)]    
     for word in list_of_words:        
-        sentences[word.stc_idx].append(word)
+        sentences[word.stc_idx - start_idx].append(word)
     return sentences
 
 

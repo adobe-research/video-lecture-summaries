@@ -21,7 +21,7 @@ def importantregion(gray_img, path=None, index=0):
     kp, d = sift.detectAndCompute(gray_img, None)
     if (path != None):
         img_kp_img = cv2.drawKeypoints(gray_img, kp, None, (255, 0, 0), 0)
-        cv2.imwrite(path+"\\object_features" + ("%06i" % index)+".jpg", img_kp_img)            
+        cv2.imwrite(path + "\\object_features" + ("%06i" % index) + ".jpg", img_kp_img)            
         
     pointsx = []
     pointsy = []
@@ -56,15 +56,15 @@ def candidateobjects(image, siftthres=3000):
     
     return
     
-def highlight(image, mask, (r,g,b,a) = (23, 175, 251, 100)):
+def highlight(image, mask, (r, g, b, a)=(23, 175, 251, 100)):
    
     # Create a semi-transparent highlight layer the size of image    
-    h,w,bgra =  image.shape  
-    layer = np.empty((h,w,4), dtype=np.uint8)
-    layer[:,:,0] = r
-    layer[:,:,1] = g
-    layer[:,:,2] = b
-    layer[:,:,3] = a
+    h, w, bgra = image.shape  
+    layer = np.empty((h, w, 4), dtype=np.uint8)
+    layer[:, :, 0] = r
+    layer[:, :, 1] = g
+    layer[:, :, 2] = b
+    layer[:, :, 3] = a
     
     blurmask = expandmask(mask)
     layer = maskimage(layer, blurmask)
@@ -79,48 +79,48 @@ def highlight(image, mask, (r,g,b,a) = (23, 175, 251, 100)):
     
     highlight = Image.fromarray(layer, "RGBA")
     result = Image.alpha_composite(img, highlight) 
-    r,g,b,a = result.split()    
-    data = np.empty((h,w,4), dtype=np.uint8)
-    data[:,:,0] = b
-    data[:,:,1] = g
-    data[:,:,2] = r
-    data[:,:,3] = a
+    r, g, b, a = result.split()    
+    data = np.empty((h, w, 4), dtype=np.uint8)
+    data[:, :, 0] = b
+    data[:, :, 1] = g
+    data[:, :, 2] = r
+    data[:, :, 3] = a
     
     return data
     
     
 def removetemplate(gray_img, gray_obj, M):
     rows, cols = gray_img.shape[0:2]
-    neg_warp_obj = cv2.warpPerspective(255-gray_obj, M, (cols,rows))
+    neg_warp_obj = cv2.warpPerspective(255 - gray_obj, M, (cols, rows))
     
-    neg_img = 255 -gray_img
+    neg_img = 255 - gray_img
     negdiff = np.minimum(neg_img, cv2.absdiff(neg_img, neg_warp_obj))
-    diff = 255-negdiff
+    diff = 255 - negdiff
     
-    #h1,w1 = neg_warp_obj.shape
-    #h2,w2 = neg_img.shape
-    #h3,w3 = diff.shape
-    #view = sp.zeros((max(h1, h2, h3), w1+w2+w3), sp.uint8)
-    #view[:h1, :w1] =neg_warp_obj
-    #view[:h2, w1:w1+w2] = neg_img
-    #view[:h3, w1+w2:w1+w2+w3] = negdiff
-    #cv2.namedWindow("remove template", cv2.WINDOW_NORMAL)
-    #cv2.imshow("remove template", view)
-    #cv2.waitKey(0)
+    # h1,w1 = neg_warp_obj.shape
+    # h2,w2 = neg_img.shape
+    # h3,w3 = diff.shape
+    # view = sp.zeros((max(h1, h2, h3), w1+w2+w3), sp.uint8)
+    # view[:h1, :w1] =neg_warp_obj
+    # view[:h2, w1:w1+w2] = neg_img
+    # view[:h3, w1+w2:w1+w2+w3] = negdiff
+    # cv2.namedWindow("remove template", cv2.WINDOW_NORMAL)
+    # cv2.imshow("remove template", view)
+    # cv2.waitKey(0)
     
     return diff
 
 def fgmask(image, threshold=225, var_threshold=255):
     var = np.var(image, 2, dtype=np.uint8)    
     ret, var_mask = cv2.threshold(var, var_threshold, 255, cv2.THRESH_BINARY)       
-    #cv2.imshow("var_mask", var_mask)
-    #cv2.waitKey(0)
-    img2gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-    #cv2.imshow("im2gray", img2gray)
-    #cv2.waitKey(0)
+    # cv2.imshow("var_mask", var_mask)
+    # cv2.waitKey(0)
+    img2gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # cv2.imshow("im2gray", img2gray)
+    # cv2.waitKey(0)
     ret, lum_mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)
-    #cv2.imshow("lum_mask", lum_mask)
-    #cv2.waitKey(0)
+    # cv2.imshow("lum_mask", lum_mask)
+    # cv2.waitKey(0)
     mask = cv2.bitwise_or(var_mask, lum_mask)
     return mask
 
@@ -136,27 +136,27 @@ def fgbbox(mask):
 
 def maskimage_white(image, mask):
     # mask is a single channel array; mask_region is whited
-    maskimg = cv2.bitwise_and(image, image, mask = mask)
+    maskimg = cv2.bitwise_and(image, image, mask=mask)
     inv_mask = cv2.bitwise_not(mask)
-    maskimg = cv2.bitwise_not(maskimg, maskimg, mask = inv_mask)
+    maskimg = cv2.bitwise_not(maskimg, maskimg, mask=inv_mask)
     return maskimg
 
 def maskimage(image, mask):
     # mask is a single channel array; mask_region is blacked
-    maskimg = cv2.bitwise_and(image, image, mask = mask)
+    maskimg = cv2.bitwise_and(image, image, mask=mask)
     return maskimg
 
 def alphaimage(image, mask):    
-    h,w,bgr =  image.shape
-    result = np.empty((h,w,bgr+1), dtype=np.uint8)
-    result[:,:,0:3] = image
-    result[:,:,3] = mask
+    h, w, bgr = image.shape
+    result = np.empty((h, w, bgr + 1), dtype=np.uint8)
+    result[:, :, 0:3] = image
+    result[:, :, 3] = mask
     return result
     
 
 def expandmask(mask, width=10):
-    kernel = np.ones((width,width),np.float32)/(width*width)
-    blurmask = cv2.filter2D(mask,-1,kernel)
+    kernel = np.ones((width, width), np.float32) / (width * width)
+    blurmask = cv2.filter2D(mask, -1, kernel)
     blurmask[blurmask != 0] = 255
     return blurmask
 
@@ -164,12 +164,12 @@ def subtractobject(image, objmask, M, emptycolor=0):
     rows, cols = image.shape[0:2]    
     warpmask = cv2.warpPerspective(objmask, M, (cols, rows))
     warpmask = cv2.bitwise_not(warpmask)
-    kernel = np.ones((10,10),np.float32)/100
-    blurmask = cv2.filter2D(warpmask,-1,kernel)
+    kernel = np.ones((10, 10), np.float32) / 100
+    blurmask = cv2.filter2D(warpmask, -1, kernel)
     blurmask[blurmask != 255] = 0
     
-    subimage = cv2.bitwise_and(image, image, mask = blurmask)   
-    subimage[blurmask==0] = emptycolor    
+    subimage = cv2.bitwise_and(image, image, mask=blurmask)   
+    subimage[blurmask == 0] = emptycolor    
      
     return subimage
 
@@ -197,24 +197,24 @@ def findobject(gray_img, gray_obj):
     
     match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
     util.showimages([match_img])
-    #cv2.imshow("match img", match_img)
-    #cv2.waitKey(0)
+    # cv2.imshow("match img", match_img)
+    # cv2.waitKey(0)
     #
     src_pts = np.float32([kp1[m.queryIdx].pt for m in matches])
     dst_pts = np.float32([kp2[m.trainIdx].pt for m in matches])
     
     M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
-    #num_in = mask.ravel().tolist().count(1)    
-    #logging.info("# Inliers: %i", num_in)
+    # num_in = mask.ravel().tolist().count(1)    
+    # logging.info("# Inliers: %i", num_in)
     #
-    #if (num_in < len(kp1)*0.5):
+    # if (num_in < len(kp1)*0.5):
     #    print 'Warning: less than half of object features are inliers'        
     #
-    #(h1, w1) = gray_obj.shape[:2]
-    #(h2, w2) = gray_img.shape[:2]
-    #image = np.zeros((max(h1, h2), w1 + w2), np.uint8)
-    #image[:h1, :w1] = gray_obj
-    #image[:h2, w1:w1+w2] = gray_img
+    # (h1, w1) = gray_obj.shape[:2]
+    # (h2, w2) = gray_img.shape[:2]
+    # image = np.zeros((max(h1, h2), w1 + w2), np.uint8)
+    # image[:h1, :w1] = gray_obj
+    # image[:h2, w1:w1+w2] = gray_img
     return M    
 
 def findloc(frame, template):
@@ -225,7 +225,7 @@ def findloc(frame, template):
     if (top_left == None):
         return None
     else:
-        center = (top_left[0] + wtemp/2, top_left[1] + htemp/2)
+        center = (top_left[0] + wtemp / 2, top_left[1] + htemp / 2)
     return center    
      
 def detectobject(img, obj):
@@ -238,28 +238,28 @@ def detectobject(img, obj):
     kp1, d1 = sift.detectAndCompute(gray_obj, None)
     kp2, d2 = sift.detectAndCompute(gray_img, None)
     
-    #surf = cv2.SURF() 
-    #kp1_ext, d1_ext = surf.detectAndCompute(gray_obj, None)
-    #kp2_ext, d2_ext = surf.detectAndCompute(gray_img, None)
+    # surf = cv2.SURF() 
+    # kp1_ext, d1_ext = surf.detectAndCompute(gray_obj, None)
+    # kp2_ext, d2_ext = surf.detectAndCompute(gray_img, None)
     
-    #obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
-    #img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
+    # obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
+    # img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
     
     bf = cv2.BFMatcher(cv2.NORM_L2, True)
     if d1 == None or d2 == None:
-        #print 'no matches'
+        # print 'no matches'
         return None
     
     logging.info("gray_obj # features: %i", len(kp1))
     logging.info("gray_img # features: %i", len(kp2))
     
     matches = bf.match(d1, d2)
-    #matches_ext = bf.match(d1_ext, d2_ext)
+    # matches_ext = bf.match(d1_ext, d2_ext)
 
-    #matches = matches + matches_ext
+    # matches = matches + matches_ext
     dist = [m.distance for m in matches]
     if (len(dist) == 0):
-        #print 'no matches'
+        # print 'no matches'
         return None
     
     thres_param = 0.5
@@ -274,44 +274,44 @@ def detectobject(img, obj):
         print 'not enough good match'
         return None
     
-    #kp1 = kp1 + kp1_ext
-    #kp2 = kp2 + kp2_ext
+    # kp1 = kp1 + kp1_ext
+    # kp2 = kp2 + kp2_ext
     
-    good_matches = sorted(good_matches, key = lambda x:x.distance)
+    good_matches = sorted(good_matches, key=lambda x:x.distance)
     match_img = drawMatches(gray_obj, gray_img, kp1, kp2, good_matches)
     util.showimages([match_img])
-    #cv2.imshow("matching features", match_img)
-    #cv2.waitKey(0)
+    # cv2.imshow("matching features", match_img)
+    # cv2.waitKey(0)
     
     src_pts = np.float32([kp1[m.queryIdx].pt for m in good_matches])
     dst_pts = np.float32([kp2[m.trainIdx].pt for m in good_matches])
     M, mask = cv2.findHomography(src_pts, dst_pts, cv2.LMEDS)
-    #M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
-    if (mask.ravel().tolist().count(1) < len(good_matches)*0.3):
+    # M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
+    if (mask.ravel().tolist().count(1) < len(good_matches) * 0.3):
         logging.info("mask count %i", mask.ravel().tolist().count(1))
         logging.info("no good transform")
         return None
 
-    #(h1, w1) = gray_obj.shape[:2]
-    #(h2, w2) = gray_img.shape[:2]
-    #image = np.zeros((max(h1, h2), w1 + w2), np.uint8)
-    #image[:h1, :w1] = gray_obj
-    #image[:h2, w1:w1+w2] = gray_img
+    # (h1, w1) = gray_obj.shape[:2]
+    # (h2, w2) = gray_img.shape[:2]
+    # image = np.zeros((max(h1, h2), w1 + w2), np.uint8)
+    # image[:h1, :w1] = gray_obj
+    # image[:h2, w1:w1+w2] = gray_img
     #
-    ## Draw yellow lines connecting corresponding features.
-    #print 'len(src_pts)', len(src_pts)
-    #print 'len(dst_pts)', len(dst_pts)
-    #for (x1, y1), (x2, y2) in zip(np.int32(src_pts), np.int32(dst_pts)):
-         #cv2.line(image, (x1, y1), (x2+w1, y2), (0, 255, 255), lineType=cv2.CV_AA)
-    #cv2.namedWindow("correspondence", cv2.WINDOW_NORMAL)
-    #cv2.imshow("correspondence", image)
+    # # Draw yellow lines connecting corresponding features.
+    # print 'len(src_pts)', len(src_pts)
+    # print 'len(dst_pts)', len(dst_pts)
+    # for (x1, y1), (x2, y2) in zip(np.int32(src_pts), np.int32(dst_pts)):
+         # cv2.line(image, (x1, y1), (x2+w1, y2), (0, 255, 255), lineType=cv2.CV_AA)
+    # cv2.namedWindow("correspondence", cv2.WINDOW_NORMAL)
+    # cv2.imshow("correspondence", image)
 
     return M
 
 def drawKeypointClusters(img, n_kp, labels):          
     unique_labels = set(labels)   
     n_clusters_ = len(unique_labels)    
-    colors = cycle([(255,0,0), (0,255,0), (0,0,255), (255,255,0), (255,0,255), (0, 255,255)])
+    colors = cycle([(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (255, 0, 255), (0, 255, 255)])
     for k, col in zip(unique_labels, colors):
         class_members = labels == k
         img = cv2.drawKeypoints(img, n_kp[class_members], None, col, 4)
@@ -321,12 +321,12 @@ def isgoodmatch(M):
     if M == None:
         return False
 
-    unitsquare = np.array([[0,0], [1,0], [1,1], [0,1]], dtype='float32')
+    unitsquare = np.array([[0, 0], [1, 0], [1, 1], [0, 1]], dtype='float32')
     unitsquare = np.array([unitsquare])
     tsquare = cv2.perspectiveTransform(unitsquare, M)    
     tarea = cv2.contourArea(tsquare)
     print 'tarea = ', tarea
-    if tarea < 0.5 or tarea >5:
+    if tarea < 0.5 or tarea > 5:
         print "Not a good homography, scaling factor:", tarea
         return False
     return True
@@ -334,22 +334,22 @@ def isgoodmatch(M):
 
 def findobject_exact(fgimg, obj):
     
-    imgh,imgw = fgimg.shape[:2]
+    imgh, imgw = fgimg.shape[:2]
     objh, objw = obj.shape[:2]
     
     if (len(fgimg.shape) == 3):        
-        img = np.ones((imgh + 2*objh, imgw + 2*objw, 3), dtype = np.uint8) *0 
-        img[objh:objh+imgh, objw:objw+imgw,:] = fgimg[:,:,:3]
+        img = np.ones((imgh + 2 * objh, imgw + 2 * objw, 3), dtype=np.uint8) * 0 
+        img[objh:objh + imgh, objw:objw + imgw, :] = fgimg[:, :, :3]
     else:
-        img = np.ones((imgh + 2*objh, imgw + 2*objw), dtype = np.uint8) * 0 # use 255?
-        img[objh:objh+imgh, objw:objw+imgw] = fgimg[:,:]
+        img = np.ones((imgh + 2 * objh, imgw + 2 * objw), dtype=np.uint8) * 0  # use 255?
+        img[objh:objh + imgh, objw:objw + imgw] = fgimg[:, :]
     
-    #util.showimages([img, obj])
+    # util.showimages([img, obj])
     
     res = cv2.matchTemplate(img, obj, cv2.TM_SQDIFF)
-    #plt.imshow(res,cmap = 'gray')
-    #plt.show()
-    #cv2.waitKey(0)
+    # plt.imshow(res,cmap = 'gray')
+    # plt.show()
+    # cv2.waitKey(0)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     min_val = math.sqrt(min_val) / (objh * objw)
     threshold = 2.0
@@ -360,28 +360,28 @@ def findobject_exact(fgimg, obj):
         logging.info("Exact match found: %f", min_val)        
     top_left = min_loc
     
-    #print 'top left', top_left
-    #print min_val
-    #cv2.imshow("obj", obj)
-    #cv2.imshow("img", img)   
-    #cv2.imshow("res", res)
-    #cv2.waitKey(0)
+    # print 'top left', top_left
+    # print min_val
+    # cv2.imshow("obj", obj)
+    # cv2.imshow("img", img)   
+    # cv2.imshow("res", res)
+    # cv2.waitKey(0)
               
-    M = np.identity(3, dtype = np.float32)
-    M[0,2] = top_left[0] -objw
-    M[1,2] = top_left[1] -objh
+    M = np.identity(3, dtype=np.float32)
+    M[0, 2] = top_left[0] - objw
+    M[1, 2] = top_left[1] - objh
         
-    #h,w = obj.shape[0:2]
-    #bottom_right = (top_left[0] + w, top_left[1] + h)
-    #cv2.imshow("object", obj_gray)
-    #cv2.rectangle(fgimg_gray, top_left, bottom_right, 0, 2)
-    #cv2.imshow("findobject exact", fgimg_gray)
-    #cv2.waitKey(0)
+    # h,w = obj.shape[0:2]
+    # bottom_right = (top_left[0] + w, top_left[1] + h)
+    # cv2.imshow("object", obj_gray)
+    # cv2.rectangle(fgimg_gray, top_left, bottom_right, 0, 2)
+    # cv2.imshow("findobject exact", fgimg_gray)
+    # cv2.waitKey(0)
     return M
 
 def get_newobj_and_mask(image_and_mask, objlist):
     """objlist-- obj, obj_mask"""
-    #show image and mask       
+    # show image and mask       
     image = image_and_mask[0]
     fgmask = image_and_mask[1]
     fgimg = maskimage_white(image, fgmask)
@@ -398,22 +398,22 @@ def get_newobj_and_mask(image_and_mask, objlist):
         obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
         M0 = findobject_exact(fgimg, obj)
         if M0 == None:
-            #print 'using feature match'
+            # print 'using feature match'
             M = findobject(fgimg_gray, obj_gray)
         else:
-            #print 'using exact template match'
+            # print 'using exact template match'
             M = M0
             
         if isgoodmatch(M):          
-            fgimg = subtractobject(fgimg, objmask, M, 255) #TODO: subtract object_white
-            fgmask = subtractobject(fgmask, objmask, M, 0) #TODO: subtract object_black              
+            fgimg = subtractobject(fgimg, objmask, M, 255)  # TODO: subtract object_white
+            fgmask = subtractobject(fgmask, objmask, M, 0)  # TODO: subtract object_black              
     return fgimg, fgmask
 
 def getnewobj(image, objlist):
     fg_mask = fgmask(image)
     fgimg = maskimage_white(image, fg_mask)
     
-    if objlist==None or len(objlist) == 0:
+    if objlist == None or len(objlist) == 0:
         return fgimg
     for i in range(0, len(objlist)):
         obj = objlist[i]        
@@ -426,7 +426,7 @@ def getnewobj(image, objlist):
         fgimg_gray = cv2.cvtColor(fgimg, cv2.COLOR_BGR2GRAY)        
         obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
         M = findobject_exact(fgimg, obj)
-        #M = None
+        # M = None
         if M == None:            
             M = findobject(fgimg_gray, obj_gray)
             
@@ -438,29 +438,29 @@ def croptofg(fgimg, fgmask):
     if (fgimg == None or fgmask == None):
         return None, None
     tlx, tly, brx, bry = fgbbox(fgmask)
-    if (tlx == -1 or brx - tlx == 0 or bry - tly == 0): # nothing new in this image
+    if (tlx == -1 or brx - tlx == 0 or bry - tly == 0):  # nothing new in this image
         return None, None
-    h,w = fgimg.shape[0:2]
-    tlx = int(max(0, tlx-10))
-    tly = int(max(0, tly-10))
-    brx = int(min(brx+10, w))
-    bry = int(min(bry+10, h))
+    h, w = fgimg.shape[0:2]
+    tlx = int(max(0, tlx - 10))
+    tly = int(max(0, tly - 10))
+    brx = int(min(brx + 10, w))
+    bry = int(min(bry + 10, h))
     newobj = cropimage(fgimg, tlx, tly, brx, bry)
     newobjmask = cropimage(fgmask, tlx, tly, brx, bry)
     return newobj, newobjmask
 
 def drawMatches(img1, img2, k1, k2, matches, maxline=100):
     
-    h1,w1 = img1.shape[:2]
-    h2,w2 = img2.shape[:2]
-    view = sp.zeros((max(h1, h2), w1+w2, 3), sp.uint8)
+    h1, w1 = img1.shape[:2]
+    h2, w2 = img2.shape[:2]
+    view = sp.zeros((max(h1, h2), w1 + w2, 3), sp.uint8)
     view[:h1, :w1, 0] = img1
     view[:h2, w1:, 0] = img2
-    view[:,:,1] = view[:,:,0]
-    view[:,:,2] = view[:,:,0]
+    view[:, :, 1] = view[:, :, 0]
+    view[:, :, 2] = view[:, :, 0]
     numline = 0
     for m in matches:
-        color = tuple([sp.random.randint(0,255) for _ in xrange(3)])
+        color = tuple([sp.random.randint(0, 255) for _ in xrange(3)])
         cv2.line(view, (int(k1[m.queryIdx].pt[0]), int(k1[m.queryIdx].pt[1])) , (int(k2[m.trainIdx].pt[0] + w1), int(k2[m.trainIdx].pt[1])), color)
         numline += 1
         if (numline >= maxline):
@@ -488,12 +488,12 @@ def numfgpix_mit(gray_frame):
     return (gray_frame < 200).sum()
 
 def numfgpix_khan(gray_frame):
-    return (gray_frame >=100).sum()
+    return (gray_frame >= 100).sum()
 
 def removebg_mit(gray_frame):
     dest = gray_frame.copy()
     dest[gray_frame < 200] = 255
-    dest[gray_frame >=200] = 0
+    dest[gray_frame >= 200] = 0
     return dest
 
 def removebg_khan(gray_frame):
@@ -510,7 +510,7 @@ def numfgpix(img, bgcolor):
     for x in bgcolor:
         bg = np.empty(img.shape)
         bg.fill(x)
-        sub =  np.maximum(np.zeros(img.shape), np.abs(img - bg))
+        sub = np.maximum(np.zeros(img.shape), np.abs(img - bg))
     count = np.count_nonzero(sub)
     return count
 
@@ -518,9 +518,9 @@ def matchtemplate(gray_img, gray_template):
     """Return the top left corner of the rectangle that matches template inside img"""  
     w, h = gray_template.shape[::-1]    
     # Apply template Matching
-    res = cv2.matchTemplate(gray_img,gray_template, cv2.TM_SQDIFF)
+    res = cv2.matchTemplate(gray_img, gray_template, cv2.TM_SQDIFF)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-    min_val = math.sqrt(min_val) / (h*w)
+    min_val = math.sqrt(min_val) / (h * w)
     threshold = 2.0
     if (min_val > threshold):
         logging.info("Exact match NOT found: %f", min_val)        
@@ -558,7 +558,7 @@ def calculate_size(size_image1, size_image2, H):
   max_row = 0
   max_col = 0
   
-  im2T = np.array([[1,1,1], [1, col2,1], [row2, 1, 1], [row2, col2, 1]])
+  im2T = np.array([[1, 1, 1], [1, col2, 1], [row2, 1, 1], [row2, col2, 1]])
   im2 = im2T.T
   result = H.dot(im2)
   min_row = math.floor(min(min_row, min(result[0])))
@@ -582,7 +582,7 @@ def stitch_images(previmage, curimage):
   previmage = cv2.cvtColor(previmage, cv2.COLOR_BGR2BGRA)
   previmage_gray = cv2.cvtColor(previmage, cv2.COLOR_BGR2GRAY)
   
-  #util.showimages([curimage, previmage])
+  # util.showimages([curimage, previmage])
   
   (curh, curw) = curimage.shape[:2]
   (prevh, prevw) = previmage.shape[:2]
@@ -595,18 +595,18 @@ def stitch_images(previmage, curimage):
    
   (warpsize, offset) = calculate_size((prevh, prevw), (curh, curw), M)
   
-  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue = (255,255,255,0), borderMode = cv2.BORDER_CONSTANT)
+  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)
   
   xoff = int(offset[0])
   yoff = int(offset[1])
-  M0 = np.array([[1.0, 0.0, -(xoff-1)], [0.0, 1.0, -(yoff-1)], [0.0, 0.0, 1.0]])      
-  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])),  borderValue = (255,255,255,0), borderMode = cv2.BORDER_CONSTANT)        
+  M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])      
+  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)        
   
-  #util.showimages([curimage_warp, previmage_warp])
+  # util.showimages([curimage_warp, previmage_warp])
   
-  pil_curimage_warp = util.array_to_pil(curimage_warp, "RGBA") #Image.fromarray(curimage_warp, "RGBA")
-  pil_previmage_warp = util.array_to_pil(previmage_warp, "RGBA")#Image.fromarray(previmage_warp, "RGBA")
-  pil_previmage_warp.paste(pil_curimage_warp, (-(xoff-1),-(yoff-1)), pil_curimage_warp)
+  pil_curimage_warp = util.array_to_pil(curimage_warp, "RGBA")  # Image.fromarray(curimage_warp, "RGBA")
+  pil_previmage_warp = util.array_to_pil(previmage_warp, "RGBA")  # Image.fromarray(previmage_warp, "RGBA")
+  pil_previmage_warp.paste(pil_curimage_warp, (-(xoff - 1), -(yoff - 1)), pil_curimage_warp)
   merged = np.array(pil_previmage_warp)  
   merged = cv2.cvtColor(merged, cv2.COLOR_RGB2BGR)
   return merged
@@ -614,21 +614,22 @@ def stitch_images(previmage, curimage):
 def panorama(list_of_frames):
   previmage = list_of_frames[0]
   for i in range(1, len(list_of_frames)):
-    print "%i of %i"  %(i, len(list_of_frames))
+    print "%i of %i" % (i, len(list_of_frames))
     curimage = list_of_frames[i]
     previmage = stitch_images(previmage, curimage)    
   return previmage
 
-def writetext(img, text, bottomleft, fontscale=10.0, color=(0,0,0)):
+    
+def writetext(img, text, bottomleft, fontscale=10.0, color=(0, 0, 0)):
     img
     cv2.putText(img, text, bottomleft, cv2.FONT_HERSHEY_PLAIN, fontscale, color)
     return img
 
 if __name__ == "__main__":
-    src = cv2.imread("udacity1_capture.png", 0) #3 channel BGR image
+    src = cv2.imread("udacity1_capture.png", 0)  # 3 channel BGR image
     dest = src.copy()
     dest[src < 200] = 0
-    dest[src >=200] = 255
+    dest[src >= 200] = 255
     cv2.imwrite("udactiy1_bg.png", dest)
     cv2.imshow("display", dest)
     cv2.waitKey(0)
