@@ -27,7 +27,8 @@ if __name__ == "__main__":
     
     """layout word in each segment"""
     for lecseg in lecsegs:
-        frame = lecseg.keyframe.frame.copy() 
+        frame = lecseg.keyframe.frame.copy()
+		numstc = lecseg.num_stc()
         for word in lecseg.list_of_words:
             if word.issilent:
                 continue
