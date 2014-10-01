@@ -164,6 +164,9 @@ class Video:
     def fid2ms(self, fid):
         return int(fid/self.fps * 1000)
     
+    def fid2sec(self, fid):
+        return int(fid/self.fps)
+    
     def ms2fid(self, ms):
         return int(ms/1000.0*self.fps)
             
@@ -182,10 +185,11 @@ class Video:
                 break
             if (fid in fnumbers):
                 filename = outdir + "/capture_"        
-                filename = filename + ("%06i" % self.fid2ms(fid)) + ".png"
+                filename = filename + ("%06i" % self.fid2sec(fid)) + "sec.png"
                 if not os.path.isfile(os.path.abspath(filename)):
+                    print 'writing', os.path.abspath(filename)
                     cv2.imwrite(filename, frame)
-                keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid), self)
+                keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid, self))
             fid += 1
         cap.release()
         return keyframes

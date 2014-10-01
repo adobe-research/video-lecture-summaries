@@ -165,25 +165,19 @@ def smooth(x,window_len=11,window='hanning'):
     return y[(window_len/2-1):-(window_len/2)]
 
 
-def get_keyframe_ts_framediff(framediff_txt, fps):
+def get_keyframe_ids_framediff(framediff_txt, thres=200):
     framediff = stringlist_from_txt(framediff_txt)
-    framediff = strings2ints(framediff)
-    
-    keyframe_ms = []
-    blur = smooth(np.array(framediff))
-    sub_blur = blur[0:len(blur):int(fps)]    
-    avg = np.mean(sub_blur)
-    
-    thres = 50000
+    framediff = strings2ints(framediff)    
+    keyframe_ids = []
+
     print 'threshold', thres
     capturing = False
-    ms = 0
-    for diff in sub_blur:
+    fid = 0
+    for diff in framediff:
             if diff < thres and not capturing:                
-                    keyframe_ms.append(int(ms))
-                    print 'ms', ms
+                    keyframe_ids.append(int(fid))
                     capturing = True
             elif diff > thres:
                 capturing = False
-            ms += 1000
-    return keyframe_ms    
+            fid += 1
+    return keyframe_ids    

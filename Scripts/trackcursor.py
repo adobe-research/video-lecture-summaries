@@ -19,7 +19,7 @@ if __name__ == "__main__":
     cursorpos = open(cursorpostxt, "w")
     for p in pos:
         if (p == None):
-            cursorpos.write("-1\t-1\n")
+            cursorpos.write("%i\t%i\n" % (-1, -1))            
         else:
             cursorpos.write("%i\t%i\n" % (int(p[0]), int(p[1])))
     cursorpos.close()

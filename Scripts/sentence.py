@@ -10,8 +10,7 @@ class Sentence:
             content = content.replace(c, '')
         self.words = re.split(r'\s', content)
         
-    def numwords(self):
-        return len(words)
+
 
 
         

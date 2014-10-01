@@ -55,7 +55,7 @@ class ProcessVideo:
                 pos.append(loc)                
             else:
                 break
-            print i
+            print i, '/', self.numframes 
             i += 1  
         cap.release()                  
         return pos

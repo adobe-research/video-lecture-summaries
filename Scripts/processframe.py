@@ -7,7 +7,6 @@ import logging
 from PIL import Image
 import sys
 import scipy as sp
-from objectcandidate import ObjectCandidate
 import cluster
 from itertools import cycle
 import util
@@ -518,16 +517,15 @@ def matchtemplate(gray_img, gray_template):
     """Return the top left corner of the rectangle that matches template inside img"""  
     w, h = gray_template.shape[::-1]    
     # Apply template Matching
-    res = cv2.matchTemplate(gray_img, gray_template, cv2.TM_SQDIFF)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-    min_val = math.sqrt(min_val) / (h * w)
-    threshold = 2.0
-    if (min_val > threshold):
-        logging.info("Exact match NOT found: %f", min_val)        
+    res = cv2.matchTemplate(gray_img, gray_template, cv2.TM_CCOEFF_NORMED)
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)    
+    threshold = 0.8
+    if (max_val < threshold):
+        logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
-        logging.info("Exact match found: %f", min_val)        
-    top_left = min_loc
+        logging.info("Exact match found: %f", max_val)        
+    top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
     return top_left;
 
