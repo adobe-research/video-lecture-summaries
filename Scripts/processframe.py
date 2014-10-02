@@ -220,8 +220,8 @@ def findloc(frame, template):
     grayframe = util.grayimage(frame)
     graytemp = util.grayimage(template)
     wtemp, htemp = graytemp.shape[::-1]
-    top_left = matchtemplate(grayframe, graytemp)
-    if (top_left == None):
+    top_left = matchtemplate(frame, template)
+    if (top_left == None):        
         return None
     else:
         center = (top_left[0] + wtemp / 2, top_left[1] + htemp / 2)
@@ -515,18 +515,23 @@ def numfgpix(img, bgcolor):
 
 def matchtemplate(gray_img, gray_template):
     """Return the top left corner of the rectangle that matches template inside img"""  
-    w, h = gray_template.shape[::-1]    
+    d, w, h = gray_template.shape[::-1]    
     # Apply template Matching
     res = cv2.matchTemplate(gray_img, gray_template, cv2.TM_CCOEFF_NORMED)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)    
-    threshold = 0.8
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+    top_left = max_loc
+    bottom_right = (top_left[0] + w, top_left[1] + h)
+    """threshold khan = 0.8, tecmath = 0.25 """    
+    threshold = 0.40  
     if (max_val < threshold):
+#         util.showimages([gray_img])        
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
+#         cv2.rectangle(gray_img, top_left, bottom_right, 255, 2)
+#         util.showimages([gray_img])
         logging.info("Exact match found: %f", max_val)        
-    top_left = max_loc
-    bottom_right = (top_left[0] + w, top_left[1] + h)
+    
     return top_left;
 
 def removebackground(gray_img, gray_bgsample, thres=50):
@@ -619,7 +624,6 @@ def panorama(list_of_frames):
 
     
 def writetext(img, text, bottomleft, fontscale=10.0, color=(0, 0, 0)):
-    img
     cv2.putText(img, text, bottomleft, cv2.FONT_HERSHEY_PLAIN, fontscale, color)
     return img
 

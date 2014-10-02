@@ -24,21 +24,24 @@ def layout_word():
     
     """layout word in each sentence"""
     stc_id = 0
+    stc_ts = lecture.get_stc_end_times()
+    print 'len(stc_ts)', len(stc_ts)
+    print 'len(list_of_stcs)', len(lecture.list_of_stcs)
+    keyframes = lecture.capture_keyframes_ms(stc_ts, lecture.video.videoname + "_temp")
+    print 'len(keyframes)', len(keyframes)
     for sentence in lecture.list_of_stcs:
-        stc_time_ms = sentence[-1].endt
-        print 'stc_time_ms', stc_time_ms
-        frame = lecture.video.getframe_ms(stc_time_ms)
+        frame = keyframes[stc_id].frame
         for word in sentence:
             if word.issilent:
                 continue
-            print word.original_word
+#             print word.original_word
             wordt = (word.startt + word.endt)/2.0
             frameid = lecture.video.ms2fid(wordt)
             curpos = cursorpos[frameid]       
             if cursorpos[0] < 0:
                 cursorpos[0] = 1
                 cursorpos[1] = 1      
-            pf.writetext(frame, word.original_word, (int(curpos[0]), int(curpos[1])), fontscale=1.0, color=(255, 255, 255))
+            pf.writetext(frame, word.original_word, (int(curpos[0]), int(curpos[1])), fontscale=1.0, color=(0, 0, 0))
 #             util.showimages([frame])          
         layoutdir = lecture.video.videoname+"_layout"
         util.saveimage(frame, layoutdir, "sentence" +("%03i" %stc_id) +"_word.png")

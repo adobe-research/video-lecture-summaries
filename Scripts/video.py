@@ -204,12 +204,14 @@ class Video:
         keyframes = []
         cap = cv2.VideoCapture(self.filepath)
         i = 0
-        pos = float(0.0)
+        fid = 0
+        pos = self.fid2ms(fid) #float(0.0)
+#         print 'pos', pos
         while(cap.isOpened()):                        
             ret, frame = cap.read()
             if (frame == None):
-                break          
-            if (abs(pos - float(ts[i])) < tol):
+                break   
+            if (abs(pos - int(ts[i])) <= tol):
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06.0f" % ts[i]) + "ms.png"
                 if not os.path.isfile(os.path.abspath(filename)):
@@ -219,8 +221,17 @@ class Video:
                 i += 1
                 if (i == len(ts)):
                     break
-            pos += float(1000.0/self.fps )
+            prevframe = frame
+            fid += 1
+            pos = self.fid2ms(fid)
+        
+        if (i == len(ts)-1):
+            filename = outdir + "/capture_"        
+            filename = filename + ("%06.0f" % ts[i]) + "ms.png"
+            keyframes.append(Keyframe(filename, prevframe, ts[i], self.ms2fid(ts[i]), self))
         cap.release()
+        if (len(keyframes) != len(ts)):
+            print 'captureframes_ms: missing %i key frames' %(len(ts)-len(keyframes))
         return keyframes
     
     def getframe_ms(self, t):
