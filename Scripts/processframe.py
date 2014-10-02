@@ -11,7 +11,7 @@ import cluster
 from itertools import cycle
 import util
 import math
-from nltk.tbl import template
+from nltk.tbl import template 
 
 logging.basicConfig(stream=sys.stderr, level=logging.ERROR)
 

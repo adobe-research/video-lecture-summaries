@@ -13,6 +13,7 @@ class Lecture:
         self.video = Video(video_path)        
         self.aligned_transcript_path = aligned_transcript_path
         self.list_of_words = pjson.get_words(aligned_transcript_path)
+        self.list_of_stcs = pjson.get_sentences(self.list_of_words)
         self.default_objects = []    
         
     def segment_script(self, list_of_t):        
@@ -30,6 +31,12 @@ class Lecture:
                         segments[seg].append(word)
                     break            
         return segments
+    
+    def get_stc_end_times(self):
+        endts = []
+        for stc in self.list_of_stcs:
+            endts.append(stc[-1].endt)
+        return endts
     
     def capture_keyframes_ms(self, list_of_t, outdir="."):
         return self.video.captureframes_ms(list_of_t, outdir)

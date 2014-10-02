@@ -100,7 +100,7 @@ def showimages(list_of_images):
             view[:h,curw:curw+w, 1] = img[:,:,1]
             view[:h,curw:curw+w, 2] = img[:,:,2]
         curw = curw+w
-    cv2.namedWindow("show images", cv2.WINDOW_NORMAL)
+    cv2.namedWindow("show images", cv2.WINDOW_AUTOSIZE)
     cv2.imshow("show images", view)
     cv2.waitKey()
     

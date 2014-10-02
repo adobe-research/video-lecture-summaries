@@ -20,9 +20,9 @@ def compute(videoprocessor, diffthres=25):
         diff = cv2.absdiff(nextframe, prevframe)        
         prevframe = nextframe
         counts[index - 1] = (diff > diffthres).sum()
-#         ret, dst = cv2.threshold(util.grayimage(diff), diffthres, 255, cv2.THRESH_BINARY_INV)
-#         util.showimages([prevframe, nextframe, dst])
-#         print 'counts', counts[index-1]
+        ret, dst = cv2.threshold(util.grayimage(diff), diffthres, 255, cv2.THRESH_BINARY_INV)
+        util.showimages([prevframe, nextframe, dst])
+        print 'counts', counts[index-1]
         index += 1            
     cap.release()
     return counts    
@@ -61,8 +61,8 @@ if __name__ == "__main__":
     counts = compute(pv)
    
     """Write to file"""
-    framedifftxt = pv.videoname + "_framediff.txt"
-    write(counts, framedifftxt) 
+#     framedifftxt = pv.videoname + "_framediff.txt"
+#     write(counts, framedifftxt) 
     
     """Read frame difference"""
 #     framedifftxt = sys.argv[2]
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     #counts = util.strings2ints(framediff)
     
     """Smooth and Sub-sample 1 frame per second"""
-    plotpersec(counts, pv.framerate, pv.videoname + "_framediff_persec.png")
+#     plotpersec(counts, pv.framerate, pv.videoname + "_framediff_persec.png")
         
         # Count frame difference
         # print "Read framediff.txt"
