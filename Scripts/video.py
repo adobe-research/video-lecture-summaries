@@ -171,7 +171,7 @@ class Video:
     def ms2fid(self, ms):
         return int(ms/1000.0*self.fps)
             
-    def captureframes_fid(self, fnumbers, outdir= "."):
+    def captureframes_fid(self, fnumbers, outdir= "./temp"):
         if len(fnumbers) == 0:
             return []
         if not os.path.exists(os.path.abspath(outdir)):
@@ -184,13 +184,13 @@ class Video:
             ret, frame = cap.read()
             if (frame == None):
                 break
-            if (fid in fnumbers):
+            if (fid in fnumbers):                
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06i" % self.fid2sec(fid)) + "sec.png"
                 if not os.path.isfile(os.path.abspath(filename)):
                     print 'writing', os.path.abspath(filename)
                     cv2.imwrite(filename, frame)
-                    util.showimages([frame])
+#                     util.showimages([frame])
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid, self))
             fid += 1
         cap.release()

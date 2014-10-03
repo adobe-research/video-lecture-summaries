@@ -109,19 +109,44 @@ def removetemplate(gray_img, gray_obj, M):
     
     return diff
 
-def fgmask(image, threshold=225, var_threshold=255):
+def subtractlogo(frame, logo):
+    gray_logo = util.grayimage(logo)
+    wlogo, hlogo = gray_logo.shape[::-1]
+    topleft = matchtemplate(frame, logo)
+    frame_copy = frame.copy()
+    if  topleft == None:
+        return frame_copy
+    else:
+        print 'logo detected'
+        tlx = topleft[0]
+        tly = topleft[1]
+    brx = tlx + wlogo
+    bry = tly + hlogo
+   
+    frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
+    return frame_copy 
+
+def fgmask(image, threshold=225, var_threshold=255, inv=False):
+#     if (threshold is None): 
+#         threshold = 225
+#     if (var_threshold is None):
+#         var_threshold = 255
+#     if (inv is None):
+#         inv = False
     var = np.var(image, 2, dtype=np.uint8)    
     ret, var_mask = cv2.threshold(var, var_threshold, 255, cv2.THRESH_BINARY)       
     # cv2.imshow("var_mask", var_mask)
     # cv2.waitKey(0)
-    img2gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # cv2.imshow("im2gray", img2gray)
-    # cv2.waitKey(0)
-    ret, lum_mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)
-    # cv2.imshow("lum_mask", lum_mask)
-    # cv2.waitKey(0)
+    img2gray = util.grayimage(image)
+#     cv2.imshow("im2gray", img2gray)
+#     cv2.waitKey(0)
+    ret, lum_mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)    
     mask = cv2.bitwise_or(var_mask, lum_mask)
+    if (inv):
+        mask = cv2.bitwise_not(mask)
     return mask
+
+
 
 def fgbbox(mask):   
     cols, rows = np.where(mask != 0)
@@ -524,17 +549,18 @@ def matchtemplate(img, template):
     top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
     """threshold khan = 0.8, tecmath = 0.25 """    
-    threshold = 0.40  
+    threshold = 0.50  
     if (max_val < threshold):
-        util.showimages([img])        
+#         print max_val
+#         util.showimages([img])        
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
-        cv2.rectangle(img, top_left, bottom_right, 255, 2)
-        util.showimages([img])
+#         cv2.rectangle(img, top_left, bottom_right, 255, 2)
+#         util.showimages([img])
         logging.info("Exact match found: %f", max_val)        
     
-    return top_left;
+    return top_left
 
 def removebackground(gray_img, gray_bgsample, thres=50):
     """Remove background from img"""
