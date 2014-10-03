@@ -6,6 +6,7 @@ import numpy as np
 import processframe as pf
 import ntpath
 import sys
+import util
 
 
 class Keyframe:
@@ -189,6 +190,7 @@ class Video:
                 if not os.path.isfile(os.path.abspath(filename)):
                     print 'writing', os.path.abspath(filename)
                     cv2.imwrite(filename, frame)
+                    util.showimages([frame])
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid, self))
             fid += 1
         cap.release()
