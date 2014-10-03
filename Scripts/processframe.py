@@ -513,23 +513,25 @@ def numfgpix(img, bgcolor):
     count = np.count_nonzero(sub)
     return count
 
-def matchtemplate(gray_img, gray_template):
+def matchtemplate(img, template):
     """Return the top left corner of the rectangle that matches template inside img"""  
-    d, w, h = gray_template.shape[::-1]    
+    gray_img = util.grayimage(img)
+    gray_template = util.grayimage(template)
+    w, h = gray_template.shape[::-1]    
     # Apply template Matching
-    res = cv2.matchTemplate(gray_img, gray_template, cv2.TM_CCOEFF_NORMED)
+    res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
     """threshold khan = 0.8, tecmath = 0.25 """    
     threshold = 0.40  
     if (max_val < threshold):
-#         util.showimages([gray_img])        
+        util.showimages([img])        
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
-#         cv2.rectangle(gray_img, top_left, bottom_right, 255, 2)
-#         util.showimages([gray_img])
+        cv2.rectangle(img, top_left, bottom_right, 255, 2)
+        util.showimages([img])
         logging.info("Exact match found: %f", max_val)        
     
     return top_left;
