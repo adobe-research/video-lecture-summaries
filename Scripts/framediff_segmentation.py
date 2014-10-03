@@ -30,8 +30,6 @@ def get_object_frames(framediff, thres=100):
             end_t = -1
         fid += 1
     return object_fids
-            
-
 
 if __name__ == "__main__":
     videopath = sys.argv[1]
@@ -43,5 +41,9 @@ if __name__ == "__main__":
     
     objects_fids = get_object_frames(framediff)
     keyframe_fids = [e for l in objects_fids for e in l]
-    video.captureframes_fid(keyframe_fids, video.videoname + "_temp" )
+    keyframes = video.captureframes_fid(keyframe_fids, video.videoname + "_temp" )
     
+    for i in range(0, len(keyframes)):
+        start_frame = keyframes[2*i+0]
+        end_frame = keyframes[2*i+1]
+        
