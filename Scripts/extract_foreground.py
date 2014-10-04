@@ -6,11 +6,10 @@ import cv2
 import processframe as pf
 import re
 from writehtml import WriteHtml
+from video import Video
 
 
-if __name__ == "__main__":
-    
-    
+def test_fg_threshold():
     dirname = sys.argv[1]
     filelist = os.listdir(dirname)
     
@@ -59,7 +58,12 @@ if __name__ == "__main__":
     html.closebody()
     html.closehtml()
             
+
+if __name__ == "__main__":
+    videopath = sys.argv[1]
+    video = Video(videopath)
+    threshold = int(sys.argv[2])
+    video.extract_foreground(threshold)
+        
     
-                
-            
     

@@ -1,0 +1,4 @@
+framediff_segmentation
+diff = cv2.basdiff(end_frame, start_frame)
+diff = 255 - 255
+pf.fgmask(diff, threshold=150, var_threshold=255, inv=False)

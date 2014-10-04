@@ -6,6 +6,7 @@ import numpy as np
 import cv2
 import processframe as pf
 import os
+from itertools import count
 
 
 def read_framediff(framediff_txt):
@@ -70,9 +71,11 @@ if __name__ == "__main__":
     
     i = 0
     objdir = video.videoname + "_framediff_objs"
-    objfile = video.videoname + "_obj_info.txt"
+    objfile = "obj_info.txt"
     """write object information"""
-    objinfo = open(objfile, "w")
+    if not os.path.exists(os.path.abspath(objdir)):
+        os.makedirs(os.path.abspath(objdir))
+    objinfo = open(objdir + "/" + objfile, "w")
     objinfo.write("start_fid \t end_fid \t tlx \t tly \t brx \t bry\n")
     
     while i < len(keyframes):
@@ -89,12 +92,23 @@ if __name__ == "__main__":
         
         """get foreground object and bounding box """
         print 'object', i/2
-        objmask = pf.fgmask(diff, 10, 255, True)
+        objmask = pf.fgmask(diff, 50, 255, True)
+        count = np.count_nonzero(objmask)
+        
+        """get rid of noise (minthres) and scrolling (maxthres)"""
+        minthres = 20
+        maxthres = 50000
+        if (count < minthres or count > maxthres):
+#             print count
+#             util.showimages([diff, objmask])
+            i += 2
+            continue
+        
         objbbox = pf.fgbbox(objmask)
         if (objbbox[0] < 0 or objbbox[2]-objbbox[0] == 0 or objbbox[3] - objbbox[1] == 0):
             i += 2
             continue  
-        print objbbox      
+          
         objmask = pf.cropimage(objmask, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
         objcrop = pf.cropimage(diff, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
 #         util.showimages([objcrop, objmask], "ojb crop and mask")

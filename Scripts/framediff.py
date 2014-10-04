@@ -21,7 +21,8 @@ def compute(videoprocessor, diffthres=25):
         prevframe = nextframe
         counts[index - 1] = (diff > diffthres).sum()
         ret, dst = cv2.threshold(util.grayimage(diff), diffthres, 255, cv2.THRESH_BINARY_INV)
-        util.showimages([prevframe, nextframe, dst])
+#         util.showimages([prevframe, nextframe, dst])
+        util.showimages([nextframe])
         print 'counts', counts[index-1]
         index += 1            
     cap.release()

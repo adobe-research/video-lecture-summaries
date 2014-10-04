@@ -114,6 +114,28 @@ class Video:
     def add_default_obj(self, obj):
         self.default_objs.append(obj)
         return    
+    
+    def extract_foreground(self, threshold, outfile=None):
+        cap = cv2.VideoCapture(self.filepath)
+        if outfile==None:
+            outfile = self.videoname + "_foreground.avi"
+        fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
+        out = cv2.VideoWriter(outfile, int(fourcc), self.fps, (self.width, self.height))
+        while(cap.isOpened()):          
+            ret, frame = cap.read()
+            if (ret == True):
+                mask = pf.fgmask(frame, threshold)
+                fgframe = pf.maskimage_white(frame, mask)
+                util.showimages([frame, fgframe], "video.extract_forground")
+                out.write(fgframe)
+            else:
+                break
+        cap.release()
+        out.release()
+        newoutfile = self.videoname + "_foreground.mp4"
+        os.rename(outfile, newoutfile)
+        return newoutfile    
+        
         
     def negate(self, outfile=None):
         cap = cv2.VideoCapture(self.filepath)
