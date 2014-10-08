@@ -3,6 +3,7 @@ from video import Video, Keyframe
 import process_aligned_json as pjson
 import processvideo as pvideo
 import processframe as pframe
+import lectureplot as lecplot
 import cv2
 import util
 import os
@@ -14,7 +15,9 @@ class Lecture:
         self.aligned_transcript_path = aligned_transcript_path
         self.list_of_words = pjson.get_words(aligned_transcript_path)
         self.list_of_stcs = pjson.get_sentences(self.list_of_words)
-        self.default_objects = []    
+        self.default_objects = []  
+        self.cursorpos = []
+        self.visual_objects = []  
         
     def segment_script(self, list_of_t):        
         segments = [ [] for i in range(0, len(list_of_t))]
@@ -31,6 +34,10 @@ class Lecture:
                         segments[seg].append(word)
                     break            
         return segments
+    
+    def plot_visual_objects(self):
+        lecplot.plot_visual_objects(self.visual_objects)
+             
     
     def get_stc_end_times(self):
         endts = []

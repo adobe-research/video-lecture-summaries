@@ -26,11 +26,13 @@ def stringlist_from_txt(filepath):
         list_of_strings.append(val)
     return list_of_strings
 
-def list_of_vecs_from_txt(filepath, n=2):
+def list_of_vecs_from_txt(filepath, n=None):
     txtfile = open(filepath, "r")
     list_of_vecs = []
     for line in txtfile:
         values = line.split()
+        if n is None:
+            n = len(values)
         vec = []
         for i in range(0, n):
             vec.append(values[i])
