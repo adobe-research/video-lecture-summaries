@@ -3,7 +3,7 @@ from video import Video, Keyframe
 import process_aligned_json as pjson
 import processvideo as pvideo
 import processframe as pframe
-import lectureplot as lecplot
+#import lectureplot as lecplot
 import cv2
 import util
 import os
@@ -35,8 +35,8 @@ class Lecture:
                     break            
         return segments
     
-    def plot_visual_objects(self):
-        lecplot.plot_visual_objects(self.visual_objects)
+#     def plot_visual_objects(self):
+#         lecplot.plot_visual_objects(self.visual_objects)
              
     
     def get_stc_end_times(self):
