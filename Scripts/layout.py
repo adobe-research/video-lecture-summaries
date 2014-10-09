@@ -59,7 +59,7 @@ def inframe_cstr(txt_ws, txt_hs, txt_bases, frame_w, frame_h):
         rows.append(len(rows))
         cols.append(2*i)
         vals.append(-1)
-        b.append(0)        
+        b.append(0)
         
         # x_i + txt_w[i] <= frame_w    x_i <= frame_w - txt_w[i]
         rows.append(len(rows))
@@ -81,8 +81,25 @@ def inframe_cstr(txt_ws, txt_hs, txt_bases, frame_w, frame_h):
         
     A = cvxopt.spmatrix(vals, rows, cols)
     return (A, b)
-        
 
+def reading_order_cstr():
+    #non-linear
+    return
+        
+def non_overlap_cstr(ws, hs, bases):
+    # non-linear
+    n = len(ws)
+    for i in range(0, n-1):
+        w1 = ws[i]
+        h1 = hs[i]
+        for j in range(1, n):
+            w2 = ws[j]
+            h2 = hs[j]
+            
+    return
+            
+        
+    
 
 def textbbox(text):
     
