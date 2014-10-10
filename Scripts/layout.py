@@ -12,6 +12,7 @@ import util
 import cv2
 import numpy as np
 import cvxopt
+import operator
 from visualobjects import VisualObject
 
 
@@ -124,27 +125,28 @@ def layout_line_by_line(objs_by_time):
     cury = 0
     objs_in_frame = []
     while(len(objs_by_time) > 0):
-        curobj = list.pop(0) # consider the earliest object
+        curobj = objs_by_time.pop(0) # consider the earliest object
         if (curobj.istext):
             """Put curobj at (x_buffer, cury +y_buffer)"""
             newobj = curobj.copy()
             newobj.setx(x_buffer)
             newobj.sety(cury + y_buffer)
-            cury += newobj.bry
+            cury = newobj.bry
             objs_in_frame.append(newobj)
         else:
             """Put curobj at (curobj.x, cury + y_buffer)"""
             newobj = curobj.copy()
             newobj.sety(cury + y_buffer)
-            cury += newobj.bry
+            cury = newobj.bry
             objs_in_frame.append(newobj)
             yshift = newobj.tly - curobj.tly
-            """Put visual objects in-line with curobj"""
+#             """Put visual objects in-line with curobj"""
             indices = []
             for i in range(0, len(objs_by_time)):
                 if not objs_by_time[i].istext:
                     if objs_by_time[i].bry <= curobj.bry:
                         indices.append(i)
+            indices.reverse() # for pop 
             for i in range(0, len(indices)):
                 obj = objs_by_time.pop(indices[i])
                 newobj = obj.copy()
@@ -162,17 +164,47 @@ def layout_objects(list_of_objs):
         frameh = max(framew, obj.bry)
     framew += margin
     frameh += margin
-    
+    print 'layout.layout_objects: framew, frameh:', framew, frameh
     img = np.ones((frameh, framew, 3), dtype=np.uint8) * 255 
     
     for obj in list_of_objs:
         img[obj.tly:obj.bry, obj.tlx:obj.brx, :] = obj.img
-            
+        
     return img
     
 
 if __name__ == "__main__":
-    layout_words_on_cursor_path()
+    videopath = sys.argv[1]
+    scriptpath = sys.argv[2]
+    objdir = sys.argv[3]
+    
+    lec = Lecture(videopath, scriptpath)
+    
+    img_objs = VisualObject.objs_from_file(lec.video, objdir)
+    txt_objs = []
+    for stc in lec.list_of_stcs:
+        txt = ""
+        for word in stc:
+            if not word.issilent:
+                txt = txt + " " + word.original_word
+        txt = txt +"."
+        txt_obj = VisualObject.fromtext(txt, lec.video.ms2fid(stc[0].startt), lec.video.ms2fid(stc[-1].endt))
+        txt_objs.append(txt_obj)
+    
+    vis_objs = img_objs + txt_objs
+    sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
+        
+    objs_in_frame = layout_line_by_line(sorted_vis_objs)
+    img = layout_objects(objs_in_frame)
+    util.showimages([img])
+    util.saveimage(img, "temp", "outcome3.png")
+    
+    
+    
+        
+    
+    
+    
     
     
     

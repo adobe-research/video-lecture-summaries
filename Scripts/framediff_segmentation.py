@@ -67,7 +67,7 @@ if __name__ == "__main__":
     
     
     keyframe_fids = [e for l in objects_fids for e in l]
-    keyframes = video.captureframes_fid(keyframe_fids, video.videoname + "_temp")
+    keyframes = video.capture_keyframes_fid(keyframe_fids, video.videoname + "_temp")
     
     i = 0
     objdir = video.videoname + "_framediff_objs"

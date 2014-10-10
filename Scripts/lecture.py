@@ -49,7 +49,7 @@ class Lecture:
         return self.video.captureframes_ms(list_of_t, outdir)
     
     def capture_keyframes_fid(self, fnumbers, outdir = "."):
-        return self.video.captureframes_fid(fnumbers, outdir)
+        return self.video.capture_keyframes_fid(fnumbers, outdir)
     
     def assign_keyframe_to_words(self, emph_words=["here", "here,", "here."], outdir = "temp"):
         startts = []
