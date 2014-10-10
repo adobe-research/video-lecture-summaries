@@ -12,24 +12,23 @@ import util
 import cv2
 import numpy as np
 import cvxopt
+from visualobjects import VisualObject
 
 
-def layout_word():
+def layout_words_on_cursor_path():
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
-    lecture = Lecture(videopath, scriptpath)   
-    
-    """read cursor path"""
     cursorpath = sys.argv[3]    
+    
+    lecture = Lecture(videopath, scriptpath)   
     cursorpos = util.list_of_vecs_from_txt(cursorpath)   
     
     """layout word in each sentence"""
     stc_id = 0
     stc_ts = lecture.get_stc_end_times()
-    print 'len(stc_ts)', len(stc_ts)
-    print 'len(list_of_stcs)', len(lecture.list_of_stcs)
-    keyframes = lecture.capture_keyframes_ms(stc_ts, lecture.video.videoname + "_temp")
-    print 'len(keyframes)', len(keyframes)
+    print 'number of sentences', len(lecture.list_of_stcs)
+    layoutdir = lecture.video.videoname + "_stc_endtime"
+    keyframes = lecture.capture_keyframes_ms(stc_ts, layoutdir)
     for sentence in lecture.list_of_stcs:
         frame = keyframes[stc_id].frame
         for word in sentence:
@@ -37,24 +36,29 @@ def layout_word():
                 continue
 #             print word.original_word
             wordt = (word.startt + word.endt)/2.0
+            (textsize, baseline) = textbbox(word.original_word)
             frameid = lecture.video.ms2fid(wordt)
             curpos = cursorpos[frameid]       
-            if cursorpos[0] < 0:
-                cursorpos[0] = 1
-                cursorpos[1] = 1      
+            if curpos[0] < 0:
+                print 'cursor not tracked'
+            curpos[0] = max(1, int(curpos[0]))
+            print curpos[0]
+            print max(1, int(curpos[0]))
+            curpos[1] = max(textsize[1], int(curpos[1]))  
+            print curpos[0], curpos[1]
             pf.writetext(frame, word.original_word, (int(curpos[0]), int(curpos[1])), fontscale=1.0, color=(0, 0, 0))
-#             util.showimages([frame])          
-        layoutdir = lecture.video.videoname+"_layout"
+#         util.showimages([frame])          
         util.saveimage(frame, layoutdir, "sentence" +("%03i" %stc_id) +"_word.png")
         stc_id += 1
+    
         
-def inframe_cstr(txt_ws, txt_hs, txt_bases, frame_w, frame_h):
+def inframe_cstr(obj_ws, obj_hs, obj_bases, frame_w, frame_h):
     vals = []
     rows = []  #rows
     cols = []  #cols
     b = []
 
-    for i in range(0, len(txt_ws)):
+    for i in range(0, len(obj_ws)):
         # x_i >= 0    -x_i <= 0
         rows.append(len(rows))
         cols.append(2*i)
@@ -65,58 +69,111 @@ def inframe_cstr(txt_ws, txt_hs, txt_bases, frame_w, frame_h):
         rows.append(len(rows))
         cols.append(2*i)
         vals.append(1)
-        b.append(frame_w - txt_ws[i])
+        b.append(frame_w - obj_ws[i])
         
         # y_i - txt_hs[i] >= 0    -y_i <= txt_hs[i]
         rows.append(len(rows))
         cols.append(2*i+1)
         vals.append(-1)
-        b.append(txt_hs[i])
+        b.append(obj_hs[i])
         
-        # y_i + txt_bases[i] <= frame_h    y_i <= frame_h-txt_bases[i]
+        # y_i + obj_bases[i] <= frame_h    y_i <= frame_h-obj_bases[i]
         rows.append(len(rows))
         cols.append(2*i+1)
         vals.append(1)
-        b.append(frame_h - txt_bases[i])
+        b.append(frame_h - obj_bases[i])
         
     A = cvxopt.spmatrix(vals, rows, cols)
     return (A, b)
 
-def reading_order_cstr():
-    #non-linear
-    return
+def reading_order_cstr(obj_ws, obj_hs, obj_bases):
+    # Only top-to-bottom
+    n_objs = len(obj_ws)
+    rows = []
+    cols = []
+    vals = []
+    b = []
+    n_cstr = 0
+    for i in range(1, n_objs):
+        # y_i + obj_bases[i] <= y_(i+1) - objs_hs[i+1]
+        # y_i - y_(i+1) <= -obj_bases[i] - obj_hs[i+1])
+        rows.append(n_cstr)
+        cols.append(2*i+1)
+        vals.append(1)
+        rows.append(n_cstr)
+        cols.append(2*(i+1)+1)
+        vals.append(-1)
+        b.append(-obj_bases[i] - obj_hs[i+1])
+        n_cstr += 1
+        
+    A = cvxopt.spmatrix(vals, rows, cols)
+    return (A, b)
         
 def non_overlap_cstr(ws, hs, bases):
     # non-linear
-    n = len(ws)
-    for i in range(0, n-1):
-        w1 = ws[i]
-        h1 = hs[i]
-        for j in range(1, n):
-            w2 = ws[j]
-            h2 = hs[j]
-            
     return
-            
-        
-    
 
-def textbbox(text):
-    
+def textbbox(text):    
     textsize, baseline = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)
-    img = np.zeros((300, 300, 3))
-    
-    cv2.rectangle(img, (0, 0), (textsize[0], -textsize[1]), (255, 255, 255))
-    cv2.rectangle(img, (0, baseline), (textsize[0], 100-textsize[1]-baseline), (0,255,0))
-    
-    cv2.putText(img, text, (0,0), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255))
-    cv2.imshow("image", img)
-    cv2.waitKey(0)
-    
-    
-  
+    return (textsize, baseline)
 
+
+def layout_line_by_line(objs_by_time):
+    x_buffer = 10
+    y_buffer = 10
+    cury = 0
+    objs_in_frame = []
+    while(len(objs_by_time) > 0):
+        curobj = list.pop(0) # consider the earliest object
+        if (curobj.istext):
+            """Put curobj at (x_buffer, cury +y_buffer)"""
+            newobj = curobj.copy()
+            newobj.setx(x_buffer)
+            newobj.sety(cury + y_buffer)
+            cury += newobj.bry
+            objs_in_frame.append(newobj)
+        else:
+            """Put curobj at (curobj.x, cury + y_buffer)"""
+            newobj = curobj.copy()
+            newobj.sety(cury + y_buffer)
+            cury += newobj.bry
+            objs_in_frame.append(newobj)
+            yshift = newobj.tly - curobj.tly
+            """Put visual objects in-line with curobj"""
+            indices = []
+            for i in range(0, len(objs_by_time)):
+                if not objs_by_time[i].istext:
+                    if objs_by_time[i].bry <= curobj.bry:
+                        indices.append(i)
+            for i in range(0, len(indices)):
+                obj = objs_by_time.pop(indices[i])
+                newobj = obj.copy()
+                newobj.shifty(yshift)
+                objs_in_frame.append(newobj)
+                
+    return objs_in_frame
+
+def layout_objects(list_of_objs):
+    framew = 0
+    frameh = 0
+    margin = 10
+    for obj in list_of_objs:
+        framew = max(framew, obj.brx)
+        frameh = max(framew, obj.bry)
+    framew += margin
+    frameh += margin
+    
+    img = np.ones((frameh, framew, 3), dtype=np.uint8) * 255 
+    
+    for obj in list_of_objs:
+        img[obj.tly:obj.bry, obj.tlx:obj.brx, :] = obj.img
+            
+    return img
+    
 
 if __name__ == "__main__":
-    textbbox("my life")
+    layout_words_on_cursor_path()
+    
+    
+    
     

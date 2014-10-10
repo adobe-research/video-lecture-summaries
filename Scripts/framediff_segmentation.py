@@ -112,6 +112,7 @@ if __name__ == "__main__":
         objmask = pf.cropimage(objmask, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
         objcrop = pf.cropimage(diff, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
 #         util.showimages([objcrop, objmask], "ojb crop and mask")
+
         util.saveimage(objcrop, objdir, "obj_%06i_%06i.png" %(keyframe_fids[i+0], keyframe_fids[i+1]))
         objinfo.write("%i\t%i\t%i\t%i\t%i\t%i\n" %(keyframe_fids[i+0], keyframe_fids[i+1], objbbox[0], objbbox[1], objbbox[2], objbbox[3] ))
         i += 2
