@@ -51,7 +51,7 @@ class ProcessVideo:
         while (cap.isOpened()):
             ret, frame = cap.read()
             if (ret == True):                
-                loc = pf.findloc(frame, template)
+                loc = pf.find_template_ctr(frame, template)
                 pos.append(loc)                
             else:
                 break
@@ -173,7 +173,7 @@ class ProcessVideo:
             for gray_logo in gray_logos:
                 gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 wlogo, hlogo = gray_logo.shape[::-1]
-                tlx, tly = pf.matchtemplate(gray_frame, gray_logo)
+                tlx, tly = pf.find_object_exact_inside(gray_frame, gray_logo)
                 brx = tlx + wlogo
                 bry = tly + hlogo
                 frame[tly:bry, tlx:brx, 0] = color[0]
@@ -236,7 +236,7 @@ class ProcessVideo:
             for template in templates:
                 gray_template = cv2.imread(template, 0)  
                 mask = np.zeros(gray_src.shape, dtype=np.uint8)                
-                tx, ty = pf.matchtemplate(gray_src, gray_template)
+                tx, ty = pf.find_object_exact_inside(gray_src, gray_template)
                 th, tw = gray_template.shape
                 for j in range(0, th):
                     for i in range(0, tw):

@@ -213,9 +213,9 @@ def test_keyframe_object_in_panorama(framedir, logodir, panorama):
         objcrop, objcropmask = pf.croptofg(keyframe.frame, keyframe.newobj_mask)
         if objcrop == None:
             continue
-        #M = pf.findobject_exact(panorama, objcrop)
+        #M = pf.find_object_exact(panorama, objcrop)
         #if not pf.isgoodmatch(M):
-        M = pf.detectobject(panorama, objcrop)
+        M = pf.find_object_appx_thres(panorama, objcrop)
         if not pf.isgoodmatch(M):
             continue
         h, w = objcrop.shape[:2]
@@ -260,7 +260,7 @@ def test_panorama_path(panorama, keyframes):
         
     for keyframe in keyframes:        
         M = None
-        M = pf.findobject_exact(panorama, keyframe.frame)        
+        M = pf.find_object_exact(panorama, keyframe.frame)        
         if (M == None or not pf.isgoodmatch(M)):
             print 'Did not find frame in panorama'
             continue
@@ -282,7 +282,7 @@ def test_highlight_in_panorama(panorama, frame, highlight_mask):
     panorama_gray = cv2.cvtColor(panorama, cv2.COLOR_BGR2GRAY)
     frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
-    M = pf.detectobject(panorama_gray, frame_gray)
+    M = pf.find_object_appx_thres(panorama_gray, frame_gray)
     if M == None:
         print 'frame not found'
         return

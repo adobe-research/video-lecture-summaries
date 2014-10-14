@@ -22,8 +22,8 @@ def compute(videoprocessor, diffthres=25):
         counts[index - 1] = (diff > diffthres).sum()
         ret, dst = cv2.threshold(util.grayimage(diff), diffthres, 255, cv2.THRESH_BINARY_INV)
 #         util.showimages([prevframe, nextframe, dst])
-        util.showimages([nextframe])
-        print 'counts', counts[index-1]
+#         util.showimages([nextframe])
+#         print 'counts', counts[index-1]
         index += 1            
     cap.release()
     return counts    
@@ -45,7 +45,7 @@ def plotperframe(counts, filename="_framediff_perframe.png"):
     plt.close()       
   
 def plotpersec(counts, fps, filename="_framediff_persec.png"):
-    smoothsample = util.smooth(np.array(counts))
+    smoothsample = util.smooth(np.array(counts), window_len = int(fps))
     subsample = counts[0:len(smoothsample):int(fps)]
     t = np.linspace(0, len(subsample)-1, len(subsample))        
     plt.plot(t, subsample, "bo-")
@@ -55,20 +55,25 @@ def plotpersec(counts, fps, filename="_framediff_persec.png"):
     plt.savefig(filename)
     plt.close()
   
+def getcounts(framedifftxt):
+    framediff = util.stringlist_from_txt(framedifftxt)
+    counts = util.strings2ints(framediff)
+    return counts
 
 if __name__ == "__main__":
     videopath = sys.argv[1] 
     pv = processvideo.ProcessVideo(videopath)
-    counts = compute(pv)
+#     counts = compute(pv)
    
     """Write to file"""
 #     framedifftxt = pv.videoname + "_framediff.txt"
 #     write(counts, framedifftxt) 
     
     """Read frame difference"""
-#     framedifftxt = sys.argv[2]
-    #framediff = util.stringlist_from_txt(framedifftxt)
-    #counts = util.strings2ints(framediff)
+    framedifftxt = sys.argv[2]
+    framediff = util.stringlist_from_txt(framedifftxt)
+    counts = util.strings2ints(framediff)
     
     """Smooth and Sub-sample 1 frame per second"""
 #     plotpersec(counts, pv.framerate, pv.videoname + "_framediff_persec.png")
+    plotperframe(counts, pv.videoname + "_framediff_perframe.png")

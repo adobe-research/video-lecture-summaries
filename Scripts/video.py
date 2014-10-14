@@ -57,7 +57,7 @@ class Keyframe:
     def find_obj(self, obj):
         if obj == None:
             return None
-        M = pf.detectobject(obj)
+        M = pf.find_object_appx_thres(obj)
         h,w = obj.shape[:2]
         pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
         dst = cv2.perspectiveTransform(pts,M)
@@ -90,8 +90,8 @@ class Keyframe:
         
         keyframes = []   
         for filename in filelist:
-            frame = cv2.imread(dirname + "\\" + filename)
-            keyframe = Keyframe(dirname + "\\" + filename, frame, -1, -1)
+            frame = cv2.imread(dirname + "/" + filename)
+            keyframe = Keyframe(dirname + "/" + filename, frame, -1, -1)
             keyframes.append(keyframe)
         return keyframes
     

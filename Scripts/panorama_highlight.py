@@ -33,7 +33,7 @@ if __name__ == "__main__":
         if (objmask == None):
             continue
         
-        M = pf.findobject(panorama, keyframe)
+        M = pf.find_object_appx(panorama, keyframe)
         if (M == None):
             continue
         

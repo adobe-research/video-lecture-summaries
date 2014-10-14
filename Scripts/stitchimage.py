@@ -67,7 +67,7 @@ def panorama(list_of_frames):
     curpix_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     prevh, prevw = prevpix.shape[:2]
-    M = pf.detectobject(prevpix_gray, curpix_gray)
+    M = pf.find_object_appx_thres(prevpix_gray, curpix_gray)
     if not pf.isgoodmatch(M):
         tx = 0.0
         ty = prevh
@@ -102,7 +102,7 @@ if __name__ == "__main__":
         curpix_gray = cv2.cvtColor(curpix, cv2.COLOR_BGR2GRAY)
         
         prevh, prevw = prevpix.shape[:2]
-        M = pf.detectobject(prevpix_gray, curpix_gray)
+        M = pf.find_object_appx_thres(prevpix_gray, curpix_gray)
         if not pf.isgoodmatch(M):
             tx = 0.0
             ty = prevh

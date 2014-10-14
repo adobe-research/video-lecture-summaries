@@ -1,35 +1,18 @@
 #!/usr/bin/env python
 import cv2
-import numpy as np
-import math
 import sys
 import processframe as pf
-import processscript as ps
 from video import Video, Keyframe
-from lecture import Lecture
-from PIL import Image
-import os
+import framediff
 import util
+import removelogo
 
-def get_logos(dirname):
-    logos = []
-    
-    if not os.path.exists(dirname):
-        return logos
-    
-    filelist = os.listdir(dirname)
-    for filename in filelist:
-        if ('logo' in filename and 'png' in filename):
-            logo = cv2.imread(dirname + "\\" + filename)
-            logos.append(logo)
-    return logos
-
-if __name__ == "__main__":
+def new_obj_panorama():
   
     framedir = sys.argv[1]
     logodir = sys.argv[2]
     keyframes = Keyframe.get_keyframes(framedir)
-    logos = get_logos(logodir)
+    logos = util.get_logos(logodir)
 
     util.showimages(logos)
 
@@ -59,3 +42,53 @@ if __name__ == "__main__":
     cv2.imwrite(framedir + "\\panorama_new.png", panorama)
     cv2.imshow("panorama", panorama)
     cv2.waitKey(0)
+    
+def scroll_stitch_panorama():
+    """written on 10/13/2014
+    Capture keyframes after scroll event -- when framediff > thres,
+    Remove logo from keyframes
+    Stitch keyframes """
+    videopath = sys.argv[1]
+    framedifftxt = sys.argv[2]
+    logopath = sys.argv[3]
+    if (len(sys.argv) == 5):
+        thres = int(sys.argv[4])
+    else:
+        thres = 400000
+    
+    video = Video(videopath)
+    counts = framediff.getcounts(framedifftxt)
+    logos = util.get_logos(logopath)
+
+    
+    fid = 0
+    capture = False
+    keyframes_fid = []
+    for count in counts:
+        if count > thres and not capture:
+            capture = True
+            keyframes_fid.append(max(0, fid-3))
+        if count <= thres and capture:
+            capture = False
+        fid += 1
+    keyframes_fid.append(fid-3)
+    
+    framedir = video.videoname + "_panorama"
+    video.capture_keyframes_fid(keyframes_fid, framedir)
+    
+    list_of_frames = []
+    keyframes = Keyframe.get_keyframes(framedir)
+    for keyframe in keyframes:
+        frame = keyframe.frame
+        for logo in logos:
+            frame = removelogo.fillblack(frame, logo)
+        list_of_frames.append(frame)
+    
+   
+    panorama = pf.panorama(list_of_frames)
+    cv2.imwrite(framedir + "/panorama.png", panorama)
+#     util.showimages([panorama])
+    
+if __name__ == "__main__":
+    scroll_stitch_panorama()
+    

@@ -50,7 +50,7 @@ def getclosestframe(list_of_frames, frame):
     minscore = float("inf")
     for i in xrange(0, len(list_of_frames)):
         cframe = list_of_frames[i]
-        M = pf.detectobject(frame, cframe)
+        M = pf.find_object_appx_thres(frame, cframe)
         diff = compareframes_align(frame, cframe, M)
         score = np.sum(diff)
         if (score < minscore):
@@ -166,7 +166,7 @@ if __name__ == "__main__":
                 minscore = float("inf")
                 for closeframe in closestframes:                 
                     gray_cframe = cv2.imread(alg_dirpath+"\\"+closeframe, 0)
-                    M = pf.detectobject(gray_tframe, gray_cframe)
+                    M = pf.find_object_appx_thres(gray_tframe, gray_cframe)
                     diff = compareframes_align(gray_tframe, gray_cframe, M)
                     if (np.sum(diff) < minscore):
                         closestdiff = diff

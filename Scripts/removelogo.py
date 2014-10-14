@@ -6,6 +6,33 @@ import processframe as pf
 from matplotlib import pyplot as plt
 import os
 
+def fillcolor(img, logo, color):
+    
+    topleft = pf.find_object_exact_inside(img, logo)
+    hlogo, wlogo = logo.shape[0:2]
+    
+    if (topleft is None):
+        return img.copy()
+    else:
+        tlx = topleft[0]
+        tly = topleft[1] 
+    brx = tlx + wlogo
+    bry = tly + hlogo
+    
+    outimg = img.copy()
+    outimg[tly:bry, tlx:brx, 0] = color[0]
+    outimg[tly:bry, tlx:brx, 1] = color[1]
+    outimg[tly:bry, tlx:brx, 2] = color[2]
+    
+    return outimg
+
+def fillblack(img, logo):
+    return fillcolor(img, logo, (0,0,0))
+    
+def fillwhite(img, logo):
+    return fillcolor(img, logo (255, 255, 255))
+           
+
 if __name__ == "__main__":
     """Removes logo from image.
     logo.png must be in same directory as image files.
@@ -40,7 +67,7 @@ if __name__ == "__main__":
             img1 = cv2.imread(img_path1)
             print img1.shape
             gray_img1 = cv2.imread(img_path1, 0)
-            tlx, tly = pf.matchtemplate(gray_img1, gray_logo)
+            tlx, tly = pf.find_object_exact_inside(gray_img1, gray_logo)
             brx = tlx + wlogo
             bry = tly + hlogo
             img1[tly:bry, tlx:brx, 0] = 255

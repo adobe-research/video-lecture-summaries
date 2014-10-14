@@ -37,7 +37,7 @@ if __name__ == "__main__":
         index = 0
         for gray_obj in gray_objs:
             print "object ", index
-            M = pf.detectobject(gray_img1_pc, gray_obj)
+            M = pf.find_object_appx_thres(gray_img1_pc, gray_obj)
             if M == None:
                 index += 1
                 continue

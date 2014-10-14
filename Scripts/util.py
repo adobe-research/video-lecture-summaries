@@ -6,6 +6,18 @@ import re
 import numpy as np
 import os
 
+def get_logos(dirname):
+    logos = []
+    if not os.path.exists(dirname):
+        return logos
+    
+    filelist = os.listdir(dirname)
+    for filename in filelist:
+        if ('logo' in filename and 'png' in filename):
+            logo = cv2.imread(dirname + "/" + filename)
+            logos.append(logo)
+    return logos
+
 def grayimage(img):
     if len(img.shape) <= 2:
         return img

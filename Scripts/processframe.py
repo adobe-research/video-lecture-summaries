@@ -112,7 +112,7 @@ def removetemplate(gray_img, gray_obj, M):
 def subtractlogo(frame, logo):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
-    topleft = matchtemplate(frame, logo)
+    topleft = find_object_exact_inside(frame, logo)
     frame_copy = frame.copy()
     if  topleft == None:
 #         util.showimages([frame], "no logo")
@@ -198,13 +198,30 @@ def subtractobject(image, objmask, M, emptycolor=0):
      
     return subimage
 
-def findobject(gray_img, gray_obj):
+
+
+def find_template_ctr(frame, template):
+    """Return center of template location in side frame"""
+    grayframe = util.grayimage(frame)
+    graytemp = util.grayimage(template)
+    wtemp, htemp = graytemp.shape[::-1]
+    top_left = find_object_exact_inside(frame, template)
+    if (top_left == None):        
+        return None
+    else:
+        center = (top_left[0] + wtemp / 2, top_left[1] + htemp / 2)
+    return center    
+
+
+def find_object_appx(img, obj, thres=-1):
+    return find_object_appx_thres(img, obj)
+    
     sift = cv2.SURF(0)
     kp1, d1 = sift.detectAndCompute(gray_obj, None)
     kp2, d2 = sift.detectAndCompute(gray_img, None)
     
-    obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
-    img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
+#     obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
+#     img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
 
     logging.info("Object # features: %i", len(kp1))
     logging.info("Image # features: %i", len(kp2))
@@ -220,11 +237,8 @@ def findobject(gray_img, gray_obj):
         print 'No matches: Not enough correspondence'
         return None
     
-    match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
-    util.showimages([match_img])
-    # cv2.imshow("match img", match_img)
-    # cv2.waitKey(0)
-    #
+#     match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
+#     util.showimages([match_img])
     src_pts = np.float32([kp1[m.queryIdx].pt for m in matches])
     dst_pts = np.float32([kp2[m.trainIdx].pt for m in matches])
     
@@ -241,97 +255,63 @@ def findobject(gray_img, gray_obj):
     # image[:h1, :w1] = gray_obj
     # image[:h2, w1:w1+w2] = gray_img
     return M    
-
-def findloc(frame, template):
-    grayframe = util.grayimage(frame)
-    graytemp = util.grayimage(template)
-    wtemp, htemp = graytemp.shape[::-1]
-    top_left = matchtemplate(frame, template)
-    if (top_left == None):        
-        return None
-    else:
-        center = (top_left[0] + wtemp / 2, top_left[1] + htemp / 2)
-    return center    
      
-def detectobject(img, obj):
+def find_object_appx_thres(img, obj, thres=None):
+    """Find approximate match using feature-match and return transformation matrix"""
     gray_img = util.grayimage(img)
     gray_obj = util.grayimage(obj)
+    
     """Return 3x3 transformation matrix which transforms gray_obj to match inside gray_img
     Return None if no good match"""    
-    
     sift = cv2.SIFT()
     kp1, d1 = sift.detectAndCompute(gray_obj, None)
     kp2, d2 = sift.detectAndCompute(gray_img, None)
     
-    # surf = cv2.SURF() 
-    # kp1_ext, d1_ext = surf.detectAndCompute(gray_obj, None)
-    # kp2_ext, d2_ext = surf.detectAndCompute(gray_img, None)
-    
-    # obj_kp_img = cv2.drawKeypoints(gray_obj, kp1, None, (255, 0, 0), 0)
-    # img_kp_img = cv2.drawKeypoints(gray_img, kp2, None, (255, 0, 0), 0)
-    
     bf = cv2.BFMatcher(cv2.NORM_L2, True)
     if d1 == None or d2 == None:
-        # print 'no matches'
+        print 'no matches'
         return None
     
     logging.info("gray_obj # features: %i", len(kp1))
     logging.info("gray_img # features: %i", len(kp2))
     
     matches = bf.match(d1, d2)
-    # matches_ext = bf.match(d1_ext, d2_ext)
-
-    # matches = matches + matches_ext
     dist = [m.distance for m in matches]
-    if (len(dist) == 0):
-        # print 'no matches'
+    if (len(dist) < 0):
+        print "Not enough matches: ", len(dist)
         return None
     
-    thres_param = 0.5
-    thres_dist = (sum(dist) / len(dist)) * thres_param
-    good_matches = [m for m in matches if m.distance < thres_dist]
+    if (thres==None):
+        thres_param = 0.5
+        thres_dist = (sum(dist) / len(dist)) * thres_param
+        good_matches = [m for m in matches if m.distance < thres_dist]
     
-    logging.info("good match threshold: sum(dist)/len(dist)* %f = %f", thres_param, thres_dist)
-    logging.info("Number of matches: %i", len(matches))
-    logging.info("Number of good matches: %i", len(good_matches))
+        logging.info("good match threshold: sum(dist)/len(dist)* %f = %f", thres_param, thres_dist)
+        logging.info("Number of matches: %i", len(matches))
+        logging.info("Number of good matches: %i", len(good_matches))
+        
+        if (len(good_matches) <= 4):
+            print 'not enough good match'
+            return None
+        
+        good_matches = sorted(good_matches, key=lambda x:x.distance)
+    #     match_img = drawMatches(gray_obj, gray_img, kp1, kp2, good_matches)
+    #     util.showimages([match_img])
+        
+        src_pts = np.float32([kp1[m.queryIdx].pt for m in good_matches])
+        dst_pts = np.float32([kp2[m.trainIdx].pt for m in good_matches])
+        M, mask = cv2.findHomography(src_pts, dst_pts, cv2.LMEDS)
+        if (mask.ravel().tolist().count(1) < len(good_matches) * 0.3):
+            logging.info("mask count %i", mask.ravel().tolist().count(1))
+            logging.info("no good transform")
+            return None
+        return M
     
-    if (len(good_matches) <= 3):
-        print 'not enough good match'
-        return None
-    
-    # kp1 = kp1 + kp1_ext
-    # kp2 = kp2 + kp2_ext
-    
-    good_matches = sorted(good_matches, key=lambda x:x.distance)
-    match_img = drawMatches(gray_obj, gray_img, kp1, kp2, good_matches)
-    util.showimages([match_img])
-    # cv2.imshow("matching features", match_img)
-    # cv2.waitKey(0)
-    
-    src_pts = np.float32([kp1[m.queryIdx].pt for m in good_matches])
-    dst_pts = np.float32([kp2[m.trainIdx].pt for m in good_matches])
-    M, mask = cv2.findHomography(src_pts, dst_pts, cv2.LMEDS)
-    # M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
-    if (mask.ravel().tolist().count(1) < len(good_matches) * 0.3):
-        logging.info("mask count %i", mask.ravel().tolist().count(1))
-        logging.info("no good transform")
-        return None
-
-    # (h1, w1) = gray_obj.shape[:2]
-    # (h2, w2) = gray_img.shape[:2]
-    # image = np.zeros((max(h1, h2), w1 + w2), np.uint8)
-    # image[:h1, :w1] = gray_obj
-    # image[:h2, w1:w1+w2] = gray_img
-    #
-    # # Draw yellow lines connecting corresponding features.
-    # print 'len(src_pts)', len(src_pts)
-    # print 'len(dst_pts)', len(dst_pts)
-    # for (x1, y1), (x2, y2) in zip(np.int32(src_pts), np.int32(dst_pts)):
-         # cv2.line(image, (x1, y1), (x2+w1, y2), (0, 255, 255), lineType=cv2.CV_AA)
-    # cv2.namedWindow("correspondence", cv2.WINDOW_NORMAL)
-    # cv2.imshow("correspondence", image)
-
-    return M
+    if (thres<0):
+        src_pts = np.float32([kp1[m.queryIdx].pt for m in matches])
+        dst_pts = np.float32([kp2[m.trainIdx].pt for m in matches])
+        M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
+        return M
 
 def drawKeypointClusters(img, n_kp, labels):          
     unique_labels = set(labels)   
@@ -356,9 +336,32 @@ def isgoodmatch(M):
         return False
     return True
 
-
-def findobject_exact(fgimg, obj):
+def find_object_exact_inside(img, template):
+    """Return the top left corner of the rectangle that matches exact template INSIDE img"""  
+    gray_img = util.grayimage(img)
+    gray_template = util.grayimage(template)
+    w, h = gray_template.shape[::-1]    
+    # Apply template Matching
+    res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+    top_left = max_loc
+    bottom_right = (top_left[0] + w, top_left[1] + h)
+    """threshold khan = 0.75, tecmath = 0.25 """    
+    threshold = 0.20  
+    if (max_val < threshold):
+#         print max_val
+#         util.showimages([img])        
+        logging.info("Exact match NOT found: %f", max_val)        
+        return None
+    else:
+#         cv2.rectangle(img, top_left, bottom_right, 255, 2)
+#         util.showimages([img])
+        logging.info("Exact match found: %f", max_val)        
     
+    return top_left
+
+def find_object_exact(fgimg, obj):
+    """Return top left corner of exact template match, including partial overlap"""
     imgh, imgw = fgimg.shape[:2]
     objh, objw = obj.shape[:2]
     
@@ -400,7 +403,7 @@ def findobject_exact(fgimg, obj):
     # bottom_right = (top_left[0] + w, top_left[1] + h)
     # cv2.imshow("object", obj_gray)
     # cv2.rectangle(fgimg_gray, top_left, bottom_right, 0, 2)
-    # cv2.imshow("findobject exact", fgimg_gray)
+    # cv2.imshow("find_object_appx exact", fgimg_gray)
     # cv2.waitKey(0)
     return M
 
@@ -421,10 +424,10 @@ def get_newobj_and_mask(image_and_mask, objlist):
 
         fgimg_gray = cv2.cvtColor(fgimg, cv2.COLOR_BGR2GRAY)
         obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
-        M0 = findobject_exact(fgimg, obj)
+        M0 = find_object_exact(fgimg, obj)
         if M0 == None:
             # print 'using feature match'
-            M = findobject(fgimg_gray, obj_gray)
+            M = find_object_appx(fgimg_gray, obj_gray)
         else:
             # print 'using exact template match'
             M = M0
@@ -450,10 +453,10 @@ def getnewobj(image, objlist):
             continue
         fgimg_gray = cv2.cvtColor(fgimg, cv2.COLOR_BGR2GRAY)        
         obj_gray = cv2.cvtColor(obj, cv2.COLOR_BGR2GRAY)
-        M = findobject_exact(fgimg, obj)
+        M = find_object_exact(fgimg, obj)
         # M = None
         if M == None:            
-            M = findobject(fgimg_gray, obj_gray)
+            M = find_object_appx(fgimg_gray, obj_gray)
             
         if isgoodmatch(M):            
             fgimg = subtractobject(fgimg, objmask, M, 255) 
@@ -539,30 +542,6 @@ def numfgpix(img, bgcolor):
     count = np.count_nonzero(sub)
     return count
 
-def matchtemplate(img, template):
-    """Return the top left corner of the rectangle that matches template inside img"""  
-    gray_img = util.grayimage(img)
-    gray_template = util.grayimage(template)
-    w, h = gray_template.shape[::-1]    
-    # Apply template Matching
-    res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-    top_left = max_loc
-    bottom_right = (top_left[0] + w, top_left[1] + h)
-    """threshold khan = 0.75, tecmath = 0.25 """    
-    threshold = 0.70  
-    if (max_val < threshold):
-#         print max_val
-#         util.showimages([img])        
-        logging.info("Exact match NOT found: %f", max_val)        
-        return None
-    else:
-#         cv2.rectangle(img, top_left, bottom_right, 255, 2)
-#         util.showimages([img])
-        logging.info("Exact match found: %f", max_val)        
-    
-    return top_left
-
 def removebackground(gray_img, gray_bgsample, thres=50):
     """Remove background from img"""
     bgh, bgw = gray_bgsample.shape[:2]
@@ -619,7 +598,7 @@ def stitch_images(previmage, curimage):
   (curh, curw) = curimage.shape[:2]
   (prevh, prevw) = previmage.shape[:2]
   
-  M = detectobject(previmage_gray, curimage_gray)
+  M = find_object_appx_thres(previmage_gray, curimage_gray)
   if not isgoodmatch(M):
         tx = 0.0
         ty = prevh
@@ -627,12 +606,12 @@ def stitch_images(previmage, curimage):
    
   (warpsize, offset) = calculate_size((prevh, prevw), (curh, curw), M)
   
-  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)
+  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)
   
   xoff = int(offset[0])
   yoff = int(offset[1])
   M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])      
-  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)        
+  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)        
   
   # util.showimages([curimage_warp, previmage_warp])
   

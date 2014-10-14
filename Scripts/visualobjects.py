@@ -59,15 +59,18 @@ class VisualObject:
         obj_info.pop(0)
         obj_endts = [obj[1] for obj in obj_info]
         obj_endts = util.strings2ints(obj_endts)
-        keyframes = video.capture_keyframes_fid(obj_endts)        
+#         keyframes = video.capture_keyframes_fid(obj_endts)        
         for i in range(0, len(obj_info)):
             info = obj_info[i]
             obj = VisualObject(None, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
-            frame = keyframes[i].frame
-            img = frame[obj.tly:obj.bry, obj.tlx:obj.brx,:]            
+            if len(info) > 6:
+                objimg = cv2.imread(objdir + "/" + str(info[6]))
+                obj.img = objimg
+            else:
+                print "VisualObjects.objs_from_file: image file not specified"
+#             img = frame[obj.tly:obj.bry, obj.tlx:obj.brx,:]            
 #             img = cv2.imread(objdir + "/obj_%06i_%06i.png" %(obj.start_fid, obj.end_fid))
 #             util.showimages([img])
-            obj.img = img
             obj_list.append(obj)
         return obj_list       
         

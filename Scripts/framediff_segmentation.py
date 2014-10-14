@@ -14,7 +14,7 @@ def read_framediff(framediff_txt):
     framediff = util.strings2ints(framediff)
     return framediff    
 
-def get_object_frames(framediff, video, thres=500, outfile="obj_fids_temp"):
+def get_object_start_end_frames(framediff, video, thres=500, outfile="obj_fids_temp"):
     """smooth"""
     smooth_framediff = util.smooth(np.array(framediff), window_len=5, window='flat')
     object_fids = []
@@ -51,7 +51,7 @@ def get_object_frames(framediff, video, thres=500, outfile="obj_fids_temp"):
     
     return object_fids
 
-if __name__ == "__main__":
+def getobjects():
     videopath = sys.argv[1]
     video = Video(videopath)
     framediffpath = sys.argv[2]
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     
     """compute object start/end frames"""
     objfidspath = video.videoname + "_obj_fids.txt"    
-    objects_fids = get_object_frames(framediff, video, outfile=objfidspath)
+    objects_fids = get_object_start_end_frames(framediff, video, outfile=objfidspath)
     
     
     keyframe_fids = [e for l in objects_fids for e in l]
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     if not os.path.exists(os.path.abspath(objdir)):
         os.makedirs(os.path.abspath(objdir))
     objinfo = open(objdir + "/" + objfile, "w")
-    objinfo.write("start_fid \t end_fid \t tlx \t tly \t brx \t bry\n")
+    objinfo.write("start_fid \t end_fid \t tlx \t tly \t brx \t bry\t filename\n")
     
     while i < len(keyframes):
         """remove cursor from both frames"""
@@ -84,8 +84,6 @@ if __name__ == "__main__":
         start_frame = pf.subtractlogo(start_frame, logo)
         end_frame = keyframes[i+1].frame
         end_frame = pf.subtractlogo(end_frame, logo)
-        
-        """align start and end frame to compensate for scrolling"""
         
         """subtract start frame from end frame"""
         diff = cv2.absdiff(end_frame, start_frame)
@@ -113,20 +111,22 @@ if __name__ == "__main__":
         objcrop = pf.cropimage(diff, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
 #         util.showimages([objcrop, objmask], "ojb crop and mask")
 
-        util.saveimage(objcrop, objdir, "obj_%06i_%06i.png" %(keyframe_fids[i+0], keyframe_fids[i+1]))
-        objinfo.write("%i\t%i\t%i\t%i\t%i\t%i\n" %(keyframe_fids[i+0], keyframe_fids[i+1], objbbox[0], objbbox[1], objbbox[2], objbbox[3] ))
+        objimgname = "obj_%06i_%06i.png" %(keyframe_fids[i+0], keyframe_fids[i+1])
+        util.saveimage(objcrop, objdir, objimgname)
+        objinfo.write("%i\t%i\t%i\t%i\t%i\t%i\t%s\n" %(keyframe_fids[i+0], keyframe_fids[i+1], objbbox[0], objbbox[1], objbbox[2], objbbox[3], objimgname ))
         i += 2
     
     objinfo.close()
-        #cv2.rectangle(diff, (objbbox[0], objbbox[1]), (objbbox[2], objbbox[3]), (255, 255, 255), 2)
-        #util.showimages([objmask, diff])
+#         cv2.rectangle(diff, (objbbox[0], objbbox[1]), (objbbox[2], objbbox[3]), (255, 255, 255), 2)
+#         util.showimages([objmask, diff])
         
         
 #         util.showimages([start_frame, end_frame, diff])
 #         print "writing", "obj_%06i_%06i.png" %(keyframe_fids[i+0], keyframe_fids[i+1])
 #         util.saveimage(diff, diffdir, "obj_%06i_%06i.png" %(keyframe_fids[i+0], keyframe_fids[i+1]))
         
-        
-        
+    
+if __name__ == "__main__":    
+    getobjects()
         
         
