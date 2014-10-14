@@ -13,12 +13,12 @@ def find_objects(panorama, list_of_objects):
     
     panorama_copy = panorama.copy()
     for obj in list_of_objects:
-        tl = pf.find_object_exact_inside(panorama, obj.img)
+        tl = pf.find_object_exact_inside(panorama, obj.img, 0.20)
         if tl is None:
-#             util.showimages([obj.img])
+            util.showimages([obj.img])
             continue
         cv2.rectangle(panorama_copy, (tl[0], tl[1]), (tl[0]+obj.width, tl[1]+obj.height), (0, 255, 0), 1)
-#         util.showimages([panorama_copy])
+        util.showimages([obj.img, panorama_copy])
     return panorama_copy
         
 if __name__ == "__main__":

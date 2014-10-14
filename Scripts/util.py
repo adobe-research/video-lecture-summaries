@@ -18,6 +18,17 @@ def get_logos(dirname):
             logos.append(logo)
     return logos
 
+def get_capture_imgs(dirname):
+    filelist= os.listdir(dirname)
+    imagefiles = []
+    images = []
+    for filename in filelist:
+        if "capture" in filename:
+            imagefiles.append(filename)
+            images.append(cv2.imread(filename))
+    return imagefiles, images
+    
+
 def grayimage(img):
     if len(img.shape) <= 2:
         return img

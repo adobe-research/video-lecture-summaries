@@ -32,7 +32,7 @@ def get_object_start_end_frames(framediff, video, thres=500, outfile="obj_fids_t
 #             print "================================================start %i================================================" %fid
             drawing = True
             start_t = fid              
-        if (diff < thres and drawing):            
+        if (diff <= thres and drawing):            
             drawing = False
             end_t = fid
             if (start_t >= 0 and end_t >= 0 and start_t < end_t):
@@ -50,6 +50,8 @@ def get_object_start_end_frames(framediff, video, thres=500, outfile="obj_fids_t
         frameids.close()      
     
     return object_fids
+
+
 
 def getobjects():
     videopath = sys.argv[1]
@@ -109,7 +111,7 @@ def getobjects():
           
         objmask = pf.cropimage(objmask, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
         objcrop = pf.cropimage(diff, objbbox[0], objbbox[1], objbbox[2], objbbox[3])
-#         util.showimages([objcrop, objmask], "ojb crop and mask")
+        util.showimages([objcrop], "ojb crop and mask")
 
         objimgname = "obj_%06i_%06i.png" %(keyframe_fids[i+0], keyframe_fids[i+1])
         util.saveimage(objcrop, objdir, objimgname)

@@ -336,7 +336,7 @@ def isgoodmatch(M):
         return False
     return True
 
-def find_object_exact_inside(img, template):
+def find_object_exact_inside(img, template, threshold=0.70):
     """Return the top left corner of the rectangle that matches exact template INSIDE img"""  
     gray_img = util.grayimage(img)
     gray_template = util.grayimage(template)
@@ -346,8 +346,8 @@ def find_object_exact_inside(img, template):
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
-    """threshold khan = 0.75, tecmath = 0.25 """    
-    threshold = 0.20  
+    """threshold khan = 0.75, tecmath = 0.25 """   
+    
     if (max_val < threshold):
 #         print max_val
 #         util.showimages([img])        
