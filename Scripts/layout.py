@@ -135,23 +135,32 @@ def layout_line_by_line(objs_by_time):
             objs_in_frame.append(newobj)
         else:
             """Put curobj at (curobj.x, cury + y_buffer)"""
+            min_tly = cury+y_buffer
             newobj = curobj.copy()
-            newobj.sety(cury + y_buffer)
-            cury = newobj.bry
+            min_tly = min(min_tly, curobj.tly)
+#             newobj.sety(cury + y_buffer)
+#             cury = newobj.bry
             objs_in_frame.append(newobj)
-            yshift = newobj.tly - curobj.tly
+#             yshift = max(0, newobj.tly - curobj.tly)
+            
 #             """Put visual objects in-line with curobj"""
-            indices = []
-            for i in range(0, len(objs_by_time)):
-                if not objs_by_time[i].istext:
-                    if objs_by_time[i].bry <= curobj.bry:
-                        indices.append(i)
-            indices.reverse() # for pop 
-            for i in range(0, len(indices)):
-                obj = objs_by_time.pop(indices[i])
-                newobj = obj.copy()
-                newobj.shifty(yshift)
-                objs_in_frame.append(newobj)
+#             indices = []
+#             for i in range(0, len(objs_by_time)):
+#                 if not objs_by_time[i].istext:
+#                     if objs_by_time[i].bry <= curobj.bry:
+#                         indices.append(i)
+#                         min_tly = min(min_tly, objs_by_time[i].tly)
+            yshift = (cury + y_buffer - min_tly)
+            newobj.shifty(yshift)
+            cury = max(0, newobj.bry)
+            
+#             indices.reverse() # for pop 
+#             for i in range(0, len(indices)):
+#                 obj = objs_by_time.pop(indices[i])
+#                 newobj = obj.copy()
+#                 newobj.shifty(yshift)
+#                 objs_in_frame.append(newobj)
+#                 cury = max(cury, newobj.bry)
                 
     return objs_in_frame
 
@@ -168,8 +177,9 @@ def layout_objects(list_of_objs):
     img = np.ones((frameh, framew, 3), dtype=np.uint8) * 255 
     
     for obj in list_of_objs:
-        img[obj.tly:obj.bry, obj.tlx:obj.brx, :] = obj.img
-        
+#         print obj.tlx, obj.tly, obj.brx, obj.bry
+#         util.showimages([obj.img])
+        img[obj.tly:obj.bry, obj.tlx:obj.brx, :] = obj.img    
     return img
     
 
@@ -177,10 +187,12 @@ if __name__ == "__main__":
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
+#     panorama = cv2.imread(sys.argv[4])
     
     lec = Lecture(videopath, scriptpath)
     
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
+#     img_objs = VisualObject.objs_from_panorama(panorama, objdir)
     txt_objs = []
     for stc in lec.list_of_stcs:
         txt = ""
@@ -196,8 +208,8 @@ if __name__ == "__main__":
         
     objs_in_frame = layout_line_by_line(sorted_vis_objs)
     img = layout_objects(objs_in_frame)
-    util.showimages([img])
-    util.saveimage(img, "temp", "outcome3.png")
+#     util.showimages([img])
+    util.saveimage(img, objdir, "linear_layout.png")
     
     
     

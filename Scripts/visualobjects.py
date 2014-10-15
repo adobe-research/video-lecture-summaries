@@ -50,6 +50,22 @@ class VisualObject:
         self.bry = self.tly + self.height
         
     @staticmethod
+    def objs_from_panorama(panorama, objdir, objtxt=None):
+        if objtxt is None:
+            objtxt = "obj_info.txt"
+        objfile = objdir + "/" + objtxt
+        obj_list = []
+        obj_info = util.list_of_vecs_from_txt(objfile)
+        obj_info.pop(0)
+        for i in range(0, len(obj_info)):
+            info = obj_info[i]
+            obj = VisualObject(None, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
+            objimg = panorama[obj.tly:obj.bry, obj.tlx:obj.brx,:]
+            obj.img = objimg
+            obj_list.append(obj)
+        return obj_list       
+        
+    @staticmethod
     def objs_from_file(video, objdir, objtxt=None):
         if objtxt is None:
             objtxt = "obj_info.txt"

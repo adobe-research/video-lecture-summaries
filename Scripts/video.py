@@ -277,6 +277,18 @@ class Video:
         cap.release()
         return
     
+    def getframe_fid(self, fid):
+        cap = cv2.VideoCapture(self.filepath)
+        frameid = 0
+        while(cap.isOpened()):
+            ret, frame = cap.read()
+            if (frameid == fid):
+                return frame
+            elif frameid > fid:
+                break
+        cap.release()
+        return
+    
     def highlight_new(self):
         """Highlight new part in each frame using absdiff with previous frame"""
         cap = cv2.VideoCapture(self.filepath)

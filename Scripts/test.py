@@ -298,7 +298,9 @@ def test_highlight_in_panorama(panorama, frame, highlight_mask):
     #util.showimages([high])
     return high
         
-if __name__ == "__main__":    
+if __name__ == "__main__":   
+    
+     
     txtfile = sys.argv[1]
     vecs = util.list_of_vecs_from_txt(txtfile)
     vecs.pop(0)
