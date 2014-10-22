@@ -24,7 +24,6 @@ def test_fg_threshold():
 
     html = WriteHtml(dirname + "\\" + extractdir + "\\extract_foreground.html")
     html.writestring("<head><title>Foregound Thresholds</title></head>")
-    html.openbody()
     html.opentable()
     percentile = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
     html.opentablerow()
@@ -55,7 +54,7 @@ def test_fg_threshold():
             html.cellimagelink(basename +"_" + ("%3f" %p) + ".png", 500)
         html.closetablerow()
     html.closetable()
-    html.closebody()
+
     html.closehtml()
             
 

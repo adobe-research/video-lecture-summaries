@@ -11,7 +11,10 @@ import os
 class Lecture:
     def __init__(self, video_path, aligned_transcript_path):
         self.video_path = video_path
-        self.video = Video(video_path)        
+        if (self.video_path is not None):
+            self.video = Video(video_path)   
+        else:
+            self.video = None
         self.aligned_transcript_path = aligned_transcript_path
         self.list_of_words = pjson.get_words(aligned_transcript_path)
         self.list_of_stcs = pjson.get_sentences(self.list_of_words)

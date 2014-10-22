@@ -81,7 +81,6 @@ if __name__ == "__main__":
     comparename = sys.argv[1]
     
     html = WriteHtml(comparename + "_keyframe_scoring.html")    
-    html.openbody()
     
     test = ['recall', 'precision']
     allscores = []
@@ -203,5 +202,5 @@ if __name__ == "__main__":
         
     tot_score = np.sum(np.array(allscores))
     html.writestring("<h1>Total Score: %f</h1>" % tot_score)
-    html.closebody()
+
     html.closehtml()           

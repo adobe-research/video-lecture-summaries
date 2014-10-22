@@ -58,7 +58,6 @@ if __name__ == "__main__":
         index+=1
         
     html = WriteHtml(dirname + "\\objects.html")    
-    html.openbody()
     html.opentable()
     
     for i in range(0, len(keyframefiles)):
@@ -78,7 +77,6 @@ if __name__ == "__main__":
 
     
     html.closetable()
-    html.closebody()
     html.closehtml()
         
         

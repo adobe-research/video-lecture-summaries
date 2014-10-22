@@ -10,10 +10,11 @@ class WriteHtml:
         self.htmlfile.write("<html>\n")
         self.htmlfile.write("<head>\n")
         self.htmlfile.write("<link href=\"" )
-        self.htmlfile.write(self.relpath("C:/Users/vshin/Desktop/video-lecture-summaries/Mainpage/mystyle.css"))
+        self.htmlfile.write(self.relpath("mystyle.css"))
         self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("<title>"+title+"</title>\n")
         self.htmlfile.write("</head>\n")
+        self.openbody()
         
     def openbody(self):
         self.htmlfile.write("<body>\n")
@@ -26,6 +27,9 @@ class WriteHtml:
         self.htmlfile.write("<img src=\"" + self.relpath(filename) + "\" max-width =" + width + ">")
         self.htmlfile.write("</a>")
 
+    def image(self, filename, width="", mapname=""):
+        self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" >\n" % (self.relpath(filename), width, mapname))
+        
     def breakline(self):
         self.htmlfile.write("</br>")
         
@@ -33,7 +37,7 @@ class WriteHtml:
         self.htmlfile.write("<table border="+str(border)+">\n")
         
     def closetable(self):
-        self.htmlfile.write("\n</table>")
+        self.htmlfile.write("\n</table>\n")
         
     def opentablerow(self):
         self.htmlfile.write("<tr>")
@@ -55,20 +59,38 @@ class WriteHtml:
         self.closetablecell()    
         
     def closetablecell(self):        
-        self.htmlfile.write("</td>")
+        self.htmlfile.write("</td>\n")
+
+    def opendiv(self, idstring="", class_string=""):
+        self.htmlfile.write("<div id=\"%s\" class=\"%s\">" % (idstring, class_string)) 
+        
+    def closediv(self):
+        self.htmlfile.write("</div>\n")
         
     def writestring(self, mystring):
         self.htmlfile.write("%s" % mystring)
             
     def closehtml(self):
+        self.closebody()
         self.htmlfile.write("\n</html>")
         self.htmlfile.close()
     
     def paragraph(self, list_of_words):
         self.htmlfile.write("<p>")
         for word in list_of_words:
-            self.htmlfile.write(word + " ")
+            if not word.issilent:
+                self.htmlfile.write(word.original_word + " ")
         self.htmlfile.write("</p>")
+        
+    def map(self, mapname, list_of_areas, list_item_names):
+        self.htmlfile.write("<map name = \"%s\">\n" % mapname)
+        area_id = 0
+        for area in list_of_areas:
+            item_name = list_item_names[area_id]
+            self.htmlfile.write("<area shape = \"rect\" coords= \"%i, %i, %i, %i\" item=\"%s\" href=\"#\" \>\n" % (area[0], area[1], area[2], area[3], item_name))
+            area_id += 1
+        self.htmlfile.write("</map>\n")
+        
         
     def highlighted_script(self, list_of_words):
         self.htmlfile.write("<p>")

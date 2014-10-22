@@ -185,7 +185,7 @@ def test_overlap(framedir, logodir):
         html.closetablerow()
         
     html.closetable()
-    html.closebody()
+
     html.closehtml()
     
 def test_keyframe_object_in_panorama(framedir, logodir, panorama):
@@ -299,16 +299,20 @@ def test_highlight_in_panorama(panorama, frame, highlight_mask):
     return high
         
 if __name__ == "__main__":   
+    videopath = sys.argv[1]
+    transcript = sys.argv[2]
+    txtfile = sys.argv[3]
+    lecture = Lecture(videopath, transcript)  
     
-     
-    txtfile = sys.argv[1]
-    vecs = util.list_of_vecs_from_txt(txtfile)
-    vecs.pop(0)
-    objs = []
-    for i in range(0, len(vecs)):
-        print vecs[i]
-        objs.append(VisualObject(int(vecs[i][0]), int(vecs[i][1]), int(vecs[i][2]), int(vecs[i][3]), int(vecs[i][4]), int(vecs[i][5])))
-    lecplot.plot_visual_objects(objs)
-    
+    outfile = open(txtfile, "w")    
+    outfile.write("==========\n")
+    for stc in lecture.list_of_stcs:
+        for word in stc:
+            if not word.issilent:
+                outfile.write("%s " % word.original_word)
+        outfile.write("\n")
+    outfile.write("==========\n")
+    outfile.close()
+                
     
     

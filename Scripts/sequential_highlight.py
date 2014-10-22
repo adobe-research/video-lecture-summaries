@@ -63,7 +63,7 @@ if __name__ == "__main__":
     fgfiles.sort(cmp=util.filename_comp)
                 
     html = WriteHtml(dirname + "\\sequential_highlight.html", title = "sequential highlighting")    
-    html.openbody()
+
     html.opentable(border=3)
     html.opentablerow()
     for i in range(0, len(fgfiles)):
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     html.closetablerow()
     
     html.closetable()
-    html.closebody()
+
     html.closehtml()
     
     
