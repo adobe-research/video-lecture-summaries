@@ -1,0 +1,24 @@
+html {
+    background-color: #e6e9e9;    
+}
+
+body {
+    width: 95%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #545454;
+}
+
+#panorama-img {
+    max-width: 50%;
+}
+
+#transcript {
+    width: 45%;
+    float: right;
+    text-align: left;
+    background-color: #ffc033;
+    color: #545454;
+    padding: 0.5em 1em 
+}

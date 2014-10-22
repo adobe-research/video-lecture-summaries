@@ -1,0 +1,185 @@
+==========
+Alright. 
+So we've just finished reviewing how do you account for distributed weights acting on a plank. 
+Well, the same concepts apply also when the loads are acting along the length of a bar. 
+So we are back now to axial loading. 
+But instead of having a concentrated force acting along the length of the bar, you have a distributed load acting along the bar. 
+So what kind of scenario can you imagine in which this happens in real life? Well, just simple gravity. 
+If you take a bar and you hang it vertically under the effect of gravity, there will be a distributed load along the length of the bar. 
+If the bar has a uniform diameter and uniform density, then the distributed load will be constant and uniform along the length of the bar. 
+Let's rotate things back to horizontal so we have more space. 
+And let's say that the axial force per unit length acting on the bar is going to be called lowercase f in 201. 
+So f of X is going to be the axial force per unit length acting at position X along on the bar. 
+So again, the units for this quantity will be newtons per meter. 
+So this is how many newtons per meter are pulling along the length of the bar. 
+And as I say this, you must be wondering, OK, along the length, but in which direction? Towards A or towards B? So you see something is missing in this definition. 
+So what do we do? We put a little x down here under the f. 
+And what this little x means is that this is the x-component of distributed load acting along the bar. 
+So that this is going to be positive if the distributed load pulls the bar in the direction of the x-axis, and it will be negative if the distributed load pulls the bar in the direction against the x-axis. 
+So finally, we are ready to calculate our axial force diagram with a distributed load acting on the bar. 
+Let's start simple. 
+Let's say that we have a uniform load, fx of X, equal to f0, a constant, equal to 300 newtons per meter acting over the entire length of the bar. 
+So if we want to draw the load, we're going to have 300 newtons per meter acting along the direction of the bar, so we're going to draw little arrows to indicate the distributed load in the direction in which the load act. 
+And on top of the arrows, as always, we're going to put the magnitude. 
+So because fx is positive, the arrows point in the same direction as the x-axis. 
+It is always a good idea in these problems with distributed loads to make a plot of the distributed load, fx of X, right underneath the bar, so you can see how the loads are distributed and what sign they have. 
+So how do we obtain our axial force diagram now? Essentially, we want to obtain the axial force resultant, N of x, along the length of the bar. 
+We do what we did before. 
+We cut at position x along on the length of the bar, and by cutting and putting part of the bar in equilibrium, we obtain our N of x. 
+So let's do this. 
+Let's cut at a genetic x. 
+Let's call it X1. 
+And let's keep the right side of the bar. 
+So out of the cut section comes N of X1. 
+Now to obtain N of X1, we impose equilibrium. 
+So we say sum of the forces x is equal to 0. 
+And we see that N of X1 will soon be negative because it's against x, so it's going to be minus N of X1. 
+And now we have the new thing. 
+We have to account for the distributed load. 
+So let's say that x at the wall is 0. 
+So x at the free end is equal to L, the length of the bar. 
+Let's say that the bar is 2 meters long. 
+So what we need to do is we need to account for the total effect of this distributed load acting between X1 and L. 
+We just remembered how we calculate the total effect of this distributed load. 
+We simply need to integrate the distributed load, in this case it's a constant, f0, between the bounds, and the bounds now are X1 and L. 
+So the term that gets summed to the minus N of X1 term is simply the integral between X1 and L of f0 in the x. 
+It sums in positive, as you see, because the load is acting along the x-direction. 
+The arrows for the load go in the same direction as the x-axis. 
+So we get that N of X1 is equal to the integral from X1 and L of f0 in the x. 
+And this gives us directly f0, then multiplies L minus X1, and this is true for X1 at any position along the bar. 
+So any position X1 between 0 and L has this equation. 
+So this is our axial force as a function of x. 
+Our N of x is f0 times L minus x. 
+So here's your axial force diagram. 
+We see that N of x linearly decreases from A to B. 
+This makes sense because X has a minus sign. 
+And the maximum value of the axial force is at the wall, where N of x or N of x equals 0 is equal to f0L. 
+So with f0 being 300 newtons per meter and L being 2 meters, we see that the maximum axial force in the bar is 600 newtons. 
+Always check your units. 
+In this case, it's a very simple equation, but it's a good idea to check your units and make sure that your axial force comes back in newtons. 
+Now this may sound like a little bit of an overkill. 
+But I find that sometimes students are confused about the difference between the axial force per unit length, fx of X, and the axial force resultant N of x. 
+These are two very different things. 
+I know that both of them are forces. 
+Both of them are a function of X. 
+They change with position. 
+Both of them are along the x-axis. 
+But they are very different. 
+fx of X is how much load per unit length the world is applying to the bar. 
+N of x is the force that is inside the bar as a result of these external loads. 
+Now to get a physical intuition of this, imagine you are pulling off a sock. 
+As you pull on the sock, the frictional force that the sock applies to your leg is the applied distributed axial load acting on the leg. 
+This is your fx of X. 
+On the other hand, the load that you feel inside your leg, that is N of x. 
+That is the axial force resultant. 
+You see both of them can be function of position. 
+You may have more friction in your cuff than you have on your ankle. 
+And the axial force resultant also changes with position. 
+It builds up from your toes towards your cuff as all the frictional force from the sock is transmitted to the leg. 
+Both of them are along the axis of the leg, but they are very different quantities. 
+N of x is obtained by integrating the effect of fx of X. 
+Now what if instead of fx of X being positive 300 newtons per meter, fx of X had been negative 300 newtons per meter. 
+And we say that everything is the same, except that when we go in to mean the effect of the distributed load, because the arrow point in the direction opposite to the x-axis, we need to sum the magnitude with the negative sign. 
+So in this case, we get that N of x is minus f0 L minus X1. 
+So of course the sign makes sense because, in this first case, the load puts the bar in tension. 
+You see it pulls on the bar. 
+While in the other case, with the negative axial distributed force, the bar is in compression. 
+So the axial force is going to be negative. 
+Now I want you to notice something that makes a lot of sense. 
+In both cases, with both the load pointing in the plus or minus x-direction, if you look at this term, this whole term can be expressed as plus the integral from X1 to L of fx of X in dx. 
+Which makes sense because fx of X is the x-component of the distributed load. 
+So it will always sum in positive in a sum of the forces x equals 0. 
+So when you do these kinds of exercises, you can either look at the direction and the magnitude and see which way the arrows point with respect to the x-axis or simply sum in positive the x-component of the distributed load integrated along the length of the bar. 
+Now if you look at this quantity, this looks very much like the integral that we calculated before to obtain the total weight of the bricks. 
+You see here we had the integral between xA and xB of wx in dx. 
+And we said, well, this is the area under the w of x curve between xA and xB. 
+Now this integral here is the integral of fx of X in dx between X1 and L. 
+So this quantity can also be seen as the area under the fx of X curve between X1 and L. 
+So this integral is really equal to this area. 
+We see that this is the case because the area of this rectangle is L minus X1, and the height of this rectangle is f0. 
+We get the same equation just by calculating the area of this rectangle. 
+In this other case now, you see that the integral of fx of X in dx between X1 and L is again the area under the fx of X curve, but because the area is below the x-axis, this is considered a negative area when you do the integral. 
+So it's the same magnitude of the area, but now it has a negative sign. 
+So when you complete your integral, always have a visual check. 
+Look at your fx of X and ask yourself, does it make sense that this is the area under the fx of X curve? That's why it's a good idea to plot fx of X to make sure that you do the right calculations when you calculate N of x. 
+Now there is one last thing I want to warn you about and that is possible confusion between the bound of the integral and the variable of integration. 
+Now you see here that what I've done is I've cut at X1, and then I've integrated the distributed load between X1 and L, and the variable along which I'm integrating is x. 
+So I'm having X varying between X1 and L because I need to sum the contribution f0 dx that the distributed load gives at every little dx that is between X1 and L. 
+Now X1 is just the generic position along the length of the bar. 
+What if I'd call it x instead? I can certainly do that. 
+I can call this generic section x, then out of this section comes N of x. 
+But then when I integrate the distributed load, I'm integrating now between X and L. 
+I cannot have the same variable as the variable of integration and the bounds. 
+Now x is fixed. 
+It's the position at which I've done the cut. 
+Now when I sum in the distributed load, the distributed load needs to be integrated. 
+As I span this range between x and L, as I span this range, I cannot call this variable x. 
+x is fixed. 
+This thing that changes, I need to call it something else. 
+Typically, you call it x prime. 
+It's really important that you call this variable inside the integral x prime. 
+You call it a different name from what the variable at the bound is. 
+So if you call your cut X1, then you can integrate directly over x. 
+You can call this variable x. 
+But if you cut at x, then the variable of integration needs to be x prime. 
+So let's do a little example where you can see how important it is to follow this procedure. 
+Let's put this thing down here so we keep it ready. 
+Now let's say that we have a distributed load, fx of X, which is not uniform but is equal to a constant, p0 divided by 1 plus x over L. 
+So this function, let's call it p of x, is the magnitude of fx of X. 
+And we see that because fx of X is defined as positive, it will point in the direction of the x-axis. 
+So we can write the magnitude of fx of X as p of x on top of these arrows in the plus x direction. 
+Now of course concerning units, since the denominator is dimensionless, p0 will have to have the same units as fx of X, which are newtons per meter. 
+OK. 
+Let's plot our fx of X right here and our bar. 
+We see then when x is equal to 0, fx of X is simply equal to p0. 
+And we see then when X is equal to L, then this becomes 1 plus 1, 2, and this is simply p0 over 2. 
+And the function is not linear, so it's going to look like something like that. 
+OK. 
+Now when we cut the bar to expose our axial force resultant, we can choose either to call this section at which we cut x1 or x bar or something else, or we can simply call it x. 
+Because before we use x1, let's use x now. 
+So out of the cut comes N of x. 
+And when we want to put this portion of the bar in equilibrium and we do sum of the forces x equals to 0, N of x, of course, sums in negative. 
+Now we have to account for the distributed load along the length of the bar. 
+Let's look at what happens at this position along this segment. 
+Let's call this position x prime. 
+We cannot call it x because x is the section where we did the cut. 
+So at this position x prime, this plot up here tells us how big is the magnitude of the distributed axial load. 
+It's going to be equal to p of x prime. 
+The contribution of the distributed load over a small differential length, dx prime, which happens at x prime, is going to be equal to p of x prime times dx prime. 
+Now what we need to do is sum all this contribution as x prime goes between X and L. 
+So here is our expression for our contribution of the distributed load to the sum of the forces X. 
+You see that we use x prime inside the integral, and we use X as the position at the bound of the integral because that is where we cut the bar, and that's where we're calculating our N of x. 
+Excellent. 
+So now we can get rid of this information, and we can calculate this integral. 
+So by bringing N of x on the other side, we see that N of x is equal to the integral between x and L of p0 divided by 1 plus x prime over L, because this is p of x prime in the x prime. 
+So let's remind ourself a little bit how do we integrate a function that looks like this. 
+The antiderivative of dx over 1 plus ax is 1 over a log of 1 plus ax. 
+You can check this because if you do the derivative of 1 over a log of 1 plus ax in the x, you get 1 over a. 
+And then you do the derivative of the log, which is 1 over 1 plus ax, and then the derivative of the argument, which is a. 
+And you get back 1 over 1 plus ax as the derivative function. 
+So this is the integral. 
+And now, instead of having a, the constant that multiplies our variable of integration is 1 over L, so substitute 1 over L everywhere. 
+And here is your antiderivative. 
+So now this is a definite integral. 
+So the value of this definite integral is going to be the antiderivative function. 
+So we get L p0 log of 1 plus x prime over L, with bounds between x and L. 
+So it's going to be the antiderivative at L minus the antiderivative at x. 
+So this gives us that N of x is Lp0 that multiplies log of 2 minus log of plus x over L. 
+We see that this function has a value at x equals 0 of Lp0 log of 2 because log of 1 is 0. 
+And at x equals L, then this becomes log of 2 minus log of 2, which is 0. 
+So N at x equal L is equal to 0, as it should be since there are no concentrated load applied at the free end. 
+So there is nothing that gives a step in the axial force diagram. 
+So the axial force diagram must start at 0, at x equal L at the free end. 
+So we see this is going to be a linear function that goes from Lp0 log of 2 at x equals 0 to the value of 0 at L. 
+And this is our axial force diagram. 
+You see how important it was to have x prime inside the integral so that when you write the definite integral, it is quite clear how you calculate this expression. 
+I have to confess now that I have to warn you that sometimes I get a little lazy and so do also other instructors. 
+Sometimes we forget to put the prime in our integrals. 
+Normally, we know where we're going to end up, so we do not get messed up when we calculate the definite integrals. 
+But that's a bad habit that you should not have. 
+Don't be lazy. 
+Do as I say, not as I sometime do. 
+And if you catch me doing this, you can tell me, unh, unh, that's not quite right. 
+So now I think you're ready to go and do your first example in which you calculate the axial force diagram with a distributed load along the length of the bar. 
+
+==========
