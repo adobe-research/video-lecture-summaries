@@ -6,3 +6,6 @@
 *.pydevproject
 *.avi
 tfidf
+*.wav
+transcripts/audiofiles/*.wav
+SampleVideos/more/.DS_Store
