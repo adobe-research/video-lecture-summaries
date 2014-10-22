@@ -59,25 +59,22 @@ def init_old():
         #cv2.waitKey(0)
         cv2.imwrite(keyframe_dir + "\\" + panorama_highlight + "\\panorama_highlight" + ("%06i" % i) + ".png", highlight)
 
-def write_html(filename, panoramapath, transcript_segs, list_of_areas):
-    html = WriteHtml(filename, "Panorama")
-    html.opentable()
-    html.opentablerow()
-    html.opentablecell()
-    html.image(panoramapath, mapname="panorama-map")
-    html.closetablecell()
+def write_html(filename, title, panoramapath, transcript_segs, list_of_areas):
+    html = WriteHtml(filename, title + " panorama")
+    
+    html.image(panoramapath, mapname=title+"-panorama-map", idstring="panorama-img")
+
     list_item_names = []
     seg_id = 1
     for seg in transcript_segs:
-        list_item_names.append("text"+str(seg_id))
+        list_item_names.append(title+"-text-"+str(seg_id))
         seg_id += 1
 
-    html.opentablecell()
+    html.opendiv(idstring="transcript")    
     write_transcript_divs(html, transcript_segs, list_item_names)
-    html.closetablecell()
-    html.closetablerow()
-    html.closetable()
-    write_map(html, "panorama-map", list_of_areas, list_item_names)
+    html.closediv();
+    write_map(html, title+"-panorama-map", list_of_areas, list_item_names)
+    
     html.closehtml()
     
 def write_transcript_divs(html, transcript_segs, list_item_names): 
@@ -134,19 +131,23 @@ if __name__ == "__main__":
     visobjs = VisualObject.objs_from_file(videopath, objdir)
     lecture = Lecture(videopath, transcriptpath)
     
+    title=os.path.basename(videopath)
+    title = os.path.splitext(title)[0]
+    print 'title', title
+    
     list_of_ts = []
     list_of_objimgs = []
     for obj in visobjs:
         list_of_ts.append(lecture.video.fid2ms(obj.end_fid))
         list_of_objimgs.append(obj.img)
-    
+     
     """Segment Transcript"""
     transcript_segs = lecture.segment_script(list_of_ts)
-    
+     
     list_of_areas = get_map(panorama, list_of_objimgs)
-    
-    write_html(outfilename, panoramapath, transcript_segs, list_of_areas)
-    
+     
+    write_html(outfilename, title, panoramapath, transcript_segs, list_of_areas)
+     
     
     
         

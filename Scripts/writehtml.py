@@ -27,8 +27,8 @@ class WriteHtml:
         self.htmlfile.write("<img src=\"" + self.relpath(filename) + "\" max-width =" + width + ">")
         self.htmlfile.write("</a>")
 
-    def image(self, filename, width="", mapname=""):
-        self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" >\n" % (self.relpath(filename), width, mapname))
+    def image(self, filename, width="", mapname="", idstring=""):
+        self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" id=\"%s\" >\n" % (self.relpath(filename), width, mapname, idstring))
         
     def breakline(self):
         self.htmlfile.write("</br>")
@@ -62,7 +62,7 @@ class WriteHtml:
         self.htmlfile.write("</td>\n")
 
     def opendiv(self, idstring="", class_string=""):
-        self.htmlfile.write("<div id=\"%s\" class=\"%s\">" % (idstring, class_string)) 
+        self.htmlfile.write("<div id=\"%s\" class=\"%s\">\n" % (idstring, class_string)) 
         
     def closediv(self):
         self.htmlfile.write("</div>\n")
