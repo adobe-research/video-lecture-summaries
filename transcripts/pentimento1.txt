@@ -1,0 +1,21 @@
+
+
+Instructor: Let's derive the defraction pattern given by a rectangular slit. We consider a slit of size B*A. We want to compute the defraction pattern seen on the screen.
+
+We consider the input sole slide to be a planar wave whose wave vector is co-linear with the Z axis. Let's name P a point on the slit, and M a point on the screen. We can write the source in P with a Nil phase.
+
+At this point, we'll need a few notations for geometry distances. Let's call d the distance between the screen and the slits, and delta the optical path length between M and P.
+
+The light wave arriving in M is the wave coming in P, with an additional phase difference, delta five. Let's compute this phase difference. We use the Pythagorean Theorem to express delta, then again to express capital D.
+
+Given then capital D's big enough, we use a [indecipherable 1:20] expansion to express the square root [indecipherable 1:23] .
+
+For further simplification, we use the Fraunhofer conditions. Therefore, we can skip the terms of order to X and Y.
+
+We'll report the results in the expression for S. Now, to get the total wave in M, we need to sum over the whole slits. That's why we integrate our expression for S over the slits.
+
+The X and Y variables are independent, and we keep away the constant [indecipherable 2:04] . We recognize here the 2D fully transformer [indecipherable 2:09] This usual method rule gives the sync function.
+
+We're interested in the light intensity reaching M, which is the squared modulus of the total wave reaching M.
+
+This expression is coherent with the well-known fraction figure of a rectangle slit.

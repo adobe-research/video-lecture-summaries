@@ -1,0 +1,29 @@
+
+
+[music]
+
+Instructor: Here we're looking at an aircraft, climbing at a constant velocity of infinity, with a climb angle of delta. Be careful not to confuse the climb angle with the angle of attack. The angle of attack, which we usually call alpha, is the angle between the free stream direction, and the aircraft's longitudinal direction, which we usually call X.
+
+Here it's quite apparent that X is aligned with this free stream, and so the angle of attack is zero.
+
+Now, the climb angle is angle between the aircraft's motion, or aircraft's velocity, and the horizontal direction. We're asked to derive an expression for the rate of climb, which is the vertical velocity of the aircraft, and which we'll be noting as H-dot. H for altitude, dot to indicate the time derivative.
+
+Say this is your aircraft. It's traveling at a velocity of infinity, at a climb angle theta. I hope you're not confused by this. It's a frame of reference change. You can either say that the aircraft is stationary and there's a free stream velocity of infinity coming into the aircraft, or that the aircraft is moving with a speed of V, infinity.
+
+The rate of climb is a projection of V infinity, the vector, into the horizontal direction, H-dot. We see that H-dot is simply V infinity times sine theta.
+
+Now what we're going to do is do a sum of forces over the Z direction, and over the X direction. We decompose the weight into its two components along Z and along X, and start by writing that the sum of the forces along the Z direction is zero.
+
+We have lift in the positive Z direction, theta is here, and then W, cosine theta. This one doesn't help us answer the question, but I still want to write it down and comment on it later.
+
+Then, if you project along the X direction, you have on one side thrust. It has to compensate for both drag and the projection of the weight onto the X direction, W sine theta.
+
+From this, you can simply write that sine theta is equal to thrust minus drag divided by the weight, and plug this back into the equation for H-dot to write that the rate of climb, H-dot, is simply V, infinity, times the thrust minus drag divided by the weight, which is the expression we were looking for.
+
+Now, T minus D is the excess thrust. And if you multiply that by V infinity, the fly velocity, so V infinity times T minus D, you get the excess power. That is the thrust power that is available for climb.
+
+I want to write the sum of the forces in the Z direction, because I want you to remember that when you're climbing, lift is W, the weight, times cosine theta. The amount of lift that you need for climbing is actually smaller than the lift you need for cruise at steady level flight by a factor of cosine theta.
+
+It's a common misconception that you need more lift to climb. That is not true. What provides the force or power for climbing is the thrust, not the lift. You need the positive excess thrust, that is thrust larger to drag, in order to climb. It's the engine that does the work for climbing.
+
+[music]
