@@ -6,6 +6,9 @@ Created on Oct 8, 2014
 import cv2
 import numpy as np
 import util
+import sys
+import processframe as pf
+import matplotlib.pyplot as plt
 
 class VisualObject:
     def __init__(self, img, start_fid, end_fid, tlx, tly, brx, bry, istext=False):
@@ -69,7 +72,7 @@ class VisualObject:
     def objs_from_file(video, objdir, objtxt=None):
         if objtxt is None:
             objtxt = "obj_info.txt"
-        objfile = objdir + "/" + objtxt
+        objfile = objdir + "\\" + objtxt
         obj_list = []
         obj_info = util.list_of_vecs_from_txt(objfile)
         obj_info.pop(0)
@@ -91,8 +94,33 @@ class VisualObject:
         return obj_list       
         
 if __name__ == "__main__":
-    text = "Hello, I like Bon Jovi's It's My Life"
-    (textsize, baseline) = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)
-    img = np.ones((textsize[1]+baseline, textsize[0], 3), dtype=np.uint8) * 255
-    cv2.putText(img, text, (0, textsize[1]), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,0,0))
-    util.showimages([img])
+    """Plot object y position within panorama"""
+    panoramapath = sys.argv[1]
+    panorama = cv2.imread(panoramapath)
+    videopath = sys.argv[2]
+    objdir = sys.argv[3]
+    visobjs = VisualObject.objs_from_file(videopath, objdir)
+    outfile = sys.argv[4]
+    
+    ypos = []
+    for obj in visobjs:
+        objh, objw = obj.img.shape[:2]
+        tl = pf.find_object_exact_inside(panorama, obj.img, 0.25)
+        if tl is None:
+            ypos.append(-1.0)
+        else:
+            ypos.append(tl[1] + objh/2)
+    
+    plt.plot(ypos, 'o')
+    plt.xlabel('Objects')
+    plt.ylabel('y-position')
+    plt.xlim(0, len(visobjs))
+    plt.savefig(outfile)
+    plt.show()
+    plt.close()
+    
+    
+
+    
+    
+    

@@ -52,9 +52,7 @@ def plot_ty(pos, outfile="cursor_ty.png"):
     plt.xlim(0, len(pos))
     plt.savefig(outfile)
     plt.show()
-    plt.close()
-    
-            
+    plt.close()           
     
     
 if __name__ == "__main__":    

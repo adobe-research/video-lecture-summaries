@@ -354,8 +354,9 @@ def find_object_exact_inside(img, template, threshold=0.70):
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
-#         cv2.rectangle(img, top_left, bottom_right, 255, 2)
-#         util.showimages([img])
+        img_copy = img.copy()
+        cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
+        util.showimages([img_copy, template])
         logging.info("Exact match found: %f", max_val)        
     
     return top_left
