@@ -54,7 +54,15 @@ def candidateobjects(image, siftthres=3000):
     n_kp = np.array(kp)    
     
     return
-    
+
+def fit_mask_to_img(image, mask, tlx, tly):
+    h, w = image.shape[:2]    
+    fitmask = np.zeros((h,w), dtype=np.uint8)
+    maskh, maskw = mask.shape
+    fitmask[tly:tly+maskh, tlx:tlx+maskw] = mask
+    return fitmask
+
+        
 def highlight(image, mask, (r, g, b, a)=(23, 175, 251, 100)):
    
     # Create a semi-transparent highlight layer the size of image    
@@ -172,9 +180,9 @@ def maskimage(image, mask):
     return maskimg
 
 def alphaimage(image, mask):    
-    h, w, bgr = image.shape
-    result = np.empty((h, w, bgr + 1), dtype=np.uint8)
-    result[:, :, 0:3] = image
+    h, w = image.shape[:2]
+    result = np.empty((h, w, 4), dtype=np.uint8)
+    result[:, :, 0:3] = image[:,:,0:3]
     result[:, :, 3] = mask
     return result
     
@@ -355,8 +363,8 @@ def find_object_exact_inside(img, template, threshold=0.70):
         return None
     else:
         img_copy = img.copy()
-        cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
-        util.showimages([img_copy, template])
+#         cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
+#         util.showimages([img_copy, template])
         logging.info("Exact match found: %f", max_val)        
     
     return top_left

@@ -57,8 +57,11 @@ if __name__ == "__main__":
         k = labels[i]
         col = colors[k%len(colors)]
         tl = tls[i]
-        cv2.rectangle(panorama_copy, (tl[0], tl[1]), (tl[0]+obj.width, tl[1]+obj.height), col, 3)
-        util.showimages([panorama_copy, obj.img])
+#         cv2.rectangle(panorama_copy, (tl[0], tl[1]), (tl[0]+obj.width, tl[1]+obj.height), col, 3)
+        mask = pf.fgmask(obj.img)
+        fitmask = pf.fit_mask_to_img(panorama_copy, mask, tl[0], tl[1])
+        panorama_copy = pf.highlight(panorama_copy, fitmask, (col[0], col[1], col[2], 100))
+        util.showimages([panorama_copy, fitmask, obj.img])
     cv2.imwrite(outfile, panorama_copy)
         
         
