@@ -8,6 +8,9 @@ import util
 import sys
 import cv2
 from visualobjects import VisualObject
+import meanshift
+import numpy as np
+from itertools import cycle
 
 def find_objects(panorama, list_of_objects):
     
@@ -24,10 +27,39 @@ def find_objects(panorama, list_of_objects):
 if __name__ == "__main__":
     panoramapath = sys.argv[1]
     objdirpath = sys.argv[2]
+    outfile = sys.argv[3]
     
     panorama = cv2.imread(panoramapath)
-    img_objs = VisualObject.objs_from_file(None, objdirpath)
-    panorama_copy = find_objects(panorama, img_objs)
-    util.saveimage(panorama_copy, objdirpath, "panorama_objects.png")
-
+    visobjs = VisualObject.objs_from_file(None, objdirpath)
+    data = []
+    objs_in_panorama = []
+    tls = []
+    for visobj in visobjs:
+        tl = pf.find_object_exact_inside(panorama, visobj.img, 0.20)
+        if tl is None:
+            continue
+        else:
+            data.append((0, tl[1] + visobj.height/2))
+            objs_in_panorama.append(visobj)
+            tls.append(tl)
+    
+    ydata = np.array(data)
+    labels, cluster_center = meanshift.cluster(ydata)
+    labels_unique = np.unique(labels)
+    n_clusters_ = len(labels_unique)
+    print("number of estimated clusters : %d" % n_clusters_)
+    
+    panorama_copy = panorama.copy()
+    colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(0,255,255),(255,255,0),(0,0,0)]
+    
+    for i in range(0, len(objs_in_panorama)):
+        obj = objs_in_panorama[i]
+        k = labels[i]
+        col = colors[k%len(colors)]
+        tl = tls[i]
+        cv2.rectangle(panorama_copy, (tl[0], tl[1]), (tl[0]+obj.width, tl[1]+obj.height), col, 3)
+        util.showimages([panorama_copy, obj.img])
+    cv2.imwrite(outfile, panorama_copy)
+        
+        
     
