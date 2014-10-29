@@ -24,8 +24,8 @@ body {
 
 img {
     background: transparent;
-    border: 10px solid rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
+    border: 3px solid rgba(0, 0, 0, 0.12);
+    border-radius: 1px;
     margin: 1.3em auto;
     max-width: 90%;
     -webkit-animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
