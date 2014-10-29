@@ -26,7 +26,12 @@ def plot(data, labels, cluster_centers):
                  markeredgecolor='k', markersize=14)
     plt.title('Estimated number of clusters: %d' % n_clusters)
     return plt
-    
+
+def write(labels, outfile):
+    txtfile = open(outfile, "w")
+    for l in labels:
+        txtfile.write("%i\n" % int(l))
+    txtfile.close()
 
 def cluster(data):
     ms = MeanShift()

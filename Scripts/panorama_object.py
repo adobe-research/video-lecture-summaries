@@ -71,12 +71,28 @@ def cluster_pixels_ypos():
     mask = pf.fgmask(panorama)
     obj_pxl_coords = np.where(mask != 0)
     data = zip(obj_pxl_coords[1], obj_pxl_coords[0])
-    ydata = zip(np.zeros(len(obj_pxl_coords[0])), obj_pxl_coords[0])
-    
+
+    ydata = zip(np.zeros(len(obj_pxl_coords[0])), obj_pxl_coords[0])    
     labels, cluster_center = meanshift.cluster(np.array(ydata))
-    plt = meanshift.plot(np.array(data), labels, cluster_center)
-    plt.savefig(outfile)
-    plt.close()
+    labels_unique = np.unique(labels)
+    n_clusters = len(labels_unique)
+    meanshift.write(labels, outfile + "_labels.txt")
+    
+    panorama_copy = np.ones(panorama.shape)*255
+    ndata = np.array(data)
+    colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100), (255, 200, 200), (0,100,0), (100,0,0), (51, 255, 255)]
+    for k in range(0, n_clusters):
+        my_members = labels == k
+        color = colors[k%len(colors)]
+        for xy in my_members:
+            print xy
+            panorama_copy[ndata[xy, 1], ndata[xy, 0]] = color        
+    cv2.imwrite(outfile+".png", panorama_copy)
+    
+    
+#     plt = meanshift.plot(np.array(data), labels, cluster_center)
+#     plt.savefig(outfile)
+#     plt.close()
 
 def objs():
     panoramapath = sys.argv[1]
@@ -99,12 +115,13 @@ def objs():
     
     
 if __name__ == "__main__":
-    panoramapath = sys.argv[1]
-    objdirpath = sys.argv[2]
-    outfile = sys.argv[3]
-    panorama = cv2.imread(panoramapath)
-    objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
-    cluster_objects_ypos(panorama, objs_in_panorama, outfile)
+    cluster_pixels_ypos()
+#     panoramapath = sys.argv[1]
+#     objdirpath = sys.argv[2]
+#     outfile = sys.argv[3]
+#     panorama = cv2.imread(panoramapath)
+#     objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
+#     cluster_objects_ypos(panorama, objs_in_panorama, outfile)
   
 
        

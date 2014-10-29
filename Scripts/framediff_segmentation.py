@@ -141,7 +141,7 @@ def getobjects():
         objinfo.write("%i\t%i\t%i\t%i\t%i\t%i\t%s\n" %(keyframe_fids[i+0], keyframe_fids[i+1], objbbox[0]+curx, objbbox[1]+cury, objbbox[2]+curx, objbbox[3]+cury, objimgname ))
         i += 2
         
-        panorama_temp = panorama.copy()
+#         panorama_temp = panorama.copy()
 #         print 'curx, cury', curx, cury
 #         cv2.rectangle(panorama_temp, (objbbox[0]+curx, objbbox[1]+cury), (objbbox[2]+curx, objbbox[3]+cury), (255, 255, 255),2)
 #         util.showimages([objcrop, panorama_temp])
