@@ -11,8 +11,9 @@ import processframe as pf
 import matplotlib.pyplot as plt
 
 class VisualObject:
-    def __init__(self, img, start_fid, end_fid, tlx, tly, brx, bry, istext=False):
+    def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None):
         self.img = img
+        self.imgpath = imgpath
         self.start_fid = start_fid
         self.end_fid = end_fid
         self.tlx = tlx
@@ -22,19 +23,20 @@ class VisualObject:
         self.width = brx - tlx
         self.height = bry - tly
         self.istext = istext
+        self.text = text
         
     @classmethod
     def fromtext(cls, text, start_fid, end_fid):        
         (textsize, baseline) = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)
         img = np.ones((textsize[1]+baseline, textsize[0], 3), dtype=np.uint8) * 255
         cv2.putText(img, text, (0, textsize[1]), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,0,0))    
-        return VisualObject(img, start_fid, end_fid, 0, 0, textsize[0], textsize[1]+baseline, True)                        
+        return VisualObject(img, None, start_fid, end_fid, 0, 0, textsize[0], textsize[1]+baseline, True, text)                        
         
     def size(self):
         return (self.width, self.height)
     
     def copy(self):
-        return VisualObject(self.img, self.start_fid, self.end_fid, self.tlx, self.tly, self.brx, self.bry, self.istext)
+        return VisualObject(self.img, self.imgpath, self.start_fid, self.end_fid, self.tlx, self.tly, self.brx, self.bry, self.istext, self.text)
     
     def shiftx(self, x):
         self.tlx += x
@@ -62,7 +64,7 @@ class VisualObject:
         obj_info.pop(0)
         for i in range(0, len(obj_info)):
             info = obj_info[i]
-            obj = VisualObject(None, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
+            obj = VisualObject(None, None, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
             objimg = panorama[obj.tly:obj.bry, obj.tlx:obj.brx,:]
             obj.img = objimg
             obj_list.append(obj)
@@ -72,7 +74,7 @@ class VisualObject:
     def objs_from_file(video, objdir, objtxt=None):
         if objtxt is None:
             objtxt = "obj_info.txt"
-        objfile = objdir + "\\" + objtxt
+        objfile = objdir + "/" + objtxt
         obj_list = []
         obj_info = util.list_of_vecs_from_txt(objfile)
         obj_info.pop(0)
@@ -81,15 +83,9 @@ class VisualObject:
 #         keyframes = video.capture_keyframes_fid(obj_endts)        
         for i in range(0, len(obj_info)):
             info = obj_info[i]
-            obj = VisualObject(None, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
-            if len(info) > 6:
-                objimg = cv2.imread(objdir + "/" + str(info[6]))
-                obj.img = objimg
-            else:
-                print "VisualObjects.objs_from_file: image file not specified"
-#             img = frame[obj.tly:obj.bry, obj.tlx:obj.brx,:]            
-#             img = cv2.imread(objdir + "/obj_%06i_%06i.png" %(obj.start_fid, obj.end_fid))
-#             util.showimages([img])
+            imgpath = objdir + "/" + str(info[6])
+            objimg = cv2.imread(imgpath)
+            obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
             obj_list.append(obj)
         return obj_list       
         

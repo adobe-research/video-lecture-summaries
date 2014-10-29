@@ -14,6 +14,7 @@ import numpy as np
 import cvxopt
 import operator
 from visualobjects import VisualObject
+from writehtml import WriteHtml
 
 
 def layout_words_on_cursor_path():
@@ -164,7 +165,18 @@ def layout_line_by_line(objs_by_time):
                 
     return objs_in_frame
 
-def layout_objects(list_of_objs):
+def layout_objects_html(list_of_objs, html):
+    for obj in list_of_objs:
+        html.opendiv()
+        if obj.istext:
+            html.pragraph_string(obj.text)
+        else:
+            html.image(obj.imgpath)
+        html.closediv()
+    return
+    
+
+def layout_objects_img(list_of_objs):
     framew = 0
     frameh = 0
     margin = 10
@@ -207,10 +219,12 @@ if __name__ == "__main__":
     sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
         
     objs_in_frame = layout_line_by_line(sorted_vis_objs)
-    img = layout_objects(objs_in_frame)
-#     util.showimages([img])
-    util.saveimage(img, objdir, "linear_layout.png")
-    
+    html = WriteHtml(lec.video.videoname + "_obj_stc_linear.html", "Object Sentence Linear Layout", stylesheet="../Mainpage/summaries.css")
+    html.openbody()
+    html.writestring(lec.video.videoname)
+    layout_objects_html(objs_in_frame, html)
+    html.closebody()
+    html.closehtml()
     
     
         

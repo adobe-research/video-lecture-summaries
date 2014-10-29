@@ -24,7 +24,7 @@ class Lecture:
         
     def segment_script(self, list_of_t):        
         segments = [ [] for i in range(0, len(list_of_t))]
-        sentences = pjson.get_sentences(self.list_of_words)        
+        sentences = self.list_of_stcs
         temp = [] + list_of_t
         temp.append(float("inf"))
         
@@ -38,8 +38,18 @@ class Lecture:
                     break            
         return segments
     
-#     def plot_visual_objects(self):
-#         lecplot.plot_visual_objects(self.visual_objects)
+    def segment_script_stcs(self, list_of_stc_ids):
+        segments = [ [] for i in range(0, len(list_of_stc_ids))]
+        
+        temp = 0
+        for stc in self.list_of_stcs:
+            idx = list_of_stc_ids[temp]
+            if (stc[len(stc)-1].stc_idx < idx):
+                segments[temp].append(stc)
+            else:
+                temp += 1
+                segments[temp].append(stc)
+        return segments
              
     
     def get_stc_end_times(self):

@@ -62,6 +62,7 @@ def fit_mask_to_img(image, mask, tlx, tly):
     fitmask[tly:tly+maskh, tlx:tlx+maskw] = mask
     return fitmask
 
+    
         
 def highlight(image, mask, (r, g, b, a)=(23, 175, 251, 100)):
    
@@ -117,7 +118,7 @@ def removetemplate(gray_img, gray_obj, M):
     
     return diff
 
-def subtractlogo(frame, logo):
+def subtractlogo(frame, logo, color=None):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
     topleft = find_object_exact_inside(frame, logo)
@@ -131,9 +132,11 @@ def subtractlogo(frame, logo):
         tly = topleft[1]
     brx = tlx + wlogo
     bry = tly + hlogo
-   
-    frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
-#     util.showimages([frame, frame_copy], "remove logo")
+    if color is None:
+        frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
+    else:
+        frame_copy[tly:bry, tlx:brx] = color
+#     util.showimages([frame, frame_copy], "processframe:subtractlogo")
     return frame_copy 
 
 def fgmask(image, threshold=225, var_threshold=255, inv=False):
@@ -220,11 +223,30 @@ def find_template_ctr(frame, template):
         center = (top_left[0] + wtemp / 2, top_left[1] + htemp / 2)
     return center    
 
+def find_best_match_inside(img, obj):
+    """obj must be inside img"""
+    """This method does work, but is very slow"""
+    objh, objw = obj.shape[:2]
+    imgh, imgw = img.shape[:2]
+    mindiff = float("inf")
+    minloc = (-1, -1)
+    for x in range(0, (imgw-objw)+1):
+        for y in range(0, (imgh-objh)+1):
+            diff = cv2.absdiff(obj, img[y:y+objh, x:x+objw])
+            diff = cv2.min(diff, obj)
+            score = np.sum(diff)
+            if (score < mindiff):
+                mindiff = score
+                minloc = (x,y)
+                
+    cv2.rectangle(img, (minloc[0],minloc[1]), (minloc[0]+objw, minloc[1]+objh), (255,255,255), 2)
+    util.showimages([obj, img], "pf.find_best_match_inside")
+    return minloc
 
 def find_object_appx(img, obj, thres=-1):
-    return find_object_appx_thres(img, obj)
-    
     sift = cv2.SURF(0)
+    gray_img = util.grayimage(img)
+    gray_obj = util.grayimage(obj)
     kp1, d1 = sift.detectAndCompute(gray_obj, None)
     kp2, d2 = sift.detectAndCompute(gray_img, None)
     
@@ -245,8 +267,8 @@ def find_object_appx(img, obj, thres=-1):
         print 'No matches: Not enough correspondence'
         return None
     
-#     match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
-#     util.showimages([match_img])
+    match_img = drawMatches(gray_obj, gray_img, kp1, kp2, matches)
+    util.showimages([match_img])
     src_pts = np.float32([kp1[m.queryIdx].pt for m in matches])
     dst_pts = np.float32([kp2[m.trainIdx].pt for m in matches])
     
@@ -369,8 +391,8 @@ def find_object_exact_inside(img, template, threshold=0.70):
     
     return top_left
 
-def find_object_exact(fgimg, obj):
-    """Return top left corner of exact template match, including partial overlap"""
+def find_object_exact(fgimg, obj, threshold = 2.0):
+    """Return translation matrix for exact template match, including partial overlap"""
     imgh, imgw = fgimg.shape[:2]
     objh, objw = obj.shape[:2]
     
@@ -389,7 +411,6 @@ def find_object_exact(fgimg, obj):
     # cv2.waitKey(0)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     min_val = math.sqrt(min_val) / (objh * objw)
-    threshold = 2.0
     if (min_val > threshold):
         logging.info("Exact match NOT found: %f", min_val)
         return None

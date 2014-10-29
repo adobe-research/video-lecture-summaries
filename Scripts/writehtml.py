@@ -4,14 +4,16 @@ import os
 import datetime
 
 class WriteHtml:
-    def __init__(self, filename, title="no title"):
+    def __init__(self, filename, title="no title", stylesheet=None):
         self.filename = os.path.abspath(filename)
+        self.filedir = os.path.dirname(self.filename)
         self.htmlfile = open(filename, 'w')
         self.htmlfile.write("<html>\n")
         self.htmlfile.write("<head>\n")
-        self.htmlfile.write("<link href=\"" )
-        self.htmlfile.write(self.relpath("mystyle.css"))
-        self.htmlfile.write("\" rel=\"stylesheet\" />\n")
+        if stylesheet is not None:
+            self.htmlfile.write("<link href=\"" )
+            self.htmlfile.write(self.relpath(stylesheet))
+            self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("<title>"+title+"</title>\n")
         self.htmlfile.write("</head>\n")
         self.openbody()
@@ -75,12 +77,17 @@ class WriteHtml:
         self.htmlfile.write("\n</html>")
         self.htmlfile.close()
     
-    def paragraph(self, list_of_words):
-        self.htmlfile.write("<p>")
+    def paragraph_list_of_words(self, list_of_words):
+        self.htmlfile.write("<p>\n")
         for word in list_of_words:
             if not word.issilent:
                 self.htmlfile.write(word.original_word + " ")
-        self.htmlfile.write("</p>")
+        self.htmlfile.write("\n</p>")
+    
+    def pragraph_string(self, mystring):
+        self.htmlfile.write("<p>\n")
+        self.writestring(mystring)
+        self.htmlfile.write("\n</p>\n")
         
     def map(self, mapname, list_of_areas, list_item_names):
         self.htmlfile.write("<map name = \"%s\">\n" % mapname)
@@ -108,7 +115,7 @@ class WriteHtml:
         self.htmlfile.write("</p>")
     
     def relpath(self, path):
-        relpath = os.path.relpath(path, __file__)
+        relpath = os.path.relpath(path, self.filedir)
         return relpath      
     
     

@@ -81,7 +81,7 @@ def write_transcript_divs(html, transcript_segs, list_item_names):
     pid = 0
     for seg in transcript_segs:
         html.opendiv(idstring=list_item_names[pid], class_string="display")
-        html.paragraph(seg)
+        html.paragraph_list_of_words(seg)
         html.closediv()
         pid += 1
     
