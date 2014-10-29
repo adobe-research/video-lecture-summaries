@@ -29,7 +29,7 @@ def cluster_objects_ypos(panorama, list_of_objs, outfile):
     data = []
     objs_in_panorama = []
     tls = []
-    for visobj in visobjs:
+    for visobj in list_of_objs:
         tl = (visobj.tlx, visobj.tly)
         if tl is None:
             continue
@@ -44,7 +44,7 @@ def cluster_objects_ypos(panorama, list_of_objs, outfile):
     n_clusters_ = len(labels_unique)
     print("number of estimated clusters : %d" % n_clusters_)
      
-    panorama_copy = panorama.copy()
+    panorama_copy = np.ones(panorama.shape)*255
     colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100)]
      
     for i in range(0, len(objs_in_panorama)):
@@ -61,12 +61,12 @@ def cluster_objects_ypos(panorama, list_of_objs, outfile):
 #         util.showimages([panorama_copy, fitmask, obj.img])
     cv2.imwrite(outfile, panorama_copy)
         
-if __name__ == "__main__":
+        
+def cluster_pixels_ypos():
     panoramapath = sys.argv[1]
     objdirpath = sys.argv[2]
     outfile = sys.argv[3]
     panorama = cv2.imread(panoramapath)
-#     visobjs = VisualObject.objs_from_file(None, objdirpath)
     
     mask = pf.fgmask(panorama)
     obj_pxl_coords = np.where(mask != 0)
@@ -77,8 +77,35 @@ if __name__ == "__main__":
     plt = meanshift.plot(np.array(data), labels, cluster_center)
     plt.savefig(outfile)
     plt.close()
+
+def objs():
+    panoramapath = sys.argv[1]
+    objdirpath = sys.argv[2]
+    outfile = sys.argv[3]
+    panorama = cv2.imread(panoramapath)
+    objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
     
-     
+    panorama_copy = np.ones(panorama.shape)*255
+    colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100), (255, 200, 200), (0,100,0), (100,0,0), (51, 255, 255)]
+    for i in range(0, len(objs_in_panorama)):
+        obj = objs_in_panorama[i]
+        col = colors[i%len(colors)]
+        mask = pf.fgmask(obj.img)
+        fitmask = pf.fit_mask_to_img(panorama_copy, mask, obj.tlx, obj.tly)
+        idx = fitmask != 0
+        panorama_copy[idx] = col
+    cv2.imwrite(outfile, panorama_copy)
+
+    
+    
+if __name__ == "__main__":
+    panoramapath = sys.argv[1]
+    objdirpath = sys.argv[2]
+    outfile = sys.argv[3]
+    panorama = cv2.imread(panoramapath)
+    objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
+    cluster_objects_ypos(panorama, objs_in_panorama, outfile)
+  
 
        
     
