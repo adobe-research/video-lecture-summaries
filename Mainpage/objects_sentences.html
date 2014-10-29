@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link href="myresults.css" rel="stylesheet" />
+        <title>Objects interleaved with sentences</title>
+    </head>
+    <body>
+        <h1> Method</h1>
+            <ol>
+                <li>Segment video in time:
+                    <ol>
+                        <li> Compute pixel difference between consecutive frames</li>
+                        <li> Diff < Threshold defines draw_start and draw_end time</li>
+                        <li> Diff (frame at draw_start - frame at draw_end) = object
+                    </ol>
+                </li>
+                <li>Segment trasncript into sentences with t_start and t_end</li>
+                <li>Vertially layout objects and sentences according to draw_end and t_end times.</li>
+                <li>Output is single image</li>
+            </ol>
+        <h1>Results</h1>
+        <a href="..\SampleVideos\more\khan1\khan1_obj_stc_linear.html"><img  src="..\SampleVideos\more\khan1\khan1_framediff_objs_man\linear_layout.png" /></a>
+        <a href="..\SampleVideos\more\khan2\khan2_obj_stc_linear.html"><img  src="..\SampleVideos\more\khan2\khan2_framediff_objs_man\negate\linear_layout.png"></a>
+        <a href="..\SampleVideos\more\khan3\khan3_obj_stc_linear.html"><img  src="..\SampleVideos\more\khan3\khan3_framediff_objs\negate\linear_layout.png"></a>
+        <a href="../SampleVideos/more/khan4/khan4_obj_stc_linear.html"><img src="../SampleVideos/more/khan4/khan4_framediff_objs_man/negate/linear_layout.png"></a>
+        <a href="../SampleVideos/more/khan5/khan5_obj_stc_linear.html"><img src="../SampleVideos/more/khan5/khan5_framediff_objs_threshold_200/negate/linear_layout.png"></a>
+        <a href="../SampleVideos/more/khan6/khan6_obj_stc_linear.html"><img src="../SampleVideos/more/khan6/khan6_framediff_objs/negate/linear_layout.png"></a>
+        <a href="../SampleVideos/more/khan7/khan7_obj_stc_linear.html"><img src="../SampleVideos/more/khan7/khan7_framediff_objs_man/negate/linear_layout.png"></a>
+        <a href="../SampleVideos/more/khan8/khan8_obj_stc_linear.html">
+        <img src="../SampleVideos/more/khan8/khan8_framediff_objs_man/negate/linear_layout.png"></a>
+        <a href="../SampleVideos/more/khan9/khan9_obj_stc_linear.html"><img src="../SampleVideos/more/khan9/khan9_framediff_objs/negate/linear_layout.png"></a>
+        <a href="../SampleVideos/more/bigbang/bigbang_khan_obj_stc_linear.html"><img src="../SampleVideos/more/bigbang/bigbang_khan_framediff_objs/negate/linear_layout.png"></a>
+    </body>
+</html>
