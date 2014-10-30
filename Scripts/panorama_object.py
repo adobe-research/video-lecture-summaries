@@ -81,7 +81,7 @@ def cluster_objects_xyt(panorama, list_of_objs, outfile, video):
         if tl is None:
             continue
         else:
-            data.append(((tl[0]+visobj.width/2)/w, (tl[1] + visobj.height/2)/h, (visobj.start_fid + visobj.end_fid)/nframes))
+            data.append((2*(tl[0]+visobj.width/2)/w, 3*(tl[1] + visobj.height/2)/h, (visobj.start_fid + visobj.end_fid)/nframes))
             objs_in_panorama.append(visobj)
             tls.append(tl)
      

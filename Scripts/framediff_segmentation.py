@@ -16,7 +16,8 @@ def read_framediff(framediff_txt):
 
 def get_object_start_end_frames(framediff, video, thres=50, outfile="obj_fids_temp"):
     """smooth"""
-    smooth_framediff = util.smooth(np.array(framediff), window_len=5, window='flat')
+#     smooth_framediff = util.smooth(np.array(framediff), window_len=5, window='flat')
+    smooth_framediff = framediff
     object_fids = []
     drawing = False
     fid = 0
@@ -25,16 +26,16 @@ def get_object_start_end_frames(framediff, video, thres=50, outfile="obj_fids_te
     
     cap = cv2.VideoCapture(video.filepath)
     for diff in smooth_framediff:
-#         ret, frame = cap.read()
+        ret, frame = cap.read()
 #         util.showimages([frame], "original video")   
         if (diff > thres and not drawing):
-#             startimg = frame
+            startimg = frame
 #             print "================================================start %i================================================" %fid
             drawing = True
             start_t = fid              
-        if (diff <= thres and drawing):  
-#             endimg = frame
-#             util.showimages([startimg, endimg])          
+        if (diff == 0 and drawing):  
+            endimg = frame
+            util.showimages([startimg, endimg], "Start and End Frame")          
             drawing = False
             end_t = fid
             if (start_t >= 0 and end_t >= 0 and start_t < end_t):

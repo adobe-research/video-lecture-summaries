@@ -1,19 +1,25 @@
-body {
-    max-width:1300px;
+body {    
     padding: 2em 2em 4em;
 }
 
 #summary-container {
     border: 2px solid;
     border-radius: 10px;
+    display: inline-block;
+    max-width:800px;
+    vertical-align: top;
 }
 
 div {
-    display: inline-block;
+    display: block;
     position: relative;
     margin-top: 5px;
     vertical-align:middle;
     padding: 1em
+}
+
+p {
+    margin: 0;    
 }
 
 #eq1-before-text {
@@ -67,4 +73,8 @@ div {
 
 #eq3-during-text2 {
 /*    width:750px;*/
+}
+
+img {
+    display: block;
 }

@@ -1,15 +1,10 @@
-python framediff_segmentation.py ..\SampleVideos\more\khan1\khan1_original.mp4 ..\SampleVideos\more\khan1\khan1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\khan2\khan2_original.mp4 ..\SampleVideos\more\khan2\khan2_original_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\hwt1\hwt1.mp4 ..\SampleVideos\more\hwt1\hwt1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\hwt2\hwt2.mp4 ..\SampleVideos\more\hwt2\hwt2_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\tecmath1\tecmath1.mp4  ..\SampleVideos\more\tecmath1\tecmath1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\tecmath2\tecmath2.mp4  ..\SampleVideos\more\tecmath2\tecmath2_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\udacity1\udacity1.mp4 ..\SampleVideos\more\udacity1\udacity1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\udacity2\udacity2.mp4  ..\SampleVideos\more\udacity1\udacity1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\mit1\mit1.mp4  ..\SampleVideos\more\mit1\mit1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\mit2\mit2.mp4  ..\SampleVideos\more\mit2\mit2_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\mit3\mit3.mp4  ..\SampleVideos\more\mit3\mit3_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\armando1\armando1.mp4  ..\SampleVideos\more\armando1\armando1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\armando2\armando2.mp4  ..\SampleVideos\more\armando2\armando2_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\pentimento1\pentimento1.mp4  ..\SampleVideos\more\pentimento1\pentimento1_framediff.txt
-python framediff_segmentation.py ..\SampleVideos\more\slide1\slide1.mp4 ..\SampleVideos\more\slide1\slide1_framediff.txt
+python framediff.py ../SampleVideos/more/khan1/khan1.mp4
+python framediff.py ../SampleVideos/more/khan2/khan2.mp4
+python framediff.py ../SampleVideos/more/khan3/khan3.mp4
+python framediff.py ../SampleVideos/more/khan4/khan4.mp4
+python framediff.py ../SampleVideos/more/khan5/khan5.mp4
+python framediff.py ../SampleVideos/more/khan6/khan6.mp4
+python framediff.py ../SampleVideos/more/khan7/khan7.mp4
+python framediff.py ../SampleVideos/more/khan8/khan8.mp4
+python framediff.py ../SampleVideos/more/khan9/khan9.mp4
+python framediff.py ../SampleVideos/more/bigbang/bigbang_khan.mp4
