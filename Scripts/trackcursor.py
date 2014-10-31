@@ -35,9 +35,9 @@ def main_track():
     video = pv.ProcessVideo(videoname)
     cursor = cv2.imread(cursorfile)
     pos = track(video, cursor)
-    cursorpostxt = video.videoname+"_cursorpos.txt"
-    write(pos, cursorpostxt)
-    
+#     cursorpostxt = video.videoname+"_cursorpos.txt"
+#     write(pos, cursorpostxt)
+#     
     
 def plot_ty(pos, outfile="cursor_ty.png"):
     t = np.linspace(0, len(pos)-1, len(pos))
@@ -56,8 +56,4 @@ def plot_ty(pos, outfile="cursor_ty.png"):
     
     
 if __name__ == "__main__":    
-    videoname = sys.argv[1]
-    cursorpostxt = sys.argv[2]
-    video = pv.ProcessVideo(videoname)
-    pos = read(cursorpostxt)
-    plot_ty(pos, video.videoname+"_cursor_ypos.png")
+    main_track()

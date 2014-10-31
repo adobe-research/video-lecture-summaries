@@ -46,7 +46,7 @@ def fromvideo(video, logos, color):
         fid += 1
         if (frame == None):
             break
-        frame = fillcolor(frame, logos, color)
+        frame = pf.subtractlogo(frame, logos[0], color)
         out.write(frame)
     cap.release()
     out.release()
@@ -59,7 +59,6 @@ if __name__ == "__main__":
     target = sys.argv[1]
     logodir = sys.argv[2]
     outdir = sys.argv[3]
-    
     extension = os.path.splitext(target)[1]
     logos = util.get_logos(logodir)    
     

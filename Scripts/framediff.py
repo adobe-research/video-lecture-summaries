@@ -8,22 +8,33 @@ import matplotlib.pyplot as plt
 import cv2
 import sys
 
-def compute(videoprocessor, diffthres=25):       
+def compute(videoprocessor, videoprocessor2, diffthres=25):       
     cap = cv2.VideoCapture(videoprocessor.video)    
-    counts = np.empty(pv.numframes - 1)
+#     cap2 = cv2.VideoCapture(videoprocessor2.video)
+    counts = np.empty(pv.numframes)
+    counts[0] = 0
     ret, prevframe = cap.read()
+#     ret2, myframe = cap.read()
+    print counts[0]
     index = 1        
     while(index < videoprocessor.numframes):
         ret, nextframe = cap.read()
+#         ret2, myframe = cap2.read()
         if (nextframe == None):
             break
-        diff = cv2.absdiff(nextframe, prevframe)        
+        diff = cv2.absdiff(nextframe, prevframe)  
+        diff = util.grayimage(diff)
+        ret, thresdiff = cv2.threshold(diff, 75, 255, cv2.THRESH_BINARY)      
+        counts[index] = np.count_nonzero(thresdiff)
+#         print 'counts', counts[index-1]
+#         util.showimages([myframe], "myframe")
+#         util.showimages([prevframe, nextframe, diff], "prevframe, nextframe, diff")
         prevframe = nextframe
-        counts[index - 1] = np.count_nonzero(diff)/3 #(diff > diffthres).sum()
+        
+         #(diff > diffthres).sum()
 #         ret, dst = cv2.threshold(util.grayimage(diff), diffthres, 255, cv2.THRESH_BINARY_INV)
 #         util.showimages([prevframe, nextframe, dst])
-#         util.showimages([nextframe])
-#         print 'counts', counts[index-1]
+         
         index += 1            
     cap.release()
     return counts    
@@ -62,8 +73,10 @@ def getcounts(framedifftxt):
 
 if __name__ == "__main__":
     videopath = sys.argv[1] 
+#     videopath2 = sys.argv[2]
     pv = processvideo.ProcessVideo(videopath)
-    counts = compute(pv)
+#     pv2 = processvideo.ProcessVideo(videopath2)
+    counts = compute(pv, None)
    
     """Write to file"""
     framedifftxt = pv.videoname + "_framediff_new.txt"

@@ -192,7 +192,7 @@ def objs():
     for i in range(0, len(objs_in_panorama)):
         obj = objs_in_panorama[i]
         col = colors[i%len(colors)]
-        mask = pf.fgmask(obj.img)
+        mask = pf.fgmask(obj.img, 50, 255, True)
         fitmask = pf.fit_mask_to_img(panorama_copy, mask, obj.tlx, obj.tly)
         idx = fitmask != 0
         panorama_copy[idx] = col
@@ -201,15 +201,15 @@ def objs():
     
     
 if __name__ == "__main__":
- 
-    panoramapath = sys.argv[1]
-    objdirpath = sys.argv[2]
-    outfile = sys.argv[3]
-    videopath = sys.argv[4]
-    panorama = cv2.imread(panoramapath)
-    objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
-    video = Video(videopath)
-    cluster_objects_xyt(panorama, objs_in_panorama, outfile, video)
+    objs()
+#     panoramapath = sys.argv[1]
+#     objdirpath = sys.argv[2]
+#     outfile = sys.argv[3]
+#     videopath = sys.argv[4]
+#     panorama = cv2.imread(panoramapath)
+#     objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
+#     video = Video(videopath)
+#     cluster_objects_xyt(panorama, objs_in_panorama, outfile, video)
   
 
        

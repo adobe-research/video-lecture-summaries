@@ -121,13 +121,13 @@ def removetemplate(gray_img, gray_obj, M):
 def subtractlogo(frame, logo, color=None):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
-    topleft = find_object_exact_inside(frame, logo)
+    topleft = find_object_exact_inside(frame, logo, 0.90)
     frame_copy = frame.copy()
     if  topleft == None:
 #         util.showimages([frame], "no logo")
         return frame_copy
     else:
-        print 'logo detected'
+#         print 'logo detected'
         tlx = topleft[0]
         tly = topleft[1]
     brx = tlx + wlogo
@@ -135,11 +135,15 @@ def subtractlogo(frame, logo, color=None):
     if color is None:
         frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
     else:
-        frame_copy[tly:bry, tlx:brx] = color
+        logomask = fgmask(logo)
+        logomask = cv2.bitwise_not(logomask)
+        logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
+#         util.showimages([logomask], "logomask")
+        frame_copy[logomask != 0] = color
 #     util.showimages([frame, frame_copy], "processframe:subtractlogo")
     return frame_copy 
 
-def fgmask(image, threshold=225, var_threshold=255, inv=False):
+def fgmask(image, threshold=200, var_threshold=255, inv=False):
 #     if (threshold is None): 
 #         threshold = 225
 #     if (var_threshold is None):
@@ -366,27 +370,26 @@ def isgoodmatch(M):
         return False
     return True
 
-def find_object_exact_inside(img, template, threshold=0.70):
+def find_object_exact_inside(img, template, threshold=0.90):
     """Return the top left corner of the rectangle that matches exact template INSIDE img"""  
     gray_img = util.grayimage(img)
     gray_template = util.grayimage(template)
     w, h = gray_template.shape[::-1]    
     # Apply template Matching
-    res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
+    res = cv2.matchTemplate(img, template, cv2.TM_CCORR_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
+#     img_copy = img.copy()
+#     cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
+#     util.showimages([img_copy, template])
     """threshold khan = 0.75, tecmath = 0.25 """   
-    
     if (max_val < threshold):
-#         print max_val
-#         util.showimages([img])        
+# #         print max_val
+# #         util.showimages([img])        
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
-        img_copy = img.copy()
-#         cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
-#         util.showimages([img_copy, template])
         logging.info("Exact match found: %f", max_val)        
     
     return top_left
@@ -546,7 +549,9 @@ def numfgpix_mit(gray_frame):
     return (gray_frame < 200).sum()
 
 def numfgpix_khan(gray_frame):
-    return (gray_frame >= 100).sum()
+    ret, thresimg = cv2.threshold(gray_frame, 50, 255, cv2.THRESH_BINARY)
+#     util.showimages([thresimg], "numfgpix_khan")
+    return np.count_nonzero(thresimg)
 
 def removebg_mit(gray_frame):
     dest = gray_frame.copy()
@@ -559,6 +564,13 @@ def removebg_khan(gray_frame):
     dest[gray_frame < 100 ] = 255
     dest[gray_frame >= 100] = 0
     return dest
+
+def numfgpix_thresh(gray, fgthres):
+    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY)
+    numfg = np.count_nonzero(threshimg)
+    logging.debug("#fg pix %i", numfg)
+#     util.showimages([threshimg], "processframe::numfgpix_thres")
+    return numfg
 
 def numfgpix(img, bgcolor):
     """Return number of foreground pixels in img, where bg color denotes the background colors"""

@@ -96,7 +96,7 @@ class ProcessVideo:
         cap.release()
         return
        
-    def countfgpix(self):
+    def countfgpix(self, fgthres):
         """Return number of foreground pixels"""    
         cap = cv2.VideoCapture(self.video)    
         counts = np.empty(self.numframes)
@@ -105,10 +105,7 @@ class ProcessVideo:
         while(index < self.numframes):
             ret, frame = cap.read()
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            if (self.videotype == "mit"):
-                counts[index] = pf.numfgpix_mit(gray)
-            elif(self.videotype == "khan"):
-                counts[index] = pf.numfgpix_khan(gray)
+            counts[index] = pf.numfgpix_thresh(gray, fgthres)
             index += 1
         cap.release()
         return counts    
@@ -125,7 +122,7 @@ class ProcessVideo:
     def printfgpix(self, counts, txtfilename=None):
         """Print and plot number of foreground pixels per frame"""
         txtfilename = self.videoname + "_numfgpix.txt"        
-        imagefilename = self.videoname +"_numfgpix.jpg"
+        imagefilename = self.videoname +"_numfgpix.png"
         print txtfilename, imagefilename
         txtfile = open(txtfilename, 'w')
         for n in counts:
@@ -137,7 +134,7 @@ class ProcessVideo:
         plt.xlabel("frames")
         plt.ylabel("pixels")
         plt.xlim(0, len(counts))
-        plt.savefig(self.videoname + "_fgpix.jpg")
+        plt.savefig(imagefilename)
         plt.close()
         return txtfilename
     
