@@ -1,9 +1,22 @@
-div{
-    margin: 0px;
-    padding: 0px;
+body {    
+    padding: 2em 2em 4em;
+}
+
+#summary-container {
+    border: 2px solid;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+div {
+    display: block;
+    position: relative;
+    margin-top: 5px;
+    vertical-align:middle;
+    padding: 1em
 }
 
 p {
-    padding: 0px;
-    margin: 5px;
+    margin: 0;    
 }

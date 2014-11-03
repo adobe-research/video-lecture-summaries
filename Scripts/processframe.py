@@ -61,7 +61,6 @@ def fit_mask_to_img(image, mask, tlx, tly):
     maskh, maskw = mask.shape
     fitmask[tly:tly+maskh, tlx:tlx+maskw] = mask
     return fitmask
-
     
         
 def highlight(image, mask, (r, g, b, a)=(23, 175, 251, 100)):

@@ -15,7 +15,7 @@ import cvxopt
 import operator
 from visualobjects import VisualObject
 from writehtml import WriteHtml
-
+import cluster
 
 def layout_words_on_cursor_path():
     videopath = sys.argv[1]
@@ -52,8 +52,7 @@ def layout_words_on_cursor_path():
 #         util.showimages([frame])          
         util.saveimage(frame, layoutdir, "sentence" +("%03i" %stc_id) +"_word.png")
         stc_id += 1
-    
-        
+           
 def inframe_cstr(obj_ws, obj_hs, obj_bases, frame_w, frame_h):
     vals = []
     rows = []  #rows
@@ -119,7 +118,6 @@ def textbbox(text):
     textsize, baseline = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)
     return (textsize, baseline)
 
-
 def layout_line_by_line(objs_by_time):
     x_buffer = 10
     y_buffer = 10
@@ -175,7 +173,6 @@ def layout_objects_html(list_of_objs, html):
         html.closediv()
     return
     
-
 def layout_objects_img(list_of_objs):
     framew = 0
     frameh = 0
@@ -194,36 +191,41 @@ def layout_objects_img(list_of_objs):
         img[obj.tly:obj.bry, obj.tlx:obj.brx, :] = obj.img    
     return img
     
-
+    
+    
 if __name__ == "__main__":
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
-#     panorama = cv2.imread(sys.argv[4])
     
     lec = Lecture(videopath, scriptpath)
-    
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
-#     img_objs = VisualObject.objs_from_panorama(panorama, objdir)
-    txt_objs = []
-    for stc in lec.list_of_stcs:
-        txt = ""
-        for word in stc:
-            if not word.issilent:
-                txt = txt + " " + word.original_word
-        txt = txt +"."
-        txt_obj = VisualObject.fromtext(txt, lec.video.ms2fid(stc[0].startt), lec.video.ms2fid(stc[-1].endt))
-        txt_objs.append(txt_obj)
+    txt_objs = VisualObject.objs_from_transcript(lec)
     
-    vis_objs = img_objs + txt_objs
-    sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
+    
+    labels, cluster_centers = cluster.meanshift_visobjs(img_objs, 0, 0, 0.5, 0.5, 0, 0, 1, 1, 1) 
+    
+    labels_unique = np.unique(labels)
+    n_clusters = len(labels_unique)
+    
+    list_of_clusters = [[] for x in range(n_clusters)]
+    for i in range(0, len(img_objs)):
+        list_of_clusters[labels[i]].append(img_objs[i])
         
-    objs_in_frame = layout_line_by_line(sorted_vis_objs)
-    html = WriteHtml(lec.video.videoname + "_obj_stc_linear.html", "Object Sentence Linear Layout", stylesheet="../Mainpage/summaries.css")
-    html.openbody()
-    html.writestring(lec.video.videoname)
-    layout_objects_html(objs_in_frame, html)
-    html.closebody()
+    img_cluster_objs = []
+    for i in range(n_clusters):
+        vis_obj = VisualObject.group(list_of_clusters[i], objdir)
+        img_cluster_objs.append(vis_obj)
+    print 'img_clusters', len(img_cluster_objs)
+    print 'txt_objs', len(txt_objs)
+    vis_objs = img_cluster_objs + txt_objs
+    sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
+    
+    html = WriteHtml(objdir + "/" + "ycluster_stc_linear.html", "Objects clustered by y-pos", stylesheet="../Mainpage/summaries.css")
+    html.opendiv(idstring="summary-container")
+    html.writestring("<h1>" + lec.video.videoname + "</h1>")
+    layout_objects_html(sorted_vis_objs, html)
+    html.closediv()
     html.closehtml()
     
     

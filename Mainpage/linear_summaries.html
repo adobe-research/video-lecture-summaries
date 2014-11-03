@@ -10,35 +10,86 @@
                 <h1> Method</h1>
             </td>
             <td>
+                <h2>No clustering</h2>
                 <ol>
                     <li>Segment video in time:
                         <ol>
                             <li> Compute pixel difference between consecutive frames</li>
-                            <li> Diff < Threshold defines draw_start and draw_end time</li>
+                            <li> Diff < Threshold (200) defines draw_start and draw_end time</li>
                             <li> Diff (frame at draw_start - frame at draw_end) = object
                         </ol>
                     </li>
                     <li>Segment trasncript into sentences with t_start and t_end</li>
-                    <li>Vertially layout objects and sentences according to draw_end and t_end times.</li>
-                    <li>Output is single image</li>
+                    <li>Vertially layout objects and sentences according to starting times.</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Y-pos clustering</h2>
+                <ol>
+                    <li>Cluster objects from previous method by y-position of centroid, using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
                 </ol>
             </td>
         </tr>
-        <tr><td>Khan 1</td>
-            <td>
-            <a href="..\SampleVideos\more\khan1\khan1_obj_stc_linear.html"><img  src="..\SampleVideos\more\khan1\khan1_framediff_objs_man\linear_layout.png" /></a>
-            </td>
+        <tr>
+            <td><h1>Khan 1</h1></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_framediff_objs_threshold_200/negate\khan1_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
         </tr>
         
-        <tr><td>Khan 2</td><td><a href="..\SampleVideos\more\khan2\khan2_obj_stc_linear.html"><img  src="..\SampleVideos\more\khan2\khan2_framediff_objs_man\negate\linear_layout.png"></a></td></tr>
-        <tr><td>Khan 3</td><td><a href="..\SampleVideos\more\khan3\khan3_obj_stc_linear.html"><img  src="..\SampleVideos\more\khan3\khan3_framediff_objs\negate\linear_layout.png"></a></td></tr>
-        <tr><td>Khan 4</td><td><a href="../SampleVideos/more/khan4/khan4_obj_stc_linear.html"><img src="../SampleVideos/more/khan4/khan4_framediff_objs_man/negate/linear_layout.png"></a></td></tr>
-        <tr><td>Khan 5</td><td><a href="../SampleVideos/more/khan5/khan5_obj_stc_linear.html"><img src="../SampleVideos/more/khan5/khan5_framediff_objs_threshold_200/negate/linear_layout.png"></a></td></tr>
-        <tr><td>Khan 6</td><td><a href="../SampleVideos/more/khan6/khan6_obj_stc_linear.html"><img src="../SampleVideos/more/khan6/khan6_framediff_objs/negate/linear_layout.png"></a></td></tr>
-        <tr><td>Khan 7</td><td><a href="../SampleVideos/more/khan7/khan7_obj_stc_linear.html"><img src="../SampleVideos/more/khan7/khan7_framediff_objs_man/negate/linear_layout.png"></a></td></tr>
-        <tr><td>Khan 8</td><td><a href="../SampleVideos/more/khan8/khan8_obj_stc_linear.html"><img src="../SampleVideos/more/khan8/khan8_framediff_objs_man/negate/linear_layout.png"></a></td></tr>
-        <tr><td>Khan 9</td><td><a href="../SampleVideos/more/khan9/khan9_obj_stc_linear.html"><img src="../SampleVideos/more/khan9/khan9_framediff_objs/negate/linear_layout.png"></a></td></tr>
-        <tr><td>Big bang</td><td><a href="../SampleVideos/more/bigbang/bigbang_khan_obj_stc_linear.html"><img src="../SampleVideos/more/bigbang/bigbang_khan_framediff_objs/negate/linear_layout.png"></a></td></tr>
+        <tr>
+            <td><h1>Khan 2</h1></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_framediff_objs_threshold_200/negate\khan2_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 3</h1></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_framediff_objs_threshold_200/negate\khan3_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 4</h1></td>
+            <td><a href="../SampleVideos/more/khan4/khan4_framediff_objs_threshold_200/negate/khan4_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 5</h1></td>
+            <td><a href="../SampleVideos/more/khan5/khan5_framediff_objs_threshold_200/negate/khan5_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 6</h1></td>
+            <td><a href="../SampleVideos/more/khan6/khan6_framediff_objs_threshold_200/negate/khan6_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 7</h1></td>
+            <td><a href="../SampleVideos/more/khan7/khan7_framediff_objs_threshold_200/negate/khan7_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 8</h1></td>
+            <td><a href="../SampleVideos/more/khan8/khan8_framediff_objs_threshold_200/negate/khan8_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 9</h1></td>
+            <td><a href="../SampleVideos/more/khan9/khan9_framediff_objs_threshold_200/negate/khan9_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Big bang</h1></td>
+            <td><a href="../SampleVideos/more/bigbang/bigbang_khan_framediff_objs_threshold_200/negate/bigbang_khan_obj_stc_linear.html">No clustering</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+        </tr>
             
     </table>
     </body>
