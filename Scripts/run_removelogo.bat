@@ -1,0 +1,10 @@
+#python removelogo.py ../SampleVideos/more/khan1/khan1.mp4 ../SampleVideos/more/khan1/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan2/khan2.mp4 ../SampleVideos/more/khan2/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan3/khan3.mp4 ../SampleVideos/more/khan3/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan4/khan4.mp4 ../SampleVideos/more/khan4/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan5/khan5.mp4 ../SampleVideos/more/khan5/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan6/khan6.mp4 ../SampleVideos/more/khan6/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan7/khan7.mp4 ../SampleVideos/more/khan7/logo/ temp
+python removelogo.py ../SampleVideos/more/khan8/khan8.mp4 ../SampleVideos/more/khan8/logo/ temp
+#python removelogo.py ../SampleVideos/more/khan9/khan9.mp4 ../SampleVideos/more/khan9/logo/ temp
+#python removelogo.py ../SampleVideos/more/bigbang/bigbang_khan.mp4 ../SampleVideos/more/bigbang/logo/ temp
