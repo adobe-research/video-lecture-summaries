@@ -9,6 +9,8 @@ import util
 import sys
 import processframe as pf
 import matplotlib.pyplot as plt
+from scipy import ndimage
+import os
 
 class VisualObject:
     def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None):
@@ -20,8 +22,8 @@ class VisualObject:
         self.tly = tly
         self.brx = brx
         self.bry = bry
-        self.width = brx - tlx
-        self.height = bry - tly
+        self.width = brx - tlx+1
+        self.height = bry - tly+1
         self.istext = istext
         self.text = text
         
@@ -69,8 +71,8 @@ class VisualObject:
             max_bry = max(max_bry, imgobj.bry)
             min_start_fid = min(min_start_fid, imgobj.start_fid)
             max_end_fid = max(max_end_fid, imgobj.end_fid)
-        w = max_brx - min_tlx
-        h = max_bry - min_tly
+        w = max_brx - min_tlx+1
+        h = max_bry - min_tly+1
         groupimg = np.ones((h, w, 3), dtype=np.uint8)*255
         for obj in list_of_imgobjs:
             """Assume images are white background"""
@@ -120,22 +122,66 @@ class VisualObject:
         if objtxt is None:
             objtxt = "obj_info.txt"
         objfile = objdir + "/" + objtxt
+        print 'objfile', objfile
         obj_list = []
         obj_info = util.list_of_vecs_from_txt(objfile)
         obj_info.pop(0)
         obj_endts = [obj[1] for obj in obj_info]
         obj_endts = util.strings2ints(obj_endts)
+        print len(obj_info)
 #         keyframes = video.capture_keyframes_fid(obj_endts)        
         for i in range(0, len(obj_info)):
             info = obj_info[i]
-            imgpath = objdir + "/" + str(info[6])
-            objimg = cv2.imread(imgpath)
+#             imgpath = str(info[6])
+            imgpath = os.path.basename(str(info[6]))
+#             print 'imgpath', imgpath
+            objimg = cv2.imread(objdir + "/" + imgpath)
             obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
             obj_list.append(obj)
-        return obj_list       
+        return obj_list      
+    
+    @staticmethod
+    def write_to_file(outfilepath, list_of_objs):
+        objinfo = open(outfilepath, "w")
+        objinfo.write("start_fid \t end_fid \t tlx \t tly \t brx \t bry\t filename\n")
+        for obj in list_of_objs:
+            objinfo.write("%i\t%i\t%i\t%i\t%i\t%i\t%s\n" %(obj.start_fid, obj.end_fid, obj.tlx, obj.tly, obj.brx, obj.bry, obj.imgpath ))
+        objinfo.close()
+    
+    def segment_cc(self, mask=None):
+        """segment into connected componnets""" 
+        if mask is None:
+            mask = pf.fgmask(self.img, 50, 255, True)
+        label_im, num_labels = ndimage.label(mask)
+        temp = os.path.splitext(self.imgpath)
+        img_prefix = temp[0]
+#         util.showimages([self.img, mask], self.imgpath)
+        list_of_objs = []
+        for i in range(0, num_labels+1):
+            label_mask = (label_im == i)
+            label_img = self.img.copy()
+            label_img[label_mask==0] = 0
+#             util.showimages([label_img])
+#             label_img, new_mask = pf.croptofg(self.img, label_mask)
+            if (label_img is None):
+                print 'label image is None'
+                continue
+            new_mask = pf.fgmask(label_img, 50, 255, True)
+            (tlx2, tly2, brx2, bry2) = pf.fgbbox(new_mask)
+            label_img = pf.cropimage(label_img, tlx2, tly2, brx2, bry2)
+            if (tlx2 < 0):
+                continue
+            label_imgpath = img_prefix + "_%03i" %i + ".png"
+            print label_imgpath
+            cv2.imwrite(label_imgpath, label_img)
+            label_obj = VisualObject(label_img, label_imgpath, self.start_fid, self.end_fid, self.tlx + tlx2, self.tly + tly2, self.tlx + brx2, self.tly + bry2)
+            list_of_objs.append(label_obj)
+#             util.showimages([label_obj.img], "segment_cc new image %i" %i)
+        return list_of_objs
         
 if __name__ == "__main__":
     objdirpath = sys.argv[1]
     objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
     VisualObject.group(objs_in_panorama)
+    
     

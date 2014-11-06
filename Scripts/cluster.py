@@ -14,7 +14,7 @@ def meanshift_visobjs(list_of_visobjs, ctlx, cbrx, ctly, cbry, cstart, cend, w, 
         y = ctly * visobj.tly + cbry * visobj.bry
         fid = cstart*visobj.start_fid + cend*visobj.end_fid
         
-        data.append((x/w, y/h, fid/nframes))
+        data.append((x*w, y*h, fid*nframes))
         
     labels, cluster_centers = meanshift.cluster(np.array(data))
         

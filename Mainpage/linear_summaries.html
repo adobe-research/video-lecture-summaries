@@ -10,6 +10,9 @@
                 <h1> Method</h1>
             </td>
             <td>
+                <h2>Handmade Summary</h2>
+            </td>
+            <td>
                 <h2>No clustering</h2>
                 <ol>
                     <li>Segment video in time:
@@ -30,65 +33,137 @@
                     <li>Vertically layout clustered object and sentences according to starting time</li>
                 </ol>
             </td>
+            <td>
+                <h2>Finer Segmentation</h2>
+                <ol>
+                    <li>Remove mouse pointer, count foreground pixel in each frame</li>
+                    <li>Draw start when current foreground pixel > maximum foreground pixel up to now </li>
+                    <li>Draw end when current foreground pixel = previous foreground pixel</li>
+                    <li>Segment using draw start and draw end time</li>
+                </ol>
+            </td>
+            
+            <td>
+                <h2>Finer Segmentation + <br> Y-pos clustering</h2>
+                <ol>
+                    <li>Cluster objects <b>by y-position</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> Time clustering</h2>
+                <ol>
+                    <li>Cluster objects <b>by time</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>TODO</h2>
+                <ol>
+                    <li>Remove logo from initial frame</li>
+                    <li><strike>In case, frame contains multiple objects, segment into connected components </strike></li>
+                    <li>Remove detection at scrolling events</li>
+                </ol>
+            </td>
         </tr>
         <tr>
             <td><h1>Khan 1</h1></td>
+            <td><a href="khan1_handmade_summary.html">Handmade Summary</a></td>
             <td><a href="..\SampleVideos\more\khan1\khan1_framediff_objs_threshold_200/negate\khan1_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan1\khan1_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 2</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="..\SampleVideos\more\khan2\khan2_framediff_objs_threshold_200/negate\khan2_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan2\khan2_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 3</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="..\SampleVideos\more\khan3\khan3_framediff_objs_threshold_200/negate\khan3_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan3\khan3_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 4</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/khan4/khan4_framediff_objs_threshold_200/negate/khan4_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan4\khan4_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 5</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/khan5/khan5_framediff_objs_threshold_200/negate/khan5_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan5\khan5_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 6</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/khan6/khan6_framediff_objs_threshold_200/negate/khan6_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan6\khan6_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 7</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/khan7/khan7_framediff_objs_threshold_200/negate/khan7_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan7\khan7_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 8</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/khan8/khan8_framediff_objs_threshold_200/negate/khan8_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan8\khan8_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Khan 9</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/khan9/khan9_framediff_objs_threshold_200/negate/khan9_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\khan9\khan9_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
         
         <tr>
             <td><h1>Big bang</h1></td>
+            <td><a href="">Handmade Summary</a></td>
             <td><a href="../SampleVideos/more/bigbang/bigbang_khan_framediff_objs_threshold_200/negate/bigbang_khan_obj_stc_linear.html">No clustering</a></td>
             <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Y-pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Finer Segmentation + <br> Y-Pos clustering</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\tcluster_stc_linear.html">Finer Segmentation + <br> Time clustering</a></td>
         </tr>
             
     </table>

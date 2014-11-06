@@ -186,19 +186,35 @@ def objs():
     outfile = sys.argv[3]
     panorama = cv2.imread(panoramapath)
     objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
-    
+    print 'num objects', len(objs_in_panorama)
     panorama_copy = np.ones(panorama.shape)*255
     colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100), (255, 200, 200), (0,100,0), (100,0,0), (51, 255, 255)]
     for i in range(0, len(objs_in_panorama)):
         obj = objs_in_panorama[i]
+        if (obj.img is None):
+            continue
         col = colors[i%len(colors)]
         mask = pf.fgmask(obj.img, 50, 255, True)
         fitmask = pf.fit_mask_to_img(panorama_copy, mask, obj.tlx, obj.tly)
-        idx = fitmask != 0
+        idx = (fitmask != 0 )
+#         temp = panorama_copy.copy()
         panorama_copy[idx] = col
+#         panorama_copy = cv2.min(temp, panorama_copy)
     cv2.imwrite(outfile, panorama_copy)
 
-    
+def draw_clusters(panorama, list_of_objs, labels):
+    panorama_copy = np.ones(panorama.shape)*255
+    colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100), (255, 200, 200), (0,100,0), (100,0,0), (51, 255, 255)] 
+    for i in range(0, len(list_of_objs)):
+        obj = list_of_objs[i]
+        k = labels[i]
+        col = colors[k%len(colors)]
+        tl = (obj.tlx, obj.tly)
+        mask = pf.fgmask(obj.img)
+        fitmask = pf.fit_mask_to_img(panorama_copy, mask, tl[0], tl[1])
+        idx = fitmask != 0
+        panorama_copy[idx] = col
+    return panorama_copy
     
 if __name__ == "__main__":
     objs()

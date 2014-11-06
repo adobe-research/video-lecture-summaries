@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import cv2
 import sys
 from video import Video
+from visualobjects import VisualObject
 
 def read_fgpixel(fgpixel_txt):
     numfg = util.stringlist_from_txt(fgpixel_txt)
@@ -76,23 +77,39 @@ def get_object_start_end_frames(numfg, video, outfile=None):
 def getobjects(video, object_fids, panorama, objdir):
     if not os.path.exists(os.path.abspath(objdir)):
         os.makedirs(os.path.abspath(objdir))
-    objinfo = open(objdir + "/obj_info.txt", "w")
-    objinfo.write("start_fid \t end_fid \t tlx \t tly \t brx \t bry\t filename\n")
     
     end_fids = [0]
     start_fids = [0]
     for fids in object_fids:
         start_fids.append(fids[0])
         end_fids.append(fids[1])
-        
+    print start_fids
+    print end_fids
     keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     prevframe = np.zeros((video.height, video.width, 3), dtype=np.uint8)
     
+    list_of_objs = []
     i = 0    
+    prevx = 0 
+    prevy = 0
+    print 'num keyframes', len(keyframes)
     for keyframe in keyframes:
         prev_id = start_fids[i]
         cur_id = end_fids[i]
-        diff_frame = cv2.absdiff(keyframe.frame, prevframe)
+        
+        """get scroll position"""
+        topleft = pf.find_object_exact_inside(panorama, keyframe.frame, threshold=-1)
+        curx = topleft[0]
+        cury = topleft[1]
+        curh, curw = keyframe.frame.shape[:2]
+        
+        diff_frame = keyframe.frame.copy()
+        curframe_overlap = diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] 
+        prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
+#         print 'curframe_overlap.shape', curframe_overlap.shape
+#         print 'prevframe_overlap.shape', prevframe_overlap.shape
+        diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
+#         diff_frame = cv2.absdiff(keyframe.frame, prevframe)
         obj_frame = cv2.min(diff_frame, keyframe.frame)
         obj_mask = pf.fgmask(obj_frame, 50, 255, True)
         obj_bbox = pf.fgbbox(obj_mask)
@@ -100,27 +117,37 @@ def getobjects(video, object_fids, panorama, objdir):
             continue
         obj_crop = pf.cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
 
-        topleft = pf.find_object_exact_inside(panorama, keyframe.frame, threshold=-1)
-        curx = topleft[0]
-        cury = topleft[1]
-         
-        objimgname = "obj_%06i_%06i.png" %(prev_id, cur_id)
-        util.saveimage(obj_crop, objdir, objimgname)
-        
-        objinfo.write("%i\t%i\t%i\t%i\t%i\t%i\t%s\n" %(start_fids[i], end_fids[i], obj_bbox[0]+curx, obj_bbox[1]+cury, obj_bbox[2]+curx, obj_bbox[3]+cury, objimgname ))
+        print 'curx, cury', curx, cury
+#         util.showimages([diff_frame], "diff frame")
+        if (curx == prevx and cury == prevy) or i == 0:
+            """if not a scroll event"""
+            objimgname = "obj_%06i_%06i.png" %(prev_id, cur_id)
+            util.saveimage(obj_crop, objdir, objimgname)
+            visobj = VisualObject(obj_crop, objdir + "/" + objimgname, start_fids[i], end_fids[i], obj_bbox[0]+curx, obj_bbox[1]+cury, obj_bbox[2]+curx, obj_bbox[3]+cury)
+            visobj_segmented = visobj.segment_cc()
+            list_of_objs = list_of_objs + visobj_segmented
+        else:
+            print 'This is a scroll event', curx, cury
+            util.showimages([keyframe.frame, prevframe, diff_frame])
         prevframe = keyframe.frame
         i += 1
-    objinfo.close()
+        prevx = curx
+        prevy = cury
+    
+    objinfopath = objdir + "/obj_info.txt"
+    VisualObject.write_to_file(objinfopath, list_of_objs)
+    return list_of_objs
     
     
 if __name__ == "__main__":   
     videopath = sys.argv[1]
     video = Video(videopath)
     
-    objfidspath = video.videoname + "_obj_fids.txt"
+    
+    objfidspath = sys.argv[2]
     object_fids = read_obj_fids(objfidspath)
     
-    panoramapath = sys.argv[2]
+    panoramapath = sys.argv[3]
     panorama = cv2.imread(panoramapath)
     getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs")
    

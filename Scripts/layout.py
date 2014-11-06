@@ -16,6 +16,7 @@ import operator
 from visualobjects import VisualObject
 from writehtml import WriteHtml
 import cluster
+import panorama_object
 
 def layout_words_on_cursor_path():
     videopath = sys.argv[1]
@@ -166,6 +167,7 @@ def layout_line_by_line(objs_by_time):
 def layout_objects_html(list_of_objs, html):
     for obj in list_of_objs:
         html.opendiv()
+        html.writestring("start_fid: " + str(obj.start_fid))
         if obj.istext:
             html.pragraph_string(obj.text)
         else:
@@ -197,9 +199,13 @@ if __name__ == "__main__":
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
+    panoramapath = sys.argv[4]
     
     lec = Lecture(videopath, scriptpath)
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
+    
+    test_objs = img_objs[0].segment_cc()
+    
     txt_objs = VisualObject.objs_from_transcript(lec)
     
     
@@ -207,6 +213,11 @@ if __name__ == "__main__":
     
     labels_unique = np.unique(labels)
     n_clusters = len(labels_unique)
+    
+    panorama = cv2.imread(panoramapath)
+    panorama_cluster = panorama_object.draw_clusters(panorama, img_objs, labels)
+    outfile = objdir + "/" + "ycluster_panorama.png"
+    cv2.imwrite(outfile, panorama_cluster)
     
     list_of_clusters = [[] for x in range(n_clusters)]
     for i in range(0, len(img_objs)):
@@ -221,12 +232,18 @@ if __name__ == "__main__":
     vis_objs = img_cluster_objs + txt_objs
     sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
     
-    html = WriteHtml(objdir + "/" + "ycluster_stc_linear.html", "Objects clustered by y-pos", stylesheet="../Mainpage/summaries.css")
+    html = WriteHtml(objdir + "/" + "ycluster_stc_linear.html", "Objects clustered by y", stylesheet="../Mainpage/summaries.css")
+    html.image(outfile, idstring="panorama_cluster")
     html.opendiv(idstring="summary-container")
     html.writestring("<h1>" + lec.video.videoname + "</h1>")
     layout_objects_html(sorted_vis_objs, html)
     html.closediv()
     html.closehtml()
+    
+    panorama = cv2.imread(panoramapath)
+    panorama_cluster = panorama_object.draw_clusters(panorama, img_objs, labels)
+    outfile = objdir + "/" + "ycluster_panorama.png"
+    cv2.imwrite(outfile, panorama_cluster)
     
     
         

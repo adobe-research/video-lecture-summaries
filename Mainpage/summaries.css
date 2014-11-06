@@ -14,9 +14,13 @@ div {
     position: relative;
     margin-top: 5px;
     vertical-align:middle;
-    padding: 1em
+    margin-left: 5px;
 }
 
 p {
     margin: 0;    
+}
+
+#panorama_cluster {
+    max-width: 80%;
 }

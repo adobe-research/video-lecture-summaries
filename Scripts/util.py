@@ -51,6 +51,7 @@ def stringlist_from_txt(filepath):
 
 def list_of_vecs_from_txt(filepath, n=None):
     txtfile = open(filepath, "r")
+    
     list_of_vecs = []
     for line in txtfile:
         values = line.split()
@@ -101,11 +102,15 @@ def boxarea(box):
         return (box[2] - box[0]) * (box[3] - box[1])
 
 def showimages(list_of_images, title="show images"):
+    if list_of_images is None:
+        return
     htotal = 0
     wtotal = 0
     hmax = 0
     wmax = 0
     for img in list_of_images:
+        if img is None:
+            continue
         h, w = img.shape[:2]
         htotal += h
         wtotal += w
@@ -115,6 +120,8 @@ def showimages(list_of_images, title="show images"):
     view = sp.zeros((hmax, wtotal, 3), sp.uint8)
     curw = 0
     for img in list_of_images:
+        if img is None:
+            continue
         h,w = img.shape[:2]
         if (len(img.shape) == 2):
             view[:h,curw:curw+w, 0] = img
@@ -125,6 +132,8 @@ def showimages(list_of_images, title="show images"):
             view[:h,curw:curw+w, 1] = img[:,:,1]
             view[:h,curw:curw+w, 2] = img[:,:,2]
         curw = curw+w
+    if hmax == 0 or wtotal == 0:
+        return
     cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
     cv2.imshow(title, view)
     cv2.waitKey()
@@ -133,7 +142,7 @@ def saveimage(img, outdir, filename):
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
     cv2.imwrite(outdir + "/" + filename, img)
-
+    
 
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  

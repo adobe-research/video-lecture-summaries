@@ -134,8 +134,8 @@ def subtractlogo(frame, logo, color=None):
     if color is None:
         frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
     else:
-        logomask = fgmask(logo)
-        logomask = cv2.bitwise_not(logomask)
+        logomask = fgmask(logo, 50, 255, True)
+#         logomask = cv2.bitwise_not(logomask)
         logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
 #         util.showimages([logomask], "logomask")
         frame_copy[logomask != 0] = color
@@ -501,10 +501,10 @@ def croptofg(fgimg, fgmask):
     if (tlx == -1 or brx - tlx == 0 or bry - tly == 0):  # nothing new in this image
         return None, None
     h, w = fgimg.shape[0:2]
-    tlx = int(max(0, tlx - 10))
-    tly = int(max(0, tly - 10))
-    brx = int(min(brx + 10, w))
-    bry = int(min(bry + 10, h))
+#     tlx = int(max(0, tlx - 10))
+#     tly = int(max(0, tly - 10))
+#     brx = int(min(brx + 10, w))
+#     bry = int(min(bry + 10, h))
     newobj = cropimage(fgimg, tlx, tly, brx, bry)
     newobjmask = cropimage(fgmask, tlx, tly, brx, bry)
     return newobj, newobjmask
@@ -541,7 +541,7 @@ def bgfill(img, tlx, tly, brx, bry):
     return fill_img
 
 def cropimage(img, tlx, tly, brx, bry):
-    img2 = img[tly:bry, tlx:brx]
+    img2 = img[tly:bry+1, tlx:brx+1]
     return img2
 
 def numfgpix_mit(gray_frame):

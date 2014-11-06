@@ -1,10 +1,9 @@
-#python fgpixel_segmentation.py ../SampleVideos/more/khan1/khan1_removelogo.avi ../SampleVideos/more/khan1/khan1_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan2/khan2_removelogo.avi ../SampleVideos/more/khan2/khan2_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan3/khan3_removelogo.avi ../SampleVideos/more/khan3/khan3_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan4/khan4_removelogo.avi ../SampleVideos/more/khan4/khan4_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan5/khan5_removelogo.avi ../SampleVideos/more/khan5/khan5_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan6/khan6_removelogo.avi ../SampleVideos/more/khan6/khan6_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan7/khan7_removelogo.avi ../SampleVideos/more/khan7/khan7_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan8/khan8_removelogo.avi ../SampleVideos/more/khan8/khan8_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/khan9/khan9_removelogo.avi ../SampleVideos/more/khan9/khan9_panorama/panorama.png
-python fgpixel_segmentation.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo.avi ../SampleVideos/more/bigbang/bigbang_khan_panorama/panorama.png
+python panorama_object.py ../SampleVideos/more/khan1/khan1_panorama/panorama.png ../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs/ ../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs/obj_hl.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan3/khan3_removelogo.avi ../SampleVideos/more/khan3/khan3_removelogo_obj_fids.txt ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan4/khan4_removelogo.avi ../SampleVideos/more/khan4/khan4_removelogo_obj_fids.txt ../SampleVideos/more/khan4/khan4_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan5/khan5_removelogo.avi ../SampleVideos/more/khan5/khan5_removelogo_obj_fids.txt ../SampleVideos/more/khan5/khan5_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan6/khan6_removelogo.avi ../SampleVideos/more/khan6/khan6_removelogo_obj_fids.txt ../SampleVideos/more/khan6/khan6_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan7/khan7_removelogo.avi ../SampleVideos/more/khan7/khan7_removelogo_obj_fids.txt ../SampleVideos/more/khan7/khan7_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan8/khan8_removelogo.avi ../SampleVideos/more/khan8/khan8_removelogo_obj_fids.txt ../SampleVideos/more/khan8/khan8_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/khan9/khan9_removelogo.avi ../SampleVideos/more/khan9/khan9_removelogo_obj_fids.txt ../SampleVideos/more/khan9/khan9_panorama/negate/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo.avi ../SampleVideos/more/bigbang/bigbang_khan_removelogo_obj_fids.txt ../SampleVideos/more/bigbang/bigbang_khan_panorama/negate/panorama.png

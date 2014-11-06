@@ -46,7 +46,9 @@ def fromvideo(video, logos, color):
         fid += 1
         if (frame == None):
             break
-        frame = pf.subtractlogo(frame, logos[0], color)
+#         util.showimages([frame], "before logo subtraction")
+        frame = pf.subtractlogo(frame, logos[1], color)
+#         util.showimages([frame], "after, logo subtraction")
         out.write(frame)
     cap.release()
     out.release()
