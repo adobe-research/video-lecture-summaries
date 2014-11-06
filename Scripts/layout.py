@@ -167,7 +167,6 @@ def layout_line_by_line(objs_by_time):
 def layout_objects_html(list_of_objs, html):
     for obj in list_of_objs:
         html.opendiv()
-        html.writestring("start_fid: " + str(obj.start_fid))
         if obj.istext:
             html.pragraph_string(obj.text)
         else:
@@ -207,16 +206,18 @@ if __name__ == "__main__":
     test_objs = img_objs[0].segment_cc()
     
     txt_objs = VisualObject.objs_from_transcript(lec)
+    width = lec.video.width
+    height = lec.video.height
+    nframes = lec.video.numframes
     
-    
-    labels, cluster_centers = cluster.meanshift_visobjs(img_objs, 0, 0, 0.5, 0.5, 0, 0, 1, 1, 1) 
+    labels, cluster_centers = cluster.meanshift_visobjs(img_objs, 0, 0, 0, 1.0, 0, 0, 1.0, 1.0, 1.0) 
     
     labels_unique = np.unique(labels)
     n_clusters = len(labels_unique)
     
     panorama = cv2.imread(panoramapath)
     panorama_cluster = panorama_object.draw_clusters(panorama, img_objs, labels)
-    outfile = objdir + "/" + "ycluster_panorama.png"
+    outfile = objdir + "/" + "bry_cluster_panorama.png"
     cv2.imwrite(outfile, panorama_cluster)
     
     list_of_clusters = [[] for x in range(n_clusters)]
@@ -232,7 +233,7 @@ if __name__ == "__main__":
     vis_objs = img_cluster_objs + txt_objs
     sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
     
-    html = WriteHtml(objdir + "/" + "ycluster_stc_linear.html", "Objects clustered by y", stylesheet="../Mainpage/summaries.css")
+    html = WriteHtml(objdir + "/" + "bry_cluster_stc_linear.html", "Objects clustered by bry", stylesheet="../Mainpage/summaries.css")
     html.image(outfile, idstring="panorama_cluster")
     html.opendiv(idstring="summary-container")
     html.writestring("<h1>" + lec.video.videoname + "</h1>")
@@ -242,7 +243,7 @@ if __name__ == "__main__":
     
     panorama = cv2.imread(panoramapath)
     panorama_cluster = panorama_object.draw_clusters(panorama, img_objs, labels)
-    outfile = objdir + "/" + "ycluster_panorama.png"
+    outfile = objdir + "/" + "bry_cluster_panorama.png"
     cv2.imwrite(outfile, panorama_cluster)
     
     

@@ -383,6 +383,7 @@ def find_object_exact_inside(img, template, threshold=0.90):
 #     cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
 #     util.showimages([img_copy, template])
     """threshold khan = 0.75, tecmath = 0.25 """   
+#     print max_val
     if (max_val < threshold):
 # #         print max_val
 # #         util.showimages([img])        

@@ -1,4 +1,4 @@
-#python layout.py ../SampleVideos/more/khan1/khan1_removelogo.avi ../alignments/khan1.json ../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs/negate ../SampleVideos/more/khan1/khan1_panorama/negate/panorama.png
+python layout.py ../SampleVideos/more/khan1/khan1_removelogo.avi ../alignments/khan1.json ../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs/negate ../SampleVideos/more/khan1/khan1_panorama/negate/panorama.png
 python layout.py ../SampleVideos/more/khan2/khan2_removelogo.avi ../alignments/khan2.json ../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/negate ../SampleVideos/more/khan2/khan2_panorama/negate/panorama.png
 python layout.py ../SampleVideos/more/khan3/khan3_removelogo.avi ../alignments/khan3.json ../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs/negate ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png
 python layout.py ../SampleVideos/more/khan4/khan4_removelogo.avi ../alignments/khan4.json ../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs/negate ../SampleVideos/more/khan4/khan4_panorama/negate/panorama.png

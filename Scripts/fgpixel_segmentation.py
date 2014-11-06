@@ -83,57 +83,59 @@ def getobjects(video, object_fids, panorama, objdir):
     for fids in object_fids:
         start_fids.append(fids[0])
         end_fids.append(fids[1])
-    print start_fids
-    print end_fids
+    
     keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     prevframe = np.zeros((video.height, video.width, 3), dtype=np.uint8)
-    
+     
     list_of_objs = []
     i = 0    
     prevx = 0 
     prevy = 0
-    print 'num keyframes', len(keyframes)
     for keyframe in keyframes:
         prev_id = start_fids[i]
         cur_id = end_fids[i]
-        
-        """get scroll position"""
+         
+        """get relative scroll position from previous frame"""
         topleft = pf.find_object_exact_inside(panorama, keyframe.frame, threshold=-1)
         curx = topleft[0]
         cury = topleft[1]
+        curx = curx-prevx
+        cury = cury-prevy
+
         curh, curw = keyframe.frame.shape[:2]
-        
+         
         diff_frame = keyframe.frame.copy()
         curframe_overlap = diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] 
         prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
-#         print 'curframe_overlap.shape', curframe_overlap.shape
-#         print 'prevframe_overlap.shape', prevframe_overlap.shape
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
-#         diff_frame = cv2.absdiff(keyframe.frame, prevframe)
+        
+#         print 'curx, cury', curx, cury
+
         obj_frame = cv2.min(diff_frame, keyframe.frame)
         obj_mask = pf.fgmask(obj_frame, 50, 255, True)
         obj_bbox = pf.fgbbox(obj_mask)
         if (obj_bbox[0] < 0 or obj_bbox[2]-obj_bbox[0] == 0 or obj_bbox[3] - obj_bbox[1] == 0):
+            i += 1
+            prevx = topleft[0]
+            prevy = topleft[1]
+            prevframe = keyframe.frame
             continue
         obj_crop = pf.cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
-
-        print 'curx, cury', curx, cury
+ 
+#         print 'curx, cury', curx, cury
 #         util.showimages([diff_frame], "diff frame")
-        if (curx == prevx and cury == prevy) or i == 0:
-            """if not a scroll event"""
-            objimgname = "obj_%06i_%06i.png" %(prev_id, cur_id)
-            util.saveimage(obj_crop, objdir, objimgname)
-            visobj = VisualObject(obj_crop, objdir + "/" + objimgname, start_fids[i], end_fids[i], obj_bbox[0]+curx, obj_bbox[1]+cury, obj_bbox[2]+curx, obj_bbox[3]+cury)
-            visobj_segmented = visobj.segment_cc()
-            list_of_objs = list_of_objs + visobj_segmented
-        else:
-            print 'This is a scroll event', curx, cury
-            util.showimages([keyframe.frame, prevframe, diff_frame])
+        """if not a scroll event"""
+        objimgname = "obj_%06i_%06i.png" % (prev_id, cur_id)
+#         util.showimages([keyframe.frame, obj_crop], str(start_fids[i]) + " " + str(end_fids[i]) + " " + objimgname)
+        util.saveimage(obj_crop, objdir, objimgname)
+        visobj = VisualObject(obj_crop, objdir + "/" + objimgname, start_fids[i], end_fids[i], obj_bbox[0] + topleft[0], obj_bbox[1] + topleft[1], obj_bbox[2] + topleft[0], obj_bbox[3] + topleft[1])
+        visobj_segmented = visobj.segment_cc()
+        list_of_objs = list_of_objs + visobj_segmented
         prevframe = keyframe.frame
         i += 1
-        prevx = curx
-        prevy = cury
-    
+        prevx = topleft[0]
+        prevy = topleft[1]
+     
     objinfopath = objdir + "/obj_info.txt"
     VisualObject.write_to_file(objinfopath, list_of_objs)
     return list_of_objs
