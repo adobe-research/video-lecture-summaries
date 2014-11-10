@@ -79,7 +79,7 @@ if __name__ == "__main__":
     counts = compute(pv, None)
    
     """Write to file"""
-    framedifftxt = pv.videoname + "_framediff_new.txt"
+    framedifftxt = pv.videoname + "_framediff.txt"
     write(counts, framedifftxt) 
     
     """Read frame difference"""
@@ -89,4 +89,4 @@ if __name__ == "__main__":
     
     """Smooth and Sub-sample 1 frame per second"""
     plotpersec(counts, pv.framerate, pv.videoname + "_framediff_persec.png")
-    plotperframe(counts, pv.videoname + "_framediff_perframe_new.png")
+    plotperframe(counts, pv.videoname + "_framediff_perframe.png")

@@ -134,7 +134,7 @@ def subtractlogo(frame, logo, color=None):
     if color is None:
         frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
     else:
-        logomask = fgmask(logo, 50, 255, True)
+        logomask = fgmask(logo, 25, 255, True)
 #         logomask = cv2.bitwise_not(logomask)
         logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
 #         util.showimages([logomask], "logomask")
@@ -316,6 +316,8 @@ def find_object_appx_thres(img, obj, thres=None):
     
     if (thres==None):
         thres_param = 0.5
+    else:
+        thres_param = thres
         thres_dist = (sum(dist) / len(dist)) * thres_param
         good_matches = [m for m in matches if m.distance < thres_dist]
     
@@ -566,7 +568,8 @@ def removebg_khan(gray_frame):
     return dest
 
 def numfgpix_thresh(gray, fgthres):
-    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY)
+    #ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
+    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
     numfg = np.count_nonzero(threshimg)
     logging.debug("#fg pix %i", numfg)
 #     util.showimages([threshimg], "processframe::numfgpix_thres")
@@ -640,8 +643,10 @@ def stitch_images(previmage, curimage):
   (curh, curw) = curimage.shape[:2]
   (prevh, prevw) = previmage.shape[:2]
   
-  M = find_object_appx_thres(previmage_gray, curimage_gray)
+  M = find_object_appx_thres(previmage_gray, curimage_gray, 0.9)
+  print M 
   if not isgoodmatch(M):
+        print "M is not a good match"
         tx = 0.0
         ty = prevh
         M = np.array([[1.0, 0.0, tx], [0.0, 1.0, ty], [0.0, 0.0, 1.0]])
@@ -669,6 +674,7 @@ def panorama(list_of_frames):
   for i in range(1, len(list_of_frames)):
     print "%i of %i" % (i, len(list_of_frames))
     curimage = list_of_frames[i]
+    util.showimages([previmage], "pf::panorama, previmage")
     previmage = stitch_images(previmage, curimage)    
   return previmage
 

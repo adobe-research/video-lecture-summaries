@@ -1,0 +1,990 @@
+1
+
+
+2
+
+In this segment we
+develop some consequences
+
+3
+
+of the independence
+assumption that we
+
+4
+
+have made on the trials that
+constitute a Bernoulli process.
+
+5
+
+These properties will
+be pretty intuitive,
+
+6
+
+but they play an important role.
+
+7
+
+They're helpful in
+solving problems,
+
+8
+
+and they're also quite
+helpful in understanding
+
+9
+
+the continuous time version of
+the Bernoulli process, namely
+
+10
+
+the Poisson process that
+we will be studying later.
+
+11
+
+So here's the story.
+
+12
+
+We start with a
+Bernoulli processes
+
+13
+
+with some parameter p.
+
+14
+
+
+15
+
+The process starts.
+
+16
+
+A friend of yours
+watches the processes,
+
+17
+
+and they observe the results
+of the different trials,
+
+18
+
+let's say for five time steps.
+
+19
+
+And at this time,
+right after time five,
+
+20
+
+they call you into
+the room, and you
+
+21
+
+start watching the
+rest of the process.
+
+22
+
+What will you see?
+
+23
+
+The first random variable
+that you will see
+
+24
+
+is the result of whatever
+happens in this time
+
+25
+
+slot, which is the sixth
+slot of the original process.
+
+26
+
+The second random
+variable that you will see
+
+27
+
+is the result of the
+seventh random variable
+
+28
+
+in the original
+process, and so on.
+
+29
+
+So the process
+that you get to see
+
+30
+
+is the process
+Yi, where i ranges
+
+31
+
+over the non-negative integers.
+
+32
+
+What properties does
+this process have?
+
+33
+
+Because of the assumption
+that the different trials are
+
+34
+
+independent, this means
+that the first five trials
+
+35
+
+are independent from the trials
+that happen after time five.
+
+36
+
+So one property is
+that the process
+
+37
+
+is Yi is independent
+of whatever happens
+
+38
+
+in the past, which
+is X1 up to X5.
+
+39
+
+Second, the random variable
+that you see, X6, X7, and so on,
+
+40
+
+are independent Bernoulli random
+variables with parameter p.
+
+41
+
+So the random variables
+Yi constitute also
+
+42
+
+a Bernoulli process
+with parameter p.
+
+43
+
+So the process that
+you get to see,
+
+44
+
+which is the sequence of
+trials after time five,
+
+45
+
+is identical, probabilistically,
+to a Bernoulli process
+
+46
+
+with parameter p
+like the process Xi.
+
+47
+
+So it's as if a Bernoulli
+process was just
+
+48
+
+starting fresh at
+this particular time.
+
+49
+
+And because of this,
+we say that the process
+
+50
+
+has a fresh-start property
+after a certain time.
+
+51
+
+In this example, we used
+5 as the certain time,
+
+52
+
+but instead of 5, we could
+have any particular integer
+
+53
+
+little n, in which case
+our process Y1 starts
+
+54
+
+with Xn plus 1, continues
+with Xn plus 2 and so on.
+
+55
+
+And here, instead of X5,
+we would have written Xn.
+
+56
+
+So after a deterministic
+time n, what you see
+
+57
+
+is the same as if we had
+a Bernoulli process that
+
+58
+
+was starting fresh at
+this particular time,
+
+59
+
+and which is also
+independent from whatever
+
+60
+
+happened in the past.
+
+61
+
+Let us now complicate
+the story a little bit.
+
+62
+
+Suppose that your friend
+watches the Bernoulli process,
+
+63
+
+and they keep watching
+it until a success is
+
+64
+
+observed for the first time.
+
+65
+
+Right at that time, they
+call you into the room,
+
+66
+
+and you started watching
+the rest of the process.
+
+67
+
+This is the length
+of time that we
+
+68
+
+have called T1, the number of
+trials until the first success.
+
+69
+
+So what is it that
+you will be watching?
+
+70
+
+The first random variable
+that you will see
+
+71
+
+is what happens
+in slot T1 plus 1.
+
+72
+
+The second random
+variable that you will see
+
+73
+
+is what happened in slot
+T1 plus 2, and so on.
+
+74
+
+And this defines,
+again, a process,
+
+75
+
+the sequence of the
+Yi's This is what
+
+76
+
+you will see starting
+from this particular time.
+
+77
+
+What kind of process is it?
+
+78
+
+Well, these trials
+happened in the past.
+
+79
+
+We know what they were.
+
+80
+
+But no matter what they
+were, the future trials
+
+81
+
+will still be
+independent of the past,
+
+82
+
+and each one of the
+trials will have
+
+83
+
+probability p of
+being a success.
+
+84
+
+So the properties
+that we have, again,
+
+85
+
+is that the trials
+that you see are
+
+86
+
+independent of the
+past, which in this case
+
+87
+
+is everything from
+x1 up to time xT1.
+
+88
+
+And what you see is
+a Bernoulli process.
+
+89
+
+We describe the
+situation by saying
+
+90
+
+that the process starts
+fresh after time T1.
+
+91
+
+And by this, again,
+we mean that if you
+
+92
+
+start watching the process right
+after T1, what you will see
+
+93
+
+will be a Bernoulli
+process which
+
+94
+
+is independent from whatever
+happened in the past.
+
+95
+
+Having just argued
+that the process starts
+
+96
+
+fresh at the time T1
+of the first success,
+
+97
+
+we can now ask why whether
+such a property is also true
+
+98
+
+more generally.
+
+99
+
+That is, if we start watching
+the process at some random time
+
+100
+
+n, will the process
+start fresh at that time?
+
+101
+
+Let us look at some
+additional examples.
+
+102
+
+Suppose that capital N is the
+time of the third success.
+
+103
+
+So your friend watches
+the Bernoulli process,
+
+104
+
+and each time, they say,
+did the third success occur?
+
+105
+
+Not yet.
+
+106
+
+Not yet.
+
+107
+
+Not yet.
+
+108
+
+Not yet.
+
+109
+
+Yes, the third
+success just occurred.
+
+110
+
+And at that time, they
+call you into the room
+
+111
+
+and you start to watching what
+happens from that time on.
+
+112
+
+What will you be seeing?
+
+113
+
+After that time, there will be
+independent Bernoulli trials
+
+114
+
+that take place.
+
+115
+
+And these refer to the future
+of the process, looking at [it]
+
+116
+
+from this particular
+point in time.
+
+117
+
+And the future is
+independent from whatever
+
+118
+
+happened in the past.
+
+119
+
+So what you actually see is,
+indeed, a fresh Bernoulli
+
+120
+
+process that starts
+here and which
+
+121
+
+is independent from the
+random variables that
+
+122
+
+occurred in the past.
+
+123
+
+Let us look at another example.
+
+124
+
+Let capital N be the first time
+that three successes in a row
+
+125
+
+have been recorded.
+
+126
+
+So your friend, again,
+watches the process.
+
+127
+
+And they ask each time, did
+we see three success in a row?
+
+128
+
+Not yet.
+
+129
+
+Not yet.
+
+130
+
+Not yet.
+
+131
+
+Not yet.
+
+132
+
+Not yet.
+
+133
+
+Yes.
+
+134
+
+I just saw three
+successes in a row.
+
+135
+
+And now your friend
+calls you in,
+
+136
+
+and you start
+watching the process
+
+137
+
+from this point in time.
+
+138
+
+By the same argument
+as before, whatever
+
+139
+
+happens in the future is going
+to be Bernoulli trials that
+
+140
+
+are independent from the
+past, so you will, again,
+
+141
+
+have a fresh-start property
+starting from this time.
+
+142
+
+So in both cases,
+formally, what we have
+
+143
+
+is that the process that you get
+to observe starting after time
+
+144
+
+capital N, after the time
+that you're called and asked
+
+145
+
+to start watching,
+what you will see
+
+146
+
+is going to be a sequence of
+independent Bernoulli trials,
+
+147
+
+that is, a Bernoulli process.
+
+148
+
+And this sequence
+of future trials
+
+149
+
+is independent from
+whatever happened
+
+150
+
+in the past of the process.
+
+151
+
+What both of these
+examples have in common
+
+152
+
+is that the random variable
+N, the time at which you're
+
+153
+
+called in, is
+causally determined
+
+154
+
+from the history of the process.
+
+155
+
+What does that mean?
+
+156
+
+It means that somebody
+is watching the process,
+
+157
+
+and at each point in time, based
+on what they have seen so far,
+
+158
+
+they decide whether
+to call you in or not.
+
+159
+
+What would be an example
+of a non-causal time N?
+
+160
+
+Here it is.
+
+161
+
+N could be the time just before
+the first occurrence of 1,
+
+162
+
+1, 1.
+
+163
+
+So in this example here, you
+would be called into the room
+
+164
+
+and start watching at this time.
+
+165
+
+So your friend somehow knows
+that a sequence of 1,1, 1
+
+166
+
+is going to occur and calls
+you just before it happens.
+
+167
+
+How could that be?
+
+168
+
+Well, imagine that the
+Bernoulli process actually
+
+169
+
+was run yesterday.
+
+170
+
+It was recorded in a movie.
+
+171
+
+Your friend has seen
+the movie, so knows
+
+172
+
+everything that's
+going to happen.
+
+173
+
+And so, when the movie
+is replayed today,
+
+174
+
+your friend can call you in
+at this time and tell you,
+
+175
+
+you know, something very
+interesting is about happen.
+
+176
+
+Come in and start watching.
+
+177
+
+Now, what will you be watching?
+
+178
+
+What you will watch will
+be 1, 1, 1, with certainty.
+
+179
+
+You're certain that the first
+three trials that you will see
+
+180
+
+will be 1's.
+
+181
+
+And, well, the subsequent
+one's will be random.
+
+182
+
+But since you know that the
+first three trials will be 1,
+
+183
+
+this means that
+statistically, they're
+
+184
+
+not described by the statistics
+of a Bernoulli process.
+
+185
+
+In a Bernoulli
+process, each trial
+
+186
+
+has a probability of being 1
+and the probability of being 0.
+
+187
+
+But since, in your case,
+you're certain to watch
+
+188
+
+1's in the beginning, this
+means that the random variables
+
+189
+
+that you see do not conform to
+the description of a Bernoulli
+
+190
+
+process.
+
+191
+
+So this is an example in which
+N is not causally determined.
+
+192
+
+
+193
+
+And in this example,
+you do not to get
+
+194
+
+to see a Bernoulli process.
+
+195
+
+We do not have the
+fresh-start property.
+
+196
+
+What happened here is
+more generally true.
+
+197
+
+We do have a fresh-start
+property, but not always.
+
+198
+
+We have it under the assumption
+that the time at which you're
+
+199
+
+asked to start
+watching is determined
+
+200
+
+from the past history of the
+process in some causal manner.
+
+201
+
+This is a general fact that
+can be established rigorously.
+
+202
+
+However we will not go through a
+formal mathematical derivation.
+
+203
+
+The formal argument for
+the most general case
+
+204
+
+involves somewhat tedious
+symbol manipulations
+
+205
+
+that do not provide
+any additional insight.
+
+206
+
+However, the intuition
+behind this result
+
+207
+
+should be fairly clear,
+and we will use it freely
+
+208
+
+whenever we need it.
+
+209

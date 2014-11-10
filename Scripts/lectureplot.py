@@ -22,8 +22,8 @@ def plot_visual_objects(ax, visual_objects):
         ax.broken_barh([(start_fid, dur)], (25, area/dur), facecolor=np.random.rand(3,1))
         ax.set_xlabel('Frames')
         ax.set_ylabel('Visual objects')
- 
-if __name__ == "__main__":    
+     
+def plot_obj_size_time():    
     objfile = sys.argv[1]
     vecs = util.list_of_vecs_from_txt(objfile)
     vecs.pop(0)
@@ -45,4 +45,23 @@ if __name__ == "__main__":
     ax.set_yticklabels(['Stc', 'Figs'])
     ax.set_xlim(0, lecture.video.numframes)
     plt.show()
+    
+def plot_endfid_bry(list_of_objs):
+    bry_data = [obj.bry for obj in list_of_objs]
+    fid_data = [obj.end_fid for obj in list_of_objs]
+    plt.figure(1)
+    plt.plot(fid_data, bry_data, 'o')
+    plt.title("end_fid vs. bry")
+    return plt
+
+if __name__ == "__main__":
+    objdirpath = sys.argv[1]
+    list_of_objs = VisualObject.objs_from_file(None, objdirpath)
+    
+    myplot = plot_endfid_bry(list_of_objs)
+    
+    
+    myplot.savefig(objdirpath + "/end_fid_bry.png")
+    
+    
     

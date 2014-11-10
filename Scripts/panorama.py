@@ -54,7 +54,7 @@ def scroll_stitch_panorama():
     if (len(sys.argv) == 5):
         thres = int(sys.argv[4])
     else:
-        thres = 400000
+        thres = 20000
     
     video = Video(videopath)
     counts = framediff.getcounts(framedifftxt)

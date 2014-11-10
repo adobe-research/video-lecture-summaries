@@ -210,7 +210,7 @@ if __name__ == "__main__":
     height = lec.video.height
     nframes = lec.video.numframes
     
-    labels, cluster_centers = cluster.meanshift_visobjs(img_objs, 0, 0, 0, 1.0, 0, 0, 1.0, 1.0, 1.0) 
+    labels, cluster_centers = cluster.meanshift_visobjs(img_objs, 0, 0, 0, 1.0, 0, 0.0, 1.0, 1.0, 1.0) 
     
     labels_unique = np.unique(labels)
     n_clusters = len(labels_unique)

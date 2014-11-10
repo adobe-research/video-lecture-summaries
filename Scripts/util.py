@@ -8,7 +8,7 @@ import os
 
 def get_logos(dirname):
     logos = []
-    if not os.path.exists(dirname):
+    if dirname is None or not os.path.exists(dirname):
         return logos
     
     filelist = os.listdir(dirname)
