@@ -74,6 +74,30 @@ def get_object_start_end_frames(numfg, video, outfile=None):
     return object_fids
         
 
+def getnewobject(prev_panorama, curframe, curx, cury):
+    h, w = curframe.shape[:2]
+    
+    panorama_overlap = prev_panorama[cury:cury+h, curx:curx+w]
+    diff_frame = cv2.absdiff(curframe, panorama_overlap)
+    diff_frame = np.minimum(diff_frame, curframe)
+    util.showimages([curframe, diff_frame], "new object")
+    obj_mask = pf.fgmask(diff_frame, 50, 255, True)
+    obj_bbox = pf.fgbbox(obj_mask)
+    if (obj_bbox[0] < 0 or obj_bbox[2]-obj_bbox[0] == 0 or obj_bbox[3] - obj_bbox[1] == 0):
+        return None, None
+    else:
+        obj_crop = pf.cropimage(diff_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
+        return obj_bbox, obj_crop
+    
+def update_panorama(prev_panorama, curframe, curx, cury):
+    h, w = curframe.shape[:2]
+    curframe_resize = prev_panorama.copy()
+    curframe_resize[cury:cury + h, curx:curx+w] = curframe
+    prev_panorama = cv2.max(prev_panorama, curframe_resize)
+    util.showimages([prev_panorama])
+    return prev_panorama
+    
+        
 def getobjects(video, object_fids, panorama, objdir):
     if not os.path.exists(os.path.abspath(objdir)):
         os.makedirs(os.path.abspath(objdir))
@@ -91,6 +115,7 @@ def getobjects(video, object_fids, panorama, objdir):
     i = 0    
     prevx = 0 
     prevy = 0
+#     prev_panorama = np.zeros(panorama.shape, dtype=np.uint8)
     for keyframe in keyframes:
         prev_id = start_fids[i]
         cur_id = end_fids[i]
@@ -99,22 +124,26 @@ def getobjects(video, object_fids, panorama, objdir):
         topleft = pf.find_object_exact_inside(panorama, keyframe.frame, threshold=-1)
         curx = topleft[0]
         cury = topleft[1]
+        print 'curx, cury', curx, cury
+#         obj_bbox, obj_crop = getnewobject(prev_panorama, keyframe.frame, curx, cury)
+        
         curx = curx-prevx
         cury = cury-prevy
-
+ 
         curh, curw = keyframe.frame.shape[:2]
-         
+          
         diff_frame = keyframe.frame.copy()
         curframe_overlap = diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] 
         prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
-        
+         
 #         print 'curx, cury', curx, cury
-
+ 
         obj_frame = cv2.min(diff_frame, keyframe.frame)
         obj_mask = pf.fgmask(obj_frame, 50, 255, True)
         obj_bbox = pf.fgbbox(obj_mask)
         if (obj_bbox[0] < 0 or obj_bbox[2]-obj_bbox[0] == 0 or obj_bbox[3] - obj_bbox[1] == 0):
+#         if obj_crop is None:
             i += 1
             prevx = topleft[0]
             prevy = topleft[1]
@@ -132,6 +161,7 @@ def getobjects(video, object_fids, panorama, objdir):
         visobj_segmented = visobj.segment_cc()
         list_of_objs = list_of_objs + visobj_segmented
         prevframe = keyframe.frame
+#         prev_panorama = update_panorama(prev_panorama, keyframe.frame, topleft[0], topleft[1])
         i += 1
         prevx = topleft[0]
         prevy = topleft[1]
