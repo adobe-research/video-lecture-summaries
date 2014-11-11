@@ -33,8 +33,8 @@ def write(labels, outfile):
         txtfile.write("%i\n" % int(l))
     txtfile.close()
 
-def cluster(data):
-    ms = MeanShift()
+def cluster(data, bandwidth):
+    ms = MeanShift(bandwidth=bandwidth)
     ms.fit(data)
     labels = ms.labels_
     cluster_centers = ms.cluster_centers_

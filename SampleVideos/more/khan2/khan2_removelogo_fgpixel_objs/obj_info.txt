@@ -102,6 +102,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1024	1029	349	100	360	111	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001024_001029_001.png
 1024	1029	361	102	367	102	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001024_001029_002.png
 1033	1039	300	57	330	65	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001033_001039_001.png
+1040	1041	321	63	327	63	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001040_001041_001.png
 1131	1146	506	133	520	200	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001131_001146_001.png
 1157	1167	511	156	524	178	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001157_001167_001.png
 1157	1167	502	160	514	180	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001157_001167_002.png
@@ -116,6 +117,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1280	1298	594	159	596	159	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001280_001298_002.png
 1280	1298	603	160	614	176	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001280_001298_003.png
 1280	1298	587	161	600	177	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001280_001298_004.png
+1299	1300	594	160	597	160	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001299_001300_001.png
 1373	1379	838	58	852	83	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001373_001379_001.png
 1381	1394	851	55	870	62	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001381_001394_001.png
 1381	1394	885	62	892	64	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001381_001394_002.png
@@ -131,6 +133,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1406	1413	930	64	948	82	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001406_001413_002.png
 1406	1413	919	68	920	68	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001406_001413_003.png
 1406	1413	923	68	925	68	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001406_001413_004.png
+1414	1415	937	67	942	67	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001414_001415_001.png
 1419	1431	953	50	968	59	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001419_001431_001.png
 1419	1431	958	60	970	78	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001419_001431_002.png
 1434	1438	983	62	997	76	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001434_001438_001.png
@@ -139,6 +142,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1447	1456	1022	64	1024	64	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001447_001456_002.png
 1466	1472	1056	61	1063	82	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001466_001472_001.png
 1473	1475	1051	53	1054	57	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001473_001475_001.png
+1481	1483	1053	52	1053	52	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001481_001483_001.png
 1485	1489	1053	51	1060	58	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001485_001489_001.png
 1485	1489	1053	57	1053	57	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001485_001489_002.png
 1550	1551	929	67	929	71	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001550_001551_001.png
@@ -180,10 +184,13 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1725	1738	1170	129	1178	149	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001725_001738_002.png
 1739	1742	1196	132	1206	157	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001739_001742_001.png
 1743	1746	1196	128	1197	129	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001743_001746_001.png
+1750	1754	1198	110	1198	110	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001750_001754_001.png
 1759	1760	1192	127	1194	130	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001759_001760_001.png
 1759	1760	1197	128	1197	129	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001759_001760_002.png
 1761	1773	1209	102	1226	138	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001761_001773_001.png
 1761	1773	1193	122	1202	128	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001761_001773_002.png
+1775	1779	1135	158	1136	158	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001775_001779_001.png
+1775	1779	1153	158	1153	158	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001775_001779_002.png
 1969	1972	1145	156	1146	156	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001969_001972_001.png
 1969	1972	1135	162	1135	163	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_001969_001972_002.png
 2012	2031	838	88	1059	97	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_002012_002031_001.png
@@ -268,6 +275,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 3167	3172	126	174	126	174	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003167_003172_003.png
 3167	3172	132	174	136	174	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003167_003172_004.png
 3167	3172	126	180	126	184	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003167_003172_005.png
+3173	3179	126	165	126	168	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003173_003179_001.png
 3280	3291	259	188	270	218	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003280_003291_001.png
 3280	3291	272	202	275	211	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003280_003291_002.png
 3294	3332	312	178	312	182	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003294_003332_001.png
@@ -280,6 +288,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 3414	3420	305	188	306	188	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003414_003420_001.png
 3414	3420	318	188	321	188	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003414_003420_002.png
 3414	3420	312	195	312	197	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003414_003420_003.png
+3425	3438	162	204	164	204	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003425_003438_001.png
+3425	3438	170	204	170	204	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003425_003438_002.png
 3474	3483	245	50	261	72	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003474_003483_001.png
 3485	3490	264	63	275	77	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003485_003490_001.png
 3485	3490	257	64	261	64	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003485_003490_002.png
@@ -377,6 +387,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 3696	3703	325	180	325	180	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003696_003703_015.png
 3696	3703	324	181	324	181	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003696_003703_016.png
 3696	3703	323	182	323	182	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003696_003703_017.png
+3724	3734	239	245	239	245	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003724_003734_001.png
+3743	3753	346	293	348	293	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003743_003753_001.png
 3859	3914	194	78	278	109	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003859_003914_001.png
 3859	3914	292	82	292	82	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003859_003914_002.png
 3859	3914	282	83	288	84	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_003859_003914_003.png
@@ -476,6 +488,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 4438	4447	542	352	559	364	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004438_004447_002.png
 4449	4450	552	350	562	359	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004449_004450_001.png
 4449	4450	542	360	552	372	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004449_004450_002.png
+4452	4461	97	152	97	152	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004452_004461_001.png
+4462	4465	95	153	95	153	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004462_004465_001.png
 4508	4538	294	398	565	435	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004508_004538_001.png
 4542	4547	266	216	266	217	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004542_004547_001.png
 4542	4547	261	221	275	239	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_004542_004547_002.png
@@ -522,6 +536,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 5213	5225	855	328	876	346	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005213_005225_002.png
 5227	5228	866	330	877	339	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005227_005228_001.png
 5227	5228	857	340	865	351	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005227_005228_002.png
+5229	5234	818	350	818	354	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005229_005234_001.png
 5254	5257	625	400	631	422	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005254_005257_001.png
 5259	5284	635	395	881	422	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005259_005284_001.png
 5313	5318	731	423	743	450	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005313_005318_001.png
@@ -575,10 +590,12 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 5921	5926	361	525	379	560	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005921_005926_001.png
 5970	5971	392	539	401	543	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005970_005971_001.png
 5972	5973	393	539	405	542	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005972_005973_001.png
+5974	5975	393	543	394	543	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005974_005975_001.png
 5983	5987	428	521	429	522	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005983_005987_001.png
 5983	5987	432	521	439	551	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005983_005987_002.png
 5988	5992	428	518	452	524	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005988_005992_001.png
 5988	5992	437	526	451	533	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005988_005992_002.png
+5993	5994	449	525	451	525	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005993_005994_001.png
 5996	6019	462	513	472	547	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005996_006019_001.png
 5996	6019	509	526	520	544	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005996_006019_002.png
 5996	6019	475	529	491	545	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_005996_006019_003.png
@@ -603,6 +620,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 6138	6153	638	513	654	541	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006138_006153_001.png
 6138	6153	662	518	687	543	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006138_006153_002.png
 6138	6153	663	524	663	524	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006138_006153_003.png
+6192	6193	613	547	613	547	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006192_006193_001.png
+6288	6291	348	541	348	541	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006288_006291_001.png
 6571	6577	710	524	720	526	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006571_006577_001.png
 6571	6577	710	531	724	533	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006571_006577_002.png
 6590	6602	841	481	860	558	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006590_006602_001.png
@@ -613,12 +632,14 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 6678	6685	1156	514	1166	529	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006678_006685_002.png
 6686	6693	1169	512	1184	531	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006686_006693_001.png
 6686	6693	1163	513	1166	513	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006686_006693_002.png
+6738	6743	356	552	356	552	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006738_006743_001.png
 6788	6798	893	501	906	530	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006788_006798_001.png
 6788	6798	873	503	891	530	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006788_006798_002.png
 6788	6798	907	511	917	520	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006788_006798_003.png
 6788	6798	910	522	917	527	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006788_006798_004.png
 6799	6800	913	521	916	521	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006799_006800_001.png
 6799	6800	920	521	926	535	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006799_006800_002.png
+6801	6802	923	528	923	528	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006801_006802_001.png
 6803	6811	929	516	939	526	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006803_006811_001.png
 6803	6811	933	527	941	541	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006803_006811_002.png
 6812	6817	946	524	955	538	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006812_006817_001.png
@@ -630,6 +651,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 6822	6843	952	515	953	515	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006822_006843_003.png
 6822	6843	959	515	969	528	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006822_006843_004.png
 6858	6860	1004	513	1015	516	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006858_006860_001.png
+6862	6863	972	513	972	515	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006862_006863_001.png
 6913	6922	1030	493	1049	500	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006913_006922_001.png
 6913	6922	1032	498	1049	524	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006913_006922_002.png
 6923	6932	1047	497	1049	497	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_006923_006932_001.png
@@ -851,8 +873,11 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 10692	10701	1028	225	1096	248	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010692_010701_001.png
 10692	10701	1023	227	1025	227	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010692_010701_002.png
 10692	10701	1021	228	1021	228	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010692_010701_003.png
+10752	10758	793	656	794	656	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010752_010758_001.png
+10761	10763	794	655	794	655	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010761_010763_001.png
 10764	10765	748	706	750	706	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010764_010765_001.png
 10764	10765	805	709	806	709	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010764_010765_002.png
+10766	10767	804	710	805	710	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010766_010767_001.png
 10891	10893	1	280	4	314	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010891_010893_001.png
 10891	10893	798	738	798	738	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010891_010893_002.png
 10946	10955	997	289	1104	332	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_010946_010955_001.png
@@ -982,6 +1007,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 11210	11218	312	121	324	170	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_011210_011218_005.png
 11210	11218	326	122	336	165	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_011210_011218_006.png
 11210	11218	309	172	312	183	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_011210_011218_007.png
+11224	11228	312	171	312	171	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_011224_011228_001.png
+11224	11228	331	171	331	171	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_011224_011228_002.png
 12161	12163	85	63	86	63	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_012161_012163_001.png
 12161	12163	99	63	100	63	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_012161_012163_002.png
 12161	12163	637	87	701	91	../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/obj_012161_012163_003.png

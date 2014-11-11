@@ -201,6 +201,7 @@ def objs():
         panorama_copy[idx] = col
 #         panorama_copy = cv2.min(temp, panorama_copy)
     cv2.imwrite(outfile, panorama_copy)
+    util.showimages([panorama_copy], outfile)
 
 def draw_clusters(panorama, list_of_objs, labels):
     panorama_copy = np.ones(panorama.shape)*255
@@ -215,6 +216,7 @@ def draw_clusters(panorama, list_of_objs, labels):
         idx = fitmask != 0
         panorama_copy[idx] = col
     return panorama_copy
+
     
 if __name__ == "__main__":
     objs()

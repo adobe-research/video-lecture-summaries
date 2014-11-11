@@ -15,7 +15,7 @@ import cvxopt
 import operator
 from visualobjects import VisualObject
 from writehtml import WriteHtml
-import cluster
+import mycluster
 import panorama_object
 
 def layout_words_on_cursor_path():
@@ -203,49 +203,41 @@ if __name__ == "__main__":
     lec = Lecture(videopath, scriptpath)
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
     
-    test_objs = img_objs[0].segment_cc()
-    
     txt_objs = VisualObject.objs_from_transcript(lec)
     width = lec.video.width
     height = lec.video.height
     nframes = lec.video.numframes
     
-    labels, cluster_centers = cluster.meanshift_visobjs(img_objs, 0, 0, 0, 1.0, 0, 0.0, 1.0, 1.0, 1.0) 
+    lineobjs = mycluster.cluster_by_line(img_objs, 3*VisualObject.avg_height(img_objs))
+    nlines = len(lineobjs)
     
-    labels_unique = np.unique(labels)
+    cluster_objs, cluster_labels  = mycluster.get_labeled_objs(lineobjs)
+    labels_unique = np.unique(cluster_labels)
     n_clusters = len(labels_unique)
     
     panorama = cv2.imread(panoramapath)
-    panorama_cluster = panorama_object.draw_clusters(panorama, img_objs, labels)
-    outfile = objdir + "/" + "bry_cluster_panorama.png"
+   
+    panorama_cluster = panorama_object.draw_clusters(panorama, cluster_objs, cluster_labels)
+     
+    outfile = objdir + "/" + "line_cluster_panorama.png"
     cv2.imwrite(outfile, panorama_cluster)
-    
-    list_of_clusters = [[] for x in range(n_clusters)]
-    for i in range(0, len(img_objs)):
-        list_of_clusters[labels[i]].append(img_objs[i])
-        
+     
     img_cluster_objs = []
     for i in range(n_clusters):
-        vis_obj = VisualObject.group(list_of_clusters[i], objdir)
+        vis_obj = VisualObject.group(lineobjs[i], objdir)
         img_cluster_objs.append(vis_obj)
-    print 'img_clusters', len(img_cluster_objs)
-    print 'txt_objs', len(txt_objs)
+   
     vis_objs = img_cluster_objs + txt_objs
     sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
-    
-    html = WriteHtml(objdir + "/" + "bry_cluster_stc_linear.html", "Objects clustered by bry", stylesheet="../Mainpage/summaries.css")
+     
+    html = WriteHtml(objdir + "/" + "line_cluster_stc_linear.html", "Objects clustered by line", stylesheet="../Mainpage/summaries.css")
     html.image(outfile, idstring="panorama_cluster")
     html.opendiv(idstring="summary-container")
     html.writestring("<h1>" + lec.video.videoname + "</h1>")
     layout_objects_html(sorted_vis_objs, html)
     html.closediv()
     html.closehtml()
-    
-    panorama = cv2.imread(panoramapath)
-    panorama_cluster = panorama_object.draw_clusters(panorama, img_objs, labels)
-    outfile = objdir + "/" + "bry_cluster_panorama.png"
-    cv2.imwrite(outfile, panorama_cluster)
-    
+     
     
         
     
