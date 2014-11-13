@@ -7,7 +7,6 @@ import logging
 from PIL import Image
 import sys
 import scipy as sp
-import cluster
 from itertools import cycle
 import util
 import math
@@ -41,17 +40,17 @@ def importantregion(gray_img, path=None, index=0):
     
     return minx, miny, maxx, maxy
 
-def candidateobjects(image, siftthres=3000):
-    sift = cv2.SIFT(siftthres)
-    kp, d = sift.detectAndCompute(image, None)   
-    
-    points = []
-    for point in kp:
-        points.append(point.pt)
-    
-    n_points = np.array(points)
-    indices, labels = cluster.dbscan(n_points)
-    n_kp = np.array(kp)    
+# def candidateobjects(image, siftthres=3000):
+#     sift = cv2.SIFT(siftthres)
+#     kp, d = sift.detectAndCompute(image, None)   
+#     
+#     points = []
+#     for point in kp:
+#         points.append(point.pt)
+#     
+#     n_points = np.array(points)
+#     indices, labels = cluster.dbscan(n_points)
+#     n_kp = np.array(kp)    
     
     return
 
@@ -143,6 +142,7 @@ def subtractlogo(frame, logo, color=None):
     return frame_copy 
 
 def fgmask(image, threshold=200, var_threshold=255, inv=False):
+    """Mask all above things threshold, below threshold if inv=True"""
 #     if (threshold is None): 
 #         threshold = 225
 #     if (var_threshold is None):

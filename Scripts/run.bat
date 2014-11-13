@@ -1,10 +1,11 @@
-python removelogo.py ../SampleVideos/more/khan1/khan1_removelogo.avi ../SampleVideos/more/khan1/logo ../SampleVideos/more/khan1/
-python removelogo.py ../SampleVideos/more/khan2/khan2_removelogo.avi ../SampleVideos/more/khan2/logo ../SampleVideos/more/khan2/
-python removelogo.py ../SampleVideos/more/khan3/khan3_removelogo.avi ../SampleVideos/more/khan3/logo ../SampleVideos/more/khan3/
-python removelogo.py ../SampleVideos/more/khan4/khan4_removelogo.avi ../SampleVideos/more/khan4/logo ../SampleVideos/more/khan4/
-python removelogo.py ../SampleVideos/more/khan5/khan5_removelogo.avi ../SampleVideos/more/khan5/logo ../SampleVideos/more/khan5/
-python removelogo.py ../SampleVideos/more/khan6/khan6_removelogo.avi ../SampleVideos/more/khan6/logo ../SampleVideos/more/khan6/
-python removelogo.py ../SampleVideos/more/khan7/khan7_removelogo.avi ../SampleVideos/more/khan7/logo ../SampleVideos/more/khan7/
-python removelogo.py ../SampleVideos/more/khan8/khan8_removelogo.avi ../SampleVideos/more/khan8/logo ../SampleVideos/more/khan8/
-python removelogo.py ../SampleVideos/more/khan9/khan9_removelogo.avi ../SampleVideos/more/khan9/logo ../SampleVideos/more/khan9/
-python removelogo.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo.avi ../SampleVideos/more/bigbang/logo ../SampleVideos/more/bigbang/
+python mycluster.py ../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan1/khan1_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan2/khan2_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan3/khan3_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan4/khan4_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan5/khan5_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan6/khan6_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan7/khan7_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan8/khan8_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/khan9/khan9_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/bigbang/bigbang_khan_panorama/panorama.png
+python mycluster.py ../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs/cleanup/negate ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png

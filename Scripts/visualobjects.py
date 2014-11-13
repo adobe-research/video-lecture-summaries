@@ -56,6 +56,7 @@ class VisualObject:
         self.tly = y
         self.bry = self.tly + self.height
         
+        
     @classmethod
     def group(cls, list_of_imgobjs, objdir="temp"):
         min_tlx = sys.maxint
@@ -129,12 +130,9 @@ class VisualObject:
         obj_endts = [obj[1] for obj in obj_info]
         obj_endts = util.strings2ints(obj_endts)
         print len(obj_info)
-#         keyframes = video.capture_keyframes_fid(obj_endts)        
         for i in range(0, len(obj_info)):
             info = obj_info[i]
-#             imgpath = str(info[6])
             imgpath = os.path.basename(str(info[6]))
-#             print 'imgpath', imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
             obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
             obj_list.append(obj)
@@ -178,6 +176,23 @@ class VisualObject:
             list_of_objs.append(label_obj)
 #             util.showimages([label_obj.img], "segment_cc new image %i" %i)
         return list_of_objs
+        
+        
+    @staticmethod
+    def avg_height(list_of_objs):
+        hsize = 0.0
+        for obj in list_of_objs:
+            hsize = hsize + (obj.bry - obj.tly)
+        avg_hsize = hsize/len(list_of_objs)
+        return avg_hsize
+    
+    @staticmethod
+    def avg_duration(list_of_objs):
+        dur = 0.0    
+        for obj in list_of_objs:
+            dur = dur + (obj.end_fid - obj.start_fid)
+        avg_dur = dur/len(list_of_objs)
+        return avg_dur
         
 if __name__ == "__main__":
     objdirpath = sys.argv[1]
