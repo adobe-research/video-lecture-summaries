@@ -1,0 +1,267 @@
+<html>
+    <head>
+        <link href="myresults.css" rel="stylesheet" />
+        <title>Linear Summaries</title>
+    </head>
+    <body>
+    <table>
+        <tr>
+            <td>
+                <h1> Method</h1>
+            </td>
+            <td>
+                <h2>Handmade Summary</h2>
+            </td>
+            <td>
+                <h2>Rough Segmentation</h2>
+                <ol>
+                    <li>Segment video in time:
+                        <ol>
+                            <li> Compute pixel difference between consecutive frames</li>
+                            <li> Diff < Threshold (200) defines draw_start and draw_end time</li>
+                            <li> Diff (frame at draw_start - frame at draw_end) = object
+                        </ol>
+                    </li>
+                    <li>Segment trasncript into sentences with t_start and t_end</li>
+                    <li>Vertially layout objects and sentences according to starting times.</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Y-pos clustering</h2>
+                <ol>
+                    <li>Cluster objects from previous method by y-position of centroid, using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation</h2>
+                <ol>
+                    <li>Remove mouse pointer, count foreground pixel in each frame</li>
+                    <li>Draw start when current foreground pixel > maximum foreground pixel up to now </li>
+                    <li>Draw end when current foreground pixel = previous foreground pixel</li>
+                    <li>Segment using draw start and draw end time</li>
+                </ol>
+            </td>
+            
+            <td>
+                <h2>Finer Segmentation + <br> Center Y-pos clustering</h2>
+                <ol>
+                    <li>Cluster objects <b>by center y pos</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> Bottom Y-pos clustering</h2>
+                <ol>
+                    <li>Cluster objects <b>by bottom y pos</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> Time clustering</h2>
+                <ol>
+                    <li>Cluster objects <b>by draw end time</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> Y-Pos and Time clustering</h2>
+                <ol>
+                    <li>Cluster objects <b>by draw end time + bottom y pos</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> Y-Pos clustering using bandwidth = 2*average height of strokes</h2>
+                <ol>
+                    <li>Cluster objects <b>by bottom y pos</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> end_time clustering using bandwidth = 5*average duration of strokes</h2>
+                <ol>
+                    <li>Cluster objects <b>by end_time</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + Time Gap (Threshold = 5*avg duration of strokes) + Line-by Line clustering</h2>
+                <ol>
+                    <li>If time gap between consecutive strokes > threshold, cluster into separate groups</li>
+                    <li>Cluster groups once again into lines</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                    <li>For each line, show everything that is in the same line and came before</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td><h1>Khan 1</h1></td>
+            <td><a href="khan1_handmade_summary.html">Handmade Summary</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_framediff_objs_threshold_200/negate\khan1_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 2</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_framediff_objs_threshold_200/negate\khan2_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 3</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_framediff_objs_threshold_200/negate\khan3_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 4</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/khan4/khan4_framediff_objs_threshold_200/negate/khan4_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 5</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/khan5/khan5_framediff_objs_threshold_200/negate/khan5_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 6</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/khan6/khan6_framediff_objs_threshold_200/negate/khan6_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 7</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/khan7/khan7_framediff_objs_threshold_200/negate/khan7_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 8</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/khan8/khan8_framediff_objs_threshold_200/negate/khan8_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+        
+        <tr>
+            <td><h1>Khan 9</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/khan9/khan9_framediff_objs_threshold_200/negate/khan9_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+
+        </tr>
+        
+        <tr>
+            <td><h1>Big bang</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="../SampleVideos/more/bigbang/bigbang_khan_framediff_objs_threshold_200/negate/bigbang_khan_obj_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_framediff_objs_threshold_200/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\ycluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\bry_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+            
+
+        <tr>
+            <td><h1>MIT 6.041x 1</h1></td>
+            <td><a href="">Handmade Summary</a></td>
+            <td><a href="">Results</a></td>
+            <td><a href="">Results</a></td>
+            <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/obj_hl.png">Finer Segmentation</a></td>
+            <td><a href="">Results</a></td>
+            <td><a href="">Results</a></td>
+            <td><a href="">Results</a></td>
+            <td><a href="">Results</a>, <a href="">Plot</a></td></td>
+            <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        </tr>
+    </table>
+    </body>
+</html>
