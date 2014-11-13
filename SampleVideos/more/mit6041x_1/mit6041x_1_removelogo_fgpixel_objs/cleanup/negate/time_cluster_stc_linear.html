@@ -1,0 +1,558 @@
+<html>
+<head>
+<link href="../../../../../../Mainpage/summaries.css" rel="stylesheet" />
+<title>Objects clustered by time</title>
+</head>
+<body>
+<img src= "time_cluster_panorama.png" max-width="" usemap="#" id="panorama_cluster" >
+<div id="summary-container" class="">
+<h1>../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo</h1><div id="" class="">
+<img src= "obj_000000_000000.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ In this segment we develop some consequences of the independence assumption that we have made on the trials that constitute a Bernoulli process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ These properties will be pretty intuitive, but they play an important role.
+</p>
+</div>
+<div id="" class="">
+<p>
+ They're helpful in solving problems, and they're also quite helpful in understanding the continuous time version of the Bernoulli process, namely the Poisson process that we will be studying later.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So here's the story.
+</p>
+</div>
+<div id="" class="">
+<p>
+ We start with a Bernoulli processes with some parameter p.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_000825_001003.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ The process starts.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_001012_001287.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ A friend of yours watches the processes, and they observe the results of the different trials, let's say for five time steps.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And at this time, right after time five, they call you into the room, and you start watching the rest of the process.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_001498_001859.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ What will you see? The first random variable that you will see is the result of whatever happens in this time slot, which is the sixth slot of the original process.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_001860_002193.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ The second random variable that you will see is the result of the seventh random variable in the original process, and so on.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_002210_002389.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ So the process that you get to see is the process Yi, where i ranges over the non-negative integers.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_002476_002709.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ What properties does this process have? Because of the assumption that the different trials are independent, this means that the first five trials are independent from the trials that happen after time five.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So one property is that the process is Yi is independent of whatever happens in the past, which is X1 up to X5.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_003125_003351.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_003354_003616.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ Second, the random variable that you see, X6, X7, and so on, are independent Bernoulli random variables with parameter p.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So the random variables Yi constitute also a Bernoulli process with parameter p.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_003915_003920.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_004030_004224.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ So the process that you get to see, which is the sequence of trials after time five, is identical, probabilistically, to a Bernoulli process with parameter p like the process Xi.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So it's as if a Bernoulli process was just starting fresh at this particular time.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And because of this, we say that the process has a fresh-start property after a certain time.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_004849_004850.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_005063_005065.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ In this example, we used 5 as the certain time, but instead of 5, we could have any particular integer little n, in which case our process Y1 starts with Xn plus 1, continues with Xn plus 2 and so on.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_005223_005365.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_005468_005590.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_005597_005769.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ And here, instead of X5, we would have written Xn.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So after a deterministic time n, what you see is the same as if we had a Bernoulli process that was starting fresh at this particular time, and which is also independent from whatever happened in the past.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Let us now complicate the story a little bit.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Suppose that your friend watches the Bernoulli process, and they keep watching it until a success is observed for the first time.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_006397_006628.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ Right at that time, they call you into the room, and you started watching the rest of the process.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_006942_007264.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ This is the length of time that we have called T1, the number of trials until the first success.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So what is it that you will be watching? The first random variable that you will see is what happens in slot T1 plus 1.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_007317_007734.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ The second random variable that you will see is what happened in slot T1 plus 2, and so on.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And this defines, again, a process, the sequence of the Yi's This is what you will see starting from this particular time.
+</p>
+</div>
+<div id="" class="">
+<p>
+ What kind of process is it? Well, these trials happened in the past.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_008153_008164.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ We know what they were.
+</p>
+</div>
+<div id="" class="">
+<p>
+ But no matter what they were, the future trials will still be independent of the past, and each one of the trials will have probability p of being a success.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So the properties that we have, again, is that the trials that you see are independent of the past, which in this case is everything from x1 up to time xT1.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_008635_008804.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_008879_009085.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<img src= "obj_009086_009268.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ And what you see is a Bernoulli process.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_009275_009410.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ We describe the situation by saying that the process starts fresh after time T1.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And by this, again, we mean that if you start watching the process right after T1, what you will see will be a Bernoulli process which is independent from whatever happened in the past.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_009860_009867.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ Having just argued that the process starts of the first success, we can now ask why whether such a property is also true more generally.
+</p>
+</div>
+<div id="" class="">
+<p>
+ That is, if we start watching the process at some random time n, will the process start fresh at that time? Let us look at some additional examples.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Suppose that capital N is the time of the third success.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So your friend watches the Bernoulli process, and each time, they say, did the third success occur? Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Yes, the third success just occurred.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And at that time, they call you into the room and you start to watching what happens from that time on.
+</p>
+</div>
+<div id="" class="">
+<p>
+ What will you be seeing? After that time, there will be independent Bernoulli trials that take place.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And these refer to the future of the process, looking at [it] from this particular point in time.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And the future is independent from whatever happened in the past.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So what you actually see is, indeed, a fresh Bernoulli process that starts here and which is independent from the random variables that occurred in the past.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Let us look at another example.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Let capital N be the first time that three successes in a row have been recorded.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So your friend, again, watches the process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And they ask each time, did we see three success in a row? Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Not yet.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Yes.
+</p>
+</div>
+<div id="" class="">
+<p>
+ I just saw three successes in a row.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And now your friend calls you in, and you start watching the process from this point in time.
+</p>
+</div>
+<div id="" class="">
+<p>
+ By the same argument as before, whatever happens in the future is going to be Bernoulli trials that are independent from the past, so you will, again, have a fresh-start property starting from this time.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So in both cases, formally, what we have is that the process that you get to observe starting after time capital N, after the time that you're called and asked to start watching, what you will see is going to be a sequence of independent Bernoulli trials, that is, a Bernoulli process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And this sequence of future trials is independent from whatever happened in the past of the process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ What both of these examples have in common is that the random variable N, the time at which you're called in, is causally determined from the history of the process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ What does that mean? It means that somebody is watching the process, and at each point in time, based on what they have seen so far, they decide whether to call you in or not.
+</p>
+</div>
+<div id="" class="">
+<p>
+ What would be an example of a non-causal time N? Here it is.
+</p>
+</div>
+<div id="" class="">
+<p>
+ N could be the time just before the first occurrence of 1, 1, 1.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So in this example here, you would be called into the room and start watching at this time.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_016081_016143.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ So your friend somehow knows is going to occur and calls you just before it happens.
+</p>
+</div>
+<div id="" class="">
+<p>
+ How could that be? Well, imagine that the Bernoulli process actually was run yesterday.
+</p>
+</div>
+<div id="" class="">
+<p>
+ It was recorded in a movie.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_016700_016701.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ Your friend has seen the movie, so knows everything that's going to happen.
+</p>
+</div>
+<div id="" class="">
+<p>
+ And so, when the movie is replayed today, your friend can call you in at this time and tell you, you know, something very interesting is about happen.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_017051_017055.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ Come in and start watching.
+</p>
+</div>
+<div id="" class="">
+<p>
+ Now, what will you be watching? What you will watch will be 1, 1, 1, with certainty.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_017231_017289.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ You're certain that the first three trials that you will see will be 1's.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_017486_017491.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ And, well, the subsequent one's will be random.
+</p>
+</div>
+<div id="" class="">
+<p>
+ But since you know that the first three trials will be 1, this means that statistically, they're not described by the statistics of a Bernoulli process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ In a Bernoulli process, each trial and the probability of being 0.
+</p>
+</div>
+<div id="" class="">
+<p>
+ But since, in your case, you're certain to watch 1's in the beginning, this means that the random variables that you see do not conform to the description of a Bernoulli process.
+</p>
+</div>
+<div id="" class="">
+<p>
+ So this is an example in which N is not causally determined.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_018692_019023.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ And in this example, you do not to get to see a Bernoulli process.
+</p>
+</div>
+<div id="" class="">
+<img src= "obj_019024_019247.png" max-width="" usemap="#" id="" >
+</div>
+<div id="" class="">
+<p>
+ We do not have the fresh-start property.
+</p>
+</div>
+<div id="" class="">
+<p>
+ What happened here is more generally true.
+</p>
+</div>
+<div id="" class="">
+<p>
+ We do have a fresh-start property, but not always.
+</p>
+</div>
+<div id="" class="">
+<p>
+ We have it under the assumption that the time at which you're asked to start watching is determined from the past history of the process in some causal manner.
+</p>
+</div>
+<div id="" class="">
+<p>
+ This is a general fact that can be established rigorously.
+</p>
+</div>
+<div id="" class="">
+<p>
+ However we will not go through a formal mathematical derivation.
+</p>
+</div>
+<div id="" class="">
+<p>
+ The formal argument for the most general case involves somewhat tedious symbol manipulations that do not provide any additional insight.
+</p>
+</div>
+<div id="" class="">
+<p>
+ However, the intuition behind this result should be fairly clear, and we will use it freely whenever we need it.
+</p>
+</div>
+<div id="" class="">
+<p>
+
+</p>
+</div>
+</div>
+
+</body>
+</html>

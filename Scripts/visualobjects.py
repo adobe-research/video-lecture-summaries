@@ -56,6 +56,7 @@ class VisualObject:
         self.tly = y
         self.bry = self.tly + self.height
         
+        
     @classmethod
     def group(cls, list_of_imgobjs, objdir="temp"):
         min_tlx = sys.maxint

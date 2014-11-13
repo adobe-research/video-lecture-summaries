@@ -71,6 +71,29 @@
                     <li>Vertically layout clustered object and sentences according to starting time</li>
                 </ol>
             </td>
+            <td>
+                <h2>Finer Segmentation + <br> Y-Pos clustering using bandwidth = 2*average height of strokes</h2>
+                <ol>
+                    <li>Cluster objects <b>by bottom y pos</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + <br> end_time clustering using bandwidth = 5*average duration of strokes</h2>
+                <ol>
+                    <li>Cluster objects <b>by end_time</b> using meanshift algorithm</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                </ol>
+            </td>
+            <td>
+                <h2>Finer Segmentation + Time Gap (Threshold = 5*avg duration of strokes) + Line-by Line clustering</h2>
+                <ol>
+                    <li>If time gap between consecutive strokes > threshold, cluster into separate groups</li>
+                    <li>Cluster groups once again into lines</li>
+                    <li>Vertically layout clustered object and sentences according to starting time</li>
+                    <li>For each line, show everything that is in the same line and came before</li>
+                </ol>
+            </td>
         </tr>
         <tr>
             <td><h1>Khan 1</h1></td>
@@ -83,6 +106,8 @@
             <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td>
             <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan1\khan1_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -96,6 +121,9 @@
             <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan2\khan2_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+        
         </tr>
         
         <tr>
@@ -109,6 +137,8 @@
             <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan3\khan3_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -122,6 +152,8 @@
             <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan4\khan4_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -135,6 +167,8 @@
             <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan5\khan5_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -148,6 +182,8 @@
             <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan6\khan6_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -161,6 +197,8 @@
             <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan7\khan7_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -174,6 +212,8 @@
             <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan8\khan8_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
         
         <tr>
@@ -187,6 +227,9 @@
             <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\khan9\khan9_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
+
         </tr>
         
         <tr>
@@ -200,6 +243,8 @@
             <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\end_fid_cluster_stc_linear.html">Results</a></td>
             <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/negate\bry_end_fid_cluster_stc_linear.html">Results</a>, <a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs\end_fid_bry.png">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\bigbang\bigbang_khan_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
             
 
@@ -214,6 +259,8 @@
             <td><a href="">Results</a></td>
             <td><a href="">Results</a>, <a href="">Plot</a></td></td>
             <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/cleanup\negate\line_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/cleanup\negate\time_cluster_stc_linear.html">Results</a></td>
+            <td><a href="..\SampleVideos\more\mit6041x_1\mit6041x_1_removelogo_fgpixel_objs/cleanup\negate\threshold_cluster_lines.html">Results</a></td>
         </tr>
     </table>
     </body>

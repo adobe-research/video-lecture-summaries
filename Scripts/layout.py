@@ -17,6 +17,7 @@ from visualobjects import VisualObject
 from writehtml import WriteHtml
 import mycluster
 import panorama_object
+import os
 
 def layout_words_on_cursor_path():
     videopath = sys.argv[1]
@@ -119,50 +120,25 @@ def textbbox(text):
     textsize, baseline = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)
     return (textsize, baseline)
 
-def layout_line_by_line(objs_by_time):
-    x_buffer = 10
-    y_buffer = 10
-    cury = 0
-    objs_in_frame = []
-    while(len(objs_by_time) > 0):
-        curobj = objs_by_time.pop(0) # consider the earliest object
-        if (curobj.istext):
-            """Put curobj at (x_buffer, cury +y_buffer)"""
-            newobj = curobj.copy()
-            newobj.setx(x_buffer)
-            newobj.sety(cury + y_buffer)
-            cury = newobj.bry
-            objs_in_frame.append(newobj)
+def layout_line_by_line_html(objs_by_time, img_objs_by_time, img_lines, html, objdir="temp"):
+    img_id = 0
+    for obj in objs_by_time:
+        html.opendiv()
+        if obj.istext:
+            html.pragraph_string(obj.text)
         else:
-            """Put curobj at (curobj.x, cury + y_buffer)"""
-            min_tly = cury+y_buffer
-            newobj = curobj.copy()
-            min_tly = min(min_tly, curobj.tly)
-#             newobj.sety(cury + y_buffer)
-#             cury = newobj.bry
-            objs_in_frame.append(newobj)
-#             yshift = max(0, newobj.tly - curobj.tly)
-            
-#             """Put visual objects in-line with curobj"""
-#             indices = []
-#             for i in range(0, len(objs_by_time)):
-#                 if not objs_by_time[i].istext:
-#                     if objs_by_time[i].bry <= curobj.bry:
-#                         indices.append(i)
-#                         min_tly = min(min_tly, objs_by_time[i].tly)
-            yshift = (cury + y_buffer - min_tly)
-            newobj.shifty(yshift)
-            cury = max(0, newobj.bry)
-            
-#             indices.reverse() # for pop 
-#             for i in range(0, len(indices)):
-#                 obj = objs_by_time.pop(indices[i])
-#                 newobj = obj.copy()
-#                 newobj.shifty(yshift)
-#                 objs_in_frame.append(newobj)
-#                 cury = max(cury, newobj.bry)
+            linenum = img_lines[img_id]
+            inline_objs = [obj]
+            for i in range(0, img_id):
                 
-    return objs_in_frame
+                if (img_lines[i] == linenum):
+                    
+                    inline_objs.append(img_objs_by_time[i])
+            inlineobj = VisualObject.group(inline_objs, objdir)
+            html.image(inlineobj.imgpath)
+            img_id += 1
+        html.closediv()
+    return
 
 def layout_objects_html(list_of_objs, html):
     for obj in list_of_objs:
@@ -173,6 +149,7 @@ def layout_objects_html(list_of_objs, html):
             html.image(obj.imgpath)
         html.closediv()
     return
+
     
 def layout_objects_img(list_of_objs):
     framew = 0
@@ -199,42 +176,41 @@ if __name__ == "__main__":
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
     panoramapath = sys.argv[4]
+    panorama = cv2.imread(panoramapath)
     
     lec = Lecture(videopath, scriptpath)
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
-    
     txt_objs = VisualObject.objs_from_transcript(lec)
-    width = lec.video.width
-    height = lec.video.height
-    nframes = lec.video.numframes
     
-    lineobjs = mycluster.cluster_by_line(img_objs, 3*VisualObject.avg_height(img_objs))
-    nlines = len(lineobjs)
     
-    cluster_objs, cluster_labels  = mycluster.get_labeled_objs(lineobjs)
-    labels_unique = np.unique(cluster_labels)
-    n_clusters = len(labels_unique)
+    timethres = 5*VisualObject.avg_duration(img_objs)
+    linethres = 3*VisualObject.avg_height(img_objs)
+    print 'timethres', timethres, 'linethres', linethres
+    timeobjs = mycluster.cluster_wth_threshold(img_objs, timethres, linethres, objdir)
     
-    panorama = cv2.imread(panoramapath)
-   
-    panorama_cluster = panorama_object.draw_clusters(panorama, cluster_objs, cluster_labels)
+    panorama_cluster = panorama_object.draw_clusters(panorama, timeobjs, range(len(timeobjs))) 
+    outfile1 = objdir + "/" + "threshold_cluster_panorama.png"
+    cv2.imwrite(outfile1, panorama_cluster)
+    
+    
+    img_line_labels = mycluster.get_line_labels(timeobjs, 1*VisualObject.avg_height(timeobjs))
+    print '# lines', len(np.unique(img_line_labels))
+    panorama_lines = panorama_object.draw_clusters(panorama, timeobjs, img_line_labels)
+    outfile2 = objdir + "/" + "threshold_line_cluster_panorama.png"
+    cv2.imwrite(outfile2, panorama_lines)
+    
+
      
-    outfile = objdir + "/" + "line_cluster_panorama.png"
-    cv2.imwrite(outfile, panorama_cluster)
-     
-    img_cluster_objs = []
-    for i in range(n_clusters):
-        vis_obj = VisualObject.group(lineobjs[i], objdir)
-        img_cluster_objs.append(vis_obj)
-   
-    vis_objs = img_cluster_objs + txt_objs
+    vis_objs = timeobjs + txt_objs
     sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
+    sorted_img_objs = sorted(timeobjs, key=operator.attrgetter('start_fid')) 
      
-    html = WriteHtml(objdir + "/" + "line_cluster_stc_linear.html", "Objects clustered by line", stylesheet="../Mainpage/summaries.css")
-    html.image(outfile, idstring="panorama_cluster")
+    html = WriteHtml(objdir + "/" + "threshold_cluster_lines.html", "Objects clustered with time/linebreak threshold", stylesheet="../Mainpage/summaries.css")
+    html.image(outfile1, idstring="panorama_cluster")
+    html.image(outfile2, idstring ="panorama_cluster")
     html.opendiv(idstring="summary-container")
     html.writestring("<h1>" + lec.video.videoname + "</h1>")
-    layout_objects_html(sorted_vis_objs, html)
+    layout_line_by_line_html(sorted_vis_objs, sorted_img_objs, img_line_labels, html, objdir)
     html.closediv()
     html.closehtml()
      

@@ -37,6 +37,11 @@ def cluster_by_line(list_of_objs, hbandwidth):
     
     return lineobjs
 
+def get_line_labels(list_of_objs, hbandwidth):
+    labels, cluster_centers = meanshift_visobjs(list_of_objs, 0, 0, 0, 1.0, 0, 0.0, 1.0, 1.0, 1.0, bandwidth=hbandwidth) 
+    return labels
+    
+
 def cluster_by_time(list_of_objs, tbandwidth):
     labels, cluster_centers = meanshift_visobjs(list_of_objs, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 1.0, tbandwidth) 
     labels_unique = np.unique(labels)
@@ -47,6 +52,7 @@ def cluster_by_time(list_of_objs, tbandwidth):
         timeobjs[labels[i]].append(list_of_objs[i])
     
     return timeobjs
+    
 
 def get_labeled_objs(list_of_clusters):
     label = 0
@@ -61,39 +67,84 @@ def get_labeled_objs(list_of_clusters):
         label += 1
     return list_of_objs, labels
 
+def is_cut(prevobj, curobj, time_thres, line_thres):
+    if (curobj.start_fid == prevobj.start_fid):
+        return False
+    if (curobj.start_fid - prevobj.end_fid > time_thres):
+        return True
+    else:
+        False
+#     if (abs(curobj.bry - prevobj.bry) < line_thres):
+#         return False
+#     return True
 
-if __name__ == "__main__":
+
+def line_cluster_main():
     objdir = sys.argv[1]
     panoramapath = sys.argv[2]
     img_objs = VisualObject.objs_from_file(None, objdir)
     panorama = cv2.imread(panoramapath)
    
-    lineobjs = cluster_by_line(img_objs, 3*VisualObject.avg_height(img_objs))
-    nlines = len(lineobjs)
+    timeobjs = cluster_by_line(img_objs, 3*VisualObject.avg_height(img_objs))
+    nlines = len(timeobjs)
     
-    list_of_objs, labels = get_labeled_objs(lineobjs)
+    list_of_objs, labels = get_labeled_objs(timeobjs)
     line_cluster = panorama_object.draw_clusters(panorama, list_of_objs, labels)
     util.showimages([line_cluster], "line cluster")
     
+
+def cluster_wth_threshold(list_of_objs, timethres, linethres, objdir):
+    if len(list_of_objs) == 0:
+        return None
+    prevobj = list_of_objs[0]
+    clusterobjs = []
+    clusterobjs.append(prevobj)
+    new_imgobjs = []
+    for i in range(1, len(list_of_objs)):
+        curobj = list_of_objs[i]
+        if (is_cut(prevobj, curobj, timethres, linethres)):
+            objgroup = VisualObject.group(clusterobjs, objdir)
+            new_imgobjs.append(objgroup)
+            clusterobjs = []
+#             util.showimages([objgroup.img], 'objgroup')
+        clusterobjs.append(curobj)
+        prevobj = curobj
+        
+    objgroup = VisualObject.group(clusterobjs, objdir)    
+    new_imgobjs.append(objgroup)
+    return new_imgobjs
+
+if __name__ == "__main__":
+    objdir = sys.argv[1]
+    panoramapath = sys.argv[2]
+    imgobjs = VisualObject.objs_from_file(None, objdir)
+    panorama = cv2.imread(panoramapath)
     
-#     timed_line_objs = []
-#     for i in range(0, nlines):
-#         time_objs = cluster_by_time(lineobjs[i], 3*VisualObject.avg_duration(lineobjs[i]))
-#         timed_line_objs.append(time_objs)
-#         
-#     label = 0
-#     labels = []
-#     list_of_objs = []
-#     for i in range(0, nlines):
-#         time_clusters = timed_line_objs[i]
-#         for c in time_clusters:
-#             list_of_objs = list_of_objs + c
-#             for numitmes in c:
-#                 labels.append(label)
-#             label += 1
-#         
-#    
-#     panorama_cluster = panorama_object.draw_clusters(panorama, list_of_objs, labels)
-#     util.showimages([panorama_cluster], "line time cluster")
+    timethres = 5*VisualObject.avg_duration(imgobjs)
+    linethres = 3*VisualObject.avg_height(imgobjs)
+    
+    prevobj = imgobjs[0]
+    clusterobjs = []
+    clusterobjs.append(prevobj)
+    new_imgobjs = []
+    for i in range(1, len(imgobjs)):
+        curobj = imgobjs[i]
+        if (is_cut(prevobj, curobj, timethres, linethres)):
+            objgroup = VisualObject.group(clusterobjs, objdir)
+            
+            new_imgobjs.append(objgroup)
+            clusterobjs = []
+        clusterobjs.append(curobj)
+        prevobj = curobj
+        
+    objgroup = VisualObject.group(clusterobjs, objdir)    
+    new_imgobjs.append(objgroup)
+    
+    print '# clusters', len(new_imgobjs)
+    labels = range(len(new_imgobjs))
+    thres_cluster = panorama_object.draw_clusters(panorama, new_imgobjs, labels)
+    util.showimages([thres_cluster], "Clustering by threshold")
+    util.saveimage(thres_cluster, objdir, "threshold_cluster.png")
+    
     
     

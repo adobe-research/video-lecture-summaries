@@ -38,7 +38,7 @@ def get_object_start_end_frames(numfg, video, outfile=None):
 #         ret, frame = cap.read()
 #         if (fid == 0):
 #             last_endimg = frame
-        if (fg > maxfg and not drawing):
+        if ((fg > maxfg and not drawing) or (fg - prevfg < 10000 and not drawing)):
 #             startimg = frame
             drawing = True
             start_fid = fid
@@ -234,5 +234,6 @@ def segment_main():
              
 
 if __name__ == "__main__":  
+#     segment_main()
     cleanup_main()
    
