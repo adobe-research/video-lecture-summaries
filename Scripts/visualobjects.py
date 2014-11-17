@@ -11,6 +11,8 @@ import processframe as pf
 import matplotlib.pyplot as plt
 from scipy import ndimage
 import os
+import math
+from video import Video
 
 class VisualObject:
     def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None):
@@ -58,7 +60,7 @@ class VisualObject:
         
         
     @classmethod
-    def group(cls, list_of_imgobjs, objdir="temp"):
+    def group(cls, list_of_imgobjs, objdir="temp"):    
         min_tlx = sys.maxint
         min_tly = sys.maxint
         max_brx = -1
@@ -147,6 +149,7 @@ class VisualObject:
         objinfo.close()
     
     def segment_cc(self, mask=None):
+        return [self]
         """segment into connected componnets""" 
         if mask is None:
             mask = pf.fgmask(self.img, 50, 255, True)
@@ -193,10 +196,34 @@ class VisualObject:
             dur = dur + (obj.end_fid - obj.start_fid)
         avg_dur = dur/len(list_of_objs)
         return avg_dur
+    
+    @staticmethod
+    def plot_time_gap(list_of_objs, objdir, video):
+        time_gaps = []
+        binsize = 0.5
+        for i in range(0, len(list_of_objs)-1):
+            curobj = list_of_objs[i]
+            nextobj = list_of_objs[i+1]
+            time_gap = (nextobj.start_fid - curobj.end_fid)/video.fps
+            time_gaps.append(time_gap)    
+        max_gap = math.ceil(max(time_gaps))
+        bins = np.linspace(0, max_gap, max_gap/binsize+1)
+        rprobs, rbins, rpatches = plt.hist(time_gaps, bins, normed=False)
+        plt.savefig(objdir + "/obj_tgap_hist.png")
+        plt.close()
+            
+#     @staticmethod
+#     def plot_bry(list_of_objs):
+#         brys = []
+#         for obj in list_of_objs:
+#             brys.append(obj.bry)
+#             plt. 
+    
         
 if __name__ == "__main__":
-    objdirpath = sys.argv[1]
-    objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
-    VisualObject.group(objs_in_panorama)
-    
+    videopath = sys.argv[1]
+    objdirpath = sys.argv[2]
+    video = Video(videopath)
+    list_of_objs = VisualObject.objs_from_file(video, objdirpath)
+    VisualObject.plot_time_gap(list_of_objs, objdirpath, video)
     

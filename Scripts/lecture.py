@@ -37,6 +37,7 @@ class Lecture:
                         segments[seg].append(word)
                     break            
         return segments
+     
     
     def segment_script_stcs(self, list_of_stc_ids):
         segments = [ [] for i in range(0, len(list_of_stc_ids))]

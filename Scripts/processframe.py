@@ -55,6 +55,7 @@ def importantregion(gray_img, path=None, index=0):
     return
 
 def fit_mask_to_img(image, mask, tlx, tly):
+
     h, w = image.shape[:2]    
     fitmask = np.zeros((h,w), dtype=np.uint8)
     maskh, maskw = mask.shape
@@ -501,7 +502,7 @@ def croptofg(fgimg, fgmask):
     if (fgimg == None or fgmask == None):
         return None, None
     tlx, tly, brx, bry = fgbbox(fgmask)
-    if (tlx == -1 or brx - tlx == 0 or bry - tly == 0):  # nothing new in this image
+    if (tlx == -1):  # nothing new in this image
         return None, None
     h, w = fgimg.shape[0:2]
 #     tlx = int(max(0, tlx - 10))

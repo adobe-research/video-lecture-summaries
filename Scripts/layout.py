@@ -148,7 +148,7 @@ def layout_objects_html(list_of_objs, html):
         else:
             html.image(obj.imgpath)
         html.closediv()
-    return
+    return html
 
     
 def layout_objects_img(list_of_objs):

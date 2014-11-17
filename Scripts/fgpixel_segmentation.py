@@ -38,10 +38,13 @@ def get_object_start_end_frames(numfg, video, outfile=None):
 #         ret, frame = cap.read()
 #         if (fid == 0):
 #             last_endimg = frame
-        if ((fg > maxfg and not drawing) or (fg - prevfg < 10000 and not drawing)):
+        if (fg > maxfg and not drawing):
 #             startimg = frame
             drawing = True
             start_fid = fid
+        elif (fg - prevfg < 2000 and not drawing):
+            """scroll down event"""
+            maxfg = fg
         elif (fg == prevfg and drawing):
 #             endimg = frame
             drawing = False
@@ -103,6 +106,7 @@ def cleanup(visobj, panorama_fg, cleanupdir):
         panorama_fg: all objects that can still appear in panorama 
         visobj: current visobj to be cleaned """
     obj_mask = pf.fgmask(visobj.img, 50, 255, True)
+    
     panorama_fg_crop = panorama_fg[visobj.tly:visobj.bry+1, visobj.tlx:visobj.brx+1]
     new_mask = cv2.bitwise_and(obj_mask, panorama_fg_crop)
     new_bbox = pf.fgbbox(new_mask)
@@ -110,7 +114,7 @@ def cleanup(visobj, panorama_fg, cleanupdir):
     if new_bbox[0] < 0:
         return None, panorama_fg
     new_img = pf.maskimage(visobj.img, new_mask)
-    new_img = pf.cropimage(new_img, new_bbox[0], new_bbox[1], new_bbox[2], new_bbox[3])
+    new_img, new_mask = pf.croptofg(new_img, new_mask)
     new_imgname = os.path.basename(visobj.imgpath)
     util.saveimage(new_img, cleanupdir, new_imgname)
     tlx = visobj.tlx + new_bbox[0]
@@ -185,7 +189,7 @@ def getobjects(video, object_fids, panorama, objdir):
 #         util.showimages([keyframe.frame, obj_crop], str(start_fids[i]) + " " + str(end_fids[i]) + " " + objimgname)
         util.saveimage(obj_crop, objdir, objimgname)
         visobj = VisualObject(obj_crop,  objdir + "/" + objimgname, start_fids[i], end_fids[i], obj_bbox[0] + topleft[0], obj_bbox[1] + topleft[1], obj_bbox[2] + topleft[0], obj_bbox[3] + topleft[1])
-        visobj_segmented = visobj.segment_cc()
+        visobj_segmented = [visobj] #visobj.segment_cc()
         list_of_objs = list_of_objs + visobj_segmented
         prevframe = keyframe.frame
         i += 1
@@ -198,8 +202,9 @@ def getobjects(video, object_fids, panorama, objdir):
  
  
 def cleanup_main():
-    panorama_path = sys.argv[1]
     objdir = sys.argv[2]
+    panorama_path = sys.argv[3]
+    
     cleanupdir = objdir + "/cleanup"
     if not os.path.exists(cleanupdir):
         os.makedirs(cleanupdir)
@@ -230,10 +235,10 @@ def segment_main():
     
     panoramapath = sys.argv[3]
     panorama = cv2.imread(panoramapath)
-    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs")
+    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs_noseg")
              
 
 if __name__ == "__main__":  
-#     segment_main()
-    cleanup_main()
+    segment_main()
+#     cleanup_main()
    
