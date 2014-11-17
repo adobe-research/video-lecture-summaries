@@ -210,15 +210,8 @@ class VisualObject:
         bins = np.linspace(0, max_gap, max_gap/binsize+1)
         rprobs, rbins, rpatches = plt.hist(time_gaps, bins, normed=False)
         plt.savefig(objdir + "/obj_tgap_hist.png")
-        plt.close()
-            
-#     @staticmethod
-#     def plot_bry(list_of_objs):
-#         brys = []
-#         for obj in list_of_objs:
-#             brys.append(obj.bry)
-#             plt. 
-    
+        plt.close()            
+
         
 if __name__ == "__main__":
     videopath = sys.argv[1]
