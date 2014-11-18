@@ -134,7 +134,7 @@ def showimages(list_of_images, title="show images"):
         curw = curw+w
     if hmax == 0 or wtotal == 0:
         return
-    cv2.namedWindow(title, cv2.WINDOW_NORMAL)
+    cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
     cv2.imshow(title, view)
     cv2.waitKey()
     

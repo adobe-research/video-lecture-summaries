@@ -18,6 +18,7 @@ from writehtml import WriteHtml
 import mycluster
 import panorama_object
 import os
+import linebreak
 
 def layout_words_on_cursor_path():
     videopath = sys.argv[1]
@@ -141,12 +142,14 @@ def layout_line_by_line_html(objs_by_time, img_objs_by_time, img_lines, html, ob
     return
 
 def layout_objects_html(list_of_objs, html):
+    nfig = 1
     for obj in list_of_objs:
         html.opendiv()
         if obj.istext:
             html.pragraph_string(obj.text)
         else:
-            html.image(obj.imgpath)
+            html.figure(obj.imgpath, "Figure %i" % nfig)
+            nfig += 1
         html.closediv()
     return html
 
@@ -180,56 +183,23 @@ if __name__ == "__main__":
     
     lec = Lecture(videopath, scriptpath)
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
-    txt_objs = VisualObject.objs_from_transcript(lec)
     
-    
-    timethres = VisualObject.avg_duration(img_objs)
-    linethres = VisualObject.avg_height(img_objs)
-    print 'timethres', timethres, 'linethres', linethres
-    timeobjs1 = mycluster.cluster_wth_threshold(img_objs, timethres, linethres, objdir)
-    timeobjs2 = mycluster.cluster_wth_threshold(img_objs, 2*timethres, linethres, objdir)
-    timeobjs3 = mycluster.cluster_wth_threshold(img_objs, 3*timethres, linethres, objdir)
-    timeobjs4 = mycluster.cluster_wth_threshold(img_objs, 4*timethres, linethres, objdir)
-    timeobjs5 = mycluster.cluster_wth_threshold(img_objs, 5*timethres, linethres, objdir)
-    timeobjs6 = mycluster.cluster_wth_threshold(img_objs, 6*timethres, linethres, objdir)
-    
-    panorama_cluster1 = panorama_object.draw_clusters(panorama, timeobjs1, range(len(timeobjs1))) 
-    outfile1 = objdir + "/" + "threshold1_cluster_panorama.png"
-    cv2.imwrite(outfile1, panorama_cluster1)
-    
-    panorama_cluster2 = panorama_object.draw_clusters(panorama, timeobjs2, range(len(timeobjs2))) 
-    outfile2 = objdir + "/" + "threshold2_cluster_panorama.png"
-    cv2.imwrite(outfile2, panorama_cluster2)
-    
-    panorama_cluster3 = panorama_object.draw_clusters(panorama, timeobjs3, range(len(timeobjs3))) 
-    outfile3 = objdir + "/" + "threshold3_cluster_panorama.png"
-    cv2.imwrite(outfile3, panorama_cluster3)
-    
-    panorama_cluster4 = panorama_object.draw_clusters(panorama, timeobjs4, range(len(timeobjs4))) 
-    outfile4 = objdir + "/" + "threshold4_cluster_panorama.png"
-    cv2.imwrite(outfile4, panorama_cluster4)
-    
-    panorama_cluster5 = panorama_object.draw_clusters(panorama, timeobjs5, range(len(timeobjs5))) 
-    outfile5 = objdir + "/" + "threshold5_cluster_panorama.png"
-    cv2.imwrite(outfile5, panorama_cluster5)
-    
-    panorama_cluster6 = panorama_object.draw_clusters(panorama, timeobjs6, range(len(timeobjs6))) 
-    outfile6 = objdir + "/" + "threshold6_cluster_panorama.png"
-    cv2.imwrite(outfile6, panorama_cluster6)     
-
-     
-#     vis_objs = timeobjs + txt_objs
-#     sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
-#     sorted_img_objs = sorted(timeobjs, key=operator.attrgetter('start_fid')) 
-     
-    html = WriteHtml(objdir + "/" + "threshold_clusters.html", "Objects clustered with increasing threshold", stylesheet="../Mainpage/summaries.css")
-    html.image(outfile1, idstring="panorama_cluster")
-    html.image(outfile2, idstring ="panorama_cluster")
-    html.image(outfile3, idstring ="panorama_cluster")
-    html.image(outfile4, idstring ="panorama_cluster")
-    html.image(outfile5, idstring ="panorama_cluster")
-    html.image(outfile6, idstring ="panorama_cluster")    
+    line_objs = linebreak.greedy_lines(img_objs, panorama)
+    html = WriteHtml(objdir + "/linebreak_images.html", title="line break images")
+    html = layout_objects_html(line_objs, html)
     html.closehtml()
+    
+#     line_start_ts = []
+#     for line in line_objs:
+#         line_start_ts.append(lec.video.fid2ms(line.end_fid))
+#         
+    
+        
+#     """Segment Transcript"""
+#     transcript_segs = lec.segment_script(line_start_ts)
+#     
+    
+    
      
     
         

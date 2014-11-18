@@ -8,6 +8,7 @@ class WriteHtml:
         self.filename = os.path.abspath(filename)
         self.filedir = os.path.dirname(self.filename)
         self.htmlfile = open(filename, 'w')
+        self.numfigs = 0
         self.htmlfile.write("<html>\n")
         self.htmlfile.write("<head>\n")
         if stylesheet is not None:
@@ -26,8 +27,15 @@ class WriteHtml:
     
     def imagelink(self, filename, width):
         self.htmlfile.write("<a href= \"" + self.relpath(filename) + "\">")
-        self.htmlfile.write("<img src=\"" + self.relpath(filename) + "\" max-width =" + width + ">")
+        self.image(filename, width=width)
         self.htmlfile.write("</a>")
+
+    def figure(self, filename, caption):
+        self.htmlfile.write("<figure>\n")
+        self.image(filename)
+        self.htmlfile.write("<figcaption> " + caption + " </figcaption>\n")
+        self.htmlfile.write("</figure>\n")
+        self.numfigs += 1
 
     def image(self, filename, width="", mapname="", idstring=""):
         self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" id=\"%s\" >\n" % (self.relpath(filename), width, mapname, idstring))

@@ -82,7 +82,8 @@ class VisualObject:
             resize_img = np.ones((h,w,3), dtype=np.uint8)*255
             new_tlx = obj.tlx - min_tlx
             new_tly = obj.tly - min_tly
-            resize_img[new_tly:new_tly + obj.height, new_tlx:new_tlx + obj.width] = obj.img
+            objh, objw = obj.img.shape[:2]
+            resize_img[new_tly:new_tly + objh, new_tlx:new_tlx + objw] = obj.img
             mask = pf.fgmask(resize_img, threshold=225, var_threshold=100)
             idx = mask != 0
             groupimg[idx] = resize_img[idx]
