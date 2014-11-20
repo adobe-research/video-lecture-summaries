@@ -1,0 +1,627 @@
+<html>
+<head>
+<link href="../../../../../../Mainpage/summaries.css" rel="stylesheet" />
+<title>Optimal line break</title>
+</head>
+<body>
+<div id="summary-container" class="">
+<p>
+
+</p><figure>
+<img src= "obj_000020_000032.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 1 </figcaption>
+</figure>
+<img src= "obj_000020_000028.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000029_000032.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 0 - 1<br>line badness[0][1] = 0<br>t penalty = -90.0<br>x penalty = -31.0<br>y penalty = -90.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000035_000064.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 2 </figcaption>
+</figure>
+<img src= "obj_000035_000046.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000053_000064.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 2 - 3<br>line badness[2][3] = 0<br>t penalty = -0.0<br>x penalty = -49.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000077_000104.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 3 </figcaption>
+</figure>
+<img src= "obj_000077_000094.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000102_000104.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 4 - 6<br>line badness[4][6] = 0<br>t penalty = -180.0<br>x penalty = -75.0<br>y penalty = -180.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000105_000162.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 4 </figcaption>
+</figure>
+<img src= "obj_000105_000137.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000154_000162.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 7 - 9<br>line badness[7][9] = 0<br>t penalty = -145.0<br>x penalty = -2.0<br>y penalty = -145.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000167_000184.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 5 </figcaption>
+</figure>
+<img src= "obj_000167_000172.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000175_000184.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 10 - 12<br>line badness[10][12] = 0<br>t penalty = -320.0<br>x penalty = -268.0<br>y penalty = -320.0<br></p><p>
+Let's take the derivative with respect to x of x to the n plus 1-th power over n plus 1 plus some constant c. 
+</p><figure>
+<img src= "obj_000262_000292.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 6 </figcaption>
+</figure>
+<img src= "obj_000262_000269.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000284_000292.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 13 - 15<br>line badness[13][15] = 0<br>t penalty = -525.0<br>x penalty = -218.0<br>y penalty = -525.0<br></p><p>
+And we're going to assume here, because we want this expression to be defined, we're going to assume that n does not equal negative 1. If it equaled negative 1, we'd be dividing by 0, and we haven't defined what that means. So let's take the derivative here. So this is going to be equal to-- well, the derivative of x to the n plus 1 over n plus 1, we can just use the power rule over here. 
+</p><figure>
+<img src= "obj_000403_000536.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 7 </figcaption>
+</figure>
+<img src= "obj_000403_000411.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000518_000536.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 16 - 17<br>line badness[16][17] = 0<br>t penalty = -0.0<br>x penalty = -87.0<br>y penalty = -0.0<br></p><p>
+So our exponent is n plus 1. We can bring it out front. 
+</p><figure>
+<img src= "obj_000547_000574.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 8 </figcaption>
+</figure>
+<img src= "obj_000547_000562.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000564_000574.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 18 - 19<br>line badness[18][19] = 0<br>t penalty = -0.0<br>x penalty = -294.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000585_000619.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 9 </figcaption>
+</figure>
+<img src= "obj_000585_000593.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000594_000619.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 20 - 21<br>line badness[20][21] = 0<br>t penalty = -0.0<br>x penalty = -24.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000659_000669.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 10 </figcaption>
+</figure>
+<img src= "obj_000659_000664.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000665_000669.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 22 - 23<br>line badness[22][23] = 0<br>t penalty = -0.0<br>x penalty = -24.0<br>y penalty = -0.0<br></p><p>
+So it's going to be n plus 1 times x to the-- I want to use that same color. 
+</p><figure>
+<img src= "obj_000761_000775.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 11 </figcaption>
+</figure>
+<img src= "obj_000761_000767.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000768_000775.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 24 - 25<br>line badness[24][25] = 0<br>t penalty = -0.0<br>x penalty = -364.0<br>y penalty = -0.0<br></p><p>
+Colors are the hard part-- times x to the-- instead of n plus 1, we subtract 1 from the exponent. This is just the power rule. 
+</p><figure>
+<img src= "obj_000818_000868.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 12 </figcaption>
+</figure>
+<img src= "obj_000818_000820.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000860_000868.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 26 - 27<br>line badness[26][27] = 0<br>t penalty = -250.0<br>x penalty = -443.0<br>y penalty = -250.0<br></p><p>
+So n plus 1 minus 1 is going to be n. 
+</p><figure>
+<img src= "obj_000890_000927.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 13 </figcaption>
+</figure>
+<img src= "obj_000890_000902.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000923_000927.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 28 - 30<br>line badness[28][30] = 0<br>t penalty = -55.0<br>x penalty = -80.0<br>y penalty = -55.0<br></p><p>
+And then we can't forget that we were dividing by this n plus 1. 
+</p><figure>
+<img src= "obj_000928_000955.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 14 </figcaption>
+</figure>
+<img src= "obj_000928_000941.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000946_000955.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 31 - 33<br>line badness[31][33] = 0<br>t penalty = -65.0<br>x penalty = -100.0<br>y penalty = -65.0<br></p><p>
+So we have divided by n plus 1. And then we have plus c. 
+</p><figure>
+<img src= "obj_001092_001112.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 15 </figcaption>
+</figure>
+<img src= "obj_001092_001095.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001105_001112.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 34 - 36<br>line badness[34][36] = 0<br>t penalty = -155.0<br>x penalty = -228.0<br>y penalty = -155.0<br></p><p>
+The derivative of a constant with respect to x-- a constant does not change as x changes, so it is just going to be 0, so plus 0. And since n is not equal to negative 1, we know that this is going to be defined. 
+</p><figure>
+<img src= "obj_001176_001252.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 16 </figcaption>
+</figure>
+<img src= "obj_001176_001203.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001243_001252.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 37 - 39<br>line badness[37][39] = 0<br>t penalty = -100.0<br>x penalty = -258.0<br>y penalty = -100.0<br></p><p>
+This is just going to be something divided by itself, which is just going to be 1. 
+</p><figure>
+<img src= "obj_001260_001315.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 17 </figcaption>
+</figure>
+<img src= "obj_001260_001265.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001289_001315.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 40 - 41<br>line badness[40][41] = 0<br>t penalty = -850.0<br>x penalty = -790.0<br>y penalty = -850.0<br></p><p>
+And this whole thing simplifies to x to the n. So the derivative of this thing-- and this is a very general terms-- is equal to x to the n. So given that, what is the antiderivative-- let me switch colors here. 
+</p><figure>
+<img src= "obj_001524_001612.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 18 </figcaption>
+</figure>
+<img src= "obj_001524_001535.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001611_001612.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 42 - 44<br>line badness[42][44] = 0<br>t penalty = -50.0<br>x penalty = -28.0<br>y penalty = -50.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001647_001667.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 19 </figcaption>
+</figure>
+<img src= "obj_001647_001648.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001649_001667.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 45 - 46<br>line badness[45][46] = 0<br>t penalty = -255.0<br>x penalty = -142.0<br>y penalty = -255.0<br></p><p>
+What is the antiderivative of x to the n? And remember, this is just the kind of strange-looking notation we use. It'll make more sense when we start doing definite integrals. But what is the antiderivative of x to the n? And we could say the antiderivative with respect to x, if we want to. 
+</p><figure>
+<img src= "obj_001827_001870.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 20 </figcaption>
+</figure>
+<img src= "obj_001827_001837.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001855_001870.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 47 - 49<br>line badness[47][49] = 0<br>t penalty = -0.0<br>x penalty = -71.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001871_001887.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 21 </figcaption>
+</figure>
+<img src= "obj_001871_001879.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001885_001887.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 50 - 51<br>line badness[50][51] = 0<br>t penalty = -0.0<br>x penalty = -5.0<br>y penalty = -0.0<br></p><p>
+And another way of calling this is the indefinite integral. 
+</p><figure>
+<img src= "obj_001888_001923.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 22 </figcaption>
+</figure>
+<img src= "obj_001888_001892.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001893_001923.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 52 - 53<br>line badness[52][53] = 0<br>t penalty = -1600.0<br>x penalty = -106.0<br>y penalty = -1600.0<br></p><p>
+Well, we know this is saying x to the n is the derivative of what? Well, we just figured it out. It's the derivative of this thing, and we've written it in very general terms. We're actually encapsulating multiple constants here. We could have x to the n plus 1 over n plus 1 plus 0, plus 1, plus 2, plus pi, plus a billion. 
+</p><figure>
+<img src= "obj_002109_002204.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 23 </figcaption>
+</figure>
+<img src= "obj_002109_002111.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002200_002204.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 54 - 55<br>line badness[54][55] = 0<br>t penalty = -65.0<br>x penalty = -61.0<br>y penalty = -65.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002213_002241.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 24 </figcaption>
+</figure>
+<img src= "obj_002213_002234.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002235_002241.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 56 - 57<br>line badness[56][57] = 0<br>t penalty = -175.0<br>x penalty = -80.0<br>y penalty = -175.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002247_002260.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 25 </figcaption>
+</figure>
+<img src= "obj_002247_002251.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002254_002260.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 58 - 59<br>line badness[58][59] = 0<br>t penalty = -0.0<br>x penalty = -7.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002262_002267.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 26 </figcaption>
+</figure>
+<img src= "obj_002262_002263.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002265_002267.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 60 - 61<br>line badness[60][61] = 0<br>t penalty = -0.0<br>x penalty = -9.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002268_002280.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 27 </figcaption>
+</figure>
+<img src= "obj_002268_002271.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002275_002280.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 62 - 63<br>line badness[62][63] = 0<br>t penalty = -45.0<br>x penalty = -48.0<br>y penalty = -45.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002288_002299.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 28 </figcaption>
+</figure>
+<img src= "obj_002288_002289.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002291_002299.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 64 - 65<br>line badness[64][65] = 0<br>t penalty = -0.0<br>x penalty = -485.0<br>y penalty = -0.0<br></p><p>
+So this is going to be equal to x to the n plus 1 over n plus 1 plus c. 
+</p><figure>
+<img src= "obj_002323_002337.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 29 </figcaption>
+</figure>
+<img src= "obj_002323_002331.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002336_002337.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 66 - 67<br>line badness[66][67] = 0<br>t penalty = -505.0<br>x penalty = -1.0<br>y penalty = -505.0<br></p><p>
+So this is pretty powerful. 
+</p><figure>
+<img src= "obj_002350_002384.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 30 </figcaption>
+</figure>
+<img src= "obj_002350_002353.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002375_002384.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 68 - 70<br>line badness[68][70] = 0<br>t penalty = -140.0<br>x penalty = -115.0<br>y penalty = -140.0<br></p><p>
+You can kind of view this as the reverse power rule. 
+</p><figure>
+<img src= "obj_002385_002410.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 31 </figcaption>
+</figure>
+<img src= "obj_002385_002389.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002397_002410.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 71 - 72<br>line badness[71][72] = 0<br>t penalty = -35.0<br>x penalty = -504.0<br>y penalty = -35.0<br></p><p>
+And it applies for any n, as long as n does not equal negative 1. 
+</p><figure>
+<img src= "obj_002433_002510.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 32 </figcaption>
+</figure>
+<img src= "obj_002433_002462.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002505_002510.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 73 - 75<br>line badness[73][75] = 0<br>t penalty = -160.0<br>x penalty = -41.0<br>y penalty = -160.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002513_002524.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 33 </figcaption>
+</figure>
+<img src= "obj_002513_002515.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002516_002524.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 76 - 77<br>line badness[76][77] = 0<br>t penalty = -0.0<br>x penalty = -18.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002525_002545.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 34 </figcaption>
+</figure>
+<img src= "obj_002525_002531.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002542_002545.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 78 - 79<br>line badness[78][79] = 0<br>t penalty = -0.0<br>x penalty = -11.0<br>y penalty = -0.0<br></p><p>
+Let me make that very clear. 
+</p><figure>
+<img src= "obj_002569_002578.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 35 </figcaption>
+</figure>
+<img src= "obj_002569_002576.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002577_002578.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 80 - 81<br>line badness[80][81] = 0<br>t penalty = -930.0<br>x penalty = -166.0<br>y penalty = -930.0<br></p><p>
+n does not equal negative 1. Once again, this thing would be undefined if n were equal to negative 1. So let's do a couple of examples just to apply this-- you could call it the reverse power rule if you want, or the anti-power rule. 
+</p><figure>
+<img src= "obj_002784_002829.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 36 </figcaption>
+</figure>
+<img src= "obj_002784_002794.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002820_002829.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 82 - 83<br>line badness[82][83] = 0<br>t penalty = -85.0<br>x penalty = -13.0<br>y penalty = -85.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002833_002845.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 37 </figcaption>
+</figure>
+<img src= "obj_002833_002836.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002837_002845.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 84 - 85<br>line badness[84][85] = 0<br>t penalty = -0.0<br>x penalty = -14.0<br>y penalty = -0.0<br></p><p>
+So let's take the antiderivative of x to the fifth power. What is the antiderivative of x to the fifth? Well, all we have to say is, well, look, the 5 is equal to the n. 
+</p><figure>
+<img src= "obj_002848_002965.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 38 </figcaption>
+</figure>
+<img src= "obj_002848_002860.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002934_002965.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 86 - 87<br>line badness[86][87] = 0<br>t penalty = -410.0<br>x penalty = -665.0<br>y penalty = -410.0<br></p><p>
+We just have to increment the exponent by 1. 
+</p><figure>
+<img src= "obj_003000_003031.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 39 </figcaption>
+</figure>
+<img src= "obj_003000_003007.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003017_003031.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 88 - 89<br>line badness[88][89] = 0<br>t penalty = -140.0<br>x penalty = -12.0<br>y penalty = -140.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003032_003056.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 40 </figcaption>
+</figure>
+<img src= "obj_003032_003035.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003043_003056.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 90 - 92<br>line badness[90][92] = 0<br>t penalty = -840.0<br>x penalty = -577.0<br>y penalty = -840.0<br></p><p>
+So this is going to be equal to x to the 5 plus 1 power. And then we divide by that same value. 
+</p><figure>
+<img src= "obj_003062_003155.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 41 </figcaption>
+</figure>
+<img src= "obj_003062_003068.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003152_003155.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 93 - 95<br>line badness[93][95] = 0<br>t penalty = -55.0<br>x penalty = -25.0<br>y penalty = -55.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003157_003177.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 42 </figcaption>
+</figure>
+<img src= "obj_003157_003160.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003174_003177.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 96 - 98<br>line badness[96][98] = 0<br>t penalty = -75.0<br>x penalty = -53.0<br>y penalty = -75.0<br></p><p>
+Whatever the exponent was when you increment it by 1, we divide by that same value, divided by 5 plus 1. 
+</p><figure>
+<img src= "obj_003184_003249.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 43 </figcaption>
+</figure>
+<img src= "obj_003184_003190.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003239_003249.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 99 - 100<br>line badness[99][100] = 0<br>t penalty = -495.0<br>x penalty = -233.0<br>y penalty = -495.0<br></p><p>
+And of course, we want to encapsulate all of the possible antiderivatives, so you put the c right over there. 
+</p><figure>
+<img src= "obj_003270_003299.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 44 </figcaption>
+</figure>
+<img src= "obj_003270_003274.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003296_003299.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 101 - 103<br>line badness[101][103] = 0<br>t penalty = -125.0<br>x penalty = -42.0<br>y penalty = -125.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003304_003319.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 45 </figcaption>
+</figure>
+<img src= "obj_003304_003307.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003314_003319.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 104 - 105<br>line badness[104][105] = 0<br>t penalty = -30.0<br>x penalty = -43.0<br>y penalty = -30.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003328_003347.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 46 </figcaption>
+</figure>
+<img src= "obj_003328_003331.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003339_003347.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 106 - 108<br>line badness[106][108] = 0<br>t penalty = -520.0<br>x penalty = -364.0<br>y penalty = -520.0<br></p><p>
+So this is going to be equal to x to the sixth over 6 plus c. And you can verify. Take the derivative of this using the power rule, you indeed get x to the fifth. Let's try another one. Let's try-- now we'll do it in blue. Let's try the antiderivative of-- let's make it interesting. 
+</p><figure>
+<img src= "obj_003514_003593.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 47 </figcaption>
+</figure>
+<img src= "obj_003514_003524.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003585_003593.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 109 - 111<br>line badness[109][111] = 0<br>t penalty = -0.0<br>x penalty = -19.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003609_003625.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 48 </figcaption>
+</figure>
+<img src= "obj_003609_003613.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003615_003625.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 112 - 113<br>line badness[112][113] = 0<br>t penalty = -70.0<br>x penalty = -7.0<br>y penalty = -70.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003630_003643.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 49 </figcaption>
+</figure>
+<img src= "obj_003630_003633.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003635_003643.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 114 - 115<br>line badness[114][115] = 0<br>t penalty = -35.0<br>x penalty = -9.0<br>y penalty = -35.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003663_003679.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 50 </figcaption>
+</figure>
+<img src= "obj_003663_003670.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003671_003679.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 116 - 117<br>line badness[116][117] = 0<br>t penalty = -120.0<br>x penalty = -159.0<br>y penalty = -120.0<br></p><p>
+Let's make it 5 times x to the negative 2 power dx. So how would we evaluate this? Well, one simplification you can do-- and I haven't rigorously proven it to you just yet-- but we know that scalars can go in and out of the derivative operator when you're multiplying by a scalar. 
+</p><figure>
+<img src= "obj_003848_003891.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 51 </figcaption>
+</figure>
+<img src= "obj_003848_003874.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003885_003891.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 118 - 119<br>line badness[118][119] = 0<br>t penalty = -0.0<br>x penalty = -37.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003897_003951.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 52 </figcaption>
+</figure>
+<img src= "obj_003897_003908.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003942_003951.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 120 - 122<br>line badness[120][122] = 0<br>t penalty = -35.0<br>x penalty = -9.0<br>y penalty = -35.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003953_003963.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 53 </figcaption>
+</figure>
+<img src= "obj_003953_003956.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003958_003963.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 123 - 124<br>line badness[123][124] = 0<br>t penalty = -0.0<br>x penalty = -13.0<br>y penalty = -0.0<br></p><p>
+So this is, indeed, equal to 5 times the antiderivative of x to the negative 2 power, dx. 
+</p><figure>
+<img src= "obj_003974_003992.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 54 </figcaption>
+</figure>
+<img src= "obj_003974_003981.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003982_003992.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 125 - 126<br>line badness[125][126] = 0<br>t penalty = -525.0<br>x penalty = -320.0<br>y penalty = -525.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004061_004066.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 55 </figcaption>
+</figure>
+<img src= "obj_004061_004063.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004064_004066.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 127 - 128<br>line badness[127][128] = 0<br>t penalty = -0.0<br>x penalty = -21.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004069_004088.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 56 </figcaption>
+</figure>
+<img src= "obj_004069_004081.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004083_004088.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 129 - 130<br>line badness[129][130] = 0<br>t penalty = -0.0<br>x penalty = -32.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004105_004114.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 57 </figcaption>
+</figure>
+<img src= "obj_004105_004109.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004111_004114.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 131 - 132<br>line badness[131][132] = 0<br>t penalty = -90.0<br>x penalty = -14.0<br>y penalty = -90.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004115_004126.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 58 </figcaption>
+</figure>
+<img src= "obj_004115_004119.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004121_004126.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 133 - 134<br>line badness[133][134] = 0<br>t penalty = -0.0<br>x penalty = -16.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004157_004169.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 59 </figcaption>
+</figure>
+<img src= "obj_004157_004160.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004164_004169.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 135 - 137<br>line badness[135][137] = 0<br>t penalty = -225.0<br>x penalty = -108.0<br>y penalty = -225.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004184_004196.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 60 </figcaption>
+</figure>
+<img src= "obj_004184_004187.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004193_004196.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 138 - 139<br>line badness[138][139] = 0<br>t penalty = -0.0<br>x penalty = -5.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004197_004213.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 61 </figcaption>
+</figure>
+<img src= "obj_004197_004202.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004210_004213.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 140 - 142<br>line badness[140][142] = 0<br>t penalty = -100.0<br>x penalty = -66.0<br>y penalty = -100.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004224_004277.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 62 </figcaption>
+</figure>
+<img src= "obj_004224_004231.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004273_004277.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 143 - 145<br>line badness[143][145] = 0<br>t penalty = -505.0<br>x penalty = -340.0<br>y penalty = -505.0<br></p><p>
+And now we can just use, I guess we could call it this anti-power rule, so this is going to be equal to 5 times x to the negative 2 power plus 1 over the negative 2 power plus 1 plus some constant right over here. 
+</p><figure>
+<img src= "obj_004316_004345.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 63 </figcaption>
+</figure>
+<img src= "obj_004316_004322.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004338_004345.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 146 - 148<br>line badness[146][148] = 0<br>t penalty = -0.0<br>x penalty = -30.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004388_004405.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 64 </figcaption>
+</figure>
+<img src= "obj_004388_004401.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004403_004405.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 149 - 150<br>line badness[149][150] = 0<br>t penalty = -145.0<br>x penalty = -48.0<br>y penalty = -145.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004414_004453.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 65 </figcaption>
+</figure>
+<img src= "obj_004414_004419.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004446_004453.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 151 - 152<br>line badness[151][152] = 0<br>t penalty = -45.0<br>x penalty = -57.0<br>y penalty = -45.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004459_004481.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 66 </figcaption>
+</figure>
+<img src= "obj_004459_004465.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004477_004481.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 153 - 155<br>line badness[153][155] = 0<br>t penalty = -385.0<br>x penalty = -247.0<br>y penalty = -385.0<br></p><p>
+And then we can rewrite this as 5 times negative 2 power plus 1 is x to the negative 1 over negative 2 plus 1 is negative 1, plus some constant. 
+</p><figure>
+<img src= "obj_004490_004529.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 67 </figcaption>
+</figure>
+<img src= "obj_004490_004495.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004519_004529.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 156 - 157<br>line badness[156][157] = 0<br>t penalty = -0.0<br>x penalty = -13.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004530_004540.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 68 </figcaption>
+</figure>
+<img src= "obj_004530_004533.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004538_004540.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 158 - 159<br>line badness[158][159] = 0<br>t penalty = -0.0<br>x penalty = -21.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004551_004574.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 69 </figcaption>
+</figure>
+<img src= "obj_004551_004566.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004569_004574.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 160 - 161<br>line badness[160][161] = 0<br>t penalty = -0.0<br>x penalty = -16.0<br>y penalty = -0.0<br></p><p>
+And this is equal to 5 times negative x to the negative 1 plus some constant. 
+</p><figure>
+<img src= "obj_004576_004595.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 70 </figcaption>
+</figure>
+<img src= "obj_004576_004583.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004588_004595.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 162 - 163<br>line badness[162][163] = 0<br>t penalty = -380.0<br>x penalty = -246.0<br>y penalty = -380.0<br></p><p>
+And then if we want, we can distribute the 5. 
+</p><figure>
+<img src= "obj_004642_004663.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 71 </figcaption>
+</figure>
+<img src= "obj_004642_004648.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004649_004663.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 164 - 165<br>line badness[164][165] = 0<br>t penalty = -0.0<br>x penalty = -13.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004665_004684.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 72 </figcaption>
+</figure>
+<img src= "obj_004665_004674.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004679_004684.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 166 - 168<br>line badness[166][168] = 0<br>t penalty = -15.0<br>x penalty = -20.0<br>y penalty = -15.0<br></p><p>
+So this is equal to negative 5x to the negative 1. 
+</p><figure>
+<img src= "obj_004695_004730.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 73 </figcaption>
+</figure>
+<img src= "obj_004695_004700.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004710_004730.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 169 - 170<br>line badness[169][170] = 0<br>t penalty = -1200.0<br>x penalty = -44.0<br>y penalty = -1200.0<br></p><p>
+Now, we could write plus 5 times some constant, but this is just an arbitrary constant. So this is still just an arbitrary constant. So maybe we could [INAUDIBLE] this. 
+</p><figure>
+<img src= "obj_004868_004891.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 74 </figcaption>
+</figure>
+<img src= "obj_004868_004879.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004887_004891.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 171 - 172<br>line badness[171][172] = 0<br>t penalty = -285.0<br>x penalty = -12.0<br>y penalty = -285.0<br></p><p>
+If you want it to show that it's a different constant, you could say this is c1, c1, c1. 
+</p><figure>
+<img src= "obj_004896_004952.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 75 </figcaption>
+</figure>
+<img src= "obj_004896_004898.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004943_004952.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 173 - 174<br>line badness[173][174] = 0<br>t penalty = -0.0<br>x penalty = -198.0<br>y penalty = -0.0<br></p><p>
+You multiply 5 times c1, you get another constant. We could just call that c, which is equal to 5 times c1. But there you have it. Negative 5x to the negative 1 plus c. 
+</p><figure>
+<img src= "obj_005079_005102.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 76 </figcaption>
+</figure>
+<img src= "obj_005079_005087.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_005089_005102.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 175 - 176<br>line badness[175][176] = 0<br>t penalty = -95.0<br>x penalty = -179.0<br>y penalty = -95.0<br></p><p>
+
+</p><figure>
+<img src= "obj_005107_005192.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 77 </figcaption>
+</figure>
+<img src= "obj_005107_005126.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_005165_005192.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 177 - 178<br>line badness[177][178] = 0<br>t penalty = 0<br>x penalty = 0<br>y penalty = 0<br></p></div>
+
+</body>
+</html>

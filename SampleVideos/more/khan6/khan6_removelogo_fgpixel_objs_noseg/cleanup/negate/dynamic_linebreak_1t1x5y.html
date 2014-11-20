@@ -1,0 +1,483 @@
+<html>
+<head>
+<link href="../../../../../../Mainpage/summaries.css" rel="stylesheet" />
+<title>Optimal line break</title>
+</head>
+<body>
+<div id="summary-container" class="">
+<p>
+So let's see if we can take the derivative of this expression right over here, if we can find capital F prime of x. And once again, it looks like you might be able to use the fundamental theorem of calculus. A big giveaway is that you're taking the derivative of a definite integral that gives you a function of x. But here I have x on both the upper and the lower boundary, and the fundamental theorem of calculus, is at least from what we've seen, is when we have x's only on the upper boundary. And then, of course, it's an x squared, but we've seen examples of that already when we used the chain rule to do it. But how can we break this up and put this in a form that's a little bit closer to what we're familiar with when we apply the fundamental theorem of calculus? And to realize that, we really just have to attempt to graph what this is representing. 
+</p><figure>
+<img src= "obj_000000_000713.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 1 </figcaption>
+</figure>
+<img src= "obj_000000_000000.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000698_000713.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 0 - 2<br>line badness[0][2] = 0<br>t penalty = -0.0<br>x penalty = -138.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_000718_000741.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 2 </figcaption>
+</figure>
+<img src= "obj_000718_000727.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000732_000741.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 3 - 4<br>line badness[3][4] = 0<br>t penalty = -515.0<br>x penalty = -74.0<br>y penalty = -515.0<br></p><p>
+So let's say that this is our lowercase f of x, or I should say f of t. So let's call this lowercase f of t. 
+</p><figure>
+<img src= "obj_000752_000794.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 3 </figcaption>
+</figure>
+<img src= "obj_000752_000761.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000773_000794.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 5 - 7<br>line badness[5][7] = 0<br>t penalty = -1120.0<br>x penalty = -198.0<br>y penalty = -1120.0<br></p><p>
+And let's graph it over the interval between x and x squared. 
+</p><figure>
+<img src= "obj_000875_000908.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 4 </figcaption>
+</figure>
+<img src= "obj_000875_000886.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000907_000908.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 8 - 10<br>line badness[8][10] = 0<br>t penalty = -870.0<br>x penalty = -23.0<br>y penalty = -870.0<br></p><p>
+So let's say this is my y-axis. 
+</p><figure>
+<img src= "obj_000928_000954.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 5 </figcaption>
+</figure>
+<img src= "obj_000928_000941.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_000952_000954.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 11 - 13<br>line badness[11][13] = 0<br>t penalty = -575.0<br>x penalty = -255.0<br>y penalty = -575.0<br></p><p>
+This is my t-axis. 
+</p><figure>
+<img src= "obj_000989_001025.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 6 </figcaption>
+</figure>
+<img src= "obj_000989_001006.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001017_001025.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 14 - 15<br>line badness[14][15] = 0<br>t penalty = -0.0<br>x penalty = -8.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001027_001038.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 7 </figcaption>
+</figure>
+<img src= "obj_001027_001031.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001034_001038.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 16 - 17<br>line badness[16][17] = 0<br>t penalty = -0.0<br>x penalty = -5.0<br>y penalty = -0.0<br></p><p>
+And let's say that this right over here is y is equal to f of t. I'm drawing it generally. I don't know what this exactly looks like. And we're going to talk about the interval between x and x squared. 
+</p><figure>
+<img src= "obj_001042_001189.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 8 </figcaption>
+</figure>
+<img src= "obj_001042_001081.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001182_001189.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 18 - 19<br>line badness[18][19] = 0<br>t penalty = -1145.0<br>x penalty = -37.0<br>y penalty = -1145.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001202_001216.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 9 </figcaption>
+</figure>
+<img src= "obj_001202_001210.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001212_001216.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 20 - 21<br>line badness[20][21] = 0<br>t penalty = -0.0<br>x penalty = -2.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001217_001241.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 10 </figcaption>
+</figure>
+<img src= "obj_001217_001221.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001237_001241.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 22 - 23<br>line badness[22][23] = 0<br>t penalty = -1610.0<br>x penalty = -14.0<br>y penalty = -1610.0<br></p><p>
+So if we're going to talk about the interval between x, which is right over here, it's the lower bound, so x and x squared. It's the lower bound, at least for this definite integral. We don't know for sure. It depends on what x you choose on which one is actually smaller. But let's just say that for the sake of visualizing, we'll draw x right over here, and we will draw x squared right over here. 
+</p><figure>
+<img src= "obj_001417_001516.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 11 </figcaption>
+</figure>
+<img src= "obj_001417_001431.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001491_001516.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 24 - 26<br>line badness[24][26] = 0<br>t penalty = -1375.0<br>x penalty = -166.0<br>y penalty = -1375.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001546_001630.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 12 </figcaption>
+</figure>
+<img src= "obj_001546_001552.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001627_001630.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 27 - 28<br>line badness[27][28] = 0<br>t penalty = -0.0<br>x penalty = -14.0<br>y penalty = -0.0<br></p><p>
+So this whole expression, this entire definite integral, is essentially asking for, is essentially representing this entire area, the entire area under the curve. 
+</p><figure>
+<img src= "obj_001645_001672.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 13 </figcaption>
+</figure>
+<img src= "obj_001645_001651.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001658_001672.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 29 - 31<br>line badness[29][31] = 0<br>t penalty = -0.0<br>x penalty = -74.0<br>y penalty = -0.0<br></p><p>
+But what we could do is introduce a constant that's someplace in between x and x squared. 
+</p><figure>
+<img src= "obj_001765_001771.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 14 </figcaption>
+</figure>
+<img src= "obj_001765_001769.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001770_001771.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 32 - 33<br>line badness[32][33] = 0<br>t penalty = -70.0<br>x penalty = -2.0<br>y penalty = -70.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001775_001818.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 15 </figcaption>
+</figure>
+<img src= "obj_001775_001794.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001806_001818.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 34 - 35<br>line badness[34][35] = 0<br>t penalty = -30.0<br>x penalty = -11.0<br>y penalty = -30.0<br></p><p>
+Let's say that constant is c, and break this area into two different areas with c as the divider. 
+</p><figure>
+<img src= "obj_001819_001858.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 16 </figcaption>
+</figure>
+<img src= "obj_001819_001831.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001833_001858.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 36 - 37<br>line badness[36][37] = 0<br>t penalty = -0.0<br>x penalty = -81.0<br>y penalty = -0.0<br></p><p>
+So that same exact whole area we can now write it as two separate integrals. 
+</p><figure>
+<img src= "obj_001912_001962.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 17 </figcaption>
+</figure>
+<img src= "obj_001912_001925.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001936_001962.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 38 - 40<br>line badness[38][40] = 0<br>t penalty = -0.0<br>x penalty = -23.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_001963_002047.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 18 </figcaption>
+</figure>
+<img src= "obj_001963_001966.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_001998_002047.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 41 - 42<br>line badness[41][42] = 0<br>t penalty = -995.0<br>x penalty = -97.0<br>y penalty = -995.0<br></p><p>
+So one integral that represents this area right over here, and then another integral that represents this area right over there, and where we just say c is some constant between x and x squared. Well, how can we denote this area in purple? Well, that's going to be-- So this thing is going to be equal to the sum of these two areas. 
+</p><figure>
+<img src= "obj_002168_002281.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 19 </figcaption>
+</figure>
+<img src= "obj_002168_002171.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002277_002281.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 43 - 45<br>line badness[43][45] = 0<br>t penalty = -315.0<br>x penalty = -17.0<br>y penalty = -315.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002291_002346.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 20 </figcaption>
+</figure>
+<img src= "obj_002291_002296.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002343_002346.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 46 - 48<br>line badness[46][48] = 0<br>t penalty = -65.0<br>x penalty = -51.0<br>y penalty = -65.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002350_002362.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 21 </figcaption>
+</figure>
+<img src= "obj_002350_002353.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002355_002362.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 49 - 50<br>line badness[49][50] = 0<br>t penalty = -0.0<br>x penalty = -47.0<br>y penalty = -0.0<br></p><p>
+The purple area we can show is the definite integral from x to c of our function of t, cosine t over t dt. 
+</p><figure>
+<img src= "obj_002367_002419.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 22 </figcaption>
+</figure>
+<img src= "obj_002367_002383.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002412_002419.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 51 - 52<br>line badness[51][52] = 0<br>t penalty = -0.0<br>x penalty = -22.0<br>y penalty = -0.0<br></p><p>
+And then to that we're going to add the green area. And then we'll get the original area. 
+</p><figure>
+<img src= "obj_002508_002547.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 23 </figcaption>
+</figure>
+<img src= "obj_002508_002516.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002539_002547.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 53 - 54<br>line badness[53][54] = 0<br>t penalty = -315.0<br>x penalty = -25.0<br>y penalty = -315.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002569_002588.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 24 </figcaption>
+</figure>
+<img src= "obj_002569_002572.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002575_002588.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 55 - 56<br>line badness[55][56] = 0<br>t penalty = -55.0<br>x penalty = -4.0<br>y penalty = -55.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002600_002608.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 25 </figcaption>
+</figure>
+<img src= "obj_002600_002603.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002604_002608.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 57 - 58<br>line badness[57][58] = 0<br>t penalty = -0.0<br>x penalty = -7.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002609_002623.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 26 </figcaption>
+</figure>
+<img src= "obj_002609_002613.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002616_002623.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 59 - 61<br>line badness[59][61] = 0<br>t penalty = -55.0<br>x penalty = -74.0<br>y penalty = -55.0<br></p><p>
+
+</p><figure>
+<img src= "obj_002624_002640.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 27 </figcaption>
+</figure>
+<img src= "obj_002624_002632.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002638_002640.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 62 - 64<br>line badness[62][64] = 0<br>t penalty = -0.0<br>x penalty = -13.0<br>y penalty = -0.0<br></p><p>
+So for the green area, our lower bound of integration is now our constant c, and our upper bound of integration is x squared, and it's going to be of cosine t over t dt. 
+</p><figure>
+<img src= "obj_002688_002740.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 28 </figcaption>
+</figure>
+<img src= "obj_002688_002693.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002736_002740.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 65 - 67<br>line badness[65][67] = 0<br>t penalty = -70.0<br>x penalty = -109.0<br>y penalty = -70.0<br></p><p>
+And this is a form where, if we know how to apply the chain rule, we can apply the fundamental theorem of calculus. And this is almost in a form. We're used to seeing it where the x is the upper bound. And, well, we already know what happens. We can swap these two bounds, but it'll just be the negative of that integral. 
+</p><figure>
+<img src= "obj_002956_003001.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 29 </figcaption>
+</figure>
+<img src= "obj_002956_002961.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_002999_003001.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 68 - 70<br>line badness[68][70] = 0<br>t penalty = -0.0<br>x penalty = -21.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003009_003058.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 30 </figcaption>
+</figure>
+<img src= "obj_003009_003019.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003052_003058.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 71 - 72<br>line badness[71][72] = 0<br>t penalty = -310.0<br>x penalty = -15.0<br>y penalty = -310.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003060_003103.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 31 </figcaption>
+</figure>
+<img src= "obj_003060_003072.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003096_003103.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 73 - 75<br>line badness[73][75] = 0<br>t penalty = -65.0<br>x penalty = -69.0<br>y penalty = -65.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003105_003126.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 32 </figcaption>
+</figure>
+<img src= "obj_003105_003109.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003125_003126.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 76 - 78<br>line badness[76][78] = 0<br>t penalty = -65.0<br>x penalty = -42.0<br>y penalty = -65.0<br></p><p>
+So this is going to be equal to-- let me rewrite it-- the negative of the definite integral from c to x of cosine t over t dt. 
+</p><figure>
+<img src= "obj_003132_003152.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 33 </figcaption>
+</figure>
+<img src= "obj_003132_003136.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003142_003152.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 79 - 81<br>line badness[79][81] = 0<br>t penalty = -0.0<br>x penalty = -25.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003177_003213.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 34 </figcaption>
+</figure>
+<img src= "obj_003177_003181.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003206_003213.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 82 - 84<br>line badness[82][84] = 0<br>t penalty = -285.0<br>x penalty = -26.0<br>y penalty = -285.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003221_003244.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 35 </figcaption>
+</figure>
+<img src= "obj_003221_003235.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003238_003244.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 85 - 86<br>line badness[85][86] = 0<br>t penalty = -0.0<br>x penalty = -4.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003245_003271.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 36 </figcaption>
+</figure>
+<img src= "obj_003245_003249.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003250_003271.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 87 - 88<br>line badness[87][88] = 0<br>t penalty = -30.0<br>x penalty = -53.0<br>y penalty = -30.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003272_003296.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 37 </figcaption>
+</figure>
+<img src= "obj_003272_003275.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003288_003296.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 89 - 90<br>line badness[89][90] = 0<br>t penalty = -10.0<br>x penalty = -27.0<br>y penalty = -10.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003300_003319.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 38 </figcaption>
+</figure>
+<img src= "obj_003300_003308.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003309_003319.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 91 - 92<br>line badness[91][92] = 0<br>t penalty = -815.0<br>x penalty = -769.0<br>y penalty = -815.0<br></p><p>
+And then we have plus the definite integral that goes from c to x squared of cosine t over t dt. So all we've done is we've rewritten this thing in a way that we're used to applying the fundamental theorem of calculus. 
+</p><figure>
+<img src= "obj_003444_003459.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 39 </figcaption>
+</figure>
+<img src= "obj_003444_003455.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003456_003459.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 93 - 94<br>line badness[93][94] = 0<br>t penalty = -45.0<br>x penalty = -0.0<br>y penalty = -45.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003463_003487.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 40 </figcaption>
+</figure>
+<img src= "obj_003463_003482.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003483_003487.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 95 - 96<br>line badness[95][96] = 0<br>t penalty = -20.0<br>x penalty = -24.0<br>y penalty = -20.0<br></p><p>
+So if we want to find F prime of x, well, applying the derivative operator over here, we're going to have a negative out front. It's going to be equal to negative cosine x over x. 
+</p><figure>
+<img src= "obj_003560_003621.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 41 </figcaption>
+</figure>
+<img src= "obj_003560_003568.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003613_003621.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 97 - 98<br>line badness[97][98] = 0<br>t penalty = -0.0<br>x penalty = -7.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003622_003637.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 42 </figcaption>
+</figure>
+<img src= "obj_003622_003628.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003630_003637.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 99 - 100<br>line badness[99][100] = 0<br>t penalty = -60.0<br>x penalty = -64.0<br>y penalty = -60.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003640_003651.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 43 </figcaption>
+</figure>
+<img src= "obj_003640_003647.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003648_003651.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 101 - 102<br>line badness[101][102] = 0<br>t penalty = -65.0<br>x penalty = -62.0<br>y penalty = -65.0<br></p><p>
+Once again, just the fundamental theorem of calculus. 
+</p><figure>
+<img src= "obj_003717_003724.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 44 </figcaption>
+</figure>
+<img src= "obj_003717_003719.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003720_003724.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 103 - 104<br>line badness[103][104] = 0<br>t penalty = -45.0<br>x penalty = -23.0<br>y penalty = -45.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003823_003836.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 45 </figcaption>
+</figure>
+<img src= "obj_003823_003825.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003831_003836.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 105 - 107<br>line badness[105][107] = 0<br>t penalty = -0.0<br>x penalty = -9.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_003838_003853.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 46 </figcaption>
+</figure>
+<img src= "obj_003838_003844.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003846_003853.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 108 - 109<br>line badness[108][109] = 0<br>t penalty = -125.0<br>x penalty = -80.0<br>y penalty = -125.0<br></p><p>
+And then plus-- we're first going to take the derivative of this thing with respect to x squared, and that's going to give you cosine of x squared over x squared. 
+</p><figure>
+<img src= "obj_003858_003877.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 47 </figcaption>
+</figure>
+<img src= "obj_003858_003860.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_003870_003877.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 110 - 112<br>line badness[110][112] = 0<br>t penalty = -70.0<br>x penalty = -37.0<br>y penalty = -70.0<br></p><p>
+Wherever you saw t, you replace it with an x squared. And then you're going to multiply that times the derivative of x squared with respect to x. So that's just going to be-- derivative of x squared with respect to x is just 2x. 
+</p><figure>
+<img src= "obj_004008_004051.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 48 </figcaption>
+</figure>
+<img src= "obj_004008_004011.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004048_004051.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 113 - 115<br>line badness[113][115] = 0<br>t penalty = -750.0<br>x penalty = -355.0<br>y penalty = -750.0<br></p><p>
+And we're done. We just need to simplify this thing. 
+</p><figure>
+<img src= "obj_004126_004141.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 49 </figcaption>
+</figure>
+<img src= "obj_004126_004132.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004139_004141.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 116 - 117<br>line badness[116][117] = 0<br>t penalty = -0.0<br>x penalty = -12.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004143_004162.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 50 </figcaption>
+</figure>
+<img src= "obj_004143_004150.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004151_004162.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 118 - 119<br>line badness[118][119] = 0<br>t penalty = -95.0<br>x penalty = -85.0<br>y penalty = -95.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004164_004175.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 51 </figcaption>
+</figure>
+<img src= "obj_004164_004167.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004169_004175.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 120 - 121<br>line badness[120][121] = 0<br>t penalty = -125.0<br>x penalty = -56.0<br>y penalty = -125.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004186_004193.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 52 </figcaption>
+</figure>
+<img src= "obj_004186_004187.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004188_004193.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 122 - 123<br>line badness[122][123] = 0<br>t penalty = -735.0<br>x penalty = -152.0<br>y penalty = -735.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004208_004234.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 53 </figcaption>
+</figure>
+<img src= "obj_004208_004217.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004231_004234.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 124 - 125<br>line badness[124][125] = 0<br>t penalty = -490.0<br>x penalty = -28.0<br>y penalty = -490.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004253_004292.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 54 </figcaption>
+</figure>
+<img src= "obj_004253_004258.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004269_004292.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 126 - 128<br>line badness[126][128] = 0<br>t penalty = -50.0<br>x penalty = -113.0<br>y penalty = -50.0<br></p><p>
+So all of this is going to be equal to negative cosine x over x plus-- well, this is going to cancel out with just one of those-- plus 2 cosine x squared over x. 
+</p><figure>
+<img src= "obj_004319_004334.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 55 </figcaption>
+</figure>
+<img src= "obj_004319_004322.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004324_004334.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 129 - 130<br>line badness[129][130] = 0<br>t penalty = -160.0<br>x penalty = -86.0<br>y penalty = -160.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004364_004388.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 56 </figcaption>
+</figure>
+<img src= "obj_004364_004366.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004367_004388.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 131 - 132<br>line badness[131][132] = 0<br>t penalty = -0.0<br>x penalty = -44.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004398_004407.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 57 </figcaption>
+</figure>
+<img src= "obj_004398_004402.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004404_004407.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 133 - 134<br>line badness[133][134] = 0<br>t penalty = -0.0<br>x penalty = -67.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004409_004466.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 58 </figcaption>
+</figure>
+<img src= "obj_004409_004449.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004461_004466.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 135 - 137<br>line badness[135][137] = 0<br>t penalty = -0.0<br>x penalty = -9.0<br>y penalty = -0.0<br></p><p>
+
+</p><figure>
+<img src= "obj_004475_004519.png" max-width="" usemap="#" id="" class="">
+<figcaption> Figure 59 </figcaption>
+</figure>
+<img src= "obj_004475_004479.png" max-width="" usemap="#" id="" class="debug">
+<img src= "obj_004511_004519.png" max-width="" usemap="#" id="" class="debug">
+<p class="debug">objects 138 - 140<br>line badness[138][140] = 0<br>t penalty = 0<br>x penalty = 0<br>y penalty = 0<br></p></div>
+
+</body>
+</html>
