@@ -16,7 +16,7 @@ from lecture import Lecture
 from writehtml import WriteHtml
 
 class LineBreaker:
-    def __init__(self, lec, list_of_objs, debug=False):
+    def __init__(self, lec, list_of_objs, objdir="temp", debug=False):
         self.lec = lec
         self.list_of_objs = list_of_objs
         self.line_objs = []
@@ -32,6 +32,7 @@ class LineBreaker:
         self.start_obj_idx = []
         self.end_obj_idx = []
         self.debug = debug
+        self.objdir = objdir
         
         
     def dynamic_lines(self, optsec):
@@ -76,7 +77,7 @@ class LineBreaker:
         return self.line_objs, self.start_obj_idx, self.end_obj_idx
     
     def getcutlines(self, n):
-        line = VisualObject.group(self.list_of_objs[self.cuts[n]:n+1], "temp")
+        line = VisualObject.group(self.list_of_objs[self.cuts[n]:n+1], self.objdir)
         self.start_obj_idx.append(self.cuts[n])
         self.end_obj_idx.append(n)
         self.line_objs.append(line)
@@ -271,7 +272,7 @@ if __name__ == "__main__":
     lec = Lecture(videopath, scriptpath)
     print lec.video.fps
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
-    breaker = LineBreaker(lec, img_objs, debug=True)
+    breaker = LineBreaker(lec, img_objs, objdir, debug=True)
     line_objs = breaker.dynamic_lines(optsec=120)
     
     html = WriteHtml(objdir + "/dynamic_linebreak_debug.html", title="Optimal line break", stylesheet="../Mainpage/summaries.css")
