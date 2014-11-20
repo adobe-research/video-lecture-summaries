@@ -23,7 +23,7 @@
 #python fgpixel_segmentation.py ../SampleVideos/more/khan7/khan7_removelogo.avi ../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg ../SampleVideos/more/khan7/khan7_panorama/panorama.png
 #python fgpixel_segmentation.py ../SampleVideos/more/khan8/khan8_removelogo.avi ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg ../SampleVideos/more/khan8/khan8_panorama/panorama.png
 #python fgpixel_segmentation.py ../SampleVideos/more/khan9/khan9_removelogo.avi ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg ../SampleVideos/more/khan9/khan9_panorama/panorama.png
-#python fgpixel_segmentation.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo.avi ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg ../SampleVideos/more/bigbang/bigbang_khan_panorama/panorama.png
+python fgpixel_segmentation.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo.avi ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg ../SampleVideos/more/bigbang/bigbang_khan_panorama/panorama.png
 
 
 
@@ -62,7 +62,7 @@ cp ../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/obj_in
 cp ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/obj_info.txt ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate
 cp ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/obj_info.txt ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate
 cp ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/obj_info.txt ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate
-#cp ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png/obj_info.txt ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png/negate
+cp ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png/obj_info.txt ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png/negate
 
 
 #python layout.py ../SampleVideos/more/khan1/khan1_removelogo.avi ../alignments/khan1.json ../SampleVideos/more/khan1/khan1_panorama/panorama.png/negate/ ../SampleVideos/more/khan1/khan1_panorama/negate/panorama.png

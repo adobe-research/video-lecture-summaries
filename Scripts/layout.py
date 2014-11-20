@@ -182,22 +182,30 @@ if __name__ == "__main__":
     panorama = cv2.imread(panoramapath)
     
     lec = Lecture(videopath, scriptpath)
+    print lec.video.fps
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
+
+    line_objs = linebreak.dynamic_lines(img_objs, 120*lec.video.fps)
+    line_objs.reverse()
     
-    line_objs = linebreak.greedy_lines(img_objs, panorama)
-    html = WriteHtml(objdir + "/linebreak_images.html", title="line break images")
-    html = layout_objects_html(line_objs, html)
+    html = WriteHtml(objdir + "/dynamic_linebreak_images.html", title="line break images", stylesheet="../Mainpage/summaries.css")
+    html.opendiv(idstring="summary-container")
+    stc_idx = 0
+    nfig = 1
+    for obj in line_objs:
+        t = lec.video.fid2ms(obj.end_fid)
+        paragraph = []
+        while(lec.list_of_stcs[stc_idx][-1].endt < t):
+            #write sentence
+            paragraph = paragraph + lec.list_of_stcs[stc_idx]
+            stc_idx += 1
+            if (stc_idx >= len(lec.list_of_stcs)):
+                break
+        html.paragraph_list_of_words(paragraph)
+        html.figure(obj.imgpath, "Figure %i" % nfig)
+        nfig += 1
+    html.closediv()
     html.closehtml()
-    
-#     line_start_ts = []
-#     for line in line_objs:
-#         line_start_ts.append(lec.video.fid2ms(line.end_fid))
-#         
-    
-        
-#     """Segment Transcript"""
-#     transcript_segs = lec.segment_script(line_start_ts)
-#     
     
     
      

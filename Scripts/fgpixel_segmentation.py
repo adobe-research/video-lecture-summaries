@@ -239,6 +239,6 @@ def segment_main():
              
 
 if __name__ == "__main__":  
-    segment_main()
-#     cleanup_main()
+#     segment_main()
+    cleanup_main()
    

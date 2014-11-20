@@ -37,8 +37,8 @@ class WriteHtml:
         self.htmlfile.write("</figure>\n")
         self.numfigs += 1
 
-    def image(self, filename, width="", mapname="", idstring=""):
-        self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" id=\"%s\" >\n" % (self.relpath(filename), width, mapname, idstring))
+    def image(self, filename, width="", mapname="", idstring="", classstring=""):
+        self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, mapname, idstring, classstring))
         
     def breakline(self):
         self.htmlfile.write("</br>")

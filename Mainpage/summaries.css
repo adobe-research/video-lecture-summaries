@@ -21,6 +21,23 @@ p {
     margin: 0;    
 }
 
+p.debug {
+    color: red;
+}
+
 #panorama_cluster {
     max-width: 80%;
+}
+
+figure {
+    display: inline-block;
+    border: 1px dotted gray;
+}
+figcaption {
+    text-align: center;
+    border: dotted blue;
+}
+
+img.debug {
+    border: dotted red;
 }

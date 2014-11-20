@@ -180,7 +180,38 @@ class VisualObject:
             list_of_objs.append(label_obj)
 #             util.showimages([label_obj.img], "segment_cc new image %i" %i)
         return list_of_objs
+    
+    @staticmethod
+    def ygap_distance(obj_i, obj_j):
+        # obj i above obj j
+        if (obj_i.bry < obj_j.tly):
+            return (obj_j.tly - obj_i.bry)
+        # obj i below obj j
+        if (obj_i.tly > obj_j.bry):
+            return (obj_i.tly - obj_j.bry) 
+        # partial overlap
+        return 0
+    
+    @staticmethod
+    def xgap_distance(obj_i, obj_j):
+        i_right = obj_i.brx
+        j_left = obj_j.tlx
+        if (i_right <= j_left):
+            return j_left - i_right
+        else:
+            return i_right - j_left
         
+    @staticmethod    
+    def duration_frames(obj_i, obj_j):
+        """number of frames inbetween start of object i and end of object j"""
+        nframes = obj_j.end_fid - obj_i.start_fid
+        return nframes
+
+    @staticmethod
+    def gap_frames(obj_i, obj_j):
+        """number of frames elapsed between end of object i to start of object j"""
+        nframes = obj_j.start_fid - obj_i.end_fid
+        return nframes
         
     @staticmethod
     def avg_height(list_of_objs):
@@ -211,7 +242,47 @@ class VisualObject:
         bins = np.linspace(0, max_gap, max_gap/binsize+1)
         rprobs, rbins, rpatches = plt.hist(time_gaps, bins, normed=False)
         plt.savefig(objdir + "/obj_tgap_hist.png")
-        plt.close()            
+        plt.close()      
+        plt.plot(time_gaps)
+        plt.savefig(objdir + "/obj_tgap.png")
+        plt.close()      
+        
+    @staticmethod
+    def plot_xgap(list_of_objs, objdir):
+        x_gaps = []
+        binsize = 10
+        for i in range(0, len(list_of_objs)-1):
+            curobj = list_of_objs[i]
+            nextobj = list_of_objs[i+1]
+            xgap = VisualObject.xgap_distance(curobj, nextobj)
+            x_gaps.append(xgap)
+        max_gap = math.ceil(max(x_gaps))
+        bins = np.linspace(0, max_gap, max_gap/binsize+1)
+        rprobs, rbins, rpatches = plt.hist(x_gaps, bins, normed=False)
+        plt.savefig(objdir + "/obj_xgap_hist.png")
+        plt.close()        
+        plt.plot(x_gaps)
+        plt.savefig(objdir + "obj_xgap.png")
+        plt.close()
+        
+    @staticmethod
+    def plot_ygap(list_of_objs, objdir):
+        y_gaps = []
+        binsize = 10
+        for i in range(0, len(list_of_objs)-1):
+            curobj = list_of_objs[i]
+            nextobj = list_of_objs[i+1]
+            ygap = VisualObject.ygap_distance(curobj, nextobj)
+            y_gaps.append(ygap)
+        max_gap = math.ceil(max(y_gaps))
+        bins = np.linspace(0, max_gap, max_gap/binsize+1)
+        rprobs, rbins, rpatches = plt.hist(y_gaps, bins, normed=False)
+        plt.savefig(objdir + "/obj_ygap_hist.png")
+        plt.close()     
+        plt.plot(y_gaps)
+        plt.savefig(objdir + "/obj_ygap.png")
+        plt.close()
+         
 
         
 if __name__ == "__main__":
@@ -220,4 +291,6 @@ if __name__ == "__main__":
     video = Video(videopath)
     list_of_objs = VisualObject.objs_from_file(video, objdirpath)
     VisualObject.plot_time_gap(list_of_objs, objdirpath, video)
+    VisualObject.plot_xgap(list_of_objs, objdirpath)
+    VisualObject.plot_ygap(list_of_objs, objdirpath)
     
