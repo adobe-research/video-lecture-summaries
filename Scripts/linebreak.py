@@ -36,6 +36,7 @@ class LineBreaker:
         self.end_obj_idx = []
         self.debug = debug
         self.objdir = objdir
+        self.linedir = self.objdir + "/lines"
         
     def initial_obj_cost(self):
         return -1e7
@@ -94,6 +95,7 @@ class LineBreaker:
         self.line_objs.reverse()
         self.start_obj_idx.reverse()
         self.end_obj_idx.reverse()
+        VisualObject.write_to_file(self.linedir, self.line_objs)
         return self.line_objs, self.start_obj_idx, self.end_obj_idx
     
     def compute_cuts(self):
@@ -247,7 +249,7 @@ class LineBreaker:
         return additem + penalty    
     
     def getcutlines(self, n):
-        linedir = self.objdir + "/lines"
+        linedir = self.linedir
         if not os.path.exists(linedir):
             os.makedirs(linedir)
         line = VisualObject.group(self.list_of_objs[self.cuts[n]:n+1], linedir)
