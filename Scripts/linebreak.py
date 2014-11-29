@@ -95,7 +95,7 @@ class LineBreaker:
         self.line_objs.reverse()
         self.start_obj_idx.reverse()
         self.end_obj_idx.reverse()
-        VisualObject.write_to_file(self.linedir, self.line_objs)
+        VisualObject.write_to_file(self.linedir + "/obj_info.txt", self.line_objs)
         return self.line_objs, self.start_obj_idx, self.end_obj_idx
     
     def compute_cuts(self):
@@ -290,7 +290,7 @@ class LineBreaker:
         return penalty       
     
     
-    def output_lines(self, html, objdir, list_of_objs=None):
+    def write_to_html(self, html, objdir, list_of_objs=None):
         if (list_of_objs is None):
             list_of_objs = self.line_objs
         stc_idx = 0
@@ -399,7 +399,7 @@ if __name__ == "__main__":
     line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines()
     html = WriteHtml(objdir + "/dynamic_linebreak_test_v3.html", title="Test line break v3", stylesheet="../Mainpage/summaries.css")
     html.opendiv(idstring="summary-container")
-    breaker.output_lines(html, objdir, list_of_objs=line_objs)
+    breaker.write_to_html(html, objdir, list_of_objs=line_objs)
     html.closediv()
     html.closehtml()
     

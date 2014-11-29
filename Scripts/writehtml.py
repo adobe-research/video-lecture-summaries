@@ -4,7 +4,7 @@ import os
 import datetime
 
 class WriteHtml:
-    def __init__(self, filename, title="no title", stylesheet=None):
+    def __init__(self, filename, title="no title", stylesheet=None, script=False):
         self.filename = os.path.abspath(filename)
         self.filedir = os.path.dirname(self.filename)
         self.htmlfile = open(filename, 'w')
@@ -16,10 +16,11 @@ class WriteHtml:
             self.htmlfile.write(self.relpath(stylesheet))
             self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("<title>"+title+"</title>\n")
-        self.htmlfile.write("</head>\n")
-        self.openbody()
+        if not script:
+            self.openbody()
         
     def openbody(self):
+        self.htmlfile.write("</head>\n")
         self.htmlfile.write("<body>\n")
         
     def closebody(self):

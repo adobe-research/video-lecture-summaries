@@ -115,6 +115,7 @@ class VisualObject:
                 
             debug_i += 1
         groupimgname = "obj_%06i_%06i_group.png" %(min_start_fid, max_end_fid)
+
         util.saveimage(groupimg, objdir, groupimgname)
         imgpath = objdir + "/" + groupimgname
         return cls(groupimg, imgpath, min_start_fid, max_end_fid, min_tlx, min_tly, max_brx, max_bry, isgroup=True, members=list_of_imgobjs)    
