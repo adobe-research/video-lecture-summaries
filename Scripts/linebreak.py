@@ -14,6 +14,9 @@ import numpy as np
 import cv2
 from lecture import Lecture
 from writehtml import WriteHtml
+import os
+import processframe as pf
+import overlap
 
 class LineBreaker:
     def __init__(self, lec, list_of_objs, objdir="temp", debug=False):
@@ -34,8 +37,10 @@ class LineBreaker:
         self.debug = debug
         self.objdir = objdir
         
+    def initial_obj_cost(self):
+        return -1e7
         
-    def dynamic_lines(self, optsec):
+    def dynamic_lines_version1(self, optsec):
         n = self.numobjs#n = len(self.list_of_objs)
         video = self.lec.video
         list_of_objs = self.list_of_objs
@@ -45,22 +50,23 @@ class LineBreaker:
             """linecost[i][i]: single object line """
             curobj = list_of_objs[i]
             if (curobj.start_fid == 0 and curobj.end_fid == 0):
-                self.linecost[i][i] = -1.0*float("inf") #forced break for initial objects
+                self.linecost[i][i] = self.initial_obj_cost()
             else:
                 self.badness[i][i] = line_badness(list_of_objs[i:i+1], optsec, video.fps)
                 penalty = self.cut_penalty(i, i+1)
                 self.linecost[i][i] = self.badness[i][i] + penalty
             
+            
             for j in range(i+1, n):
                 self.badness[i][j] = line_badness(list_of_objs[i:j+1], optsec, video.fps)
                 penalty = self.cut_penalty(j, j+1)
                 self.linecost[i][j] = self.badness[i][j] + penalty
-                
+          
         """ compute minimum cost line break """
         for i in range(0, n):
             self.totalcost[i] = float("inf")
             """ c[i] = min (c[j-1] + lc[j,i]) for all j<=i"""
-            for j in range(0, i):
+            for j in range(0, i+1):
                 if j == 0:
                     cost = self.linecost[j][i]
                 else:
@@ -76,8 +82,175 @@ class LineBreaker:
         self.end_obj_idx.reverse()
         return self.line_objs, self.start_obj_idx, self.end_obj_idx
     
+    def dynamic_lines(self):
+        self.compute_costs()
+        self.compute_cuts()
+        return self.get_opt_lines()
+    
+    def get_opt_lines(self):
+        n = self.numobjs
+        self.line_objs = []    
+        self.line_objs = self.getcutlines(n-1)
+        self.line_objs.reverse()
+        self.start_obj_idx.reverse()
+        self.end_obj_idx.reverse()
+        return self.line_objs, self.start_obj_idx, self.end_obj_idx
+    
+    def compute_cuts(self):
+        n = self.numobjs
+        """ compute minimum cost line break """
+        for i in range(0, n):
+            self.totalcost[i] = float("inf")
+            """ c[i] = min (c[j-1] + lc[j,i]) for all j<=i"""
+            for j in range(0, i+1):
+                if j == 0:
+                    cost = self.linecost[j][i]
+                else:
+                    cost = self.totalcost[j-1] + self.linecost[j][i]
+                if (cost < self.totalcost[i]):
+                    self.totalcost[i] = min(self.totalcost[i], cost)
+                    self.cuts[i] = j # means [j-i] is good cut       
+    
+    def compute_costs_v1(self, optsec):
+        n = self.numobjs#n = len(self.list_of_objs)
+        video = self.lec.video
+        list_of_objs = self.list_of_objs
+        # compute cost of lines
+        #linecost = [[0 for x in range(n)] for x in range(n)]
+        for i in range(0, n):
+            """linecost[i][i]: single object line """
+            curobj = list_of_objs[i]
+            if (curobj.start_fid == 0 and curobj.end_fid == 0):
+                self.linecost[i][i] = self.initial_obj_cost()
+            else:
+                self.badness[i][i] = line_badness(list_of_objs[i:i+1], optsec, video.fps)
+                penalty = self.cut_penalty(i, i+1)
+                self.linecost[i][i] = self.badness[i][i] + penalty
+            
+            
+            for j in range(i+1, n):
+                self.badness[i][j] = line_badness(list_of_objs[i:j+1], optsec, video.fps)
+                penalty = self.cut_penalty(j, j+1)
+                self.linecost[i][j] = self.badness[i][j] + penalty
+                
+    def compute_costs(self):
+        n = self.numobjs
+        video = self.lec.video
+        list_of_objs = self.list_of_objs
+        # compute cost of lines
+        #linecost = [[0 for x in range(n)] for x in range(n)]
+        for i in range(0, n):
+            """linecost[i][i]: single object line """
+            curobj = list_of_objs[i]
+            if (curobj.start_fid == 0 and curobj.end_fid == 0):
+                self.badness[i][i] = -100
+                self.linecost[i][i] = self.badness[i][i]
+
+            for j in range(i+1, n):
+                nextobj = list_of_objs[j:j+1][0]
+                self.badness[i][j] = self.linecost[i][j-1] + self.addcost(list_of_objs[i:j], nextobj)
+                self.linecost[i][j] = self.badness[i][j]
+                
+    def addcost(self, list_of_objs, newobj):
+        if newobj is None:
+            return 0
+        penalty = 0
+        cx = (newobj.tlx + newobj.brx)/2.0
+        cy = (newobj.tly + newobj.bry)/2.0
+        z1minx, z1miny, z1maxx, z1maxy = VisualObject.bbox(list_of_objs)
+        z1width = z1maxx - z1minx + 1
+        xpad = 30
+        ypad = min(max(30, 2500.0/z1width), 50)
+        z1minx -= xpad
+        z1miny -= ypad
+        z1maxx += xpad
+        z1maxy += ypad
+        
+        if z1miny <= cy and cy <= z1maxy:
+            additem = -100
+            if newobj.brx >= z1minx and newobj.tlx <= z1maxx: # in bbox 
+                penalty = 0
+            elif newobj.brx < z1minx: # inline left:
+                penalty = z1minx - newobj.brx + xpad
+            elif newobj.tlx > z1maxx: #inline right:
+                penalty = newobj.tlx - z1maxx + xpad
+            else:
+                print 'linebreak.addcost ERROR: inline, not in bbox, neither left nor right'
+            if penalty > 100:
+                penalty += 500
+                additem = 0
+
+        else:
+            xpenalty = abs(z1maxx - newobj.tlx)
+            if cy > z1maxy:
+                ypenalty = cy-z1maxy + ypad
+            elif cy < z1miny:
+                ypenalty = z1miny - cy + ypad
+            else:
+                ypenalty = 0
+                print 'linebreak.addcost ERROR: should never get here'
+            penalty = xpenalty + ypenalty
+            additem = 2000
+#             if list_of_objs[0].start_fid == 2760:
+#             print 'penalty', penalty, 'additem', additem, '=', penalty+additem
+#             templine = VisualObject.group(list_of_objs,"temp")
+#             util.showimages([templine.img, newobj.img], "line and newobj")
+        return additem + penalty
+          
+    
+    
+    def addcost_v3(self, list_of_objs, newobj):
+        if newobj is None:
+            return 0
+        cx = (newobj.tlx + newobj.brx)/2.0
+        cy = (newobj.tly + newobj.bry)/2.0
+        z1minx, z1miny, z1maxx, z1maxy = VisualObject.bbox(list_of_objs)
+        xpenalty = 0 
+        ypenalty = 0
+        if z1miny <= cy and cy <= z1maxy: # definitely in-line
+            additem = -100
+            if newobj.brx >= z1minx and newobj.tlx <= z1maxx: # in bbox 
+                penalty = 0
+            elif newobj.brx < z1minx: # inline left:
+                penalty = z1minx - newobj.brx
+            elif newobj.tlx > z1maxx: #inline right:
+                penalty = newobj.tlx - z1maxx
+            else:
+                print 'linebreak.addcost ERROR: inline, not in bbox, neither left nor right'
+
+        else:           
+            xpenalty = abs(z1maxx - newobj.tlx)
+            if cy > z1maxy:
+                ypenalty = cy-z1maxy
+            elif cy < z1miny:
+                ypenalty = z1miny - cy
+            else:
+                ypenalty = 0
+                print 'linebreak.addcost ERROR: should never get here'
+            penalty = xpenalty + ypenalty
+            if (newobj.tlx > z1maxx and xpenalty > 100):
+                additem = 2000
+            if (newobj.brx < z1minx and xpenalty > 100):
+                additem = 2000
+            if (xpenalty > 100 and ypenalty > 20):
+                additem = 2000
+            else:
+                additem = 0
+        
+#             additem = -100
+#             if xpenalty > 100 and ypenalty > 100:
+#                              
+#         if list_of_objs[0].start_fid == 10460:
+#             print 'xpenalty', xpenalty, 'ypenalty', ypenalty, 'additem', additem, '=', penalty+additem
+#             templine = VisualObject.group(list_of_objs,"temp")
+#             util.showimages([templine.img, newobj.img], "line and newobj")
+        return additem + penalty    
+    
     def getcutlines(self, n):
-        line = VisualObject.group(self.list_of_objs[self.cuts[n]:n+1], self.objdir)
+        linedir = self.objdir + "/lines"
+        if not os.path.exists(linedir):
+            os.makedirs(linedir)
+        line = VisualObject.group(self.list_of_objs[self.cuts[n]:n+1], linedir)
         self.start_obj_idx.append(self.cuts[n])
         self.end_obj_idx.append(n)
         self.line_objs.append(line)
@@ -98,23 +271,31 @@ class LineBreaker:
             obj_j = None
         if obj_i is None or obj_j is None:
             return 0
-        pt = -1.0*VisualObject.gap_frames(obj_i, obj_j)
-        px = -1.0*VisualObject.xgap_distance(obj_i, obj_j)
-        py = -5.0*VisualObject.ygap_distance(obj_i, obj_j)
-        penalty = pt + px + py
+        
+        pt = 0
+        xgap = VisualObject.xgap_distance(obj_i, obj_j)
+        if (xgap < 0):
+            px = 2.0 * xgap
+        else:
+            px = - 1.0 * xgap 
+        ygap = VisualObject.ygap_distance(obj_i, obj_j)
+        py = -1.0* VisualObject.ygap_distance(obj_i, obj_j)
+        penalty = pt + 0.5*px + py
         
         self.xpenalty[i] = px
         self.ypenalty[i] = py
-        self.tpenalty[i] = py    
+        self.tpenalty[i] = pt    
         return penalty       
     
     
-    def output_lines(self, html, objdir):
+    def output_lines(self, html, objdir, list_of_objs=None):
+        if (list_of_objs is None):
+            list_of_objs = self.line_objs
         stc_idx = 0
         nfig = 1
         obj_idx = 0
-        for obj_idx in range(0, len(self.line_objs)):
-            obj = self.line_objs[obj_idx]
+        for obj_idx in range(0, len(list_of_objs)):
+            obj = list_of_objs[obj_idx]
             t = self.lec.video.fid2ms(obj.end_fid)
             paragraph = []
             while(self.lec.list_of_stcs[stc_idx][-1].endt < t):
@@ -124,14 +305,15 @@ class LineBreaker:
                 if (stc_idx >= len(self.lec.list_of_stcs)):
                     break
             html.paragraph_list_of_words(paragraph)
-            html.figure(obj.imgpath, "Figure %i" % nfig)
+            html.figure(list_of_objs[obj_idx].imgpath, "Merged Figure %i" % nfig)
             if (self.debug):
+#                 html.figure(self.line_objs[obj_idx].imgpath, "Original Figure %i" % nfig)
                 start_id = self.start_obj_idx[obj_idx]
                 end_id = self.end_obj_idx[obj_idx]
                 i = str(start_id)
                 j = str(end_id)
-                html.image(objdir + "/" + self.list_of_objs[start_id].imgpath, classstring="debug")
-                html.image(objdir + "/" + self.list_of_objs[end_id].imgpath, classstring="debug")
+#                 html.image(objdir + "/" + self.list_of_objs[start_id].imgpath, classstring="debug")
+#                 html.image(objdir + "/" + self.list_of_objs[end_id].imgpath, classstring="debug")
                 html.writestring("<p class=\"debug\">")
                 html.writestring("objects " + i + " - " + j + "<br>")
                 html.writestring("line badness["+i+"]["+j+"] = " + str(self.badness[start_id][end_id]) + "<br>")
@@ -140,8 +322,7 @@ class LineBreaker:
                 html.writestring("y penalty = " + str(self.ypenalty[end_id]) +"<br>" )             
                 html.writestring("</p>")
             nfig += 1    
-            
-    
+                
     
 def is_jump(lineobjs, obj):
     return False
@@ -169,8 +350,6 @@ def visual_content():
 
 
 def is_cut(lineobjs, obj, fps, min_gap, maxt, max_words, max_visual):
-    if frame_gap(lineobjs, obj) < min_gap:
-        return False
     if time(lineobjs, obj) > maxt:
         return True
     if num_words() > max_words:
@@ -191,75 +370,17 @@ def inline_y(ymin, ymax, curobj):
     return False
 
 
-def linescore(list_of_objs, i, j):
-    return 0
-
-def show_inline_region(panorama, objs_in_line, miny, maxy, curobj):
-
-    var1 = (maxy - miny)/5.0
-    var2 = (maxy - miny)/5.0  
-    
-    pcopy = panorama.copy()
-    curline = VisualObject.group(objs_in_line, "temp")
-    # current line object
-    cv2.rectangle(pcopy, (curline.tlx, curline.tly), (curline.brx, curline.bry), (0,0,255), 3)
-    # inline region
-    cv2.rectangle(pcopy, (curline.tlx, int(miny - var1)), (curline.brx, int(maxy + var2)), (255, 0, 0), 1)
-    cv2.rectangle(pcopy, (curobj.tlx, curobj.tly), (curobj.brx, curobj.bry), (0,100,0), 3)
-    util.showimages([pcopy])
-    
-
-def greedy_break(lec, list_of_objs, objdir, min_gap, maxt, max_words, max_visual):
-    lineobjs = []
-    objs_in_line = []
-    for obj in list_of_objs:
-        if is_cut(objs_in_line, obj, lec.video.fps, min_gap, maxt, max_words, max_visual):
-            line = VisualObject.group(objs_in_line, objdir)
-            lineobjs.append(line)
-            objs_in_line = []
-        else:
-            objs_in_line.append(obj)
-    return lineobjs    
-
-   
-
 def line_badness(list_of_objs, optsec, fps):
-    badness = 0
-    nframes = VisualObject.duration_frames(list_of_objs[0], list_of_objs[-1])
-    badness += abs(optsec - 1.0*nframes/fps)
-    return 100*badness
-
-
-def greedy_lines(list_of_objs, panorama):
-    lineobjs = []    
-    initobj = list_of_objs[0]    
-    objs_in_line = [initobj]  
-    minys = []  
-    maxys = []
-    miny = initobj.tly
-    maxy = initobj.bry
-    minys.append(initobj.tly)
-    maxys.append(initobj.bry)
-    for i in range(1, len(list_of_objs)):
-        curobj = list_of_objs[i]
-#         show_inline_region(panorama, objs_in_line, miny, maxy, curobj)
-        if inline_y(miny, maxy, curobj):
-            miny = min(miny, curobj.tly)
-            maxy = max(maxy, curobj.bry)
-            objs_in_line.append(curobj)           
-        else:
-            line = VisualObject.group(objs_in_line, "temp")
-#             util.showimages([line.img, curobj.img], "lineobject")
-            lineobjs.append(line)
-            objs_in_line = []
-            objs_in_line.append(curobj)
-            miny = curobj.tly
-            maxy = curobj.bry
-    line = VisualObject.group(objs_in_line)
-#     util.showimages([line.img], "temp")
-    lineobjs.append(line)
-    return lineobjs
-
+    fgpixcount = 0
+    for obj in list_of_objs:
+        fgmask = pf.fgmask(obj.img)
+        fgpixcount += np.count_nonzero(fgmask)
+#         print 'fgpixcount = ', np.count_nonzero(fgmask)
+#         util.showimages([obj.img, fgmask], "object and mask")
+    if fgpixcount > 2000:
+        return 0
+    else:
+        return (2000 - fgpixcount)
 
             
 if __name__ == "__main__":
@@ -272,12 +393,11 @@ if __name__ == "__main__":
     lec = Lecture(videopath, scriptpath)
     print lec.video.fps
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
-    breaker = LineBreaker(lec, img_objs, objdir, debug=True)
-    line_objs = breaker.dynamic_lines(optsec=120)
-    
-    html = WriteHtml(objdir + "/dynamic_linebreak_debug.html", title="Optimal line break", stylesheet="../Mainpage/summaries.css")
+    breaker = LineBreaker(lec, img_objs, objdir, debug=False)
+    line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines()
+    html = WriteHtml(objdir + "/dynamic_linebreak_test_v3.html", title="Test line break v3", stylesheet="../Mainpage/summaries.css")
     html.opendiv(idstring="summary-container")
-    breaker.output_lines(html, objdir)
+    breaker.output_lines(html, objdir, list_of_objs=line_objs)
     html.closediv()
     html.closehtml()
     

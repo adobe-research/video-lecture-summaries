@@ -1,3 +1,4 @@
+
 python linebreak.py ../SampleVideos/more/khan1/khan1_removelogo.avi ../alignments/khan1.json ../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/khan1/khan1_panorama/negate/panorama.png
 python linebreak.py ../SampleVideos/more/khan2/khan2_removelogo.avi ../alignments/khan2.json ../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/khan2/khan2_panorama/negate/panorama.png
 python linebreak.py ../SampleVideos/more/khan3/khan3_removelogo.avi ../alignments/khan3.json ../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png
@@ -7,5 +8,4 @@ python linebreak.py ../SampleVideos/more/khan6/khan6_removelogo.avi ../alignment
 python linebreak.py ../SampleVideos/more/khan7/khan7_removelogo.avi ../alignments/khan7.json ../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/khan7/khan7_panorama/negate/panorama.png
 python linebreak.py ../SampleVideos/more/khan8/khan8_removelogo.avi ../alignments/khan8.json ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/khan8/khan8_panorama/negate/panorama.png
 python linebreak.py ../SampleVideos/more/khan9/khan9_removelogo.avi ../alignments/khan9.json ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/khan9/khan9_panorama/negate/panorama.png
-python linebreak.py ../SampleVideos/more/bigbang/bigbang_khan_removelogo.avi ../alignments/bigbang.json ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/bigbang/bigbang_khan_panorama/negate/panorama.png
 python linebreak.py ../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo.avi ../alignments/mit6041x_1.json ../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/ ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/negate/panorama.png

@@ -34,10 +34,8 @@ class ProcessVideo:
             "pentimento" in self.videoname or
             "slide" in self.videoname):
             self.videotype = "mit"
-        elif ("khan" in self.videoname):
-            self.videotype = "khan"        
         else:
-            raise("video type not specified!")
+            self.videotype = "khan"        
         cap.release()
         print self.video
         print self.videoname

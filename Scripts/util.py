@@ -6,6 +6,19 @@ import re
 import numpy as np
 import os
 
+def get_images(framedir, fids):
+    images = []
+    filenames = []
+    for fid in fids:
+        filename = framedir + "/capture_"        
+        filename = filename + ("%06i" % fid) + "_fid.png"
+        img = cv2.imread(filename)
+        if (img is None):
+            print 'Warning %s not found' %filename
+        images.append(img)
+        filenames.append(filename)
+    return images, filenames
+        
 def get_logos(dirname):
     logos = []
     if dirname is None or not os.path.exists(dirname):
@@ -142,6 +155,7 @@ def saveimage(img, outdir, filename):
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
     cv2.imwrite(outdir + "/" + filename, img)
+    print 'util.saveimage', (outdir+"/" +filename)
     
 
 def smooth(x,window_len=11,window='hanning'):

@@ -78,3 +78,6 @@ if __name__ == "__main__":
             img = images[i]
             outimg = fillcolor(img, logos, (0,0,0))
             cv2.imwrite(processed_path+"\\"+ imagefiles[i], outimg)
+            
+            
+            

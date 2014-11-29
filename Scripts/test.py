@@ -18,6 +18,9 @@ from writehtml import WriteHtml
 import util
 from visualobjects import VisualObject
 import lectureplot as lecplot
+from scipy.signal import argrelextrema
+import linebreak
+
 
 
 def get_keyframes(dirname):
@@ -278,6 +281,7 @@ def test_panorama_path(panorama, keyframes):
         
     return pathimg
 
+
 def test_highlight_in_panorama(panorama, frame, highlight_mask):
     panorama_gray = cv2.cvtColor(panorama, cv2.COLOR_BGR2GRAY)
     frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -298,21 +302,59 @@ def test_highlight_in_panorama(panorama, frame, highlight_mask):
     #util.showimages([high])
     return high
         
-if __name__ == "__main__":   
+
+def test_panorama_projectile_main():
+    panorama = cv2.imread(sys.argv[1])
+    min_points =[]
+    h,w = panorama.shape[0:2]
+    panorama_fg = pf.fgmask(panorama, 50, 255, True)
+    for i in range(0, 4):
+        w1 = (i*0.25) * w
+        w2 = (i+1)*0.25 *w
+        print w1, w2
+        quarter_img = panorama_fg[:,w1:w2]
+        y = np.empty(h, dtype=np.uint8)
+        for j in range(0, h):
+            y[j] = np.count_nonzero(quarter_img[j,:])
+        y = util.smooth(y, window_len=15)
+        plt.plot(y)
+        plt.show()          
+    
+    
+def test_merge_inline_objects_main():
     videopath = sys.argv[1]
-    transcript = sys.argv[2]
-    txtfile = sys.argv[3]
-    lecture = Lecture(videopath, transcript)  
+    objdir = sys.argv[2]
+    lec = Lecture(videopath, None)
+    img_objs = VisualObject.objs_from_file(lec.video, objdir)
+    breaker = linebreak.LineBreaker(lec, img_objs, objdir, debug=True)
+    line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines()
     
-    outfile = open(txtfile, "w")    
-    outfile.write("==========\n")
-    for stc in lecture.list_of_stcs:
-        for word in stc:
-            if not word.issilent:
-                outfile.write("%s " % word.original_word)
-        outfile.write("\n")
-    outfile.write("==========\n")
-    outfile.close()
-                
+    n = len(line_objs)
+    line_objs_w_context = []
+    for i in range(0, n):
+        curline = line_objs[i]
+        merged = False
+        for j in range(0, len(line_objs_w_context)): # consider all previous lines
+            prevline = line_objs_w_context[j]
+            print prevline
+            if (VisualObject.inline(curline, prevline)):
+                line_objs_w_context[j] = VisualObject.group([curline, prevline], objdir + "/lines/merged")
+                merged = True
+                break
+        if not merged:
+            line_objs_w_context.append(curline) # make new line
+            print len(line_objs_w_context)
+    
+    html = WriteHtml(objdir + "/lines/figures_w_context.html", title="Figures with Context", stylesheet="../Mainpage/summaries.css")
+    html.opendiv(idstring="summary-container")
+    nfig = 0
+    for line in line_objs_w_context:
+        html.figure(line.imgpath, "Merged Line %i" % nfig)
+        nfig += 1
+    html.closediv()
+    html.closehtml()
     
     
+        
+if __name__ == "__main__":   
+    test_merge_inline_objects_main()

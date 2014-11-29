@@ -120,7 +120,7 @@ def removetemplate(gray_img, gray_obj, M):
 def subtractlogo(frame, logo, color=None):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
-    topleft = find_object_exact_inside(frame, logo, 0.90)
+    topleft = find_object_exact_inside(frame, logo, 0.36)
     frame_copy = frame.copy()
     if  topleft == None:
 #         util.showimages([frame], "no logo")
@@ -134,7 +134,7 @@ def subtractlogo(frame, logo, color=None):
     if color is None:
         frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
     else:
-        logomask = fgmask(logo, 25, 255, True)
+        logomask = fgmask(logo, 5, 255, True)
 #         logomask = cv2.bitwise_not(logomask)
         logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
 #         util.showimages([logomask], "logomask")
@@ -388,8 +388,8 @@ def find_object_exact_inside(img, template, threshold=0.90):
     """threshold khan = 0.75, tecmath = 0.25 """   
 #     print max_val
     if (max_val < threshold):
-# #         print max_val
-# #         util.showimages([img])        
+#         print max_val
+#         util.showimages([img])        
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
@@ -569,8 +569,8 @@ def removebg_khan(gray_frame):
     return dest
 
 def numfgpix_thresh(gray, fgthres):
-    #ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
-    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
+    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
+#     ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
     numfg = np.count_nonzero(threshimg)
     logging.debug("#fg pix %i", numfg)
 #     util.showimages([threshimg], "processframe::numfgpix_thres")
@@ -637,27 +637,28 @@ def stitch_images(previmage, curimage):
   curimage = cv2.cvtColor(curimage, cv2.COLOR_BGR2BGRA)
   curimage_gray = cv2.cvtColor(curimage, cv2.COLOR_BGR2GRAY)  
   previmage = cv2.cvtColor(previmage, cv2.COLOR_BGR2BGRA)
-  previmage_gray = cv2.cvtColor(previmage, cv2.COLOR_BGR2GRAY)
-  
-  # util.showimages([curimage, previmage])
-  
+  previmage_gray = cv2.cvtColor(previmage, cv2.COLOR_BGR2GRAY) 
+ 
   (curh, curw) = curimage.shape[:2]
   (prevh, prevw) = previmage.shape[:2]
-  
+  print 'curimage shape', curimage.shape
+  print 'curh, curw', curh, curw
+  print 'prevh, prevw', prevh, prevw
   M = find_object_appx_thres(previmage_gray, curimage_gray, 0.9)
   print M 
   if not isgoodmatch(M):
         print "M is not a good match"
         tx = 0.0
-        ty = prevh
+        ty = prevh - 1.0
         M = np.array([[1.0, 0.0, tx], [0.0, 1.0, ty], [0.0, 0.0, 1.0]])
    
   (warpsize, offset) = calculate_size((prevh, prevw), (curh, curw), M)
-  
+#   print 'warpsize', warpsize
   curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)
-  
+#   util.showimages([curimage_warp], "curimage_warp")
   xoff = int(offset[0])
   yoff = int(offset[1])
+#   print 'xoff, yoff', xoff-1, yoff-1
   M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])      
   previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)        
   
@@ -668,14 +669,15 @@ def stitch_images(previmage, curimage):
   pil_previmage_warp.paste(pil_curimage_warp, (-(xoff - 1), -(yoff - 1)), pil_curimage_warp)
   merged = np.array(pil_previmage_warp)  
   merged = cv2.cvtColor(merged, cv2.COLOR_RGB2BGR)
+#   util.showimages([merged], "merged")
   return merged
   
 def panorama(list_of_frames):
-  previmage = list_of_frames[0]
+  previmage = list_of_frames[0].frame
   for i in range(1, len(list_of_frames)):
     print "%i of %i" % (i, len(list_of_frames))
-    curimage = list_of_frames[i]
-    util.showimages([previmage], "pf::panorama, previmage")
+    curimage = list_of_frames[i].frame
+#     util.showimages([previmage], "pf::panorama, previmage")
     previmage = stitch_images(previmage, curimage)    
   return previmage
 

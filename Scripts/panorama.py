@@ -6,6 +6,7 @@ from video import Video, Keyframe
 import framediff
 import util
 import removelogo
+import numpy as np
 
 def new_obj_panorama():
   
@@ -50,44 +51,42 @@ def scroll_stitch_panorama():
     Stitch keyframes """
     videopath = sys.argv[1]
     framedifftxt = sys.argv[2]
-    logopath = sys.argv[3]
+#     logopath = sys.argv[3]
     if (len(sys.argv) == 5):
         thres = int(sys.argv[4])
     else:
-        thres = 20000
+        thres = 1000
     
     video = Video(videopath)
     counts = framediff.getcounts(framedifftxt)
-    logos = util.get_logos(logopath)
-
-    
+    counts = util.smooth(np.array(counts), window_len = int(video.fps))
+#     logos = util.get_logos(logopath)
+# 
+#     
     fid = 0
+    last_unmoved_fid = 0
     capture = False
     keyframes_fid = []
     for count in counts:
+        if count < 500:
+            last_unmoved_fid = fid
         if count > thres and not capture:
             capture = True
-            keyframes_fid.append(max(0, fid-3))
-        if count <= thres and capture:
+            keyframes_fid.append(max(0, last_unmoved_fid))
+        elif count <= thres and capture:
             capture = False
         fid += 1
     keyframes_fid.append(fid-3)
-    
+     
     framedir = video.videoname + "_panorama"
-    video.capture_keyframes_fid(keyframes_fid, framedir)
+    list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
+     
+    list_of_frames = Keyframe.get_keyframes(framedir)
+     
     
-    list_of_frames = []
-    keyframes = Keyframe.get_keyframes(framedir)
-    for keyframe in keyframes:
-        frame = keyframe.frame
-        for logo in logos:
-            frame = removelogo.fillblack(frame, logo)
-        list_of_frames.append(frame)
-    
-   
     panorama = pf.panorama(list_of_frames)
     cv2.imwrite(framedir + "/panorama.png", panorama)
-#     util.showimages([panorama])
+    util.showimages([panorama])
     
 if __name__ == "__main__":
     scroll_stitch_panorama()

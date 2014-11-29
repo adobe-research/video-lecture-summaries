@@ -13,9 +13,12 @@ from scipy import ndimage
 import os
 import math
 from video import Video
+from scipy.signal import argrelextrema
+
+
 
 class VisualObject:
-    def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None):
+    def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None, isgroup=False, members=None):
         self.img = img
         self.imgpath = imgpath
         self.start_fid = start_fid
@@ -28,7 +31,12 @@ class VisualObject:
         self.height = bry - tly+1
         self.istext = istext
         self.text = text
-        
+        self.isgroup = isgroup
+        if (self.isgroup):
+            self.members = members
+        else:
+            self.members = [self]
+                   
     @classmethod
     def fromtext(cls, text, start_fid, end_fid):        
         (textsize, baseline) = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)
@@ -40,7 +48,7 @@ class VisualObject:
         return (self.width, self.height)
     
     def copy(self):
-        return VisualObject(self.img, self.imgpath, self.start_fid, self.end_fid, self.tlx, self.tly, self.brx, self.bry, self.istext, self.text)
+        return VisualObject(self.img, self.imgpath, self.start_fid, self.end_fid, self.tlx, self.tly, self.brx, self.bry, self.istext, self.text, self.isgroup, self.members)
     
     def shiftx(self, x):
         self.tlx += x
@@ -58,9 +66,21 @@ class VisualObject:
         self.tly = y
         self.bry = self.tly + self.height
         
+    def color(self):
+        # Assume white (255) background
+        mask = pf.fgmask(self.img, 254)
+        fgimg = self.img[mask != 0]
+        b = self.img[:,:,0]
+        g = self.img[:,:,1]
+        r = self.img[:,:,2]
+        mean_b = np.mean(b[mask!=0])
+        mean_g = np.mean(g[mask!=0])
+        mean_r = np.mean(r[mask!=0])
+        return (mean_b, mean_g, mean_r)
+              
         
     @classmethod
-    def group(cls, list_of_imgobjs, objdir="temp"):    
+    def group(cls, list_of_imgobjs, objdir="temp", debug=False):    
         min_tlx = sys.maxint
         min_tly = sys.maxint
         max_brx = -1
@@ -77,6 +97,7 @@ class VisualObject:
         w = max_brx - min_tlx+1
         h = max_bry - min_tly+1
         groupimg = np.ones((h, w, 3), dtype=np.uint8)*255
+        debug_i = 0
         for obj in list_of_imgobjs:
             """Assume images are white background"""
             resize_img = np.ones((h,w,3), dtype=np.uint8)*255
@@ -87,10 +108,16 @@ class VisualObject:
             mask = pf.fgmask(resize_img, threshold=225, var_threshold=100)
             idx = mask != 0
             groupimg[idx] = resize_img[idx]
-            groupimgname = "obj_%06i_%06i.png" %(min_start_fid, max_end_fid)
-            util.saveimage(groupimg, objdir, groupimgname)
-            imgpath = objdir + "/" + groupimgname
-        return cls(groupimg, imgpath, min_start_fid, max_end_fid, min_tlx, min_tly, max_brx, max_bry)    
+            if (debug and (debug_i == 0)):
+                cv2.rectangle(groupimg, (new_tlx, new_tly), (new_tlx + objw, new_tly+objh), (0,0,255), 2)
+            if (debug and (debug_i == len(list_of_imgobjs)-1)):
+                cv2.rectangle(groupimg, (new_tlx, new_tly), (new_tlx + objw, new_tly+objh), (100,100,0), 2)
+                
+            debug_i += 1
+        groupimgname = "obj_%06i_%06i_group.png" %(min_start_fid, max_end_fid)
+        util.saveimage(groupimg, objdir, groupimgname)
+        imgpath = objdir + "/" + groupimgname
+        return cls(groupimg, imgpath, min_start_fid, max_end_fid, min_tlx, min_tly, max_brx, max_bry, isgroup=True, members=list_of_imgobjs)    
             
     @staticmethod
     def objs_from_transcript(lec):
@@ -196,10 +223,14 @@ class VisualObject:
     def xgap_distance(obj_i, obj_j):
         i_right = obj_i.brx
         j_left = obj_j.tlx
-        if (i_right <= j_left):
-            return j_left - i_right
-        else:
-            return i_right - j_left
+        return j_left - i_right
+        
+    @staticmethod
+    def colorgap_distance(obj_i, obj_j):
+        (b1,g1,r1) = obj_i.color()
+        (b2,g2,r2) = obj_j.color()
+        dist = ((b1-b2)*(b1-b2) + (g1-g2)*(g1-g2) + (r1-r2)*(r1-r2))/(3.0*255.0*255.0)
+        return dist
         
     @staticmethod    
     def duration_frames(obj_i, obj_j):
@@ -282,15 +313,125 @@ class VisualObject:
         plt.plot(y_gaps)
         plt.savefig(objdir + "/obj_ygap.png")
         plt.close()
-         
-
+    
+    @staticmethod
+    def overlap(obj1, obj2):
+        area1 = (obj1.brx + 1 - obj1.tlx) * (obj1.bry + 1 - obj1.tly)
+        area2 = (obj2.brx + 1 - obj2.tlx ) * (obj2.bry + 1 - obj2.tly)
+        areai = max(0, min(obj1.brx + 1, obj2.brx + 1) - max(obj1.tlx, obj2.tlx)) * max(0, min(obj1.bry + 1, obj2.bry + 1) - max(obj1.tly, obj2.tly))
+        return 1.0 * areai / min(area1, area2)
+    
+    @staticmethod
+    def plot_color_gap(list_of_objs, objdir):
+        color_gaps = []
+        binsize = 0.01
+        for i in range(0, len(list_of_objs)-1):
+            curobj = list_of_objs[i]
+            nextobj = list_of_objs[i+1]
+            colordist = VisualObject.colorgap_distance(curobj, nextobj)
+            color_gaps.append(colordist)
+        max_gap = math.ceil(max(color_gaps))
+        bins = np.linspace(0, max_gap, max_gap/binsize+1)
+        rprobs, rbins, rpatches = plt.hist(color_gaps, bins, normed=False)
+        plt.savefig(objdir + "/obj_colorgap_hist.png")
+        plt.close()     
+        plt.plot(color_gaps)
+        plt.savefig(objdir + "/obj_colorgap.png")
+        plt.close()
+        
+    @staticmethod
+    def area_projection_function(list_of_objs, objdir, panorama, w1, w2):
+        h, w = panorama.shape[:2]
+        y = np.empty(h, dtype=np.uint8)
+        for i in range(0, h):
+            count = 0
+            for obj in list_of_objs:
+                if obj.tly <= i and i <= obj.bry and obj.tlx > w1 and obj.tlx <=w2:
+                    count += 1#obj.width * obj.height
+            y[i] = count
+        ysmooth = util.smooth(y, window_len = 100)
+        plt.plot(ysmooth)
+        plt.savefig(objdir + "/area_projection_function.png")
+#         plt.show()
+        return y
+        
+    @staticmethod
+    def bbox(list_of_objs):
+        tlx = float("inf")
+        tly = float("inf")
+        brx = -1.0
+        bry = -1.0
+        for obj in list_of_objs:
+            tlx = min(tlx, obj.tlx)
+            tly = min(tly, obj.tly)
+            brx = max(brx, obj.brx)
+            bry = max(bry, obj.bry)
+        return (int(tlx), int(tly), int(brx), int(bry))
+    
+    @staticmethod
+    def inline(curobj, prevobj):
+        z1minx, z1miny, z1maxx, z1maxy = VisualObject.bbox([prevobj])
+        z1width = z1maxx - z1minx + 1
+        xpad = 30
+        ypad = min(max(30, 2500.0/z1width), 50)
+        z1minx -= xpad
+        z1miny -= ypad
+        z1maxx += xpad
+        z1maxy += ypad
+        cy = (curobj.tly + curobj.bry) / 2.0
+        
+          
+        if z1miny <= cy and cy <= z1maxy:
+            if curobj.brx >= z1minx and curobj.tlx <= z1maxx: # in bbox 
+                return True
+            elif curobj.brx < z1minx: # inline left:
+                penalty = z1minx - curobj.brx + xpad
+                if (penalty < 100): 
+                    return True
+            elif curobj.tlx > z1maxx: #inline right:
+                penalty = curobj.tlx - z1maxx + xpad
+                if (penalty < 100):
+                    return True
+        return False
+        
+        
+            
         
 if __name__ == "__main__":
-    videopath = sys.argv[1]
-    objdirpath = sys.argv[2]
-    video = Video(videopath)
-    list_of_objs = VisualObject.objs_from_file(video, objdirpath)
-    VisualObject.plot_time_gap(list_of_objs, objdirpath, video)
-    VisualObject.plot_xgap(list_of_objs, objdirpath)
-    VisualObject.plot_ygap(list_of_objs, objdirpath)
+    objdirpath = sys.argv[1]
+    list_of_objs = VisualObject.objs_from_file(None, objdirpath)
+    
+    panoramapath = sys.argv[2]
+    panorama = cv2.imread(panoramapath)
+    ph,pw = panorama.shape[0:2]    
+    panorama_copy = panorama.copy()
+    panorama_copy2 = panorama.copy()
+    for i in range(0, 4):
+        w1 = (i*0.25) * pw
+        w2 = (i+1)*0.25 *pw
+        y = VisualObject.area_projection_function(list_of_objs, objdirpath, panorama, w1, w2)
+        ysmooth = util.smooth(y, window_len=100)
+        maxys = argrelextrema(ysmooth, np.greater)
+        minys = argrelextrema(ysmooth, np.less)
+        for y in maxys[0]:
+            cv2.line(panorama_copy, (int(w1), y), (int(w2), y), (255,255,255), 1)
+        for y in minys[0]:
+            cv2.line(panorama_copy2, (int(w1), y), (int(w2), y), (255,255,255), 1)
+        util.showimages([panorama_copy2], "minlines")
+#         util.showimages([panorama_copy], "maxlines")
+    
+    #util.saveimage(panorama_copy2, objdirpath, "projection_minys.png")
+    #util.saveimage(panorama_copy, objdirpath, "projection_maxys.png")
+    
+   
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

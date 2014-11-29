@@ -11,6 +11,9 @@ import sys
 import util
 import panorama_object
 import cv2
+from scipy.signal import argrelextrema
+
+
 
 def meanshift_visobjs(list_of_visobjs, ctlx, cbrx, ctly, cbry, cstart, cend, w, h, nframes, bandwidth=None):
     data = []
@@ -24,6 +27,21 @@ def meanshift_visobjs(list_of_visobjs, ctlx, cbrx, ctly, cbry, cstart, cend, w, 
     labels, cluster_centers = meanshift.cluster(np.array(data), bandwidth=bandwidth)
         
     return labels, cluster_centers
+
+def cluster_by_line_seeds(list_of_objs, seeds):
+    data = []
+    for visobj in list_of_objs:
+        data.append((0, 0.5*visobj.tly + 0.5*visobj.bry))
+    labels, cluster_centers = meanshift.cluster_with_seeds(np.array(data), seeds)
+    
+    labels_unique = np.unique(labels)
+    n_clusters = len(labels_unique)
+    print '# lines:', n_clusters    
+    lineobjs = [[] for i in range(0, n_clusters)]
+    for i in range(0, len(list_of_objs)):
+        lineobjs[labels[i]].append(list_of_objs[i])
+    
+    return lineobjs
         
 def cluster_by_line(list_of_objs, hbandwidth):   
     labels, cluster_centers = meanshift_visobjs(list_of_objs, 0, 0, 0, 1.0, 0, 0.0, 1.0, 1.0, 1.0, bandwidth=hbandwidth) 
@@ -78,6 +96,27 @@ def is_cut(prevobj, curobj, time_thres, line_thres):
 #         return False
 #     return True
 
+def line_cluster_with_seeds_main():
+    objdir = sys.argv[1]
+    panoramapath = sys.argv[2]
+    img_objs = VisualObject.objs_from_file(None, objdir)
+    panorama = cv2.imread(panoramapath)
+    line_ys = VisualObject.area_projection_function(img_objs, objdir, panorama)
+    line_ys = util.smooth(line_ys, window_len=100)
+    maxys = argrelextrema(line_ys, np.greater)
+    print maxys
+    seeds = []
+    for y in maxys[0]:
+        print y
+        seeds.append((0,y))
+    lineobjs = cluster_by_line_seeds(img_objs, np.array(seeds))
+    
+    list_of_objs, labels = get_labeled_objs(lineobjs)
+    line_cluster = panorama_object.draw_clusters(panorama, list_of_objs, labels)
+    util.saveimage(line_cluster, objdir, "line_cluster.png")
+    util.showimages([line_cluster], "line cluster")
+    
+
 
 def line_cluster_main():
     objdir = sys.argv[1]
@@ -115,36 +154,9 @@ def cluster_wth_threshold(list_of_objs, timethres, linethres, objdir):
     return new_imgobjs
 
 if __name__ == "__main__":
-    objdir = sys.argv[1]
-    panoramapath = sys.argv[2]
-    imgobjs = VisualObject.objs_from_file(None, objdir)
-    panorama = cv2.imread(panoramapath)
     
-    timethres = 5*VisualObject.avg_duration(imgobjs)
-    linethres = 3*VisualObject.avg_height(imgobjs)
     
-    prevobj = imgobjs[0]
-    clusterobjs = []
-    clusterobjs.append(prevobj)
-    new_imgobjs = []
-    for i in range(1, len(imgobjs)):
-        curobj = imgobjs[i]
-        if (is_cut(prevobj, curobj, timethres, linethres)):
-            objgroup = VisualObject.group(clusterobjs, objdir)
-            
-            new_imgobjs.append(objgroup)
-            clusterobjs = []
-        clusterobjs.append(curobj)
-        prevobj = curobj
-        
-    objgroup = VisualObject.group(clusterobjs, objdir)    
-    new_imgobjs.append(objgroup)
-    
-    print '# clusters', len(new_imgobjs)
-    labels = range(len(new_imgobjs))
-    thres_cluster = panorama_object.draw_clusters(panorama, new_imgobjs, labels)
-    util.showimages([thres_cluster], "Clustering by threshold")
-    util.saveimage(thres_cluster, objdir, "threshold_cluster.png")
+    line_cluster_with_seeds_main()
     
     
     

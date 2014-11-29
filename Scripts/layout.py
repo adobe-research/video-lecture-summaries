@@ -56,66 +56,6 @@ def layout_words_on_cursor_path():
         util.saveimage(frame, layoutdir, "sentence" +("%03i" %stc_id) +"_word.png")
         stc_id += 1
            
-def inframe_cstr(obj_ws, obj_hs, obj_bases, frame_w, frame_h):
-    vals = []
-    rows = []  #rows
-    cols = []  #cols
-    b = []
-
-    for i in range(0, len(obj_ws)):
-        # x_i >= 0    -x_i <= 0
-        rows.append(len(rows))
-        cols.append(2*i)
-        vals.append(-1)
-        b.append(0)
-        
-        # x_i + txt_w[i] <= frame_w    x_i <= frame_w - txt_w[i]
-        rows.append(len(rows))
-        cols.append(2*i)
-        vals.append(1)
-        b.append(frame_w - obj_ws[i])
-        
-        # y_i - txt_hs[i] >= 0    -y_i <= txt_hs[i]
-        rows.append(len(rows))
-        cols.append(2*i+1)
-        vals.append(-1)
-        b.append(obj_hs[i])
-        
-        # y_i + obj_bases[i] <= frame_h    y_i <= frame_h-obj_bases[i]
-        rows.append(len(rows))
-        cols.append(2*i+1)
-        vals.append(1)
-        b.append(frame_h - obj_bases[i])
-        
-    A = cvxopt.spmatrix(vals, rows, cols)
-    return (A, b)
-
-def reading_order_cstr(obj_ws, obj_hs, obj_bases):
-    # Only top-to-bottom
-    n_objs = len(obj_ws)
-    rows = []
-    cols = []
-    vals = []
-    b = []
-    n_cstr = 0
-    for i in range(1, n_objs):
-        # y_i + obj_bases[i] <= y_(i+1) - objs_hs[i+1]
-        # y_i - y_(i+1) <= -obj_bases[i] - obj_hs[i+1])
-        rows.append(n_cstr)
-        cols.append(2*i+1)
-        vals.append(1)
-        rows.append(n_cstr)
-        cols.append(2*(i+1)+1)
-        vals.append(-1)
-        b.append(-obj_bases[i] - obj_hs[i+1])
-        n_cstr += 1
-        
-    A = cvxopt.spmatrix(vals, rows, cols)
-    return (A, b)
-        
-def non_overlap_cstr(ws, hs, bases):
-    # non-linear
-    return
 
 def textbbox(text):    
     textsize, baseline = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1.0, 1)

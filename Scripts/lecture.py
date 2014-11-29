@@ -16,8 +16,12 @@ class Lecture:
         else:
             self.video = None
         self.aligned_transcript_path = aligned_transcript_path
-        self.list_of_words = pjson.get_words(aligned_transcript_path)
-        self.list_of_stcs = pjson.get_sentences(self.list_of_words)
+        if aligned_transcript_path is not None:
+            self.list_of_words = pjson.get_words(aligned_transcript_path)
+            self.list_of_stcs = pjson.get_sentences(self.list_of_words)
+        else:
+            self.list_of_words = []
+            self.list_of_stcs = []
         self.default_objects = []  
         self.cursorpos = []
         self.visual_objects = []  

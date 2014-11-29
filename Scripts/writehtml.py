@@ -35,6 +35,7 @@ class WriteHtml:
         self.image(filename)
         self.htmlfile.write("<figcaption> " + caption + " </figcaption>\n")
         self.htmlfile.write("</figure>\n")
+        self.breakline()
         self.numfigs += 1
 
     def image(self, filename, width="", mapname="", idstring="", classstring=""):

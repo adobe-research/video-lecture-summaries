@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import sys
-from video import Video
+from video import Video, Keyframe
 from visualobjects import VisualObject
 
 def read_fgpixel(fgpixel_txt):
@@ -100,38 +100,18 @@ def update_panorama_frame(prev_panorama, curframe, curx, cury):
     util.showimages([prev_panorama])
     return prev_panorama
 
-
-def cleanup(visobj, panorama_fg, cleanupdir):
-    """objects appear only once, related to first time that they appear
-        panorama_fg: all objects that can still appear in panorama 
-        visobj: current visobj to be cleaned """
-    obj_mask = pf.fgmask(visobj.img, 50, 255, True)
-    
-    panorama_fg_crop = panorama_fg[visobj.tly:visobj.bry+1, visobj.tlx:visobj.brx+1]
-    new_mask = cv2.bitwise_and(obj_mask, panorama_fg_crop)
-    new_bbox = pf.fgbbox(new_mask)
-    
-    if new_bbox[0] < 0:
-        return None, panorama_fg
-    new_img = pf.maskimage(visobj.img, new_mask)
-    new_img, new_mask = pf.croptofg(new_img, new_mask)
-    new_imgname = os.path.basename(visobj.imgpath)
-    util.saveimage(new_img, cleanupdir, new_imgname)
-    tlx = visobj.tlx + new_bbox[0]
-    tly = visobj.tly + new_bbox[1]
-    brx = visobj.tlx + new_bbox[2]
-    bry = visobj.tly + new_bbox[3]
-    new_visobj = VisualObject(new_img, cleanupdir + "/" + visobj.imgpath, visobj.start_fid, visobj.end_fid, tlx, tly, brx, bry)
-    new_fg = pf.fit_mask_to_img(panorama_fg, new_mask, new_visobj.tlx, new_visobj.tly)
-    new_bg = cv2.bitwise_not(new_fg)
-    panorama_fg = cv2.bitwise_and(panorama_fg, new_bg) 
-    
-    new_visobjs = new_visobj.segment_cc()
-    
-    return new_visobjs, panorama_fg
-    
+def capture_object_keyframes(object_fids, video):
+    end_fids = [0]
+    start_fids = [0]
+    for fids in object_fids:
+        start_fids.append(fids[0])
+        end_fids.append(fids[1])
         
+    keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+    return keyframes
+    
 def getobjects(video, object_fids, panorama, objdir):
+    print 'video.fps', video.fps
     if not os.path.exists(os.path.abspath(objdir)):
         os.makedirs(os.path.abspath(objdir))
     
@@ -141,14 +121,15 @@ def getobjects(video, object_fids, panorama, objdir):
         start_fids.append(fids[0])
         end_fids.append(fids[1])
     
-    keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+    images, filenames = util.get_images(video.videoname + "_temp", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+    keyframes = []
+    for i in range(0, len(images)):
+        keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
     prevframe = np.zeros((video.height, video.width, 3), dtype=np.uint8)
-     
     list_of_objs = []
     i = 0    
     prevx = 0 
     prevy = 0
-#     prev_panorama = np.zeros(panorama.shape, dtype=np.uint8)
     for keyframe in keyframes:
         prev_id = start_fids[i]
         cur_id = end_fids[i]
@@ -160,14 +141,21 @@ def getobjects(video, object_fids, panorama, objdir):
         
         curx = curx-prevx
         cury = cury-prevy
+        
+        if (curx != 0 or cury != 0):
+            i += 1
+            prevx = topleft[0]
+            prevy = topleft[1]
+            prevframe = keyframe.frame
+            continue
+            
         curh, curw = keyframe.frame.shape[:2]
-         
         diff_frame = keyframe.frame.copy()
+        
         curframe_overlap = diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] 
         prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
-        diff_frame = cv2.min(keyframe.frame, diff_frame) 
-        obj_frame = cv2.min(diff_frame, keyframe.frame)
+        obj_frame = cv2.min(keyframe.frame, diff_frame) 
         obj_mask = pf.fgmask(obj_frame, 50, 255, True)
         obj_bbox = pf.fgbbox(obj_mask)
         
@@ -200,29 +188,6 @@ def getobjects(video, object_fids, panorama, objdir):
     VisualObject.write_to_file(objinfopath, list_of_objs)
     return list_of_objs
  
- 
-def cleanup_main():
-    objdir = sys.argv[2]
-    panorama_path = sys.argv[3]
-    
-    cleanupdir = objdir + "/cleanup"
-    if not os.path.exists(cleanupdir):
-        os.makedirs(cleanupdir)
-        
-    visobjs = VisualObject.objs_from_file(None, objdir)
-    print '# objs before cleanup', len(visobjs)
-    panorama = cv2.imread(panorama_path)
-    panorama_fg = pf.fgmask(panorama, 50, 255, True)
-   
-    list_of_new_visobjs = []
-    for visobj in visobjs:
-        new_visobjs, panorama_fg = cleanup(visobj, panorama_fg, cleanupdir )
-#         util.showimages([panorama_fg])
-        if new_visobjs is not None:
-            list_of_new_visobjs = list_of_new_visobjs + new_visobjs
-    print '# objs after cleanup', len(list_of_new_visobjs)
-    new_objinfopath = cleanupdir + "/obj_info.txt"
-    VisualObject.write_to_file(new_objinfopath, list_of_new_visobjs)   
     
     
 def segment_main():
@@ -239,6 +204,4 @@ def segment_main():
              
 
 if __name__ == "__main__":  
-#     segment_main()
-    cleanup_main()
-   
+    segment_main()
