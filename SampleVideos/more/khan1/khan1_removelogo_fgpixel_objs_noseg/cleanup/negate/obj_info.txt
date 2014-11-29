@@ -171,4 +171,3 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 7434	7444	391	231	413	244	../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/obj_007434_007444.png
 7445	7450	412	229	423	243	../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/obj_007445_007450.png
 7453	7479	322	258	386	274	../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/obj_007453_007479.png
-7967	7974	137	463	138	463	../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/obj_007967_007974.png

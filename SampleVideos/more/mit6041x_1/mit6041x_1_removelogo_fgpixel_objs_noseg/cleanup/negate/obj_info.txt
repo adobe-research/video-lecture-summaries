@@ -98,7 +98,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 2483	2509	620	116	665	159	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002483_002509.png
 2510	2512	653	132	657	138	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002510_002512.png
 2513	2515	651	138	656	146	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002513_002515.png
-2516	2517	468	236	468	236	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002516_002517.png
 2522	2524	666	141	671	151	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002522_002524.png
 2525	2529	670	150	671	151	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002525_002529.png
 2538	2541	698	116	699	119	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002538_002541.png
@@ -115,11 +114,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 2666	2687	681	200	714	210	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002666_002687.png
 2696	2704	722	201	729	207	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002696_002704.png
 2716	2727	694	154	694	154	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002716_002727.png
-2827	2833	152	222	152	222	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_002827_002833.png
-3099	3101	790	132	790	132	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003099_003101.png
 3120	3131	789	128	793	138	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003120_003131.png
 3132	3133	784	120	789	124	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003132_003133.png
-3134	3138	465	218	465	218	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003134_003138.png
 3139	3169	776	116	808	153	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003139_003169.png
 3186	3194	832	110	843	136	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003186_003194.png
 3195	3201	831	131	840	150	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003195_003201.png
@@ -152,8 +148,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 3580	3584	1107	186	1117	198	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003580_003584.png
 3585	3593	1105	185	1114	203	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003585_003593.png
 3594	3605	1114	184	1121	187	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003594_003605.png
-3676	3679	230	188	230	188	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003676_003679.png
-3691	3694	329	191	329	191	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003691_003694.png
 3914	3917	801	235	802	236	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003914_003917.png
 3920	3922	799	236	800	237	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_003920_003922.png
 4008	4009	795	250	795	250	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_004008_004009.png
@@ -204,7 +198,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 5708	5714	1090	180	1135	207	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_005708_005714.png
 5741	5749	1120	201	1129	211	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_005741_005749.png
 5750	5768	1130	201	1140	213	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_005750_005768.png
-6298	6320	165	191	165	191	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_006298_006320.png
 6343	6345	104	396	104	396	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_006343_006345.png
 6365	6367	105	393	105	393	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_006365_006367.png
 6378	6382	104	393	104	393	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_006378_006382.png
@@ -349,9 +342,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 9314	9329	933	490	947	506	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_009314_009329.png
 9330	9341	946	483	959	517	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_009330_009341.png
 9404	9410	76	561	445	584	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_009404_009410.png
-9675	9680	312	417	312	417	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_009675_009680.png
 9851	9874	470	405	476	409	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_009851_009874.png
-9955	9957	299	416	299	416	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_009955_009957.png
 10306	10310	64	774	927	859	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_010306_010310.png
 10544	10545	589	840	589	840	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_010544_010545.png
 10562	10564	587	832	587	832	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_010562_010564.png
@@ -459,8 +450,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 13362	13401	764	1041	852	1047	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_013362_013401.png
 13820	13825	53	1237	491	1354	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_013820_013825.png
 14021	14024	263	1253	267	1257	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_014021_014024.png
-14488	14491	640	1061	640	1061	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_014488_014491.png
-14546	14549	549	1057	549	1057	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_014546_014549.png
 14669	14687	962	853	1003	920	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_014669_014687.png
 14688	14696	967	919	989	949	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_014688_014696.png
 14697	14719	952	946	982	1068	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_014697_014719.png
@@ -494,8 +483,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 15140	15152	1160	972	1174	992	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015140_015152.png
 15153	15169	1179	975	1195	990	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015153_015169.png
 15170	15176	1193	958	1203	989	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015170_015176.png
-15222	15225	399	1048	399	1048	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015222_015225.png
-15263	15266	441	1046	441	1046	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015263_015266.png
 15590	15592	109	1099	843	1122	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015590_015592.png
 15950	15961	104	1130	127	1133	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015950_015961.png
 15964	15974	104	1137	125	1141	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/obj_015964_015974.png

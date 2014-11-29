@@ -3,7 +3,7 @@
         <title>Line Break Experiments</title>
     </head>
     <body>
-        <table>
+        <table border=1>
             <tr>
                 <td>Video</td>
                 <td>Elapsed time between consecutive objects (histogram)</td>
@@ -12,10 +12,16 @@
                 <td>Elapsed time between consecutive objects (time-plot)</td>
                 <td>Gap between x coordinates</td>
                 <td>Gap between y coordinates</td>
+                <td>Object Projection Function</td>
                 <td>Greedy line break with y-coord</td>
                 <td>Dynamic line break (criterion: 2-minutes)</td>
+                <td>Dynamic line break (without time limit)</td>
                 <td>Dynamic line break (criterion: 2-minutes, t,x,5y penalty)</td>
                 <td>Dynamic line break with penalty information information</td>
+                <td>Dyanmic line break (cost function 1)</td>
+                <td>Dynamic line break (cost function 2)</td>
+                <td>Dynamic line break (cost function 3)</td>
+
             </tr>
             <tr>
                 <td>Khan1</td>
@@ -25,10 +31,16 @@
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y </a></td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y </a></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log </a></td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test </a></td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2 </a></td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3 </a></td>
+
             </tr>
             <tr>
                 <td>Khan2</td>
@@ -38,10 +50,16 @@
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
+
             </tr>
             <tr>
                 <td>Khan3</td>
@@ -51,10 +69,15 @@
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
             <tr>
@@ -65,10 +88,15 @@
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
             <tr>
@@ -79,10 +107,15 @@
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
             <tr>
@@ -93,10 +126,15 @@
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
             <tr>
@@ -107,10 +145,15 @@
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
             <tr>
@@ -121,10 +164,15 @@
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
             <tr>
@@ -135,12 +183,37 @@
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test.html">Test</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
 
             </tr>
+            
+            
+            <tr>
+                <td>VTru</td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap_hist.png">Time Gap</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap_hist.png">X gap</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap_hist.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                
+            </tr>
+            
+            
             <tr>
                 <td>Bigbang</td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap_hist.png">Time Gap</a></td>
@@ -149,12 +222,15 @@
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
 
             </tr>
+            
             
             <tr>
                 <td>MIT6.041x1</td>
@@ -164,10 +240,15 @@
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_tgap.png">Time Gap</a></td>
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_xgap.png">X gap</a></td>
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/obj_ygap.png">Y gap</a></td>
+                <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/projection_maxys.png">Projection Function</a></td>
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/linebreak_images.html">Greedy</a></td>
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min.html">Dynamic, Time (2min)</a></td>
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_2min_1t1x5y.html">2min, 1t, 1x, 5y</a></td>
+                <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_1t1x5y.html">Without time limit1t, 1x, 5y</a></td>
                 <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_debug.html">Show Penalty Log</a></td>
+                <td><a href=""></a></td>
+                <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v2.html">Test V2</a></td>
+                <td><a href="../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/dynamic_linebreak_test_v3.html">Test v3</a></td>
                 
             </tr>
         </table>    

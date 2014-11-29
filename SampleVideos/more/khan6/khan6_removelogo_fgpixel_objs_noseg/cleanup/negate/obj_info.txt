@@ -26,7 +26,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1417	1431	112	20	165	81	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001417_001431.png
 1469	1485	265	313	272	417	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001469_001485.png
 1491	1516	270	435	288	463	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001491_001516.png
-1546	1552	122	160	122	160	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001546_001552.png
 1627	1630	124	302	139	325	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001627_001630.png
 1645	1651	153	317	215	406	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001645_001651.png
 1653	1657	204	328	239	382	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/obj_001653_001657.png

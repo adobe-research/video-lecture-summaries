@@ -41,3 +41,14 @@ figcaption {
 img.debug {
     border: dotted red;
 }
+
+table {
+    border: 0px;
+    border-spacing: 0px;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
