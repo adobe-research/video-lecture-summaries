@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Slideshow</title>
+
+        <!-- jQuery library (served from Google) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <!-- bxSlider Javascript file -->
+        <script src="../../../../../../../../Mainpage/js/bxslider/jquery.bxslider.min.js"></script>
+        <!-- bxSlider CSS file -->
+        <link href="../../../../../../../../Mainpage/js/bxslider/jquery.bxslider.css" rel="stylesheet" />
+<script>$(document).ready(function(){
+                        var slide = $('#slide').bxSlider({
+                            slideWidth: 1200,                
+                            mode: 'fade', 
+                            pagerCustom: '#slide-pager',
+                            onSlideAfter: function(){
+                            var current = slide.getCurrentSlide();
+switch(current){
+case 0:
+$('#slidetext').text("");break;
+case 1:
+$('#slidetext').text("Let's take the derivative with respect to x of x to the n plus 1-th power over n plus 1 plus some constant c. ");break;
+case 2:
+$('#slidetext').text("And we're going to assume here, because we want this expression to be defined, we're going to assume that n does not equal negative 1. If it equaled negative 1, we'd be dividing by 0, and we haven't defined what that means. So let's take the derivative here. ");break;
+case 3:
+$('#slidetext').text("So this is going to be equal to-- well, the derivative of x to the n plus 1 over n plus 1, we can just use the power rule over here. So our exponent is n plus 1. We can bring it out front. ");break;
+case 4:
+$('#slidetext').text("So it's going to be n plus 1 times x to the-- I want to use that same color. Colors are the hard part-- times x to the-- instead of n plus 1, we subtract 1 from the exponent. This is just the power rule. ");break;
+case 5:
+$('#slidetext').text("So n plus 1 minus 1 is going to be n. ");break;
+case 6:
+$('#slidetext').text("And then we can't forget that we were dividing by this n plus 1. So we have divided by n plus 1. And then we have plus c. The derivative of a constant with respect to x-- a constant does not change as x changes, so it is just going to be 0, so plus 0. And since n is not equal to negative 1, we know that this is going to be defined. This is just going to be something divided by itself, which is just going to be 1. ");break;
+case 7:
+$('#slidetext').text("And this whole thing simplifies to x to the n. So the derivative of this thing-- and this is a very general terms-- is equal to x to the n. So given that, what is the antiderivative-- let me switch colors here. What is the antiderivative of x to the n? And remember, this is just the kind of strange-looking notation we use. It'll make more sense when we start doing definite integrals. But what is the antiderivative of x to the n? And we could say the antiderivative with respect to x, if we want to. ");break;
+case 8:
+$('#slidetext').text("And another way of calling this is the indefinite integral. ");break;
+case 9:
+$('#slidetext').text("Well, we know this is saying x to the n is the derivative of what? Well, we just figured it out. It's the derivative of this thing, and we've written it in very general terms. We're actually encapsulating multiple constants here. We could have x to the n plus 1 over n plus 1 plus 0, plus 1, plus 2, plus pi, plus a billion. ");break;
+case 10:
+$('#slidetext').text("So this is going to be equal to x to the n plus 1 over n plus 1 plus c. So this is pretty powerful. You can kind of view this as the reverse power rule. And it applies for any n, as long as n does not equal negative 1. Let me make that very clear. ");break;
+case 11:
+$('#slidetext').text("n does not equal negative 1. Once again, this thing would be undefined if n were equal to negative 1. So let's do a couple of examples just to apply this-- you could call it the reverse power rule if you want, or the anti-power rule. So let's take the antiderivative of x to the fifth power. ");break;
+case 12:
+$('#slidetext').text("What is the antiderivative of x to the fifth? Well, all we have to say is, well, look, the 5 is equal to the n. ");break;
+case 13:
+$('#slidetext').text("We just have to increment the exponent by 1. So this is going to be equal to x to the 5 plus 1 power. And then we divide by that same value. Whatever the exponent was when you increment it by 1, we divide by that same value, divided by 5 plus 1. ");break;
+case 14:
+$('#slidetext').text("And of course, we want to encapsulate all of the possible antiderivatives, so you put the c right over there. ");break;
+case 15:
+$('#slidetext').text("So this is going to be equal to x to the sixth over 6 plus c. And you can verify. Take the derivative of this using the power rule, you indeed get x to the fifth. Let's try another one. Let's try-- now we'll do it in blue. Let's try the antiderivative of-- let's make it interesting. Let's make it 5 times x to the negative 2 power dx. So how would we evaluate this? Well, one simplification you can do-- and I haven't rigorously proven it to you just yet-- but we know that scalars can go in and out of the derivative operator when you're multiplying by a scalar. So this is, indeed, equal to 5 times the antiderivative of x to the negative 2 power, dx. ");break;
+case 16:
+$('#slidetext').text("");break;
+case 17:
+$('#slidetext').text("And now we can just use, I guess we could call it this anti-power rule, so this is going to be equal to 5 times x to the negative 2 power plus 1 over the negative 2 power plus 1 plus some constant right over here. ");break;
+case 18:
+$('#slidetext').text("And then we can rewrite this as 5 times negative 2 power plus 1 is x to the negative 1 over negative 2 plus 1 is negative 1, plus some constant. And this is equal to 5 times negative x to the negative 1 plus some constant. ");break;
+case 19:
+$('#slidetext').text("And then if we want, we can distribute the 5. So this is equal to negative 5x to the negative 1. ");break;
+case 20:
+$('#slidetext').text("Now, we could write plus 5 times some constant, but this is just an arbitrary constant. So this is still just an arbitrary constant. So maybe we could [INAUDIBLE] this. ");break;
+case 21:
+$('#slidetext').text("");break;
+case 22:
+$('#slidetext').text("");break;
+case 23:
+$('#slidetext').text("If you want it to show that it's a different constant, you could say this is c1, c1, c1. ");break;
+case 24:
+$('#slidetext').text("You multiply 5 times c1, you get another constant. We could just call that c, which is equal to 5 times c1. But there you have it. Negative 5x to the negative 1 plus c. ");break;
+case 25:
+$('#slidetext').text("");break;
+}
+}
+});
+});
+</script></head>
+<body>
+<table border=3 align=center><tr><td width=1300 align=center><ul id = "slide">
+<li><img src= "slide_0.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_1.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_2.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_3.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_4.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_5.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_6.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_7.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_8.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_9.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_10.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_11.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_12.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_13.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_14.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_15.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_16.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_17.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_18.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_19.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_20.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_21.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_22.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_23.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_24.png" max-width="" usemap="#" id="" class="">
+</li>
+<li><img src= "slide_25.png" max-width="" usemap="#" id="" class="">
+</li>
+</ul>
+<p id = "slidetext" align=left></td></tr></table>
+</body>
+</html>
