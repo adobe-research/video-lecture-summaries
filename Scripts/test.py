@@ -322,35 +322,45 @@ def test_panorama_projectile_main():
     
     
 def test_merge_inline_objects_main():
+
     videopath = sys.argv[1]
-    objdir = sys.argv[2]
-    lec = Lecture(videopath, None)
-    img_objs = VisualObject.objs_from_file(lec.video, objdir)
-    breaker = linebreak.LineBreaker(lec, img_objs, objdir, debug=True)
-    line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines()
-    
-    n = len(line_objs)
+    scriptpath = sys.argv[2]
+    objdir = sys.argv[3]
+    lec = Lecture(videopath, scriptpath)
+    line_objs = VisualObject.objs_from_file(lec.video, objdir)
     line_objs_w_context = []
+    line_idx = []
+    lines = []
+    n = len(line_objs)
+    bestline_j = -1
     for i in range(0, n):
-        curline = line_objs[i]
-        merged = False
-        for j in range(0, len(line_objs_w_context)): # consider all previous lines
-            prevline = line_objs_w_context[j]
-            print prevline
-            if (VisualObject.inline(curline, prevline)):
-                line_objs_w_context[j] = VisualObject.group([curline, prevline], objdir + "/lines/merged")
-                merged = True
-                break
-        if not merged:
-            line_objs_w_context.append(curline) # make new line
-            print len(line_objs_w_context)
-    
-    html = WriteHtml(objdir + "/lines/figures_w_context.html", title="Figures with Context", stylesheet="../Mainpage/summaries.css")
+        curobj = line_objs[i]
+        min_score = 1.0
+        bestline = None
+        for j in range(0, len(lines)):
+            line = lines[j]
+            score = VisualObject.inline_score(curobj, line, line_objs[i+1:])
+            if (score < min_score):
+                min_score = score
+                bestline = line
+                bestline_j = j
+        if bestline is None:
+            merged_obj = VisualObject.group([curobj], objdir + "/merged")
+            line_objs_w_context.append(merged_obj)
+            line_idx.append(len(lines))
+            lines.append(curobj)
+        else:
+            merged_obj = VisualObject.group([curobj, bestline], objdir + "/merged")
+            line_objs_w_context.append(merged_obj)
+            line_idx.append(bestline_j)
+#             before = lines[bestline_j]
+            lines[bestline_j] = merged_obj
+#             util.showimages([before.img, lines[bestline_j].img], "line before and after merging")
+        print 'num separate lines', len(lines)
+            
+    html = WriteHtml(objdir + "merged/figures_w_context.html", title="Figures with Context", stylesheet=os.path.abspath("../Mainpage/summaries.css"))
     html.opendiv(idstring="summary-container")
-    nfig = 0
-    for line in line_objs_w_context:
-        html.figure(line.imgpath, "Merged Line %i" % nfig)
-        nfig += 1
+    html.obj_script(line_objs_w_context, line_idx,  lec)
     html.closediv()
     html.closehtml()
     

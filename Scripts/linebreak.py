@@ -300,12 +300,12 @@ class LineBreaker:
             obj = list_of_objs[obj_idx]
             t = self.lec.video.fid2ms(obj.end_fid)
             paragraph = []
-            while(self.lec.list_of_stcs[stc_idx][-1].endt < t):
-                #write sentence
-                paragraph = paragraph + self.lec.list_of_stcs[stc_idx]
-                stc_idx += 1
-                if (stc_idx >= len(self.lec.list_of_stcs)):
-                    break
+#             while(self.lec.list_of_stcs[stc_idx][-1].endt < t):
+# #                write sentence
+#                 paragraph = paragraph + self.lec.list_of_stcs[stc_idx]
+#                 stc_idx += 1
+#                 if (stc_idx >= len(self.lec.list_of_stcs)):
+#                     break
             html.paragraph_list_of_words(paragraph)
             html.figure(list_of_objs[obj_idx].imgpath, "Merged Figure %i" % nfig)
             if (self.debug):
@@ -392,7 +392,7 @@ if __name__ == "__main__":
     panoramapath = sys.argv[4]
     panorama = cv2.imread(panoramapath)
     
-    lec = Lecture(videopath, scriptpath)
+    lec = Lecture(videopath, None)
     print lec.video.fps
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
     breaker = LineBreaker(lec, img_objs, objdir, debug=False)

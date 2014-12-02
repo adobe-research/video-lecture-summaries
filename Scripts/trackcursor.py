@@ -12,7 +12,7 @@ import numpy as np
 import util
 
 def track(video, cursorimg):
-    pos = video.tracktemplate(cursorimg)
+    pos = video.tracktemplate(cursorimg, debug=True)
     return pos
 
 def write(pos, cursorpostxt="cursorpos.txt"):

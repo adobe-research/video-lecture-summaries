@@ -12,7 +12,7 @@ import util
 import math
 from nltk.tbl import template 
 
-logging.basicConfig(stream=sys.stderr, level=logging.ERROR)
+logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 def importantregion(gray_img, path=None, index=0):
     sift = cv2.SIFT(1000, 3, 0.12, 12)
@@ -135,6 +135,8 @@ def subtractlogo(frame, logo, color=None):
         frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
     else:
         logomask = fgmask(logo, 5, 255, True)
+        logomask = expandmask(logomask,3)
+        
 #         logomask = cv2.bitwise_not(logomask)
         logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
 #         util.showimages([logomask], "logomask")
@@ -372,7 +374,7 @@ def isgoodmatch(M):
         return False
     return True
 
-def find_object_exact_inside(img, template, threshold=0.90):
+def find_object_exact_inside(img, template, threshold=0.35):
     """Return the top left corner of the rectangle that matches exact template INSIDE img"""  
     gray_img = util.grayimage(img)
     gray_template = util.grayimage(template)

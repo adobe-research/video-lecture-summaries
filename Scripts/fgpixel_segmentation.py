@@ -68,7 +68,6 @@ def get_object_start_end_frames(numfg, video, outfile=None):
     """write object times"""
     if outfile is None:
         outfile = video.videoname + "_fgpixel_obj_fids.txt"
-    if not os.path.isfile(os.path.abspath(outfile)):
         frameids = open(outfile, "w")
         for fids in object_fids:
             frameids.write("%i\t%i\n" %(fids[0], fids[1]))
@@ -121,10 +120,12 @@ def getobjects(video, object_fids, panorama, objdir):
         start_fids.append(fids[0])
         end_fids.append(fids[1])
     
-    images, filenames = util.get_images(video.videoname + "_temp", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
-    keyframes = []
-    for i in range(0, len(images)):
-        keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
+#     images, filenames = util.get_images(video.videoname + "_temp", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+#     keyframes = []
+#     for i in range(0, len(images)):
+#         keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
+        
+    keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     prevframe = np.zeros((video.height, video.width, 3), dtype=np.uint8)
     list_of_objs = []
     i = 0    

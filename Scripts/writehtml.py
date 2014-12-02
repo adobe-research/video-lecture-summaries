@@ -13,7 +13,7 @@ class WriteHtml:
         self.htmlfile.write("<head>\n")
         if stylesheet is not None:
             self.htmlfile.write("<link href=\"" )
-            self.htmlfile.write(self.relpath(stylesheet))
+            self.htmlfile.write(os.path.relpath(stylesheet, self.filename))
             self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("<title>"+title+"</title>\n")
         if not script:
@@ -127,6 +127,24 @@ class WriteHtml:
     def relpath(self, path):
         relpath = os.path.relpath(path, self.filedir)
         return relpath      
+    
+    def obj_script(self, list_of_objs, figure_idx, lec):
+        stc_idx = 0
+        nfig = 0
+        obj_idx = 0
+        for obj_idx in range(0, len(list_of_objs)):
+            obj = list_of_objs[obj_idx]
+            t = lec.video.fid2ms(obj.end_fid)
+            paragraph = []
+            while(lec.list_of_stcs[stc_idx][-1].endt < t):
+#                write sentence
+                paragraph = paragraph + lec.list_of_stcs[stc_idx]
+                stc_idx += 1
+                if (stc_idx >= len(lec.list_of_stcs)):
+                    break
+            self.paragraph_list_of_words(paragraph)
+            self.figure(list_of_objs[obj_idx].imgpath, "Figure %i" % figure_idx[nfig])
+            nfig += 1    
     
     
     def lectureseg(self, lecseg, debug=False):

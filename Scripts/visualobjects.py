@@ -14,6 +14,7 @@ import os
 import math
 from video import Video
 from scipy.signal import argrelextrema
+from numpy import obj2sctype
 
 
 
@@ -44,6 +45,14 @@ class VisualObject:
         cv2.putText(img, text, (0, textsize[1]), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,0,0))    
         return cls(img, None, start_fid, end_fid, 0, 0, textsize[0], textsize[1]+baseline, True, text)                        
         
+    def getheight(self):
+        h, w = self.img.shape[:2]
+        return h
+    
+    def getwidth(self):
+        h, w = self.img.shape[:2]
+        return w
+    
     def size(self):
         return (self.width, self.height)
     
@@ -165,6 +174,10 @@ class VisualObject:
             info = obj_info[i]
             imgpath = os.path.basename(str(info[6]))
             objimg = cv2.imread(objdir + "/" + imgpath)
+            objh, objw = objimg.shape[:2]
+            if objh <= 1 and objw <= 1:
+                print 'ignoring', imgpath
+                continue;
             obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
             obj_list.append(obj)
         return obj_list      
@@ -222,9 +235,11 @@ class VisualObject:
     
     @staticmethod
     def xgap_distance(obj_i, obj_j):
-        i_right = obj_i.brx
-        j_left = obj_j.tlx
-        return j_left - i_right
+            if obj_i.brx < obj_j.tlx: # obj_i left of obj_j
+                return obj_j.tlx - obj_i.brx
+            elif obj_i.tlx >= obj_j.brx: #obj1 right of obj1
+                return obj_i.tlx - obj_j.brx
+            return 0 #overlap
         
     @staticmethod
     def colorgap_distance(obj_i, obj_j):
@@ -322,6 +337,82 @@ class VisualObject:
         areai = max(0, min(obj1.brx + 1, obj2.brx + 1) - max(obj1.tlx, obj2.tlx)) * max(0, min(obj1.bry + 1, obj2.bry + 1) - max(obj1.tly, obj2.tly))
         return 1.0 * areai / min(area1, area2)
     
+    @staticmethod
+    def side_by_side(obj1, obj2):
+        #center of object must lie in line horizontally
+        h1 = obj1.getheight()
+        h2 = obj2.getheight()
+        if (h1 > h2):
+            taller = obj1
+            shorter = obj2
+        else:
+            taller = obj2
+            shorter = obj1
+        
+        shorter_cy = (shorter.tly + shorter.bry)/2.0
+        if (taller.tly <= shorter_cy and shorter_cy <= taller.bry):
+            if obj1.brx < obj2.tlx: # obj1 left of obj2 :
+                gap = VisualObject.xgap_distance(obj1, obj2)
+            elif obj1.tlx >= obj2.brx: #obj1 right of obj1
+                gap = VisualObject.xgap_distance(obj2, obj1)
+            else:
+                gap = 0
+            if (gap < 100):
+                return True
+        return False
+    
+    @staticmethod
+    def above_and_below(obj1, obj2):
+        #center of object must be in line vertically
+        w1 = obj1.getwidth()
+        w2 = obj2.getwidth()
+        if (w1 > w2):
+            wider = obj1
+            narrower = obj2
+        else:
+            wider = obj2
+            narrower = obj1
+            
+        narrower_cx = (narrower.tlx + narrower.brx)/2.0
+        if (wider.tlx <= narrower_cx and narrower_cx <= wider.brx): 
+            gap = VisualObject.ygap_distance(obj1, obj2)
+            if (gap < 10):
+                return True
+        return False
+    
+    @staticmethod
+    def inline_score(obj, line, next_objs):
+        if VisualObject.overlap(obj, line) > 0.5:
+#             print 'overlap'
+#             util.showimages([obj.img, line.img], "inline score")
+            return -1.0 * float("inf")
+        if VisualObject.side_by_side(obj, line):
+#             print 'side by side', 0.2 * VisualObject.xgap_distance(obj, line)
+#             util.showimages([obj.img, line.img], "inline score")
+#             return 0.2 * VisualObject.xgap_distance(obj, line)
+            return 0.2
+        fill = VisualObject.inline_to_be_filled(line, obj, next_objs)
+        if (fill[0]):
+#             print 'inline_to_be_fillled', 0.2 * VisualObject.xgap_distance(obj, fill[1])
+#             util.showimages([obj.img, line.img], "inline score")
+            return 0.4
+#             return 0.1 * VisualObject.xgap_distance(obj, fill[1])
+        if VisualObject.above_and_below(obj, line):
+#             print 'above and below', VisualObject.ygap_distance(obj, line)
+#             util.showimages([obj.img, line.img], "inline score")
+#             return 0.5*VisualObject.ygap_distance(obj, line)
+            return 0.6
+        return float("inf")
+    
+    @staticmethod
+    def inline_to_be_filled(curobj, prevobj, list_of_objs):
+        for obj in list_of_objs:
+            if VisualObject.side_by_side(prevobj, obj):
+                if VisualObject.side_by_side(obj, curobj):
+                    return True, obj
+        return False, None
+        
+            
     @staticmethod
     def plot_color_gap(list_of_objs, objdir):
         color_gaps = []

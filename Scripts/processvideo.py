@@ -42,7 +42,7 @@ class ProcessVideo:
         print self.videotype
         print 'framerate', self.framerate
     
-    def tracktemplate(self, template):
+    def tracktemplate(self, template, debug=False):
         cap = cv2.VideoCapture(self.video)
         pos = []
         i = 0
@@ -50,6 +50,13 @@ class ProcessVideo:
             ret, frame = cap.read()
             if (ret == True):                
                 loc = pf.find_template_ctr(frame, template)
+                if (debug):
+                    if (loc is not None):
+                        wtemp, htemp = template.shape[:2]
+                        cv2.rectangle(frame, (loc[0] - wtemp/2, loc[1] - htemp/2), (loc[0] + wtemp/2, loc[1] + htemp/2), (0,0,255), 1)
+                        util.showimages([frame], "found")
+                    else:
+                        util.showimages([frame], "not found")
                 pos.append(loc)                
             else:
                 break
