@@ -30,7 +30,8 @@ class LineBreaker:
         self.tpenalty = [0 for x in range(n)]
         self.xpenalty = [0 for x in range(n)]
         self.ypenalty = [0 for x in range(n)]
-        self.totalcost = [0 for x in range(n)]
+        self.totalcost = [float("inf") for x in range(n)]
+        self.bestid = [-1 for x in range(n)]
         self.cuts = [0 for x in range(n)]
         self.start_obj_idx = []
         self.end_obj_idx = []
@@ -84,9 +85,19 @@ class LineBreaker:
         return self.line_objs, self.start_obj_idx, self.end_obj_idx
     
     def dynamic_lines(self):
-        self.compute_costs()
-        self.compute_cuts()
+        self.compute_costs_v3()
+        self.compute_cuts_v3()
         return self.get_opt_lines()
+    
+    def dynamic_lines_v3(self):
+#         self.compute_costs_v3()
+        self.compute_cuts_v3()
+        lines =  self.cutlines_nonlinear(self.numobjs)
+        lineobjs = []
+        for line in lines:
+            lineobj = VisualObject.group(line, self.linedir)
+            lineobjs.append(lineobj)
+        return lineobjs, [], []
     
     def get_opt_lines(self):
         n = self.numobjs
@@ -110,9 +121,56 @@ class LineBreaker:
                 else:
                     cost = self.totalcost[j-1] + self.linecost[j][i]
                 if (cost < self.totalcost[i]):
-                    self.totalcost[i] = min(self.totalcost[i], cost)
+                    self.totalcost[i] = cost
                     self.cuts[i] = j # means [j-i] is good cut       
-    
+#             print 'self.totalcost[',i,']=', self.totalcost[i]
+        print self.totalcost
+        
+    def compute_cuts_v3(self):
+        n = self.numobjs
+        self.totalcost[0] = linecost_v3(self.list_of_objs[0:1])
+        self.cuts[0] = 0
+        self.bestid[0] = 0
+        for i in range(1, n):
+            newobj = self.list_of_objs[i]
+            mincost = float("inf")
+            j = i -1
+            cj = self.totalcost[j]
+            minaddcost = float("inf")
+            prevlines = []
+                
+            prevlines = self.cutlines_nonlinear(i-1)
+            bestline = 0
+            for idx in range(0, len(prevlines)):
+                line = prevlines[idx]
+                add = addcost_v3(line, newobj)
+#                 if (len(prevlines) == 6):
+#                 print 'i', i, 'prev line idx', idx, 'of', len(prevlines) 
+#                 print 'addcost', add
+#                 tempobj = VisualObject.group(line, "temp")
+#                 util.showimages([tempobj.img, newobj.img])
+
+                if (add < minaddcost):
+                    bestline = idx
+                    minaddcost = min(add, minaddcost)
+            newlinecost = linecost_v3(self.list_of_objs[i:i+1])
+#             print 'newlinecost', newlinecost
+#             util.showimages([newobj.img])
+            if (newlinecost < minaddcost):
+                minaddcost = newlinecost
+                bestline = len(prevlines)
+            jcost = cj + minaddcost
+
+            if (jcost < mincost):
+                mincost = jcost
+                self.totalcost[i] = mincost
+                self.cuts[i] = j
+            self.bestid[i] = bestline
+        print 'totalcost', self.totalcost
+        print 'cuts', self.cuts
+        print 'bestid', self.bestid
+                
+                
     def compute_costs_v1(self, optsec):
         n = self.numobjs#n = len(self.list_of_objs)
         video = self.lec.video
@@ -134,6 +192,33 @@ class LineBreaker:
                 self.badness[i][j] = line_badness(list_of_objs[i:j+1], optsec, video.fps)
                 penalty = self.cut_penalty(j, j+1)
                 self.linecost[i][j] = self.badness[i][j] + penalty
+                
+    def compute_costs_v2(self):
+        n = self.numobjs
+        list_of_objs = self.list_of_objs
+        for i in range(0, n):
+    
+            for j in range(i, n):
+                self.linecost[i][j] = -1.0* VisualObject.compactness(list_of_objs[i:j+1])
+#                        temp = VisualObject.group(list_of_objs[i:j+1], "temp")
+#                     print 'self.linecost', self.linecost[i][j]
+#                     util.showimages([temp.img])
+#             print self.linecost[i]
+#             util.showimages(self.list_of_objs[0].img)
+
+    def compute_costs_v3(self):
+        n = self.numobjs
+        list_of_objs = self.list_of_objs
+        for i in range(0, n):
+            self.linecost[i][i] = 0
+            for j in range(i+1, n):
+                self.linecost[i][j] = self.linecost[i][j-1] + addcost_v3(list_of_objs[i:j], list_of_objs[j])
+#                 if (i == 5):
+#                 temp = VisualObject.group(list_of_objs[i:j+1], "temp")
+#                 print 'self.linecost', self.linecost[i][j]
+#                 util.showimages([temp.img])
+#             print self.linecost[i]
+#             util.showimages(self.list_of_objs[0].img)         
                 
     def compute_costs(self):
         n = self.numobjs
@@ -197,11 +282,9 @@ class LineBreaker:
 #             print 'penalty', penalty, 'additem', additem, '=', penalty+additem
 #             templine = VisualObject.group(list_of_objs,"temp")
 #             util.showimages([templine.img, newobj.img], "line and newobj")
-        return additem + penalty
-          
+        return additem + penalty  
     
-    
-    def addcost_v3(self, list_of_objs, newobj):
+    def addcost_v2(self, list_of_objs, newobj):
         if newobj is None:
             return 0
         cx = (newobj.tlx + newobj.brx)/2.0
@@ -238,7 +321,6 @@ class LineBreaker:
                 additem = 2000
             else:
                 additem = 0
-        
 #             additem = -100
 #             if xpenalty > 100 and ypenalty > 100:
 #                              
@@ -246,10 +328,25 @@ class LineBreaker:
 #             print 'xpenalty', xpenalty, 'ypenalty', ypenalty, 'additem', additem, '=', penalty+additem
 #             templine = VisualObject.group(list_of_objs,"temp")
 #             util.showimages([templine.img, newobj.img], "line and newobj")
-        return additem + penalty    
+        return additem + penalty   
     
-    def getcutlines(self, n):
-        linedir = self.linedir
+    def cutlines_nonlinear(self, n):
+        segments_unique = np.unique(self.bestid[0:n+1])
+        n_segments = len(segments_unique)
+        lines = [[] for i in range(0, n_segments)]
+        for i in range(0, len(self.bestid[0:n+1])):
+#             print 'i', i, 'of', (self.numobjs)
+            idx = self.bestid[i]
+            obj = self.list_of_objs[i]
+            lines[idx].append(obj)
+        return lines
+        
+
+    def getcutlines(self, n, line_dir=None):
+        if line_dir is None:
+            linedir = self.linedir
+        else:
+            linedir = line_dir 
         if not os.path.exists(linedir):
             os.makedirs(linedir)
         line = VisualObject.group(self.list_of_objs[self.cuts[n]:n+1], linedir)
@@ -371,6 +468,56 @@ def inline_y(ymin, ymax, curobj):
         return False
     return False
 
+def getcutlines(cuts, list_of_objs, n, lineobjs):
+    line = list_of_objs[cuts[n]:n+1]
+    lineobjs.append(line)
+    if cuts[n] == 0:
+        return lineobjs
+    else:
+        return getcutlines(cuts, list_of_objs, cuts[n]-1, lineobjs) 
+
+def linecost_v3(list_of_objs):
+    linecost = 0
+    for i in range(0, len(list_of_objs)):
+        linecost += addcost_v3(list_of_objs[0:i], list_of_objs[i])
+    return linecost
+
+def addcost_v3(list_of_objs, newobj):
+        if (len(list_of_objs) == 0):
+            return 50
+        if newobj is None:
+            return 0
+        cx = (newobj.tlx + newobj.brx) / 2.0
+        cy = (newobj.tly + newobj.bry) / 2.0
+        minx, miny, maxx, maxy = VisualObject.bbox(list_of_objs)
+        if miny <= cy and cy <= maxy:
+            if minx <= newobj.brx and newobj.tlx <= maxx:
+                xcost = 0
+                ycost = 0
+                print 'in box'
+                return -100
+            elif newobj.brx < minx:  # inline-left
+                xcost = minx - newobj.brx
+                ycost = abs((maxy + miny) / 2.0 - cy)
+                print 'inline left', 'xcost', xcost, 'ycost', ycost 
+            elif newobj.tlx > maxx:  # inline-right
+                xcost = newobj.tlx - maxx
+                ycost = abs((maxy + miny) / 2.0 - cy)
+                print 'inline right', 'xcost', xcost, 'ycost', ycost
+            else:
+                print 'linebreak.addcost Error: inline, not in box, neither left nor right'
+            return xcost + ycost*0.25 - 50
+        else:  # above or below
+            if newobj.tly > maxy:  # above
+                ycost = newobj.tly - maxy
+            elif newobj.bry < miny:  # below
+                ycost = miny - newobj.bry
+            else:
+                ycost = 0
+            xcost = min(abs(maxx - newobj.brx), abs(maxx-newobj.tlx))
+            print 'above or below', 'xcost', xcost, 'ycost', ycost
+        return xcost + ycost
+
 
 def line_badness(list_of_objs, optsec, fps):
     fgpixcount = 0
@@ -396,8 +543,8 @@ if __name__ == "__main__":
     print lec.video.fps
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
     breaker = LineBreaker(lec, img_objs, objdir, debug=False)
-    line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines()
-    html = WriteHtml(objdir + "/dynamic_linebreak_test_v3.html", title="Test line break v3", stylesheet="../Mainpage/summaries.css")
+    line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines_v3()
+    html = WriteHtml(objdir + "/dynamic_linebreak_test_v5.html", title="Test line break v5", stylesheet="../Mainpage/summaries.css")
     html.opendiv(idstring="summary-container")
     breaker.write_to_html(html, objdir, list_of_objs=line_objs)
     html.closediv()

@@ -1,0 +1,995 @@
+<html>
+<head>
+<title>Sentence Objects</title>
+</head>
+<body>
+<table border=3>
+<tr><td>0</br><p>
+Let's say we have a path in the xy plane. 
+</p>64</br></td>
+<td><figure>
+<img src= "obj_000033_000070_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 70 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>64</br><p>
+That's my y-axis, that is my x-axis, in my path will look like this. 
+</p>176</br></td>
+<td><figure>
+<img src= "obj_000033_000122_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 122 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>176</br><p>
+Let's say it looks like that; trying to draw a bit of an arbitrary path, and let's say we go in a counter clockwise direction like that along our path. 
+</p>335</br></td>
+<td><figure>
+<img src= "obj_000033_000326_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 326 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>335</br><p>
+And we could call this path-- so we're going in a counter clockwise direction --we could call that path c. 
+</p>427</br></td>
+<td><figure>
+<img src= "obj_000033_000422_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 422 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>427</br><p>
+And let's say we also have a vector field. 
+</p>467</br></td>
+<td></td>
+</tr>
+
+<tr><td>467</br><p>
+And our vector field is going to be a little unusual; I'll call it p. 
+</p>530</br></td>
+<td></td>
+</tr>
+
+<tr><td>530</br><p>
+p of xy. 
+</p>559</br></td>
+<td><figure>
+<img src= "obj_000514_000566_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 514 566 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>559</br><p>
+It only has an i component, or all of its vectors are only multiples of the i-unit vector. 
+</p>649</br></td>
+<td></td>
+</tr>
+
+<tr><td>649</br><p>
+So it's capital P of xy times the unit vector i. 
+</p>725</br></td>
+<td><figure>
+<img src= "obj_000514_000721_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 514 721 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>725</br><p>
+There is no j component, so if you have to visualize this vector field, all of the vectors, they're all multiples of the i-unit vector. 
+</p>901</br></td>
+<td><figure>
+<img src= "obj_000033_000883_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 883 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>901</br><p>
+Or they could be negative multiples, so they could also go in that direction. 
+</p>953</br></td>
+<td><figure>
+<img src= "obj_000033_000944_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 944 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>953</br><p>
+But they don't go diagonal or they don't go up. 
+</p>997</br></td>
+<td><figure>
+<img src= "obj_000033_000973_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 973 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>997</br><p>
+They all go left to right or right to left. 
+</p>1044</br></td>
+<td><figure>
+<img src= "obj_000033_001041_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 1041 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>1044</br><p>
+That's what this vector field would look like. 
+</p>1082</br></td>
+<td></td>
+</tr>
+
+<tr><td>1082</br><p>
+Now what I'm interested in doing is figuring out the line integral over a closed loop-- the closed loop c, or the closed path c --of p dot dr, which is just our standard kind of way of solving for a line integral. 
+</p>1349</br></td>
+<td><figure>
+<img src= "obj_001130_001300_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 1130 1300 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>1349</br><p>
+And we've seen what dr is in the past. 
+</p>1376</br></td>
+<td></td>
+</tr>
+
+<tr><td>1376</br><p>
+dr is equal to dx times i plus dy times the j-unit vector. 
+</p>1500</br></td>
+<td><figure>
+<img src= "obj_000514_001489_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 514 1489 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>1500</br><p>
+And you might say, isn't it dx, dt times dt? Let me write that can't dr be written as dx, dt times dti plus dy, dt times dtj? And it could, but if you imagine these differentials could cancel out, and you're just left with the dx and a dy, and we've seen that multiple times. 
+</p>1852</br></td>
+<td><figure>
+<img src= "obj_001599_001773_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 1599 1773 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>1852</br><p>
+And I'm going to leave it in this form because hopefully, if we're careful, we won't have to deal with the third parameter, t. 
+</p>1953</br></td>
+<td></td>
+</tr>
+
+<tr><td>1953</br><p>
+So let's just look at it in this form right here with just the dx's and the dy's. 
+</p>2035</br></td>
+<td><figure>
+<img src= "obj_000514_002031_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 514 2031 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>2035</br><p>
+So this integral can be rewritten as the line integral, the curve c-- actually let me do it over down here. 
+</p>2160</br></td>
+<td></td>
+</tr>
+
+<tr><td>2160</br><p>
+The line integral over the path of the curve c of p dot dr. 
+</p>2278</br></td>
+<td><figure>
+<img src= "obj_002176_002221_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 2221 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>2278</br><p>
+So we take the product of each of the coefficients, let's say the coefficient of the i component, so we get p-- I'll do that in green, actually do that purple color --so we get p of xy times dx plus-- well there's no 0 times j times dy; 0 times dy id just going to be 0 --so this our line integral simplified to this right here. 
+</p>2690</br></td>
+<td><figure>
+<img src= "obj_002176_002546_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 2546 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>2690</br><p>
+This is equal to this original integral up here, so we're literally just taking the line integral around this path. 
+</p>2783</br></td>
+<td></td>
+</tr>
+
+<tr><td>2783</br><p>
+Now I said that we play our cards right, we're not going to have to deal with the third variable, t; that we might be able just solve this integral only in terms of x. 
+</p>2924</br></td>
+<td></td>
+</tr>
+
+<tr><td>2924</br><p>
+And so let's see if we can do that. 
+</p>2950</br></td>
+<td></td>
+</tr>
+
+<tr><td>2950</br><p>
+So let's look at our minimum and maximum x points. 
+</p>2995</br></td>
+<td></td>
+</tr>
+
+<tr><td>2995</br><p>
+That looks like our minimum x point. 
+</p>3024</br></td>
+<td><figure>
+<img src= "obj_000033_003032_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3032 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3024</br><p>
+Let's call that a. 
+</p>3056</br></td>
+<td><figure>
+<img src= "obj_000033_003051_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3051 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3056</br><p>
+Let's call that our maximum x point; let's call that b. 
+</p>3138</br></td>
+<td><figure>
+<img src= "obj_000033_003149_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3149 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3138</br><p>
+What we could do is we can break up this curve into two functions of x. 
+</p>3218</br></td>
+<td></td>
+</tr>
+
+<tr><td>3218</br><p>
+y is functions of x. 
+</p>3241</br></td>
+<td></td>
+</tr>
+
+<tr><td>3241</br><p>
+So this bottom one right here we could call as y1 of x. 
+</p>3305</br></td>
+<td><figure>
+<img src= "obj_000033_003332_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3332 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3305</br><p>
+This is just a standard curve; you know when we were just dealing with standard calculus, this is just you can imagine this is f of x and it's a function of x. 
+</p>3454</br></td>
+<td></td>
+</tr>
+
+<tr><td>3454</br><p>
+And this is y2 of x. 
+</p>3518</br></td>
+<td><figure>
+<img src= "obj_000033_003514_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3514 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3518</br><p>
+Just like that. 
+</p>3541</br></td>
+<td><figure>
+<img src= "obj_000033_003526_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3526 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3541</br><p>
+So you can imagine two paths; one path defined by y1 of x-- let me do that in a different color; magenta --one path defined by y1 of x as we go from x is equal to a to x is equal to b, and then another path defined by y2 of x as we go from x is equal to b to x is equal to a. 
+</p>3885</br></td>
+<td><figure>
+<img src= "obj_000033_003914_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 3914 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>3885</br><p>
+That is our curve. 
+</p>3911</br></td>
+<td></td>
+</tr>
+
+<tr><td>3911</br><p>
+So what we could do is, we could rewrite this integral-- which is the same thing as that integral --as this is equal to the integral-- we'll first do this first path --of x going from a to b of p of x. 
+</p>4198</br></td>
+<td><figure>
+<img src= "obj_002176_004197_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 4197 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>4198</br><p>
+And I could to say p of x and y, but we know along this path y is a function of x. 
+</p>4284</br></td>
+<td></td>
+</tr>
+
+<tr><td>4284</br><p>
+So we say x and y1 of x. 
+</p>4365</br></td>
+<td><figure>
+<img src= "obj_002176_004357_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 4357 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>4365</br><p>
+Wherever we see a y we substitute it with a y1 of x, dx. 
+</p>4445</br></td>
+<td><figure>
+<img src= "obj_002176_004450_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 4450 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>4445</br><p>
+So that covers that first path; I'll do it in the same color. 
+</p>4530</br></td>
+<td></td>
+</tr>
+
+<tr><td>4530</br><p>
+We could imagine this is c1. 
+</p>4560</br></td>
+<td><figure>
+<img src= "obj_002176_004560_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 4560 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>4560</br><p>
+This is kind of the first half of our curve-- well it's not exactly the half --but that takes us right from that point to that point. 
+</p>4661</br></td>
+<td><figure>
+<img src= "obj_004601_004613_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 4601 4613 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>4661</br><p>
+And then we want to complete the circle. 
+</p>4695</br></td>
+<td></td>
+</tr>
+
+<tr><td>4695</br><p>
+Maybe I'll do that, and I'll do that in yellow. 
+</p>4749</br></td>
+<td></td>
+</tr>
+
+<tr><td>4749</br><p>
+That's going to be equal to-- sorry we're going to have to add these two --plus the integral from x is equal to b to x is equal to a of-- do it in that same color --of p of x. 
+</p>5056</br></td>
+<td><figure>
+<img src= "obj_002176_005062_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 5062 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>5056</br><p>
+And now y is going to be y2 of x. 
+</p>5104</br></td>
+<td></td>
+</tr>
+
+<tr><td>5104</br><p>
+Wherever you see a y, you can substitute with y2 of x along this curve. 
+</p>5157</br></td>
+<td></td>
+</tr>
+
+<tr><td>5157</br><p>
+y2 of x, dx. 
+</p>5231</br></td>
+<td><figure>
+<img src= "obj_002176_005228_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 5228 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>5231</br><p>
+This is already getting interesting and you might already see where I'm going with this. 
+</p>5296</br></td>
+<td><figure>
+<img src= "obj_002176_005284_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 5284 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>5296</br><p>
+So this is the curve c2. 
+</p>5323</br></td>
+<td><figure>
+<img src= "obj_005313_005324_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 5313 5324 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>5323</br><p>
+too I think you appreciate if you take the union of c1 and c2, we've got our whole curve. 
+</p>5427</br></td>
+<td><figure>
+<img src= "obj_000033_005388_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 5388 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>5427</br><p>
+So let's see if we can simplify this integral a little bit. 
+</p>5482</br></td>
+<td></td>
+</tr>
+
+<tr><td>5482</br><p>
+Well one thing we want to do, we might want to make their end points the same. 
+</p>5537</br></td>
+<td></td>
+</tr>
+
+<tr><td>5537</br><p>
+So if you swap a and b here, it just turns the integral negative. 
+</p>5597</br></td>
+<td></td>
+</tr>
+
+<tr><td>5597</br><p>
+So you make this into a b, that into an a, and then make that plus sign into a minus sign. 
+</p>5699</br></td>
+<td><figure>
+<img src= "obj_002176_005689_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 5689 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>5699</br><p>
+And now we can rewrite this whole thing as being equal to the integral from a to b of this thing, of p of x and y1 of x minus this thing, minus p of x and y2 of x, and then all of that times dx. 
+</p>6092</br></td>
+<td><figure>
+<img src= "obj_005748_006052_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 5748 6052 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6092</br><p>
+I'll write it in a third color. 
+</p>6129</br></td>
+<td><figure>
+<img src= "obj_005748_006130_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 5748 6130 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6129</br><p>
+Now, I'm going to do something a little bit arbitrary, but I think you'll appreciate why I did this by the end of this video, and it's just a very simple operation. 
+</p>6270</br></td>
+<td><figure>
+<img src= "obj_005748_006153_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 5748 6153 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6270</br><p>
+What I'm going to do is I'm going to swap these two. 
+</p>6294</br></td>
+<td></td>
+</tr>
+
+<tr><td>6294</br><p>
+So I'm essentially going to multiply this whole thing by negative 1, or essentially multiply and divide by negative 1. 
+</p>6388</br></td>
+<td></td>
+</tr>
+
+<tr><td>6388</br><p>
+So I can multiply this by negative 1 and then multiply the outside by negative 1, and I will not have changed the integral; I'm multiplying by negative 1 twice. 
+</p>6489</br></td>
+<td></td>
+</tr>
+
+<tr><td>6489</br><p>
+So if I swap these two things, if I multiply the inside times negative 1, so this is going to be equal to-- do the outside of the integral, a to b. 
+</p>6634</br></td>
+<td><figure>
+<img src= "obj_005748_006634_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 5748 6634 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6634</br><p>
+If I multiply the inside-- I'll do a dx out here --if I multiply the inside of the integral by negative 1, these two guys switch. 
+</p>6751</br></td>
+<td><figure>
+<img src= "obj_006676_006693_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 6676 6693 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6751</br><p>
+So it becomes p of x of y2 of x. 
+</p>6829</br></td>
+<td><figure>
+<img src= "obj_006590_006843_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 6590 6843 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6829</br><p>
+And then you're going to have minus p of x and y1 of x. 
+</p>6995</br></td>
+<td><figure>
+<img src= "obj_006590_007006_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 6590 7006 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>6995</br><p>
+My handwriting's getting a little messy. 
+</p>7014</br></td>
+<td></td>
+</tr>
+
+<tr><td>7014</br><p>
+But I can't just multiply just the inside by minus 1. 
+</p>7061</br></td>
+<td></td>
+</tr>
+
+<tr><td>7061</br><p>
+I don't want to change the integral, so I multiplied the inside by minus 1, let me multiply the outside by minus 1. 
+</p>7142</br></td>
+<td><figure>
+<img src= "obj_006590_007134_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 6590 7134 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>7142</br><p>
+And since I multiplied by minus 1 twice, these two things are equivalent. 
+</p>7201</br></td>
+<td><figure>
+<img src= "obj_006590_007191_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 6590 7191 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>7201</br><p>
+Or you could say this is the negative of that. 
+</p>7273</br></td>
+<td></td>
+</tr>
+
+<tr><td>7273</br><p>
+Either way, I think you appreciate that I haven't changed the integral at all, numerically. 
+</p>7328</br></td>
+<td></td>
+</tr>
+
+<tr><td>7328</br><p>
+I multiplied the inside and the outside by minus 1. 
+</p>7364</br></td>
+<td></td>
+</tr>
+
+<tr><td>7364</br><p>
+And now the next step I'm going to do, it might look a little bit foreign to you, but I think you'll appreciate it. 
+</p>7501</br></td>
+<td></td>
+</tr>
+
+<tr><td>7501</br><p>
+It might be obvious to you if you've recently done some double integrals. 
+</p>7565</br></td>
+<td><figure>
+<img src= "obj_007539_007550_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 7539 7550 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>7565</br><p>
+So this thing can be rewritten as minus the integral from a to b of-- and let me do a new color --of the function p of x, y evaluated at y2 of x minus-- and let me make it very clear; this is y is equal to y2 of x --minus this function evaluated at y is equal to y1 of x. 
+</p>8084</br></td>
+<td><figure>
+<img src= "obj_007539_008080_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 7539 8080 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>8084</br><p>
+And of course all of that times dx. 
+</p>8140</br></td>
+<td><figure>
+<img src= "obj_007539_008141_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 7539 8141 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>8140</br><p>
+This statement and what we saw right here-- this statement right here --are completely identical. 
+</p>8292</br></td>
+<td><figure>
+<img src= "obj_006590_008270_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 6590 8270 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>8292</br><p>
+And then if we assume that a partial derivative of capital P with respect to y exists, hopefully you'll realize-- and I'll focus on this a little bit because I don't want to confuse you on this step. 
+</p>8515</br></td>
+<td></td>
+</tr>
+
+<tr><td>8515</br><p>
+Let me write the outside of this integral. 
+</p>8536</br></td>
+<td></td>
+</tr>
+
+<tr><td>8536</br><p>
+So this is going to be equal to-- and this is kind of a neat outcome, and we're starting to build up to a very neat outcome, which will probably have to take the next video to do --so we do the outside dx. 
+</p>8725</br></td>
+<td><figure>
+<img src= "obj_008561_008681_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 8561 8681 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>8725</br><p>
+If we assume that capital P has a partial derivative, this right here is the exact same thing. 
+</p>8862</br></td>
+<td><figure>
+<img src= "obj_008710_008752_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 8710 8752 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>8862</br><p>
+This right here is the exact same thing as the partial derivative of P with respect to y, dy, the antiderivative of that from y1 of x to y2 of x. 
+</p>9146</br></td>
+<td><figure>
+<img src= "obj_007539_009158_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 7539 9158 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>9146</br><p>
+I want to make you feel comfortable that these two things are equivalent. 
+</p>9219</br></td>
+<td></td>
+</tr>
+
+<tr><td>9219</br><p>
+And to realize they're equivalent, you'll probably just have to start here and then go to that. 
+</p>9290</br></td>
+<td><figure>
+<img src= "obj_008561_009277_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 8561 9277 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>9290</br><p>
+We're used to seeing this; we're used to seeing a double integral like this, and then the very first step we say, OK to solve this double integral we start on the inside integral right there, and we say, OK let's take the antiderivative of this with respect to y. 
+</p>9523</br></td>
+<td><figure>
+<img src= "obj_008561_009446_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 8561 9446 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>9523</br><p>
+So if you take the antiderivative of the partial of p with respect to y, you're going to end up with p. 
+</p>9622</br></td>
+<td></td>
+</tr>
+
+<tr><td>9622</br><p>
+And since this is a definite integral, the boundaries are going to be in terms of x, you're going to evaluate that from y is equal to y2 of x, and you're going to subtract from that y is equal to y1 of x. 
+</p>9792</br></td>
+<td></td>
+</tr>
+
+<tr><td>9792</br><p>
+Normally we start with something like this, and we go to something like this. 
+</p>9845</br></td>
+<td></td>
+</tr>
+
+<tr><td>9845</br><p>
+This is kind of unusual that we started, we kind of solved, we started with the solution of the definite integral, and then we slowly built back to the definite integral. 
+</p>9974</br></td>
+<td></td>
+</tr>
+
+<tr><td>9974</br><p>
+So hopefully you realize that this is true, that this is just we're kind of going in a reverse direction than we normally do. 
+</p>10062</br></td>
+<td></td>
+</tr>
+
+<tr><td>10062</br><p>
+And if you do realize that, then we've just established a pretty neat outcome. 
+</p>10122</br></td>
+<td></td>
+</tr>
+
+<tr><td>10122</br><p>
+Because what is this right here? Let me go back, let me see if I can fit everything. 
+</p>10212</br></td>
+<td></td>
+</tr>
+
+<tr><td>10212</br><p>
+I have some function-- and I'm assuming that the partial of P with respect to y exists --but I have some function defined over the xy plane. 
+</p>10373</br></td>
+<td><figure>
+<img src= "obj_008561_010357_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 8561 10357 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>10373</br><p>
+You know, you could imagine we're dealing in three dimensions now. 
+</p>10418</br></td>
+<td></td>
+</tr>
+
+<tr><td>10418</br><p>
+We'll draw a little bit neater. 
+</p>10462</br></td>
+<td></td>
+</tr>
+
+<tr><td>10462</br><p>
+So that's y, that's x, that's z, so this, you could imagine, is some surface; it just happens to be the partial of P with respect to x. 
+</p>10648</br></td>
+<td><figure>
+<img src= "obj_002176_010564_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 10564 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>10648</br><p>
+So it's some surface on the xy plane like that. 
+</p>10732</br></td>
+<td><figure>
+<img src= "obj_002176_010701_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 10701 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>10732</br><p>
+And what are we doing? We're taking the double integral under that surface, around this region. 
+</p>10834</br></td>
+<td></td>
+</tr>
+
+<tr><td>10834</br><p>
+The region's boundaries in terms of y are defined by y2 and y1 of x. 
+</p>10934</br></td>
+<td></td>
+</tr>
+
+<tr><td>10934</br><p>
+So you literally have that curve. 
+</p>10959</br></td>
+<td><figure>
+<img src= "obj_002176_010955_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 10955 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>10959</br><p>
+That's y2 on top, y1 on the bottom. 
+</p>11043</br></td>
+<td><figure>
+<img src= "obj_002176_011044_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 11044 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>11043</br><p>
+And so we're essentially taking the volume above. 
+</p>11125</br></td>
+<td></td>
+</tr>
+
+<tr><td>11125</br><p>
+So if you imagine with the base is-- the whole floor of this is going to be the area inside of this curve, and then the height is going to be the function partial of P with respect to y. 
+</p>11340</br></td>
+<td><figure>
+<img src= "obj_000033_011209_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 11209 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>11340</br><p>
+It's going to be a little hard for me to draw, but this is essentially some type of a volume, if you want to visualize it that way. 
+</p>11484</br></td>
+<td><figure>
+<img src= "obj_002176_011415_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 11415 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>11484</br><p>
+But the really neat outcome here is if you call this region r, we've just simplified this line integral. 
+</p>11649</br></td>
+<td><figure>
+<img src= "obj_000033_011595_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 11595 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>11649</br><p>
+And this was a special one. 
+</p>11664</br></td>
+<td></td>
+</tr>
+
+<tr><td>11664</br><p>
+It only had an x-component, the vector field, but we've just simplified this line integral to being equivalent to-- maybe I should write this line integral because that's what's the really neat outcome. 
+</p>11855</br></td>
+<td><figure>
+<img src= "obj_000514_011681_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 514 11681 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>11855</br><p>
+We've just established that this thing right here, which is the same as our original one, so let me write that. 
+</p>11929</br></td>
+<td><figure>
+<img src= "obj_002176_011887_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 2176 11887 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>11929</br><p>
+The closed line integral around the curve c of p of xy, dx, we've just established that that's the same thing as the double integral over the region r-- this is the region r --of the partial of P with respect to y. 
+</p>12306</br></td>
+<td><figure>
+<img src= "obj_000033_012260_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 33 12260 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>12306</br><p>
+And we could write dy, dx, or we could write da, whatever you want to write, but this is the double integral over that region. 
+</p>12521</br></td>
+<td><figure>
+<img src= "obj_011922_012453_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 11922 12453 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>12521</br><p>
+The neat thing here is using a vector field that only had an x-component, we were able to connect its line integral to the double integral over region-- oh, and I forgot something very important. 
+</p>12686</br></td>
+<td></td>
+</tr>
+
+<tr><td>12686</br><p>
+We had a negative sign out here. 
+</p>12711</br></td>
+<td><figure>
+<img src= "obj_008561_012710_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 8561 12710 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>12711</br><p>
+So this was a minus sign out here. 
+</p>12739</br></td>
+<td><figure>
+<img src= "obj_011922_012734_group.png" max-width="" usemap="#" id="" class="">
+<figcaption> 11922 12734 </figcaption>
+</figure>
+</br></td>
+</tr>
+
+<tr><td>12739</br><p>
+Or we could even put the minus in here, but I think you get the general idea. 
+</p>12798</br></td>
+<td></td>
+</tr>
+
+<tr><td>12798</br><p>
+In the next video, I'm going to do the same exact thing with the vector field that only has vectors in the y-direction. 
+</p>12907</br></td>
+<td></td>
+</tr>
+
+<tr><td>12907</br><p>
+And then we'll connect the two and we'll end up with Green's theorem. 
+</p>12957</br></td>
+<td></td>
+</tr>
+
+<tr><td>12957</br><p>
+
+</p>12981</br></td>
+<td></td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+0	156	91	65	387	181	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_000000_000156_group.png
+525	764	121	296	554	403	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_000525_000764_group.png
+980	1279	84	431	908	528	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_000980_001279_group.png
+1351	1517	935	389	1109	492	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_001351_001517_group.png
+1711	2127	413	57	896	147	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_001711_002127_group.png
+2248	2281	907	40	1096	129	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_002248_002281_group.png
+2575	2648	788	159	990	225	../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_002575_002648_group.png

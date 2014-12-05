@@ -12,6 +12,7 @@ import os
 import cv2
 from video import Video
 
+
 def remove_duplicate_pixels(visobj, panorama_fg, cleanupdir):
     """objects appear only once, related to first time that they appear
         panorama_fg: all objects that can still appear in panorama 
@@ -50,6 +51,32 @@ def main_white_background():
         print obj.imgpath
         util.saveimage(obj.img, objdir, obj.imgpath)
         
+
+def main_group_consecutive_objs():
+    objdir = sys.argv[1]
+    groupdir = objdir + "/consecutive"
+    if not os.path.exists(groupdir):
+        os.makedirs(groupdir)
+        
+    list_of_objs = VisualObject.objs_from_file(None, objdir)
+    new_list_of_objs = []
+    prevobj = list_of_objs[0]
+    group = []
+    group.append(prevobj)        
+    for i in range(1, len(list_of_objs)):
+        nextobj  = list_of_objs[i]
+        if nextobj.start_fid - prevobj.end_fid <= 4:
+            group.append(nextobj)
+        else:
+            groupedobj = VisualObject.group(group, groupdir)
+            new_list_of_objs.append(groupedobj)
+            group = [nextobj]
+        prevobj = nextobj
+    groupedobj = VisualObject.group(group, groupdir)
+    new_list_of_objs.append(groupedobj)
+    VisualObject.write_to_file(groupdir +"/obj_info.txt",new_list_of_objs)
+    print 'num obj before' , len(list_of_objs), 'num obj after', len(new_list_of_objs)      
+    
 def main_remove_duplicate_pixels():
     objdir = sys.argv[1]
     panorama_path = sys.argv[2]
@@ -150,7 +177,7 @@ def main_group_color_time_space():
     VisualObject.write_to_file(groupdir + "/obj_info.txt", grouped_objs)
         
 if __name__ == "__main__":
-    main_remove_duplicate_pixels()
+    main_group_consecutive_objs()
 #     main_group_overlapping()
         
         

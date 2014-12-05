@@ -322,7 +322,6 @@ def test_panorama_projectile_main():
     
     
 def test_merge_inline_objects_main():
-
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]

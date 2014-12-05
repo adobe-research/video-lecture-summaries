@@ -53,6 +53,9 @@ class VisualObject:
         h, w = self.img.shape[:2]
         return w
     
+    def area(self):
+        return (self.brx - self.tlx + 1.0) * (self.bry - self.tly + 1.0)
+    
     def size(self):
         return (self.width, self.height)
     
@@ -86,10 +89,25 @@ class VisualObject:
         mean_g = np.mean(g[mask!=0])
         mean_r = np.mean(r[mask!=0])
         return (mean_b, mean_g, mean_r)
-              
-        
+    
+    
+    @staticmethod
+    def compactness(list_of_objs):
+        if len(list_of_objs) == 0:
+            return 0
+        tlx, tly, brx, bry =  VisualObject.bbox(list_of_objs)
+        bbox_area = (brx - tlx + 1.0) * (bry - tly + 1.0)
+        sum_area  = 0.0
+        for obj in list_of_objs:
+            sum_area += obj.area()
+#         print 'compactness', sum_area/bbox_area
+        return sum_area/bbox_area
+    
+    
     @classmethod
     def group(cls, list_of_imgobjs, objdir="temp", debug=False):    
+        if len(list_of_imgobjs) <= 0:
+            return None
         min_tlx = sys.maxint
         min_tly = sys.maxint
         max_brx = -1
@@ -173,6 +191,7 @@ class VisualObject:
         for i in range(0, len(obj_info)):
             info = obj_info[i]
             imgpath = os.path.basename(str(info[6]))
+#             print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
             objh, objw = objimg.shape[:2]
             if objh <= 1 and objw <= 1:

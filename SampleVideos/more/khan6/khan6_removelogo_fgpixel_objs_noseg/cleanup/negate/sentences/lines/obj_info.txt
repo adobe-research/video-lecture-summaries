@@ -1,0 +1,15 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+0	794	33	25	323	181	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_000000_000794_group.png
+875	1038	75	224	380	448	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_000875_001038_group.png
+1042	1081	385	274	419	301	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_001042_001081_group.png
+1182	2047	112	20	288	463	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_001182_002047_group.png
+2168	2383	364	53	575	145	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_002168_002383_group.png
+2412	2419	597	85	611	99	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_002412_002419_group.png
+2508	2740	633	35	795	142	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_002508_002740_group.png
+2956	3152	826	41	1053	133	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_002956_003152_group.png
+3177	3319	1078	35	1245	129	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_003177_003319_group.png
+3444	3487	476	232	585	298	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_003444_003487_group.png
+3560	3651	609	244	716	295	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_003560_003651_group.png
+3717	3877	744	223	864	302	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_003717_003877_group.png
+4008	4051	876	241	940	264	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_004008_004051_group.png
+4126	4519	585	240	1218	458	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines/obj_004126_004519_group.png
