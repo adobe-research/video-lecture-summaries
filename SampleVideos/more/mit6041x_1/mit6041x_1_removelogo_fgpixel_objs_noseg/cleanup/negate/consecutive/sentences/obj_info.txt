@@ -18,12 +18,12 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 4848	6671	70	312	427	414	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_006671_group.png
 4848	6926	70	312	459	463	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_006926_group.png
 4848	7055	70	312	478	463	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_007055_group.png
-4848	7455	70	312	708	414	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_007455_group.png
-7469	7734	541	413	726	512	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_007469_007734_group.png
-4848	9148	70	312	1181	453	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_009148_group.png
+4848	7455	70	312	708	463	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_007455_group.png
+4848	7734	70	312	726	512	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_007734_group.png
+4848	9148	70	312	1181	471	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_009148_group.png
 9163	9266	758	471	914	516	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_009163_009266_group.png
 9163	9410	76	471	959	584	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_009163_009410_group.png
-4848	9874	70	312	1181	414	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_009874_group.png
+4848	9874	70	312	1181	471	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_004848_009874_group.png
 10306	10310	64	774	927	859	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_010306_010310_group.png
 10306	10715	64	774	927	917	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_010306_010715_group.png
 10787	10862	523	890	798	915	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//sentences/obj_010787_010862_group.png
