@@ -89,9 +89,8 @@ class LineBreaker:
         self.compute_cuts_v3()
         return self.get_opt_lines()
     
-    def dynamic_lines_v3(self):
-#         self.compute_costs_v3()
-        self.compute_cuts_v3()
+    def _lines(self): 
+        self.compute_greedy_cuts()
         lines =  self.cutlines_nonlinear(self.numobjs)
         lineobjs = []
         for line in lines:
@@ -126,7 +125,7 @@ class LineBreaker:
 #             print 'self.totalcost[',i,']=', self.totalcost[i]
         print self.totalcost
         
-    def compute_cuts_v3(self):
+    def compute_greedy_cuts(self):
         n = self.numobjs
         self.totalcost[0] = linecost_v3(self.list_of_objs[0:1])
         self.cuts[0] = 0
@@ -144,11 +143,11 @@ class LineBreaker:
             for idx in range(0, len(prevlines)):
                 line = prevlines[idx]
                 add = addcost_v3(line, newobj)
-#                 if (len(prevlines) == 6):
-#                 print 'i', i, 'prev line idx', idx, 'of', len(prevlines) 
-#                 print 'addcost', add
-#                 tempobj = VisualObject.group(line, "temp")
-#                 util.showimages([tempobj.img, newobj.img])
+#                 if (len(prevlines) == 5):
+#                     print 'i', i, 'prev line idx', idx, 'of', len(prevlines) 
+#                     print 'addcost', add
+#                     tempobj = VisualObject.group(line, "temp")
+#                     util.showimages([tempobj.img, newobj.img])
 
                 if (add < minaddcost):
                     bestline = idx
@@ -513,7 +512,8 @@ def addcost_v3(list_of_objs, newobj):
             elif newobj.bry < miny:  # below
                 ycost = miny - newobj.bry
             else:
-                ycost = 0
+                ycost = 0 # negative overlap
+                ycost = -(min(newobj.bry, maxy) - max(newobj.tly, miny))
             xcost = min(abs(maxx - newobj.brx), abs(maxx-newobj.tlx))
             print 'above or below', 'xcost', xcost, 'ycost', ycost
         return xcost + ycost
@@ -543,7 +543,7 @@ if __name__ == "__main__":
     print lec.video.fps
     img_objs = VisualObject.objs_from_file(lec.video, objdir)
     breaker = LineBreaker(lec, img_objs, objdir, debug=False)
-    line_objs, start_obj_idx, end_obj_idx = breaker.dynamic_lines_v3()
+    line_objs, start_obj_idx, end_obj_idx = breaker.greedy_lines()
     html = WriteHtml(objdir + "/dynamic_linebreak_test_v5.html", title="Test line break v5", stylesheet="../Mainpage/summaries.css")
     html.opendiv(idstring="summary-container")
     breaker.write_to_html(html, objdir, list_of_objs=line_objs)

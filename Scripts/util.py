@@ -155,7 +155,7 @@ def saveimage(img, outdir, filename):
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
     cv2.imwrite(outdir + "/" + filename, img)
-    print 'util.saveimage', (outdir+"/" +filename)
+#     print 'util.saveimage', (outdir+"/" +filename)
     
 
 def smooth(x,window_len=11,window='hanning'):

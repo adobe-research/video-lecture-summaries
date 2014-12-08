@@ -1,0 +1,6 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+0	3146	80	29	1233	123	../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000000_003146_group.png
+1	3603	80	300	1232	425	../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000001_003603_group.png
+831	1283	103	154	413	223	../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000831_001283_group.png
+1431	1523	113	254	381	311	../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_001431_001523_group.png
+2496	2779	98	474	351	658	../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_002496_002779_group.png
