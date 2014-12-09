@@ -73,7 +73,7 @@ class LineBreaker:
                     line_cost = linecost(self.list_of_objs[j+1:i+1])
                     add_cost =  addcost(prevline, self.list_of_objs[j+1:i+1]) # cost of adding items [j+1, i] inclusive to prevline
                     print 'linecost', line_cost, 'addcost', add_cost, 'linecost + addcost', line_cost + add_cost
-                    add_cost = line_cost + add_cost - 50
+                    add_cost = line_cost + add_cost 
                     if (add_cost < j_min_add_cost):
                         j_min_add_cost = add_cost
                         add_to[j] = prevline_idx
@@ -81,6 +81,8 @@ class LineBreaker:
                 print 'for j=', j, 'best add to is', add_to[j], 'with cost', j_min_add_cost
                 
                 newlinecost = linecost(self.list_of_objs[j+1:i+1]) # list_of_objs[j+1:i] inclusive on separate line
+                if len(prevlines_j) > 0:
+                    newlinecost += 100
                 print 'newline cost', newlinecost
                 if (newlinecost < j_min_add_cost):
                     j_min_add_cost = newlinecost
@@ -126,7 +128,7 @@ def get_opt_lines(list_of_objs, bestid, j):
 
 def linecost(list_of_objs):
     cost = 0
-    for i in range(0, len(list_of_objs)):
+    for i in range(1, len(list_of_objs)):
         cost += addcost(list_of_objs[0:i], list_of_objs[i:i+1])
     return cost
 
@@ -138,8 +140,8 @@ def addcost(list_of_prev_objs, list_of_new_objs):
 #         if (temp2 is not None):
 #             util.showimages([temp2.img], "new object")
         if (len(list_of_prev_objs) == 0):
-            print 'new object cost 50'
-            return 50
+            print 'first object cost 0'
+            return 0
         if len(list_of_new_objs) is None:
             return 0
         
@@ -163,7 +165,7 @@ def addcost(list_of_prev_objs, list_of_new_objs):
                 print 'inline right', 'xcost', xcost, 'ycost', ycost
             else:
                 print 'linebreak.addcost Error: inline, not in box, neither left nor right'
-            return xcost + ycost*0.25 - 50
+            return xcost + ycost*0.25
         else:  # above or below
             if min_newy > maxy:  # above
                 ycost = min_newy - maxy
@@ -171,7 +173,7 @@ def addcost(list_of_prev_objs, list_of_new_objs):
                 ycost = miny - max_newy
             else:
                 ycost = 0 # negative overlap
-                ycost = -(min(max_newy, maxy) - max(min_newy, miny))
+#                 ycost = -(min(max_newy, maxy) - max(min_newy, miny))
             xcost = min(abs(maxx - max_newx), abs(maxx-min_newx))
             print 'above or below', 'xcost', xcost, 'ycost', ycost
         return xcost + ycost
