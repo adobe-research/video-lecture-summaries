@@ -13,6 +13,7 @@ from writehtml import WriteHtml
 import util
 import os
 import processframe as pf
+import operator
 
 class LineBreaker:
     def __init__(self, lec, list_of_objs, objdir="temp", debug=False):
@@ -60,7 +61,7 @@ class LineBreaker:
             min_cost = float("inf")
          
             add_to = [-1 for x in range(0, i)] # best line to add-to, at cut_j
-            for j in range(0, i):
+            for j in range(max(0, i-7), i):
                 print 'j = ' , j
                 j_min_add_cost = float("inf")
                 totalcost_j = self.totalcost[j] # j inclusive
@@ -127,6 +128,9 @@ def get_opt_lines(list_of_objs, bestid, j):
     return optlines #list of list_of_objs
 
 def linecost(list_of_objs):
+    
+#     sorted_list_of_objs = sorted(list_of_objs, key=operator.attrgetter('tlx'))
+    
     cost = 0
     for i in range(1, len(list_of_objs)):
         cost += addcost(list_of_objs[0:i], list_of_objs[i:i+1])
@@ -172,8 +176,8 @@ def addcost(list_of_prev_objs, list_of_new_objs):
             elif max_newy < miny:  # below
                 ycost = miny - max_newy
             else:
-                ycost = 0 # negative overlap
-#                 ycost = -(min(max_newy, maxy) - max(min_newy, miny))
+#                 ycost = 0 # negative overlap
+                ycost = -(min(max_newy, maxy) - max(min_newy, miny))
             xcost = min(abs(maxx - max_newx), abs(maxx-min_newx))
             print 'above or below', 'xcost', xcost, 'ycost', ycost
         return xcost + ycost
