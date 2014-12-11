@@ -48,6 +48,7 @@ class LineBreaker:
             paragraph = []
             html.paragraph_list_of_words(paragraph)
             html.figure(list_of_objs[obj_idx].imgpath, "Merged Figure %i" % nfig)
+            
             nfig += 1    
 
     def computecost(self):        

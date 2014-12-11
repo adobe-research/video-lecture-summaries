@@ -1,0 +1,5 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+20	1315	123	53	951	161	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines2/obj_000020_001315_group.png
+262	2965	129	211	641	466	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines2/obj_000262_002965_group.png
+2784	3347	747	151	1147	359	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines2/obj_002784_003347_group.png
+3514	5192	747	417	1221	843	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/sentences//lines2/obj_003514_005192_group.png
