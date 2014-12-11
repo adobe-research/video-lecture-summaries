@@ -1,6 +1,8 @@
 start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
-29	3474	73	33	1006	195	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000029_003474_group.png
-267	6907	87	48	1212	496	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000267_006907_group.png
+29	3508	73	33	1051	212	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000029_003508_group.png
+267	4810	87	47	1212	346	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000267_004810_group.png
+1567	6857	105	384	675	518	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_001567_006857_group.png
+2548	2704	617	60	1031	91	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_002548_002704_group.png
 5212	6961	378	487	1016	609	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_005212_006961_group.png
-6802	6857	479	452	654	518	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_006802_006857_group.png
+6864	6907	784	429	940	496	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_006864_006907_group.png
 6966	6977	478	617	498	633	../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_006966_006977_group.png

@@ -1,9 +1,14 @@
 start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 74	477	57	35	488	107	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000074_000477_group.png
-496	1759	45	188	466	487	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000496_001759_group.png
+496	563	64	188	269	250	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000496_000563_group.png
+579	1759	45	347	466	487	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000579_001759_group.png
+735	781	307	313	316	321	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000735_000781_group.png
+789	794	242	271	247	277	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000789_000794_group.png
 825	832	233	496	240	503	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000825_000832_group.png
 837	841	291	474	296	479	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000837_000841_group.png
 852	1473	166	513	194	523	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000852_001473_group.png
+972	1494	125	260	382	320	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000972_001494_group.png
+983	986	168	283	170	288	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000983_000986_group.png
 2134	2246	689	59	1107	114	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_002134_002246_group.png
 2303	2370	756	140	1002	169	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_002303_002370_group.png
 2423	2468	757	196	931	225	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_002423_002468_group.png
@@ -16,6 +21,5 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 5108	5224	1275	490	1631	534	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_005108_005224_group.png
 5298	7081	1272	525	1587	590	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_005298_007081_group.png
 5402	5449	1345	619	1450	657	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_005402_005449_group.png
-8146	9387	873	740	953	843	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008146_009387_group.png
+8146	9471	873	706	1281	875	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008146_009471_group.png
 8203	8205	717	823	719	825	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008203_008205_group.png
-8406	9471	1098	706	1281	875	../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008406_009471_group.png

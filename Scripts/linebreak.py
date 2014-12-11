@@ -89,7 +89,7 @@ class LineBreaker:
         self.compute_cuts_v3()
         return self.get_opt_lines()
     
-    def _lines(self): 
+    def greedy_lines(self): 
         self.compute_greedy_cuts()
         lines =  self.cutlines_nonlinear(self.numobjs)
         lineobjs = []
@@ -234,7 +234,7 @@ class LineBreaker:
 
             for j in range(i+1, n):
                 nextobj = list_of_objs[j:j+1][0]
-                self.badness[i][j] = self.linecost[i][j-1] + self.addcost(list_of_objs[i:j], nextobj)
+                self.badness[i][j] = self.linecost[i][j-1] + self.addcost_v2(list_of_objs[i:j], nextobj)
                 self.linecost[i][j] = self.badness[i][j]
                 
     def addcost(self, list_of_objs, newobj):

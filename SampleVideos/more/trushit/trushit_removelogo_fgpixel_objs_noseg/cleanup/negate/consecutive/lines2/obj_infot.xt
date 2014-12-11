@@ -1,7 +1,7 @@
 start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 352	4639	162	37	603	103	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000352_004639_group.png
-618	1354	211	86	427	136	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000618_001354_group.png
-692	3784	89	98	634	303	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000692_003784_group.png
+618	3784	89	86	634	303	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000618_003784_group.png
+692	1417	91	172	475	221	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_000692_001417_group.png
 4677	11188	131	755	648	813	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_004677_011188_group.png
 5276	5525	114	808	466	832	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_005276_005525_group.png
 5679	6854	31	857	910	922	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_005679_006854_group.png
@@ -11,12 +11,12 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 8668	8684	201	1094	223	1125	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008668_008684_group.png
 8712	8864	384	1093	425	1129	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008712_008864_group.png
 8761	16891	65	1005	1265	1217	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_008761_016891_group.png
-12712	16202	97	1244	565	1377	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_012712_016202_group.png
+12712	12872	97	1244	514	1290	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_012712_012872_group.png
 13388	17002	143	0	396	0	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_013388_017002_group.png
+13842	16202	148	1327	565	1377	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_013842_016202_group.png
 14114	16030	46	1446	718	1510	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_014114_016030_group.png
 15698	16050	55	1536	496	1589	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_015698_016050_group.png
-17290	23835	121	2157	616	2288	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_017290_023835_group.png
-17999	24537	96	2208	895	2373	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_017999_024537_group.png
-22439	24283	903	2307	1061	2362	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_022439_024283_group.png
+17290	25081	101	2157	616	2383	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_017290_025081_group.png
+17999	24537	96	2303	920	2373	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_017999_024537_group.png
+22439	24283	928	2307	1061	2362	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_022439_024283_group.png
 24311	24766	133	2433	869	2492	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_024311_024766_group.png
-25055	25081	412	2369	608	2383	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//lines2/obj_025055_025081_group.png

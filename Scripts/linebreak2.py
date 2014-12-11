@@ -61,7 +61,7 @@ class LineBreaker:
             min_cost = float("inf")
          
             add_to = [-1 for x in range(0, i)] # best line to add-to, at cut_j
-            for j in range(max(0, i-7), i):
+            for j in range(max(0,i-10), i):
                 print 'j = ' , j
                 j_min_add_cost = float("inf")
                 totalcost_j = self.totalcost[j] # j inclusive
@@ -83,7 +83,7 @@ class LineBreaker:
                 
                 newlinecost = linecost(self.list_of_objs[j+1:i+1]) # list_of_objs[j+1:i] inclusive on separate line
                 if len(prevlines_j) > 0:
-                    newlinecost += 100
+                    newlinecost += 50
                 print 'newline cost', newlinecost
                 if (newlinecost < j_min_add_cost):
                     j_min_add_cost = newlinecost
@@ -105,7 +105,7 @@ class LineBreaker:
                 
             # update bestid
             self.bestid[i][0:bestj+1] = self.bestid[bestj][0:bestj+1] #up to bestj inclusive, retain segmentation of bestj
-            print 'best_add_to', best_add_to
+            print 'best_add_to', best_add_to, 'previous_totalcost', self.totalcost[bestj]
             for k in range(bestj+1, i+1):
                 self.bestid[i][k] = best_add_to 
             print 'bestid', self.bestid[i][0:i+1]
@@ -157,7 +157,7 @@ def addcost(list_of_prev_objs, list_of_new_objs):
             if minx <= max_newx and min_newx <= maxx:
                 xcost = 0
                 ycost = 0
-                print 'in box cost -10'
+                print 'in box cost -100'
                 return -10
             elif max_newx < minx:  # inline-left
                 xcost = minx - max_newx
@@ -169,7 +169,7 @@ def addcost(list_of_prev_objs, list_of_new_objs):
                 print 'inline right', 'xcost', xcost, 'ycost', ycost
             else:
                 print 'linebreak.addcost Error: inline, not in box, neither left nor right'
-            return xcost + ycost*0.25
+            return xcost + ycost*0.25 -50
         else:  # above or below
             if min_newy > maxy:  # above
                 ycost = min_newy - maxy
@@ -180,7 +180,7 @@ def addcost(list_of_prev_objs, list_of_new_objs):
                 ycost = -(min(max_newy, maxy) - max(min_newy, miny))
             xcost = min(abs(maxx - max_newx), abs(maxx-min_newx))
             print 'above or below', 'xcost', xcost, 'ycost', ycost
-        return xcost + ycost
+        return xcost + ycost*2
             
 if __name__ == "__main__":
     videopath = sys.argv[1]
