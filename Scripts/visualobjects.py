@@ -261,6 +261,40 @@ class VisualObject:
             return 0 #overlap
         
     @staticmethod
+    def xgap_distance_list(list_of_objs1, list_of_objs2):
+        tlx1, tly1, brx1, bry1 = VisualObject.bbox(list_of_objs1)
+        tlx2, tly2, brx2, bry2 = VisualObject.bbox(list_of_objs2)
+        if (brx1 < tlx2):
+            return (True, tlx2 - brx1)
+        if (tlx1 > brx2):
+            return (False, tlx1 - brx2)
+        return (False, -(brx2 - tlx1)) # overlap
+    
+        
+    @staticmethod
+    def ygap_distance_list(list_of_objs1, list_of_objs2):
+        """measures how much center-aligned"""
+        tlx, tly, brx, bry = VisualObject.bbox(list_of_objs1)
+        tlx2, tly2, brx2, bry2 = VisualObject.bbox(list_of_objs2)
+        line_ctry = tly + (bry + 1 - tly) / 2.0
+        obj_ctry = tly2 + (bry2 + 1 - tly2) / 2.0
+        line_h = (bry + 1 - tly)
+        obj_h = (bry2 + 1 - tly2)
+        y_dist = abs(obj_ctry - line_ctry) - (obj_h/2.0 + line_h/2.0)
+        return y_dist
+        
+    @staticmethod
+    def xgap_distance_new(list_of_objs1, list_of_objs2):
+        tlx, tly, brx, bry = VisualObject.bbox(list_of_objs1)
+        tlx2, tly2, brx2, bry2 = VisualObject.bbox(list_of_objs2)
+        line_ctrx = tlx + (brx + 1 - tlx) / 2.0
+        obj_ctrx = tlx2 + (brx2 + 1 - tlx2) / 2.0
+        line_w = (brx + 1 - tlx)
+        obj_w = (brx2 + 1 - tlx2)
+        x_dist = abs(obj_ctrx - line_ctrx) - (obj_w/2.0 + line_w/2.0)
+        return x_dist/ (obj_w/2.0 + line_w/2.0)
+        
+    @staticmethod
     def colorgap_distance(obj_i, obj_j):
         (b1,g1,r1) = obj_i.color()
         (b2,g2,r2) = obj_j.color()
@@ -355,6 +389,16 @@ class VisualObject:
         area2 = (obj2.brx + 1 - obj2.tlx ) * (obj2.bry + 1 - obj2.tly)
         areai = max(0, min(obj1.brx + 1, obj2.brx + 1) - max(obj1.tlx, obj2.tlx)) * max(0, min(obj1.bry + 1, obj2.bry + 1) - max(obj1.tly, obj2.tly))
         return 1.0 * areai / min(area1, area2)
+    
+    @staticmethod
+    def overlap_list(list_of_objs1, list_of_objs2):
+        tlx1, tly1, brx1, bry1 = VisualObject.bbox(list_of_objs1)
+        tlx2, tly2, brx2, bry2 = VisualObject.bbox(list_of_objs2)
+        area1 = (brx1 + 1 - tlx1) * (bry1 + 1 - tly1)
+        area2 = (brx2 + 1 - tlx2) * (bry2 + 1 - tly2)
+        areai = max(0, min(brx1 + 1, brx2 + 1) - max(tlx1, tlx2)) * max(0, min(bry1 + 1, bry2 + 1) - max(tly1, tly2))
+        return 1.0 * areai / min(area1, area2)
+        
     
     @staticmethod
     def side_by_side(obj1, obj2):
@@ -511,30 +555,18 @@ class VisualObject:
 if __name__ == "__main__":
     objdirpath = sys.argv[1]
     list_of_objs = VisualObject.objs_from_file(None, objdirpath)
-    
     panoramapath = sys.argv[2]
     panorama = cv2.imread(panoramapath)
-    ph,pw = panorama.shape[0:2]    
     panorama_copy = panorama.copy()
-    panorama_copy2 = panorama.copy()
-    for i in range(0, 4):
-        w1 = (i*0.25) * pw
-        w2 = (i+1)*0.25 *pw
-        y = VisualObject.area_projection_function(list_of_objs, objdirpath, panorama, w1, w2)
-        ysmooth = util.smooth(y, window_len=100)
-        maxys = argrelextrema(ysmooth, np.greater)
-        minys = argrelextrema(ysmooth, np.less)
-        for y in maxys[0]:
-            cv2.line(panorama_copy, (int(w1), y), (int(w2), y), (255,255,255), 1)
-        for y in minys[0]:
-            cv2.line(panorama_copy2, (int(w1), y), (int(w2), y), (255,255,255), 1)
-        util.showimages([panorama_copy2], "minlines")
-#         util.showimages([panorama_copy], "maxlines")
+    prevobj = None
+    for obj in list_of_objs:
+        if prevobj is not None:
+            print 'ydist = ', VisualObject.ygap_distance(prevobj, obj)
+        cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0,0,255), 1)
+        util.showimages([panorama_copy])
     
-    #util.saveimage(panorama_copy2, objdirpath, "projection_minys.png")
-    #util.saveimage(panorama_copy, objdirpath, "projection_maxys.png")
-    
-   
+
+        prevobj = obj
 
     
     
