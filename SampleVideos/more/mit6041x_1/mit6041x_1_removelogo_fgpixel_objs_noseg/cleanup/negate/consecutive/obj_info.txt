@@ -4,7 +4,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 849	873	105	107	127	132	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000849_000873_group.png
 890	903	139	94	149	138	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000890_000903_group.png
 910	922	166	113	186	122	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000910_000922_group.png
-927	1021	202	66	696	131	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000927_001021_group.png
+927	1021	202	66	321	131	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000927_001021_group.png
 1050	1059	90	179	95	197	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001050_001059_group.png
 1067	1120	96	183	280	191	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001067_001120_group.png
 1129	1150	105	160	122	193	../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001129_001150_group.png
