@@ -67,13 +67,15 @@ class LineBreaker:
             ydist = VisualObject.ygap_distance_list(curline.list_of_objs, [obj])
             (temp, xdist) = VisualObject.xgap_distance_list(curline.list_of_objs, [obj])
             print 'ydist, xdist', ydist, xdist
+            """annotate previous line"""          
+
+            
             """continue on current line"""
-            if (continue_line(curline, obj)):
+            if (not inserted and continue_line(curline, obj)):
                 print 'continue current line'
                 curline.insertobject(obj)
                 inserted = True
                     
-            """annotate previous line"""          
             if not inserted:
                 for j in range(1, len(self.list_of_lines)+1):
                     """search from most recent line"""
@@ -86,18 +88,18 @@ class LineBreaker:
                         inserted = True
                         print 'annotated previous line'
                         break
+            
                     
             """check immediately previous line"""
             if (not inserted and len(self.list_of_lines) > 0):
                 imprev = self.list_of_lines[-1]
-                
+
                 """debugging"""
                 panorama_copy = panorama.copy()
-                tlx, tly, brx, bry = VisualObject.bbox(imprev.list_of_objs)
-                cv2.rectangle(panorama_copy, (tlx, tly), (brx, bry), (255, 0, 0), 1)
-                cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 255), 1)
+#                 tlx, tly, brx, bry = VisualObject.bbox(imprev.list_of_objs)
+#                 cv2.rectangle(panorama_copy, (tlx, tly), (brx, bry), (255, 0, 0), 1)
+#                 cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 255), 1)
 #                 util.showimages([panorama_copy], "check immediately previous line")
-                
                 if (continue_line(imprev, obj)):
                     print 'continue immediately previous line'
                     self.insertline(curline)

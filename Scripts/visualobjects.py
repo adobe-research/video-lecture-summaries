@@ -249,7 +249,7 @@ class VisualObject:
         # obj i below obj j
         if (obj_i.tly > obj_j.bry):
             return (obj_i.tly - obj_j.bry) 
-        # partial overlap
+        # overlap
         return 0
     
     @staticmethod
@@ -258,17 +258,18 @@ class VisualObject:
                 return obj_j.tlx - obj_i.brx
             elif obj_i.tlx >= obj_j.brx: #obj1 right of obj1
                 return obj_i.tlx - obj_j.brx
-            return 0 #overlap
-        
+            #overlap
+            return 0 
+
     @staticmethod
     def xgap_distance_list(list_of_objs1, list_of_objs2):
         tlx1, tly1, brx1, bry1 = VisualObject.bbox(list_of_objs1)
         tlx2, tly2, brx2, bry2 = VisualObject.bbox(list_of_objs2)
         if (brx1 < tlx2):
-            return (True, tlx2 - brx1)
+            return (False, tlx2 - brx1)
         if (tlx1 > brx2):
             return (False, tlx1 - brx2)
-        return (False, -(brx2 - tlx1)) # overlap
+        return (True, -(brx2 - tlx1)) # overlap
     
         
     @staticmethod
@@ -282,17 +283,6 @@ class VisualObject:
         obj_h = (bry2 + 1 - tly2)
         y_dist = abs(obj_ctry - line_ctry) - (obj_h/2.0 + line_h/2.0)
         return y_dist
-        
-    @staticmethod
-    def xgap_distance_new(list_of_objs1, list_of_objs2):
-        tlx, tly, brx, bry = VisualObject.bbox(list_of_objs1)
-        tlx2, tly2, brx2, bry2 = VisualObject.bbox(list_of_objs2)
-        line_ctrx = tlx + (brx + 1 - tlx) / 2.0
-        obj_ctrx = tlx2 + (brx2 + 1 - tlx2) / 2.0
-        line_w = (brx + 1 - tlx)
-        obj_w = (brx2 + 1 - tlx2)
-        x_dist = abs(obj_ctrx - line_ctrx) - (obj_w/2.0 + line_w/2.0)
-        return x_dist/ (obj_w/2.0 + line_w/2.0)
         
     @staticmethod
     def colorgap_distance(obj_i, obj_j):
@@ -509,6 +499,40 @@ class VisualObject:
         plt.savefig(objdir + "/area_projection_function.png")
 #         plt.show()
         return y
+    
+    @staticmethod
+    def y_projection_function(list_of_objs):
+        tlx, miny, brx, maxy = VisualObject.bbox(list_of_objs)
+        y_count = np.empty(maxy + 1- miny, dtype=np.uint8)
+        for i in range(0, maxy+1-miny):
+            count = 0
+            for obj in list_of_objs:
+                if obj.tly <= i+miny and i+miny <= obj.bry:
+                    count += 1
+            y_count[i] = count
+        return y_count
+
+    @staticmethod
+    def x_projection_function(list_of_objs):
+        minx, tly, maxx, bry = VisualObject.bbox(list_of_objs)
+        x_count = np.empty(maxx + 1 - minx, dtype= np.uint8)
+        for i in range(0, maxx + 1 - minx):
+            count = 0
+            for obj in list_of_objs:
+                if obj.tlx <= i + minx and i + minx <= obj.brx:
+                    count += 1
+            x_count[i] = count
+        return x_count
+            
+
+    @staticmethod
+    def ctr_distance(obj1, obj2):
+        x1 = (obj1.tlx + obj1.brx) / 2.0
+        y1 = (obj1.tly + obj1.bry) / 2.0
+        x2 = (obj2.tlx + obj2.brx) / 2.0
+        y2 = (obj2.tly + obj2.bry) / 2.0
+        dist = math.sqrt((x1-x2)*(x1-x2) + (y1-y2) * (y1-y2))
+        return dist
         
     @staticmethod
     def bbox(list_of_objs):
@@ -524,34 +548,20 @@ class VisualObject:
         return (int(tlx), int(tly), int(brx), int(bry))
     
     @staticmethod
-    def inline(curobj, prevobj):
-        z1minx, z1miny, z1maxx, z1maxy = VisualObject.bbox([prevobj])
-        z1width = z1maxx - z1minx + 1
-        xpad = 30
-        ypad = min(max(30, 2500.0/z1width), 50)
-        z1minx -= xpad
-        z1miny -= ypad
-        z1maxx += xpad
-        z1maxy += ypad
-        cy = (curobj.tly + curobj.bry) / 2.0
-        
-          
-        if z1miny <= cy and cy <= z1maxy:
-            if curobj.brx >= z1minx and curobj.tlx <= z1maxx: # in bbox 
-                return True
-            elif curobj.brx < z1minx: # inline left:
-                penalty = z1minx - curobj.brx + xpad
-                if (penalty < 100): 
-                    return True
-            elif curobj.tlx > z1maxx: #inline right:
-                penalty = curobj.tlx - z1maxx + xpad
-                if (penalty < 100):
-                    return True
-        return False
-        
-        
+    def inline(line_objs, curobj):
+        ydist = VisualObject.ygap_distance_list(line_objs, [curobj])
+        (overlap, xdist) = VisualObject.xgap_distance_list(line_objs, [curobj])
+        if (ydist <= 10 and overlap == True):
+            return 1.5
+        elif (ydist <= 10 and xdist <= 100):
+            return 1.0
+        elif (ydist >= 50):
+            return -1.0
+        elif (ydist >= 0 and not overlap and xdist >= 200):
+            return -1.0
+        else: 
+            return 0 #maybe
             
-        
 if __name__ == "__main__":
     objdirpath = sys.argv[1]
     list_of_objs = VisualObject.objs_from_file(None, objdirpath)

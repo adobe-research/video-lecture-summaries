@@ -45,7 +45,7 @@ class Line:
     
 def continued_line(line, obj):
     # object is in-line:
-    (left_right, xdist) = VisualObject.xgap_distance_list(line.list_of_objs, [obj])
+    (overlap, xdist) = VisualObject.xgap_distance_list(line.list_of_objs, [obj])
     ydist = VisualObject.ygap_distance_list(line.list_of_objs, [obj])
     print 'xdist', xdist, 'ydist', ydist, 'abs(line.maxx - obj.brx)', abs(line.maxx-obj.brx)
     if (ydist <= 10 and xdist <= 100):
