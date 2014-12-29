@@ -28,7 +28,9 @@ if __name__ == "__main__":
     panorama = cv2.imread(sys.argv[1])
     objdir = sys.argv[2]
     list_of_objs = VisualObject.objs_from_file(None, objdir)
+#     util.showimages([panorama])
     cv2.imshow("", panorama)
+    cv2.waitKey(100)
     
     curline = 0    
     list_of_lines = []
@@ -100,3 +102,4 @@ if __name__ == "__main__":
         panorama_copy = panorama.copy()
         panorama_copy = show(panorama_copy, list_of_lines, curline)
         cv2.imshow("", panorama_copy)
+        cv2.waitKey(100)
