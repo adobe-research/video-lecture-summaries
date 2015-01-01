@@ -88,12 +88,13 @@ class LineBreaker:
                         print "merged to line", merged_to_line, 'cost', self.totalcost[i], 'result:', self.best_line_id[i]         
                             
                     """cost to separate newline"""
-                    templines = prevlines[:]
+                    templines = self.getcutlines(j)
                     templines.append(newline)
 #                     panorama_copy = self.panorama.copy()
 #                     visualize_lines(panorama_copy, templines)
 #                     util.showimages([panorama_copy], "weighted_avg")
                     cost_from_cut_j = weighted_avg_linecost(templines)
+                    print 'cost to separate newline', cost_from_cut_j
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
                         self.cuts[i] = j
@@ -103,7 +104,7 @@ class LineBreaker:
                         print 'separating line at j =', j, 'cost', cost_from_cut_j, 'result:', self.best_line_id[i]
             panorama_copy = self.panorama.copy()
             self.visualize_current_state(panorama_copy, i)
-                       
+                           
     def getcutlines(self, index):
         line_ids = self.best_line_id[index][0:index+1]
         print 'best line_ids up to stroke', index, ":", line_ids
@@ -128,7 +129,8 @@ class LineBreaker:
         visualize_lines(panorama, lines)
         print 'current segmentation', self.best_line_id[index][0:index + 1]
         print 'total cost', self.totalcost[index]
-        util.showimages([panorama], "current state")
+        cv2.imshow("current state", panorama)
+        cv2.waitKey(0)
         
     @staticmethod
     def getlinecost(list_of_objs):
@@ -152,37 +154,62 @@ class LineBreaker:
 def weighted_avg_linecost(list_of_lines):
     idx = 0
     sum_yprojcost = 0.0
+    sum_yprojgapcost = 0.0
     sum_xprojcost = 0.0
     sum_compactcost = 0.0
+    sum_numfgpixel = 0.0
+    sum_strokecost = 0.0
     max_xprojcost = -1.0
     for line in list_of_lines:
         print "line", idx, ":"
+        numfgpixel = len(line)#VisualObject.fgpixel_count(line)
         
-        yprojcost = 0.1 * y_projection_score(line)
+        yprojcost = y_projection_score(line)
+        yinline = yprojcost
         yprojcost = math.pow(yprojcost, 1.1)
-        if (yprojcost > 1.0):
-            yprojcost = math.pow(yprojcost, 0.3)            
+        yprojcost = 0.1*yprojcost    
         sum_yprojcost += yprojcost
          
-        xprojcost = 0.001 * x_projection_score(line) # maxgap
-        if (xprojcost > 1.0):
-            xprojcost = math.pow(xprojcost, 2.0)
-#         xprojcost = -1.0 * xprojcost
+        yprojgapcost = 0.025 * y_projection_gap_score(line)
+        yprojgapcost = math.pow(yprojgapcost, 2.0)
+        sum_yprojgapcost += yprojgapcost
+        
+        strokecost = len(line)
+        strokecost = math.pow(strokecost, 1.1)
+        strokecost = 0.1 *strokecost
+        sum_strokecost += strokecost
+        
+        xprojcost =  x_projection_score(line) # maxgap
+        maxgap = xprojcost
+        xprojcost = xprojcost * 0.01
+        xprojcost = math.pow(xprojcost, 2.0)
+        xprojcost = 0.1 * xprojcost
         max_xprojcost = max(xprojcost, max_xprojcost)
         sum_xprojcost += xprojcost
         
         compactcost = bbox_fill_ratio(line)
-        compactcost = 0.5*math.pow(compactcost, 0.5)
-        sum_compactcost = compactcost
+        compactcost = 0.5*math.pow(compactcost, 1.0)
+        sum_compactcost = sum_compactcost + (numfgpixel * compactcost)
         
-        print 'yproj', yprojcost, 'xproj', xprojcost, 'compact', compactcost
+        sum_numfgpixel += numfgpixel
+        print 'yinline', yinline, 'yproj', yprojcost, 'strokecost', strokecost, 'xproj', xprojcost, 'compact', compactcost, 'maxgap', maxgap
         idx += 1
         
 #     sum_num_strokes = 0.0
+    overlap_penalty = 0.0
+    for i in range(0, len(list_of_lines)):
+        curline = list_of_lines[i]
+        for j in range(i+1, len(list_of_lines)):
+            nextline = list_of_lines[j]
+            overlap = VisualObject.overlap_list(curline, nextline)
+            overlap_penalty += overlap
+        
     avg_xprojcost = sum_xprojcost/len(list_of_lines)
-    avg_compactcost = sum_compactcost/len(list_of_lines)
-    print 'total yprojcost', sum_yprojcost, 'max xprojcost', max_xprojcost, 'avg compactcost', avg_compactcost
-    sum_cost = -1.0 * (sum_yprojcost - max_xprojcost + avg_compactcost)
+    avg_compactcost = sum_compactcost/sum_numfgpixel
+    print 'len(list_of_lines)', len(list_of_lines)
+    print 'sum_compact_cost', sum_compactcost
+    print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'max xprojcost', max_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
+    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - max_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
     
     
@@ -210,9 +237,12 @@ def is_annotation(prev_objs, new_objs):
     return False
 
 def bbox_fill_ratio(list_of_objs):
-    if len(list_of_objs) == 1:
-        return 0.5
+    if len(list_of_objs) == 0:
+        return 0
     tlx, tly, brx, bry = VisualObject.bbox(list_of_objs)
+    if len(list_of_objs) == 1:
+        return 1.0
+#         return min(0.5, (brx - tlx + 1.0) * (bry - tly + 1.0) / 25000.0)
     total_area = (bry - tly + 1.0) * (brx - tlx + 1.0)
     sum_area = 0.0
     for obj in list_of_objs:
@@ -236,8 +266,10 @@ def inline_score(list_of_objs):
 def y_projection_score(list_of_objs):
     if (len(list_of_objs) == 0):
         return 0
+
     """get maxy from projection function"""
     tlx, tly, brx, bry = VisualObject.bbox(list_of_objs)
+#     print 'area = ', (brx - tlx + 1.0) * (bry - tly + 1.0)
     yproj = VisualObject.y_projection_function(list_of_objs)
     maxy = yproj.argmax() + tly
     in_maxy = 0
@@ -247,11 +279,13 @@ def y_projection_score(list_of_objs):
             in_maxy += 1.0
         else:
             not_in_maxy += 1.0
-    return (in_maxy - 1.0)# - 0.5 * not_in_maxy
+    return (in_maxy - 1.0) #- 0.1 * (not_in_maxy - 1.0)
 
 def x_projection_score(list_of_objs):
+    if len(list_of_objs) == 0:
+        return 0
     if len(list_of_objs) == 1:
-        return 200
+        return 0
     xproj = VisualObject.x_projection_function(list_of_objs)
     not_zero = np.nonzero(xproj)[0]
     maxgap = -1
@@ -261,6 +295,20 @@ def x_projection_score(list_of_objs):
             maxgap = gap
     return maxgap
     
+    
+def y_projection_gap_score(list_of_objs):
+    if len(list_of_objs) == 0:
+        return 0
+    if len(list_of_objs) == 1:
+        return 0
+    yproj = VisualObject.y_projection_function(list_of_objs)
+    not_zero = np.nonzero(yproj)[0]
+    maxgap = -1
+    for i in range(0, len(not_zero)-1):
+        gap = not_zero[i+1] - not_zero[i]
+        if (gap > maxgap):
+            maxgap = gap
+    return maxgap
 
 def avg_min_distance(list_of_objs):
     if (len(list_of_objs) <= 1):
@@ -291,6 +339,7 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-    util.showimages([result], "result")
+#     util.showimages([result], "result")
+    util.saveimage(result, objdirpath, "dynamic_linebreak_result_01_01.png")
     
     
