@@ -17,7 +17,6 @@ from scipy.signal import argrelextrema
 from numpy import obj2sctype
 
 
-
 class VisualObject:
     def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None, isgroup=False, members=None):
         self.img = img
@@ -89,6 +88,11 @@ class VisualObject:
         mean_g = np.mean(g[mask!=0])
         mean_r = np.mean(r[mask!=0])
         return (mean_b, mean_g, mean_r)
+    
+    def numfgpixel(self, bgthres = 225):
+        grayobj = util.grayimage(self.img)
+        numcount = np.count_nonzero(grayobj < bgthres)
+        return numcount
     
     
     @staticmethod
@@ -254,12 +258,12 @@ class VisualObject:
     
     @staticmethod
     def xgap_distance(obj_i, obj_j):
-            if obj_i.brx < obj_j.tlx: # obj_i left of obj_j
-                return obj_j.tlx - obj_i.brx
-            elif obj_i.tlx >= obj_j.brx: #obj1 right of obj1
-                return obj_i.tlx - obj_j.brx
-            #overlap
-            return 0 
+        if obj_i.brx < obj_j.tlx: # obj_i left of obj_j
+            return obj_j.tlx - obj_i.brx
+        elif obj_i.tlx >= obj_j.brx: #obj1 right of obj1
+            return obj_i.tlx - obj_j.brx
+        #overlap
+        return 0 
 
     @staticmethod
     def xgap_distance_list(list_of_objs1, list_of_objs2):
@@ -523,6 +527,13 @@ class VisualObject:
                     count += 1
             x_count[i] = count
         return x_count
+    
+    @staticmethod
+    def fgpixel_count(list_of_objs):
+        count = 0
+        for obj in list_of_objs:
+            count += obj.numfgpixel()
+        return count
             
 
     @staticmethod
@@ -561,6 +572,8 @@ class VisualObject:
             return -1.0
         else: 
             return 0 #maybe
+        
+    
             
 if __name__ == "__main__":
     objdirpath = sys.argv[1]

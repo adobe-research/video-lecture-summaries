@@ -65,15 +65,15 @@ if __name__ == "__main__":
                 else:
                     userstring = raw_input("Invalid line number. Please enter again:")    
         elif (userstring == 'eval'):
-            curline_cost = LineBreaker.getlinecost(set_to_ordered_list(cur_select_objs))
+            curline_cost = weighted_avg_linecost([set_to_ordered_list(cur_select_objs)], panorama)
             print 'current line', cur_select_ids
             print 'current line_cost = ', curline_cost
         elif (userstring == 'eval all'):
             print 'all lines:', list_of_line_ids
             for i in range(0, len(list_of_lines)):
-                curline_cost = LineBreaker.getlinecost(set_to_ordered_list(list_of_lines[i]))
+                curline_cost = weighted_avg_linecost([set_to_ordered_list(list_of_lines[i])], panorama)
                 print 'line', i, 'cost =', curline_cost
-            print 'total cost = ', weighted_avg_linecost(list_of_lines)
+            print 'total cost = ', weighted_avg_linecost(list_of_lines, panorama)
              
         elif (userstring=='clear'):
             list_of_lines[curline] = set([])
@@ -92,6 +92,8 @@ if __name__ == "__main__":
                 print 'invalid string'
                 continue
             if (objnum > 0):
+                newobj = list_of_objs[objnum-1]
+                newobj.numfgpixel()
                 cur_select_objs.add(list_of_objs[objnum-1])
                 cur_select_ids.add(objnum)
             else:
