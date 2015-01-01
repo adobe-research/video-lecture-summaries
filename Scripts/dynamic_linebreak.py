@@ -129,8 +129,8 @@ class LineBreaker:
         visualize_lines(panorama, lines)
         print 'current segmentation', self.best_line_id[index][0:index + 1]
         print 'total cost', self.totalcost[index]
-        cv2.imshow("current state", panorama)
-        cv2.waitKey(0)
+#         cv2.imshow("current state", panorama)
+#         cv2.waitKey(0)
         
     @staticmethod
     def getlinecost(list_of_objs):
