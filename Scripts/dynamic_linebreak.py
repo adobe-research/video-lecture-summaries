@@ -129,8 +129,8 @@ class LineBreaker:
         visualize_lines(panorama, lines)
         print 'current segmentation', self.best_line_id[index][0:index + 1]
         print 'total cost', self.totalcost[index]
-#         cv2.imshow("current state", panorama)
-#         cv2.waitKey(0)
+        cv2.imshow("current state", panorama)
+        cv2.waitKey(0)
         
     @staticmethod
     def getlinecost(list_of_objs):
@@ -304,7 +304,7 @@ def y_projection_score(list_of_objs):
                 not_in_maxy_but_close_objs.append(not_in_obj)
                 continue
     
-    return (in_maxy + not_in_maxy_but_close - 1.0), in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
+    return (in_maxy + not_in_maxy_but_close - 0.5), in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
 
 def x_projection_score(list_of_objs):
     if len(list_of_objs) == 0:
