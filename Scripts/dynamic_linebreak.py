@@ -297,7 +297,7 @@ def y_projection_score(list_of_objs):
 #                 not_in_maxy_but_close += 1.0
 #                 not_in_maxy_but_close_objs.append(not_in_obj)
 #                 continue
-    return (in_maxy + not_in_maxy_but_close - 1.0)#, in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
+    return (in_maxy + not_in_maxy_but_close )#, in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
 
 def x_projection_score(list_of_objs):
     if len(list_of_objs) == 0:
@@ -357,6 +357,6 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-    util.saveimage(result, objdirpath, "01_02_10_20am.png")
+    util.saveimage(result, objdirpath, "01_02_11_00am.png")
     
     
