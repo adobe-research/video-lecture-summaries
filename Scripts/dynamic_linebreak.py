@@ -185,9 +185,9 @@ def weighted_avg_linecost(list_of_lines, panorama = None):
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
-        strokecost = 0.0#len(line)
+        strokecost = len(line)
         strokecost = math.pow(strokecost, 1.1)
-        strokecost = 0.1 *strokecost
+        strokecost = 0.05 *strokecost
         sum_strokecost += strokecost
         
         xprojcost =  x_projection_score(line) # maxgap
@@ -365,6 +365,6 @@ if __name__ == "__main__":
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result], "result")
-    util.saveimage(result, objdirpath, "01_01_01_15pm.png")
+    util.saveimage(result, objdirpath, "01_01_09_13pm.png")
     
     
