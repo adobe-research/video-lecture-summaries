@@ -129,8 +129,8 @@ class LineBreaker:
         visualize_lines(panorama, lines)
         print 'current segmentation', self.best_line_id[index][0:index + 1]
         print 'total cost', self.totalcost[index]
-        cv2.imshow("current state", panorama)
-        cv2.waitKey(0)
+#         cv2.imshow("current state", panorama)
+#         cv2.waitKey(0)
         
     @staticmethod
     def getlinecost(list_of_objs):
@@ -199,7 +199,7 @@ def weighted_avg_linecost(list_of_lines, panorama = None):
         sum_xprojcost += xprojcost
         
         compactcost = bbox_fill_ratio(line)
-        compactcost = 0.5*math.pow(compactcost, 0.3)
+        compactcost = 0.5*math.pow(compactcost, 1.3)
         sum_compactcost = sum_compactcost + (numfgpixel * compactcost)
         
         sum_numfgpixel += numfgpixel
@@ -252,7 +252,7 @@ def bbox_fill_ratio(list_of_objs):
         return 0
     tlx, tly, brx, bry = VisualObject.bbox(list_of_objs)
     if len(list_of_objs) == 1:
-        return 1.0
+        return 0.35
 #         return min(0.5, (brx - tlx + 1.0) * (bry - tly + 1.0) / 25000.0)
     total_area = (bry - tly + 1.0) * (brx - tlx + 1.0)
     sum_area = 0.0
@@ -303,8 +303,12 @@ def y_projection_score(list_of_objs):
                 not_in_maxy_but_close += 1.0
                 not_in_maxy_but_close_objs.append(not_in_obj)
                 continue
-    
-    return (in_maxy + not_in_maxy_but_close - 0.5), in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
+            if VisualObject.xgap_distance(not_in_obj, in_obj) < 20 and VisualObject.ygap_distance(not_in_obj, in_obj) < 20:
+                not_in_maxy_but_close += 1.0
+                not_in_maxy_but_close_objs.append(not_in_obj)
+                continue
+
+    return (in_maxy + not_in_maxy_but_close - 1.0), in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
 
 def x_projection_score(list_of_objs):
     if len(list_of_objs) == 0:
@@ -365,6 +369,6 @@ if __name__ == "__main__":
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result], "result")
-    util.saveimage(result, objdirpath, "01_01_09_13pm.png")
+    util.saveimage(result, objdirpath, "01_01_09_42pm.png")
     
     
