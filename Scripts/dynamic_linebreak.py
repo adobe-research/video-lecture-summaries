@@ -167,10 +167,10 @@ def weighted_avg_linecost(list_of_lines):
     
         yprojcost = y_projection_score(line)
         yinline = yprojcost
-#         if (yprojcost <= 5.0):
-#             yprojcost = math.pow(yprojcost, 1.1)
-#         else:
-#             yprojcost = math.pow(5.0, 1.1) + math.pow(yprojcost - 5.0, 0.95)
+        if (yprojcost <= 5.0):
+            yprojcost = math.pow(yprojcost, 1.1)
+        else:
+            yprojcost = math.pow(5.0, 1.1) + math.pow(yprojcost - 5.0, 0.95)
         yprojcost = 0.1*yprojcost    
         sum_yprojcost += yprojcost
          
