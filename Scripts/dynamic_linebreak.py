@@ -30,6 +30,8 @@ class LineBreaker:
                 util.showimages([panorama])
     
     def compute_totalcost(self):
+#         cv2.imshow("current state", self.panorama)
+#         cv2.waitKey(0)
         self.totalcost[0] = weighted_avg_linecost([self.list_of_objs[0:1]])
         self.cuts[0] = -1
         self.best_line_id[0][0] = 0
@@ -129,8 +131,8 @@ class LineBreaker:
         visualize_lines(panorama, lines)
         print 'current segmentation', self.best_line_id[index][0:index + 1]
         print 'total cost', self.totalcost[index]
-#         cv2.imshow("current state", panorama)
-#         cv2.waitKey(0)
+        cv2.imshow("current state", panorama)
+        cv2.waitKey(1)
         
     @staticmethod
     def getlinecost(list_of_objs):
@@ -162,11 +164,13 @@ def weighted_avg_linecost(list_of_lines):
     for line in list_of_lines:
         print "line", idx, ":"
         numfgpixel = len(line)#VisualObject.fgpixel_count(line)
-        
+    
         yprojcost = y_projection_score(line)
-        
         yinline = yprojcost
-        yprojcost = math.pow(yprojcost, 1.1)
+        if (yprojcost <= 5.0):
+            yprojcost = math.pow(yprojcost, 1.1)
+        else:
+            yprojcost = math.pow(5.0, 1.1) + math.pow(yprojcost - 5.0, 0.95)
         yprojcost = 0.1*yprojcost    
         sum_yprojcost += yprojcost
          
@@ -185,7 +189,7 @@ def weighted_avg_linecost(list_of_lines):
         maxgap = xprojcost
         xprojcost = xprojcost * 0.01
         xprojcost = math.pow(xprojcost, 2.0)
-        xprojcost = 0.1 * xprojcost
+        xprojcost = 0.2 * xprojcost
         max_xprojcost = max(xprojcost, max_xprojcost)
         sum_xprojcost += xprojcost
         
@@ -293,11 +297,8 @@ def y_projection_score(list_of_objs):
                 not_in_maxy_but_close += 1.0
                 not_in_maxy_but_close_objs.append(not_in_obj)
                 continue
-#             if VisualObject.xgap_distance(not_in_obj, in_obj) < 20 and VisualObject.ygap_distance(not_in_obj, in_obj) < 20:
-#                 not_in_maxy_but_close += 1.0
-#                 not_in_maxy_but_close_objs.append(not_in_obj)
-#                 continue
-    return (in_maxy + not_in_maxy_but_close )#, in_maxy_objs, not_in_maxy_but_close_objs#- 0.1 * (not_in_maxy - 1.0)
+    return (in_maxy -1.0 + not_in_maxy_but_close )
+
 
 def x_projection_score(list_of_objs):
     if len(list_of_objs) == 0:
@@ -357,6 +358,6 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-    util.saveimage(result, objdirpath, "01_02_11_00am.png")
+    util.saveimage(result, objdirpath, "01_02_03_17pm.png")
     
     
