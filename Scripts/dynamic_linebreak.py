@@ -189,7 +189,7 @@ def weighted_avg_linecost(list_of_lines):
         maxgap = xprojcost
         xprojcost = xprojcost * 0.01
         xprojcost = math.pow(xprojcost, 2.0)
-        xprojcost = 0.2 * xprojcost/
+        xprojcost = 0.2 * xprojcost
         max_xprojcost = max(xprojcost, max_xprojcost)
         sum_xprojcost += xprojcost
         
@@ -358,6 +358,6 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-    util.saveimage(result, objdirpath, "01_03_11_49am.png")
+    util.saveimage(result, objdirpath, "01_03_11_59am.png")
     
     
