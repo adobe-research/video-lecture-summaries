@@ -168,9 +168,9 @@ def weighted_avg_linecost(list_of_lines):
         yprojcost = y_projection_score(line)
         yinline = yprojcost
         if (yprojcost <= 5.0):
-            yprojcost = math.pow(yprojcost, 1.1)
+            yprojcost = math.pow(yprojcost, 1.05)
         else:
-            yprojcost = math.pow(5.0, 1.1) + math.pow(yprojcost - 5.0, 0.95)
+            yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
         yprojcost = 0.1*yprojcost    
         sum_yprojcost += yprojcost
          
@@ -180,8 +180,8 @@ def weighted_avg_linecost(list_of_lines):
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
-        strokecost = len(line) - 1.0/len(line)
-#         strokecost = math.pow(strokecost, 1.1)
+        strokecost = len(line) 
+        strokecost = math.pow(strokecost, 1.1)
         strokecost = 0.1 *strokecost
         sum_strokecost += strokecost
         
@@ -189,7 +189,7 @@ def weighted_avg_linecost(list_of_lines):
         maxgap = xprojcost
         xprojcost = xprojcost * 0.01
         xprojcost = math.pow(xprojcost, 2.0)
-        xprojcost = 0.2 * xprojcost/
+        xprojcost = 0.2 * xprojcost
         max_xprojcost = max(xprojcost, max_xprojcost)
         sum_xprojcost += xprojcost
         
@@ -214,8 +214,8 @@ def weighted_avg_linecost(list_of_lines):
     avg_compactcost = sum_compactcost/sum_numfgpixel
     print 'len(list_of_lines)', len(list_of_lines)
     print 'sum_compact_cost', sum_compactcost
-    print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'max xprojcost', max_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
-    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - max_xprojcost + avg_compactcost - overlap_penalty)
+    print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
+    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
     
     
@@ -293,11 +293,12 @@ def y_projection_score(list_of_objs):
     not_in_maxy_but_close_objs = []
     for not_in_obj in not_in_maxy_objs:
         for in_obj in in_maxy_objs:
-            if VisualObject.overlap(not_in_obj, in_obj) > 0:
+            overlap = VisualObject.overlap(not_in_obj, in_obj)
+            if overlap > 0:
                 not_in_maxy_but_close += 1.0
                 not_in_maxy_but_close_objs.append(not_in_obj)
                 continue
-    return max(0.0, (in_maxy + not_in_maxy_but_close) - 1.0/(in_maxy + not_in_maxy_but_close) - 1.0)
+    return in_maxy + not_in_maxy_but_close - 1.0
 
 
 def x_projection_score(list_of_objs):
@@ -358,6 +359,7 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-    util.saveimage(result, objdirpath, "01_03_11_49am.png")
+#     util.showimages([result])
+    util.saveimage(result, objdirpath, "01_04_sum_xgap.png")
     
     
