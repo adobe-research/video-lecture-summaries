@@ -141,18 +141,31 @@ class LineBreaker:
     def getlinecost(list_of_objs):
         if (len(list_of_objs) == 0):
             return 0
-        compactness = bbox_fill_ratio(list_of_objs)
-        compact_cost = 0.5*math.pow(compactness, 0.5)
-        yproj_cost = 0.1 * y_projection_score(list_of_objs)
-        if (yproj_cost > 1.0):
-            yproj_cost = math.pow(yproj_cost, 0.3)
-        xproj_cost = 0.01 * x_projection_score(list_of_objs)
-        if (xproj_cost > 1.0):
-            xproj_cost = math.pow(xproj_cost, 2.0)
-        xproj_cost = -.10 * xproj_cost
-        cost =  yproj_cost + xproj_cost + compact_cost
-        cost = -1.0 * cost 
-        print 'yproj_cost', yproj_cost, 'xproj_cost', xproj_cost, 'compact_cost', compact_cost, 'cost', cost 
+        yprojcost = y_projection_score(list_of_objs)
+        if (yprojcost <= 5.0):
+            yprojcost = math.pow(yprojcost, 1.05)
+        else:
+            yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
+        yprojcost = 0.1*yprojcost    
+         
+        yprojgapcost = y_projection_gap_score(list_of_objs)
+        yprojgapcost = 0.025 * yprojgapcost
+        yprojgapcost = math.pow(yprojgapcost, 2.0)
+        
+        strokecost = len(list_of_objs) 
+        strokecost = math.pow(strokecost, 1.1)
+        strokecost = 0.1 *strokecost
+        
+        xprojcost =  x_projection_score(list_of_objs) # maxgap
+        xprojcost = xprojcost * 0.01
+        xprojcost = math.pow(xprojcost, 2.0)
+        xprojcost = 0.2 * xprojcost
+        
+        compactcost = bbox_fill_ratio(list_of_objs)
+        compactcost = 0.5*math.pow(compactcost, 1.3)
+        
+        cost = -1.0 * (yprojcost + strokecost - yprojgapcost - xprojcost + compactcost)
+        print 'yprojcost', yprojcost, 'strokecost', strokecost, 'yprojgap', yprojgapcost, 'xprojcost', xprojcost, 'compactcost', compactcost, 'cost', cost
         return cost
                
 def weighted_avg_linecost(list_of_lines):
@@ -163,17 +176,16 @@ def weighted_avg_linecost(list_of_lines):
     sum_compactcost = 0.0
     sum_numfgpixel = 0.0
     sum_strokecost = 0.0
-    max_xprojcost = -1.0
     for line in list_of_lines:
         print "line", idx, ":"
-        numfgpixel = len(line)#VisualObject.fgpixel_count(line)
+        numfgpixel = VisualObject.fgpixel_count(line) #len(line)
     
         yprojcost = y_projection_score(line)
         yinline = yprojcost
-#         if (yprojcost <= 5.0):
-        yprojcost = math.pow(yprojcost, 1.05)
-#         else:
-#             yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
+        if (yprojcost <= 5.0):
+            yprojcost = math.pow(yprojcost, 1.05)
+        else:
+            yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
         yprojcost = 0.1*yprojcost    
         sum_yprojcost += yprojcost
          
@@ -193,7 +205,6 @@ def weighted_avg_linecost(list_of_lines):
         xprojcost = xprojcost * 0.01
         xprojcost = math.pow(xprojcost, 2.0)
         xprojcost = 0.2 * xprojcost
-        max_xprojcost = max(xprojcost, max_xprojcost)
         sum_xprojcost += xprojcost
         
         compactcost = bbox_fill_ratio(line)
@@ -213,10 +224,7 @@ def weighted_avg_linecost(list_of_lines):
             overlap = VisualObject.overlap_list(curline, nextline)
             overlap_penalty += overlap
         
-    avg_xprojcost = sum_xprojcost/len(list_of_lines)
     avg_compactcost = sum_compactcost/sum_numfgpixel
-    print 'len(list_of_lines)', len(list_of_lines)
-    print 'sum_compact_cost', sum_compactcost
     print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
     sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
@@ -365,9 +373,7 @@ if __name__ == "__main__":
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
-    util.saveimage(result, objdirpath, "01_05_no_yproj_thres.png")
-    
-    
+    util.saveimage(result, objdirpath, "01_05_compact_ink.png")
     outvideo.release()
     
     
