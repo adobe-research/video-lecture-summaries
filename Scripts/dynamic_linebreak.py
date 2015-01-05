@@ -359,11 +359,7 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-<<<<<<< HEAD
-    util.saveimage(result, objdirpath, "01_03_11_59am.png")
-=======
 #     util.showimages([result])
     util.saveimage(result, objdirpath, "01_04_sum_xgap.png")
->>>>>>> f42fcc66ce45d6cfa7b39c7ecf39b67d89533d80
     
     
