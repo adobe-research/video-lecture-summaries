@@ -514,10 +514,10 @@ class VisualObject:
                 if obj.tly <= i+miny and i+miny <= obj.bry:
                     count += 1
             y_count[i] = count
-        plt.ylim((0, max(y_count)+1))
-        plt.title("y projection function")
-        plt.plot(y_count)
-        plt.show()
+#         plt.ylim((0, max(y_count)+1))
+#         plt.title("y projection function")
+#         plt.plot(y_count)
+#         plt.show()
         return y_count
 
     @staticmethod
@@ -530,10 +530,10 @@ class VisualObject:
                 if obj.tlx <= i + minx and i + minx <= obj.brx:
                     count += 1
             x_count[i] = count
-        plt.ylim((0, max(x_count)+1))
-        plt.title("x projection function")
-        plt.plot(x_count)
-        plt.show()
+#         plt.ylim((0, max(x_count)+1))
+#         plt.title("x projection function")
+#         plt.plot(x_count)
+#         plt.show()
         return x_count
     
     @staticmethod
