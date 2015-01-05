@@ -368,12 +368,13 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outvideo = cv2.VideoWriter(objdirpath + "/01_05_no_yproj_thres.avi", int(fourcc), int(2), (w, h))
+    outfilename = "01_05_compact_ink"
+    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
-    util.saveimage(result, objdirpath, "01_05_compact_ink.png")
+    util.saveimage(result, objdirpath, outfilename + ".png")
     outvideo.release()
     
     
