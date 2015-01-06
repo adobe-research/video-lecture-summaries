@@ -43,7 +43,7 @@ class LineBreaker:
             curline_idx = self.best_line_id[i-1][i-1]
             print '========================best cut up to object', i,'================================'
             self.totalcost[i] = float("inf")
-            for j in range(max(-1, i-10), i):
+            for j in range(-1, i):
                 print 'j = ', j
                 newline = self.list_of_objs[j+1:i+1]
                 panorama_copy = self.panorama.copy()
@@ -209,7 +209,7 @@ def weighted_avg_linecost(list_of_lines):
         
         compactcost = bbox_fill_ratio(line)
         compact = compactcost
-        compactcost = math.pow(compactcost, 0.5)
+#         compactcost = math.pow(compactcost, 0.5)
         sum_compactcost = sum_compactcost + (numfgpixel * compactcost)
         
         sum_numfgpixel += numfgpixel
@@ -379,7 +379,7 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_06_search_window_size_10"
+    outfilename = "01_06_linear_compact_break_penalty"
     outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
