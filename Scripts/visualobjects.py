@@ -552,6 +552,35 @@ class VisualObject:
         y2 = (obj2.tly + obj2.bry) / 2.0
         dist = math.sqrt((x1-x2)*(x1-x2) + (y1-y2) * (y1-y2))
         return dist
+    
+    @staticmethod
+    def break_penalty(obj1, obj2):
+        xdist = VisualObject.xgap_distance(obj1, obj2)
+        ydist = VisualObject.ygap_distance(obj1, obj2)
+        tdist = obj1.start_fid - obj2.end_fid
+        if tdist < 0:
+            tdist = obj2.start_fid - obj1.end_fid
+#         print 'xdist', xdist, 'ydist', ydist, 'tdist', tdist
+        return (xdist, ydist, tdist)
+    
+    @staticmethod
+    def find_closest_obj(curobj, list_of_objs):
+        closest_obj = None
+        min_dist = 200
+        for obj in list_of_objs:
+            if obj == curobj:
+                continue
+            (xdist, ydist, tdist) = VisualObject.break_penalty(curobj, obj)
+            dist = xdist + 2.0*ydist
+            if (dist == 0): # overlap:
+                dist = -1.0 * VisualObject.overlap(curobj, obj)
+            if (dist < min_dist):
+                min_dist = dist
+                closest_obj = obj
+        xdist, ydist, tdist = VisualObject.break_penalty(curobj, closest_obj)
+        print 'xidst', xdist, 'ydist', ydist, 'tdist', tdist
+        return closest_obj
+            
         
     @staticmethod
     def bbox(list_of_objs):

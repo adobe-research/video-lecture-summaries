@@ -8,6 +8,5 @@ python dynamic_linebreak.py ../SampleVideos/more/khan8/khan8_panorama/panorama.p
 python dynamic_linebreak.py ../SampleVideos/more/khan9/khan9_panorama/panorama.png ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan9/khan9_panorama/panorama.png
 python dynamic_linebreak.py ../SampleVideos/more/bigbang/bigbang_khan_panorama/panorama.png ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/bigbang/bigbang_khan_panorama/panorama.png
 python dynamic_linebreak.py ../SampleVideos/more/khan2/khan2_panorama/panorama.png ../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan2/khan2_panorama/panorama.png
-
 #python dynamic_linebreak.py ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png ../alignments/mit6041x_1.json ../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/mit6041x_1/mit6041x_1_panorama/panorama.png
 #python dynamic_linebreak.py ../SampleVideos/more/trushit/trushit_panorama/panorama.png ../alignments/trushit.json ../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/trushit/trushit_panorama/negate/panorama.png
