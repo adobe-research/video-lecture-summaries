@@ -32,15 +32,15 @@ if __name__ == "__main__":
     cv2.imshow("", panorama)
     cv2.waitKey(100)
     
-    for i in range(0, len(list_of_objs)-1):
-        obj1 = list_of_objs[i]
-        obj2 = list_of_objs[i+1]
-        xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
-        print 'xdist', xdist, 'ydist', ydist, 'tdist', tdist
-        panorama_copy = panorama.copy()
-        panorama_copy = show(panorama_copy, [[obj1, obj2]], -1)
-        cv2.imshow("", panorama_copy)
-        cv2.waitKey(0)
+#     for i in range(0, len(list_of_objs)-1):
+#         obj1 = list_of_objs[i]
+#         obj2 = list_of_objs[i+1]
+#         xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
+#         print 'xdist', xdist, 'ydist', ydist, 'tdist', tdist
+#         panorama_copy = panorama.copy()
+#         panorama_copy = show(panorama_copy, [[obj1, obj2]], -1)
+#         cv2.imshow("", panorama_copy)
+#         cv2.waitKey(0)
     
     curline = 0    
     list_of_lines = []

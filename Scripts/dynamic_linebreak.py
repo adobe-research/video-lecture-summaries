@@ -269,7 +269,7 @@ def bbox_fill_ratio(list_of_objs):
         return 0
     tlx, tly, brx, bry = VisualObject.bbox(list_of_objs)
     if len(list_of_objs) == 1:
-        return 0.35
+        return 1.0
 #         return min(0.5, (brx - tlx + 1.0) * (bry - tly + 1.0) / 25000.0)
     total_area = (bry - tly + 1.0) * (brx - tlx + 1.0)
     sum_area = 0.0
@@ -379,7 +379,7 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_06_break_penalty"
+    outfilename = "01_06_break_penalty_compact_1"
     outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
