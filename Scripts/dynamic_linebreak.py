@@ -40,6 +40,7 @@ class LineBreaker:
         self.visualize_current_state(myresult,0)
                 
         for i in range(1, self.nobjs): #deciding best cut up to stroke i
+            curline_idx = self.best_line_id[i-1][i-1]
             print '========================best cut up to object', i,'================================'
             self.totalcost[i] = float("inf")
             for j in range(-1, i):
@@ -165,7 +166,7 @@ class LineBreaker:
         compactcost = 0.5*math.pow(compactcost, 1.3)
         
         cost = -1.0 * (yprojcost + strokecost - yprojgapcost - xprojcost + compactcost)
-        print 'yprojcost', yprojcost, 'strokecost', strokecost, 'yprojgap', yprojgapcost, 'xprojcost', xprojcost, 'compactcost', compactcost, 'cost', cost
+#         print 'yprojcost', yprojcost, 'strokecost', strokecost, 'yprojgap', yprojgapcost, 'xprojcost', xprojcost, 'compactcost', compactcost, 'cost', cost
         return cost
                
 def weighted_avg_linecost(list_of_lines):
@@ -177,7 +178,7 @@ def weighted_avg_linecost(list_of_lines):
     sum_numfgpixel = 0.0
     sum_strokecost = 0.0
     for line in list_of_lines:
-        print "line", idx, ":"
+#         print "line", idx, ":"
         numfgpixel = VisualObject.fgpixel_count(line) #len(line)
     
         yprojcost = y_projection_score(line)
@@ -208,11 +209,12 @@ def weighted_avg_linecost(list_of_lines):
         sum_xprojcost += xprojcost
         
         compactcost = bbox_fill_ratio(line)
-        compactcost = 0.5*math.pow(compactcost, 1.3)
+        compact = compactcost
+#         compactcost = 0.5*math.pow(compactcost, 1.3)
         sum_compactcost = sum_compactcost + (numfgpixel * compactcost)
         
         sum_numfgpixel += numfgpixel
-        print 'yinline', yinline, 'yproj', yprojcost, 'ymaxgap', ymaxgap, 'strokecost', strokecost, 'xproj', xprojcost, 'compact', compactcost, 'maxgap', maxgap
+        print 'yinline', yinline, 'yproj', yprojcost, 'ymaxgap', ymaxgap, 'strokecost', strokecost, 'xproj', xprojcost, 'compact', compact, 'compactcost', compactcost, 'maxgap', maxgap
         idx += 1
         
 #     sum_num_strokes = 0.0
@@ -368,7 +370,7 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_05_compact_ink"
+    outfilename = "01_06_linear_compact"
     outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
