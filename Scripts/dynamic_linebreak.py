@@ -49,7 +49,7 @@ class LineBreaker:
                 panorama_copy = self.panorama.copy()
                 if j == -1:
                     """single segment"""
-                    cost_from_cut_j = weighted_avg_linecost([newline])
+                    cost_from_cut_j = weighted_avg_linecost([newline]) 
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
                         self.cuts[i] = j
@@ -61,24 +61,22 @@ class LineBreaker:
                     """get best segmentation up to stroke j"""
                     prevlines = []
                     prevlines = self.getcutlines(j)
+                    line_idx = self.best_line_id[j][0:j+1]
                     numprevlines = len(prevlines)
-#                     print 'numprevlines', numprevlines
-                    
                     """cost to merge newline and prevline"""
                     merged = False
                     merged_to_line = -1
                     for prevline_idx in range(0, numprevlines):
+                        new_line_idx = [prevline_idx for objid in range(0, len(newline))]
                         prevline = prevlines[prevline_idx]
                         mergedline = prevline + newline
                         templines = prevlines[:]
                         templines[prevline_idx] = mergedline
-#                         panorama_copy = self.panorama.copy()
-#                         visualize_lines(panorama_copy, templines)
-#                         util.showimages([panorama_copy], "weighted_avg")
+                       
+                        bpenalty = break_penalty(list_of_objs[0:i+1], line_idx + new_line_idx)
                         cost_from_cut_j = weighted_avg_linecost(templines)
-#                         print 'merge to line', prevline_idx, 'with cost', cost_from_cut_j
-#                         visualize_obj(panorama_copy, prevline, color=(255,0,0),width=1)
-#                         util.showimages([panorama_copy])
+                        cost_from_cut_j += bpenalty
+
                         if (cost_from_cut_j < self.totalcost[i]):
                             merged = True
                             merged_to_line = prevline_idx
@@ -94,10 +92,11 @@ class LineBreaker:
                     """cost to separate newline"""
                     templines = self.getcutlines(j)
                     templines.append(newline)
-#                     panorama_copy = self.panorama.copy()
-#                     visualize_lines(panorama_copy, templines)
-#                     util.showimages([panorama_copy], "weighted_avg")
+                    new_line_idx = [len(prevlines) for objid in range(0, len(newline))]
+                    bpenalty = break_penalty(list_of_objs[0:i+1], line_idx + new_line_idx)
                     cost_from_cut_j = weighted_avg_linecost(templines)
+                    cost_from_cut_j += bpenalty
+                    
                     print 'cost to separate newline', cost_from_cut_j
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
@@ -230,7 +229,17 @@ def weighted_avg_linecost(list_of_lines):
     print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
     sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
-    
+
+def break_penalty(list_of_objs, line_ids):
+    break_penalty = 0.0
+    for i in range(0, len(line_ids) -1):
+        if line_ids[i] != line_ids[i+1]:
+            obj1 = list_of_objs[i]
+            obj2 = list_of_objs[i+1]
+            xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
+            break_penalty += 1.0/tdist
+    return break_penalty
+        
     
 def visualize_line(panorama, list_of_objs, color=(0,255,0)):
     if len(list_of_objs) == 0:
@@ -370,7 +379,7 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_06_compact_pow_05"
+    outfilename = "01_06_break_penalty"
     outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
