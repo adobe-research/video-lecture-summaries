@@ -195,9 +195,8 @@ def weighted_avg_linecost(list_of_lines):
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
-        strokecost = numfgpixel
-        strokecost = numfgpixel + 1.0/numfgpixel
-        strokecost = 0.001 *strokecost
+        strokecost = 0.001*numfgpixel
+        strokecost = (strokecost - 1.0/strokecost)
         sum_strokecost += strokecost
         
         xprojcost =  x_projection_score(line) 
@@ -380,7 +379,7 @@ if __name__ == "__main__":
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
     outfilename = "01_07_test"
-    outvideo = None#cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
