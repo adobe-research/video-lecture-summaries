@@ -180,8 +180,8 @@ def weighted_avg_linecost(list_of_lines):
         numfgpixel = VisualObject.fgpixel_count(line) #len(line)
         print 'numfgpixel', numfgpixel
     
-        print 'old yprojection score', y_projection_score(line)
-        yprojcost = VisualObject.vertical_compact(line)
+#         print 'old yprojection score', 
+        yprojcost = y_projection_score(line)#VisualObject.vertical_compact(line)
         yinline = yprojcost
 #         if (yprojcost <= 5.0):
 #             yprojcost = math.pow(yprojcost, 1.05)
