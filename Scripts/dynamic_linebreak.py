@@ -180,14 +180,15 @@ def weighted_avg_linecost(list_of_lines):
         numfgpixel = VisualObject.fgpixel_count(line) #len(line)
         print 'numfgpixel', numfgpixel
     
-        yprojcost = y_projection_score(line)
+        print 'old yprojection score', y_projection_score(line)
+        yprojcost = VisualObject.vertical_compact(line)
         yinline = yprojcost
-        if (yprojcost <= 5.0):
-            yprojcost = math.pow(yprojcost, 1.05)
-        else:
-            yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
-        yprojcost = 0.1*yprojcost    
-        sum_yprojcost += yprojcost
+#         if (yprojcost <= 5.0):
+#             yprojcost = math.pow(yprojcost, 1.05)
+#         else:
+#             yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
+#         yprojcost = 0.1*yprojcost    
+        sum_yprojcost = sum_yprojcost + (numfgpixel *yprojcost)
          
         yprojgapcost = y_projection_gap_score(line)
         ymaxgap = yprojgapcost
@@ -195,8 +196,8 @@ def weighted_avg_linecost(list_of_lines):
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
-        strokecost = numfgpixel
-        strokecost = (numfgpixel - 1.0/numfgpixel)
+        strokecost = numfgpixel#len(line)
+        strokecost = math.pow(strokecost, 1.1)
         strokecost = 0.001 * strokecost
         sum_strokecost += strokecost
         
@@ -226,18 +227,19 @@ def weighted_avg_linecost(list_of_lines):
             overlap_penalty += overlap
         
     avg_compactcost = sum_compactcost/sum_numfgpixel
-    print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
-    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
+    avg_yprojcost = sum_yprojcost/sum_numfgpixel
+    print 'total yprojcost', avg_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
+    sum_cost = -1.0 * (avg_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
 
 def break_penalty(list_of_objs, line_ids):
     break_penalty = 0.0
-    for i in range(0, len(line_ids) -1):
-        if line_ids[i] != line_ids[i+1]:
-            obj1 = list_of_objs[i]
-            obj2 = list_of_objs[i+1]
-            xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
-            break_penalty += 1.0/tdist
+#     for i in range(0, len(line_ids) -1):
+#         if line_ids[i] != line_ids[i+1]:
+#             obj1 = list_of_objs[i]
+#             obj2 = list_of_objs[i+1]
+#             xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
+#             break_penalty += 1.0/tdist
     return break_penalty
         
     
@@ -379,7 +381,7 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_07_test"
+    outfilename = "01_07_yprojcost"
     outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
