@@ -195,8 +195,9 @@ def weighted_avg_linecost(list_of_lines):
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
-        strokecost = 0.001*numfgpixel
-        strokecost = (strokecost - 1.0/strokecost)
+        strokecost = numfgpixel
+        strokecost = (numfgpixel - 1.0/numfgpixel)
+        strokecost = 0.001 * strokecost
         sum_strokecost += strokecost
         
         xprojcost =  x_projection_score(line) 
