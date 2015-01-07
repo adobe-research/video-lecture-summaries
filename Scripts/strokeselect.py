@@ -34,12 +34,14 @@ if __name__ == "__main__":
     
 #     for i in range(0, len(list_of_objs)):
 #         obj1 = list_of_objs[i]
+# #         obj2 = list_of_objs[i+1]
+# #         xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
+# #         print 'xdist', xdist, 'ydist', ydist, 'tdist', tdist
 #         panorama_copy = panorama.copy()
 #         panorama_copy = show(panorama_copy, [[obj1]], -1)
 #         cv2.imshow("", panorama_copy)
 #         cv2.waitKey(0)
 #         VisualObject.fg_y_projection_function(obj1)
-
     
     curline = 0    
     list_of_lines = []
@@ -74,6 +76,7 @@ if __name__ == "__main__":
                 else:
                     userstring = raw_input("Invalid line number. Please enter again:")    
         elif (userstring == 'eval'):
+            VisualObject.fg_y_projection_function_list(set_to_ordered_list(cur_select_objs))
             curline_cost = weighted_avg_linecost([set_to_ordered_list(cur_select_objs)])
             print 'current line', cur_select_ids
             print 'current line_cost = ', curline_cost
