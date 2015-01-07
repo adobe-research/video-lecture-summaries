@@ -234,12 +234,12 @@ def weighted_avg_linecost(list_of_lines):
 
 def break_penalty(list_of_objs, line_ids):
     break_penalty = 0.0
-#     for i in range(0, len(line_ids) -1):
-#         if line_ids[i] != line_ids[i+1]:
-#             obj1 = list_of_objs[i]
-#             obj2 = list_of_objs[i+1]
-#             xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
-#             break_penalty += 1.0/tdist
+    for i in range(0, len(line_ids) -1):
+        if line_ids[i] != line_ids[i+1]:
+            obj1 = list_of_objs[i]
+            obj2 = list_of_objs[i+1]
+            xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
+            break_penalty += 1.0/tdist
     return break_penalty
         
     
