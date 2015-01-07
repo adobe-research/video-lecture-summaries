@@ -183,12 +183,13 @@ def weighted_avg_linecost(list_of_lines):
 #         print 'old yprojection score', 
         yprojcost = y_projection_score(line)#VisualObject.vertical_compact(line)
         yinline = yprojcost
+        yprojcost = (yprojcost - 1.0/(yprojcost + 1.0))
 #         if (yprojcost <= 5.0):
 #             yprojcost = math.pow(yprojcost, 1.05)
 #         else:
 #             yprojcost = math.pow(5.0, 1.05) + math.pow(yprojcost - 5.0, 0.95)
-#         yprojcost = 0.1*yprojcost    
-        sum_yprojcost = sum_yprojcost + (numfgpixel *yprojcost)
+        yprojcost = 0.1*yprojcost    
+        sum_yprojcost += yprojcost
          
         yprojgapcost = y_projection_gap_score(line)
         ymaxgap = yprojgapcost
@@ -229,7 +230,7 @@ def weighted_avg_linecost(list_of_lines):
     avg_compactcost = sum_compactcost/sum_numfgpixel
     avg_yprojcost = sum_yprojcost/sum_numfgpixel
     print 'total yprojcost', avg_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
-    sum_cost = -1.0 * (avg_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
+    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
 
 def break_penalty(list_of_objs, line_ids):
