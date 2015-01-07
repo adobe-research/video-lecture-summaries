@@ -132,6 +132,15 @@ class VisualObject:
         plt.show()
         return y_sum_count
     
+    @staticmethod
+    def vertical_compact(list_of_objs):
+        sum_height = 0.0
+        minx, miny, maxx, maxy = VisualObject.bbox(list_of_objs)
+        for obj in list_of_objs:
+            sum_height += (obj.getheight())
+        vertical_compact = sum_height/(maxy - miny + 1.0)
+        return vertical_compact
+    
     
     @staticmethod
     def fg_x_projection_function_list(list_of_objs):
