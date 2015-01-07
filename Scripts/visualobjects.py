@@ -94,7 +94,60 @@ class VisualObject:
         numcount = np.count_nonzero(grayobj < bgthres)
         return numcount
     
+    def fgarray(self, bgthres = 225):
+        grayobj = util.grayimage(self.img)
+        fg = (grayobj < bgthres)
+        return fg
     
+    @staticmethod
+    def fg_y_projection_function(obj):
+        fg = obj.fgarray()
+        h, w = fg.shape[0:2]
+        y_count = np.empty(h, dtype=np.uint8) 
+        for i in range(0, h):
+            y_count[i] = np.count_nonzero(fg[i,:])
+        return y_count    
+    
+    @staticmethod
+    def fg_x_projection_function(obj):
+        fg = obj.fgarray()
+        h, w = fg.shape[0:2]
+        x_count = np.empty(w, dtype=np.uint8) 
+        for i in range(0, w):
+            x_count[i] = np.count_nonzero(fg[:,i])
+        return x_count   
+    
+    @staticmethod
+    def fg_y_projection_function_list(list_of_objs):
+        minx, miny, maxx, maxy = VisualObject.bbox(list_of_objs)
+        y_sum_count = np.zeros(maxy - miny + 1, dtype=np.uint8)
+        for obj in list_of_objs:
+            tlx, tly, brx, bry = VisualObject.bbox([obj])
+            y_count = VisualObject.fg_y_projection_function(obj)
+            for i in range(0, len(y_count)):
+                y_sum_count[i + (tly - miny)] += y_count[i]
+        plt.ylim((0, max(y_sum_count)+1))
+        plt.plot(y_sum_count)
+        plt.title("y projection function")
+        plt.show()
+        return y_sum_count
+    
+    
+    @staticmethod
+    def fg_x_projection_function_list(list_of_objs):
+        minx, miny, maxx, maxy = VisualObject.bbox(list_of_objs)
+        x_sum_count = np.zeros(maxx - minx + 1, dtype=np.uint8)
+        for obj in list_of_objs:
+            tlx, tly, brx, bry = VisualObject.bbox([obj])
+            x_count = VisualObject.fg_x_projection_function(obj)
+            for i in range(0, len(x_count)):
+                x_sum_count[i + (tlx - minx)] += x_count[i]
+        plt.ylim((0, max(x_sum_count)+1))
+        plt.plot(x_sum_count)
+        plt.title("x projection function")
+        plt.show()
+        return x_sum_count
+        
     @staticmethod
     def compactness(list_of_objs):
         if len(list_of_objs) == 0:
@@ -504,6 +557,7 @@ class VisualObject:
 #         plt.show()
         return y
     
+    
     @staticmethod
     def y_projection_function(list_of_objs):
         tlx, miny, brx, maxy = VisualObject.bbox(list_of_objs)
@@ -515,8 +569,8 @@ class VisualObject:
                     count += 1
             y_count[i] = count
 #         plt.ylim((0, max(y_count)+1))
-#         plt.title("y projection function")
 #         plt.plot(y_count)
+#         plt.title("y projection function")
 #         plt.show()
         return y_count
 

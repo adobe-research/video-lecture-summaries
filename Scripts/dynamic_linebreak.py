@@ -177,8 +177,8 @@ def weighted_avg_linecost(list_of_lines):
     sum_numfgpixel = 0.0
     sum_strokecost = 0.0
     for line in list_of_lines:
-#         print "line", idx, ":"
         numfgpixel = VisualObject.fgpixel_count(line) #len(line)
+        print 'numfgpixel', numfgpixel
     
         yprojcost = y_projection_score(line)
         yinline = yprojcost
@@ -195,14 +195,14 @@ def weighted_avg_linecost(list_of_lines):
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
-        strokecost = len(line) 
-        strokecost = math.pow(strokecost, 1.1)
-        strokecost = 0.1 *strokecost
+        strokecost = numfgpixel
+        strokecost = numfgpixel + 1.0/numfgpixel
+        strokecost = 0.001 *strokecost
         sum_strokecost += strokecost
         
-        xprojcost =  x_projection_score(line) # maxgap
+        xprojcost =  x_projection_score(line) 
         maxgap = xprojcost
-        xprojcost = xprojcost * 0.01
+        xprojcost = 0.01 * xprojcost
         xprojcost = math.pow(xprojcost, 2.0)
         xprojcost = 0.2 * xprojcost
         sum_xprojcost += xprojcost
@@ -231,7 +231,6 @@ def weighted_avg_linecost(list_of_lines):
     return sum_cost
 
 def break_penalty(list_of_objs, line_ids):
-    return 0.0
     break_penalty = 0.0
     for i in range(0, len(line_ids) -1):
         if line_ids[i] != line_ids[i+1]:
@@ -380,8 +379,8 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_06_compact_pow_05_initial_1"
-    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outfilename = "01_07_test"
+    outvideo = None#cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
