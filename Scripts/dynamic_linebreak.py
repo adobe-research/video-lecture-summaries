@@ -391,6 +391,8 @@ if __name__ == "__main__":
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
     util.saveimage(result, objdirpath, outfilename + ".png")
+    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids.txt")
+    
     outvideo.release()
     
     
