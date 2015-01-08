@@ -1,0 +1,23 @@
+<html>
+<head><title>Steps for preprocessing video</title></head>
+    <body>
+        <ol>
+            <li>Download youtube video: <a href="http://www.clipconverter.cc/">clipconverter</a></li>
+            <li>(Optional) negatevideo.py in order to make bgcolor consistent</li>
+            <li>Remove logo from the vieos:
+                <ul>
+                    <li>Create logo image files under logo directory</li>
+                    <li>removelogo.py <font color='red'>fill-color:(0,0,0) or (255,255,255) depending on video bgcolor</font></li>
+                </ul>
+            </li>
+            <li>Count fgpixel per frame: <b>fgpixel.py</b><br>
+                In processframe.py
+                <ul>fgthres=225, THRESH_BINARY_INV for white bgcolor</ul>
+                <ul>fgthres=50, THRESH_BINARY for black bgcolor</ul>
+            </li>
+            <li>Compute framediff and save to framediff.txt: <b>framediff.py</b></li>
+            <li>Compute panorama.png using framediff.txt: <b>panorama.py</b></li>
+        </ol>
+    </body>
+    
+</html>
