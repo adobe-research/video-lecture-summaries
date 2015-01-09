@@ -6,6 +6,12 @@ import re
 import numpy as np
 import os
 
+def write_ints(list_of_ints, filename="temp.txt"):
+    textfile = open(filename, "w")
+    for val in list_of_ints:
+        textfile.write("%i\n" % int(val))
+    textfile.close()
+
 def get_images(framedir, fids):
     images = []
     filenames = []

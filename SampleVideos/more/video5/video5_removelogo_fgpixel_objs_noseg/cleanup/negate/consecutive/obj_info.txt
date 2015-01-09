@@ -1,4 +1,6 @@
 start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+0	1	228	0	457	76	../SampleVideos/more/video5/video5_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000000_000001_group.png
+5	10	40	82	201	122	../SampleVideos/more/video5/video5_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000005_000010_group.png
 170	171	448	29	452	29	../SampleVideos/more/video5/video5_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000170_000171_group.png
 290	294	96	142	106	163	../SampleVideos/more/video5/video5_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000290_000294_group.png
 308	321	94	145	108	171	../SampleVideos/more/video5/video5_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000308_000321_group.png
