@@ -1,7 +1,31 @@
 <html>
 <head><title>Dynamic Line break</title></head>
     <body>
-        <h3>Scoring function</h3>
+        <h2>Summaries</h2>
+        <ol>
+            <li>Create new figure for each line break</li>
+            <li>Alterante Text and Figure (text.endt < figure.startt)</li>
+        </ol>
+        
+        <h3>Results</h3>
+        <table cellpadding=5>
+            <tr >
+                <td>Summary 1 </td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan1</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan2</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan3</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan4</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan5</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan6</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan7</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan8</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan9</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/linear_summary.html">Khan10</a></td>
+            </tr>
+            </table>
+        
+        <hr>
+        <h2>Scoring function</h2>
         In short, the score for a set of lines is the sum of the following terms (multiplied by constant coefficients and raised to constant powers):
             <ul>
                 <li>sum of the number of horizontally aligned strokes in each line</li>
@@ -10,14 +34,14 @@
                 <li>negative of the maximum horizontal gap in each line</li>
                 <li>negative of the maximum vertical gap in each line</li>
                 <li>negative of the overlapping area between lines</li>
-                <li>Time distance between line change</li>
+                <li>Time distance between two strokes where there is line break</li>
             </ul>
         
     For more details and formal description please read the <a href=writeup/linebreak.pdf>write-up</a>.
         
         <h3>Results</h3>
         <table cellpadding=5>
-            <tr bgcolor="blue">
+            <tr bgcolor="#0093ff">
                 <td><font color=white>Best result so far, adding break penalty (1.0/tdiff) <a href="../Scripts/dynamic_linebreak_01_07.py">Version 01 07</a></font></td>
                 <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_yprojcost.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_yprojcost.png"></a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_yprojcost.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_yprojcost.png"></a></td>
@@ -32,103 +56,103 @@
                 <td><a href="../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_yprojcost.png"><img height=200 src="../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_yprojcost.png"></a></td>
             </tr>
             <tr>
-                <td>Compactness raised to power 1.0 (in version1, 1.3)</td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
+                <td>w/o compactness factor</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_linear_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_compact.png"></a></td>
             </tr>
             
             <tr>
-                <td>Compactness raised to power 0.5 (in version1, 1.3)</td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
+                <td>w/o nstrokes factor</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_06_compact_pow_05.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_nstrokes.png"></a></td>
             </tr>
             
              <tr>
-                <td>Compactness weighted by "ink" instead of nstrokes (No significant improvement)</td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_compact_ink.png"></a></td>
+                <td>w/o nalinged factor</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_naligned.png"></a></td>
             </tr>
             
             
              <tr>
-                <td>naligned <a href="writeup/figures/naligned.png"><img height=180 src="writeup/figures/naligned.png"></a></td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
+                <td>w/o xgap factor</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
                 <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_02_03_17pm.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_04_sum_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_xgap.png"></a></td>
             </tr>
             
             
             <tr>
-                <td><a href="../Scripts/dynamic_linebreak_v1.py">Version 1</a></td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_05_no_yproj_thres.png"></a></td>
+                <td>w/o ygap factor</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_ygap.png"></a></td>
             </tr>
 
            
             <tr>
-                <td>w/o nstrokes</td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_stroke.png"></a></td>
+                <td>w/o overlap penalty</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_overlap.png"></a></td>
             </tr>
             <tr>
-                <td>w/o compact</td>
-                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
-                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_03_no_compact.png"></a></td>
+                <td>w/o t_linebreak penalty</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"><img height=200 src="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/01_07_no_tlinebreak.png"></a></td>
             </tr>
         </table>
         
