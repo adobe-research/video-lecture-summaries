@@ -67,7 +67,7 @@ if __name__ == "__main__":
     
     if (".mp4" in extension or ".avi" in extension ):
         video = Video(target)
-        fromvideo(video, logos, (0,0,0))
+        fromvideo(video, logos, (255,255,255))
     else:    
         imagefiles, images = util.get_capture_imgs(target)
         processed_path = outdir + "\\removelogo"
