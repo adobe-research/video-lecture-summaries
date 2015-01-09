@@ -362,8 +362,7 @@ def test_merge_inline_objects_main():
     html.obj_script(line_objs_w_context, line_idx,  lec)
     html.closediv()
     html.closehtml()
-    
-    
         
-if __name__ == "__main__":   
-    test_merge_inline_objects_main()
+if __name__ == "__main__":
+    
+       

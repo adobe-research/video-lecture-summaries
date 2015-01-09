@@ -206,7 +206,7 @@ class Video:
             ret, frame = cap.read()
             if (frame == None):
                 break
-            if (fid in fnumbers):                
+            if (fid in fnumbers):   
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06i" % fid) + "_fid.png"
                 if not os.path.isfile(os.path.abspath(filename)):

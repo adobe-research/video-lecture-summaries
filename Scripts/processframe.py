@@ -571,8 +571,8 @@ def removebg_khan(gray_frame):
     return dest
 
 def numfgpix_thresh(gray, fgthres):
-    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
-#     ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
+#     ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
+    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
     numfg = np.count_nonzero(threshimg)
     logging.debug("#fg pix %i", numfg)
 #     util.showimages([threshimg], "processframe::numfgpix_thres")
@@ -656,13 +656,13 @@ def stitch_images(previmage, curimage):
    
   (warpsize, offset) = calculate_size((prevh, prevw), (curh, curw), M)
 #   print 'warpsize', warpsize
-  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)
+  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)
 #   util.showimages([curimage_warp], "curimage_warp")
   xoff = int(offset[0])
   yoff = int(offset[1])
 #   print 'xoff, yoff', xoff-1, yoff-1
   M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])      
-  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)        
+  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)        
   
   # util.showimages([curimage_warp, previmage_warp])
   

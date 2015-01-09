@@ -20,6 +20,7 @@ def remove_duplicate_pixels(visobj, panorama_fg, cleanupdir):
     obj_mask = pf.fgmask(visobj.img, 50, 255, True)
 #     util.showimages([panorama_fg], "panorama foreground")
     panorama_fg_crop = panorama_fg[visobj.tly:visobj.bry+1, visobj.tlx:visobj.brx+1]
+#     print 'obj_mask.shape', obj_mask.shape, 'panorama_fg_crop.shape', panorama_fg_crop.shape
     new_mask = cv2.bitwise_and(obj_mask, panorama_fg_crop)
     new_bbox = pf.fgbbox(new_mask)
     
@@ -177,6 +178,7 @@ def main_group_color_time_space():
     VisualObject.write_to_file(groupdir + "/obj_info.txt", grouped_objs)
         
 if __name__ == "__main__":
+#     main_remove_duplicate_pixels()
     main_group_consecutive_objs()
 #     main_group_overlapping()
         

@@ -8,6 +8,8 @@ import util
 import removelogo
 import numpy as np
 
+
+
 def new_obj_panorama():
   
     framedir = sys.argv[1]
@@ -70,23 +72,25 @@ def scroll_stitch_panorama():
     for count in counts:
         if count < 500:
             last_unmoved_fid = fid
-        if count > thres and not capture:
+        if count >= 500 and not capture:
             capture = True
             keyframes_fid.append(max(0, last_unmoved_fid))
-        elif count <= thres and capture:
+            print 'last_unmoved', last_unmoved_fid
+        elif count < 500 and capture:
             capture = False
         fid += 1
-    keyframes_fid.append(fid-3)
+    keyframes_fid.append(fid-2*video.fps)
+    print 'fid-video.fps', fid-2*video.fps
      
     framedir = video.videoname + "_panorama"
+    panorama_keyframes = framedir + "/panorama_fids.txt"
+    util.write_ints(keyframes_fid, panorama_keyframes)
     list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
      
-    list_of_frames = Keyframe.get_keyframes(framedir)
-     
     
-    panorama = pf.panorama(list_of_frames)
+    panorama = pf.panorama(list_of_keyframes)
     cv2.imwrite(framedir + "/panorama.png", panorama)
-    util.showimages([panorama])
+
     
 if __name__ == "__main__":
     scroll_stitch_panorama()

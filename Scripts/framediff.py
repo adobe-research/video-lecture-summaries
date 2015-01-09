@@ -88,5 +88,5 @@ if __name__ == "__main__":
     counts = util.strings2ints(framediff)
     
     """Smooth and Sub-sample 1 frame per second"""
-    plotpersec(counts, pv.framerate, pv.videoname + "_framediff_persec.png")
+#     plotpersec(counts, pv.framerate, pv.videoname + "_framediff_persec.png")
     plotperframe(counts, pv.videoname + "_framediff_perframe.png")
