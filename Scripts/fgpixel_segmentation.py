@@ -120,7 +120,7 @@ def getobjects(video, object_fids, panorama, objdir):
         start_fids.append(fids[0])
         end_fids.append(fids[1])
     
-    images, filenames = util.get_images(video.videoname + "_temp/negate", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+    images, filenames = util.get_images(video.videoname + "_temp/", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     keyframes = []
     for i in range(0, len(images)):
         keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
@@ -133,6 +133,7 @@ def getobjects(video, object_fids, panorama, objdir):
     prevx = 0 
     prevy = 0
     for keyframe in keyframes:
+#         util.showimages([keyframe.frame], "keyframe")
         prev_id = start_fids[i]
         cur_id = end_fids[i]
          
@@ -143,13 +144,13 @@ def getobjects(video, object_fids, panorama, objdir):
         
         curx = curx-prevx
         cury = cury-prevy
-        
-        if (curx != 0 or cury != 0):
-            i += 1
-            prevx = topleft[0]
-            prevy = topleft[1]
-            prevframe = keyframe.frame
-            continue
+#         print 'curx, cury', curx, cury
+#         if (curx != 0 or cury != 0):
+#             i += 1
+#             prevx = topleft[0]
+#             prevy = topleft[1]
+#             prevframe = keyframe.frame
+#             continue
             
         curh, curw = keyframe.frame.shape[:2]
         diff_frame = keyframe.frame.copy()
@@ -158,7 +159,9 @@ def getobjects(video, object_fids, panorama, objdir):
         prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
         obj_frame = cv2.min(keyframe.frame, diff_frame) 
+#         util.showimages([obj_frame], "obj_frame")
         obj_mask = pf.fgmask(obj_frame, 50, 255, True)
+#         util.showimages([obj_mask], "obj_mask")
         obj_bbox = pf.fgbbox(obj_mask)
         
        
@@ -168,6 +171,7 @@ def getobjects(video, object_fids, panorama, objdir):
             prevx = topleft[0]
             prevy = topleft[1]
             prevframe = keyframe.frame
+#             print 'no fg object detected'
             continue
         obj_crop = pf.cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
       
