@@ -230,6 +230,7 @@ def weighted_avg_linecost(list_of_lines):
     avg_compactcost = sum_compactcost/sum_numfgpixel
     avg_yprojcost = sum_yprojcost/sum_numfgpixel
 #     print 'total yprojcost', avg_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
+
     sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
 

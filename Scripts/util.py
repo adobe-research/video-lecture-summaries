@@ -60,12 +60,22 @@ def grayimage(img):
         print "Image format not recognized"
         return img
 
-
+def fg2gray(rgb, grayval):
+    gray = grayimage(rgb)
+    fg = np.where(gray < 250)
+    gray[fg] = grayval
+    rgb_copy = rgb.copy()
+    rgb_copy[:,:,0] = gray
+    rgb_copy[:,:,1] = gray
+    rgb_copy[:,:,2] = gray
+    return rgb_copy
+    
 def stringlist_from_txt(filepath):
     txtfile = open(filepath, "r")
     list_of_strings = []
     for val in txtfile.readlines():
         list_of_strings.append(val)
+    txtfile.close()
     return list_of_strings
 
 def list_of_vecs_from_txt(filepath, n=None):
@@ -80,6 +90,7 @@ def list_of_vecs_from_txt(filepath, n=None):
         for i in range(0, n):
             vec.append(values[i])
         list_of_vecs.append(vec)
+    txtfile.close()
     return list_of_vecs    
 
 def strings2ints(stringlist):

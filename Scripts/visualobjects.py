@@ -171,7 +171,7 @@ class VisualObject:
     
     
     @classmethod
-    def group(cls, list_of_imgobjs, objdir="temp", debug=False):    
+    def group(cls, list_of_imgobjs, objdir="temp", imgname=None, debug=False):    
         if len(list_of_imgobjs) <= 0:
             return None
         min_tlx = sys.maxint
@@ -207,7 +207,11 @@ class VisualObject:
                 cv2.rectangle(groupimg, (new_tlx, new_tly), (new_tlx + objw, new_tly+objh), (100,100,0), 2)
                 
             debug_i += 1
-        groupimgname = "obj_%06i_%06i_group.png" %(min_start_fid, max_end_fid)
+        
+        if (imgname is None):
+            groupimgname = "obj_%06i_%06i_group.png" %(min_start_fid, max_end_fid)
+        else:
+            groupimgname = imgname
 
         util.saveimage(groupimg, objdir, groupimgname)
         imgpath = objdir + "/" + groupimgname
@@ -259,6 +263,7 @@ class VisualObject:
             imgpath = os.path.basename(str(info[6]))
 #             print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
+            print objdir + "/" + imgpath
             objh, objw = objimg.shape[:2]
             startt = int(info[0])
             endt = int(info[1])

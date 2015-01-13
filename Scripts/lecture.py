@@ -7,6 +7,7 @@ import processframe as pframe
 import cv2
 import util
 import os
+from figure import Figure
 
 class Lecture:
     def __init__(self, video_path, aligned_transcript_path):
@@ -25,6 +26,8 @@ class Lecture:
         self.default_objects = []  
         self.cursorpos = []
         self.visual_objects = []  
+        self.list_of_figs = []
+        self.best_fig_ids = []
         
     def segment_script(self, list_of_t):        
         segments = [ [] for i in range(0, len(list_of_t))]
@@ -109,6 +112,52 @@ class Lecture:
             prevt = t
         
         return list_of_lecsegs
+    
+    def assign_figs_to_stcs(self, list_of_figs):
+        self.list_of_figs = list_of_figs
+        self.best_fig_ids = []
+        for stc in self.list_of_stcs:
+            min_dist = float("inf")
+            best_fig_id = -1
+            for fig_id in range(0, len(list_of_figs)):
+                fig = list_of_figs[fig_id]
+                dist = Lecture.fig_stc_distance(fig, stc, self.video)
+                if (dist < min_dist): 
+                    min_dist = dist
+                    best_fig_id = fig_id
+            if (min_dist <= 0):
+                self.best_fig_ids.append(best_fig_id)
+            else:
+                self.best_fig_ids.append(-1)
+     
+    @staticmethod
+    def fig_stc_distance(fig, stc, video):
+        stc_start = video.ms2fid(stc[0].startt)
+        stc_end = video.ms2fid(stc[-1].endt)
+        if (fig.end_fid <= stc_start):
+            dist = 1.0 * (stc_start - fig.end_fid)
+        elif (fig.start_fid >= stc_end):
+            dist = 1.0 * (fig.start_fid - stc_end)
+        else:
+            dist = -1.0*min(fig.end_fid, stc_end) - max(fig.start_fid, stc_start)
+        return dist
+    
+    @staticmethod
+    def obj_stc_distance(obj, stc, video):
+        stc_start = video.ms2fid(stc[0].startt)
+        stc_end = video.ms2fid(stc[-1].endt)
+        if (obj.end_fid <= stc_start):
+            dist = -1.0 * (stc_start - obj.end_fid)
+    #         print 'obj before stc', dist
+        elif (obj.start_fid >= stc_end):
+            dist = -1.0 * (obj.start_fid - stc_end)
+    #         print 'obj passed stc', dist
+        else:
+            dist = min(obj.end_fid, stc_end) - max(obj.start_fid, stc_start)
+    #         print 'overlap', dist
+        return dist
+    
+    
                
 
 class LectureSegment:
