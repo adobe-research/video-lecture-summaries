@@ -15,14 +15,15 @@ class Figure:
     def __init__(self, main_id, sub_id, list_of_subfigures, figuredir):
         self.main_id = main_id
         self.sub_id = sub_id
-        newobjs = list_of_subfigures[-1]
-        self.start_fid = newobjs[0].start_fid
-        self.end_fid = newobjs[-1].end_fid
-        self.list_of_objs = []
+        self.list_of_newobjs = list_of_subfigures[-1]
+        self.start_fid = self.list_of_newobjs[0].start_fid
+        self.end_fid = self.list_of_newobjs[-1].end_fid
         self.figuredir = figuredir
+        self.list_of_subfigures = list_of_subfigures        
+        self.list_of_objs = []
         for subfigure in list_of_subfigures:
             self.list_of_objs = self.list_of_objs + subfigure
-        self.list_of_subfigures = list_of_subfigures
+        
         
     def all_objs(self):
         return VisualObject.group(self.list_of_objs, self.figuredir)
@@ -66,6 +67,26 @@ class Figure:
         objname = os.path.basename(obj.imgpath) 
         basename = objname.split('.')[0]
         return VisualObject.group(list_of_objs, self.figuredir + "/highlight", imgname=basename + "_%06i_%06i.png"%(start_fid, end_fid))
+    
+    def highlight_objs(self, objs):
+        list_of_objs = []
+        for obj in self.list_of_objs:
+            if obj in objs:
+                list_of_objs.append(obj)
+            else:
+                grayobj = obj.copy()
+                grayobj.img = util.fg2gray(obj.img, 200)
+                list_of_objs.append(grayobj)
+        objname = os.path.basename(obj.imgpath) 
+        basename = objname.split('.')[0]
+        if len(objs) == 0:
+            return None
+        else:
+            start_fid = objs[0].start_fid
+            end_fid = objs[-1].end_fid
+            return VisualObject.group(list_of_objs, self.figuredir + "/highlight", imgname=basename + "_%06i_%06i.png"%(start_fid, end_fid))
+                
+    
             
 
     @staticmethod
@@ -84,6 +105,7 @@ class Figure:
                 main_id = cur_id
                 sub_id = subfigure_count[cur_id]
                 list_of_subfigures = Figure.get_subfigures_in_line(list_of_objs[0:i+1], line_ids, cur_id)
+#                 util.showimages([VisualObject.group(list_of_objs[0:i+1]).img])
                 figure = Figure(main_id, sub_id, list_of_subfigures, figuredir)     
                 list_of_figures.append(figure)
                 subfigure_count[cur_id] += 1

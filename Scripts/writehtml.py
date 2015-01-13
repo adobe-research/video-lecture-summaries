@@ -147,9 +147,12 @@ class WriteHtml:
             self.figure(list_of_objs[obj_idx].imgpath, "Figure %i" % figure_idx[nfig])
             nfig += 1    
             
-    def figure_script(self, list_of_figures, lec):
+    def figure_script(self, summary):
         stc_id = 0
         figure_id = 0
+        list_of_figures = summary.list_of_figures
+        lec = summary.lec
+        
         for figure_id in range(0, len(list_of_figures)):
             fig = list_of_figures[figure_id]
             figure_startt = lec.video.fid2ms(fig.start_fid)
@@ -161,7 +164,7 @@ class WriteHtml:
                 if (stc_id >= len(lec.list_of_stcs)):
                     break
             
-            self.stcs_with_figure(lec, paragraph_stc_ids)
+            self.stcs_with_figure(summary, paragraph_stc_ids)
             """highlight new part of figure"""
             self.figure(fig.highlight_new_objs().imgpath, idstring="fig%i"%(figure_id), caption="Figure %i-%i" % (fig.main_id, fig.sub_id))
         
@@ -170,26 +173,23 @@ class WriteHtml:
             paragraph_stc_ids.append(stc_id)
             stc_id += 1
         if (len(paragraph_stc_ids) > 0):
-            self.stcs_with_figure(lec, paragraph_stc_ids)
+            self.stcs_with_figure(summary, paragraph_stc_ids)
             
-    def stcs_with_figure(self, lec, stc_ids):
+    def stcs_with_figure(self, summary, stc_ids):
         self.writestring("<p>")
         for i in range(0, len(stc_ids)):
             stc_id = stc_ids[i]
-            stc = lec.list_of_stcs[stc_id]
-            figid = lec.best_fig_ids[stc_id]
-#             print 'figid =', figid
-            if (figid >= 0):
-                stc_start_fid = lec.video.ms2fid(stc[0].startt)
-                stc_end_fid = lec.video.ms2fid(stc[-1].endt)
-                stc_figobj = lec.list_of_figs[figid].highlight_time(stc_start_fid, stc_end_fid)
+            Stc = summary.list_of_Stcs[stc_id]
+            figid = summary.stc_fig_ids[stc_id]
+            if (figid >= 0 and Stc.visobj is not None):
+                stc_figobj = Stc.visobj
                 figpath = self.relpath(stc_figobj.imgpath)
                 self.writestring("<a href=\"#\" ")
                 self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\">" %(figid, figpath))
-                self.write_stc(lec.list_of_stcs[stc_id])
+                self.write_stc(Stc.list_of_words)
                 self.writestring("</a>&nbsp;&nbsp;")
             else:
-                self.write_stc(lec.list_of_stcs[stc_id])
+                self.write_stc(Stc.list_of_words)
         self.writestring("</p>")
 
             
