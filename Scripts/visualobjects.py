@@ -260,7 +260,9 @@ class VisualObject:
 #             print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
             objh, objw = objimg.shape[:2]
-            if objh <= 1 and objw <= 1:
+            startt = int(info[0])
+            endt = int(info[1])
+            if (objh <= 2 and objw <= 2) or (endt - startt) < 2:
                 print 'ignoring', imgpath
                 continue;
             obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
