@@ -120,7 +120,7 @@ def getobjects(video, object_fids, panorama, objdir):
         start_fids.append(fids[0])
         end_fids.append(fids[1])
     
-    images, filenames = util.get_images(video.videoname + "_temp/", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+    images, filenames = util.get_images(video.videoname + "_temp/negate", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     keyframes = []
     for i in range(0, len(images)):
         keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
@@ -157,6 +157,16 @@ def getobjects(video, object_fids, panorama, objdir):
         
         curframe_overlap = diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] 
         prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
+        cur_overlaph, cur_overlapw = curframe_overlap.shape[:2]
+        pre_overlaph, pre_overlapw = prevframe_overlap.shape[:2]
+        print 'i',  keyframe.frame_path, curx, cury
+        if (cur_overlaph != pre_overlaph or cur_overlapw != pre_overlapw or cur_overlaph == 0 or cur_overlapw == 0):
+            i += 1
+            prevx = topleft[0]
+            prevy = topleft[1]
+            prevframe = keyframe.frame
+            continue
+        
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
         obj_frame = cv2.min(keyframe.frame, diff_frame) 
 #         util.showimages([obj_frame], "obj_frame")

@@ -383,14 +383,14 @@ if __name__ == "__main__":
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
     outfilename = "01_07_yprojcost"
-    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outvideo = None#cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
-    util.saveimage(result, objdirpath, outfilename + ".png")
-    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids.txt")
+    #util.saveimage(result, objdirpath, outfilename + ".png")
+   # util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids.txt")
     
-    outvideo.release()
+#     outvideo.release()
     
     

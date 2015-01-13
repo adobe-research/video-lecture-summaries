@@ -1,4 +1,4 @@
-python dynamic_linebreak.py ../SampleVideos/more/trushit/trushit_removelogo_panorama/negate/panorama.png ../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
+#python dynamic_linebreak.py ../SampleVideos/more/trushit/trushit_removelogo_panorama/negate/panorama.png ../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
 python dynamic_linebreak.py ../SampleVideos/more/khan8/khan8_panorama/negate/panorama.png ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan8/khan8_panorama/negate/panorama.png
 python dynamic_linebreak.py ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png ../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png
 python dynamic_linebreak.py ../SampleVideos/more/khan4/khan4_panorama/negate/panorama.png ../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan4/khan4_panorama/negate/panorama.png

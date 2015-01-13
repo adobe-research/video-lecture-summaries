@@ -7,30 +7,30 @@ Created on Nov 2, 2014
 import sys
 from lecture import Lecture
 from visualobjects import VisualObject
-import operator
 from writehtml import WriteHtml
-import layout
+import util
+from figure import Figure
+
+
+
 
 if __name__ == "__main__":
-    
-    """Separate individual Objects, layout linearly by start time"""
-    
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
+    linetxt = sys.argv[4]
     
     lec = Lecture(videopath, scriptpath)
-    img_objs = VisualObject.objs_from_file(lec.video, objdir)
-    txt_objs = VisualObject.objs_from_transcript(lec)
+    list_of_objs = VisualObject.objs_from_file(lec.video, objdir)
+    line_ids = util.stringlist_from_txt(linetxt)
+    line_ids = util.strings2ints(line_ids)
     
-    vis_objs = img_objs + txt_objs
-    sorted_vis_objs = sorted(vis_objs, key=operator.attrgetter('start_fid'))
-        
-    objs_in_frame = layout.layout_line_by_line(sorted_vis_objs)
-    html = WriteHtml(lec.video.videoname + "_obj_stc_linear.html", "Object Sentence Linear Layout", stylesheet="../Mainpage/summaries.css")
-    html.openbody()
-    html.writestring(lec.video.videoname)
-    layout.layout_objects_html(objs_in_frame, html)
-    html.closebody()
+    figuredir = objdir + "/line_figures_v2"
+    list_of_figures = Figure.getfigures(list_of_objs, line_ids, figuredir)
+    
+    lec.assign_figs_to_stcs(list_of_figures)
+    
+    html = WriteHtml(objdir + "/linear_summary_v2.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
+    html.figure_script(list_of_figures, lec)
     html.closehtml()
     

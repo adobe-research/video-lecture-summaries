@@ -2,6 +2,7 @@
 
 import os
 import datetime
+from figure import Figure
 
 class WriteHtml:
     def __init__(self, filename, title="no title", stylesheet=None, script=False):
@@ -31,9 +32,9 @@ class WriteHtml:
         self.image(filename, width=width)
         self.htmlfile.write("</a>")
 
-    def figure(self, filename, caption):
+    def figure(self, filename, width="", mapname="", idstring="", classstring="", caption=""):
         self.htmlfile.write("<figure>\n")
-        self.image(filename)
+        self.image(filename, width, mapname, idstring, classstring)
         self.htmlfile.write("<figcaption> " + caption + " </figcaption>\n")
         self.htmlfile.write("</figure>\n")
         self.breakline()
@@ -137,7 +138,7 @@ class WriteHtml:
             t = lec.video.fid2ms(obj.end_fid)
             paragraph = []
             while(lec.list_of_stcs[stc_idx][-1].endt < t):
-#                write sentence
+                """get sentence that ends before figure ends"""
                 paragraph = paragraph + lec.list_of_stcs[stc_idx]
                 stc_idx += 1
                 if (stc_idx >= len(lec.list_of_stcs)):
@@ -145,8 +146,59 @@ class WriteHtml:
             self.paragraph_list_of_words(paragraph)
             self.figure(list_of_objs[obj_idx].imgpath, "Figure %i" % figure_idx[nfig])
             nfig += 1    
-    
-    
+            
+    def figure_script(self, list_of_figures, lec):
+        stc_id = 0
+        figure_id = 0
+        for figure_id in range(0, len(list_of_figures)):
+            fig = list_of_figures[figure_id]
+            figure_startt = lec.video.fid2ms(fig.start_fid)
+            paragraph_stc_ids = []
+            while(lec.list_of_stcs[stc_id][-1].endt < figure_startt):
+                """get sentence that ends before a figure starts"""
+                paragraph_stc_ids.append(stc_id)
+                stc_id += 1
+                if (stc_id >= len(lec.list_of_stcs)):
+                    break
+            
+            self.stcs_with_figure(lec, paragraph_stc_ids)
+            """highlight new part of figure"""
+            self.figure(fig.highlight_new_objs().imgpath, idstring="fig%i"%(figure_id), caption="Figure %i-%i" % (fig.main_id, fig.sub_id))
+        
+        paragraph_stc_ids = []
+        while(stc_id < len(lec.list_of_stcs)):
+            paragraph_stc_ids.append(stc_id)
+            stc_id += 1
+        if (len(paragraph_stc_ids) > 0):
+            self.stcs_with_figure(lec, paragraph_stc_ids)
+            
+    def stcs_with_figure(self, lec, stc_ids):
+        self.writestring("<p>")
+        for i in range(0, len(stc_ids)):
+            stc_id = stc_ids[i]
+            stc = lec.list_of_stcs[stc_id]
+            figid = lec.best_fig_ids[stc_id]
+#             print 'figid =', figid
+            if (figid >= 0):
+                stc_start_fid = lec.video.ms2fid(stc[0].startt)
+                stc_end_fid = lec.video.ms2fid(stc[-1].endt)
+                stc_figobj = lec.list_of_figs[figid].highlight_time(stc_start_fid, stc_end_fid)
+                figpath = self.relpath(stc_figobj.imgpath)
+                self.writestring("<a href=\"#\" ")
+                self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\">" %(figid, figpath))
+                self.write_stc(lec.list_of_stcs[stc_id])
+                self.writestring("</a>&nbsp;&nbsp;")
+            else:
+                self.write_stc(lec.list_of_stcs[stc_id])
+        self.writestring("</p>")
+
+            
+    def write_stc(self, list_of_words):
+        for word in list_of_words:
+            if not word.issilent:
+                self.htmlfile.write(word.original_word + " ")
+                        
+        
     def lectureseg(self, lecseg, debug=False):
         self.htmlfile.write("<div>\n")
         self.htmlfile.write("<table><tr>")

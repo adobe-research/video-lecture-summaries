@@ -12,20 +12,7 @@ import os
 import util
 from linebreak import LineBreaker
 import numpy as np
-
-def obj_stc_distance(obj, stc, video):
-    stc_start = video.ms2fid(stc[0].startt)
-    stc_end = video.ms2fid(stc[-1].endt)
-    if (obj.end_fid <= stc_start):
-        dist = -1.0 * (stc_start - obj.end_fid)
-#         print 'obj before stc', dist
-    elif (obj.start_fid >= stc_end):
-        dist = -1.0 * (obj.start_fid - stc_end)
-#         print 'obj passed stc', dist
-    else:
-        dist = min(obj.end_fid, stc_end) - max(obj.start_fid, stc_start)
-#         print 'overlap', dist
-    return dist
+from lecture import Lecture
 
 
 def sentence_objs(lec, list_of_objs):
@@ -38,7 +25,7 @@ def sentence_objs(lec, list_of_objs):
         best_stc = 0
         for i in range(0, len(lec.list_of_stcs)):
             stc = lec.list_of_stcs[i]
-            score = obj_stc_distance(obj, stc, lec.video)
+            score = Lecture.obj_stc_distance(obj, stc, lec.video)
             if score > max_score:
                 max_score = score
                 best_stc = i
