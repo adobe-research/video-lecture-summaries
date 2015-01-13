@@ -12,6 +12,16 @@ import util
 from figure import Figure
 
 
+class Sentence:
+    def __init__(self, list_of_words):
+        self.list_of_words = list_of_words
+
+
+class Summary:
+    def __init__(self, lec):
+        self.lec = lec
+        
+
 
 
 if __name__ == "__main__":
@@ -27,6 +37,8 @@ if __name__ == "__main__":
     
     figuredir = objdir + "/line_figures_v2"
     list_of_figures = Figure.getfigures(list_of_objs, line_ids, figuredir)
+    
+    summary = 
     
     lec.assign_figs_to_stcs(list_of_figures)
     
