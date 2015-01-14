@@ -38,7 +38,6 @@ if __name__ == "__main__":
     figuredir = objdir + "/line_figures_v2"
     list_of_figures = Figure.getfigures(list_of_objs, line_ids, figuredir)
     
-    summary = 
     
     lec.assign_figs_to_stcs(list_of_figures)
     
