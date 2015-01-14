@@ -1,3 +1,5 @@
+python dynamic_linebreak.py ../SampleVideos/more/video4/video4_removelogo_panorama/negate/panorama.png ../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
+python dynamic_linebreak.py ../SampleVideos/more/video1/video1_removelogo_panorama/negate/panorama.png ../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
 #python dynamic_linebreak.py ../SampleVideos/more/trushit/trushit_removelogo_panorama/negate/panorama.png ../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
 python dynamic_linebreak.py ../SampleVideos/more/khan8/khan8_panorama/negate/panorama.png ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan8/khan8_panorama/negate/panorama.png
 python dynamic_linebreak.py ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png ../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ ../SampleVideos/more/khan3/khan3_panorama/negate/panorama.png

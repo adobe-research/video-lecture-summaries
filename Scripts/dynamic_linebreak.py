@@ -230,7 +230,8 @@ def weighted_avg_linecost(list_of_lines):
     avg_compactcost = sum_compactcost/sum_numfgpixel
     avg_yprojcost = sum_yprojcost/sum_numfgpixel
 #     print 'total yprojcost', avg_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
-    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - 0.0*overlap_penalty)
+
+    sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
 
 def break_penalty(list_of_objs, line_ids):
@@ -384,15 +385,15 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_07_no_overlap"
-    outvideo = None#cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outfilename = "01_07_yproj"
+    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
     util.saveimage(result, objdirpath, outfilename + ".png")
-    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/no_overlap_line_ids.txt")
+    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids.txt")
     
-#     outvideo.release()
+    outvideo.release()
     
     

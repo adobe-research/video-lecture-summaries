@@ -12,7 +12,7 @@ import os
 import util
 from linebreak import LineBreaker
 import numpy as np
-from lecture import Lecture
+from linear_summary import Summary
 
 
 def sentence_objs(lec, list_of_objs):
@@ -25,7 +25,7 @@ def sentence_objs(lec, list_of_objs):
         best_stc = 0
         for i in range(0, len(lec.list_of_stcs)):
             stc = lec.list_of_stcs[i]
-            score = Lecture.obj_stc_distance(obj, stc, lec.video)
+            score = Summary.obj_stc_distance(obj, stc, lec.video)
             if score > max_score:
                 max_score = score
                 best_stc = i
