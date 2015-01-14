@@ -130,6 +130,7 @@ if __name__ == "__main__":
     list_of_figures = Figure.getfigures(list_of_objs, line_ids, figuredir)
     
     summary = Summary(lec, list_of_figures)    
+    
     html = WriteHtml(objdir + "/linear_summary_v2.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
     html.figure_script(summary)
     html.closehtml()
