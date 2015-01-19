@@ -91,6 +91,8 @@ class Keyframe:
         keyframes = []   
         for filename in filelist:
             frame = cv2.imread(dirname + "/" + filename)
+#             h, w = frame.shape[:2]
+#             frame = frame[1:h-1, 1:w-1,:]
             keyframe = Keyframe(dirname + "/" + filename, frame, -1, -1)
             keyframes.append(keyframe)
         return keyframes

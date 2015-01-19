@@ -20,6 +20,8 @@ from visualobjects import VisualObject
 import lectureplot as lecplot
 from scipy.signal import argrelextrema
 import linebreak
+import fgpixel_segmentation as fgpixel
+
 
 
 
@@ -362,7 +364,30 @@ def test_merge_inline_objects_main():
     html.obj_script(line_objs_w_context, line_idx,  lec)
     html.closediv()
     html.closehtml()
+    
+def test_numfgframe():
+    
+    video = sys.argv[1]
+    cap = cv2.VideoCapture(video)
+    fgpixel_txt = sys.argv[2]
+    numfg = fgpixel.read_fgpixel(fgpixel_txt)    
+    
+    index = 0
+    while (cap.isOpened() and index < len(numfg)):
+        ret, frame = cap.read()
+        if (ret):
+            fgmask = pf.fgmask(frame, 50, 255, True)
+            print 'numfg', numfg[index]
+            
+            util.showimages([fgmask])
+        else:
+            cap.release()
+        index += 1
         
+    
+    
 if __name__ == "__main__":
+    test_numfgframe()
+    
     
        

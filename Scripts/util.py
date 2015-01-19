@@ -19,8 +19,12 @@ def get_images(framedir, fids):
         filename = framedir + "/capture_"        
         filename = filename + ("%06i" % fid) + "_fid.png"
         img = cv2.imread(filename)
+
         if (img is None):
             print 'Warning %s not found' %filename
+#         h, w = img.shape[:2]
+#         img = img[1:h-1, 1:w-1,:]
+        
         images.append(img)
         filenames.append(filename)
     return images, filenames
@@ -37,16 +41,26 @@ def get_logos(dirname):
             logos.append(logo)
     return logos
 
+def resize_img(img, size):
+    img = img.resize(size)
+    return img
+
 def get_capture_imgs(dirname):
+    return get_imgs(dirname, "capture")
+
+    
+def get_imgs(dirname, name=None, ext=".png"):
     filelist= os.listdir(dirname)
     imagefiles = []
     images = []
     for filename in filelist:
-        if "capture" in filename:
+        if name is None and ext in filename:
+            imagefiles.append(filename)
+            images.append(cv2.imread(filename))
+        elif name in filename and ext in filename:
             imagefiles.append(filename)
             images.append(cv2.imread(filename))
     return imagefiles, images
-    
 
 def grayimage(img):
     if len(img.shape) <= 2:

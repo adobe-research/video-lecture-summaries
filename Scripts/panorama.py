@@ -83,10 +83,10 @@ def scroll_stitch_panorama():
     print 'fid-video.fps', fid-2*video.fps
      
     framedir = video.videoname + "_panorama"
-    panorama_keyframes = framedir + "/panorama_fids.txt"
-    util.write_ints(keyframes_fid, panorama_keyframes)
-    list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
-     
+#     panorama_keyframes = framedir + "/panorama_fids.txt"
+#     util.write_ints(keyframes_fid, panorama_keyframes)
+#     list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
+    list_of_keyframes = Keyframe.get_keyframes(framedir)
     
     panorama = pf.panorama(list_of_keyframes)
     cv2.imwrite(framedir + "/panorama.png", panorama)

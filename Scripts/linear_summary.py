@@ -30,6 +30,7 @@ class Summary:
         self.list_of_figures = list_of_figures
         """initialize stc-figure correspondence"""
         self.stc_fig_ids = Summary.fig_ids_per_stc(self.list_of_stcs, self.list_of_figures, self.lec.video)
+        
         """initialize Sentences"""
         self.list_of_Stcs = []
         for stc in self.list_of_stcs:
@@ -38,8 +39,10 @@ class Summary:
             
         for i in range(0, len(self.list_of_figures)):
             fig = self.list_of_figures[i]
+            """ids of stcs that belong to figure_i"""
             fig_stcs = []
-            for j in range(0, len(self.stc_fig_ids)):
+            for j in range(0, len(self.stc_fig_ids)): 
+                """for each sentence, if it overlaps with figure i"""
                 if (self.stc_fig_ids[j] == i):
                     fig_stcs.append(j)
                     
@@ -47,16 +50,30 @@ class Summary:
             
             
     def put_figure_to_Stcs(self, fig, stc_ids, video):
-        
+#         print 'num associated stcs', len(stc_ids)
+        if len(stc_ids) == 0:
+            return
         stc_objs = [[] for x in range(0, len(stc_ids))]
         for obj in fig.list_of_newobjs:
+            obj_startt = self.lec.video.fid2ms(obj.start_fid)
+            obj_endt = self.lec.video.fid2ms(obj.end_fid)
+            
             min_dist = float("inf")
-            for i in range(0, len(stc_ids)):
-                stc = self.list_of_stcs[i]
+            for i in range(0, len(stc_ids)): 
+                """for stcs that belong to this figure"""
+                stc_id = stc_ids[i]
+                stc = self.list_of_stcs[stc_id]
+                stc_startt = stc[0].startt
+                stc_endt = stc[-1].endt
                 dist = Summary.obj_stc_distance(obj, stc, video)
                 if dist < min_dist:
+#                     for word in stc:
+#                         print word.original_word
+#                     print 'obj_startt', obj_startt, 'obj_endt', obj_endt, 'stc_start', stc_startt, 'stc_endt', stc_endt, 'dist', dist
                     min_dist = dist
                     best_stc = i
+#             util.showimages([obj.img], "obj")
+#             print 'best_stc id', best_stc
             stc_objs[best_stc].append(obj)
         
         
@@ -112,7 +129,6 @@ class Summary:
     #         print 'overlap', dist
         return dist
     
-
 
 
 if __name__ == "__main__":

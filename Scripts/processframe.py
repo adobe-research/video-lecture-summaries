@@ -656,13 +656,13 @@ def stitch_images(previmage, curimage):
    
   (warpsize, offset) = calculate_size((prevh, prevw), (curh, curw), M)
 #   print 'warpsize', warpsize
-  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)
+  curimage_warp = cv2.warpPerspective(curimage, M, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)
 #   util.showimages([curimage_warp], "curimage_warp")
   xoff = int(offset[0])
   yoff = int(offset[1])
 #   print 'xoff, yoff', xoff-1, yoff-1
   M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])      
-  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(255, 255, 255, 0), borderMode=cv2.BORDER_CONSTANT)        
+  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)        
   
   # util.showimages([curimage_warp, previmage_warp])
   
@@ -679,7 +679,7 @@ def panorama(list_of_frames):
   for i in range(1, len(list_of_frames)):
     print "%i of %i" % (i, len(list_of_frames))
     curimage = list_of_frames[i].frame
-#     util.showimages([previmage], "pf::panorama, previmage")
+    util.showimages([previmage], "pf::panorama, previmage")
     previmage = stitch_images(previmage, curimage)    
   return previmage
 

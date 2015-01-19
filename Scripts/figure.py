@@ -23,6 +23,7 @@ class Figure:
         self.list_of_objs = []
         for subfigure in list_of_subfigures:
             self.list_of_objs = self.list_of_objs + subfigure
+        self.newobjpath = self.highlight_new_objs().imgpath
         
         
     def all_objs(self):

@@ -120,7 +120,7 @@ def getobjects(video, object_fids, panorama, objdir):
         start_fids.append(fids[0])
         end_fids.append(fids[1])
     
-    images, filenames = util.get_images(video.videoname + "_temp/negate", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+    images, filenames = util.get_images(video.videoname + "_temp/", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     keyframes = []
     for i in range(0, len(images)):
         keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
