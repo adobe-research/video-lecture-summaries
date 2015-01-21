@@ -1,0 +1,19 @@
+
+
+Lee Stemkoski: We are going to prove some formulas from Trigonometry, directly from Euler's formula, e^ix = cos(x) + i.sin(x)
+
+First, we are going to prove that sin^two (x) + cos^two (x) = one This can be proven from the Pythagorean theorem and the definitions of the trigonometric functions, but we are going to do it using Euler's formula. First, use the fact that e^ix, we know that's cos(x) + i.sin(x) We also use the fact that, we've got e^-ix = e^i(-x) that's the same thing as cos(-x) + i.sin(-x) Furthermore, since cos is an even function, cos(-x) = cos(x) and since sin is an odd function, sin(-x) is -sin(x) We write the negative out in front of the i
+
+Next, we are going to multiply together these two equations right here. We have e^ix . e^-ix = cos(-x) + i.sin(-x) (cosx - i.sinx) Now, on the left hand side, add the same base, these exponents we will add them together, get zero for an x by e to the zero is one. On the right hand side, multiplying together the first two terms, we get cos^two x multiplying together the outside terms, we get -i.cosx sinx then multiplying together the inside terms, we are going to get a + i.sinx cosx Finally, multiplying together the two last terms, we are going to get a -i^two sin^two x
+
+Now, there is some great cancellation which happens, these two terms cancel out, and this -i^two i^two is -one, - - one is positive one. What we are left with is one = cos^two (x) + sin^two (x) which was exactly what we hoped to get up above. That's just the first way you can use Euler's formula to come up with a more algebraic proof, prove a few more results similarly.
+
+For instance, I'd like to prove the Angle Sum formulas, a hard time remembering these sometimes but that's a great reason to remember where formulas came from, and you can always re-derive them for yourself.
+
+First, say we have e^ia = cosa + i.sina also say we have e^ib = cosb + isinb Now, just like before, we'll take these two equations and multiply them together e^ia e^ib = (cosa +i sina) (cosb + i sinb) On the left, it's simplified e^i(a+b), on the right, we'll get cosa cosb + we are going to multiply together the two last terms here, i^two is negative one, so, -sina sinb multiplying the interior terms, in the exterior terms, both can have a factor of i, cosa sinb we are going to write the i on the outside, now factoring that out, we have a sina cosb
+
+Next, I am going to take Euler's formula and apply it directly to e^i(a+b) = cos(a+b) += i.sin(a+b) Now, interesting thing, when two complex numbers are equal, their real in their imaginary parts must also be equal, the real part, this first term is cos (a+b) which matches up with this part here, and the imaginary part is sin (a+b) which must therefore be equal to this part.
+
+If we write down these two results, we have the angle sum formulas. cos (a+b) = cosa cosb - sina sinb and we get the sum formula for sin as well, sin (a+b) = cosa sinb + sina cosb Furthermore, if you want to get the double angle formulas, that's not too bad, if you let a = x and b = x then you will get cos (twox) that's x + x = cosx.cosx is cos^two (x) sinx.sinx - sin^two (x) and sin (twox)
+
+We are going to have cosx sinx + sinx cosx both those terms are actually the same, so, you get twosin(x) cos(x) Once more, Euler's formula proves to be a handy tool to have.

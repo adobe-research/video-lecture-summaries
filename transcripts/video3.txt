@@ -1,0 +1,49 @@
+Presenter: Hello, welcome.
+
+In this short video, let us look at the derivation of the estimators of the parameters of a uniform distribution using the method of moment.
+
+Given the uniform distribution f(x) = one / (b - a), for random variable x between the values of a and b. That is, the value, x is in the interval a < x < b.
+
+Given this uniform distribution, we want to derive estimators for the parameters, a and b using the method of moments.
+
+To start with, we derive the first two moments based on the PDF. That is, E (x) is given by integral a to b, x * f(x) dx. = integral a to b, x * one / b - a dx. = one / b - a * x ˄ two / two, and the limits are a to b = b ˄ two - a ˄ two / two (b - a).
+
+Since b ˄ two - a ˄ two = (b - a) * (b + a), and the denominator is two * (b - a), therefore, we can cancel these b - a. [indecipherable 1:31] a > b.
+
+Therefore, E (x) = to the average of a and b, that is, a + b / two. This is equation one.
+
+Now we do that with the second moment. E [x ˄ two] = integral a to b, x ˄ two * f(x) dx. It's equal to integral a to b, x ˄ two * one / (b - a) dx = one / b - a * x ˄ three / three, and the limits are a to b. = the numerator is b ˄ three - a ˄three, and the denominator is three * (b - a).
+
+Since b ˄ three - a ˄ three = (b - a) * (b ˄ two + a ˄ two + a * b) we have the second moment, E [x ˄ two] = a ˄ two + b ˄ two + a * b / three. This is equation two.
+
+Now we note the expressions for the sample moment, that is the sample first moment is x-bar, that is the mean. The sample mean = the one / n, summation i = one ˄ n * xi. This is equation three.
+
+The sample second moment designated as x-bar with subscript two = one / n, summation i = one ˄ n * xi ˄ two . This is sample second moment. Equation four.
+
+By using equations one to four, that is, E (x) = equating it to the sample mean. Equating the second moment, E[x ˄ two] to the sample second moment. We have a + b / two = x-bar. Note that x-bar are the mean, sample mean is given by equation three. For simplicity, we use this symbol.
+
+We also have the E [x ˄ two] , that is, second moment defined as a ˄ two + b ˄ two + a * b / three = the sample second moment, x-bar underscore two, the subscript two. Using these two equations, that is, solving the systems of the two equations, we can solve our a and b.
+
+From equation five, that is, this equation we have a + b = two * x-bar, which basically means that a = two x-bar, or two * the sample mean - b. By plugging-in this value in the equation six, that is, a = two x-bar - b in this equation six, we have (two * x-bar - b) ˄ two + b ˄ two + (two x-bar - b * b = three * sample second moment.
+
+Expanding these terms, we have b ˄ two + four * x-bar ˄ two, that is, square of the mean - four * b / x-bar + b ˄ two, that is this term. Then we have - b ˄ two, that is this term. Also we have + two * b x-bar = three * the sample second moment.
+
+Upon simplification, we have b ˄ two, that is, this b ˄ two and this b ˄ two cancelled each other, we are left with b ˄ two. Then we have - four * b x-bar + two * b x-bar, which is - two * b x-bar. Then we have four * x-bar ˄ two - three * the sample second moment = zero.
+
+If you look at this equation, this is basically a quadratic equation in b. Therefore, the value of b is given by b = - b, that is, minus the quotient of the linear term, the quotient of the first part of the term. That is, - two * x-bar + or - √ b ˄ two - four a * c. That is, two / x-bar ˄ two - four / one into this value, that is four * x-bar ˄ two - three * x-bar underscore two. That is the sample second moment.
+
+This is the.../ two * a, which is two * one.
+
+Under the assumption both a and b are positives, we have b-hat =...This should be positive...We have b-hat = x-bar + √ four * x-bar ˄ two - four * four x-bar ˄ two + four * three * x-bar two. That is the sample second moment / two.
+
+Therefore, the b-hat =...The estimator of b is given by x-bar +...This four can be taken outside, and it cancels with two. We are left with three * the sample second moment - three * ˄ the mean. This = √ three * sample second moment - three * ˄ the mean. We have mean ˄ two.
+
+Therefore, this is the estimator of b. While using this relation, that is, a = x-bar - b, we also have an estimator, a. a-hat = two * x-bar - b-hat = x-bar - √ three * (x-bar underscore -˄ two - x-bar ˄ two).
+
+You can note that the value within () is clearly the variance of the sample, that is, the difference between the second moment on √ the mean, which is basically the variance of the sample.
+
+Therefore, our uniform distribution variable should be random. The estimators of the unknown parameters a and b are given by combinations of mean and standard deviation of the sample. That is, a-hat = the sample mean, x-bar - √ three * the standard deviation, S of the sample.
+
+Similarly, b-hat = x-bar + √ three * the standard deviation of the sample. Therefore, the estimators of a and b are basically linear combinations of sample mean and sample standard deviation.
+
+Thanks for watching.
