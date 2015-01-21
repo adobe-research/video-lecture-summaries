@@ -8,6 +8,7 @@ python cleanup.py ../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg
 python cleanup.py ../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
 python cleanup.py ../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
 python cleanup.py  ../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
-python cleanup.py ../SampleVideos/more/mit6041x_1/mit6041x_1_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
 python cleanup.py ../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
+python cleanup.py ../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
+python cleanup.py ../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate/ 
 

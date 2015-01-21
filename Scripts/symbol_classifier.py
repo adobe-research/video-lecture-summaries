@@ -14,14 +14,18 @@ import cv2
 import glob
 from sklearn.decomposition import RandomizedPCA
 from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix
+from sklearn.svm import SVC
+from visualobjects import VisualObject
 
 STANDARD_SIZE = (50,50)
 
+def crop_and_resize(indir, outdir):
+    crop_dir(indir, outdir)
+    resize_dir(outdir, outdir)
+
 def pre_process(indir, outdir):
     resize_dir(indir, outdir)
-    rgb_2_binary(indir, outdir)
+    rgb_2_binary(outdir, outdir)
 
 def get_image_data(filename):
 #     img = Image.open(filename)
@@ -30,17 +34,41 @@ def get_image_data(filename):
 #     img = np.resize(img, STANDARD_SIZE)
 #     print 'img', img
     img = cv2.imread(filename, 0)
+#     print 'image shape get imagedata', img.shape
+    if img  is None:
+        return None
+    """convert to binary"""
+    img /= 255 
     s = img.shape[0] * img.shape[1]
     img_wide = img.reshape(1, s)
     return img_wide[0]
+
+def crop_dir(indir, outdir):
+    filelist = os.listdir(indir)
+    infiles = []
+    for filename in filelist:
+        if ".png" in filename: 
+            infiles.append(filename)
+    
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    
+    for i in range(0, len(infiles)):
+        img = cv2.imread(indir + "/" + infiles[i])
+        fgmask = pf.fgmask(img, 50, 255, True)
+        img, mask = pf.croptofg(img, fgmask)
+#         util.showimages([img])
+        util.saveimage(img, outdir, infiles[i])
+    
 
 def resize_dir(input_dir, output_dir):
     filelist = os.listdir(input_dir)
     infiles = []
     for filename in filelist:
-        if ".png" in filename and "obj" in filename: 
+        if "obj" in filename and ".png" in filename: 
             infiles.append(filename)
-            
+    
+    print output_dir
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
@@ -56,17 +84,23 @@ def rgb_2_binary(input_dir, output_dir):
         os.makedirs(output_dir)
     for i in range(0, len(infilenames)):
         img = cv2.imread(input_dir + "/" + infilenames[i])
-        mask = pf.fgmask(img, 50, 255, True)
+        mask = pf.fgmask(img, 225, 255, False)
         closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
         util.saveimage(closing, output_dir, infilenames[i])
 
 
 
 if __name__ == "__main__":
-    
+
     data = []
     labels = []
-    
+    traindir = sys.argv[1]
+    testdir = sys.argv[2]
+    pre_process(testdir, testdir + "/symbols_fill")
+    testdir = testdir + "/symbols_fill"
+    objdir = sys.argv[3]
+    panorama = cv2.imread(sys.argv[4])
+      
     img_dir_list = os.listdir(sys.argv[1])
     for folder in img_dir_list:
         if os.path.isdir(sys.argv[1] + "/" + folder):
@@ -74,37 +108,61 @@ if __name__ == "__main__":
             for image in img_file_list:
                 dirname =  os.path.dirname(folder)
                 symbol = os.path.basename(folder)
-                count = 0
                 if symbol == "=":
                     data.append(get_image_data(image))
                     labels.append(1)
-                elif count < 10:
-                    """maximum ten examples from other characters"""
+                else:
                     data.append(get_image_data(image))
                     labels.append(0)
-                    count += 1 
-    
-    print """read in data done"""
-    pca = RandomizedPCA(n_components=10)
-    std_scaler = StandardScaler()
+      
+    print "read in data done:", len(data), "samples"
     X_train = data
     y_train = labels
+      
+    pca = RandomizedPCA(n_components=50)
     X_train = pca.fit_transform(X_train)
+    std_scaler = StandardScaler()
     X_train = std_scaler.fit_transform(X_train)
-        
-    clf = KNeighborsClassifier(n_neighbors=13)
+   
+    print "fitting clf"
+    clf = SVC(class_weight='auto')
     clf.fit(X_train, y_train)
-    print "classifier training done"
-    
-  
-
-            
-    
-    
-        
-        
-        
-        
-        
+    print "clf training score", clf.score(X_train, y_train)
+      
+    test_img_list, test_images = util.get_imgs(testdir, name = "obj") 
+    test_data = []
+    test_label = []
+    for image in test_img_list:
+        if "obj" not in image:
+            continue
+        imdata = get_image_data(testdir + "/" + image)
+        if imdata is not None:
+            test_data.append(imdata)
+          
+    X_test = test_data
+    X_test = pca.transform(X_test)
+    X_test = std_scaler.transform(X_test)
+      
+    test_label = clf.predict(X_test)
+    match_idx = np.where(test_label == 1)[0]
+    print match_idx
+      
+    list_of_objs = VisualObject.objs_from_file(None, objdir)
+    for idx in match_idx:
+        img_filename = test_img_list[idx]
+        print 'matching file', img_filename
+        for obj in list_of_objs:
+            if obj.imgpath == img_filename:
+                print 'obj.imgpath', obj.imgpath, 'img_filename', img_filename
+                cv2.rectangle(panorama, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0,0,255), 2)
+                continue
+    util.saveimage(panorama, testdir, "equal_01_20_pca50.png")
+#     
+#     
+#         
+#         
+#         
+#         
+#         
 
 

@@ -54,9 +54,10 @@ def get_imgs(dirname, name=None, ext=".png"):
     imagefiles = []
     images = []
     for filename in filelist:
-        if name is None and ext in filename:
-            imagefiles.append(filename)
-            images.append(cv2.imread(filename))
+        if name is None:
+            if ext in filename:
+                imagefiles.append(filename)
+                images.append(cv2.imread(filename))
         elif name in filename and ext in filename:
             imagefiles.append(filename)
             images.append(cv2.imread(filename))
