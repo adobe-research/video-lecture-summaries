@@ -17,6 +17,96 @@
             
         </ul>
         
+        <h2>Detecting '=' symbol</h2>
+        <ol>
+            <li>Collect handwritten math symbols/characters (~16,000)  CROHME_2012 data set</li>
+            <li>Convert to 50 x 50 binary images: <a href="../Mainpage/figures/CROHME_symbol1.png">ex1</a>, <a href="../Mainpage/figures/CROHME_symbol2.png">ex2</a></li> 
+            <li>PCA transformation</li>
+            <li>Train Support Vector Machine</li>
+        </ol>
+        
+        <h3>Results</h3>
+        <ol>For better detection:
+            <li>Need better segmentation for strokes, so that each character is separated</li>
+            <li>How to get rid of false detection?</li>
+        </ol>
+        <table cellpadding=5>
+            <tr >
+                <td><b>PCA components n = 50 --training score 0.99</b></td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan1</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan2</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan3</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan4</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan5</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan6</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan7</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan8</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan9</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Khan10</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Trush</a></td>
+                <td><a href="../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Video1</a></td>
+                <td><a href="../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca50.png">Video2</a></td>
+
+            </tr>
+            
+            
+             <tr >
+                <td>PCA components n = 25 </td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan1</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan2</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan3</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan4</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan5</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan6</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan7</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan8</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan9</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Khan10</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Trush</a></td>
+                <td><a href="../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Video1</a></td>
+                <td><a href="../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20_pca25.png">Video2</a></td>
+
+            </tr>
+            
+        
+            <tr >
+                <td>PCA components n = 10 (improved training data) -- training score 0.98</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan1</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan2</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan3</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan4</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan5</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan6</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan7</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan8</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan9</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Khan10</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Trush</a></td>
+                <td><a href="../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Video1</a></td>
+                <td><a href="../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols_fill/equal_01_20.png">Video2</a></td>
+
+            </tr>
+           
+            
+            <tr >
+                <td>Equal Symbol Detection (first results)</td>
+                <td><a href="../SampleVideos/more/khan1/khan1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan1</a></td>
+                <td><a href="../SampleVideos/more/khan2/khan2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan2</a></td>
+                <td><a href="../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan3</a></td>
+                <td><a href="../SampleVideos/more/khan4/khan4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan4</a></td>
+                <td><a href="../SampleVideos/more/khan5/khan5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan5</a></td>
+                <td><a href="../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan6</a></td>
+                <td><a href="../SampleVideos/more/khan7/khan7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan7</a></td>
+                <td><a href="../SampleVideos/more/khan8/khan8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan8</a></td>
+                <td><a href="../SampleVideos/more/khan9/khan9_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan9</a></td>
+                <td><a href="../SampleVideos/more/bigbang/bigbang_khan_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Khan10</a></td>
+                <td><a href="../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Trush</a></td>
+                <td><a href="../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Video1</a></td>
+                <td><a href="../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/symbols/equal_01_19.png">Video2</a></td>
+
+            </tr>
+        </table>
+        
         
         
         
