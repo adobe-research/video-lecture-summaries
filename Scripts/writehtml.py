@@ -221,7 +221,7 @@ class WriteHtml:
             
             self.stcs_with_figure(summary, paragraph_stc_ids)
             """highlight new part of figure"""
-            self.figure(fig.newobjpath, idstring="fig%i"%(figure_id), caption="Figure %i-%i" % (fig.main_id, fig.sub_id))
+            self.figure(fig.newobjpath, idstring="fig%i"%(figure_id), caption="Figure %i(%s)" % (fig.main_id, chr(fig.sub_id + ord('a'))))
         
         paragraph_stc_ids = []
         while(stc_id < len(lec.list_of_stcs)):

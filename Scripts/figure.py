@@ -103,7 +103,7 @@ class Figure:
             cur_id = line_ids[i]
             next_id = line_ids[i+1]
             if (cur_id != next_id):
-                main_id = cur_id
+                main_id = cur_id+1
                 sub_id = subfigure_count[cur_id]
                 list_of_subfigures = Figure.get_subfigures_in_line(list_of_objs[0:i+1], line_ids, cur_id)
 #                 util.showimages([VisualObject.group(list_of_objs[0:i+1]).img])
