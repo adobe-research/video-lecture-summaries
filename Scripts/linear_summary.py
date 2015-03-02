@@ -135,6 +135,7 @@ if __name__ == "__main__":
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
     linetxt = sys.argv[4]
+    panoramapath = sys.argv[5]
 
     lec = Lecture(videopath, scriptpath)
     print 'fps', lec.video.fps
@@ -142,12 +143,13 @@ if __name__ == "__main__":
     line_ids = util.stringlist_from_txt(linetxt)
     line_ids = util.strings2ints(line_ids)
     
-    figuredir = objdir + "/line_figures_v2"
+    figuredir = objdir + "/line_figures"
     list_of_figures = Figure.getfigures(list_of_objs, line_ids, figuredir)
     
     summary = Summary(lec, list_of_figures)    
     
-    html = WriteHtml(objdir + "/linear_summary_v2.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
+    html = WriteHtml(objdir + "/linear_summary.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
+    html.figure(panoramapath, width="98%")
     html.figure_script(summary)
     html.closehtml()
     
