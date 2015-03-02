@@ -43,7 +43,7 @@ class LineBreaker:
             curline_idx = self.best_line_id[i-1][i-1]
             print '========================best cut up to object', i,'================================'
             self.totalcost[i] = float("inf")
-            for j in range(-1, i):
+            for j in range(max(-1, i-100), i):
                 print 'j = ', j
                 newline = self.list_of_objs[j+1:i+1]
                 panorama_copy = self.panorama.copy()
@@ -178,7 +178,7 @@ def weighted_avg_linecost(list_of_lines):
     sum_strokecost = 0.0
     for line in list_of_lines:
         numfgpixel = VisualObject.fgpixel_count(line) #len(line)
-        print 'numfgpixel', numfgpixel
+#         print 'numfgpixel', numfgpixel
     
 #         print 'old yprojection score', 
         yprojcost = y_projection_score(line)#VisualObject.vertical_compact(line)

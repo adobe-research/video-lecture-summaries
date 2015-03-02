@@ -7,7 +7,8 @@ import framediff
 import util
 import removelogo
 import numpy as np
-
+import os
+import matplotlib.pyplot as plt
 
 
 def new_obj_panorama():
@@ -54,14 +55,16 @@ def scroll_stitch_panorama():
     videopath = sys.argv[1]
     framedifftxt = sys.argv[2]
 #     logopath = sys.argv[3]
-    if (len(sys.argv) == 5):
-        thres = int(sys.argv[4])
+    if (len(sys.argv) == 4):
+        thres = int(sys.argv[3])
     else:
         thres = 1000
     
     video = Video(videopath)
     counts = framediff.getcounts(framedifftxt)
     counts = util.smooth(np.array(counts), window_len = int(video.fps))
+    plt.plot(counts)
+    plt.show()
 #     logos = util.get_logos(logopath)
 # 
 #     
@@ -70,23 +73,29 @@ def scroll_stitch_panorama():
     capture = False
     keyframes_fid = []
     for count in counts:
-        if count < 500:
+#         print 'count', count
+        if count < thres:
             last_unmoved_fid = fid
-        if count >= 500 and not capture:
+        if count >= thres and not capture:
             capture = True
             keyframes_fid.append(max(0, last_unmoved_fid))
             print 'last_unmoved', last_unmoved_fid
-        elif count < 500 and capture:
+        elif count < thres and capture:
             capture = False
         fid += 1
     keyframes_fid.append(fid-2*video.fps)
-    print 'fid-video.fps', fid-2*video.fps
+#     print 'fid-video.fps', fid-2*video.fps
      
     framedir = video.videoname + "_panorama"
-#     panorama_keyframes = framedir + "/panorama_fids.txt"
-#     util.write_ints(keyframes_fid, panorama_keyframes)
-#     list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
-    list_of_keyframes = Keyframe.get_keyframes(framedir)
+    if not os.path.exists(os.path.abspath(framedir)):
+        os.makedirs(os.path.abspath(framedir))
+    panorama_keyframes = framedir + "/panorama_fids.txt"
+#     panorama_keyframes = util.stringlist_from_txt(panorama_keyframes)
+#     keyframes_fid = util.strings2ints(panorama_keyframes)
+    
+    util.write_ints(keyframes_fid, panorama_keyframes)
+    list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
+#     list_of_keyframes = Keyframe.get_keyframes(framedir)
     
     panorama = pf.panorama(list_of_keyframes)
     cv2.imwrite(framedir + "/panorama.png", panorama)

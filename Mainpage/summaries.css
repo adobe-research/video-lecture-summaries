@@ -1,5 +1,5 @@
 body {    
-    padding: 2em 2em 4em;
+    padding: 0.1em 1em 4em;
 }
 
 #summary-container {
@@ -17,6 +17,19 @@ div {
     margin-left: 5px;
 }
 
+img {
+    margin: 0.1em;
+}
+
+@media print{
+    body {
+        font-size: 12pt;
+    }
+    img {
+        max-height: 98%;
+    }
+}
+
 p {
     margin: 0;    
 }
@@ -31,7 +44,7 @@ p.debug {
 
 figure {
     display: inline-block;
-    border: 1px dotted gray;
+    border: 1px solid black;
 }
 figcaption {
     text-align: center;

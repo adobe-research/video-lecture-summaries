@@ -61,7 +61,7 @@ def main_white_background():
 
 def main_group_consecutive_objs():
     objdir = sys.argv[1]
-    groupdir = objdir + "/consecutive1"
+    groupdir = objdir + "/consecutive"
     if not os.path.exists(groupdir):
         os.makedirs(groupdir)
         
@@ -96,13 +96,15 @@ def main_remove_duplicate_pixels():
     print '# objs before cleanup', len(visobjs)
     panorama = cv2.imread(panorama_path)
     panorama_fg = pf.fgmask(panorama, 50, 255, True)
-   
+
     list_of_new_visobjs = []
     for visobj in visobjs:
+        print visobj.imgpath
         new_visobjs, panorama_fg = remove_duplicate_pixels(visobj, panorama_fg, cleanupdir )
 #         util.showimages([panorama_fg])
         if new_visobjs is not None:
             list_of_new_visobjs = list_of_new_visobjs + new_visobjs
+    print '# objs before cleanup', len(visobjs)
     print '# objs after cleanup', len(list_of_new_visobjs)
     new_objinfopath = cleanupdir + "/obj_info.txt"
     VisualObject.write_to_file(new_objinfopath, list_of_new_visobjs)   

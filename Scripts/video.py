@@ -214,7 +214,7 @@ class Video:
                 if not os.path.isfile(os.path.abspath(filename)):
                     print 'writing', os.path.abspath(filename)
                     cv2.imwrite(filename, frame)
-#                     util.showimages([frame])
+#                 util.showimages([frame], "fid: %i"%fid)
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid, self))
             fid += 1            
         

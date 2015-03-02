@@ -1,0 +1,164 @@
+<html>
+<head>
+<link href="../../../Mainpage/summaries.css" rel="stylesheet" />
+<title>Panorama Summary</title>
+</head>
+<body>
+<figure>
+<img src= "video2_removelogo_panorama/negate/panorama.png" width="98%" usemap="#" id="" class="">
+</figure>
+<p>
+Let's recap what we did in the last video. 
+</p><p>
+We had this differential equation here, then we found that it had two linearly independent solutions, e to the t and e to the three t, and we said that the general solution to this differential equation is a linear combination of these two solutions, just a constant times one solution plus another constant times the other solution. 
+</p><p>
+What I want to talk about in this video is, why is this the case? Why is the general solution a linear combination? How does that even result from this property of linearity of the differential equation? Let's get started. 
+</p><p>
+We know that y is equal to e to the t, we know that's a solution to this differential equation, it satisfies it. 
+</p><p>
+What would happen if we were to multiply this solution by constant, like c or c could be any number like two, point five, negative twelve, anything, it's just a constant. 
+</p><p>
+Is it constant times a solution still a solution? Let's find out. 
+</p><p>
+We take the first derivative, that's just c times e to the t, and likewise, the second derivative, that's also c times e to the t. 
+</p><p>
+If were to plug these into here, we get that the second derivative minus four times the first derivative, plus three times y, that's equal to zero. 
+</p><p>
+Every term has a c times e to the t term, so we can factor that out, we get c times e to the t times, one minus four plus three, that should be equal to zero. 
+</p><p>
+We knew that one minus four plus three is zero, so we get that zero is equal to zero, and this holds. 
+</p><p>
+C times e to the t is also a solution, which means if we multiply solution by any constant, it is still a solution to this differential equation. 
+</p><p>
+That means that, pi times e to the t satisfies it, that means a million times e to the t satisfies this, that means point zero zero one times e to the t satisfies it. 
+</p><p>
+They are all solutions. 
+</p><p>
+Now, let's take a look at one other thing. 
+</p><p>
+We know that, e to the t is a solution, and we knew that e to the three t is a solution, but what would happen if we were to add them together? Is the sum of two solutions also a solution? Let's find out. 
+</p><p>
+Let's take the first derivative again, that's just e to the t plus three e to the three t, let's take the second derivative, that's just e to the t plus nine e to the three t. 
+</p><p>
+If we plug that into the differential equation, we get the second derivative e to the t plus nine, oops, e to the three t minus four times the first derivative, e to the t plus three e to the three t plus three times our zero derivative, that should be equal to zero, we'll see. 
+</p><p>
+Let's group together all the two like the e to the t terms in all the e to the three t terms together, so we get e to the t, I am going to factor it out, and say, times one minus four plus three plus e to the three t, grouping all these terms together times nine minus four times three is minus twelve plus three is then equal to zero. 
+</p><p>
+We know that, one minus four plus three is zero, and nine minus twelve plus three is zero, so, we have e to the t times zero plus e to the three t times zero is equal to zero. 
+</p><p>
+That is also true. 
+</p><p>
+A sum of two solutions is also a solution. 
+</p><p>
+Now, let's combine these two facts that we learned. 
+</p><p>
+Let's take our solutions, multiply them by constants and add them together, but there is a name for that. 
+</p><p>
+What's it called? It's called, taking the linear combination of our two solutions. 
+</p><p>
+We know that since multiplying by a constant works in, by adding our two solution works, we know that, this linear combination is also a solution. 
+</p><p>
+In fact, we like to call it the general solution, because it can describe all possible solutions to this differential equation, describes every possible solution. 
+</p><p>
+If you have a linear differential equation, the general solution is a linear combination of the linearly independent solutions. 
+</p><p>
+You are going to hear the word, linear quite a lot in this video. 
+</p><p>
+That's all a very important property that, all is a case for a linear differential equation, but what makes a linear differential equation so special? In order to really answer that, we have to take a step back. 
+</p><p>
+Let's move away from differential equations, and just think about Math in abstract terms. 
+</p><p>
+Let's say, we have a function g of x, we say that something operates on this function, you can call it an operator f. 
+</p><p>
+If it inputs one function, then we get out another function, let's say, h of x. 
+</p><p>
+There are lots of examples of operators, just something that changes one function to another function, like multiplying by a constant is an operator, taking a derivative is an operator, squaring something is an operator, all these things in taking one function as an input, and giving another function as an output, just like thinking in abstract terms. 
+</p><p>
+There is an important class of operators called, linear operators. 
+</p><p>
+Linear operators, all share one very important property. 
+</p><p>
+If you have the input a times g of x plus b times h of x, g of x and h of x, they are just two arbitrary functions, and a and b, those are just two constants. 
+</p><p>
+This is equal to a times f operated on g of x plus b times f operated on h of x. 
+</p><p>
+This may seem fairly confusing when we think of it in very abstract terms, but we'll find that they are quite a lot of examples of linear operators. 
+</p><p>
+Let's make things more clear. 
+</p><p>
+Instead of using this input, let's take a look at two x plus three x squared, and we'll find that multiplying by a constant is a linear operator, because if we are to multiply this by four, we know that's the same as just two times four times x plus three times four times x squared. 
+</p><p>
+We'll find that basically saying that this operator or this entire input is the same as it operating on one input, with the same scalar plus operating the other input with the same scalar. 
+</p><p>
+Now, we'll find that there are other examples of linear operators like, taking a derivative is a linear operator, because if we take e derivative, we take e derivative term by term, that's two times the derivative of x plus three times e derivative of x squared. 
+</p><p>
+We'll find that, taking a definite integral is a linear operator, because likewise, we integrate term by term, and we know that, this is equal to two times the definite integral of x dx plus three times the definite integral of x squared dx. 
+</p><p>
+Taking derivatives and integrating definitely, that's also a linear operator. 
+</p><p>
+What's an example of something that's not a linear operator? One important class of non-linear operators is raising to an exponent, if we had this two x plus three x squared, well, if we have this all squared, we know that, this is not equal to two times x squared plus three times x squared squared. 
+</p><p>
+We know that, we have to factor out, and we'll have other terms, so, raising to an exponent is not a linear operator. 
+</p><p>
+We can form other linear operators by combining these, like taking a derivative and multiplying by a constant is a linear operator, taking higher derivatives is a linear operator. 
+</p><p>
+If we add two linear operators, the result is almost like a linear operator. 
+</p><p>
+In fact, we can say something like taking a derivative of a function, or secondary derivative of a function minus four times taking the derivative of a function plus three times that function, that's also a linear operator, but this was just our differential equation, which is basically the same thing, except we had it under one constraint, that this was equal to zero. 
+</p><p>
+It turns out, our linear differential equation is also a linear operator. 
+</p><p>
+Since, this is a linear operator, some people like to use a little shorthand. 
+</p><p>
+If this is all equal to zero, they may just say that the linear operator of this differential equation, acting on y is equal to zero. 
+</p><p>
+Here, are L acting on y, that's just analogous to this whole f acting on g of x. 
+</p><p>
+In this particular case, you can think of L as just equal to the second derivative minus four times the first derivative plus three. 
+</p><p>
+L acting on y is just this acting on y, so it's a little shorthand notation. 
+</p><p>
+If we think about it, this makes sense that this linear differential equation, or at least this bit here is a linear operator. 
+</p><p>
+Let's look back at the definition we used for a linear differential equation. 
+</p><p>
+We said that a differential equation was linear, if it had a general form, a n of x times d nth derivative of a function with respect to x plus a to the n minus one, of x times the n minus one derivative, all the way down to let's just say, a one of x times the first derivative plus a naught acting on y. 
+</p><p>
+We said that, this was a form of a linear differential equation, and the reason is, it's composed of linear operations. 
+</p><p>
+If you recall, if we square or raised any of these derivative terms, to an exponent or if we multiply any of these derivative terms by each other, then it would be non-linear differential equation. 
+</p><p>
+We know now, that's because, raising to an exponent, that's not a linear operation. 
+</p><p>
+A linear differential equation is composed of linear operations. 
+</p><p>
+How does this property of linearity show up for linear differential equations? We'll find what we know. 
+</p><p>
+Let's just say that we have two solutions that satisfy this differential equation, y one and y two, such that, L operating on y one is just zero and L operating on y two is equal to zero. 
+</p><p>
+That means that, we can work in reverse, and say that L operating on c one times y one plus c two times y two, that's equal to using our main property of linear operators, that is equal to c one times L acting on y one plus c two times L acting on y two. 
+</p><p>
+We know that, L acting on y one, that's zero and L acting on y two is equal to zero, so, we get that, this whole thing is equal to zero, which means that this whole thing is also a solution, it also satisfies this condition, that the linear operator is equal to zero. 
+</p><p>
+Because our differential equation is linear, we know that if we have two solution that satisfy it, with that we can form a linear combination of those two solutions, and the result will still satisfy it. 
+</p><p>
+That's exactly what we found up here, we found that, if we add two solutions that satisfy this differential equation, that the linear combination of them also satisfy it. 
+</p><p>
+We just worked in reverse up here. 
+</p><p>
+Here we went from the property and went forward, up here we had this and went backwards. 
+</p><p>
+That's quite a lot, let's recap what we found in this video. 
+</p><p>
+We were able to define a linear operator, and we said that, our linear differential equations, that's a differential equation that's composed of linear operators, and because of this property that all linear operators follow, we know that, if we were to have two solutions, then a linear combination of these two solutions is also a solution. 
+</p><p>
+We were able to theoretically show the origin of why a linear combination of two solutions is also a solution, it all stems from this wonderful property of linearity. 
+</p><p>
+Hopefully, that wasn't too confusing. 
+</p><p>
+We'll continue on with more second order differential equations in the next video. 
+</p><p>
+
+</p>
+</body>
+</html>

@@ -23,7 +23,7 @@ def get_images(framedir, fids):
         if (img is None):
             print 'Warning %s not found' %filename
 #         h, w = img.shape[:2]
-#         img = img[1:h-1, 1:w-1,:]
+#         img = img[0:h, 5:w,:]
         
         images.append(img)
         filenames.append(filename)
@@ -158,7 +158,7 @@ def showimages(list_of_images, title="show images"):
             continue
         h, w = img.shape[:2]
         htotal += h
-        wtotal += w
+        wtotal += (w + 10)
         hmax = max(hmax, h)
         wmax = max(wmax, w)
         
@@ -176,7 +176,7 @@ def showimages(list_of_images, title="show images"):
             view[:h,curw:curw+w, 0] = img[:,:,0]
             view[:h,curw:curw+w, 1] = img[:,:,1]
             view[:h,curw:curw+w, 2] = img[:,:,2]
-        curw = curw+w
+        curw = curw+w+10
     if hmax == 0 or wtotal == 0:
         return
     cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)

@@ -3,6 +3,7 @@
 import os
 import datetime
 from figure import Figure
+import cv2
 
 class WriteHtml:
     def __init__(self, filename, title="no title", stylesheet=None, script=False):
@@ -14,7 +15,8 @@ class WriteHtml:
         self.htmlfile.write("<head>\n")
         if stylesheet is not None:
             self.htmlfile.write("<link href=\"" )
-            self.htmlfile.write(os.path.relpath(stylesheet, self.filename))
+            stylesheet = os.path.abspath(stylesheet)
+            self.htmlfile.write(os.path.relpath(stylesheet, self.filedir))
             self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("<title>"+title+"</title>\n")
         if not script:
@@ -35,16 +37,22 @@ class WriteHtml:
     def figure(self, filename, width="", mapname="", idstring="", classstring="", caption=""):
         self.htmlfile.write("<figure>\n")
         self.image(filename, width, mapname, idstring, classstring)
-        self.htmlfile.write("<figcaption> " + caption + " </figcaption>\n")
+        if caption is not "":
+            self.htmlfile.write("<figcaption> " + caption + " </figcaption>\n")
         self.htmlfile.write("</figure>\n")
-        self.breakline()
+#         self.breakline()
         self.numfigs += 1
 
     def image(self, filename, width="", mapname="", idstring="", classstring=""):
-        self.htmlfile.write("<img src= \"%s\" max-width=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, mapname, idstring, classstring))
-        
+        img = cv2.imread(filename)
+        h, w = img.shape[0:2]
+        if (w >= h):
+            self.htmlfile.write("<img src= \"%s\" width=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, mapname, idstring, classstring))
+        else:
+            self.htmlfile.write("<img src= \"%s\" height=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, mapname, idstring, classstring))
+
     def breakline(self):
-        self.htmlfile.write("</br>")
+        self.htmlfile.write("</br>\n")
         
     def opentable(self, border=0):
         self.htmlfile.write("<table border="+str(border)+">\n")

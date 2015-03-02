@@ -1,0 +1,130 @@
+0:00welcome back can't on math and the City oh we're gonna be talking about some
+0:04other basic set operations the most common set operation that we use
+0:08when we're talking about sets so
+0:11what sort of let's let I am
+0:14s T
+0:17and are be set
+0:20I'm not sure I'm gonna use our but just in case now
+0:24the first operation i wanna talk about is called the union
+0:27and just called Union and we can only union
+0:33say as Union tee in this way it's kinda issue
+0:36it's not actually a you it's more like a Cup kinda symbol
+0:40I you can have a set called you an adequate little bit different but in
+0:46senate ation what this
+0:47is defined as this is going to be all of the elements
+0:50axe where acts is an element
+0:54ass and X
+0:58is an element up up sorry that backwards X is now a minute ass
+1:04or X is an element ft writes this is
+1:10pretty much for gluing these two sets together working all the elements
+1:13ass and all the elements have tea and making a new set
+1:16they just contains any element that's in one or the other
+1:20now remember this is mathematical or so let's just say you know to
+1:23was an ass and in key to would still be in here read it
+1:27it's not exclusive or I it includes the case
+1:30where access and both s and T my only requirement is that it and at least one
+1:35of them
+1:35right and we also have a however
+1:39an opposite idea in a certain sense the intersection
+1:47now the intersection over Sat I'm internet this
+1:50s intersection T-shirts colic the Union sign but upside down
+1:54and that's gonna be defined as all of the elements
+1:57axe where X is an ass and
+2:02axis NT I remember this is or this is and
+2:07I'm site Meyer coming here is that a temp of
+2:10right if it's an ass and it's not anti then it's not going to be in the
+2:14intersection the intersection is the set of all
+2:16common elements between the two sets ass
+2:19anti now we also have a difference
+2:28the difference can be denied it a couple different ways sometimes you'll see it s
+2:31minus T this is the same thing as
+2:34ass and its kinda forward slash T
+2:38and what this means is this is going to be the set of all about a month
+2:42better in ass and are not in T
+2:48writes all the X where X is an ass and axe
+2:51is not in T so basically we're taking the entire set ass
+2:57and in Peru moving any elements from ass that happened to be in T
+3:02okay and then I'm
+3:06one last a
+3:10yeah one last kind of operation talk about called the compliment
+3:18com compliment
+3:25now this is denoted a couple different ways I could write this with X with a
+3:28bar
+3:29sometimes it'll be ass with cannabis little told on top of that
+3:33and sometimes it'll be asked but this little see right depends on what texture
+3:37using
+3:38he's all mean s compliment and as compliment
+3:41this is going to be with respect to a particular universe
+3:45right we talked about the last thirty we talked about universe but this is
+3:48defined to be the universe
+3:50and then I take out everything
+3:54that's in ass right so in other words
+3:57this is the setup all X in whatever universe I'm talking about
+4:01so maybe the universe is rational numbers maybe our universe is real
+4:05numbers
+4:06know whatever it is I'm talking about where
+4:09axe is specifically not an ass
+4:12right so any other s will do as long as its
+4:16you know within that relative universe so couple and now it's real quick now we
+4:21have some terminology
+4:22I'm not that I can write this s minus T
+4:26I could write this as ass
+4:30intersected with T compliment
+4:34right see that so
+4:38everything in ass that's not anti plus the same thing here is everything an ass
+4:43that's also inti compliment or that's also part of the set of things that are
+4:47not in T
+4:48writes this is an equivalent idea and
+4:51we say that if ass
+4:54intersection T
+4:59is equal to the null set right so in other words if SNT have nothing in
+5:03common
+5:04S&T
+5:10are called disjoint
+5:18right these are disjoint sets for example the setup all chairs
+5:22and the set of all bowling balls are disjoint sets right there's no chair
+5:26that's a bowling ball on us
+5:27oh yes mr. somebody is made one but I don't know about okay
+5:30recovers destroying an answer to sets that have no commonality
+5:33none of their elements are shared campaigns and I've gone over a lot of
+5:38terminology let's go into a quick example
+5:40before I and this video and go onto the property is that these
+5:44operations so let's just say I have
+5:47my ass is equal to
+5:51I'll 123 and mighty
+5:57is equal to to 45
+6:01okay so given that we can calculate out so many things my ass intersection T
+6:09members can be all the elements that are in both S&T
+6:13sets gonna be the set containing only the element
+6:16to right we see that one and three are not anti
+6:19so too is the only element that simple ass and T
+6:22now the Union member the union is going to be all elements that are an ass
+6:28or tea so one to 3
+6:31for 5 right this is why I keep same scowling glowing these together right
+6:37this is the cell all elements
+6:38there just in one of the SATs can we take out any repetition
+6:42to is in both but I'm not going right to twice right we know that with sets in
+6:45general we don't include any repetition
+6:47say the difference path
+6:52my nasty
+6:55that's going to be able to all the elements an ass that are not in T
+6:58right so in other words one and three
+7:01and the difference T-minus ass
+7:05that's gonna be all the elements and T that are not an ass so for
+7:08and 55 because they share that to
+7:12something kinda need to know notice that I have this
+7:15s minus T Union
+7:20with T minus ass
+7:23that's going to be the elements one 3 for
+7:275 but that's the same thing as
+7:32the union of S&T minus
+7:37the intersection isnt as an it's kind of interesting
+7:43now we call this an identity right this is something that's and identity and in
+7:47the next video
+7:48I'm gonna go over a lot of our set operation rules allowed these identities
+7:52so we can kind of and use these tools to simplify the same way that we would use
+7:56an algebra to simplify algebraic statement
+7:58we can have these long strings up the set operations
+8:02and waking me some these rules for the next video to simplify
+8:05the strengths into something much more compact
+8:09much more sample I will see you there

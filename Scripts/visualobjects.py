@@ -251,7 +251,7 @@ class VisualObject:
         if objtxt is None:
             objtxt = "obj_info.txt"
         objfile = objdir + "/" + objtxt
-        print 'objfile', objfile
+#         print 'objfile', objfile
         obj_list = []
         obj_info = util.list_of_vecs_from_txt(objfile)
         obj_info.pop(0)
@@ -261,14 +261,14 @@ class VisualObject:
         for i in range(0, len(obj_info)):
             info = obj_info[i]
             imgpath = os.path.basename(str(info[6]))
-#             print objdir + "/" + imgpath
+            print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
 #             print objdir + "/" + imgpath
             objh, objw = objimg.shape[:2]
             startt = int(info[0])
             endt = int(info[1])
             if (objh <= 1 and objw <= 1):
-                print 'ignoring', imgpath
+#                 print 'ignoring', imgpath
                 continue;
             obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
             obj_list.append(obj)
@@ -607,13 +607,147 @@ class VisualObject:
         return x_count
     
     @staticmethod
+    def y_cut_at_gap(visobj, outdir):
+        """assumption: white background"""
+        img2 = visobj.img
+        mask = pf.fgmask(img2, 225, 255, False)
+        ysum = np.sum(mask, 1)
+        ysum0 = np.where(ysum == 0)[0]
+        
+        objimgname = visobj.imgpath.split('.')[0]
+        cut_objs = []
+        count = 0
+        tlx = visobj.tlx
+        tly = visobj.tly
+        
+        while (len(ysum0) > 0):
+            minysum0 = min(ysum0)
+            images = pf.ycut(img2, minysum0)
+            if minysum0 > 0:
+                img1 = images[0]
+                mask1 = pf.fgmask(img1, 225, 255, False)
+                tlx1, tly1, brx1, bry1 = pf.fgbbox(mask1)
+                tlx1 = tlx + tlx1
+                tly1 = tly + tly1
+                brx1 = tlx + brx1
+                bry1 = tly + bry1
+                img1, temp = pf.croptofg(img1, mask1)
+                objimgname1 = objimgname +"_%02i"%(count)+".png"
+                util.saveimage(img1, outdir, objimgname1)
+                obj1 = VisualObject(img1, outdir + "/" + objimgname1, visobj.start_fid, visobj.end_fid, tlx1, tly1, brx1, bry1)
+                cut_objs.append(obj1)
+                count += 1
+            
+            img2 = images[1]
+            if (img2.shape[1] == 0 ):
+                return cut_objs
+            mask2 = pf.fgmask(img2, 225, 255, False)
+            tlx2, tly2, brx2, bry2 = pf.fgbbox(mask2)
+            if (tlx2 < 0 or tlx2 == brx2 or tly2 == bry2):
+                """if img2 is empty"""
+                return cut_objs
+            
+            img2, mask2 = pf.croptofg(img2, mask2)
+            tlx = tlx + tly2
+            tly = tly + minysum0 + tly2 + 1
+            
+            ysum = np.sum(mask2, 1)
+            ysum0 = np.where(ysum == 0)[0]
+                            
+        objimgname2 = objimgname +"_%02i"%(count)+".png"
+        util.saveimage(img2, outdir, objimgname2)
+        h2, w2 = img2.shape[:2]
+        obj2 = VisualObject(img2, outdir + "/" + objimgname2, visobj.start_fid, visobj.end_fid, tlx, tly, tlx + w2 - 1, tly + h2 - 1)
+        cut_objs.append(obj2)
+        return cut_objs
+    
+    @staticmethod
+    def x_cut_at_gap(visobj, outdir):
+        """assumption: white background"""
+        img2 = visobj.img
+        mask = pf.fgmask(img2, 225, 255, False)
+        xsum = np.sum(mask, 0)
+        xsum0 = np.where(xsum == 0)[0]
+        
+        objimgname = visobj.imgpath.split('.')[0]
+        cut_objs = []
+        count = 0
+        tlx = visobj.tlx
+        tly = visobj.tly
+        
+        while (len(xsum0) > 0):
+#             util.showimages([img2], "img2")
+            minxsum0 = min(xsum0)
+            images = pf.xcut(img2, minxsum0)
+            if minxsum0 > 0:
+                img1 = images[0]
+                mask1 = pf.fgmask(img1, 225, 255, False)
+                tlx1, tly1, brx1, bry1 = pf.fgbbox(mask1)
+                tlx1 = tlx + tlx1
+                tly1 = tly + tly1
+                brx1 = tlx + brx1
+                bry1 = tly + bry1
+                img1, temp = pf.croptofg(img1, mask1)
+                objimgname1 = objimgname +"_%02i"%(count)+".png"
+                util.saveimage(img1, outdir, objimgname1)
+                obj1 = VisualObject(img1, outdir + "/" + objimgname1, visobj.start_fid, visobj.end_fid, tlx1, tly1, brx1, bry1)
+                cut_objs.append(obj1)
+                count += 1
+            
+            img2 = images[1]
+            if (img2.shape[1] == 0 ):
+                return cut_objs
+            mask2 = pf.fgmask(img2, 225, 255, False)
+            tlx2, tly2, brx2, bry2 = pf.fgbbox(mask2)
+            if (tlx2 < 0 or tlx2 == brx2 or tly2 == bry2):
+                return cut_objs
+            
+            img2, mask2 = pf.croptofg(img2, mask2)
+            tlx = tlx + minxsum0 + tlx2 + 1
+            tly = tly + tly2
+            
+            xsum = np.sum(mask2, 0)
+            xsum0 = np.where(xsum == 0)[0]
+            
+            
+#             tlx2 = tlx + minxsum0
+#             tly2 = tly
+#             img2 = pf.croptofg(img2, mask2)
+#             if (img2.shape[1] == 0):
+#                 return cut_objs
+#             
+#             xsum = np.sum(mask, 0)
+#             xfg = np.where(xsum!=0)[0]
+#             if (len(xfg) == 0):
+#                 print "Visobj.x_cut_at_gap: Should not enter here"
+#                 return cut_objs
+#             else:
+#                 minxfg = min(xfg)
+#                 images = pf.xcut(img2, minxfg-1)
+#                 img2 = images[1]
+#                 if (img2.shape[1] == 0):
+#                     return cut_objs
+#                 mask = pf.fgmask(img2, 225, 255, False)
+#                 xsum = np.sum(mask, 0)
+#                 xsum0 = np.where(xsum == 0)[0]
+#                 tlx = tlx + w1 + minxfg
+                
+        objimgname2 = objimgname +"_%02i"%(count)+".png"
+        util.saveimage(img2, outdir, objimgname2)
+        h2, w2 = img2.shape[:2]
+        obj2 = VisualObject(img2, outdir + "/" + objimgname2, visobj.start_fid, visobj.end_fid, tlx, tly, tlx + w2 - 1, tly + h2 - 1)
+        cut_objs.append(obj2)
+#         util.showimages([obj.img for obj in cut_objs], "cut images")
+        return cut_objs
+        
+    
+    @staticmethod
     def fgpixel_count(list_of_objs):
         count = 0
         for obj in list_of_objs:
             count += obj.numfgpixel()
         return count
-            
-
+    
     @staticmethod
     def ctr_distance(obj1, obj2):
         x1 = (obj1.tlx + obj1.brx) / 2.0

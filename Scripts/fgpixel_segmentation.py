@@ -23,47 +23,68 @@ def read_obj_fids(objfidspath):
         objfids.append((int(fids[0]), int(fids[1])))
     return objfids
 
+
+
+
 def get_object_start_end_frames(numfg, video, outfile=None):
     object_fids = []
     drawing = False
     maxfg = numfg[0]
-    prevfg = -1 
+    prevfg = numfg[0] 
     start_fid = -1
     end_fid = -1
     fid = 0
     
-#     cap = cv2.VideoCapture(video.filepath)
+    cap = cv2.VideoCapture(video.filepath)
     for fg in numfg:
-        print fg
-#         ret, frame = cap.read()
-#         if (fid == 0):
-#             last_endimg = frame
-        if (fg > maxfg and not drawing):
-#             startimg = frame
-            drawing = True
-            start_fid = fid
-        elif (fg - prevfg < 2000 and not drawing):
-            """scroll down event"""
-            maxfg = fg
-        elif (fg == prevfg and drawing):
-#             endimg = frame
-            drawing = False
-            end_fid = fid
-            if (start_fid >= 0 and end_fid >= 0 and start_fid < end_fid):
-                object_fids.append((start_fid, end_fid))
+        ret, frame = cap.read()
+        if (fg > prevfg):
+            if not drawing:
+                drawing = True
+                startimg = frame
+                start_fid = fid
+        elif (fg == prevfg):
+            if drawing:
+                drawing = False
+                endimg = frame
+                end_fid = fid
+        elif (fg < prevfg):
+            if drawing:
+                if (prevfg - fg > 100):
+                    drawing = False
+                    endimg = frame
+                    end_fid = fid - 1
+        
+        if (start_fid >= 0 and end_fid >= 0 and start_fid < end_fid):
+            object_fids.append((start_fid, end_fid))
             start_fid = -1
             end_fid = -1
-            
-#             absdiff = cv2.absdiff(endimg, last_endimg)
-#             objmask = pf.fgmask(absdiff, 50, 255, True)
-#             objbbox = pf.fgbbox(objmask) 
-#             endimg_copy = endimg.copy()
-#             cv2.rectangle(endimg_copy, (objbbox[0], objbbox[1]), (objbbox[2], objbbox[3]), (255, 255, 255),2)
-#             util.showimages([absdiff, endimg_copy], "Start and End Frame")
-#             last_endimg = endimg        
+#             util.showimages([startimg, endimg], "start and end")
+                
+        
         fid += 1
         maxfg = max(fg, maxfg)
         prevfg = fg
+
+
+#         if (fid == 0):
+#             last_endimg = frame
+#         if (fg > maxfg and not drawing):
+#             startimg = frame
+#             drawing = True
+#             start_fid = fid
+#         elif (fg - prevfg < 10000 and not drawing):
+#             """scroll down or erase event"""
+#             maxfg = fg
+#         elif ((fg == prevfg or fg-prevfg < 10000) and drawing):
+#             endimg = frame
+#             drawing = False
+#             end_fid = fid
+#             if (start_fid >= 0 and end_fid >= 0 and start_fid < end_fid):
+#                 object_fids.append((start_fid, end_fid))
+#             util.showimages([startimg, endimg], "start %i end %i" %(start_fid, end_fid))
+#             start_fid = -1
+#             end_fid = -1
         
     """write object times"""
     if outfile is None:
@@ -120,38 +141,55 @@ def getobjects(video, object_fids, panorama, objdir):
         start_fids.append(fids[0])
         end_fids.append(fids[1])
     
-    images, filenames = util.get_images(video.videoname + "_temp/", end_fids) #video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
-    keyframes = []
-    for i in range(0, len(images)):
-        keyframes.append(Keyframe(filenames[i], images[i], video.fid2ms(end_fids[i]), end_fids[i]))
+    start_keyframes = video.capture_keyframes_fid(start_fids, video.videoname + "_temp")
+    end_keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
+# 
+#     end_images, end_filenames = util.get_images(video.videoname + "_temp/", end_fids) 
+#     end_keyframes = []
+#     for i in range(0, len(end_images)):
+#         end_keyframes.append(Keyframe(end_filenames[i], end_images[i], video.fid2ms(end_fids[i]), end_fids[i]))
+#         
+#     start_images, start_filenames = util.get_images(video.videoname + "_temp/", start_fids)
+#     start_keyframes = []
+#     for i in range(0, len(start_images)):
+#         start_keyframes.append(Keyframe(start_filenames[i], start_images[i], video.fid2ms(start_fids[i]), start_fids[i]))
 #          
-#     keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
-    
     prevframe = np.zeros((video.height, video.width, 3), dtype=np.uint8)
     list_of_objs = []
-    i = 0    
+    fid_count = 0    
     prevx = 0 
     prevy = 0
-    for keyframe in keyframes:
+    for keyframe in end_keyframes:
 #         util.showimages([keyframe.frame], "keyframe")
-        prev_id = start_fids[i]
-        cur_id = end_fids[i]
+        prev_id = start_fids[fid_count]
+        cur_id = end_fids[fid_count]
          
         """get relative scroll position from previous frame"""
-        topleft = pf.find_object_exact_inside(panorama, keyframe.frame, threshold=-1)
+        topleft = pf.find_object_exact_inside(panorama, keyframe.frame, threshold=0.20)
+        if (topleft == None):
+            fid_count += 1
+            continue
+            
         curx = topleft[0]
         cury = topleft[1]
-        
+
         curx = curx-prevx
         cury = cury-prevy
-#         print 'curx, cury', curx, cury
-#         if (curx != 0 or cury != 0):
-#             i += 1
+        """curx,cury: relative position compared to prev frame"""
+        print 'i',  keyframe.frame_path, curx, cury
+        if fid_count != 0 and (curx != 0 or cury != 0):
+#             util.showimages([prevframe, keyframe.frame], "prevframe curframe %i %i" %(curx, cury))
+            (curx, cury) = pf.find_object_exact(keyframe.frame, prevframe)
+            curx = -curx
+            cury = -cury
+            print 'curx, cury', curx, cury
+            
+#             fid_count += 1
 #             prevx = topleft[0]
 #             prevy = topleft[1]
 #             prevframe = keyframe.frame
 #             continue
-            
+#             
         curh, curw = keyframe.frame.shape[:2]
         diff_frame = keyframe.frame.copy()
         
@@ -159,9 +197,9 @@ def getobjects(video, object_fids, panorama, objdir):
         prevframe_overlap = prevframe[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
         cur_overlaph, cur_overlapw = curframe_overlap.shape[:2]
         pre_overlaph, pre_overlapw = prevframe_overlap.shape[:2]
-        print 'i',  keyframe.frame_path, curx, cury
+        
         if (cur_overlaph != pre_overlaph or cur_overlapw != pre_overlapw or cur_overlaph == 0 or cur_overlapw == 0):
-            i += 1
+            fid_count += 1
             prevx = topleft[0]
             prevy = topleft[1]
             prevframe = keyframe.frame
@@ -169,34 +207,29 @@ def getobjects(video, object_fids, panorama, objdir):
         
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
         obj_frame = cv2.min(keyframe.frame, diff_frame) 
-#         util.showimages([obj_frame], "obj_frame")
-        obj_mask = pf.fgmask(obj_frame, 50, 255, True)
+        obj_mask = pf.fgmask(obj_frame, 100, 255, True)
 #         util.showimages([obj_mask], "obj_mask")
         obj_bbox = pf.fgbbox(obj_mask)
         
        
         if (obj_bbox[0] < 0 ):
 #         if obj_crop is None:
-            i += 1
+            fid_count += 1
             prevx = topleft[0]
             prevy = topleft[1]
             prevframe = keyframe.frame
 #             print 'no fg object detected'
             continue
         obj_crop = pf.cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
-      
-#         print 'curx, cury', curx, cury
-#         util.showimages([diff_frame], "diff frame")
-        """if not a scroll event"""
+#         util.showimages([obj_frame, obj_crop], "obj_frame, obj_crop")
+
         objimgname = "obj_%06i_%06i.png" % (prev_id, cur_id)
-#         util.showimages([obj_frame], objimgname)
-#         util.showimages([keyframe.frame, obj_crop], str(start_fids[i]) + " " + str(end_fids[i]) + " " + objimgname)
         util.saveimage(obj_crop, objdir, objimgname)
-        visobj = VisualObject(obj_crop,  objdir + "/" + objimgname, start_fids[i], end_fids[i], obj_bbox[0] + topleft[0], obj_bbox[1] + topleft[1], obj_bbox[2] + topleft[0], obj_bbox[3] + topleft[1])
+        visobj = VisualObject(obj_crop,  objdir + "/" + objimgname, start_fids[fid_count], end_fids[fid_count], obj_bbox[0] + topleft[0], obj_bbox[1] + topleft[1], obj_bbox[2] + topleft[0], obj_bbox[3] + topleft[1])
         visobj_segmented = [visobj] #visobj.segment_cc()
         list_of_objs = list_of_objs + visobj_segmented
         prevframe = keyframe.frame
-        i += 1
+        fid_count += 1
         prevx = topleft[0]
         prevy = topleft[1]
        

@@ -130,14 +130,14 @@ class Summary:
         return dist
     
 
-
 if __name__ == "__main__":
     videopath = sys.argv[1]
     scriptpath = sys.argv[2]
     objdir = sys.argv[3]
     linetxt = sys.argv[4]
-    
+
     lec = Lecture(videopath, scriptpath)
+    print 'fps', lec.video.fps
     list_of_objs = VisualObject.objs_from_file(lec.video, objdir)
     line_ids = util.stringlist_from_txt(linetxt)
     line_ids = util.strings2ints(line_ids)

@@ -1,0 +1,117 @@
+0:02conditional probability
+0:04is involved with the multiplication rule the notation
+0:11for conditional probability is the probability
+0:14have be given
+0:18and a so this is it
+0:21a straight up-and-down line so as I said it's the probability
+0:25are
+0:30even be these regions that were to happen and how I'm
+0:33be given and a
+0:38has occurred
+0:46okay what's the probability ABI happening given
+0:49that we already know pay has occurred now probability involves
+0:54a condition called independence
+1:07to that sir independent
+1:19if the occurrence ev-one does not affect the probability of the occurrence
+1:24have the other so to a dancer independent if the occurrence have one
+1:37does not perfect
+1:44the probability FB occurrence but the other
+2:04dust they would be independent then so when we think I have
+2:08the example we saw with the balls and the earned and we were selecting
+2:13cut to balls from the earned one at a time
+2:16once we drew the first ball out if we put it back
+2:20can then the probability
+2:23on our next draw is not affected by
+2:26the first I'm draw withdrawal from the be earned because
+2:32it they were back to the beginning be
+2:35hearn is just as it was before the first row if you replace that first ball
+2:39so they would be independent however
+2:44as we saw with our example with the Kern
+2:48if you do not put the ball back in the urn
+2:52been there is a change in the probability it is affected
+2:56on the second row by the fact that you have gotten
+3:00the first so what i'm saying is in
+3:03when a procedure is with replacement
+3:13we have independent events
+3:22if the procedure appears with out replacement
+3:33we say we have n deep ended defense
+3:45so are multiplication rule is written
+3:58the probability remember this is hey a year ended be
+4:03the word and indicates multiplication rule
+4:07is equal to the probability a
+4:11thats r for strong right times
+4:14the probability have baby given
+4:18a has already occurred so
+4:24if they're independent the probability
+4:27be given a is occurred is the same thing
+4:30as the probability be if they are
+4:34deep end any ants then we do make an adjustment for this
+4:37condition so returning to that example
+4:41be had a big turn can we had
+4:44we wanted the probability
+4:49have red and white
+4:52we would say well that's the probability that the first one is red
+4:58times the probability that the second lawrence White
+5:03given that the first one was read and remember
+5:07when our situation was deep enmity vents
+5:10what we saw was
+5:14there were three Reds so the probability
+5:19I've read was three Reds at a 12 balls
+5:23in the urn times the probability of white
+5:27while they're still five white balls in the urn
+5:31but now what has changed is their only 11
+5:35balls total in the air so that's the probability
+5:40be given that a has already occurred
+5:43when a occurred one of these balls with taken out and set aside
+5:48and that's where we get any answer point 11
+5:51Terry 6 okay
+5:55this was our case I think we called it
+5:58well I don't think we label them that that was the second case
+6:02where week with just mention that it was without
+6:06replacement now with replacement again
+6:10if they are if events
+6:16are independent
+6:26dinner multiplication rule is the probability
+6:30okay and being
+6:33is equal to the probability of a
+6:36times the probability abate only if they're
+6:41independent events because be has not been effective
+6:45by pay this works for both cuz you'll take that into consideration
+6:51but I'll make a note here that this is specifically use for
+6:54be pendant events
+6:58okay are with out
+7:01replacement
+7:06so let's summarize what were saying here about
+7:09independence
+7:17just call this a independents M summary
+7:30okay
+7:31so these statements are equivalent: misstatements about your pic
+7:48first
+7:50a NB for independent events
+8:01or if that's true that's the same thing as saying
+8:08the probability
+8:11a a and be
+8:15is equal to the probability of the day terms the probability p
+8:21that's the same thing is think that their independent events
+8:25well why can we say that well because the probability
+8:29a a given be is the same thing
+8:33as the product probability have
+8:38a and
+8:42probability FB given a
+8:46is the same thing is the probability have be
+8:49okay don't make these epic this matter what order those are in
+8:54the probability that a hookers given that be has already occurred
+8:58where the probability be occurs given that a has already occurred
+9:02and you can see how they and found are written
+9:06found based on independent events that's what we're saying
+9:10recall that's what we were saying previously that if they are
+9:14independent events the probability that a given be is the same thing as
+9:18probability they
+9:19if they are independent events the probability
+9:23be given a is the same thing as the probability it be
+9:26so that's our case with me return
+9:30the ball to the urn after that first row so it makes no difference it's not
+9:35changing the outcome
+9:36out for the probability of being occurring so these events would be
+9:42independent there's no condition and dependents there
+9:50of

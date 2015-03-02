@@ -14,6 +14,18 @@ from nltk.tbl import template
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
+def xcut(img, x):
+    h, w = img.shape[:2]
+    img1 = img[0:h, 0:x]
+    img2 = img[0:h, x+1:w+1]
+    return [img1, img2]
+
+def ycut(img, y):
+    h, w = img.shape[:2]
+    img1 = img[0:y, 0:w]
+    img2 = img[y+1:h+1, 0:w]
+    return [img1, img2]
+    
 def importantregion(gray_img, path=None, index=0):
     sift = cv2.SIFT(1000, 3, 0.12, 12)
     kp, d = sift.detectAndCompute(gray_img, None)
@@ -374,28 +386,34 @@ def isgoodmatch(M):
         return False
     return True
 
-def find_object_exact_inside(img, template, threshold=0.35):
+def find_object_exact_inside(img, template, threshold=0.20):
     """Return the top left corner of the rectangle that matches exact template INSIDE img"""  
     gray_img = util.grayimage(img)
     gray_template = util.grayimage(template)
+#     gray_img = fgmask(img, 150, 255, True)
+#     gray_template = fgmask(template, 150, 255, True)
+#     util.showimages([gray_img, gray_template], "masked")
     w, h = gray_template.shape[::-1]    
     # Apply template Matching
     res = cv2.matchTemplate(img, template, cv2.TM_CCORR_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
-#     img_copy = img.copy()
-#     cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
-#     util.showimages([img_copy, template])
     """threshold khan = 0.75, tecmath = 0.25 """   
 #     print max_val
-    if (max_val < threshold):
-#         print max_val
-#         util.showimages([img])        
+
+#     img_copy = img.copy()
+#     cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
+#     util.showimages([img_copy], "max loc")
+    if (max_val < threshold):  
         logging.info("Exact match NOT found: %f", max_val)        
         return None
     else:
-        logging.info("Exact match found: %f", max_val)        
+        logging.info("Exact match found: %f", max_val)     
+#         img_copy = img.copy()
+#         cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
+#         util.showimages([img_copy], "location of frame inside panorama")
+       
     
     return top_left
 
@@ -411,7 +429,7 @@ def find_object_exact(fgimg, obj, threshold = 2.0):
         img = np.ones((imgh + 2 * objh, imgw + 2 * objw), dtype=np.uint8) * 0  # use 255?
         img[objh:objh + imgh, objw:objw + imgw] = fgimg[:, :]
     
-    # util.showimages([img, obj])
+#     util.showimages([img, obj], "image object")
     
     res = cv2.matchTemplate(img, obj, cv2.TM_SQDIFF)
     # plt.imshow(res,cmap = 'gray')
@@ -419,23 +437,28 @@ def find_object_exact(fgimg, obj, threshold = 2.0):
     # cv2.waitKey(0)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     min_val = math.sqrt(min_val) / (objh * objw)
-    if (min_val > threshold):
-        logging.info("Exact match NOT found: %f", min_val)
-        return None
-    else:
-        logging.info("Exact match found: %f", min_val)        
+#     if (min_val > threshold):
+#         logging.info("Exact match NOT found: %f", min_val)
+#         return None
+#     else:
+#         logging.info("Exact match found: %f", min_val)        
     top_left = min_loc
     
+    h, w = obj.shape[0:2]
+    bottom_right = (top_left[0] + w, top_left[1] + h)
+    cv2.rectangle(img, top_left, bottom_right, (0,0,255), 2)
+#     util.showimages([img], "object inside image")
     # print 'top left', top_left
     # print min_val
     # cv2.imshow("obj", obj)
     # cv2.imshow("img", img)   
     # cv2.imshow("res", res)
     # cv2.waitKey(0)
+    return (top_left[0] - objw, top_left[1] - objh)
               
-    M = np.identity(3, dtype=np.float32)
-    M[0, 2] = top_left[0] - objw
-    M[1, 2] = top_left[1] - objh
+#     M = np.identity(3, dtype=np.float32)
+#     M[0, 2] = top_left[0] - objw
+#     M[1, 2] = top_left[1] - objh
         
     # h,w = obj.shape[0:2]
     # bottom_right = (top_left[0] + w, top_left[1] + h)
@@ -443,7 +466,7 @@ def find_object_exact(fgimg, obj, threshold = 2.0):
     # cv2.rectangle(fgimg_gray, top_left, bottom_right, 0, 2)
     # cv2.imshow("find_object_appx exact", fgimg_gray)
     # cv2.waitKey(0)
-    return M
+#     return M
 
 def get_newobj_and_mask(image_and_mask, objlist):
     """objlist-- obj, obj_mask"""
@@ -571,8 +594,8 @@ def removebg_khan(gray_frame):
     return dest
 
 def numfgpix_thresh(gray, fgthres):
-#     ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
-    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
+    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
+#     ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
     numfg = np.count_nonzero(threshimg)
     logging.debug("#fg pix %i", numfg)
 #     util.showimages([threshimg], "processframe::numfgpix_thres")
@@ -679,7 +702,7 @@ def panorama(list_of_frames):
   for i in range(1, len(list_of_frames)):
     print "%i of %i" % (i, len(list_of_frames))
     curimage = list_of_frames[i].frame
-    util.showimages([previmage], "pf::panorama, previmage")
+#     util.showimages([previmage], "pf::panorama, previmage")
     previmage = stitch_images(previmage, curimage)    
   return previmage
 

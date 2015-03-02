@@ -384,10 +384,27 @@ def test_numfgframe():
             cap.release()
         index += 1
         
-    
+def test_x_cut_at_gap():
+    objdir = sys.argv[1]
+    outdir = objdir + "/xcut"
+    list_of_objs = VisualObject.objs_from_file(None, objdir, None)
+    list_of_cut_objs = []
+    for obj in list_of_objs:
+        list_of_cut_objs = list_of_cut_objs + VisualObject.x_cut_at_gap(obj, outdir)
+    VisualObject.write_to_file(outdir + "/obj_info.txt", list_of_cut_objs)
+
+def test_y_cut_at_gap():
+    objdir = sys.argv[1]
+    outdir = objdir + "/ycut"
+    list_of_objs = VisualObject.objs_from_file(None, objdir, None)
+    list_of_cut_objs = []
+    for obj in list_of_objs:
+        list_of_cut_objs = list_of_cut_objs + VisualObject.y_cut_at_gap(obj, outdir)
+    VisualObject.write_to_file(outdir + "/obj_info.txt", list_of_cut_objs)
+
     
 if __name__ == "__main__":
-    test_numfgframe()
+    test_y_cut_at_gap()
     
     
        
