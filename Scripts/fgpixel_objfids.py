@@ -16,6 +16,6 @@ if __name__ == "__main__":
     numfg = fgpixel.read_fgpixel(fgpixel_txt)
     
     numfg = np.array(numfg)
-    numfg = util.smooth(numfg, window_len=5)
+    numfg = util.smooth(numfg, window_len=10)
     
     fgpixel.get_object_start_end_frames(numfg, video)

@@ -148,7 +148,7 @@ if __name__ == "__main__":
     
     summary = Summary(lec, list_of_figures)    
     
-    html = WriteHtml(objdir + "/linear_summary.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
+    html = WriteHtml(objdir + "/linear_summary_v2.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
     html.figure(panoramapath, width="98%")
     html.figure_script(summary)
     html.closehtml()

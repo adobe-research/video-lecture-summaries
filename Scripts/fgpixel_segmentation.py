@@ -177,6 +177,7 @@ def getobjects(video, object_fids, panorama, objdir):
         cury = cury-prevy
         """curx,cury: relative position compared to prev frame"""
         print 'i',  keyframe.frame_path, curx, cury
+
         if fid_count != 0 and (curx != 0 or cury != 0):
 #             util.showimages([prevframe, keyframe.frame], "prevframe curframe %i %i" %(curx, cury))
             (curx, cury) = pf.find_object_exact(keyframe.frame, prevframe)
@@ -207,10 +208,11 @@ def getobjects(video, object_fids, panorama, objdir):
         
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
         obj_frame = cv2.min(keyframe.frame, diff_frame) 
-        obj_mask = pf.fgmask(obj_frame, 100, 255, True)
+        obj_mask = pf.fgmask(obj_frame, 50, 255, True)
 #         util.showimages([obj_mask], "obj_mask")
         obj_bbox = pf.fgbbox(obj_mask)
-        
+#         util.showimages([prevframe, keyframe.frame, diff_frame, obj_frame])
+
        
         if (obj_bbox[0] < 0 ):
 #         if obj_crop is None:
@@ -221,7 +223,7 @@ def getobjects(video, object_fids, panorama, objdir):
 #             print 'no fg object detected'
             continue
         obj_crop = pf.cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
-#         util.showimages([obj_frame, obj_crop], "obj_frame, obj_crop")
+#         util.showimages([obj_frame, obj_mask, obj_crop], "obj_frame, obj_crop")
 
         objimgname = "obj_%06i_%06i.png" % (prev_id, cur_id)
         util.saveimage(obj_crop, objdir, objimgname)

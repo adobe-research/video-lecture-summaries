@@ -641,14 +641,14 @@ class VisualObject:
             img2 = images[1]
             if (img2.shape[1] == 0 ):
                 return cut_objs
-            mask2 = pf.fgmask(img2, 225, 255, False)
+            mask2 = pf.fgmask(img2, 200, 255, False)
             tlx2, tly2, brx2, bry2 = pf.fgbbox(mask2)
             if (tlx2 < 0 or tlx2 == brx2 or tly2 == bry2):
                 """if img2 is empty"""
                 return cut_objs
             
             img2, mask2 = pf.croptofg(img2, mask2)
-            tlx = tlx + tly2
+            tlx = tlx + tlx2
             tly = tly + minysum0 + tly2 + 1
             
             ysum = np.sum(mask2, 1)

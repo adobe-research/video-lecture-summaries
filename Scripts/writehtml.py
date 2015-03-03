@@ -187,16 +187,16 @@ class WriteHtml:
             stc_id = stc_ids[i]
             stc = lec.list_of_stcs[stc_id]
             figid = lec.best_fig_ids[stc_id]
-#             print 'figid =', figid
+            print 'figid =', figid
             if (figid >= 0):
                 stc_start_fid = lec.video.ms2fid(stc[0].startt)
                 stc_end_fid = lec.video.ms2fid(stc[-1].endt)
                 stc_figobj = lec.list_of_figs[figid].highlight_time(stc_start_fid, stc_end_fid)
                 figpath = self.relpath(stc_figobj.imgpath)
-#                 self.writestring("<a href=\"#\" ")
-#                 self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\">" %(figid, figpath))
+                self.writestring("<a href=\"#\" ")
+                self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\">" %(figid, figpath))
                 self.write_stc(lec.list_of_stcs[stc_id])
-#                 self.writestring("</a>&nbsp;&nbsp;")
+                self.writestring("</a>&nbsp;&nbsp;")
             else:
                 self.write_stc(lec.list_of_stcs[stc_id])
         self.writestring("</p>")
@@ -242,12 +242,12 @@ class WriteHtml:
                 fig_endt = summary.lec.video.fid2ms(stc_figobj.end_fid)
                 mouseon_figpath = self.relpath(stc_figobj.imgpath)
                 mouseout_figpath = self.relpath(summary.list_of_figures[figid].newobjpath)
-#                 self.writestring("<a href=\"#\" ")
-#                 self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\" " %(figid, mouseon_figpath))
-#                 self.writestring("onmouseout=\"document.getElementById(\'fig%i\').src=\'%s'\" >" %(figid, mouseout_figpath))
+                self.writestring("<a href=\"#\" ")
+                self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\" " %(figid, mouseon_figpath))
+                self.writestring("onmouseout=\"document.getElementById(\'fig%i\').src=\'%s'\" >" %(figid, mouseout_figpath))
                 self.write_stc(Stc.list_of_words)
 #                 self.writestring("(%i ms, %i ms) (%i ms %i ms)" %(Stc.list_of_words[0].startt, Stc.list_of_words[-1].endt, fig_startt, fig_endt))
-#                 self.writestring("</a>&nbsp;&nbsp;")
+                self.writestring("</a>&nbsp;&nbsp;")
             else:
                 self.write_stc(Stc.list_of_words)
 #                 self.writestring("(%i ms, %i ms) " %(Stc.list_of_words[0].startt, Stc.list_of_words[-1].endt))

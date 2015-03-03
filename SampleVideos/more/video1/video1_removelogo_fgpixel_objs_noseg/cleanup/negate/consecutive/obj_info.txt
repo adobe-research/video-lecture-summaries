@@ -1,6 +1,5 @@
 start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 0	0	16	0	663	82	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000000_000000_group.png
-85	86	553	342	553	343	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000085_000086_group.png
 287	350	53	111	126	138	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000287_000350_group.png
 357	365	127	111	134	138	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000357_000365_group.png
 376	385	142	120	154	132	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_000376_000385_group.png
@@ -28,7 +27,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 1759	1766	370	221	396	240	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001759_001766_group.png
 1811	1840	594	221	633	239	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001811_001840_group.png
 1846	1909	642	219	707	239	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001846_001909_group.png
-1935	1936	701	238	712	240	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001935_001936_group.png
 1993	2030	48	290	62	303	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_001993_002030_group.png
 2038	2079	65	273	119	304	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_002038_002079_group.png
 2100	2127	122	268	154	285	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_002100_002127_group.png
@@ -93,7 +91,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 6785	6786	646	703	649	717	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006785_006786_group.png
 6846	6903	409	699	505	721	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006846_006903_group.png
 6911	6958	521	693	589	718	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006911_006958_group.png
-6978	6982	581	718	583	718	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006978_006982_group.png
 6990	7083	35	739	124	776	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006990_007083_group.png
 7170	7173	149	759	164	761	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_007170_007173_group.png
 7178	7184	154	765	166	767	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_007178_007184_group.png
@@ -115,7 +112,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 8286	8319	482	800	514	820	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008286_008319_group.png
 8327	8338	523	812	538	819	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008327_008338_group.png
 8346	8399	554	798	610	824	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008346_008399_group.png
-8411	8415	569	799	570	799	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008411_008415_group.png
 8466	8494	105	837	143	864	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008466_008494_group.png
 8502	8573	158	837	263	866	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008502_008573_group.png
 8621	8659	285	844	347	859	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008621_008659_group.png
@@ -133,8 +129,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 9582	9685	538	865	673	897	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009582_009685_group.png
 9702	9793	256	909	367	939	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009702_009793_group.png
 9806	9826	382	917	409	925	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009806_009826_group.png
-9844	9867	306	854	321	856	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009844_009867_group.png
-9894	9910	494	845	517	852	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009894_009910_group.png
 9934	9962	430	910	468	932	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009934_009962_group.png
 9976	9985	476	907	501	926	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009976_009985_group.png
 9992	10030	505	905	544	926	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_009992_010030_group.png

@@ -43,7 +43,7 @@ class LineBreaker:
             curline_idx = self.best_line_id[i-1][i-1]
             print '========================best cut up to object', i,'================================'
             self.totalcost[i] = float("inf")
-            for j in range(max(-1, i-100), i):
+            for j in range(max(-1, i-10), i):
                 print 'j = ', j
                 newline = self.list_of_objs[j+1:i+1]
                 panorama_copy = self.panorama.copy()

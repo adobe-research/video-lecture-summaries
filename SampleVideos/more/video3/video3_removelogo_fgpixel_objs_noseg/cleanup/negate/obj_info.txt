@@ -81,7 +81,6 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 13647	13661	302	1320	318	1328	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_013647_013661.png
 13677	13793	347	1307	458	1335	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_013677_013793.png
 13797	14417	495	1298	689	1335	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_013797_014417.png
-14448	14465	465	1264	476	1267	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_014448_014465.png
 14809	14871	233	1361	286	1391	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_014809_014871.png
 14874	14909	325	1360	351	1385	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_014874_014909.png
 14915	14948	367	1361	406	1387	../SampleVideos/more/video3/video3_removelogo_negate_fgpixel_objs_noseg/obj_014915_014948.png
