@@ -1,0 +1,68 @@
+<html>
+<head>
+<link href="../../../../../../../Mainpage/summaries.css" rel="stylesheet" />
+<title>Linear Summary</title>
+</head>
+<body>
+    
+        
+     <p><h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture.</h3></p>
+    <h1>Moment method estimation</h1>
+<figure>
+<img src= "../../../../video3_removelogo_panorama/negate/panorama.png" height="98%" usemap="#" id="" class="">
+</figure>
+<p>Hello, welcome. In this short video, let us look at the derivation of the estimators of the parameters of a uniform distribution using the method of moment. </p><figure>
+<img src= "line_figures/obj_000483_000557_group.png" width="" usemap="#" id="fig0" class="">
+<figcaption> Figure 1(a) </figcaption>
+</figure>
+<p></p><figure>
+<img src= "line_figures/obj_000607_000833_group.png" width="" usemap="#" id="fig1" class="">
+<figcaption> Figure 2(a) </figcaption>
+</figure>
+<p>Given the uniform distribution f of x equal to one by b minus a, for random variable x between the values of a and b. That is, the value, x is in the interval a comma b. Given this uniform distribution, we want to derive estimators for the parameters, a and b using the method of moments. To start with, we derive the first two moments based on the PDF. </p><figure>
+<img src= "line_figures/obj_000483_001520_group.png" width="" usemap="#" id="fig2" class="">
+<figcaption> Figure 1(b) </figcaption>
+</figure>
+<p>That is, expectation of x is given by integral a to b, x times f of x dx. </p><figure>
+<img src= "line_figures/obj_001528_002573_group.png" width="" usemap="#" id="fig3" class="">
+<figcaption> Figure 3(a) </figcaption>
+</figure>
+<p>equal to integral a to b, x times one by b minus a dx. equal to one by b minus a times x squared by two, and the limits are a to b equal to b squared minus a squared by two b minus a. Since b squared minus a squared equal to b minus a multiplied by b plus a, and the denominator is two times b minus a, therefore clearly, we can cancel these b minus a since a is greater than b. </p><figure>
+<img src= "line_figures/obj_002749_004502_group.png" width="" usemap="#" id="fig4" class="">
+<figcaption> Figure 4(a) </figcaption>
+</figure>
+<p>Therefore, expectation of x equal to to the average of a and b, that is, a plus b by two. This is equation one. Now we do that with the second moment. Expectation of x squared equal to integral a to b, x squared times f of x dx. It's equal to integral a to b, x squared multiplied by one by b minus a dx which is equal to one by b minus a times x cubed by three, and the limits are a to b. equal to the numerator is b cubed minus a cubed, and the denominator is three times b minus a. </p><figure>
+<img src= "line_figures/obj_004528_005403_group.png" width="" usemap="#" id="fig5" class="">
+<figcaption> Figure 5(a) </figcaption>
+</figure>
+<p>Since b cubed minus a cubed equal to b minus a multiplied by b squared plus a squared plus a times b we have the second moment, expectation of x squared is equal to a squared plus b squared plus a times b by three. This is equation two. Now we note the expressions for the sample moment, that is the sample first moment is xbar, that is the mean. The sample mean equal to the one by n, summation i equal to one to the n times xi. This is equation three. </p><figure>
+<img src= "line_figures/obj_005525_005981_group.png" width="" usemap="#" id="fig6" class="">
+<figcaption> Figure 6(a) </figcaption>
+</figure>
+<p>The sample second moment designated as xbar with subscript two equal to one by n, summation i equal to one to the n times xi squared This is sample second moment. Equation four. </p><figure>
+<img src= "line_figures/obj_006040_008309_group.png" width="" usemap="#" id="fig7" class="">
+<figcaption> Figure 7(a) </figcaption>
+</figure>
+<p>By using equations one to four, that is, expectation of x equal to equating it to the sample mean. Equating the second moment, Expecatation of x squared to the sample second moment. We have a plus b by two equal to xbar. Note that xbar are the mean, sample mean is given by equation three. For simplicity, we use this symbol. We also have the Expectation of x squared, that is, second moment defined as a squared plus b squared plus a times b by three equal to the sample second moment, xbar underscore two, the subscript two. Using these two equations, that is, solving the systems of the two equations, we can solve our a and b. From equation five, that is, this equation we have a plus b equal to two times xbar, which basically means that a equal to two xbar, or two times the sample mean minus b. </p><figure>
+<img src= "line_figures/obj_008312_010282_group.png" width="" usemap="#" id="fig8" class="">
+<figcaption> Figure 8(a) </figcaption>
+</figure>
+<p>By plugging-in this value in the equation six, that is, a equal to two xbar minus b in this equation six, we have two times xbar minus b squared plus b squared plus two xbar minus b times b equal to three times sample second moment. Expanding these terms, we have b squared plus four times xbar squared, that is, square of the mean minus four times b by xbar plus b squared, that is this term. Then we have minus b squared, that is this term. Also we have plus two times b xbar equal to three times the sample second moment. Upon simplification, we have b squared, that is, this b squared and this b squared cancelled each other, we are left with b squared. Then we have minus four times b xbar plus two times b xbar, which is minus two times b xbar. Then we have four times xbar squared minus three times the sample second moment equal to zero. If you look at this equation, this is basically a quadratic equation in b. </p><figure>
+<img src= "line_figures/obj_010329_013345_group.png" width="" usemap="#" id="fig9" class="">
+<figcaption> Figure 9(a) </figcaption>
+</figure>
+<p>Therefore, the value of b is given by b equal to minus b, that is, minus the quotient of the linear term, the quotient of the first part of the term. That is, minus two times xbar plus or minus square root of b squared minus four a times c. That is, two by xbar squared minus four by one into this value, that is four times xbar squared minus three times xbar underscore two. That is the sample second moment. This is the two times a, which is two times one. Under the assumption both a and b are positives, we have bhat equal to. This should be positive. We have bhat equal to xbar plus square root of four times xbar squared minus four times four xbar squared plus four times three times xbar two. That is the sample second moment by two. Therefore, the bhat equal to... The estimator of b is given by xbar plus... This four can be taken outside, and it cancels with two. We are left with three times the sample second moment minus three times the square the mean. This equal to square root of three times sample second moment minus three times the square of the mean. We have mean squared. Therefore, this is the estimator of b. </p><figure>
+<img src= "line_figures/obj_013582_014417_group.png" width="" usemap="#" id="fig10" class="">
+<figcaption> Figure 10(a) </figcaption>
+</figure>
+<p>While using this relation, that is, a equal to xbar minus b, we also have an estimator, a. ahat equal to two times xbar minus bhat equal to xbar minus square root of three times xbar underscore minus xbar squared. You can note that the value within the parenthesis is clearly the variance of the sample, that is, the difference between the second moment on square root of the mean, which is basically the variance of the sample. Therefore, our uniform distribution variable should be random. The estimators of the unknown parameters a and b are given by combinations of mean and standard deviation of the sample. </p><figure>
+<img src= "line_figures/obj_014809_015157_group.png" width="" usemap="#" id="fig11" class="">
+<figcaption> Figure 11(a) </figcaption>
+</figure>
+<p>That is, ahat equal to the sample mean, xbar minus square root of three times the standard deviation, S of the sample. </p><figure>
+<img src= "line_figures/obj_015176_015581_group.png" width="" usemap="#" id="fig12" class="">
+<figcaption> Figure 12(a) </figcaption>
+</figure>
+<p>Similarly, bhat equal to xminusbar plus square root of three times the standard deviation of the sample. Therefore, the estimators of a and b are basically linear combinations of sample mean and sample standard deviation. Thanks for watching. </p>
+</body>
+</html>
