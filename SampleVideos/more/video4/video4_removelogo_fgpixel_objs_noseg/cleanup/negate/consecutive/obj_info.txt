@@ -17,7 +17,9 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 5212	5368	46	454	218	490	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_005212_005368_group.png
 5801	6034	591	270	823	403	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_005801_006034_group.png
 6071	6394	615	402	835	463	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006071_006394_group.png
-6478	6766	620	328	784	494	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_006478_006766_group.png
+6478	6578	725	328	774	382	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg//cleanup/obj_006478_006578.png
+6579	6672	620	467	732	492	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg//cleanup/obj_006579_006672.png
+6673	6766	732	472	784	494	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg//cleanup/obj_006673_006766.png
 7044	7109	1008	252	1008	253	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_007044_007109_group.png
 7120	7545	947	248	1047	411	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_007120_007545_group.png
 8973	9003	129	278	147	290	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_008973_009003_group.png
