@@ -1,0 +1,9 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+313	822	171	175	848	551	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000000_000000.png
+961	1385	111	863	829	1282	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000001_000000.png
+1534	2384	104	1544	976	1983	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000002_000000.png
+2682	3118	115	2283	848	2480	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000003_000000.png
+2915	3118	557	2553	980	2724	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000004_000000.png
+3226	3527	87	2981	853	3441	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000005_000000.png
+3711	3787	111	3668	567	3823	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000006_000000.png
+4072	4745	84	3864	924	4170	../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000007_000000.png

@@ -1,0 +1,12 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+0	1431	33	20	323	189	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000000_000000.png
+875	2047	75	224	419	463	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000001_000000.png
+0	1431	33	20	323	189	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000000_000001.png
+875	2047	75	224	419	463	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000001_000001.png
+0	1431	33	20	323	189	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000000_000002.png
+875	2047	75	224	419	463	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000001_000002.png
+2168	3319	364	35	1245	145	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000002_000000.png
+3444	4234	476	223	943	302	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000003_000000.png
+4126	4519	585	371	1218	458	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000004_000000.png
+3444	4234	476	223	943	302	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000003_000001.png
+4126	4519	585	371	1218	458	../SampleVideos/more/khan6/khan6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/sublines/line000004_000001.png

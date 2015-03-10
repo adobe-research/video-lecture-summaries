@@ -72,7 +72,7 @@ def main_group_consecutive_objs():
     group.append(prevobj)        
     for i in range(1, len(list_of_objs)):
         nextobj  = list_of_objs[i]
-        if nextobj.start_fid - prevobj.end_fid <= 4:
+        if nextobj.start_fid - prevobj.end_fid <= 1:
             group.append(nextobj)
         else:
             groupedobj = VisualObject.group(group, groupdir)
@@ -95,7 +95,7 @@ def main_remove_duplicate_pixels():
     visobjs = VisualObject.objs_from_file(None, objdir)
     print '# objs before cleanup', len(visobjs)
     panorama = cv2.imread(panorama_path)
-    panorama_fg = pf.fgmask(panorama, 50, 255, True)
+    panorama_fg = pf.fgmask(panorama, 100, 150, True)
 
     list_of_new_visobjs = []
     for visobj in visobjs:

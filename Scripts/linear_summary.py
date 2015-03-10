@@ -12,9 +12,11 @@ import util
 from figure import Figure
 import numpy as np
 
-class Sentence:
+class SummarySentence:
     def __init__(self, list_of_words):
         self.list_of_words = list_of_words
+        self.startt = list_of_words[0].startt
+        self.endt = list_of_words[-1].endt
         self.list_of_objs = []
         self.visobj = None
     
@@ -34,7 +36,7 @@ class Summary:
         """initialize Sentences"""
         self.list_of_Stcs = []
         for stc in self.list_of_stcs:
-            self.list_of_Stcs.append(Sentence(stc))
+            self.list_of_Stcs.append(SummarySentence(stc))
             
             
         for i in range(0, len(self.list_of_figures)):
@@ -136,7 +138,6 @@ if __name__ == "__main__":
     objdir = sys.argv[3]
     linetxt = sys.argv[4]
     panoramapath = sys.argv[5]
-
     lec = Lecture(videopath, scriptpath)
     print 'fps', lec.video.fps
     list_of_objs = VisualObject.objs_from_file(lec.video, objdir)
@@ -148,7 +149,7 @@ if __name__ == "__main__":
     
     summary = Summary(lec, list_of_figures)    
     
-    html = WriteHtml(objdir + "/linear_summary_v2.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
+    html = WriteHtml(objdir + "/linear_summary.html", "Linear Summary", stylesheet="../Mainpage/summaries.css")
     html.figure(panoramapath, width="98%")
     html.figure_script(summary)
     html.closehtml()

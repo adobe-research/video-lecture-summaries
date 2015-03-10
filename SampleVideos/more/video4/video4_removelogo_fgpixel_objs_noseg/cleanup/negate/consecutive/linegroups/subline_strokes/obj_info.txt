@@ -1,0 +1,7 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+8	1356	21	37	522	183	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000000_000000.png
+2327	2470	29	206	162	241	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000001_000000.png
+2949	6766	40	255	835	494	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000002_000000.png
+7044	7545	947	248	1047	411	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000003_000000.png
+8973	10927	94	255	182	313	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000002_000001.png
+11786	15634	87	549	660	647	../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000004_000000.png

@@ -11,14 +11,12 @@ import processvideo as pv
 import processframe as pf
 import processscript as ps
 import process_aligned_json as pj
-from sentence import Sentence
 from video import Video, Keyframe
 from lecture import Lecture
 from writehtml import WriteHtml
 import util
 from visualobjects import VisualObject
 import lectureplot as lecplot
-from scipy.signal import argrelextrema
 import linebreak
 import fgpixel_segmentation as fgpixel
 
@@ -404,7 +402,7 @@ def test_y_cut_at_gap():
 
     
 if __name__ == "__main__":
-    test_y_cut_at_gap()
+    test_x_cut_at_gap()
     
     
        

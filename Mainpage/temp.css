@@ -1,0 +1,10 @@
+#c1, #c2, #c3 {
+    width: 33%; 
+    display: inline-block;
+    border: 1px solid black;
+}
+
+img {
+    width: 98%;
+    vertical-align: middle;
+}

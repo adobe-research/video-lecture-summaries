@@ -1,0 +1,11 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+0	0	35	26	285	50	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000000_000000.png
+185	701	60	69	544	130	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000001_000000.png
+874	1881	51	166	592	296	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000002_000000.png
+2784	3350	66	317	537	396	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000003_000000.png
+3433	3927	59	406	416	468	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000004_000000.png
+4312	5303	61	476	572	521	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000005_000000.png
+5573	6064	49	526	414	594	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000006_000000.png
+6186	6335	445	426	614	451	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000004_000001.png
+6606	7556	58	715	518	859	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000007_000000.png
+7592	7959	76	867	364	940	../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/subline_strokes/line000008_000000.png

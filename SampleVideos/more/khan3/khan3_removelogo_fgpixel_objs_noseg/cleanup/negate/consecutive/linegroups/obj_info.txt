@@ -1,0 +1,11 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+20	1315	123	53	951	161	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000000.png
+262	292	174	211	263	231	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000001.png
+1524	2965	129	241	641	466	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000002.png
+2784	3249	747	151	1147	247	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000003.png
+3270	3347	914	287	1111	359	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000004.png
+3514	5192	747	417	1189	496	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000005.png
+4061	4879	869	489	1221	583	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000006.png
+4316	4891	881	609	1159	690	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000007.png
+4490	4898	912	697	1175	753	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000008.png
+4642	5126	929	762	1159	843	../SampleVideos/more/khan3/khan3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000009.png

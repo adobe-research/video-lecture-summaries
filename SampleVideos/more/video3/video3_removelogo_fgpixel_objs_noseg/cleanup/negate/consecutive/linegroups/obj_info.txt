@@ -1,0 +1,15 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+483	557	211	25	397	73	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000000.png
+607	833	461	25	589	44	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000001.png
+1208	2573	172	82	877	243	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000002.png
+2749	3036	225	263	488	306	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000003.png
+3065	4502	185	317	711	512	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000004.png
+4528	4857	184	537	513	587	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000005.png
+5082	5403	241	594	527	651	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000006.png
+5525	5981	261	669	532	730	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000007.png
+6040	8722	202	753	716	968	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000008.png
+8802	10282	210	981	686	1077	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000009.png
+10329	13345	224	1087	692	1287	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000010.png
+13582	14417	257	1298	689	1335	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000011.png
+14809	15157	233	1360	433	1391	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000012.png
+15176	15581	242	1410	423	1439	../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive//linegroups/line000013.png

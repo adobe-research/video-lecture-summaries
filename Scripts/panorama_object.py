@@ -183,7 +183,7 @@ def cluster_pixels_ypos():
 def objs():
     panoramapath = sys.argv[1]
     objdirpath = sys.argv[2]
-    outfile = sys.argv[3]
+    outfile = sys.argv[2] + "/panorama_object.png"
     panorama = cv2.imread(panoramapath)
     objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
     print 'num objects', len(objs_in_panorama)

@@ -1,0 +1,33 @@
+body {
+    font-size: 12pt;
+    width: 8.5in;
+}
+
+#c1, #c2{
+    width: 45%; 
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0.5em;
+}
+
+#c3{
+    padding: 0.5em;
+}
+
+#c0 {
+    padding: 0.5em;
+}
+
+img {
+    max-width: 98%;
+    vertical-align: middle;
+}
+
+#wrapper {
+    border: 1px solid black;
+}
+
+figure {
+    width: 100%;
+    align-content: center;
+}

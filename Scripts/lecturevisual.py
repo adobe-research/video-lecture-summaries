@@ -1,0 +1,281 @@
+'''
+Created on Mar 8, 2015
+
+@author: hijungshin
+'''
+
+from visualobjects import VisualObject
+from video import Video
+import sys
+import os
+import util
+import numpy as np
+import process_aligned_json as pjson
+from sentence import Sentence
+import cv2
+
+class Character:
+    def __init__(self, charobj):
+        self.obj = charobj
+        self.stroke = None
+
+class Stroke:
+    def __init__(self, strokeobj, video):
+        self.obj = strokeobj
+        self.video = video
+        self.list_of_chars = []
+        self.stcgroup = None
+
+class StcStroke:
+    def __init__(self, subline, list_of_strokes, stc_id, sentence, objdir):
+        self.subline = subline
+        self.list_of_strokes = list_of_strokes
+        for stroke in list_of_strokes:
+            stroke.stcgroup = self
+        self.stc_id = stc_id
+        self.stc = sentence
+        sentence.stcstroke = self
+        self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], objdir+"/stcstrokes/", imgname = "sentence%06i.png"%(stc_id) )
+        
+
+class SubLine:
+    def __init__(self, list_of_strokes, line_id, stc_ids, list_of_sentences, objdir):
+        self.list_of_strokes = list_of_strokes
+        self.line_id = line_id
+        self.sub_line_id = -1        
+        self.list_of_stcstrokes = []
+        stc_ids.append(-1)
+        start_i = 0
+        for i in range(0, len(self.list_of_strokes)):
+            cur_stcid = stc_ids[i]
+            next_id = stc_ids[i + 1]
+            if (cur_stcid != next_id):
+                sentence = list_of_sentences[cur_stcid]
+                stcstroke = StcStroke(self, self.list_of_strokes[start_i:i+1], cur_stcid, sentence, objdir)
+                self.list_of_stcstrokes.append(stcstroke)
+                start_i = i + 1
+        self.linegroup = None
+        self.obj_in_line = None
+        
+    def link_linegroup(self, linegroup, sub_line_id):
+        self.linegroup = linegroup
+        self.sub_line_id = sub_line_id
+        list_of_imgobjs = []
+        for subline in linegroup.list_of_sublines:
+            if subline == self:
+                for stroke in subline.list_of_strokes:
+                    list_of_imgobjs.append(stroke.obj)
+            else:
+                for stroke in subline.list_of_strokes:
+                    grayobj = stroke.obj.copy()
+                    grayobj.img = util.fg2gray(stroke.obj.img, 200)
+                    list_of_imgobjs.append(grayobj)
+        self.obj_in_line = VisualObject.group(list_of_imgobjs, linegroup.linedir + "/sublines", imgname="line%06i_%06i.png" % (self.line_id, self.sub_line_id))
+        self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], linegroup.linedir + "/subline_strokes", imgname = "line%06i_%06i.png" % (self.line_id, self.sub_line_id))
+
+
+class LineGroup:
+    def __init__(self, list_of_sublines, line_id, linedir):
+        self.list_of_sublines = list_of_sublines
+        self.line_id = line_id
+        self.linedir = linedir
+        list_of_objs = []
+        for i in range(0, len(list_of_sublines)):
+            subline = list_of_sublines[i]
+            subline.link_linegroup(self, i)
+            for stroke in subline.list_of_strokes:
+                list_of_objs.append(stroke.obj)
+        self.obj = VisualObject.group(list_of_objs, self.linedir, imgname="line%06i.png" % (line_id))
+    
+def link_char_strokes(list_of_chars, list_of_strokes):
+    for char in list_of_chars:
+        charname = os.path.basename(char.obj.imgpath)
+        charname = os.path.splitext(charname)[0]
+        for stroke in list_of_strokes:
+            strokename = os.path.basename(stroke.obj.imgpath)
+            strokename = os.path.splitext(strokename)[0]
+            if strokename in charname:
+                stroke.list_of_chars.append(char)
+                char.stroke = stroke
+                break
+            
+def get_strokes(video, objdir):
+    list_of_strokeobjs = VisualObject.objs_from_file(video, objdir)
+    list_of_strokes = []
+    for obj in list_of_strokeobjs:
+        list_of_strokes.append(Stroke(obj, video))
+    return list_of_strokes
+
+def get_chars(video, xcutdir):
+    list_of_charobjs = VisualObject.objs_from_file(video, xcutdir)
+    list_of_chars = []
+    for charobj in list_of_charobjs:
+        list_of_chars.append(Character(charobj))
+    return list_of_chars
+
+def read_sublines(list_of_strokes, linetxt, stctxt, list_of_stcs, objdir):
+    line_ids = util.stringlist_from_txt(linetxt)
+    line_ids = util.strings2ints(line_ids)
+    line_ids.append(-1)
+    
+    stc_ids = util.stringlist_from_txt(stctxt)
+    stc_ids = util.strings2ints(stc_ids)
+    stc_ids.append(-1)
+    
+    list_of_sublines = []
+    start_i = 0
+    for i in range(0, len(list_of_strokes)):
+        cur_lineid = line_ids[i]
+        next_id = line_ids[i + 1]
+        if (cur_lineid != next_id):
+            subline = SubLine(list_of_strokes[start_i:i + 1], cur_lineid, stc_ids[start_i:i + 1], list_of_sentences, objdir)
+            list_of_sublines.append(subline)
+            start_i = i + 1
+    return list_of_sublines
+
+
+def get_sublines(list_of_strokes, linetxt, stctxt, list_of_sentences, objdir):
+    line_ids = util.stringlist_from_txt(linetxt)
+    line_ids = util.strings2ints(line_ids)
+    line_ids.append(-1)
+    
+    stc_ids = util.stringlist_from_txt(stctxt)
+    stc_ids = util.strings2ints(stc_ids)
+    stc_ids.append(-1)
+    
+    list_of_sublines = []
+    start_i = 0
+    for i in range(0, len(list_of_strokes)):
+        cur_lineid = line_ids[i]
+        next_id = line_ids[i + 1]
+        if (cur_lineid != next_id):
+            subline = SubLine(list_of_strokes[start_i:i + 1], cur_lineid, stc_ids[start_i:i + 1], list_of_sentences, objdir)
+            list_of_sublines.append(subline)
+            start_i = i + 1
+    return list_of_sublines
+
+def get_linegroups(list_of_sublines, linetxt, linedir):
+    line_ids = util.stringlist_from_txt(linetxt)
+    line_ids = util.strings2ints(line_ids)
+    numlines = len(np.unique(np.array(line_ids)))
+    list_of_linegroups = []
+    for i in range(0, numlines):
+        sublines_i = []
+        for subline in list_of_sublines:
+            if subline.line_id == i:
+                sublines_i.append(subline)
+        line_i = LineGroup(sublines_i, i, linedir)
+        list_of_linegroups.append(line_i)
+    return list_of_linegroups
+
+def draw(panorama, list_of_linegroups):
+    panorama_copy = panorama.copy()
+    for linegroup in list_of_linegroups:
+        obj = linegroup.obj
+        cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 255), 1)
+        for subline in linegroup.list_of_sublines:
+            obj = subline.obj
+            cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (255, 0, 255), 1)
+            for stcstroke in subline.list_of_stcstrokes:
+                obj = stcstroke.obj
+                cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (255, 0, 0), 1)
+                for stroke in stcstroke.list_of_strokes:
+                    obj = stroke.obj
+                    cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (255, 255, 0), 1)
+                    for char in stroke.list_of_chars:
+                        obj = char.obj
+                        cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 0), 1)
+    return panorama_copy
+
+
+def getvisuals(videopath, panoramapath, objdir, scriptpath):
+    video = Video(videopath)
+    panorama = cv2.imread(panoramapath)
+    """strokes"""
+    list_of_strokes = get_strokes(video, objdir)
+    
+    """xcut characters"""
+    xcutdir = objdir + "/xcut"
+    list_of_chars = get_chars(video, xcutdir)
+    link_char_strokes(list_of_chars, list_of_strokes)
+    
+    """sublines"""
+    linetxt = objdir + "/line_ids.txt"
+    stctxt = objdir + "/stc_ids.txt"
+    list_of_words = pjson.get_words(scriptpath)
+    list_of_stcs = pjson.get_sentences(list_of_words)
+    list_of_sentences = []
+    for stc in list_of_stcs:
+        list_of_sentences.append(Sentence(stc))
+        
+    
+    list_of_sublines = get_sublines(list_of_strokes, linetxt, stctxt, list_of_sentences, objdir)
+    
+    """lines"""
+    linedir = objdir + "/linegroups"
+    list_of_linegroups = get_linegroups(list_of_sublines, linetxt, linedir)
+    
+    list_of_stcstrokes = []
+    for subline in list_of_sublines:
+        list_of_stcstrokes = list_of_stcstrokes + subline.list_of_stcstrokes
+   
+    return [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, list_of_strokes, list_of_chars]
+     
+def panorama_lines(panorama, list_of_linegroups):
+    panorama_copy = panorama.copy()
+    for linegroup in list_of_linegroups:
+        obj = linegroup.obj
+        cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 0), 2)
+    return panorama_copy
+        
+     
+if __name__ == "__main__":
+    videopath = sys.argv[1]
+    panoramapath = sys.argv[2]
+    objdir = sys.argv[3]
+    scriptpath = sys.argv[4]
+    
+    video = Video(videopath)
+    
+    """strokes"""
+    list_of_strokes = get_strokes(video, objdir)
+    
+    """xcut characters"""
+    xcutdir = objdir + "/xcut"
+    list_of_chars = get_chars(video, xcutdir)
+    link_char_strokes(list_of_chars, list_of_strokes)
+    
+    """sublines"""
+    linetxt = objdir + "/line_ids.txt"
+    stctxt = objdir + "/stc_ids.txt"
+    list_of_words = pjson.get_words(scriptpath)
+    list_of_stcs = pjson.get_sentences(list_of_words)
+    list_of_sentences = []
+    for stc in list_of_stcs:
+        list_of_sentences.append(Sentence(stc))
+        
+    
+    list_of_sublines = get_sublines(list_of_strokes, linetxt, stctxt, list_of_sentences, objdir)
+    
+    """lines"""
+    linedir = objdir + "/linegroups"
+    list_of_linegroups = get_linegroups(list_of_sublines, linetxt, linedir)
+    VisualObject.write_to_file(linedir + "/obj_info.txt", [line.obj for line in list_of_linegroups])
+    VisualObject.write_to_file(linedir + "/sublines/obj_info.txt", [subline.obj_in_line for subline in list_of_sublines])
+    VisualObject.write_to_file(linedir + "/subline_strokes/obj_info.txt", [subline.obj for subline in list_of_sublines])
+    
+    list_of_stcstrokes = []
+    for subline in list_of_sublines:
+        list_of_stcstrokes = list_of_stcstrokes + subline.list_of_stcstrokes
+    VisualObject.write_to_file(objdir + "stcstrokes/obj_info.txt", [stcstroke.obj for stcstroke in list_of_stcstrokes])
+    
+
+            
+                
+    
+        
+            
+        
+        
+        
+        

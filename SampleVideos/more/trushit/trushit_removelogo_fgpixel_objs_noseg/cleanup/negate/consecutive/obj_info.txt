@@ -205,7 +205,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 19948	19963	410	2330	430	2361	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_019948_019963_group.png
 19968	19970	426	2352	431	2356	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_019968_019970_group.png
 20327	20365	143	2157	294	2197	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_020327_020365_group.png
-20373	20462	258	2157	479	2203	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_020373_020462_group.png
+20373	20462	258	2165	479	2203	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_020373_020462_group.png
 20467	20489	458	2184	479	2204	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_020467_020489_group.png
 20540	20573	431	2225	470	2238	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_020540_020573_group.png
 20579	20612	410	2221	430	2239	../SampleVideos/more/trushit/trushit_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_020579_020612_group.png

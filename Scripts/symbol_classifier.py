@@ -96,8 +96,6 @@ def rgb_2_binary(input_dir, output_dir):
         closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
         util.saveimage(closing, output_dir, infilenames[i])
 
-
-
 if __name__ == "__main__":
 
     data = []
@@ -105,25 +103,23 @@ if __name__ == "__main__":
     traindir = sys.argv[1]
     objdir = sys.argv[2]
     testdir = objdir + "/symbols_fill"
-#     pre_process(objdir, testdir)
-    objdir = sys.argv[3]
-    panorama = cv2.imread(sys.argv[4])
+    panorama = cv2.imread(sys.argv[3])
       
-    img_dir_list = os.listdir(sys.argv[1])
-    shape_data = []
+    img_dir_list = os.listdir(traindir)
+#     shape_data = []
     for folder in img_dir_list:
-        if os.path.isdir(sys.argv[1] + "/" + folder):
-            img_file_list = glob.glob(os.path.join(sys.argv[1] + "/" + folder,"*.png"))
-            txtfile = sys.argv[1] + "/" + folder + "/shape.txt"
-            shape_list = util.list_of_vecs_from_txt(txtfile)
+        if os.path.isdir(traindir + "/" + folder):
+            img_file_list = glob.glob(os.path.join(traindir + "/" + folder,"*.png"))
+#             txtfile = sys.argv[1] + "/" + folde///////////////////////////////////////r + "/shape.txt"
+#             shape_list = util.list_of_vecs_from_txt(txtfile)
             for image in img_file_list:
                 dirname =  os.path.dirname(folder)
                 symbol = os.path.basename(folder)
-                shape = shape_list.pop(0)
-                h = float(shape[0])
-                w = float(shape[1])
-                h_to_w = h/w
-                shape_data.append(h_to_w)
+#                 shape = shape_list.pop(0)
+#                 h = float(shape[0])
+#                 w = float(shape[1])
+#                 h_to_w = h/w
+#                 shape_data.append(h_to_w)
                 
                 if symbol == "=":
                     data.append(get_image_data(image))
@@ -153,9 +149,18 @@ if __name__ == "__main__":
     clf.fit(X_train, y_train)
     print "clf training score", clf.score(X_train, y_train)
       
-    test_shape_list = util.list_of_vecs_from_txt(testdir + "/shape.txt")
-    test_img_list, test_images = util.get_imgs(testdir, name = "obj") 
-    test_shape_data = []
+#     test_shape_list = util.list_of_vecs_from_txt(testdir + "/shape.txt")
+    list_of_objs = VisualObject.objs_from_file(None, objdir)
+    test_img_list = []
+    test_images = []
+    for obj in list_of_objs:
+        imagename = os.path.basename(obj.imgpath)
+        test_img_list.append(imagename)
+        processed_image = cv2.imread(testdir + "/" + imagename)
+        test_images.append(processed_image)
+
+#     test_img_list, test_images = util.get_imgs(testdir, name = "obj") 
+#     test_shape_data = []
     test_data = []
     test_label = []
     for image in test_img_list:
@@ -164,11 +169,11 @@ if __name__ == "__main__":
         imdata = get_image_data(testdir + "/" + image)
         if imdata is not None:
             test_data.append(imdata)
-            shape = test_shape_list.pop(0)
-            h = float(shape[0])
-            w = float(shape[1])
-            h_to_w = h/w
-            test_shape_data.append(h_to_w)
+#             shape = test_shape_list.pop(0)
+#             h = float(shape[0])
+#             w = float(shape[1])
+#             h_to_w = h/w
+#             test_shape_data.append(h_to_w)
         else:
             print "symbol_classifier Error: should not enter here"
           
@@ -185,21 +190,23 @@ if __name__ == "__main__":
     X_test = std_scaler.transform(X_test)
     test_label = clf.predict(X_test)
     match_idx = np.where(test_label == 1)[0]
+    util.write_ints(test_label.tolist(), objdir + "/equal.txt")
     print match_idx
       
     list_of_objs = VisualObject.objs_from_file(None, objdir)
     for idx in match_idx:
-        img_filename = test_img_list[idx]
-        print 'matching file', img_filename
-        for obj in list_of_objs:
-            if obj.imgpath == img_filename:
+        obj = list_of_objs[idx]
+#         img_filename = test_img_list[idx]
+#         print 'matching file', img_filename
+#         for obj in list_of_objs:
+#             if obj.imgpath == img_filename:
 #                 print 'obj.imgpath', obj.imgpath, 'img_filename', img_filename
-                cv2.rectangle(panorama, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0,0,255), 2)
-                h, w = obj.img.shape[:2]
-                print 'obj aspect ratio h/w', float(h)/float(w)
-                util.showimages([panorama], "detected object")
-                continue
-#     util.saveimage(panorama, testdir, "equal_02_04_pca50.png")
+        cv2.rectangle(panorama, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0,0,255), 2)
+#                 h, w = obj.img.shape[:2]
+#                 print 'obj aspect ratio h/w', float(h)/float(w)
+#                 util.showimages([panorama], "detected object")
+#                 continue
+    util.saveimage(panorama, objdir, "equal_symbols_03_06.png")
 #     
 #     
 #         

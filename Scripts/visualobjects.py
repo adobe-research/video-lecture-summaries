@@ -36,6 +36,7 @@ class VisualObject:
             self.members = members
         else:
             self.members = [self]
+        self.video = None
                    
     @classmethod
     def fromtext(cls, text, start_fid, end_fid):        
@@ -257,11 +258,11 @@ class VisualObject:
         obj_info.pop(0)
         obj_endts = [obj[1] for obj in obj_info]
         obj_endts = util.strings2ints(obj_endts)
-        print len(obj_info)
+#         print len(obj_info)
         for i in range(0, len(obj_info)):
             info = obj_info[i]
             imgpath = os.path.basename(str(info[6]))
-            print objdir + "/" + imgpath
+#             print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
 #             print objdir + "/" + imgpath
             objh, objw = objimg.shape[:2]
@@ -271,8 +272,24 @@ class VisualObject:
 #                 print 'ignoring', imgpath
                 continue;
             obj = VisualObject(objimg, imgpath, int(info[0]), int(info[1]), int(info[2]), int(info[3]), int(info[4]), int(info[5]))
+            obj.video = video
             obj_list.append(obj)
         return obj_list      
+    
+    @staticmethod
+    def obj_stc_distance(obj, stc, video= None):
+        if (video is None):
+            video = obj.video
+        stc_start = video.ms2fid(stc[0].startt)
+        stc_end = video.ms2fid(stc[-1].endt)
+        if (obj.end_fid <= stc_start):
+            dist = 1.0 * (stc_start - obj.end_fid)
+        elif (obj.start_fid >= stc_end):
+            dist = 1.0 * (obj.start_fid - stc_end)
+        else:
+            dist = max(obj.start_fid, stc_start) - min(obj.end_fid, stc_end) 
+        return dist
+        
     
     @staticmethod
     def write_to_file(outfilepath, list_of_objs):
@@ -326,6 +343,17 @@ class VisualObject:
         return 0
     
     @staticmethod
+    def signed_ygap_distance(obj_i, obj_j):
+        # obj i above obj j
+        if (obj_i.bry <= obj_j.tly):
+            return (obj_j.tly - obj_i.bry)
+        # obj i below obj j
+        if (obj_i.tly >= obj_j.bry):
+            return (obj_i.tly - obj_j.bry) 
+        else:
+            return -(min(obj_i.bry, obj_j.bry) - max(obj_i.tly, obj_j.tly))
+    
+    @staticmethod
     def xgap_distance(obj_i, obj_j):
         if obj_i.brx < obj_j.tlx: # obj_i left of obj_j
             return obj_j.tlx - obj_i.brx
@@ -333,6 +361,15 @@ class VisualObject:
             return obj_i.tlx - obj_j.brx
         #overlap
         return 0 
+    
+    @staticmethod
+    def signed_xgap_distance(obj_i, obj_j):
+        if obj_i.brx <= obj_j.tlx: # obj_i left of obj_j
+            return obj_j.tlx - obj_i.brx
+        elif obj_i.tlx >= obj_j.brx: #obj1 right of obj1
+            return obj_i.tlx - obj_j.brx
+        else:
+            return -(min(obj_i.brx, obj_j.brx) - max(obj_i.tlx, obj_j.tlx))
 
     @staticmethod
     def xgap_distance_list(list_of_objs1, list_of_objs2):

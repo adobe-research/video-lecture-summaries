@@ -82,8 +82,8 @@ class WriteHtml:
     def closetablecell(self):        
         self.htmlfile.write("</td>\n")
 
-    def opendiv(self, idstring="", class_string=""):
-        self.htmlfile.write("<div id=\"%s\" class=\"%s\">\n" % (idstring, class_string)) 
+    def opendiv(self, idstring="", class_string="", width=""):
+        self.htmlfile.write("<div id=\"%s\" class=\"%s\", width=\"%s\">\n" % (idstring, class_string, width)) 
         
     def closediv(self):
         self.htmlfile.write("</div>\n")
@@ -242,12 +242,12 @@ class WriteHtml:
                 fig_endt = summary.lec.video.fid2ms(stc_figobj.end_fid)
                 mouseon_figpath = self.relpath(stc_figobj.imgpath)
                 mouseout_figpath = self.relpath(summary.list_of_figures[figid].newobjpath)
-                self.writestring("<a href=\"#\" ")
-                self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\" " %(figid, mouseon_figpath))
-                self.writestring("onmouseout=\"document.getElementById(\'fig%i\').src=\'%s'\" >" %(figid, mouseout_figpath))
+#                 self.writestring("<a href=\"#\" ")
+#                 self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\" " %(figid, mouseon_figpath))
+#                 self.writestring("onmouseout=\"document.getElementById(\'fig%i\').src=\'%s'\" >" %(figid, mouseout_figpath))
                 self.write_stc(Stc.list_of_words)
 #                 self.writestring("(%i ms, %i ms) (%i ms %i ms)" %(Stc.list_of_words[0].startt, Stc.list_of_words[-1].endt, fig_startt, fig_endt))
-                self.writestring("</a>&nbsp;&nbsp;")
+#                 self.writestring("</a>&nbsp;&nbsp;")
             else:
                 self.write_stc(Stc.list_of_words)
 #                 self.writestring("(%i ms, %i ms) " %(Stc.list_of_words[0].startt, Stc.list_of_words[-1].endt))

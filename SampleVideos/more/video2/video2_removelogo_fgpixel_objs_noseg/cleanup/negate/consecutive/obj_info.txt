@@ -102,7 +102,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 14141	14218	293	992	361	1024	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_014141_014218_group.png
 14232	14257	383	999	426	1017	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_014232_014257_group.png
 14263	14323	422	991	475	1025	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_014263_014323_group.png
-15063	15362	93	1055	317	1120	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_015063_015362_group.png
+15063	15362	93	1055	318	1120	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_015063_015362_group.png
 16133	16174	323	1081	367	1108	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_016133_016174_group.png
 16232	16304	162	1131	235	1167	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_016232_016304_group.png
 16324	16380	245	1143	291	1160	../SampleVideos/more/video2/video2_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_016324_016380_group.png

@@ -1,6 +1,6 @@
 import nltk.data
 import re
-from sentence import Sentence
+from processed_stc import ProcessedSentence
 import sys
 import processvideo
 import os
@@ -37,7 +37,7 @@ def get_timed_segments(filename, endtime=None):
         content = re.sub(tregex, '', slist[i])
         content = re.sub('\n', ' ', content)
         content =  content.lstrip(" ")
-        stc = Sentence(content, startt, endt)
+        stc = ProcessedSentence(content, startt, endt)
         stcs.append(stc)
         
         #print stc.startt, stc.endt, stc.content
@@ -90,7 +90,7 @@ def get_sentences(filename, endtime):
         content = re.sub(tregex, '', s)
         content = re.sub('\n', ' ', content)
         content =  content.lstrip(" ")
-        stc = Sentence(content, startt, endt)
+        stc = ProcessedSentence(content, startt, endt)
         #print stc.content
         #print "----------------------------------"
         stcs.append(stc)
@@ -133,7 +133,7 @@ def sentences_to_slides(sentences, endts):
         text = []
         for i in range(count, len(sentences)):                    
             sentence = sentences[i]
-            #print 'endt of sentence', sentence.endt
+            #print 'endt of processed_stc', processed_stc.endt
             s_begin = sentence.startt
             s_end = sentence.endt
             #print s_end
