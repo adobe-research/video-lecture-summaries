@@ -26,7 +26,11 @@ if __name__ == "__main__":
     list_of_stcs = pjson.get_sentences(list_of_words)
     
      
-    html = WriteHtml(objdir + "/linear_summary_v3.html", "Linear Summary with Context", stylesheet ="../Mainpage/summaries_v3.css")
+    html = WriteHtml(objdir + "/linear_summary_v3_user_study.html", "Linear Summary with Context", stylesheet ="../Mainpage/summaries_v3.css")
+    
+    html.writestring("<iframe src=\"https://docs.google.com/forms/d/1rK79iFrErHIx-0jZHZQaIvOP_kwCZs4oaloe3WPX0xI/viewform?embedded=true\" width=\"780\" height=\"900\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
+    
+    html.writestring("<h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture.</h3>")
     html.writestring("<h1>%s</h1><br>"%title)
     html.figure(panoramapath, width = "98%")
     
@@ -78,6 +82,8 @@ if __name__ == "__main__":
             html.write_stc(list_of_stcs[i])
         html.closediv()
         html.closediv()
-        
+    
+    html.writestring("<p><!-- pagebreak --></p> ")
+    html.writestring("<iframe src=\"https://docs.google.com/forms/d/1tWKK9LXFuqx3-dyu26wBOLD_m9EVoWMu8braJ2vEBA0/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
     
     html.closehtml()

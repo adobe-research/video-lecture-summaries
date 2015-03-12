@@ -31,3 +31,5 @@ figure {
     width: 100%;
     align-content: center;
 }
+
+.break { page-break-after: always; }
