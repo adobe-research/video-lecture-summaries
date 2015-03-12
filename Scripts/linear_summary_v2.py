@@ -72,7 +72,7 @@ if __name__ == "__main__":
             for i in range(start_stc_id, (end_stc_id+1)):
                 html.write_stc(list_of_stcs[i])
             html.closediv()
-            cur_stc_id = subline.list_of_stcstrokes[-1].stc_id
+            cur_stc_id = subline.list_of_stcstrokes[-1].stc_id +1
         html.closediv()
     
     if (cur_stc_id < len(list_of_stcs) -1):
