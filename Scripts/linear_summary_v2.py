@@ -30,7 +30,7 @@ if __name__ == "__main__":
     
     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1rK79iFrErHIx-0jZHZQaIvOP_kwCZs4oaloe3WPX0xI/viewform?embedded=true\" width=\"780\" height=\"900\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
     
-    html.writestring("<h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture.</h3>")
+    html.writestring("<h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture. The RIGHT figure shows the line that is being discussed, and the LEFT figure shows that line in the context of the panorama.</h3>")
     html.writestring("<h1>%s</h1><br>"%title)
     html.figure(panoramapath, width = "98%")
     
