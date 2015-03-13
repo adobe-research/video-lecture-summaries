@@ -26,15 +26,15 @@ if __name__ == "__main__":
     list_of_stcs = pjson.get_sentences(list_of_words)
     
      
-    html = WriteHtml(objdir + "/linear_summary_v2_user_study.html", "Linear Summary without Context", stylesheet ="../Mainpage/summaries_v3.css")
+    html = WriteHtml(objdir + "/linear_summary_v3_user_study.html", "Linear Summary with Context", stylesheet ="../Mainpage/summaries_v3.css")
     
     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1rK79iFrErHIx-0jZHZQaIvOP_kwCZs4oaloe3WPX0xI/viewform?embedded=true\" width=\"780\" height=\"900\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
     
-    html.writestring("<h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture.</h3>")
+    html.writestring("<h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture. The RIGHT figure shows the line that is being discussed, and the LEFT figure shows that line in the context of the panorama.</h3>")
     html.writestring("<h1>%s</h1><br>"%title)
     html.figure(panoramapath, width = "98%")
     
-    figdir = objdir + "/linear_summary_v2_figures"
+    figdir = objdir + "/linear_summary_v3_figures"
     if not os.path.exists(os.path.abspath(figdir)):
         os.makedirs(os.path.abspath(figdir))
     
@@ -53,11 +53,19 @@ if __name__ == "__main__":
         
         html.opendiv(idstring="wrapper")
         
+        pline = lecturevisual.panorama_lines(panorama, [subline.linegroup])
+        pline_filename = "panorama_line_%i_%i.png"%(subline.line_id, subline.sub_line_id)
+        util.saveimage(pline, figdir, pline_filename)
+        
         html.opendiv(idstring="c1")
-        html.image(subline.obj_in_line.imgpath)
+        html.image(figdir + "/" + pline_filename)
         html.closediv()
         
         html.opendiv(idstring="c2")
+        html.image(subline.obj_in_line.imgpath)
+        html.closediv()
+        
+        html.opendiv(idstring="c3")
         if (len(subline.list_of_stcstrokes) > 0):
             start_stc_id = subline.list_of_stcstrokes[0].stc_id
             end_stc_id = subline.list_of_stcstrokes[-1].stc_id
