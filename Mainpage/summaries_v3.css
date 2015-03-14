@@ -1,13 +1,21 @@
 body {
     font-family: sans-serif;
     font-size: 100%;
-    width: 12in;
+    padding: 2em;
+    text-align: left;
+    margin: auto;
+    align-content: center;
 }
 
 #c1, #c2{
     width: 45%; 
-    display: inline-block;
+    display:inline-block;
+    text-align: left;
+    font-size: 0.875em;
+    line-height: 1.4;
+    align-content: center;
     vertical-align: middle;
+    margin:auto;
     padding: 0.5em;
 }
 
@@ -15,16 +23,22 @@ body {
     line-height: 1.4;
     font-size: 0.875em;
     max-width: 800px;
+    align-content: center;
+    margin:auto;
     padding: 0.5em;
 }
 
 img {
+    align-content: center;
     max-width: 98%;
     vertical-align: middle;
 }
 
 #wrapper {
     border: 1px solid black;
+    align-content: center;
+    margin: auto;
+    padding: 1em;
 }
 
 figure {
