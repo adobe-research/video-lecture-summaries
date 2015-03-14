@@ -35,7 +35,7 @@ img {
 }
 
 #wrapper {
-    border: 1px solid black;
+    border-bottom: 1px solid #aaa;
     align-content: center;
     margin: auto;
     padding: 1em;
