@@ -34,7 +34,7 @@ body {
 
 img {
     align-content: center;
-    max-width: 98%;
+    max-width: 100%;
     vertical-align: middle;
 }
 
@@ -46,8 +46,11 @@ img {
 }
 
 figure {
-    width: 100%;
-    align-content: center;
+    text-align: center;
+    width: 800px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    background-color: #f9f9f9;
 }
 
 .break { page-break-after: always; }
