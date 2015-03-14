@@ -10,7 +10,6 @@ body {
 #c1, #c2{
     width: 45%; 
     display:inline-block;
-    text-align: left;
     font-size: 0.875em;
     line-height: 1.4;
     align-content: center;
@@ -18,6 +17,11 @@ body {
     margin:auto;
     padding: 0.5em;
 }
+
+#c1 {
+    text-align: center;
+}
+
 
 #c0, #c3{
     line-height: 1.4;
