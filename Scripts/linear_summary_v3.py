@@ -69,7 +69,7 @@ if __name__ == "__main__":
         if (len(subline.list_of_stcstrokes) > 0):
             start_stc_id = subline.list_of_stcstrokes[0].stc_id
             end_stc_id = subline.list_of_stcstrokes[-1].stc_id
-            for i in range(start_stc_id, (end_stc_id+1)):
+            for i in range(cur_stc_id, (end_stc_id+1)):
                 html.write_stc(list_of_stcs[i])
             html.closediv()
             cur_stc_id = subline.list_of_stcstrokes[-1].stc_id +1
