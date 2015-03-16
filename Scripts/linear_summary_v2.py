@@ -48,6 +48,8 @@ if __name__ == "__main__":
                 html.opendiv(idstring="c0")
                 for i in range(cur_stc_id, start_stc_id):
                     html.write_stc(list_of_stcs[i])
+#                     print 'c00 stc', i
+                cur_stc_id = start_stc_id
                 html.closediv()
                 html.closediv()
         
@@ -59,10 +61,13 @@ if __name__ == "__main__":
         
         html.opendiv(idstring="c2")
         if (len(subline.list_of_stcstrokes) > 0):
-            start_stc_id = subline.list_of_stcstrokes[0].stc_id
+            start_stc_id = cur_stc_id
             end_stc_id = subline.list_of_stcstrokes[-1].stc_id
-            for i in range(start_stc_id, (end_stc_id+1)):
+#             print 'here', cur_stc_id, end_stc_id+1
+            for i in range(cur_stc_id, (end_stc_id+1)):
+#                 print 'c2 stc', i
                 html.write_stc(list_of_stcs[i])
+#             cur_stc_id = end_stc_id + 1
             html.closediv()
             cur_stc_id = subline.list_of_stcstrokes[-1].stc_id +1
         html.closediv()
@@ -72,6 +77,7 @@ if __name__ == "__main__":
         html.opendiv(idstring="c0")
         for i in range(cur_stc_id, len(list_of_stcs)):
             html.write_stc(list_of_stcs[i])
+#             print 'c0 stc', i
         html.closediv()
         html.closediv()
     

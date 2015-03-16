@@ -1,0 +1,5 @@
+\section{Method}
+\subsection{Time-stamped Transcript}
+Several on-line educational videos come with transcripts. In cases where transcripts were not provided, we used an on-line audio transcription service to acquire a verbatim text transcript. Then, we used a tool from \cite{rubin2013content} to compute an alignment between the video's audio file and the transcript. The final output is a time-stamped transcript, where each word is annotated with a start and end time.
+  
+\subsection{Hierarchical Segmentation of Visuals}
