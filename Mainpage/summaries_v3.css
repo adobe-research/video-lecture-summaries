@@ -54,4 +54,8 @@ figure {
     background-color: #f9f9f9;
 }
 
+#linegroup.figcaption {
+    display:none;
+}
+
 .break { page-break-after: always; }
