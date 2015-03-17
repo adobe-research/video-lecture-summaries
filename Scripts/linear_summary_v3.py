@@ -48,6 +48,7 @@ if __name__ == "__main__":
                 html.opendiv(idstring="c0")
                 for i in range(cur_stc_id, start_stc_id):
                     html.write_stc(list_of_stcs[i])
+                cur_stc_id = start_stc_id
                 html.closediv()
                 html.closediv()
         
