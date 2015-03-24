@@ -97,6 +97,7 @@ if __name__ == "__main__":
         
         html.opendiv(idstring="section%i_c2"%(sublinei), class_string="c2")
         for sentence in subline.list_of_sentences:
+            html.opendiv(idstring="c2_wrapper")
             if len(subline.list_of_sentences) <= 1:
                 html.opendiv(idstring="c2_1_lone")
                 html.paragraph_list_of_words(sentence.list_of_words, stopwords)
@@ -114,7 +115,8 @@ if __name__ == "__main__":
                 stcstroke_startt = video.fid2ms(sentence.stcstroke.obj.start_fid)
                 stcstroke_endt = video.fid2ms(sentence.stcstroke.obj.end_fid)
 #                 html.writestring("<p>%.3f - %.3f</p>"%(stcstroke_startt, stcstroke_endt))
-            html.closediv() #c2_2    
+            html.closediv() #c2_2 
+            html.closediv() #c2_wrapper   
             cur_stc_id = sentence.id+1
         html.closediv() #c2
         html.closediv() #wrapper
