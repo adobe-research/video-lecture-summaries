@@ -1,0 +1,39 @@
+body {
+    font-family: serif;
+    font-size: 100%;
+    text-align: center;
+    margin: auto;
+    align-content: center;
+}
+#c0wrapper, #c0_wrapper {
+    width: 65%;
+    text-align: left;
+    line-height: 1.3;
+    display: inline-block;
+}
+
+#c1c2_wrapper{
+    width: 65%;
+    margin-top: 1em;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 3px;
+    background-color: #f9f9f9;
+}
+
+#c2{
+    text-align: left;
+}
+
+#c1 {
+    display: inline-block;
+    text-align: center;
+    padding: 3px;
+    background-color: #f9f9f9;
+}
+
+p {
+    margin: 15;
+    line-height: 1.3;
+}

@@ -1,0 +1,96 @@
+body {
+    font-family: sans-serif;
+    font-size: 100%;
+    padding: 2em;
+    text-align: center;
+    margin: auto;
+    align-content: center;
+}
+
+#c0_wrapper, #c1c2wrapper {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 85%;
+}
+
+#c1c2wrapper{
+    border: 1px solid #ccc;
+    padding: 3px;
+    background-color: #f9f9f9;
+    margin-bottom: 1em;
+}
+
+#c1 {
+    display: inline-block;
+    text-align: center;
+    padding: 3px;
+    background-color: #f9f9f9;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    
+}
+
+.c2 {
+    width:100%;
+    padding:0px;
+    display:none;
+}
+
+
+#c2_1, #c2_2 {
+    display: inline-block;
+    width: 48%;
+    margin: 3px;
+    text-align: left;
+    line-height: 1.4;
+    font-size: 0.875em;
+    vertical-align: middle;
+}
+
+#c2_1_lone {
+    display:inline-block;
+    width:80%;
+    text-align: left;
+    line-height: 1.4;
+    font-size: 0.875em;
+}
+
+
+
+#c2wrapper {
+    border-bottom:1px dashed #aaa;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#c0{
+    line-height: 1.4;
+    font-size: 0.875em;
+    max-width: 1200px;
+    text-align: left;
+    margin:auto;
+    padding: 0.5em;
+}
+
+img {
+    align-content: center;
+    max-width: 100%;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+figcaption {
+    font-size: 15pt;
+    border: 1px dashed #747070;
+}
+
+figure {
+    margin: 0px;
+}
+
+
+p {
+    margin:3px;
+}
+

@@ -37,7 +37,7 @@ if __name__ == "__main__":
         view[curh:curh+h, (maxw-curw)/2:(maxw-curw)/2+curw, :] = obj
         curh += h
     
-    cv2.namedWindow("vew", cv2.WINDOW_NORMAL)
-    cv2.imshow("vew", view)
+    cv2.namedWindow("view", cv2.WINDOW_NORMAL)
+    cv2.imshow("view", view)
     cv2.waitKey(0)
     cv2.imwrite("capture_sum.jpg", view)

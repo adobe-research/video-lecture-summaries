@@ -13,6 +13,7 @@ class WriteHtml:
         self.numfigs = 0
         self.htmlfile.write("<html>\n")
         self.htmlfile.write("<head>\n")
+        self.htmlfile.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>")
         if stylesheet is not None:
             self.htmlfile.write("<link href=\"" )
             stylesheet = os.path.abspath(stylesheet)
@@ -88,6 +89,12 @@ class WriteHtml:
     def closediv(self):
         self.htmlfile.write("</div>\n")
         
+    def openscript(self):
+        self.htmlfile.write("<script>\n")
+    
+    def closescript(self):
+        self.htmlfile.write("</script>\n")
+        
     def writestring(self, mystring):
         self.htmlfile.write("%s" % mystring)
             
@@ -96,12 +103,21 @@ class WriteHtml:
         self.htmlfile.write("\n</html>")
         self.htmlfile.close()
     
-    def paragraph_list_of_words(self, list_of_words):
+    def paragraph_list_of_words(self, list_of_words, stopwords=[]):
         self.htmlfile.write("<p>\n")
+        self.write_list_of_words(list_of_words, stopwords)
+        self.htmlfile.write("\n</p>")
+        
+    def write_list_of_words(self, list_of_words, stopwords=[]):
         for word in list_of_words:
             if not word.issilent:
-                self.htmlfile.write(word.original_word + " ")
-        self.htmlfile.write("\n</p>")
+                if word.original_word in stopwords:
+                    self.htmlfile.write("<font color=\'red\'>")
+                    self.htmlfile.write(word.original_word + " ")
+                    self.htmlfile.write("</font>")
+                else:    
+                    self.htmlfile.write(word.original_word + " ")
+
     
     def pragraph_string(self, mystring):
         self.htmlfile.write("<p>\n")
@@ -195,10 +211,10 @@ class WriteHtml:
                 figpath = self.relpath(stc_figobj.imgpath)
                 self.writestring("<a href=\"#\" ")
                 self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\">" %(figid, figpath))
-                self.write_stc(lec.list_of_stcs[stc_id])
+                self.write_list_of_words(lec.list_of_stcs[stc_id])
                 self.writestring("</a>&nbsp;&nbsp;")
             else:
-                self.write_stc(lec.list_of_stcs[stc_id])
+                self.write_list_of_words(lec.list_of_stcs[stc_id])
         self.writestring("</p>")
             
     def figure_script(self, summary):
@@ -245,19 +261,16 @@ class WriteHtml:
 #                 self.writestring("<a href=\"#\" ")
 #                 self.writestring("onmouseover=\"document.getElementById(\'fig%i\').src=\'%s'\" " %(figid, mouseon_figpath))
 #                 self.writestring("onmouseout=\"document.getElementById(\'fig%i\').src=\'%s'\" >" %(figid, mouseout_figpath))
-                self.write_stc(Stc.list_of_words)
+                self.write_list_of_words(Stc.list_of_words)
 #                 self.writestring("(%i ms, %i ms) (%i ms %i ms)" %(Stc.list_of_words[0].startt, Stc.list_of_words[-1].endt, fig_startt, fig_endt))
 #                 self.writestring("</a>&nbsp;&nbsp;")
             else:
-                self.write_stc(Stc.list_of_words)
+                self.write_list_of_words(Stc.list_of_words)
 #                 self.writestring("(%i ms, %i ms) " %(Stc.list_of_words[0].startt, Stc.list_of_words[-1].endt))
         self.writestring("</p>")
 
             
-    def write_stc(self, list_of_words):
-        for word in list_of_words:
-            if not word.issilent:
-                self.htmlfile.write(word.original_word + " ")
+
                         
         
     def lectureseg(self, lecseg, debug=False):

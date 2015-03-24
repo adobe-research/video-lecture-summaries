@@ -5,6 +5,8 @@ import cv2
 import re
 import numpy as np
 import os
+import processframe as pf
+import sys
 
 def write_ints(list_of_ints, filename="temp.txt"):
     textfile = open(filename, "w")
@@ -136,8 +138,7 @@ def bbox_overlap(box1, box2):
     tlx = max(box1[0], box2[0])
     tly = max(box1[1], box2[1])
     brx = min(box1[2], box2[2])
-    bry = min(box1[3], box2[3])
-    
+    bry = min(box1[3], box2[3])    
     return (tlx, tly, brx, bry)
      
 def boxarea(box):
@@ -145,6 +146,31 @@ def boxarea(box):
         return 0
     else:
         return (box[2] - box[0]) * (box[3] - box[1])
+    
+def groupimages(list_of_imgobjs):
+    minx = sys.maxint
+    miny = sys.maxint
+    maxx = -1
+    maxy = -1
+    for obj in list_of_imgobjs:
+        minx = min(minx, obj.tlx)
+        miny = min(miny, obj.tly)
+        maxx = max(maxx, obj.brx)
+        maxy = max(maxy, obj.bry)
+    w = maxx - minx + 1
+    h = maxy - miny + 1
+    
+    groupimg = np.ones((h, w, 3), dtype=np.uint8)*255
+    for imgobj in list_of_imgobjs:
+        resize_img = np.ones((h,w,3), dtype=np.uint8)*255
+        tlx = imgobj.tlx - minx
+        tly = imgobj.tly - miny
+        objh, objw = imgobj.img.shape[:2]
+        resize_img[tly:tly+objh, tlx:tlx+objw] = imgobj.img
+        mask = pf.fgmask(resize_img, threshold=225, var_threshold=100)
+        idx = mask != 0
+        groupimg[idx] = resize_img[idx]
+    return groupimg
 
 def showimages(list_of_images, title="show images"):
     if list_of_images is None:

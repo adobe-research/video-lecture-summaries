@@ -23,6 +23,7 @@ def link_stc_per_obj():
     
     closest_stc_ids = []
     n_sentences = len(list_of_stcs)
+    """for each object, if it overlaps with stc, find most overlapping stc"""
     for obj in list_of_objs:
         min_dist = float("inf")
         closest_stc_id = -1
@@ -54,7 +55,7 @@ def link_stc_per_obj():
         
         html.opentablecell()
         html.writestring("%s.  " %(i+1))
-        html.write_stc(cur_stc)
+        html.write_list_of_words(cur_stc)
         html.closetablecell()
         
         html.opentablecell()

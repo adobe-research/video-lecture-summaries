@@ -27,39 +27,80 @@ class Stroke:
         self.stcgroup = None
 
 class StcStroke:
-    def __init__(self, subline, list_of_strokes, stc_id, sentence, objdir):
+    def __init__(self, subline, list_of_strokes, stc_id, sentence, stcstrokedir):
         self.subline = subline
         self.list_of_strokes = list_of_strokes
         for stroke in list_of_strokes:
             stroke.stcgroup = self
         self.stc_id = stc_id
         self.stc = sentence
-        sentence.stcstroke = self
-        self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], objdir+"/stcstrokes/", imgname = "sentence%06i.png"%(stc_id) )
+        if sentence is not None:
+            sentence.stcstroke = self
+        self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], stcstrokedir, imgname = "sentence%06i.png"%(stc_id) )
+        self.objdir = stcstrokedir
         
-
+    def obj_upto_inline(self,figdir):
+        linegroup = self.subline.linegroup
+        sub_id = self.subline.sub_line_id
+        list_of_objs = []
+        print 'sub_id', sub_id
+        for i in range(0, sub_id): #all previous sublines
+            grayobj = linegroup.list_of_sublines[i].obj.copy()
+            grayobj.img = util.fg2gray(grayobj.img, 175)
+            list_of_objs.append(grayobj)
+        for stcstroke in self.subline.list_of_stcstrokes:
+            list_of_objs.append(stcstroke.obj)
+            if stcstroke == self:
+                break
+        print 'stc_id', self.stc_id
+        print 'len(list_of_objs)', len(list_of_objs)
+        obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_stc%i.png"%(linegroup.line_id, sub_id, self.stc_id))
+        return obj
+        
 class SubLine:
-    def __init__(self, list_of_strokes, line_id, stc_ids, list_of_sentences, objdir):
+    def __init__(self, list_of_strokes, line_id, sub_line_id, sublinedir):
         self.list_of_strokes = list_of_strokes
         self.line_id = line_id
-        self.sub_line_id = -1        
+        self.sub_line_id = sub_line_id     
+        self.list_of_sentences = []   
         self.list_of_stcstrokes = []
-        stc_ids.append(-1)
-        start_i = 0
-        for i in range(0, len(self.list_of_strokes)):
-            cur_stcid = stc_ids[i]
-            next_id = stc_ids[i + 1]
-            if (cur_stcid != next_id):
-                sentence = list_of_sentences[cur_stcid]
-                stcstroke = StcStroke(self, self.list_of_strokes[start_i:i+1], cur_stcid, sentence, objdir)
-                self.list_of_stcstrokes.append(stcstroke)
-                start_i = i + 1
         self.linegroup = None
         self.obj_in_line = None
+        self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], sublinedir, imgname = "line%06i_%06i.png" % (self.line_id, self.sub_line_id))
+        self.objdir = sublinedir
         
-    def link_linegroup(self, linegroup, sub_line_id):
+    def link_stcstrokes(self, stcstrokedir):
+        """link each stroke in self.list_of_strokes to one and only one of self.list_of_stcs"""
+        n_stcs = len(self.list_of_sentences)
+        if (n_stcs == 0):
+            stcstroke = StcStroke(self, self.list_of_strokes, -1, None, stcstrokedir)
+            self.list_of_stcstrokes.append(stcstroke)
+            return
+        
+        closest_stc_ids = []
+        for stroke in self.list_of_strokes:
+            min_dist = float("inf")
+            closest_stc_id = -1
+            for i in range(0, n_stcs):
+                stc = self.list_of_sentences[i]
+                dist = VisualObject.obj_stc_distance(stroke.obj, stc.list_of_words, stc.video)
+                if (dist < min_dist):
+                    min_dist = dist
+                    closest_stc_id = i
+            closest_stc_ids.append(closest_stc_id)
+            
+        closest_stc_ids = np.array(closest_stc_ids)
+        for i in range(0, n_stcs):
+            stc = self.list_of_sentences[i]
+            stroke_ids = np.where(closest_stc_ids == i)[0]
+            if (len(stroke_ids) > 0):
+                stc_list_of_strokes = [self.list_of_strokes[x] for x in stroke_ids]
+                stcstroke = StcStroke(self, stc_list_of_strokes, stc.id, stc, stcstrokedir)
+                self.list_of_stcstrokes.append(stcstroke)
+                
+        
+    def link_linegroup(self, linegroup):
         self.linegroup = linegroup
-        self.sub_line_id = sub_line_id
         list_of_imgobjs = []
         for subline in linegroup.list_of_sublines:
             if subline == self:
@@ -70,8 +111,7 @@ class SubLine:
                     grayobj = stroke.obj.copy()
                     grayobj.img = util.fg2gray(stroke.obj.img, 200)
                     list_of_imgobjs.append(grayobj)
-        self.obj_in_line = VisualObject.group(list_of_imgobjs, linegroup.linedir + "/sublines", imgname="line%06i_%06i.png" % (self.line_id, self.sub_line_id))
-        self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], linegroup.linedir + "/subline_strokes", imgname = "line%06i_%06i.png" % (self.line_id, self.sub_line_id))
+        self.obj_in_line = VisualObject.group(list_of_imgobjs, self.objdir, imgname="inline%06i_%06i.png" % (self.line_id, self.sub_line_id))
 
 
 class LineGroup:
@@ -82,10 +122,20 @@ class LineGroup:
         list_of_objs = []
         for i in range(0, len(list_of_sublines)):
             subline = list_of_sublines[i]
-            subline.link_linegroup(self, i)
+            subline.link_linegroup(self)
             for stroke in subline.list_of_strokes:
                 list_of_objs.append(stroke.obj)
         self.obj = VisualObject.group(list_of_objs, self.linedir, imgname="line%06i.png" % (line_id))
+        
+    def obj_upto_subline(self, subline_id):
+        list_of_objs = []
+        for i in range(0, subline_id):
+            grayobj = self.list_of_sublines[i].obj.copy()
+            grayobj.img = util.fg2gray(grayobj.img, 175)
+            list_of_objs.append(grayobj)
+        list_of_objs.append(self.list_of_sublines[subline_id].obj)
+        return list_of_objs
+        
     
 def link_char_strokes(list_of_chars, list_of_strokes):
     for char in list_of_chars:
@@ -113,46 +163,53 @@ def get_chars(video, xcutdir):
         list_of_chars.append(Character(charobj))
     return list_of_chars
 
-def read_sublines(list_of_strokes, linetxt, stctxt, list_of_stcs, objdir):
+def get_sublines(list_of_strokes, linetxt, list_of_sentences, sublinedir, stcstrokesdir):
     line_ids = util.stringlist_from_txt(linetxt)
     line_ids = util.strings2ints(line_ids)
+    n_lines = len(np.unique(np.array(line_ids)))
     line_ids.append(-1)
     
-    stc_ids = util.stringlist_from_txt(stctxt)
-    stc_ids = util.strings2ints(stc_ids)
-    stc_ids.append(-1)
-    
     list_of_sublines = []
+    sub_ids = [0 for x in range(0, n_lines)]
     start_i = 0
     for i in range(0, len(list_of_strokes)):
         cur_lineid = line_ids[i]
         next_id = line_ids[i + 1]
         if (cur_lineid != next_id):
-            subline = SubLine(list_of_strokes[start_i:i + 1], cur_lineid, stc_ids[start_i:i + 1], list_of_sentences, objdir)
+            sub_lineid = sub_ids[cur_lineid]
+            subline = SubLine(list_of_strokes[start_i:i + 1], cur_lineid, sub_lineid, sublinedir)
+            sub_ids[cur_lineid] += 1
             list_of_sublines.append(subline)
             start_i = i + 1
+   
+    link_stc_to_sublines(list_of_sentences, list_of_sublines)    
+    for subline in list_of_sublines:
+        subline.link_stcstrokes(stcstrokesdir)
+                 
     return list_of_sublines
 
-
-def get_sublines(list_of_strokes, linetxt, stctxt, list_of_sentences, objdir):
-    line_ids = util.stringlist_from_txt(linetxt)
-    line_ids = util.strings2ints(line_ids)
-    line_ids.append(-1)
+def link_stc_to_sublines(list_of_stcs, list_of_sublines):
+    """sentence is associated with a subline, or none"""
+    for subline in list_of_sublines:
+        del subline.list_of_sentences[:]
     
-    stc_ids = util.stringlist_from_txt(stctxt)
-    stc_ids = util.strings2ints(stc_ids)
-    stc_ids.append(-1)
-    
-    list_of_sublines = []
-    start_i = 0
-    for i in range(0, len(list_of_strokes)):
-        cur_lineid = line_ids[i]
-        next_id = line_ids[i + 1]
-        if (cur_lineid != next_id):
-            subline = SubLine(list_of_strokes[start_i:i + 1], cur_lineid, stc_ids[start_i:i + 1], list_of_sentences, objdir)
-            list_of_sublines.append(subline)
-            start_i = i + 1
-    return list_of_sublines
+    n_sublines = len(list_of_sublines)
+    closest_subline_ids = []
+    for stc in list_of_stcs:
+        closest_subline = None
+        closest_id = -1
+        min_dist = float("inf")
+        for i in range(0, n_sublines):
+            subline = list_of_sublines[i]
+            dist = VisualObject.obj_stc_distance(subline.obj, stc.list_of_words, stc.video)
+            if (dist < 0 and dist < min_dist):
+                min_dist = dist
+                closest_subline = list_of_sublines[i]
+                closest_id = i
+        closest_subline_ids.append(closest_id)
+        if (closest_subline is not None):
+            closest_subline.list_of_sentences.append(stc)    
+    return closest_subline_ids
 
 def get_linegroups(list_of_sublines, linetxt, linedir):
     line_ids = util.stringlist_from_txt(linetxt)
@@ -200,16 +257,18 @@ def getvisuals(videopath, panoramapath, objdir, scriptpath):
     link_char_strokes(list_of_chars, list_of_strokes)
     
     """sublines"""
+    sublinedir = objdir + "/sublines_15_03_18"
+    stcstrokesdir = objdir + "/stcstrokes_15_03_18"
     linetxt = objdir + "/line_ids.txt"
-    stctxt = objdir + "/stc_ids.txt"
     list_of_words = pjson.get_words(scriptpath)
     list_of_stcs = pjson.get_sentences(list_of_words)
     list_of_sentences = []
+    stcid = 0
     for stc in list_of_stcs:
-        list_of_sentences.append(Sentence(stc))
-        
+        list_of_sentences.append(Sentence(stc, video, stcid))
+        stcid += 1
     
-    list_of_sublines = get_sublines(list_of_strokes, linetxt, stctxt, list_of_sentences, objdir)
+    list_of_sublines = get_sublines(list_of_strokes, linetxt, list_of_sentences, sublinedir, stcstrokesdir)
     
     """lines"""
     linedir = objdir + "/linegroups"
@@ -219,7 +278,7 @@ def getvisuals(videopath, panoramapath, objdir, scriptpath):
     for subline in list_of_sublines:
         list_of_stcstrokes = list_of_stcstrokes + subline.list_of_stcstrokes
    
-    return [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, list_of_strokes, list_of_chars]
+    return [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, list_of_strokes, list_of_chars, list_of_sentences]
      
 def panorama_lines(panorama, list_of_linegroups):
     panorama_copy = panorama.copy()
@@ -247,27 +306,41 @@ if __name__ == "__main__":
     
     """sublines"""
     linetxt = objdir + "/line_ids.txt"
-    stctxt = objdir + "/stc_ids.txt"
     list_of_words = pjson.get_words(scriptpath)
     list_of_stcs = pjson.get_sentences(list_of_words)
     list_of_sentences = []
+    stcid = 0
     for stc in list_of_stcs:
-        list_of_sentences.append(Sentence(stc))
-        
+        list_of_sentences.append(Sentence(stc, video, stcid))
+        stcid += 1
     
-    list_of_sublines = get_sublines(list_of_strokes, linetxt, stctxt, list_of_sentences, objdir)
-    
-    """lines"""
-    linedir = objdir + "/linegroups"
-    list_of_linegroups = get_linegroups(list_of_sublines, linetxt, linedir)
-    VisualObject.write_to_file(linedir + "/obj_info.txt", [line.obj for line in list_of_linegroups])
-    VisualObject.write_to_file(linedir + "/sublines/obj_info.txt", [subline.obj_in_line for subline in list_of_sublines])
-    VisualObject.write_to_file(linedir + "/subline_strokes/obj_info.txt", [subline.obj for subline in list_of_sublines])
-    
+    sublinedir = objdir + "/sublines_15_03_18"
+    stcstrokesdir = objdir + "/stcstrokes_15_03_18"
+    if not os.path.exists(os.path.abspath(sublinedir)):
+        os.makedirs(os.path.abspath(sublinedir))
+    if not os.path.exists(os.path.abspath(stcstrokesdir)):
+        os.makedirs(os.path.abspath(stcstrokesdir))
+
+    list_of_sublines = get_sublines(list_of_strokes, linetxt, list_of_sentences, sublinedir, stcstrokesdir)
+    VisualObject.write_to_file(sublinedir + "/obj_info.txt", [subline.obj for subline in list_of_sublines])
+
     list_of_stcstrokes = []
     for subline in list_of_sublines:
         list_of_stcstrokes = list_of_stcstrokes + subline.list_of_stcstrokes
-    VisualObject.write_to_file(objdir + "stcstrokes/obj_info.txt", [stcstroke.obj for stcstroke in list_of_stcstrokes])
+    VisualObject.write_to_file(stcstrokesdir + "/obj_info.txt", [stcstroke.obj for stcstroke in list_of_stcstrokes])
+
+
+
+    """lines and sublines_inline"""
+    linedir = objdir + "/linegroups_15_03_18"
+    if not os.path.exists(os.path.abspath(linedir)):
+        os.makedirs(os.path.abspath(linedir))
+
+    list_of_linegroups = get_linegroups(list_of_sublines, linetxt, linedir)
+    
+    VisualObject.write_to_file(linedir + "/obj_info.txt", [line.obj for line in list_of_linegroups])
+    VisualObject.write_to_file(sublinedir + "/inline_obj_info.txt", [subline.obj_in_line for subline in list_of_sublines])
+    
     
 
             

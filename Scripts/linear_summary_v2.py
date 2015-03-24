@@ -26,17 +26,13 @@ if __name__ == "__main__":
     list_of_stcs = pjson.get_sentences(list_of_words)
     
      
-    html = WriteHtml(objdir + "/linear_summary_v2_user_study.html", "Linear Summary without Context", stylesheet ="../Mainpage/summaries_v3.css")
+    html = WriteHtml(objdir + "/test_lecturevisual.html", "Linear Summary without Context", stylesheet ="../Mainpage/summaries_v3.css")
     
     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1rK79iFrErHIx-0jZHZQaIvOP_kwCZs4oaloe3WPX0xI/viewform?embedded=true\" width=\"780\" height=\"900\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
     
     html.writestring("<h3>The first figure following the title shows a panoramic view of the entire lecture board. The following note presents figures and transcript in the order they appear in the lecture.</h3>")
     html.writestring("<h1>%s</h1><br>"%title)
     html.figure(panoramapath, width = "98%")
-    
-    figdir = objdir + "/linear_summary_v2_figures"
-    if not os.path.exists(os.path.abspath(figdir)):
-        os.makedirs(os.path.abspath(figdir))
     
     cur_stc_id = 0
     
@@ -47,7 +43,7 @@ if __name__ == "__main__":
                 html.opendiv(idstring="wrapper")
                 html.opendiv(idstring="c0")
                 for i in range(cur_stc_id, start_stc_id):
-                    html.write_stc(list_of_stcs[i])
+                    html.write_list_of_words(list_of_stcs[i])
 #                     print 'c00 stc', i
                 cur_stc_id = start_stc_id
                 html.closediv()
@@ -66,7 +62,7 @@ if __name__ == "__main__":
 #             print 'here', cur_stc_id, end_stc_id+1
             for i in range(cur_stc_id, (end_stc_id+1)):
 #                 print 'c2 stc', i
-                html.write_stc(list_of_stcs[i])
+                html.write_list_of_words(list_of_stcs[i])
 #             cur_stc_id = end_stc_id + 1
             html.closediv()
             cur_stc_id = subline.list_of_stcstrokes[-1].stc_id +1
@@ -76,7 +72,7 @@ if __name__ == "__main__":
         html.opendiv(idstring="wrapper")
         html.opendiv(idstring="c0")
         for i in range(cur_stc_id, len(list_of_stcs)):
-            html.write_stc(list_of_stcs[i])
+            html.write_list_of_words(list_of_stcs[i])
 #             print 'c0 stc', i
         html.closediv()
         html.closediv()
