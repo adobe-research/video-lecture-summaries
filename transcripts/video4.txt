@@ -1,218 +1,63 @@
-0:08in last video we
-0:10the assumptions that are made when we consider
-0:13theory and there
-0:15key assumptions the first is the cause morjera principle which says that
-0:19on large enough scales large
-0:22scales the universe is
-0:25both homogeneous which means it looks the same at all points
-0:29and isotropic so there's no special directions in the univers
-0:33an hour second assumption was that
-0:36all the laws of physics that we have studied and come to understand
-0:40are valid everywhere in the universe and for the purposes
-0:45stating the Big Bang probably the most important law
-0:48a physics is general tivity and general to be is
-0:52feinstein's theory of gravity but incentive
-0:55describing gravity as a pulling force eisenstein describes gravity as
-1:01the fact love matter and energy actually
-1:04curving space-time and
-1:07when you have a curved spacetime the curvature of that space time will
-1:11actually tell
-1:12matter in energy how to move and how to flow
-1:15and in this picture one of the most important things is that
-1:20space is not just some fixed background
-1:25that matter and energy move around on rather
-1:29space-time will actually take a dynamical me
-1:32and involve rate along with matter and energy as the universal
-1:36so it's going to be very important for us to understand
-1:39the geometry of the space-time so good place to start from here
-1:44is saying well if the geometry of space is going to be so important
-1:48what kinds of geometry scan I have
-1:51that satisfy the cosmological principle I'm geometry is gonna have that are both
-1:56homogeneous and isotropic and for the purposes
-2:00simplicity we're just going to you start by considering some
-2:04two-dimensional surfaces two dimensional spaces
-2:09and by considering the spaces will learn the general properties that
-2:14some of these different geometries can have and
-2:17the are very now very analogous cases to
-2:20three dimensional spaces your universe has three dimensions so
-2:24book the lessons we learned looking at two dimensional spaces
-2:27all right through to the 3d is to the first
-2:31tape up space that we can have is probably one that were most comfortable
-2:35with
-2:36the idea I love just say on infinite flat planes
-2:40let's just say I have some
-2:43plane that extends in all directions so this is flat
-2:46its infinite in size in
-2:50and all love the rules have geometry that we've
-2:55learned in grade school still applies so if I draw
-2:58say a triangle on MySpace then
-3:02the angles of that triangle will add up
-3:05to 180 degrees is a rule that
-3:08we've probably all learning public school and probably familiar to most
-3:12it still applies in this case and we notice that
-3:16this space if it's a infinite extent
-3:19is homogeneous there's no special points on here
-3:22and its isotropic there's no special directions now this isn't the only kind
-3:27of space that week
-3:28for example we could consider the surface of a sphere
-3:32drugs year and
-3:37this space will have different geometric properties
-3:40so we would see that this piece is positively curved
-3:43positively curved
-3:47and we noticed that this space
-3:51is actually a finite space there's only so much
-3:54period so it's fine 8 but
-3:58even though it's a finite space it still has no wage too if I were
-4:02two-dimensional person living on this on this two-dimensional surface
-4:06I could walk around and around and never come into any boundary or anything
-4:10and if I look at my
-4:14you know general rules and geometry if I make a triangle
-4:17on this curved surface the triangle might look something like this:
-4:21and this triangle where each of these lines are following
-4:24straight lines on this curved space if I
-4:28sum up the angle said the strike makes then
-4:31the angles will actually some up to you more than a hundred me degrees
-4:36so it's a very different kind of geometry then the flight geometry we're
-4:40used to
-4:40however this geometry is still
-4:44homogeneous and isotropic if I'm living on the server
-4:47on this surface there's no special points and there's no special directions
-4:52still satisfies the cosmological principle
-4:56now there's another table space that I can have and that is
-4:59a negative leakers space in this ones kinda difficult to draw so let's see how
-5:02I do it this
-5:04it kinda looks like this she a sample
-5:08so so we have the Sun or shade and we say this has
-5:11negative curvature negative the
-5:16occur this space like the
-5:20plane would be infinite incise
-5:24extending these directions 0 as far as you wanna go
-5:28but when I look at a a triangle on this shape
-5:32following straight lines on the skirt space the triangle might look something
-5:36like this:
-5:38and the angles have that triangle would add up to you
-5:42less than a hundred need degrees so again we have a different type
-5:45geometry with this geometry is also going to be
-5:49homogeneous and isotropic so it's still on the ballot possibility for
-5:54for the shipper for universe now there are
-5:57other geometry SEDAR that are out there that could exist
-6:01for instance I could have and service fear I could have some sort of
-6:05egg shape but we notice when looking at this
-6:09X shape that the curvature at the at the very top of the egg
-6:14is going to be different than the curvature on the side of the eggs signs
-6:17of the eggs
-6:18are the Aggies much more flattened the very
-6:21in the very tip so that means these two points
-6:25are going to be different and that goes against
-6:28our are a cosmological principle this space would not be homogeneous anymore
-6:33either
-6:34differences between spaces so even though we could have
-6:38other geometries these are the only three
-6:41kinds of geometry that we can have for the universe
-6:44that are both homogeneous and isotropic
-6:48and in order to identify Witcher the shapes
-6:51actually describes our universe were alternately going to have to go
-6:54and measure something to you identify which type it is but we'll talk about
-6:59that serve thing later now looking at these two
-7:03curved geometry is you might be saying well
-7:06these can actually describe what the universe looks like I can you know
-7:09get to friends and a couple pieces a string in and go out and form a triangle
-7:15and measure the angles in a triangle in a notice that the land up to 180 degrees
-7:20like the flat plains ok so this must be unambiguously what are
-7:25with the shipper universes and my response to that would be
-7:29if you look this at the surface
-7:33for instance this fear on very very small spaces
-7:38on very small scales then
-7:41this little patch will appear to be almost flat
-7:46for the same reason that people for hundreds of years thought that the earth
-7:50was flat
-7:51if you're only looking on small scales the
-7:54surface appear seems like it's only when you kinda walk-on
-7:57larger scales that you realize that the year
-8:00is actually round so for all the surfaces
-8:04if you look on smaller scales will appear flat
-8:08but with modern technology and modern telescopes were actually able to see far
-8:13enough
-8:14to begin to test the kinda large-scale
-8:18properties the geometry of our universe
-8:21so if this can a length scale
-8:24is on the order of billions of light-years
-8:27then looking on scales like the earth and the solar system
-8:32you're not going to be able to notice the curvature space on the scales
-8:38now when working with these curved spaces
-8:41there's something that's very very important note: and is a source
-8:45love lot of confusion when it comes to talking about the geometry of the early
-8:49universe
-8:51and that is the idea love when I
-8:54draw this picture just for kinda simplicity in
-8:58in our understanding of this geometry I Drive as
-9:01the two-dimensional surface love a three-dimensional spear
-9:07and the truth is that if I have this
-9:11two-dimensional space I can completely describe
-9:15that two-dimensional space using only the properties
-9:19on that surface without ever having to refer to you
-9:24some third dimension volume this object or
-9:27or anything else it can be completely on its own
-9:31perfectly valid two-dimensional space in is actually fairly easy to describe
-9:35mathematically
-9:37same with this other curb geometry I can completely describe that
-9:40without ever referring to any higher dimensional space
-9:45so when we start talking about universe
-9:48expanding and contracting what we're talking about is
-9:52I have this so homogeneous I'm isotropic geometry
-9:57and maybe that geometry start small
-10:01and then that geometry expands
-10:05into you some into some what we would call
-10:09larger geometry there's more surface area here
-10:12than there is here but what people often want to say
-10:17is that there is some higher dimensional space
-10:20that this object that this surface is expanding into
-10:24but I can describe a love the geometry
-10:28completely staying on this surface without
-10:31ever leaving the service a higher dimension
-10:34does not have to exist in order for this to be
-10:38a consistent theory and when we talk
-10:42more about the expansion of the universe this is the kind of expansion
-10:46were talking about this geometry space itself
-10:49changing and if I have say two points on the surface
-10:54then shipping
-10:57brighter color then if I am cue
-11:01points on this surface then
-11:04as this space expands
-11:07then these two points will appear to be
-11:11further apart it'll take longer for like to bounce back and forth
-11:14and this doesn't just happen for curved geometry so I can have this plan
-11:17geometry
-11:19starting in a a somewhat kinda
-11:22compressed state you can say so so these two points are close together in
-11:27takes like certain amount of time to bounce between knows
-11:30but that geometry through general to be because we said that
-11:36in according to general to be space-time
-11:39can actually evolving changing based on the matter and energy that's in it
-11:44so this piece can actually expand
-11:50and these two points will be
-11:53further the be moved farther away from each other it'll take away
-11:57a longer amount of time to travel between those two points
-12:00but one of the important things to know when we're considering these expending
-12:04geometry is
-12:05is that we do not need to have
-12:08some higher dimension that this thing is expanding into we don't have
-12:13compressed matter and empty space outside this is expanding into
-12:17we can completely describe this simply as
-12:21the geometry this space is changing
-12:25only talking about only using on these
-12:28better on that geometry not any were
-12:32anywhere else here so when people sometimes say that
-12:35the universe is expanding into something that's like saying
-12:40I have bar that has a certain amount of temperature
-12:44and that temperature is is increasing and what is that temperature increasing
-12:48into
-12:49when we talk about it that way this question what is the universe is
-12:52expanding into just
-12:54doesn't make sense anymore so so that's
-12:57very important point that I really want to emphasize
-13:00their does not have to be some higher dimensional space at this is expanding
-13:05into
-13:05and we'll talk a little bit more about how the universe expands
-13:11and what's router fax the expansion of the universe has
-13:15in future videos
+In the last video, we considered some of the assumptions that are made when we consider the Big Bang theory. There are two key assumptions. The first is the cosmological principle which says that on large enough scales the universe is both homogeneous, which means it looks the same at all points, and isotropic, so there's no special directions in the universe.
+
+Our second assumption was that all of the laws of physics that we have studied and come to understand are valid everywhere in the universe. For the purposes of studying the Big Bang, probably the most important law of physics is general relativity.
+
+General relativity is Einstein's theory of gravity. But instead of describing gravity as a pulling force, Einstein describes gravity as the effect of matter and energy actually curving spacetime. When you have a curved spacetime, the curvature of that spacetime will actually tell matter and energy how to move and how to flow.
+
+In this picture, one of the most important things is that space is not just some fixed background that matter and energy move around on, rather spacetime will actually take a dynamical role and evolve right along with matter and energy as the universe evolves. It's going to be very important for us to understand the geometry of this spacetime.
+
+A good place to start from here is saying, "Well, if the geometry of space is gonna be so important, what kinds of geometries can I have that satisfy the cosmological principle? What kind of geometries can I have that are both homogeneous and isotropic?"
+
+For the purposes of simplicity, we're just going to start by considering some two-dimensional surfaces, two-dimensional spaces. By considering these spaces, we'll learn the general properties that some of these different geometries can have. They have very analogous cases to three-dimensional spaces.
+
+We know our universe has three dimensions. But the lessons we learn looking at two-dimensional spaces will follow right through to the 3D case. The first type of space that we can have is probably one that we're most comfortable with -- the idea of just, say, an infinite flat plane.
+
+Let's just say I have some plane that extends in all directions. This is flat. It's infinite in size. All of the rules of geometry that we've learned in grade school still apply. If I draw, say, a triangle on this space, then the angles of that triangle will add up to 180 degrees. This is a rule that we've probably all learned in public school and, hopefully, familiar to most. It still applies in this case.
+
+We notice that this space, if it's infinite in extent, is homogeneous, -- there's no special points on here -- and it's isotropic -- there's no special directions. This isn't the only kind of space that we could have. For example, we could consider the surface of a sphere, so let's draw a sphere. This space will have different geometric properties. We would say that this space is positively curved.
+
+We notice that this space is actually a finite space. There's only so much area it has, so it's finite. But, even though it's a finite space, it still has no edge to it. If I were a two-dimensional person living on this two-dimensional surface, I could walk around and around and never come into any boundary or anything.
+
+If I look at my general rules of geometry, if I make a triangle on this curved surface, the triangle might look something like this. This triangle where each of these lines are following straight lines on this curved space, if I sum up the angles that this triangle makes, then the angles will actually sum up to more than 180 degrees.
+
+It's a very different kind of geometry than the flat geometry we're used to. However, this geometry is still homogeneous and isotropic. If I'm living on this surface, there's no special points, and there's no special direction. It still satisfies the cosmological principle. There's another type of space that I can have. That is a negatively curved space.
+
+This one is kind of difficult to draw, so let's see how I do with this. It kind of looks like this shape of a saddle. We have this saddle shape, and we say this has negative curvature, negatively curved. This space, like the plane, would be infinite in size. It would extend in these directions out as far as you want to go.
+
+But when I look at a triangle on this shape, following straight lines on this curved space, the triangle might look something like this. The angles of that triangle would add up to less than 180 degrees. Again, we have a different type of geometry. But this geometry is also going to be homogeneous and isotropic. It's still a valid possibility for the shape of our universe.
+
+There are other geometries that are out there, that could exist. For instance, instead of a sphere, I could have some sort of egg shape. But we notice, when looking at this egg shape, that the curvature at the very top of the egg is going to be different than the curvature on the side of the egg. The side of the egg is much more flat than the very tip of it.
+
+That means these two points are going to be different. That goes against our cosmological principle. This space would not be homogeneous anymore. There are differences between those spaces. Even though we could have other geometries, these are the only three kinds of geometries that we can have for the universe that are both homogeneous and isotropic.
+
+In order to identify which of these shapes actually describes our universe, we're ultimately going to have to go and measure something to identify which type it is. But we'll talk about that sort of thing later.
+
+Now, looking at these two curved geometries, you might be saying, "Well, these can't actually describe what the universe looks like. I can, you know, get two friends and a couple of pieces of string and, and go out and form a triangle, and measure the angles in that triangle. And I notice that they'll add up to 180 degrees, like the flat plane. So, so this must be unambiguously what the shape of our universe is."
+
+My response to that would be, "If you look at this, um, at this surface of, for instance, this sphere on very, very small spaces, on very small scales, then this little patch will appear to be almost flat for the same reason that people for hundreds of years thought that the Earth was flat."
+
+If you're only looking on small scales, the surface of the Earth seems flat. It's only when you kind of look on larger scales that you realize that the Earth is actually round. For all of these surfaces, if you look on small enough scales, it will appear flat.
+
+But with modern technology and modern telescopes, we're actually able to see far enough to begin to test the kind of large-scale properties of the geometry of our universe. If this kind of length scale is on the order of billions of light years, then looking on scales like the Earth and the solar system, you're not going to be able to notice the curvature of space on those scales.
+
+When working with these curved spaces, there's something that's very, very important to note and is a source of a lot of confusion when it comes to talking about the geometry of the early universe. That is the idea of, "When I draw this picture just for kind of simplicity and, and our understanding of this geometry, I draw it as the two-dimensional surface of a three-dimensional sphere."
+
+The truth is that if I have this two-dimensional space, I can completely describe that two-dimensional space using only the properties on that surface without ever having to refer to some third dimension, the volume of this object, or anything else. It can be completely on its own a perfectly valid two-dimensional space. It's actually fairly easy to describe mathematically.
+
+Same with this other curved geometry. I can completely describe that without ever referring to any higher dimensional space. When we start talking about the universe expanding and contracting, what we're talking about is, "I have this homogeneous and isotropic geometry, and maybe that geometry starts small. And then that geometry expands into some, into some what we would call a larger geometry."
+
+There's more surface area here than there is here. But what people often want to say is that there is some higher dimensional space that this object, that this surface is expanding into. But I can describe all of the geometry completely staying on this surface, without ever leaving this surface.
+
+A higher dimension does not have to exist in order for this to be a consistent theory. When we talk more about the expansion of the universe, this is the kind of expansion that we're talking about, this geometry of space itself changing.
+
+If I have, say, two points on this surface, -- here, let's see if I can get a bit brighter color -- then, as this space expands, these two points will appear to be farther apart. It will take longer for light to bounce back and forth. This doesn't just happen for curved geometries. I can have this flat geometry starting in a somewhat kind of compressed state, you can say.
+
+These two points start close together. Then it takes light a certain amount of time to bounce between those. But that geometry, through general relativity, -- because we said that according to general relativity spacetime can actually evolve and change based on the matter and energy that's in it -- this space can actually expand. These two points will be moved farther away from each other.
+
+It will take light a longer amount of time to travel between those two points. But one of the important things to note when we're considering these expanding geometries is that we do not need to have some higher dimension that this thing is expanding into. We don't have compressed matter and empty space outside that this is expanding into.
+
+We can completely describe this simply as, "The geometry of this space is changing" only using quantities that are on that geometry, not anywhere else out here. When people sometimes say that the universe is expanding into something, that's like saying, "I have a, a burrow that has a certain amount of temperature, and that temperature is, is increasing. And what is that temperature increasing into?"
+
+When we talk about it that way, this question of, "What is the universe expanding into?" just doesn't make sense anymore. That's a very important point that I really want to emphasize. There does not have to be some higher dimensional space that this is expanding into.
+
+We'll talk a little bit more about how the universe expands and what sort of effects the expansion of the universe has in future videos.
