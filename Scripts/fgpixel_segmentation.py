@@ -23,9 +23,6 @@ def read_obj_fids(objfidspath):
         objfids.append((int(fids[0]), int(fids[1])))
     return objfids
 
-
-
-
 def get_object_start_end_frames(numfg, video, outfile=None):
     object_fids = []
     drawing = False

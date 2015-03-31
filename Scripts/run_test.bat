@@ -1,7 +1,9 @@
-python test.py ../SampleVideos/more/video3/video3_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
-python test.py ../SampleVideos/more/video4/video4_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
-python test.py ../SampleVideos/more/video5/video5_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
-python test.py ../SampleVideos/more/video6/video6_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
-python test.py ../SampleVideos/more/video7/video7_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
-python test.py ../SampleVideos/more/video8/video8_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
-python test.py ../SampleVideos/more/tecmath1/tecmath1_removelogo_fgpixel_objs_noseg/cleanup/negate/consecutive/ 
+python trackcursor.py ../SampleVideos/more/video1/video1.mp4 ../SampleVideos/more/video1/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/video2/video2.mp4 ../SampleVideos/more/video2/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/video3/video3.mp4 ../SampleVideos/more/video3/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/video4/video4.mp4 ../SampleVideos/more/video4/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/video5/video5.mp4 ../SampleVideos/more/video5/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/video7/video7.mp4 ../SampleVideos/more/video7/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/video8/video8.mp4 ../SampleVideos/more/video8/logo/logo1.png
+python trackcursor.py ../SampleVideos/more/trushit/trushit.mp4 ../SampleVideos/more/trushit/tlogo/logo1.png
+python trackcursor.py ../SampleVideos/more/tecmath1/tecmath1.mp4 ../SampleVideos/more/tecmath1/logo/logo1.png

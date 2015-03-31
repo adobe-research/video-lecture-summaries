@@ -212,8 +212,8 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 21773	21845	431	1981	479	1998	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/obj_021773_021845.png
 21851	21917	381	1977	526	2032	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/obj_021851_021917.png
 21923	21941	538	1968	552	2029	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/obj_021923_021941.png
-21944	22013	134	2102	146	2111	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/negate//obj_021944_022013_00.png
-21944	22013	407	2008	518	2036	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/negate//obj_021944_022013_04.png
+21944	21988	407	2008	518	2036	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/negate//obj_021944_022013_04.png
+22000	22013	134	2102	146	2111	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/negate//obj_021944_022013_00.png
 22016	22061	205	2107	547	2112	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/obj_022016_022061.png
 22063	22088	334	2126	336	2138	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/obj_022063_022088.png
 22089	22373	192	2064	356	2138	../SampleVideos/more/video5/video5_removelogo_negate_fgpixel_objs_noseg/obj_022089_022373.png

@@ -14,3 +14,4 @@ class Sentence:
             self.id = stcid
             self.start_fid = self.video.ms2fid(self.startt)
             self.end_fid = self.video.ms2fid(self.endt)
+            self.subline = None

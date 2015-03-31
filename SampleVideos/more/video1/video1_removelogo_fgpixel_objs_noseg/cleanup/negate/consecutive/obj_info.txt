@@ -48,7 +48,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 2939	2973	376	338	425	350	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_002939_002973_group.png
 2981	2989	424	337	435	350	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_002981_002989_group.png
 2998	2999	453	337	454	339	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_002998_002999_group.png
-3008	3082	341	326	504	349	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_003008_003082_group.png
+3008	3082	447	326	610	349	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_003008_003082_group.png
 3103	3127	323	366	355	386	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_003103_003127_group.png
 3137	3188	366	364	436	385	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_003137_003188_group.png
 3208	3254	441	368	510	384	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_003208_003254_group.png
@@ -62,6 +62,7 @@ start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
 4015	4021	336	424	347	433	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_004015_004021_group.png
 4048	4107	361	410	456	440	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_004048_004107_group.png
 4123	4129	454	433	462	438	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_004123_004129_group.png
+4400	4600	57	490	178	517	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs/noseg/cleanup/negate//consecutive/obj_004400_004600.png
 4629	4753	57	483	315	526	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_004629_004753_group.png
 4854	4913	26	534	65	571	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_004854_004913_group.png
 4951	5086	89	545	306	571	../SampleVideos/more/video1/video1_removelogo_fgpixel_objs_noseg/cleanup/negate//consecutive/obj_004951_005086_group.png

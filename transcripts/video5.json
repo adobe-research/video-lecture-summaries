@@ -8,7 +8,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "Let's say that's X and then that's the PDF X. You said that random variable X takes value between a and b. Since it's equally likely to take any value between a and b, it has a plot PDF. The PDF is flat. In other words, it's a constant function. We know that the area under the PDF is always equal to one, so that we have valid probability density function.",
+        "line": "Let's say that's X and then that's the PDF X. You said that random variable X takes value between a and b. Since it's equally likely to take any value between a and b, it has a flat PDF. The PDF is flat. In other words, it's a constant function. We know that the area under the PDF is always equal to one, so that we have valid probability density function.",
         "speaker": "narrator"
     },
     {
@@ -20,15 +20,15 @@
         "speaker": "narrator"
     },
     {
-        "line": "The PDF random variable that follows the uniform distribution a to b equal 1 over b minus a, or values of X between a and b. Now that we have the PDF, we're going to derive the CDF F effects. Let me actually write it. The CDF is going to be...I'll show you how to get that: 0fx<a equalx minus a over b minus a.",
+        "line": "The PDF random variable that follows the uniform distribution a to b equal 1 over b minus a, or values of X between a and b. Now that we have the PDF, we're going to derive the CDF, F of x. Let me actually write it. The CDF is going to be... I'll show you how to get that. Zero if f is less than  a. And it's equal to x minus a divded by b minus a if x is between a and b.",
         "speaker": "narrator"
     },
     {
-        "line": "If X is between a and b, it's 1fx>b. That's the CDF. We also show that the expected value is b plus a over 2 or a plus b over 2. That's actually the mid point. So it says, since the PDF is plot and constant, the expected value is going to be right at the middle of lower, between the lower limits and the upper limit, which is a plus b over 2 or b plus a over 2.",
+        "line": "It's one if x is greater than b. That's the CDF. We also show that the expected value is b plus a over 2 or a plus b over 2. That's actually the mid point. So it says, since the PDF is flat and constant, the expected value is going to be right at the middle of lower, between the lower limits and the upper limit, which is a plus b over 2 or b plus a over 2.",
         "speaker": "narrator"
     },
     {
-        "line": "The variance of the random variable X is going to be equal to b minus a squared over 12. Finally, the MGF, the moment generating function of a uniform random variable, is equal to each of the b times t minus each of the a times t over b minus a times t. The rest of this lesson is going to be showing you how to get this CDF expected volume variance and momentarily function.",
+        "line": "The variance of the random variable X is going to be equal to b minus a squared divided by 12. Finally, the MGF, the moment generating function of a uniform random variable, is equal to e to the b times t minus e to the a times t over b minus a times t. The rest of this lesson is going to be showing you how to get this CDF expected volume variance and moment generating function.",
         "speaker": "narrator"
     },
     {
@@ -40,15 +40,15 @@
         "speaker": "narrator"
     },
     {
-        "line": "When X is between a and b, then the CDF is the integral from negative infinity to X of the PDF F effects tx, but the PDF cannot take any value less than a. Instead of starting from negative infinity, I can set the lower limit of this integral to be a, so that I have integral from a to X of f effects dX, but f effects is 1 over b minus a, for values of X between a and b.",
+        "line": "When X is between a and b, then the CDF is the integral from negative infinity to X of the PDF F of x dx, but the PDF cannot take any value less than a. Instead of starting from negative infinity, I can set the lower limit of this integral to be a, so that I have integral from a to X of f of x dX, but f of x is 1 over b minus a, for values of X between a and b.",
         "speaker": "narrator"
     },
     {
-        "line": "This is 1 over b minus a du. Now, this integral is equal to u over b minus a, lower limit a, upper limit X. When you plug in the upper limit and the lower limit you get X over b minus a minus a over b minus a. That is equal to X minus a over b minus a. That's the CDF for values of X between a and b. It turns out that the CDF...what's the CDF at?",
+        "line": "This is 1 over b minus a du. Now, this integral is equal to u over b minus a, lower limit a, upper limit X. When you plug in the upper limit and the lower limit you get X over b minus a minus a over b minus a. That is equal to X minus a over b minus a. That's the CDF for values of X between a and b. It turns out that the CDF...What's the CDF at X is equal to b?",
         "speaker": "narrator"
     },
     {
-        "line": "X is equal to b. The CDF and X equal b if fX,b, plug in b in this equation, then you have b minus a over b minus a equal 1. With that in mind, we can actually just write the CDF when X is greater than b. When X is greater than b, the CDF is equal to one. F effects is equal to one.",
+        "line": "The CDF at X equal b is f of X,b, plug in b in this equation, then you have b minus a divided by b minus a is equal to 1. With that in mind, we can actually just write the CDF when X is greater than b. When X is greater than b, the CDF is equal to one. F of x is equal to one.",
         "speaker": "narrator"
     },
     {
@@ -56,11 +56,11 @@
         "speaker": "narrator"
     },
     {
-        "line": "If you calculate the area of that rectangle, the base as a value of X minus a times height, which is 1 over b minus a, that gives you X minus a over b minus a. Expected value of the random variable X is the integral overall the support of the random variable X. Let's say the support for X is script X of X times f effects dx.",
+        "line": "If you calculate the area of that rectangle, the base as a value of X minus a times height, which is 1 over b minus a, that gives you X minus a over b minus a. Expected value of the random variable X is the integral over all the support of the random variable X. Let's say the support for X is script X of X times f of x dx.",
         "speaker": "narrator"
     },
     {
-        "line": "We know actually the support is from a to b, any value from the lower limit to the upper limit. X times f effects is 1 over b minus adx. 1 over b minus a is a constant just like to X, so I can take it outside of the integral and I have integral a to b, not X, dx. That's equal to 1 over b minus a minus x squared over 2, lower limit a, the upper limit b.",
+        "line": "We know actually the support is from a to b, any value from the lower limit to the upper limit. X times f of x is 1 over b minus a dx. 1 over b minus a is a constant just like to X, so I can take it outside of the integral and I have integral a to b, not X, dx. That's equal to 1 over b minus a minus x squared over 2, lower limit a, the upper limit b.",
         "speaker": "narrator"
     },
     {
@@ -68,15 +68,15 @@
         "speaker": "narrator"
     },
     {
-        "line": "The variance of the random variable X is the second moment minus the first moment square. We know the first moment.First moment is b plus a over 2. We can just find the second moment and then we use the first moment that we have here to calculate the variance.",
+        "line": "The variance of the random variable X is the second moment minus the first moment square. We know the first moment. First moment is b plus a over 2. We can just find the second moment and then we use the first moment that we have here to calculate the variance.",
         "speaker": "narrator"
     },
     {
-        "line": "Second moment is the integral from a to b. In this case of X squared, f effects dx. That is equal to the integral a to b. X squared plus 1 over b minus adx. Again, 1 over b minus a is a constant with respect to X, so that can be outside of the integral from a to b, x squared dx. That is equal to 1 over b minus a times X cubed over 3, evaluated from the lower limit a to the upper limit b.",
+        "line": "Second moment is the integral from a to b. In this case of X squared, f of x dx. That is equal to the integral a to b X squared plus 1 over b minus a dx. Again, 1 over b minus a is a constant with respect to X, so that can be outside of the integral from a to b, x squared dx. That is equal to 1 over b minus a times X cubed over 3, evaluated from the lower limit a to the upper limit b.",
         "speaker": "narrator"
     },
     {
-        "line": "This is b minus a times by...If you plug in the upper limit and the lower limit, you get b cubed minus a cubed over 3. b cubed minus a cubed is the difference of two cubes.The difference of two cubes can be written as b minus a...revise that from your algebra, if you don't remember. b minus a times b squared plus ab plus a squared over 3.",
+        "line": "This is b minus a times by...If you plug in the upper limit and the lower limit, you get b cubed minus a cubed over 3. b cubed minus a cubed is the difference of two cubes. The difference of two cubes can be written as b minus a--review that from your algebra, if you don't remember--b minus a times b squared plus ab plus a squared over 3.",
         "speaker": "narrator"
     },
     {
@@ -92,7 +92,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "We found the CDF expected value to variance. We're going to go ahead and find the moment generating function. The MGF MX of t is the expected value of e to the t times X. That is equal to the integral over all the support of the random variable X, which is from hb and of e to the t times X times f effects dx, but f effects is one over b minus adx.",
+        "line": "We found the CDF expected value to variance. We're going to go ahead and find the moment generating function. The MGF MX of t is the expected value of e to the t times X. That is equal to the integral over all the support of the random variable X, which is from hb and of e to the t times X times f of x dx, but f of x is one over b minus a dx.",
         "speaker": "narrator"
     },
     {

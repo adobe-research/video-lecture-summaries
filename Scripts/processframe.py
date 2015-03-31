@@ -229,12 +229,12 @@ def subtractobject(image, objmask, M, emptycolor=0):
 
 
 
-def find_template_ctr(frame, template):
+def find_template_ctr(frame, template, threshold = 0.8):
     """Return center of template location in side frame"""
     grayframe = util.grayimage(frame)
     graytemp = util.grayimage(template)
     wtemp, htemp = graytemp.shape[::-1]
-    top_left = find_object_exact_inside(frame, template)
+    top_left = find_object_exact_inside(frame, template, threshold)
     if (top_left == None):        
         return None
     else:

@@ -3,7 +3,6 @@ Created on Sep 30, 2014
 
 @author: Valentina
 '''
-
 import sys
 import processvideo as pv
 import cv2
@@ -25,19 +24,27 @@ def write(pos, cursorpostxt="cursorpos.txt"):
             cursorpos.write("%i\t%i\n" % (int(p[0]), int(p[1])))
     cursorpos.close()
     
-def read(cursorpostxt):
-    pos = util.list_of_vecs_from_txt(cursorpostxt)   
+def readpos(txtfilename):
+    pos = util.list_of_vecs_from_txt(txtfilename)   
     return pos
     
-def main_track():
+def main_track_cursor():
     videoname = sys.argv[1]
     cursorfile = sys.argv[2]
     video = pv.ProcessVideo(videoname)
     cursor = cv2.imread(cursorfile)
     pos = track(video, cursor)
-#     cursorpostxt = video.videoname+"_cursorpos.txt"
-#     write(pos, cursorpostxt)
-#     
+    cursorpostxt = video.videoname+"_cursorpos.txt"
+    write(pos, cursorpostxt)
+
+def main_track_frame():
+    videoname = sys.argv[1]
+    panoramapath = sys.argv[2]    
+    video = pv.ProcessVideo(videoname)
+    panorama = cv2.imread(panoramapath)
+    pos = video.trackframepos(panorama)
+    framepostxt = video.videoname + "_framepos.txt"
+    write(pos, framepostxt)
     
 def plot_ty(pos, outfile="cursor_ty.png"):
     t = np.linspace(0, len(pos)-1, len(pos))
@@ -56,4 +63,4 @@ def plot_ty(pos, outfile="cursor_ty.png"):
     
     
 if __name__ == "__main__":    
-    main_track()
+    main_track_cursor()

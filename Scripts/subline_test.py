@@ -64,7 +64,7 @@ if __name__ == "__main__":
                 html.opendiv(idstring="c0")
                 for i in range(cur_stc_id, start_stc_id):
                     stc = list_of_sentences[i]
-                    html.write_list_of_words(stc.list_of_words, stopwords)
+                    html.paragraph_list_of_words(stc.list_of_words, stopwords)
 #                     html.writestring("%.3f - %.3f"%(stc.startt, stc.endt))
                 cur_stc_id = start_stc_id
                 html.closediv()
@@ -74,7 +74,7 @@ if __name__ == "__main__":
             while(stc.end_fid < subline.obj.start_fid):
                 html.opendiv(idstring="c0_wrapper")
                 html.opendiv(idstring="c0")
-                html.write_list_of_words(stc.list_of_words, stopwords)
+                html.paragraph_list_of_words(stc.list_of_words, stopwords)
 #                 html.writestring("%.3f - %.3f"%(stc.startt, stc.endt))
                 html.closediv()
                 html.closediv()
@@ -126,7 +126,7 @@ if __name__ == "__main__":
         html.opendiv(idstring="c0_wrapper")
         html.opendiv(idstring="c0")
         for i in range(cur_stc_id, len(list_of_stcs)):
-            html.write_list_of_words(list_of_stcs[i], stopwords)
+            html.paragraph_list_of_words(list_of_stcs[i], stopwords)
 #             html.writestring("%.3f - %.3f"%(list_of_stcs[i][0].startt, list_of_stcs[i][-1].endt))
         html.closediv()
         html.closediv()

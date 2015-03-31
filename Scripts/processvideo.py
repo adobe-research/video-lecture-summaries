@@ -49,12 +49,36 @@ class ProcessVideo:
         while (cap.isOpened()):
             ret, frame = cap.read()
             if (ret == True):                
-                loc = pf.find_template_ctr(frame, template)
+                loc = pf.find_template_ctr(frame, template, 0.8)
                 if (debug):
                     if (loc is not None):
-                        wtemp, htemp = template.shape[:2]
+                        htemp, wtemp = template.shape[:2]
                         cv2.rectangle(frame, (loc[0] - wtemp/2, loc[1] - htemp/2), (loc[0] + wtemp/2, loc[1] + htemp/2), (0,0,255), 1)
-                        util.showimages([frame], "found")
+#                         util.showimages([frame], "found")
+#                     else:
+#                         util.showimages([frame], "not found")
+                pos.append(loc)                
+            else:
+                break
+            print i, '/', self.numframes 
+            i += 1  
+        cap.release()                  
+        return pos
+    
+    def trackframepos(self, panorama, debug=False):
+        cap = cv2.VideoCapture(self.video)
+        pos = []
+        i = 0
+        while (cap.isOpened()):
+            ret, frame = cap.read()
+            if (ret == True):                
+                loc = pf.find_object_exact_inside(panorama, frame, 0.10)
+                if (debug):
+                    if (loc is not None):
+                        htemp, wtemp = frame.shape[:2]
+                        pcopy = panorama.copy()
+                        cv2.rectangle(pcopy, (loc[0], loc[1]), (loc[0] + wtemp, loc[1] + htemp), (0,0,255), 1)
+                        util.showimages([pcopy, frame], "found")
                     else:
                         util.showimages([frame], "not found")
                 pos.append(loc)                

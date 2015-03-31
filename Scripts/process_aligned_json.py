@@ -87,7 +87,7 @@ def get_words(aligned_json):
         if ("{" in line):
             word = parse_word(fp)
             word.stc_idx = stc_idx
-            if ('.' in word.original_word):
+            if ('.' in word.original_word or '?' in word.original_word):
                 stc_idx += 1
             list_of_words.append(word)
         line = fp.readline()

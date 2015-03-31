@@ -43,7 +43,6 @@ class StcStroke:
         linegroup = self.subline.linegroup
         sub_id = self.subline.sub_line_id
         list_of_objs = []
-        print 'sub_id', sub_id
         for i in range(0, sub_id): #all previous sublines
             grayobj = linegroup.list_of_sublines[i].obj.copy()
             grayobj.img = util.fg2gray(grayobj.img, 175)
@@ -52,11 +51,54 @@ class StcStroke:
             list_of_objs.append(stcstroke.obj)
             if stcstroke == self:
                 break
-        print 'stc_id', self.stc_id
-        print 'len(list_of_objs)', len(list_of_objs)
+
         obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_stc%i.png"%(linegroup.line_id, sub_id, self.stc_id))
         return obj
-        
+
+    def obj_inline(self,figdir):
+        linegroup = self.subline.linegroup
+        sub_id = self.subline.sub_line_id
+        list_of_objs = []
+        for i in range(0, sub_id): #all previous sublines
+            grayobj = linegroup.list_of_sublines[i].obj.copy()
+            grayobj.img = util.fg2gray(grayobj.img, 175)
+            list_of_objs.append(grayobj)
+        for stcstroke in self.subline.list_of_stcstrokes:
+            if stcstroke == self:
+                list_of_objs.append(stcstroke.obj)
+                break
+            else:
+                grayobj = stcstroke.obj.copy()
+                grayobj.img = util.fg2gray(grayobj.img, 175)
+                list_of_objs.append(grayobj)
+        obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_stc%i.png"%(linegroup.line_id, sub_id, self.stc_id))
+        return obj
+    
+    def obj_inline_range(self,figdir, id1, id2):
+        linegroup = self.subline.linegroup
+        sub_id = self.subline.sub_line_id
+        list_of_objs = []
+        for i in range(0, sub_id): #all previous sublines
+            grayobj = linegroup.list_of_sublines[i].obj.copy()
+            grayobj.img = util.fg2gray(grayobj.img, 175)
+            list_of_objs.append(grayobj)
+        for j in range(0, len(self.subline.list_of_sentences)):
+            sentence = self.subline.list_of_sentences[j]
+            if sentence.stcstroke is None:
+                continue;
+            stcstroke = sentence.stcstroke
+            if id1 <= j and j <= id2:
+                list_of_objs.append(stcstroke.obj)
+            else:
+                grayobj = stcstroke.obj.copy()
+                grayobj.img = util.fg2gray(grayobj.img, 175)
+                list_of_objs.append(grayobj)
+            if stcstroke == self:
+                break;
+        obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_stc%i.png"%(linegroup.line_id, sub_id, self.stc_id))
+        return obj
+    
+    
 class SubLine:
     def __init__(self, list_of_strokes, line_id, sub_line_id, sublinedir):
         self.list_of_strokes = list_of_strokes
@@ -188,14 +230,15 @@ def get_sublines(list_of_strokes, linetxt, list_of_sentences, sublinedir, stcstr
                  
     return list_of_sublines
 
-def link_stc_to_sublines(list_of_stcs, list_of_sublines):
+def link_stc_to_sublines(list_of_sentences, list_of_sublines):
     """sentence is associated with a subline, or none"""
     for subline in list_of_sublines:
         del subline.list_of_sentences[:]
     
     n_sublines = len(list_of_sublines)
     closest_subline_ids = []
-    for stc in list_of_stcs:
+    for stc in list_of_sentences:
+        stc_length_fid = stc.video.ms2fid(stc.endt) - stc.video.ms2fid(stc.startt)
         closest_subline = None
         closest_id = -1
         min_dist = float("inf")
@@ -207,7 +250,8 @@ def link_stc_to_sublines(list_of_stcs, list_of_sublines):
                 closest_subline = list_of_sublines[i]
                 closest_id = i
         closest_subline_ids.append(closest_id)
-        if (closest_subline is not None):
+        stc.subline = closest_subline
+        if (closest_subline is not None and abs(min_dist) >= 0.5*stc_length_fid):
             closest_subline.list_of_sentences.append(stc)    
     return closest_subline_ids
 
