@@ -150,6 +150,8 @@ if __name__ == "__main__":
      
     html = WriteHtml(objdir + "/subline_merge_subfigure.html", "Subline Merge SubFigure", stylesheet ="../Mainpage/subline_merge_subfigure.css")
     html.writestring("<h1>%s</h1><br>\n"%title)
+    html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
+
       
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
@@ -177,7 +179,9 @@ if __name__ == "__main__":
     if (cur_stc_id < len(list_of_sentences) -1):
         for i in range(cur_stc_id, len(list_of_sentences)):
             write_stc(html, list_of_sentences[i])
-            
+    
+    html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
+    
             
     html.openscript()
     for i in range(0, len(list_of_sublines)):
