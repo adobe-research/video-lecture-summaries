@@ -186,8 +186,9 @@ if __name__ == "__main__":
         for i in range(cur_stc_id, len(list_of_sentences)):
             write_stc(html, list_of_sentences[i])
     
+    html.opendiv()
     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
-    
+    html.closediv()
             
     html.openscript()
     for i in range(0, len(list_of_sublines)):
