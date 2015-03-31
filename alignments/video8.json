@@ -1485,14 +1485,6 @@
             "alignedWord": "sp"
         },
         {
-            "end": 150.6102,
-            "alignedWord": "BE",
-            "start": 150.31088,
-            "line_idx": 0,
-            "speaker": "narrator",
-            "word": "be"
-        },
-        {
             "end": 151.01927,
             "alignedWord": "URN",
             "start": 150.6102,
@@ -4012,11 +4004,11 @@
         },
         {
             "end": 319.73583,
-            "alignedWord": "PROBDABILITY",
+            "alignedWord": "PROBABILITY",
             "start": 318.80794,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "probdability"
+            "word": "probability"
         },
         {
             "end": 319.98526,
@@ -4042,11 +4034,11 @@
         },
         {
             "end": 321.36213,
-            "alignedWord": "WEAS",
+            "alignedWord": "WAS",
             "start": 321.0229,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "weas"
+            "word": "was"
         },
         {
             "start": 321.36213,
@@ -7220,7 +7212,7 @@
             "start": 535.03651,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "the"
+            "word": "The"
         },
         {
             "end": 535.72494,

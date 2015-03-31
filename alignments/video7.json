@@ -4220,11 +4220,11 @@
         },
         {
             "end": 208.57846,
-            "alignedWord": "X",
+            "alignedWord": "S",
             "start": 208.339,
             "line_idx": 6,
             "speaker": "narrator",
-            "word": "X"
+            "word": "S"
         },
         {
             "end": 208.69819,
@@ -5294,11 +5294,11 @@
         },
         {
             "end": 255.38209,
-            "alignedWord": "S",
+            "alignedWord": "X",
             "start": 255.15261,
             "line_idx": 8,
             "speaker": "narrator",
-            "word": "S"
+            "word": "X"
         },
         {
             "end": 255.54172,

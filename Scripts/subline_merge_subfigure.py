@@ -35,9 +35,9 @@ def write_arrowtoggle_script(html, lineid, subid):
 def write_plustoggle_script(html, lineid, subid):
     html.writestring("$('#arrow%i_sub%i').on({\n \
     \t'click': function() {\n \
-    if ($(\"#arrow%i_sub%i\").text() == \"+\") {\
-    $(\"#arrow%i_sub%i\").text(\"-\" ); } \
-    else { $(\"#arrow%i_sub%i\").text(\"+\" );\
+    if ($(\"#arrow%i_sub%i\").text() == \"-\") {\
+    $(\"#arrow%i_sub%i\").text(\"+\" ); } \
+    else { $(\"#arrow%i_sub%i\").text(\"-\" );\
     } \
     } \
     });\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
@@ -114,18 +114,24 @@ def write_subline_stc(html, subline, figdir):
     
     #write rest of stc, figure
     if (written <= nstc - 1):
-        html.opendiv(idstring="c2_12wrapper")
-        html.opendiv(idstring="c2_1")
-        for j in range(written, nstc):
-            html.paragraph_list_of_words(subline.list_of_sentences[j].list_of_words)
-        html.closediv() #c2_1
-        html.opendiv(idstring="c2_2")
-        prevsentence = subline.list_of_sentences[nstc-1]
-        if (prevsentence.stcstroke is not None):
-            obj = prevsentence.stcstroke.obj_inline_range(figdir, written, nstc-1)
-            html.image(obj.imgpath)
-        html.closediv() #c2_2
-        html.closediv() #c2_12wrapper
+        if written == 0:
+            html.opendiv(idstring="c2_3")
+            for j in range(written, nstc):
+                html.paragraph_list_of_words(subline.list_of_sentences[j].list_of_words)
+            html.closediv() #c2_3
+        else:     
+            html.opendiv(idstring="c2_12wrapper")
+            html.opendiv(idstring="c2_1")
+            for j in range(written, nstc):
+                html.paragraph_list_of_words(subline.list_of_sentences[j].list_of_words)
+            html.closediv() #c2_1
+            html.opendiv(idstring="c2_2")
+            prevsentence = subline.list_of_sentences[nstc-1]
+            if (prevsentence.stcstroke is not None):
+                obj = prevsentence.stcstroke.obj_inline_range(figdir, written, nstc-1)
+                html.image(obj.imgpath)
+            html.closediv() #c2_2
+            html.closediv() #c2_12wrapper
   
     html.closediv() #line%i_sub%i_c2
     return
