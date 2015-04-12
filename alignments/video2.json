@@ -86,14 +86,14 @@
         },
         {
             "start": 4.0932,
-            "end": 4.41247,
+            "end": 4.4424,
             "word": "{p}",
             "alignedWord": "sp"
         },
         {
             "end": 4.5322,
             "alignedWord": "WE",
-            "start": 4.41247,
+            "start": 4.4424,
             "line_idx": 0,
             "speaker": "narrator",
             "word": "We"
@@ -755,7 +755,7 @@
             "word": "this"
         },
         {
-            "end": 33.77574,
+            "end": 33.76576,
             "alignedWord": "THE",
             "start": 33.69592,
             "line_idx": 1,
@@ -765,7 +765,7 @@
         {
             "end": 34.12494,
             "alignedWord": "CASE",
-            "start": 33.77574,
+            "start": 33.76576,
             "line_idx": 1,
             "speaker": "narrator",
             "word": "case?"
@@ -990,14 +990,14 @@
         },
         {
             "start": 43.55351,
-            "end": 45.25964,
+            "end": 45.24966,
             "word": "{p}",
             "alignedWord": "sp"
         },
         {
             "end": 46.09773,
             "alignedWord": "LET'S",
-            "start": 45.25964,
+            "start": 45.24966,
             "line_idx": 1,
             "speaker": "narrator",
             "word": "Let's"
@@ -2045,7 +2045,7 @@
             "word": "times"
         },
         {
-            "end": 92.61202,
+            "end": 92.59206,
             "alignedWord": "THE",
             "start": 92.43243,
             "line_idx": 3,
@@ -2053,7 +2053,7 @@
             "word": "the"
         },
         {
-            "start": 92.61202,
+            "start": 92.59206,
             "end": 92.8415,
             "word": "{p}",
             "alignedWord": "sp"
@@ -4088,7 +4088,7 @@
             "start": 178.5068,
             "line_idx": 7,
             "speaker": "narrator",
-            "word": "t,"
+            "word": "t."
         },
         {
             "start": 178.86599,
@@ -4102,7 +4102,7 @@
             "start": 179.74399,
             "line_idx": 7,
             "speaker": "narrator",
-            "word": "let's"
+            "word": "Let's"
         },
         {
             "end": 180.12313,
@@ -5104,7 +5104,7 @@
             "start": 224.81156,
             "line_idx": 8,
             "speaker": "narrator",
-            "word": "together,"
+            "word": "together."
         },
         {
             "start": 225.37029,
@@ -5118,7 +5118,7 @@
             "start": 226.61746,
             "line_idx": 8,
             "speaker": "narrator",
-            "word": "so"
+            "word": "So"
         },
         {
             "end": 226.82698,
@@ -5583,7 +5583,7 @@
             "alignedWord": "sp"
         },
         {
-            "end": 249.01655,
+            "end": 249.00658,
             "alignedWord": "THREE",
             "start": 248.44785,
             "line_idx": 8,
@@ -5591,7 +5591,7 @@
             "word": "three"
         },
         {
-            "start": 249.01655,
+            "start": 249.00658,
             "end": 249.75488,
             "word": "{p}",
             "alignedWord": "sp"
@@ -6505,7 +6505,7 @@
             "word": "two"
         },
         {
-            "end": 285.22426,
+            "end": 285.21429,
             "alignedWord": "SOLUTIONS",
             "start": 284.62562,
             "line_idx": 10,
@@ -6513,7 +6513,7 @@
             "word": "solutions."
         },
         {
-            "start": 285.22426,
+            "start": 285.21429,
             "end": 287.10998,
             "word": "{p}",
             "alignedWord": "sp"
@@ -7490,7 +7490,7 @@
             "start": 335.5898,
             "line_idx": 12,
             "speaker": "narrator",
-            "word": "equation,"
+            "word": "equation."
         },
         {
             "start": 336.0288,
@@ -7499,20 +7499,12 @@
             "alignedWord": "sp"
         },
         {
-            "end": 336.89683,
-            "alignedWord": "BUT",
+            "end": 337.09637,
+            "alignedWord": "WHAT",
             "start": 336.7771,
             "line_idx": 12,
             "speaker": "narrator",
-            "word": "but"
-        },
-        {
-            "end": 337.09637,
-            "alignedWord": "WHAT",
-            "start": 336.89683,
-            "line_idx": 12,
-            "speaker": "narrator",
-            "word": "what"
+            "word": "What"
         },
         {
             "end": 337.33583,
@@ -7910,7 +7902,7 @@
             "start": 357.67959,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "x,"
+            "word": "x."
         },
         {
             "start": 358.09864,
@@ -7924,7 +7916,7 @@
             "start": 359.54535,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "we"
+            "word": "We"
         },
         {
             "end": 359.97438,
@@ -8227,7 +8219,7 @@
             "alignedWord": "sp"
         },
         {
-            "end": 372.11678,
+            "end": 372.06689,
             "alignedWord": "THERE",
             "start": 371.76757,
             "line_idx": 14,
@@ -8235,7 +8227,7 @@
             "word": "There"
         },
         {
-            "start": 372.11678,
+            "start": 372.06689,
             "end": 372.67551,
             "word": "{p}",
             "alignedWord": "sp"
@@ -8292,7 +8284,7 @@
             "start": 374.15215,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "operators,"
+            "word": "operators."
         },
         {
             "start": 374.91043,
@@ -8306,7 +8298,7 @@
             "start": 375.03016,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "just"
+            "word": "Just"
         },
         {
             "end": 375.55896,
@@ -8487,7 +8479,7 @@
             "word": "is"
         },
         {
-            "end": 382.67279,
+            "end": 382.68277,
             "alignedWord": "AN",
             "start": 382.58299,
             "line_idx": 14,
@@ -8497,7 +8489,7 @@
         {
             "end": 383.39116,
             "alignedWord": "OPERATOR",
-            "start": 382.67279,
+            "start": 382.68277,
             "line_idx": 14,
             "speaker": "narrator",
             "word": "operator,"
@@ -8546,7 +8538,7 @@
             "start": 385.1771,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "operator,"
+            "word": "operator."
         },
         {
             "start": 385.84558,
@@ -8560,7 +8552,7 @@
             "start": 386.24467,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "all"
+            "word": "All"
         },
         {
             "end": 386.70363,
@@ -8706,7 +8698,7 @@
             "start": 391.19342,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "output,"
+            "word": "output."
         },
         {
             "start": 391.52268,
@@ -8720,7 +8712,7 @@
             "start": 392.50045,
             "line_idx": 14,
             "speaker": "narrator",
-            "word": "just"
+            "word": "Just"
         },
         {
             "start": 392.74989,
@@ -10868,7 +10860,7 @@
             "start": 497.18254,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "operators"
+            "word": "operators."
         },
         {
             "end": 498.06054,
@@ -10876,7 +10868,7 @@
             "start": 497.80113,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "like,"
+            "word": "Like,"
         },
         {
             "start": 498.06054,
@@ -10944,7 +10936,7 @@
             "start": 501.2034,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "operator,"
+            "word": "operator"
         },
         {
             "start": 501.87188,
@@ -11015,7 +11007,7 @@
             "word": "we"
         },
         {
-            "end": 504.77528,
+            "end": 504.74535,
             "alignedWord": "TAKE",
             "start": 504.5059,
             "line_idx": 18,
@@ -11024,11 +11016,11 @@
         },
         {
             "end": 504.81519,
-            "alignedWord": "E",
-            "start": 504.77528,
+            "alignedWord": "THE",
+            "start": 504.74535,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "e"
+            "word": "the"
         },
         {
             "end": 505.34399,
@@ -11060,7 +11052,7 @@
             "start": 505.85283,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "term,"
+            "word": "term."
         },
         {
             "start": 506.36168,
@@ -11074,7 +11066,7 @@
             "start": 506.4415,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "that's"
+            "word": "That's"
         },
         {
             "start": 506.68095,
@@ -11171,7 +11163,7 @@
             "alignedWord": "sp"
         },
         {
-            "end": 513.13628,
+            "end": 513.1263,
             "alignedWord": "TIMES",
             "start": 512.54762,
             "line_idx": 18,
@@ -11180,11 +11172,11 @@
         },
         {
             "end": 513.28594,
-            "alignedWord": "E",
-            "start": 513.13628,
+            "alignedWord": "THE",
+            "start": 513.1263,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "e"
+            "word": "the"
         },
         {
             "end": 514.06417,
@@ -11346,7 +11338,7 @@
             "start": 523.89184,
             "line_idx": 19,
             "speaker": "narrator",
-            "word": "operator,"
+            "word": "operator."
         },
         {
             "start": 524.67007,
@@ -11360,7 +11352,7 @@
             "start": 527.68322,
             "line_idx": 19,
             "speaker": "narrator",
-            "word": "because"
+            "word": "Because"
         },
         {
             "end": 528.62109,
@@ -11414,7 +11406,7 @@
             "start": 529.73855,
             "line_idx": 19,
             "speaker": "narrator",
-            "word": "term,"
+            "word": "term."
         },
         {
             "end": 530.32721,
@@ -11422,7 +11414,7 @@
             "start": 530.21746,
             "line_idx": 19,
             "speaker": "narrator",
-            "word": "and"
+            "word": "And"
         },
         {
             "end": 530.40703,
@@ -11778,6 +11770,20 @@
         },
         {
             "start": 551.22971,
+            "end": 552.30726,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 552.66644,
+            "alignedWord": "NOW",
+            "start": 552.30726,
+            "line_idx": 20,
+            "speaker": "narrator",
+            "word": "Now,"
+        },
+        {
+            "start": 552.66644,
             "end": 553.53447,
             "word": "{p}",
             "alignedWord": "sp"
@@ -11788,7 +11794,7 @@
             "start": 553.53447,
             "line_idx": 20,
             "speaker": "narrator",
-            "word": "What's"
+            "word": "what's"
         },
         {
             "end": 553.98345,
@@ -11972,7 +11978,7 @@
             "start": 563.10272,
             "line_idx": 20,
             "speaker": "narrator",
-            "word": "exponent,"
+            "word": "exponent."
         },
         {
             "start": 563.67143,
@@ -11986,7 +11992,7 @@
             "start": 564.56939,
             "line_idx": 20,
             "speaker": "narrator",
-            "word": "if"
+            "word": "If"
         },
         {
             "end": 564.94853,
@@ -12458,7 +12464,7 @@
             "start": 583.54626,
             "line_idx": 21,
             "speaker": "narrator",
-            "word": "terms,"
+            "word": "terms."
         },
         {
             "end": 584.38435,
@@ -12466,7 +12472,7 @@
             "start": 584.0551,
             "line_idx": 21,
             "speaker": "narrator",
-            "word": "so,"
+            "word": "So,"
         },
         {
             "start": 584.38435,
@@ -13312,7 +13318,7 @@
             "start": 625.13175,
             "line_idx": 22,
             "speaker": "narrator",
-            "word": "operator,"
+            "word": "operator."
         },
         {
             "start": 625.89002,
@@ -13326,7 +13332,7 @@
             "start": 626.26916,
             "line_idx": 22,
             "speaker": "narrator",
-            "word": "but"
+            "word": "But"
         },
         {
             "end": 626.66825,
@@ -13380,26 +13386,26 @@
             "start": 628.54399,
             "line_idx": 22,
             "speaker": "narrator",
-            "word": "equation,"
+            "word": "equation."
         },
         {
             "start": 629.23243,
-            "end": 629.89093,
+            "end": 629.91088,
             "word": "{p}",
             "alignedWord": "sp"
         },
         {
-            "end": 630.03061,
-            "alignedWord": "WHICH",
-            "start": 629.89093,
+            "end": 630.07052,
+            "alignedWord": "IT'S",
+            "start": 629.91088,
             "line_idx": 22,
             "speaker": "narrator",
-            "word": "which"
+            "word": "It's"
         },
         {
-            "end": 630.11043,
+            "end": 630.13039,
             "alignedWord": "IS",
-            "start": 630.03061,
+            "start": 630.07052,
             "line_idx": 22,
             "speaker": "narrator",
             "word": "is"
@@ -13407,7 +13413,7 @@
         {
             "end": 630.43968,
             "alignedWord": "BASICALLY",
-            "start": 630.11043,
+            "start": 630.13039,
             "line_idx": 22,
             "speaker": "narrator",
             "word": "basically"
@@ -13691,7 +13697,7 @@
             "alignedWord": "sp"
         },
         {
-            "end": 649.51633,
+            "end": 649.53628,
             "alignedWord": "SINCE",
             "start": 649.18707,
             "line_idx": 23,
@@ -13699,17 +13705,17 @@
             "word": "Since,"
         },
         {
-            "end": 649.71587,
-            "alignedWord": "THIS",
-            "start": 649.51633,
+            "end": 649.69592,
+            "alignedWord": "IT",
+            "start": 649.53628,
             "line_idx": 23,
             "speaker": "narrator",
-            "word": "this"
+            "word": "it"
         },
         {
             "end": 649.86553,
             "alignedWord": "IS",
-            "start": 649.71587,
+            "start": 649.69592,
             "line_idx": 23,
             "speaker": "narrator",
             "word": "is"
@@ -14074,11 +14080,11 @@
         },
         {
             "end": 665.00113,
-            "alignedWord": "ARE",
+            "alignedWord": "OUR",
             "start": 664.70181,
             "line_idx": 23,
             "speaker": "narrator",
-            "word": "are"
+            "word": "our"
         },
         {
             "start": 665.00113,
@@ -14448,14 +14454,14 @@
         },
         {
             "start": 683.00023,
-            "end": 683.04014,
+            "end": 683.08005,
             "word": "{p}",
             "alignedWord": "sp"
         },
         {
             "end": 683.3195,
             "alignedWord": "THREE",
-            "start": 683.04014,
+            "start": 683.08005,
             "line_idx": 24,
             "speaker": "narrator",
             "word": "three."
@@ -14562,7 +14568,7 @@
             "start": 688.17846,
             "line_idx": 24,
             "speaker": "narrator",
-            "word": "y,"
+            "word": "y."
         },
         {
             "start": 688.53764,
@@ -14576,7 +14582,7 @@
             "start": 690.07415,
             "line_idx": 24,
             "speaker": "narrator",
-            "word": "so"
+            "word": "So"
         },
         {
             "end": 690.26372,
@@ -14875,7 +14881,7 @@
             "word": "back"
         },
         {
-            "end": 703.77302,
+            "end": 703.78299,
             "alignedWord": "AT",
             "start": 703.66327,
             "line_idx": 24,
@@ -14883,7 +14889,7 @@
             "word": "at"
         },
         {
-            "start": 703.77302,
+            "start": 703.78299,
             "end": 703.83288,
             "word": "{p}",
             "alignedWord": "sp"
@@ -17754,7 +17760,7 @@
             "start": 851.69683,
             "line_idx": 29,
             "speaker": "narrator",
-            "word": "zero,"
+            "word": "zero."
         },
         {
             "start": 852.24558,
@@ -17768,7 +17774,7 @@
             "start": 852.53492,
             "line_idx": 29,
             "speaker": "narrator",
-            "word": "so,"
+            "word": "So,"
         },
         {
             "end": 852.77438,
@@ -17952,7 +17958,7 @@
             "start": 858.30181,
             "line_idx": 29,
             "speaker": "narrator",
-            "word": "solution,"
+            "word": "solution."
         },
         {
             "start": 858.96032,
@@ -17966,7 +17972,7 @@
             "start": 859.13991,
             "line_idx": 29,
             "speaker": "narrator",
-            "word": "it"
+            "word": "It"
         },
         {
             "end": 859.68866,
@@ -18950,7 +18956,7 @@
             "start": 909.06644,
             "line_idx": 31,
             "speaker": "narrator",
-            "word": "lot,"
+            "word": "lot."
         },
         {
             "end": 909.76485,
@@ -18958,7 +18964,7 @@
             "start": 909.40567,
             "line_idx": 31,
             "speaker": "narrator",
-            "word": "let's"
+            "word": "Let's"
         },
         {
             "end": 910.38345,
@@ -19114,7 +19120,7 @@
             "start": 915.15261,
             "line_idx": 31,
             "speaker": "narrator",
-            "word": "operator,"
+            "word": "operator."
         },
         {
             "start": 915.83107,
@@ -19128,7 +19134,7 @@
             "start": 916.53946,
             "line_idx": 31,
             "speaker": "narrator",
-            "word": "and"
+            "word": "And"
         },
         {
             "end": 916.70907,
@@ -19704,14 +19710,14 @@
         },
         {
             "start": 947.76848,
-            "end": 948.41701,
+            "end": 948.40703,
             "word": "{p}",
             "alignedWord": "sp"
         },
         {
             "end": 948.74626,
             "alignedWord": "A",
-            "start": 948.41701,
+            "start": 948.40703,
             "line_idx": 32,
             "speaker": "narrator",
             "word": "a"
@@ -19804,7 +19810,7 @@
             "start": 952.38798,
             "line_idx": 32,
             "speaker": "narrator",
-            "word": "solution,"
+            "word": "solution."
         },
         {
             "start": 952.96667,
@@ -19818,7 +19824,7 @@
             "start": 953.31587,
             "line_idx": 32,
             "speaker": "narrator",
-            "word": "it"
+            "word": "It"
         },
         {
             "end": 953.77483,

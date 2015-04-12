@@ -13,6 +13,7 @@ import numpy as np
 import process_aligned_json as pjson
 from sentence import Sentence
 import cv2
+import label
 
 class Character:
     def __init__(self, charobj):
@@ -110,6 +111,15 @@ class SubLine:
         self.obj_in_line = None
         self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], sublinedir, imgname = "line%06i_%06i.png" % (self.line_id, self.sub_line_id))
         self.objdir = sublinedir
+        self.list_of_labels = []
+        
+    def add_label(self, pos):
+        n = len(self.list_of_labels)
+        lb = label.getlabels(len(self.list_of_labels), 1)
+        lb[0].changepos(pos)
+        self.list_of_labels.append(lb[0])
+        return '[Figure %i - %i (%s)]' % (self.line_id+1, self.sub_line_id+1, chr(ord('a') +n))
+        
         
     def link_stcstrokes(self, stcstrokedir):
         """link each stroke in self.list_of_strokes to one and only one of self.list_of_stcs"""

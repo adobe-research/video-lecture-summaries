@@ -42,7 +42,7 @@ def main_track_frame():
     panoramapath = sys.argv[2]    
     video = pv.ProcessVideo(videoname)
     panorama = cv2.imread(panoramapath)
-    pos = video.trackframepos(panorama)
+    pos = video.trackframepos(panorama, False)
     framepostxt = video.videoname + "_framepos.txt"
     write(pos, framepostxt)
     
@@ -63,4 +63,4 @@ def plot_ty(pos, outfile="cursor_ty.png"):
     
     
 if __name__ == "__main__":    
-    main_track_cursor()
+    main_track_frame()

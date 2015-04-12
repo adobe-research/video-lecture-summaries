@@ -73,7 +73,7 @@ class ProcessVideo:
             ret, frame = cap.read()
             if (ret == True):                
                 loc = pf.find_object_exact_inside(panorama, frame, 0.10)
-                if (debug):
+                if (debug and i % 10 == 0):
                     if (loc is not None):
                         htemp, wtemp = frame.shape[:2]
                         pcopy = panorama.copy()

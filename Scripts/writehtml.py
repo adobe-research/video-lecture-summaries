@@ -4,6 +4,8 @@ import os
 import datetime
 from figure import Figure
 import cv2
+from nltk.corpus import stopwords
+from process_aligned_json import Word
 
 class WriteHtml:
     def __init__(self, filename, title="no title", stylesheet=None, script=False):
@@ -102,6 +104,17 @@ class WriteHtml:
         self.closebody()
         self.htmlfile.write("\n</html>")
         self.htmlfile.close()
+        
+    def write_sentence(self, sentence, stopwords = []):
+        nref = len(sentence.ref_words)
+        for i in range(0, nref):
+            word = sentence.ref_words[i]
+            id = sentence.list_of_words.index(word)
+            name = sentence.ref_names[i]
+            nameword = Word(name, "", -1, -1, -1, "")
+            nameword.islabel = True
+            sentence.list_of_words.insert(id+1, nameword)
+        self.write_list_of_words(sentence.list_of_words, stopwords)
     
     def paragraph_list_of_words(self, list_of_words, stopwords=[]):
         self.htmlfile.write("<p>\n")
@@ -111,10 +124,14 @@ class WriteHtml:
     def write_list_of_words(self, list_of_words, stopwords=[]):
         for word in list_of_words:
             if not word.issilent:
-                if word.original_word in stopwords:
+                if word.raw_word in stopwords:
                     self.htmlfile.write("<font color=\'red\'>")
                     self.htmlfile.write(word.original_word + " ")
                     self.htmlfile.write("</font>")
+                elif word.islabel:
+                    self.htmlfile.write("<b>")
+                    self.htmlfile.write(word.original_word + " ")
+                    self.htmlfile.write("</b>")
                 else:    
                     self.htmlfile.write(word.original_word + " ")
 

@@ -7,6 +7,7 @@ import numpy as np
 import os
 import processframe as pf
 import sys
+import math
 
 def write_ints(list_of_ints, filename="temp.txt"):
     textfile = open(filename, "w")
@@ -115,6 +116,33 @@ def strings2ints(stringlist):
     for s in stringlist:
         int_list.append(int(s))
     return int_list
+
+def min_dist_bbox(px, py, tlx, tly, brx, bry):
+    dist = -1.0
+    if (px < tlx):
+        if (py < tly):
+            dist = (px-tlx)*(px-tlx) + (py-tly)*(py-tly)
+        elif (tly <= py and py <= bry):
+            dist = (px-tlx)*(px-tlx)
+        else:
+            dist = (px-tlx)*(px-tlx) + (py-bry)*(py-bry)
+    elif (tlx <= px and px <= brx):
+        if (py < tly):
+            dist = (py-tly)*(py-tly)
+        elif (tly <= py and py <= bry):
+            dist = 0.0
+        else:
+            dist = (py-bry)*(py-bry)
+    else:
+        if (py < tly):
+            dist = (px-brx)*(px-brx) +(py-tly)*(py-tly)
+        elif (tly <= py and py <= bry):
+            dist = (px-brx)*(px-brx)
+        else:
+            dist = (px-brx)*(px-brx) + (py-bry)*(py-bry)
+    
+    return math.sqrt(dist)
+        
 
 def array_to_pil(data, mode="RGB"):
     if (mode == "RGB"):

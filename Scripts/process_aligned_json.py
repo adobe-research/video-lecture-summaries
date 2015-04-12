@@ -5,6 +5,7 @@ from video import Video
 import cv2
 import numpy as np
 import processframe as pf
+import string
 
 class Word:
     def __init__(self, original_word, aligned_word, startt, endt, line_idx, speaker):
@@ -17,10 +18,14 @@ class Word:
         self.line_idx = int(line_idx)
         self.speaker = speaker
         self.issilent = (original_word == "{p}")
+        self.islabel = False
         self.keyframe = None
         self.mask = None
         self.highlight_path = None
         self.stc_idx = -1
+        lower = original_word.lower()
+        self.raw_word = lower.translate(string.maketrans("",""), string.punctuation)
+        
         
 def listofwords2text(list_of_words):
     text = ''
@@ -41,8 +46,9 @@ def get_sentences(list_of_words):
     if (num_stc <= 0):
         return []
     sentences = [[] for i in range(0, num_stc)]    
-    for word in list_of_words:        
-        sentences[word.stc_idx - start_idx].append(word)
+    for word in list_of_words:      
+        if not word.issilent: 
+            sentences[word.stc_idx - start_idx].append(word)
     return sentences
 
 
@@ -89,7 +95,8 @@ def get_words(aligned_json):
             word.stc_idx = stc_idx
             if ('.' in word.original_word or '?' in word.original_word):
                 stc_idx += 1
-            list_of_words.append(word)
+            if (not word.issilent):
+                list_of_words.append(word)
         line = fp.readline()
     return list_of_words
     

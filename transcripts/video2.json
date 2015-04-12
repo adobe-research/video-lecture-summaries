@@ -32,7 +32,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "Let's group together all the two like the e to the t terms in all the e to the three t terms together, so we get e to the t, I am going to factor it out, and say, times one minus four plus three plus e to the three t, grouping all these terms together times nine minus four times three is minus twelve plus three is then equal to zero.",
+        "line": "Let's group together all the two like the e to the t terms in all the e to the three t terms together. So we get e to the t, I am going to factor it out, and say, times one minus four plus three plus e to the three t, grouping all these terms together times nine minus four times three is minus twelve plus three is then equal to zero.",
         "speaker": "narrator"
     },
     {
@@ -48,7 +48,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "If you have a linear differential equation, the general solution is a linear combination of the linearly independent solutions. You are going to hear the word, linear quite a lot in this video. That's all a very important property that, all is a case for a linear differential equation, but what makes a linear differential equation so special?",
+        "line": "If you have a linear differential equation, the general solution is a linear combination of the linearly independent solutions. You are going to hear the word, linear quite a lot in this video. That's all a very important property that, all is a case for a linear differential equation. What makes a linear differential equation so special?",
         "speaker": "narrator"
     },
     {
@@ -56,7 +56,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "Let's say, we have a function g of x, we say that something operates on this function, you can call it an operator f. If it inputs one function, then we get out another function, let's say, h of x. There are lots of examples of operators, just something that changes one function to another function, like multiplying by a constant is an operator, taking a derivative is an operator, squaring something is an operator, all these things in taking one function as an input, and giving another function as an output, just like thinking in abstract terms.",
+        "line": "Let's say, we have a function g of x. We say that something operates on this function, you can call it an operator f. If it inputs one function, then we get out another function, let's say, h of x. There are lots of examples of operators. Just something that changes one function to another function, like multiplying by a constant is an operator, taking a derivative is an operator, squaring something is an operator. All these things in taking one function as an input, and giving another function as an output. Just like thinking in abstract terms.",
         "speaker": "narrator"
     },
     {
@@ -72,31 +72,31 @@
         "speaker": "narrator"
     },
     {
-        "line": "Now, we'll find that there are other examples of linear operators like, taking a derivative is a linear operator, because if we take e derivative, we take e derivative term by term, that's two times the derivative of x plus three times e derivative of x squared.",
+        "line": "Now, we'll find that there are other examples of linear operators. Like, taking a derivative is a linear operator because if we take e derivative, we take the derivative term by term. That's two times the derivative of x plus three times the derivative of x squared.",
         "speaker": "narrator"
     },
     {
-        "line": "We'll find that, taking a definite integral is a linear operator, because likewise, we integrate term by term, and we know that, this is equal to two times the definite integral of x dx plus three times the definite integral of x squared dx.",
+        "line": "We'll find that, taking a definite integral is a linear operator. Because likewise, we integrate term by term. And we know that, this is equal to two times the definite integral of x dx plus three times the definite integral of x squared dx.",
         "speaker": "narrator"
     },
     {
-        "line": "Taking derivatives and integrating definitely, that's also a linear operator. What's an example of something that's not a linear operator? One important class of non-linear operators is raising to an exponent, if we had this two x plus three x squared, well, if we have this all squared, we know that, this is not equal to two times x squared plus three times x squared squared.",
+        "line": "Taking derivatives and integrating definitely, that's also a linear operator. Now, what's an example of something that's not a linear operator? One important class of non-linear operators is raising to an exponent. If we had this two x plus three x squared, well, if we have this all squared, we know that, this is not equal to two times x squared plus three times x squared squared.",
         "speaker": "narrator"
     },
     {
-        "line": "We know that, we have to factor out, and we'll have other terms, so, raising to an exponent is not a linear operator. We can form other linear operators by combining these, like taking a derivative and multiplying by a constant is a linear operator, taking higher derivatives is a linear operator. If we add two linear operators, the result is almost like a linear operator.",
+        "line": "We know that, we have to factor out, and we'll have other terms. So, raising to an exponent is not a linear operator. We can form other linear operators by combining these, like taking a derivative and multiplying by a constant is a linear operator, taking higher derivatives is a linear operator. If we add two linear operators, the result is almost like a linear operator.",
         "speaker": "narrator"
     },
     {
-        "line": "In fact, we can say something like taking a derivative of a function, or secondary derivative of a function minus four times taking the derivative of a function plus three times that function, that's also a linear operator, but this was just our differential equation, which is basically the same thing, except we had it under one constraint, that this was equal to zero.",
+        "line": "In fact, we can say something like taking a derivative of a function, or secondary derivative of a function minus four times taking the derivative of a function plus three times that function, that's also a linear operator. But this was just our differential equation. It's is basically the same thing, except we had it under one constraint, that this was equal to zero.",
         "speaker": "narrator"
     },
     {
-        "line": "It turns out, our linear differential equation is also a linear operator. Since, this is a linear operator, some people like to use a little shorthand. If this is all equal to zero, they may just say that the linear operator of this differential equation, acting on y is equal to zero. Here, are L acting on y, that's just analogous to this whole f acting on g of x.",
+        "line": "It turns out, our linear differential equation is also a linear operator. Since, it is a linear operator, some people like to use a little shorthand. If this is all equal to zero, they may just say that the linear operator of this differential equation, acting on y is equal to zero. Here, our L acting on y, that's just analogous to this whole f acting on g of x.",
         "speaker": "narrator"
     },
     {
-        "line": "In this particular case, you can think of L as just equal to the second derivative minus four times the first derivative plus three. L acting on y is just this acting on y, so it's a little shorthand notation. If we think about it, this makes sense that this linear differential equation, or at least this bit here is a linear operator. Let's look back at the definition we used for a linear differential equation.",
+        "line": "In this particular case, you can think of L as just equal to the second derivative minus four times the first derivative plus three. L acting on y is just this acting on y. So it's a little shorthand notation. If we think about it, this makes sense that this linear differential equation, or at least this bit here is a linear operator. Let's look back at the definition we used for a linear differential equation.",
         "speaker": "narrator"
     },
     {
@@ -116,7 +116,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "We know that, L acting on y one, that's zero and L acting on y two is equal to zero, so, we get that, this whole thing is equal to zero, which means that this whole thing is also a solution, it also satisfies this condition, that the linear operator is equal to zero. Because our differential equation is linear, we know that if we have two solution that satisfy it, with that we can form a linear combination of those two solutions, and the result will still satisfy it.",
+        "line": "We know that, L acting on y one, that's zero and L acting on y two is equal to zero. So, we get that, this whole thing is equal to zero, which means that this whole thing is also a solution. It also satisfies this condition, that the linear operator is equal to zero. Because our differential equation is linear, we know that if we have two solution that satisfy it, with that we can form a linear combination of those two solutions, and the result will still satisfy it.",
         "speaker": "narrator"
     },
     {
@@ -124,11 +124,11 @@
         "speaker": "narrator"
     },
     {
-        "line": "That's quite a lot, let's recap what we found in this video. We were able to define a linear operator, and we said that, our linear differential equations, that's a differential equation that's composed of linear operators, and because of this property that all linear operators follow, we know that, if we were to have two solutions, then a linear combination of these two solutions is also a solution.",
+        "line": "That's quite a lot. Let's recap what we found in this video. We were able to define a linear operator. And we said that, our linear differential equations, that's a differential equation that's composed of linear operators, and because of this property that all linear operators follow, we know that, if we were to have two solutions, then a linear combination of these two solutions is also a solution.",
         "speaker": "narrator"
     },
     {
-        "line": "We were able to theoretically show the origin of why a linear combination of two solutions is also a solution, it all stems from this wonderful property of linearity. Hopefully, that wasn't too confusing. We'll continue on with more second order differential equations in the next video.",
+        "line": "We were able to theoretically show the origin of why a linear combination of two solutions is also a solution. It all stems from this wonderful property of linearity. Hopefully, that wasn't too confusing. We'll continue on with more second order differential equations in the next video.",
         "speaker": "narrator"
     }
 ]

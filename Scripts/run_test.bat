@@ -5,5 +5,5 @@ python trackcursor.py ../SampleVideos/more/video4/video4.mp4 ../SampleVideos/mor
 python trackcursor.py ../SampleVideos/more/video5/video5.mp4 ../SampleVideos/more/video5/logo/logo1.png
 python trackcursor.py ../SampleVideos/more/video7/video7.mp4 ../SampleVideos/more/video7/logo/logo1.png
 python trackcursor.py ../SampleVideos/more/video8/video8.mp4 ../SampleVideos/more/video8/logo/logo1.png
-python trackcursor.py ../SampleVideos/more/trushit/trushit.mp4 ../SampleVideos/more/trushit/tlogo/logo1.png
+python trackcursor.py ../SampleVideos/more/trushit/trushit.mp4 ../SampleVideos/more/trushit/logo/logo1.png
 python trackcursor.py ../SampleVideos/more/tecmath1/tecmath1.mp4 ../SampleVideos/more/tecmath1/logo/logo1.png

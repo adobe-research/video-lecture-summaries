@@ -143,9 +143,7 @@ def perturb_layout(list_of_objs, list_of_labels):
     return (n, newpos)
 
 
-def label_objs(list_of_objs, list_of_labels):
-
-    
+def label_objs(list_of_objs, list_of_labels):    
     list_of_imgobjs = list_of_objs + list_of_labels
     img = util.groupimages(list_of_imgobjs)
     return img

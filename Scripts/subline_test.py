@@ -105,7 +105,7 @@ if __name__ == "__main__":
             else:
                 html.opendiv(idstring="c2_1")    
                 html.paragraph_list_of_words(sentence.list_of_words, stopwords)
-    #             html.writestring("%.3f - %.3f"%(sentence.list_of_words[0].startt, sentence.list_of_words[-1].endt))
+                html.writestring("%.3f - %.3f"%(sentence.list_of_words[0].startt, sentence.list_of_words[-1].endt))
                 html.closediv()  #c2_1
                 
             html.opendiv(idstring="c2_2")
@@ -114,7 +114,7 @@ if __name__ == "__main__":
                 html.image(stcobj.imgpath)
                 stcstroke_startt = video.fid2ms(sentence.stcstroke.obj.start_fid)
                 stcstroke_endt = video.fid2ms(sentence.stcstroke.obj.end_fid)
-#                 html.writestring("<p>%.3f - %.3f</p>"%(stcstroke_startt, stcstroke_endt))
+                html.writestring("<p>%.3f - %.3f</p>"%(stcstroke_startt, stcstroke_endt))
             html.closediv() #c2_2 
             html.closediv() #c2_wrapper   
             cur_stc_id = sentence.id+1
