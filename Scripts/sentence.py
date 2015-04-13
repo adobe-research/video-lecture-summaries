@@ -4,6 +4,7 @@ Created on Mar 9, 2015
 
 @author: hijungshin
 '''
+import Levenshtein
 
 class Sentence:
         def __init__(self, list_of_words, video, stcid):
@@ -23,9 +24,28 @@ class Sentence:
             phrase_words = string_phrase.split()
             words = []
             for i in xrange(len(self.list_of_words) - len(phrase_words)):
-                if phrase_words == self.list_of_words[i:i+len(phrase_words)]:
-                    words.append(self.list_of_words[i+len(phrase_words)-1])
+                if phrase_words == self.list_of_words[i:i + len(phrase_words)]:
+                    words.append(self.list_of_words[i + len(phrase_words) - 1])
             if len(words) > 0:
                 return True, words
             else:
-                return False, None                    
+                return False, None 
+            
+        def getstring(self):
+            s = ""
+            for i in range(0, len(self.list_of_words)):
+                word = self.list_of_words[i]
+                if not word.issilent:
+                    if len(s) > 0:
+                        s += (" " + word.raw_word)
+                    else:
+                        s += word.raw_word
+            return s
+                        
+                    
+        @staticmethod
+        def levenshtein_dist(s1, s2):
+            st1 = s1.getstring()
+            st2 = s2.getstring()
+            dist = Levenshtein.distance(st1, st2)
+            return dist
