@@ -1,0 +1,12 @@
+*.pyc
+*.mp4
+*.xcodeproj
+*.DS_Store
+*.project
+*.pydevproject
+*.avi
+tfidf
+*.wav
+transcripts/audiofiles/*.wav
+SampleVideos/more/.DS_Store
+Scripts/temp
