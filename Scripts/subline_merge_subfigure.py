@@ -189,7 +189,7 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
 
-    resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
+#     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
     html = WriteHtml(objdir + "/labe_ref_summary.html", "Subline Merge SubFigure", stylesheet ="../Mainpage/subline_merge_subfigure.css")
     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
