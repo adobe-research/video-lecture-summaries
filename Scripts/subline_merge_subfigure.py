@@ -169,19 +169,19 @@ if __name__ == "__main__":
     objdir = sys.argv[3]
     scriptpath = sys.argv[4]
     title = sys.argv[5]
-    frametxt = sys.argv[6]
-    cursortxt = sys.argv[7]
+#     frametxt = sys.argv[6]
+#     cursortxt = sys.argv[7]
 
     
-    fp = util.list_of_vecs_from_txt(frametxt)
-    framepos = []
-    for p in fp:
-        framepos.append((int(p[0]), int(p[1])))
-        
-    cp = util.list_of_vecs_from_txt(cursortxt)
-    cursorpos = []
-    for p in cp:
-        cursorpos.append((int(p[0]), int(p[1])))
+#     fp = util.list_of_vecs_from_txt(frametxt)
+#     framepos = []
+#     for p in fp:
+#         framepos.append((int(p[0]), int(p[1])))
+#         
+#     cp = util.list_of_vecs_from_txt(cursortxt)
+#     cursorpos = []
+#     for p in cp:
+#         cursorpos.append((int(p[0]), int(p[1])))
     
     figdir = objdir + "/subline_merge_subfigure"
     
@@ -189,10 +189,10 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
 
-    resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
+#     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
-    html = WriteHtml(objdir + "/labe_ref_summary.html", "Subline Merge SubFigure", stylesheet ="../Mainpage/subline_merge_subfigure.css")
-    html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
+    html = WriteHtml(objdir + "/subline_merge_subfigure.html", "Subline Merge SubFigure", stylesheet ="../Mainpage/subline_merge_subfigure.css")
+#     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
     html.writestring("<h1>%s</h1><br>\n"%title)
 
       
@@ -223,9 +223,9 @@ if __name__ == "__main__":
         for i in range(cur_stc_id, len(list_of_sentences)):
             write_stc(html, list_of_sentences[i])
     
-    html.opendiv()
-    html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
-    html.closediv()
+#     html.opendiv()
+#     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
+#     html.closediv()
             
     html.openscript()
     for i in range(0, len(list_of_sublines)):
