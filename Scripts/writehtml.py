@@ -7,6 +7,11 @@ import cv2
 from nltk.corpus import stopwords
 from process_aligned_json import Word
 
+def htmlword(str):
+    str = str.replace(">", "&gt")
+    str = str.replace("<", "&lt")
+    return str
+
 class WriteHtml:
     def __init__(self, filename, title="no title", stylesheet=None, script=False):
         self.filename = os.path.abspath(filename)
@@ -69,6 +74,12 @@ class WriteHtml:
     def closetablerow(self):
         self.htmlfile.write("</tr>\n\n")
         
+    def openp(self):
+        self.htmlfile.write("<p>")
+    
+    def closep(self):
+        self.htmlfile.write("</p>")
+        
     def opentablecell(self):
         self.htmlfile.write("<td>")
         
@@ -126,15 +137,17 @@ class WriteHtml:
             if not word.issilent:
                 if word.raw_word in stopwords:
                     self.htmlfile.write("<font color=\'red\'>")
-                    self.htmlfile.write(word.original_word + " ")
+                    self.htmlfile.write(htmlword(word.original_word) + " ")
                     self.htmlfile.write("</font>")
                 elif word.islabel:
                     self.htmlfile.write("<b>")
-                    self.htmlfile.write(word.original_word + " ")
+                    self.htmlfile.write(htmlword(word.original_word) + " ")
                     self.htmlfile.write("</b>")
                 else:    
-                    self.htmlfile.write(word.original_word + " ")
+                    self.htmlfile.write(htmlword(word.original_word) + " ")
+                    
 
+        
     
     def pragraph_string(self, mystring):
         self.htmlfile.write("<p>\n")
@@ -160,10 +173,10 @@ class WriteHtml:
                 #self.htmlfile.write("<a  class=\"highlight\" href=\"#\"  onmouseover=\"document.getElementById(''mainpic').src='"+ self.relpath(word.highlight_path) + "'\"")
                 #self.htmlfile.write(" onmouseout=\"document.getElementById('mainpic').src='mainpic.png'\">")
                 self.htmlfile.write("<a class=\"highlight\" href=\"#\"> <img src = " + word.highlight_path + "  >")
-                self.htmlfile.write(word.original_word + " ")
+                self.htmlfile.write(htmlword(word.original_word) + " ")
                 self.htmlfile.write("</a>")
             else:
-                self.htmlfile.write(word.original_word + " ")            
+                self.htmlfile.write(htmlword(word.original_word) + " ")            
         self.htmlfile.write("</p>")
     
     def relpath(self, path):

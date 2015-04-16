@@ -18,7 +18,7 @@ import label
 collapsed_icon = "../../../../../../../Mainpage/figures/arrow_collapsed_icon.png"
 expanded_icon = "../../../../../../../Mainpage/figures/arrow_expanded_icon.png"
 
-stopwords = ['here']
+stopwords = []
 
 def write_showsection_script(html, lineid, subid):
     html.writestring("function showline%i_sub%i(){\n\t \
@@ -47,12 +47,12 @@ def write_plustoggle_script(html, lineid, subid):
     });\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
      
 def write_stc(html, sentence):
-    html.opendiv(idstring="c0")
+#     html.opendiv(idstring="c0")
 #     start_fid = sentence.video.ms2fid(sentence.startt)
 #     end_fid = sentence.video.ms2fid(sentence.endt)
 #     html.writestring("<b>%i - %i</b><br>"%(start_fid, end_fid))
     html.write_sentence(sentence, stopwords)
-    html.closediv()
+#     html.closediv()
     
 def write_subline(html, subline, figdir):
     html.opendiv(idstring="c1c2wrapper")
@@ -78,10 +78,10 @@ def write_subline_img(html, subline, figdir):
     util.saveimage(label_img, figdir, label_imgpath)
     
     if len(subline.list_of_sentences) > 0:
-#         html.writestring("<img src=\"%s\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
-#                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
-        html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
-                                    onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
+        html.writestring("<img src=\"%s\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
+                                    onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
+#         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
+#                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
     html.image(figdir + "/" + label_imgpath)
     html.closediv() #line%i_sub%i
         
@@ -107,11 +107,6 @@ def write_subline_stc(html, subline, figdir):
             #draw previous
             if written < i:
                 html.opendiv(idstring="c2_12wrapper")
-                html.opendiv(idstring="c2_1")
-                for j in range(written, i):
-                    html.paragraph_list_of_words(subline.list_of_sentences[j].list_of_words, stopwords)
-
-                html.closediv() #c2_1
                 html.opendiv(idstring="c2_2")
                 if (i > 0):
                     prevsentence = subline.list_of_sentences[i-1]
@@ -119,27 +114,37 @@ def write_subline_stc(html, subline, figdir):
                         obj = prevsentence.stcstroke.obj_inline_range(figdir, written, i-1)
                         html.image(obj.imgpath)
                 html.closediv() #c2_2
+                html.opendiv(idstring="c2_1")
+                html.openp()
+                for j in range(written, i):
+                    html.write_list_of_words(subline.list_of_sentences[j].list_of_words, stopwords)
+                html.closep()
+                html.closediv() #c2_1
                 html.closediv() #c2_12wrapper
                 written = i                
             # write current sentence
-            html.opendiv(idstring="c2_3")
-            html.paragraph_list_of_words(subline.list_of_sentences[i].list_of_words, stopwords)
-            html.closediv() #c2_3
+#             html.opendiv(idstring="c2_3")
+            html.write_list_of_words(subline.list_of_sentences[i].list_of_words, stopwords)
+#             html.closediv() #c2_3
             written = i+1
         i += 1
     
     #write rest of stc, figure
     if (written <= nstc - 1):
         if written == 0:
-            html.opendiv(idstring="c2_3")
+#             html.opendiv(idstring="c2_3")
+            html.openp()
             for j in range(written, nstc):
-                html.paragraph_list_of_words(subline.list_of_sentences[j].list_of_words, stopwords)
-            html.closediv() #c2_3
+                html.write_list_of_words(subline.list_of_sentences[j].list_of_words, stopwords)
+            html.closep()
+#             html.closediv() #c2_3
         else:     
             html.opendiv(idstring="c2_12wrapper")
             html.opendiv(idstring="c2_1")
+            html.openp()
             for j in range(written, nstc):
-                html.paragraph_list_of_words(subline.list_of_sentences[j].list_of_words, stopwords)
+                html.write_list_of_words(subline.list_of_sentences[j].list_of_words, stopwords)
+            html.closep()
             html.closediv() #c2_1
             html.opendiv(idstring="c2_2")
             prevsentence = subline.list_of_sentences[nstc-1]
@@ -169,6 +174,7 @@ if __name__ == "__main__":
     objdir = sys.argv[3]
     scriptpath = sys.argv[4]
     title = sys.argv[5]
+    author = sys.argv[6]
 #     frametxt = sys.argv[6]
 #     cursortxt = sys.argv[7]
 
@@ -191,9 +197,10 @@ if __name__ == "__main__":
 
 #     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
-    html = WriteHtml(objdir + "/subline_merge_subfigure.html", "Subline Merge SubFigure", stylesheet ="../Mainpage/subline_merge_subfigure.css")
+    html = WriteHtml(objdir + "/subline_merge_subfigure.html",title, stylesheet ="../Mainpage/subline_merge_subfigure.css")
 #     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
-    html.writestring("<h1>%s</h1><br>\n"%title)
+    html.writestring("<h1>%s</h1>\n"%title)
+    html.writestring("<h3>%s</h3>\n"%author)
 
       
     cur_stc_id = 0
@@ -203,16 +210,24 @@ if __name__ == "__main__":
         if (len(subline.list_of_sentences) > 0):
             start_stc_id = subline.list_of_sentences[0].id
             if (start_stc_id > cur_stc_id):
+                html.opendiv(idstring="c0")
+                html.openp()
                 for i in range(cur_stc_id, start_stc_id):
                     write_stc(html, list_of_sentences[i])
+                html.closep()
+                html.closediv()
                 cur_stc_id = start_stc_id
         
         else: #subline.list_of_sentences == 0
             stc = list_of_sentences[cur_stc_id]
+            html.opendiv(idstring="c0")
+            html.openp()
             while(stc.end_fid < subline.obj.start_fid):
                 write_stc(html, stc)
                 cur_stc_id += 1
                 stc = list_of_sentences[cur_stc_id]
+            html.closep()
+            html.closediv()
         
         #write subline
         write_subline(html, subline, figdir)
@@ -231,7 +246,7 @@ if __name__ == "__main__":
     for i in range(0, len(list_of_sublines)):
         lineid = list_of_sublines[i].line_id
         subid = list_of_sublines[i].sub_line_id
-        write_plustoggle_script(html, lineid, subid)
+        write_arrowtoggle_script(html, lineid, subid)
         write_showsection_script(html, lineid, subid)
     html.closescript()
     html.closehtml()

@@ -42,10 +42,10 @@ class Sentence:
                         s += word.raw_word
             return s
                         
-                    
-#         @staticmethod
-#         def levenshtein_dist(s1, s2):
-#             st1 = s1.getstring()
-#             st2 = s2.getstring()
-#             dist = Levenshtein.distance(st1, st2)
-#             return dist
+                      
+        @staticmethod
+        def levenshtein_dist(s1, s2):
+            st1 = s1.getstring()
+            st2 = s2.getstring()
+            dist = Levenshtein.distance(st1, st2)
+            return dist

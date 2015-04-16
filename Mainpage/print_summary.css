@@ -1,39 +1,29 @@
 body {
-    font-family: serif;
-    font-size: 24px;
+    font-family: sans-serif;
+    font-size: 0.875em;
     padding: 2em;
     text-align: center;
     margin: auto;
     align-content: center;
-    width: 960px;
 }
-
-
-p {
-    width: 100%;
-    text-align: left;
-    line-height: 1.35;
-}
-
-#c1c2wrapper, #c0{
-    text-align: left;
-    margin-left: 132px;
-    margin-right: 132px;
-    margin-bottom: 24px;
-}
-
 
 #c0_wrapper, #c1c2wrapper {
     text-align: center;
-    display: block;
+    display: inline-block;
     vertical-align: middle;
 /*    width: 90%;*/
 }
 
+#c1c2wrapper{
+    border: 1px solid #ccc;
+    padding: 3px;
+    background-color: #f9f9f9;
+    margin-bottom: 1em;
+}
 
 #c1 {
     display: inline-block;
-/*    text-align: center;*/
+    text-align: center;
     padding: 3px;
     background-color: #f9f9f9;
     vertical-align: middle;
@@ -42,13 +32,12 @@ p {
 }
 
 .c2 {
-    text-align: left;
     width:100%;
-    display:none;
+    padding:0px;
+    display:inline-block;
 }
 
 
-/*
 #c2_1, #c2_2 {
     display: inline-block;
     width: 48%;
@@ -58,8 +47,17 @@ p {
     font-size: 100%;
     vertical-align: middle;
 }
-*/
 
+#c2_3 {
+    line-height: 1.4;
+    font-size: 100%;
+    text-align: left;
+    padding-left: 1em;
+    padding-bottom: 0;
+    padding-top:0;
+    width: 60%;
+
+}
 
 #c2_1_lone {
     display:inline-block;
@@ -71,14 +69,27 @@ p {
 
 
 
-#c2_12wrapper { 
+#c2_12wrapper {
+    border-top:1px dashed #aaa;
+    border-bottom:1px dashed #aaa;
     vertical-align: middle;
-/*    text-align: center;*/
+    text-align: center;
 }
 
+#c0{
+    line-height: 1.4;
+    font-size: 100%;
+    max-width: 800px;
+    text-align: left;
+    margin:auto;
+    margin-top:0.3em;
+    padding-left: 1em;
+    padding-bottom: 0;
+    padding-top:0;
+}
 
 img {
-/*    align-content: center;*/
+    align-content: center;
     max-width: 100%;
     vertical-align: middle;
     margin: 10px;
@@ -95,3 +106,12 @@ figcaption {
     border: 1px dashed #747070;
 }
 
+figure {
+    margin: 0px;
+}
+
+
+p {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+}
