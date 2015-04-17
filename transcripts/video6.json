@@ -1,6 +1,6 @@
 [
     {
-        "line": "Let us discuss about another way of solving a quadratic equation. That is, by completing the square, completing the square method.",
+        "line": "Let us discuss about another way of solving a quadratic equation. That is, by completing the square. Completing the square method.",
         "speaker": "narrator"
     },
     {
@@ -8,51 +8,51 @@
         "speaker": "narrator"
     },
     {
-        "line": "Let us apply the completing the square method to the standard form of quadratic equation. The first step of completing the square method is to make the coefficient of X squared equal to one. What we do is we divide by the coefficient of X squared on both sides so that the coefficient of X squared becomes one.",
+        "line": "So, let us apply the completing the square method to the standard form of quadratic equation. The first step of completing the square method is to make the coefficient of x^2 equal to 1. What we do is we divide by the coefficient of x^2 on both sides so that the coefficient of x^2 becomes 1.",
         "speaker": "narrator"
     },
     {
-        "line": "Let's do it, and then you will understand. Dividing the equation by A. What do we get? AX squared by A plus BX by A plus C by A is equal to zero by A. That is nothing but zero.",
+        "line": "Let's do it, and then you will understand. Dividing the equation by a. What do we get? ax^2/a + bx/a + c/a is equal to 0/a. That is nothing but 0.",
         "speaker": "narrator"
     },
     {
-        "line": "The coefficient of X squared here has become one. That was our purpose of doing this step. B by AX plus C by A is equal to zero.",
+        "line": "The coefficient of x^2 here has become 1. That was our purpose of doing this step. bx/a + c/a is equal to 0.",
         "speaker": "narrator"
     },
     {
-        "line": "In the second step what we need to do is we will add and subtract half of the coefficient of X, square of half of coefficient of X. That is B by two A. It is half of B by A squared.",
+        "line": "In the second step what we need to do is we will add and subtract half of the coefficient of x, square of half of coefficient of x. That is b/2a. It is (b/(2a))^2.",
         "speaker": "narrator"
     },
     {
-        "line": "We need to add and subtract this thing in this equation. X squared plus B by AX plus B by two A squared. If we add something to an equation, we need to subtract the same amount to keep the equation intact. Plus C by A is equal to zero.",
+        "line": "We need to add and subtract this thing in this equation. x^2 + bx/a + (b/(2a))^2. If we add something to an equation, we need to subtract the same amount to keep the equation intact. +c/a is equal to 0.",
         "speaker": "narrator"
     },
     {
-        "line": "I haven't made any changes to the original equation. I've just added something and subtracted the same thing. Now, if you notice carefully, this expression has become of the form A squared plus B squared plus two AB. We can write it as A plus B whole squared.",
+        "line": "I haven't made any changes to the original equation. I've just added something and subtracted the same thing. Now, if you notice carefully, this expression has become of the form a^2+b^2+2ab. So, we can write it as (a+b)^2.",
         "speaker": "narrator"
     },
     {
-        "line": "This expression can be written as X plus B by two A whole squared, and the rest of the expression, B by two A whole squared plus C by A is equal to zero.",
+        "line": "This expression can be written as (x+b/(2a))^2, and the rest of the expression, (b/(2a))^2 + c/a is equal to 0.",
         "speaker": "narrator"
     },
     {
-        "line": "We will keep this complete square on the left hand side, and let us take the rest of the things to the right hand side of the equation. Now, let us further solve this equation. This will become B squared by four A squared minus C by A, and this will become B squared minus four AC divided by four A squared.",
+        "line": "We will keep this complete square on the left hand side, and let us take the rest of the things to the right hand side of the equation. Now, let us further solve this equation. This will become b^2/(4a^2) - c/a, and this will become (b^2 - 4ac)/(4a^2).",
         "speaker": "narrator"
     },
     {
-        "line": "Let me take another page, then I'll explain. X plus B by two A whole squared is equal to B squared minus four AC is equal to B squared minus four AC divided by four A squared. B squared minus four AC divided by four A squared.",
+        "line": "Let me take another page, then I'll explain. (x + b/(2a))^2 is equal to b^2 - 4ac is equal to (b^2-4ac)/4a^2. (b^2-4ac)/4a^2.",
         "speaker": "narrator"
     },
     {
-        "line": "Next logical step would be to take the square root. I'll get X plus B by two A is equal to plus/minus and the root B squared minus four AC divided by two A.",
+        "line": "Next logical step would be to take the square root. I'll get x+b/(2a) is equal to +/- and the sqrt(b^2-4ac)/2a..",
         "speaker": "narrator"
     },
     {
-        "line": "The entire purpose of this exercise is to get the values of X, so we'll keep X on the left hand side and take this B by two A to the right hand side. We'll change the sign. Minus B by two A plus/minus B squared minus four AC divided by two A.",
+        "line": "The entire purpose of this exercise is to get the values of x, so we'll keep x on the left hand side and take this b/(2a) to the right hand side. We'll change the sign. -b/(2a) +/- (b^2-4ac)/2a.",
         "speaker": "narrator"
     },
     {
-        "line": "Here we got the values of X, so we can further simplify it. Minus B plus/minus B squared minus four AC divided by two A. These are the values of X that we get by completing the square method. We'll further discuss various terms in this expression, but this is how we do solutions of quadratic equations using completing the square method. I'll take some examples to further simplify it in further videos.",
+        "line": "Here we got the values of x, so we can further simplify it. -b +/- (b^2-4ac)/2a. These are the values of x that we get by completing the square method. We'll further discuss various terms in this expression, but this is how we do solutions of quadratic equations using completing the square method. I'll take some examples to further simplify it in further videos.",
         "speaker": "narrator"
     }
 ]
