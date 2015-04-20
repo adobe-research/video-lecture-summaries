@@ -235,8 +235,12 @@ if __name__ == "__main__":
             cur_stc_id = subline.list_of_sentences[-1].id+1
     
     if (cur_stc_id < len(list_of_sentences) -1):
+        html.opendiv(idstring="c0")
+        html.openp()
         for i in range(cur_stc_id, len(list_of_sentences)):
             write_stc(html, list_of_sentences[i])
+        html.closep()
+        html.closediv() #c0
     
 #     html.opendiv()
 #     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
