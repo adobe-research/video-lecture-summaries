@@ -10,6 +10,7 @@ from video import Video
 import numpy as np
 from writehtml import WriteHtml
 import os
+import util
 
 def link_stc_per_obj():
     videopath = sys.argv[1]
@@ -25,6 +26,7 @@ def link_stc_per_obj():
     n_sentences = len(list_of_stcs)
     """for each object, if it overlaps with stc, find most overlapping stc"""
     for obj in list_of_objs:
+        obj_length = obj.end_fid - obj.start_fid
         min_dist = float("inf")
         closest_stc_id = -1
         for i in range(0,  n_sentences):
@@ -35,7 +37,7 @@ def link_stc_per_obj():
                 closest_stc_id = i
         closest_stc_ids.append(closest_stc_id)
     
-#     util.write_ints(closest_stc_ids, objdir + "/stc_ids_2.txt")
+    util.write_ints(closest_stc_ids, objdir + "/stc_ids.txt")
     
     figdir = objdir + "/sentence_obj_test"
     if not os.path.exists(os.path.abspath(figdir)):
@@ -52,22 +54,21 @@ def link_stc_per_obj():
             cur_obj = VisualObject.group(cur_objs,  figdir)
         else: 
             cur_obj = None
-        
+         
         html.opentablecell()
         html.writestring("%s.  " %(i+1))
         html.write_list_of_words(cur_stc)
         html.closetablecell()
-        
+         
         html.opentablecell()
         if (cur_obj is not None):
             html.image(cur_obj.imgpath)
         html.closetablecell()
-        
+         
         html.closetablerow()
     html.closetable()
-    
+     
     html.closehtml()
-
     
     
 if __name__ == "__main__":

@@ -1,106 +1,208 @@
 <html>
 <head>
-<link href="../../../../../../../../Mainpage/stc_obj.css" rel="stylesheet" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><link href="..\..\..\..\..\..\..\..\Mainpage\stc_obj.css" rel="stylesheet" />
 <title>no title</title>
 </head>
 <body>
 <table border=0>
-<tr><td>1.  We are going to prove some formulas from Trigonometry, directly from Euler's formula, e to the i x equals cosine x plus i sine x First, we are going to prove that sine to the two x plus cos to the two x equals one This can be proven from the Pythagorean theorem and the definitions of the trigonometric functions, but we are going to do it using Euler's formula. </td>
-<td><img src= "obj_000287_000586_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>2.  First, use the fact that e to the i x, we know that's cosine x plus i.sine </td>
-<td><img src= "obj_000787_000937_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>3.  x We also use the fact that, we've got e to the minus i x equals e to the iminus x that's the same thing as cosine minus x plus i.sinminus </td>
-<td><img src= "obj_000949_001453_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>4.  x Furthermore, since cos is an even function, cosine minus x equals cosine x and since sine is an odd function, sinminus x is minus sinx We write the negative out in front of the i Next, we are going to multiply together these two equations right here. </td>
-<td><img src= "obj_001472_001909_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>5.  We have e to the i x e to the minus i x equals cosine minus x plus i.sinminus </td>
-<td><img src= "obj_001993_002232_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>6.  x cosine x minus i.sine </td>
-<td><img src= "obj_002245_002400_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>7.  x Now, on the left hand side, add the same base, these exponents we will add them together, get zero for an x by e to the zero is one. </td>
-<td><img src= "obj_002411_002661_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>8.  On the right hand side, multiplying together the first two terms, we get cos to the two x multiplying together the outside terms, we get minus i.cosine </td>
-<td><img src= "obj_002667_002933_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>9.  x sine x then multiplying together the inside terms, we are going to get a plus i.sine </td>
-<td><img src= "obj_002939_003127_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>10.  x cosine x Finally, multiplying together the two last terms, we are going to get a minus i to the two sine to the two x Now, there is some great cancellation which happens, these two terms cancel out, and this minus i to the two i to the two is minus one, minus minus one is positive one. </td>
-<td><img src= "obj_003137_003605_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>11.  What we are left with is one equals cos to the two x plus sine to the two x which was exactly what we hoped to get up above. </td>
-<td><img src= "obj_003755_004129_group.png" width="" usemap="#" id="" class="">
-</td>
-</tr>
-
-<tr><td>12.  That's just the first way you can use Euler's formula to come up with a more algebraic proof, prove a few more results similarly. </td>
+<tr><td>1.  We are going to prove some formulas from trigonometry, directly from Euler's formula, e to the i x equals cos x plus i times sin x. </td>
 <td></td>
 </tr>
 
-<tr><td>13.  For instance, I'd like to prove the Angle Sum formulas, a hard time remembering these sometimes but that's a great reason to remember where formulas came from, and you can always reminus derive them for yourself. </td>
+<tr><td>2.  First, we are going to prove that sin squared of x plus cosine squared of x is equal to one. </td>
+<td><img src= "obj_000287_000499_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>3.  This can be proven from the Pythagorean theorem and the definitions of the trigonometric functions, but we are going to do it using Euler's formula. </td>
+<td><img src= "obj_000510_000586_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>4.  First, use the fact that e to the i x, we know that's cosine of x plus i times sine of x. </td>
+<td><img src= "obj_000787_001026_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>5.  We also use the fact that, we've got e to the negative i x is e to the i times negative x that's the same thing as cosine negative x plus i times sine negative x. </td>
+<td><img src= "obj_001049_001453_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>6.  Furthermore, since cosine is an even function, cosine of negative x is cosine of x, and since sin is an odd function, sin of negative x is negative sine of x. </td>
+<td><img src= "obj_001472_001640_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>7.  We write the negative out in front of the i. </td>
+<td><img src= "obj_001759_001766_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>8.  Next, we are going to multiply together these two equations right here. </td>
+<td><img src= "obj_001846_001909_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>9.  We have e to the i x times e to the negative i x is equal to cosine of x plus i times sine of x times the quantity cosine of x minus i times sine of x. </td>
+<td><img src= "obj_001993_002493_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>10.  Now, on the left hand side, we have the same base. </td>
+<td><img src= "obj_002504_002511_group.png" height="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>11.  These exponents we will add them together, get zero for an exponent, and e to the zero is one. </td>
+<td><img src= "obj_002651_002661_group.png" height="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>12.  On the right hand side, multiplying together the first two terms, we get cosine squared x. </td>
+<td><img src= "obj_002696_002816_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>13.  Multiplying together the outside terms, we get negative i times cosine x times sine x. </td>
+<td><img src= "obj_002902_002989_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>14.  Then multiplying together the inside terms, we are going to get a plus i times sine x times cosine x. </td>
+<td><img src= "obj_003008_003188_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>15.  Finally, multiplying together the two last terms, we are going to get a negative i squared sin squared x. </td>
+<td><img src= "obj_003208_003449_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>16.  Now, there is some great cancellation which happens, these two terms cancel out, and this negative i squared, i squared is one, negative negative one is positive one. </td>
+<td><img src= "obj_003454_003798_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>17.  What we are left with is one equals cosine squared x plus sin squared x, which was exactly what we hoped to get up above. </td>
+<td><img src= "obj_003810_004129_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>18.  That's just the first way you can use Euler's formula to come up with a more algebraic proof. </td>
+<td></td>
+</tr>
+
+<tr><td>19.  We will prove a few more results similarly. </td>
+<td></td>
+</tr>
+
+<tr><td>20.  For instance, I'd like to prove the Angle Sum formulas. </td>
+<td><img src= "obj_004400_004600_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>21.  I have a hard time remembering these sometimes but that's a great reason to remember where formulas came from, and you can always re derive them for yourself. </td>
 <td><img src= "obj_004629_004753_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>14.  First, say we have e to the i a equals cosine a plus i.sine </td>
+<tr><td>22.  First, say we have e to i a, that's cosine a plus i times sine a. </td>
 <td><img src= "obj_004854_005086_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>15.  a also say we have e to the ib equals cosine b plus i sine b Now, just like before, we'll take these two equations and multiply them together e to the ia e to the ib equals cosine a plus i sine a cosine b plus i sinb On the left, it's simplified e to the ia plus b, on the right, we'll get cosine a cosine b plus we are going to multiply together the two last terms here, i to the two is negative one, so, minus sine a sinb multiplying the interior terms, in the exterior terms, both can have a factor of i, cosine a sinb we are going to write the i on the outside, now factoring that out, we have a sine a cosine b Next, I am going to take Euler's formula and apply it directly to e to the ia plus b equals cosine a plus b plusequals i.sine </td>
-<td><img src= "obj_005092_007287_group.png" width="" usemap="#" id="" class="">
+<tr><td>23.  Also say we have e to the ib. </td>
+<td><img src= "obj_005092_005122_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>16.  a plus b Now, interesting thing, when two complex numbers are equal, their real in their imaginary parts must also be equal, the real part, this first term is cos a plus b which matches up with this part here, and the imaginary part is sine a plus b which must therefore be equal to this part. </td>
-<td><img src= "obj_007302_007847_group.png" width="" usemap="#" id="" class="">
+<tr><td>24.  That's cosine b plus i sine b. </td>
+<td><img src= "obj_005136_005352_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>17.  If we write down these two results, we have the angle sum formulas. </td>
+<tr><td>25.  Now, just like before, we'll take these two equations and multiply them together e ia, e ib equals cosine a plus i sine a times the quantity cosine b plus i sine b. </td>
+<td><img src= "obj_005438_005746_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>26.  On the left, it's simplified. </td>
+<td><img src= "obj_005760_005839_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>27.  On the right, we'll get cosine a times cosine b plus we are going to multiply together the two last terms here. </td>
+<td><img src= "obj_005850_006178_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>28.  i squared is negative one. </td>
+<td></td>
+</tr>
+
+<tr><td>29.  So, negative sine a sine b multiplying the interior terms, in the exterior terms, both are going to have a factor of i, cosine a sine b we are going to write the i on the outside, now factoring that out, we have a sine a cosine b. </td>
+<td><img src= "obj_006270_006778_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>30.  Next, I am going to take Euler's formula and apply it directly to e to the i a plus b. </td>
+<td><img src= "obj_006911_007083_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>31.  In that case we get cosine the quantity a plus b plus i times sine quantity a plus b. </td>
+<td><img src= "obj_007170_007373_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>32.  Now, interesting thing, when two complex numbers are equal, their real in their imaginary parts must also be equal, the real part, this first term is cosine a plus b which matches up with this part here. </td>
+<td><img src= "obj_007380_007659_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>33.  And the imaginary part is sine a plus b which must therefore be equal to this part. </td>
+<td><img src= "obj_007695_007847_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>34.  If we write down these two results, we have the angle sum formulas. </td>
 <td><img src= "obj_007872_007913_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>18.  cos a plus b equals cosine a cosine b minus sine a sinb and we get the sum formula for sine as well, sine a plus b equals cosine a sinb plus sine a cosine b Furthermore, if you want to get the double angle formulas, that's not too bad, if you let a equals x and b equals x then you will get cos twox that's x plus x equals cosine x. </td>
-<td><img src= "obj_008021_009382_group.png" width="" usemap="#" id="" class="">
+<tr><td>35.  cosine of a plus b is equal to cosine a cosine b minus sine a sine b. </td>
+<td><img src= "obj_008021_008319_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>19.  cosine x is cosine to the two x sine x. </td>
-<td><img src= "obj_009422_009440_group.png" width="" usemap="#" id="" class="">
+<tr><td>36.  And we get the sum formula for sine as well, sin of a plus b is equal to cosine a sine b plus sine a cosine b. </td>
+<td><img src= "obj_008327_008710_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 
-<tr><td>20.  Sine x minus sine to the two x and sine two x We are going to have cosine x sine x plus sine x cosine x both those terms are actually the same, so, you get twosinx cosine x Once more, Euler's formula proves to be a handy tool to have. </td>
-<td><img src= "obj_009459_010169_group.png" width="" usemap="#" id="" class="">
+<tr><td>37.  Furthermore, if you want to get the double angle formulas, that's not too bad, if you let a equal x and b equal x then you will get cosine two x that's x plus x is equal to cosine x times cosine x is cosine squared x, sin x times sin x is sine squared x. </td>
+<td><img src= "obj_008732_009558_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>38.  And sin of two x. </td>
+<td><img src= "obj_009582_009685_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>39.  We are going to have cosine x sin x plus sin x cosine x. </td>
+<td><img src= "obj_009702_009826_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>40.  Both those terms are actually the same, so, you get two sin x cosine x. </td>
+<td><img src= "obj_009934_009985_group.png" width="" usemap="#" id="" class="">
+</td>
+</tr>
+
+<tr><td>41.  Once more, Euler's formula proves to be a handy tool to have. </td>
+<td><img src= "obj_009992_010169_group.png" width="" usemap="#" id="" class="">
 </td>
 </tr>
 

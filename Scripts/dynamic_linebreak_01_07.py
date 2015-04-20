@@ -193,7 +193,7 @@ def weighted_avg_linecost(list_of_lines):
          
         yprojgapcost = y_projection_gap_score(line)
         ymaxgap = yprojgapcost
-        yprojgapcost = 0.025 * yprojgapcost /0.025
+#         yprojgapcost = 0.025 * yprojgapcost /0.025
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         

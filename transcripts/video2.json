@@ -12,7 +12,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "We take the first derivative, that's just c*e^t, and likewise, the second derivative, that's also c*e^t. If were to plug these into here, we get that the d^ minus four times the first derivative, plus 3*y, that's equal to 0.",
+        "line": "We take the first derivative, that's just c*e^t, and likewise, the second derivative, that's also c*e^t. If were to plug these into here, we get that the second derivative minus four times the first derivative, plus 3*y, that's equal to 0.",
         "speaker": "narrator"
     },
     {

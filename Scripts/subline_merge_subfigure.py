@@ -83,6 +83,9 @@ def write_subline_img(html, subline, figdir):
 #         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
     html.image(figdir + "/" + label_imgpath)
+    start_fid = subline.obj.start_fid
+    end_fid  = subline.obj.end_fid
+#     html.writestring("<br>%.2f - %.2f<br>\n"%(start_fid, end_fid))
     html.closediv() #line%i_sub%i
         
 def write_subline_stc(html, subline, figdir):
@@ -94,7 +97,9 @@ def write_subline_stc(html, subline, figdir):
     if nstc == 1:
         html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
         html.opendiv(idstring="c2_3")
-        html.paragraph_list_of_words(subline.list_of_sentences[0].list_of_words, stopwords)
+        html.openp()
+        html.write_list_of_words(subline.list_of_sentences[0].list_of_words, stopwords)
+        html.closep()
         html.closediv() #c2_3
         html.closediv() #line%i_sub%i_c2
         return
@@ -214,6 +219,9 @@ if __name__ == "__main__":
                 html.openp()
                 for i in range(cur_stc_id, start_stc_id):
                     write_stc(html, list_of_sentences[i])
+                    start_fid = list_of_sentences[i].start_fid
+                    end_fid = list_of_sentences[i].end_fid
+#                     html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
                 html.closep()
                 html.closediv()
                 cur_stc_id = start_stc_id
@@ -222,8 +230,11 @@ if __name__ == "__main__":
             stc = list_of_sentences[cur_stc_id]
             html.opendiv(idstring="c0")
             html.openp()
-            while(stc.end_fid < subline.obj.start_fid):
+            while(stc.stcstroke is None and stc.start_fid < subline.obj.end_fid):
                 write_stc(html, stc)
+                start_fid = stc.start_fid
+                end_fid = stc.end_fid
+#                 html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
                 cur_stc_id += 1
                 stc = list_of_sentences[cur_stc_id]
             html.closep()
@@ -239,6 +250,9 @@ if __name__ == "__main__":
         html.openp()
         for i in range(cur_stc_id, len(list_of_sentences)):
             write_stc(html, list_of_sentences[i])
+            start_fid = list_of_sentences[i].start_fid
+            end_fid = list_of_sentences[i].end_fid
+#             html.writestring("(%.2f - %.2f) "%(start_fid, end_fid))
         html.closep()
         html.closediv() #c0
     
