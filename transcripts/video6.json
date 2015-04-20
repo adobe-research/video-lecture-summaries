@@ -12,11 +12,11 @@
         "speaker": "narrator"
     },
     {
-        "line": "Let's do it, and then you will understand. Dividing the equation by a. What do we get? ax^2/a + bx/a + c/a is equal to 0/a. That is nothing but 0.",
+        "line": "Let's do it, and then you will understand. Dividing the equation by a. What do we get? ax^2/a+bx/a+c/a is equal to 0/a. That is nothing but 0.",
         "speaker": "narrator"
     },
     {
-        "line": "The coefficient of x^2 here has become 1. That was our purpose of doing this step. bx/a + c/a is equal to 0.",
+        "line": "The coefficient of x^2 here has become 1. That was our purpose of doing this step. bx/a+c/a is equal to 0.",
         "speaker": "narrator"
     },
     {
@@ -24,7 +24,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "We need to add and subtract this thing in this equation. x^2 + bx/a + (b/(2a))^2. If we add something to an equation, we need to subtract the same amount to keep the equation intact. +c/a is equal to 0.",
+        "line": "We need to add and subtract this thing in this equation. x^2+bx/a+(b/(2a))^2. If we add something to an equation, we need to subtract the same amount to keep the equation intact. +c/a is equal to 0.",
         "speaker": "narrator"
     },
     {
@@ -32,27 +32,27 @@
         "speaker": "narrator"
     },
     {
-        "line": "This expression can be written as (x+b/(2a))^2, and the rest of the expression, (b/(2a))^2 + c/a is equal to 0.",
+        "line": "This expression can be written as (x+b/(2a))^2, and the rest of the expression, (b/(2a))^2+c/a is equal to 0.",
         "speaker": "narrator"
     },
     {
-        "line": "We will keep this complete square on the left hand side, and let us take the rest of the things to the right hand side of the equation. Now, let us further solve this equation. This will become b^2/(4a^2) - c/a, and this will become (b^2 - 4ac)/(4a^2).",
+        "line": "We will keep this complete square on the left hand side, and let us take the rest of the things to the right hand side of the equation. Now, let us further solve this equation. This will become b^2/(4a^2)-c/a, and this will become (b^2-4ac)/(4a^2).",
         "speaker": "narrator"
     },
     {
-        "line": "Let me take another page, then I'll explain. (x + b/(2a))^2 is equal to b^2 - 4ac is equal to (b^2-4ac)/4a^2. (b^2-4ac)/4a^2.",
+        "line": "Let me take another page, then I'll explain. (x+b/(2a))^2 is equal to b^2-4ac is equal to (b^2-4ac)/4a^2. (b^2-4ac)/4a^2.",
         "speaker": "narrator"
     },
     {
-        "line": "Next logical step would be to take the square root. I'll get x+b/(2a) is equal to +/- and the sqrt(b^2-4ac)/2a..",
+        "line": "Next logical step would be to take the square root. I'll get x+b/(2a) is equal to plus or minus and the sqrt(b^2-4ac)/2a..",
         "speaker": "narrator"
     },
     {
-        "line": "The entire purpose of this exercise is to get the values of x, so we'll keep x on the left hand side and take this b/(2a) to the right hand side. We'll change the sign. -b/(2a) +/- (b^2-4ac)/2a.",
+        "line": "The entire purpose of this exercise is to get the values of x, so we'll keep x on the left hand side and take this b/(2a) to the right hand side. We'll change the sign. -b/(2a)+/-(b^2-4ac)/2a.",
         "speaker": "narrator"
     },
     {
-        "line": "Here we got the values of x, so we can further simplify it. -b +/- (b^2-4ac)/2a. These are the values of x that we get by completing the square method. We'll further discuss various terms in this expression, but this is how we do solutions of quadratic equations using completing the square method. I'll take some examples to further simplify it in further videos.",
+        "line": "Here we got the values of x, so we can further simplify it. -b+/-(b^2-4ac)/2a. These are the values of x that we get by completing the square method. We'll further discuss various terms in this expression, but this is how we do solutions of quadratic equations using completing the square method. I'll take some examples to further simplify it in further videos.",
         "speaker": "narrator"
     }
 ]

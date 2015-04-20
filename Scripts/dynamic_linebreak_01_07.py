@@ -193,7 +193,7 @@ def weighted_avg_linecost(list_of_lines):
          
         yprojgapcost = y_projection_gap_score(line)
         ymaxgap = yprojgapcost
-        yprojgapcost = 0.025 * yprojgapcost
+        yprojgapcost = 0.025 * yprojgapcost /0.025
         yprojgapcost = math.pow(yprojgapcost, 2.0)
         sum_yprojgapcost += yprojgapcost
         
@@ -241,6 +241,7 @@ def break_penalty(list_of_objs, line_ids):
             obj2 = list_of_objs[i+1]
             xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
             break_penalty += 1.0/tdist
+            break_peanlty = 0.0
     return break_penalty
         
     
@@ -382,14 +383,14 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "01_07_yprojcost"
-    outvideo = None#cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outfilename = "04_20_2ypenalty_no_tpenalty"
+    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
     util.saveimage(result, objdirpath, outfilename + ".png")
-   # util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids.txt")
+    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids_2ypenalty_no_tpenalty.txt")
     
     outvideo.release()
     
