@@ -14,6 +14,7 @@ import process_aligned_json as pjson
 from sentence import Sentence
 import cv2
 import label
+from sublinebreak import SublineBreaker
 
 class Character:
     def __init__(self, charobj):
@@ -112,6 +113,7 @@ class SubLine:
         self.obj = VisualObject.group([stroke.obj for stroke in self.list_of_strokes], sublinedir, imgname = "line%06i_%06i.png" % (self.line_id, self.sub_line_id))
         self.objdir = sublinedir
         self.list_of_labels = []
+        self.list_of_subsublines = []
         
     def add_label(self, pos):
         n = len(self.list_of_labels)
@@ -331,6 +333,10 @@ def getvisuals(videopath, panoramapath, objdir, scriptpath):
     list_of_stcstrokes = []
     for subline in list_of_sublines:
         list_of_stcstrokes = list_of_stcstrokes + subline.list_of_stcstrokes
+        
+    """break sublines"""
+    for subline in list_of_sublines:
+        break_subline(subline)
    
     return [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, list_of_strokes, list_of_chars, list_of_sentences]
      
@@ -340,6 +346,10 @@ def panorama_lines(panorama, list_of_linegroups):
         obj = linegroup.obj
         cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 0), 2)
     return panorama_copy
+
+def break_subline(subline):
+    sb = SublineBreaker(subline)
+    subline.list_of_subsublines = sb.breaklines()    
         
      
 if __name__ == "__main__":
@@ -391,6 +401,11 @@ if __name__ == "__main__":
         os.makedirs(os.path.abspath(linedir))
 
     list_of_linegroups = get_linegroups(list_of_sublines, linetxt, linedir)
+    
+    """break sublines"""
+    for subline in list_of_sublines:
+        break_subline(subline)
+    
     
     VisualObject.write_to_file(linedir + "/obj_info.txt", [line.obj for line in list_of_linegroups])
     VisualObject.write_to_file(sublinedir + "/inline_obj_info.txt", [subline.obj_in_line for subline in list_of_sublines])

@@ -12,26 +12,114 @@ import os
 import process_aligned_json as pjson
 from video import Video
 from visualobjects import VisualObject
+import label
 
 collapsed_icon = "../../../../../../../Mainpage/figures/arrow_collapsed_icon.png"
 expanded_icon = "../../../../../../../Mainpage/figures/arrow_expanded_icon.png"
 
-def write_showsection_script(html, section_id):
-    html.writestring("function showsection%i(){\n\t \
-    var cap  = document.getElementById(\"section%i_c2\");\n \
-    cap.style.display == \"inline-block\" ? cap.style.display = \"none\" : cap.style.display = \"inline-block\";\n \
-    }\n"%(section_id, section_id))
+stopwords = []
 
-def write_arrowtoggle_script(html, i):
-    html.writestring("$('#arrow%i').on({\n \
+def write_showsection_script(html, lineid, subid):
+    html.writestring("function showline%i_sub%i(){\n\t \
+    var cap  = document.getElementById(\"line%i_sub%i_c2\");\n \
+    cap.style.display == \"inline-block\" ? cap.style.display = \"none\" : cap.style.display = \"inline-block\";\n \
+    }\n"%(lineid, subid, lineid, subid))
+
+def write_arrowtoggle_script(html, lineid, subid):
+    html.writestring("$('#arrow%i_sub%i').on({\n \
     \t'click': function() {\n \
      \t\t var src = ($(this).attr('src') === \"%s\")\n \
             ? \"%s\"\n \
             : \"%s\";\n \
          $(this).attr('src', src);\n \
         }\n \
-    });\n"%(i, collapsed_icon, expanded_icon, collapsed_icon))
+    });\n"%(lineid, subid, collapsed_icon, expanded_icon, collapsed_icon))
     
+def write_plustoggle_script(html, lineid, subid):
+    html.writestring("$('#arrow%i_sub%i').on({\n \
+    \t'click': function() {\n \
+    if ($(\"#arrow%i_sub%i\").text() == \"-\") {\
+    $(\"#arrow%i_sub%i\").text(\"+\" ); } \
+    else { $(\"#arrow%i_sub%i\").text(\"-\" );\
+    } \
+    } \
+    });\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
+     
+def write_stc(html, sentence):
+#     html.opendiv(idstring="c0")
+#     start_fid = sentence.video.ms2fid(sentence.startt)
+#     end_fid = sentence.video.ms2fid(sentence.endt)
+#     html.writestring("<b>%i - %i</b><br>"%(start_fid, end_fid))
+    html.write_sentence(sentence, stopwords)
+#     html.closediv()
+    
+def write_subline(html, subline, figdir):
+    html.opendiv(idstring="c1c2wrapper")
+#     html.writestring("%i - %i"%(subline.list_of_strokes[0].obj.start_fid, subline.list_of_strokes[-1].obj.end_fid))
+    write_subline_img(html, subline, figdir)
+    write_subline_stc(html, subline, figdir)
+    html.closediv() #c1c2wrapper
+        
+        
+def write_subline_img(html, subline, figdir):
+    lineid = subline.line_id
+    subid = subline.sub_line_id
+    
+    html.opendiv(idstring="line%i_sub%i_c1"%(lineid, subid))
+    upto_subline_objs = subline.linegroup.obj_upto_subline(subline.sub_line_id)
+    subline_obj = VisualObject.group(upto_subline_objs, figdir, "line%i_sub%i.png"%(subline.linegroup.line_id, subline.sub_line_id))
+    
+    for lb in subline.list_of_labels:
+        print lb.pos
+    
+    label_img = label.label_objs([subline_obj], subline.list_of_labels)
+    label_imgpath = "labelline_%i_sub%i.png"%(subline.linegroup.line_id, subline.sub_line_id) 
+    util.saveimage(label_img, figdir, label_imgpath)
+    
+    if len(subline.list_of_sentences) > 0:
+        html.writestring("<img src=\"%s\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
+                                    onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
+#         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
+#                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
+    html.image(figdir + "/" + label_imgpath)
+    start_fid = subline.obj.start_fid
+    end_fid  = subline.obj.end_fid
+#     html.writestring("<br>%.2f - %.2f<br>\n"%(start_fid, end_fid))
+    html.closediv() #line%i_sub%i
+        
+def write_subline_stc(html, subline, figdir):  
+    lineid = subline.line_id
+    subid = subline.sub_line_id
+    nlines = len(subline.list_of_subsublines)
+    
+    print 'lineid, subid, nlines', lineid, subid, nlines
+
+    """single segment"""        
+    if (nlines < 2):
+        html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
+        html.opendiv(idstring="c2_3")
+        html.openp()
+        for stc in subline.list_of_sentences:
+            html.write_list_of_words(stc.list_of_words, stopwords)
+        html.closep()
+        html.closediv() #c2_3
+        html.closediv() #line%i_sub%i_c2
+        return
+        
+   
+    html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
+    written = 0
+    for i in range(0, nlines):
+        list_of_stcstrokes = subline.list_of_subsublines[i]
+        html.opendiv(idstring="c2_12wrapper")
+        html.opendiv(idstring="c2_2")
+        obj = list_of_stcstrokes[-1].obj_upto_inline(figdir)
+        html.image(obj.imgpath)
+        html.closediv()
+        html.closediv()   
+    html.closediv()     
+    return
+
 
 if __name__ == "__main__":
     videopath = sys.argv[1]
@@ -39,101 +127,94 @@ if __name__ == "__main__":
     objdir = sys.argv[3]
     scriptpath = sys.argv[4]
     title = sys.argv[5]
-    figdir = objdir + "/subline_test"
+    author = sys.argv[6]
+#     frametxt = sys.argv[6]
+#     cursortxt = sys.argv[7]
+
     
-    stopwords = ['here', 'Here', 'here.', 'here,', 'this', 'This', 'this.', 'this,']
+#     fp = util.list_of_vecs_from_txt(frametxt)
+#     framepos = []
+#     for p in fp:
+#         framepos.append((int(p[0]), int(p[1])))
+#         
+#     cp = util.list_of_vecs_from_txt(cursortxt)
+#     cursorpos = []
+#     for p in cp:
+#         cursorpos.append((int(p[0]), int(p[1])))
+    
+    figdir = objdir + "/subline_linebreak_test"
     
     [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, 
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
-    video = Video(videopath)
-    list_of_words = pjson.get_words(scriptpath)
-    list_of_stcs = pjson.get_sentences(list_of_words)
-    
+
+#     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
-    html = WriteHtml(objdir + "/subline_test.html", "Subline Test", stylesheet ="../Mainpage/subline_test.css")
-    html.writestring("<h1>%s</h1><br>\n"%title)
-    
-    cur_stc_id = 0 
+    html = WriteHtml(objdir + "/subline_line_break_test.html",title, stylesheet ="../Mainpage/subline_merge_subfigure.css")
+#     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
+    html.writestring("<h1>%s</h1>\n"%title)
+    html.writestring("<h3>%s</h3>\n"%author)
+
+      
+    cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]
+        
         if (len(subline.list_of_sentences) > 0):
             start_stc_id = subline.list_of_sentences[0].id
             if (start_stc_id > cur_stc_id):
-                html.opendiv(idstring="c0_wrapper")
                 html.opendiv(idstring="c0")
+                html.openp()
                 for i in range(cur_stc_id, start_stc_id):
-                    stc = list_of_sentences[i]
-                    html.paragraph_list_of_words(stc.list_of_words, stopwords)
-#                     html.writestring("%.3f - %.3f"%(stc.startt, stc.endt))
+                    write_stc(html, list_of_sentences[i])
+                    start_fid = list_of_sentences[i].start_fid
+                    end_fid = list_of_sentences[i].end_fid
+#                     html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
+                html.closep()
+                html.closediv()
                 cur_stc_id = start_stc_id
-                html.closediv()
-                html.closediv()
+        
         else: #subline.list_of_sentences == 0
             stc = list_of_sentences[cur_stc_id]
-            while(stc.end_fid < subline.obj.start_fid):
-                html.opendiv(idstring="c0_wrapper")
-                html.opendiv(idstring="c0")
-                html.paragraph_list_of_words(stc.list_of_words, stopwords)
-#                 html.writestring("%.3f - %.3f"%(stc.startt, stc.endt))
-                html.closediv()
-                html.closediv()
+            html.opendiv(idstring="c0")
+            html.openp()
+            while(stc.stcstroke is None and stc.start_fid < subline.obj.end_fid):
+                write_stc(html, stc)
+                start_fid = stc.start_fid
+                end_fid = stc.end_fid
+#                 html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
                 cur_stc_id += 1
+                if (cur_stc_id >= len(list_of_sentences)):
+                    break
                 stc = list_of_sentences[cur_stc_id]
+            html.closep()
+            html.closediv()
         
-        html.opendiv(idstring="c1c2wrapper")
-        
-        html.opendiv(idstring="section%i_c1"%(sublinei))
-        upto_subline_objs = subline.linegroup.obj_upto_subline(subline.sub_line_id)
-        subline_obj = VisualObject.group(upto_subline_objs, figdir, "line%i_upto_sub%i.png"%(subline.linegroup.line_id, subline.sub_line_id))
-        if len(subline.list_of_sentences) > 0:
-            html.writestring("<img src=\"%s\" border=\"1px\" height=\"20px\" id=\"arrow%i\" \
-                                        onclick=\"showsection%i()\">\n"%(collapsed_icon, sublinei, sublinei))
-        html.image(subline_obj.imgpath)
-        subline_startt = video.fid2ms(subline.obj.start_fid)
-        subline_endt  = video.fid2ms(subline.obj.end_fid)
-#         html.writestring("<p>%.3f - %.3f</p>"%(subline_startt, subline_endt))
-        html.closediv() #c1
-        
-        html.opendiv(idstring="section%i_c2"%(sublinei), class_string="c2")
-        for sentence in subline.list_of_sentences:
-            html.opendiv(idstring="c2_wrapper")
-            if len(subline.list_of_sentences) <= 1:
-                html.opendiv(idstring="c2_1_lone")
-                html.paragraph_list_of_words(sentence.list_of_words, stopwords)
-                html.closediv()  #c2_1_lone
-            else:
-                html.opendiv(idstring="c2_1")    
-                html.paragraph_list_of_words(sentence.list_of_words, stopwords)
-                html.writestring("%.3f - %.3f"%(sentence.list_of_words[0].startt, sentence.list_of_words[-1].endt))
-                html.closediv()  #c2_1
-                
-            html.opendiv(idstring="c2_2")
-            if len(subline.list_of_sentences) > 1 and sentence.stcstroke is not None:
-                stcobj = sentence.stcstroke.obj_upto_inline(figdir)
-                html.image(stcobj.imgpath)
-                stcstroke_startt = video.fid2ms(sentence.stcstroke.obj.start_fid)
-                stcstroke_endt = video.fid2ms(sentence.stcstroke.obj.end_fid)
-                html.writestring("<p>%.3f - %.3f</p>"%(stcstroke_startt, stcstroke_endt))
-            html.closediv() #c2_2 
-            html.closediv() #c2_wrapper   
-            cur_stc_id = sentence.id+1
-        html.closediv() #c2
-        html.closediv() #wrapper
-        
+        #write subline
+        write_subline(html, subline, figdir)
+        if (len(subline.list_of_sentences) > 0):
+            cur_stc_id = subline.list_of_sentences[-1].id+1
     
-    if (cur_stc_id < len(list_of_stcs) -1):
-        html.opendiv(idstring="c0_wrapper")
+    if (cur_stc_id < len(list_of_sentences) -1):
         html.opendiv(idstring="c0")
-        for i in range(cur_stc_id, len(list_of_stcs)):
-            html.paragraph_list_of_words(list_of_stcs[i], stopwords)
-#             html.writestring("%.3f - %.3f"%(list_of_stcs[i][0].startt, list_of_stcs[i][-1].endt))
-        html.closediv()
-        html.closediv()
-        
+        html.openp()
+        for i in range(cur_stc_id, len(list_of_sentences)):
+            write_stc(html, list_of_sentences[i])
+            start_fid = list_of_sentences[i].start_fid
+            end_fid = list_of_sentences[i].end_fid
+#             html.writestring("(%.2f - %.2f) "%(start_fid, end_fid))
+        html.closep()
+        html.closediv() #c0
+    
+#     html.opendiv()
+#     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
+#     html.closediv()
+            
     html.openscript()
     for i in range(0, len(list_of_sublines)):
-        write_arrowtoggle_script(html,i)
-        write_showsection_script(html, i)
+        lineid = list_of_sublines[i].line_id
+        subid = list_of_sublines[i].sub_line_id
+        write_arrowtoggle_script(html, lineid, subid)
+        write_showsection_script(html, lineid, subid)
     html.closescript()
     html.closehtml()
