@@ -9,9 +9,10 @@ import math
 from visualobjects import VisualObject
 
 class SublineBreaker:
-    def __init__(self, subline):
+    def __init__(self, subline, list_of_sentences):
         self.subline = subline
         self.list_of_stcstrokes = subline.list_of_stcstrokes
+        self.list_of_sentences = list_of_sentences
         self.nobjs = len(subline.list_of_stcstrokes)
         self.nstcs = len(subline.list_of_sentences)
         self.linecost =  [[0 for x in range(self.nobjs)] for x in range(self.nobjs)]
@@ -27,7 +28,7 @@ class SublineBreaker:
         return sub_sublines    
     
     def compute_totalcost(self):
-        self.totalcost[0] = avg_linecost([self.list_of_stcstrokes[0:1]])
+        self.totalcost[0] = avg_linecost([self.list_of_stcstrokes[0:1]], self.list_of_sentences)
         self.cuts[0] = -1
         self.best_line_id[0][0] = 0
         
@@ -37,8 +38,7 @@ class SublineBreaker:
                 newline = self.list_of_stcstrokes[j+1:i+1]
                 if j == -1:
                     """single segment"""
-                    cost_from_cut_j = avg_linecost([newline])
-                    print cost_from_cut_j
+                    cost_from_cut_j = avg_linecost([newline], self.list_of_sentences)
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
                         self.cuts[i] = j
@@ -52,7 +52,7 @@ class SublineBreaker:
                     mergedline = lastline + newline
                     templines = prevlines[:]
                     templines[-1] = mergedline
-                    cost_from_cut_j = avg_linecost(templines)
+                    cost_from_cut_j = avg_linecost(templines, self.list_of_sentences)
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
                         self.cuts[i] = j
@@ -63,7 +63,7 @@ class SublineBreaker:
                     """cost to separate newline"""
                     templines = prevlines[:]
                     templines.append(newline)
-                    cost_from_cut_j = avg_linecost(templines)
+                    cost_from_cut_j = avg_linecost(templines, self.list_of_sentences)
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
                         self.cuts[i] = j
@@ -82,17 +82,30 @@ class SublineBreaker:
             i += 1
         return bestlines
     
-def avg_linecost(list_of_lines):
+def avg_linecost(list_of_lines, list_of_sentences):
     nlines= len(list_of_lines)
+    nword_score = 0.0
     nstc_score = 0.0
     for list_of_stcstrokes in list_of_lines:
         stcids = [stcstroke.stc_id for stcstroke in list_of_stcstrokes]
-        nstc = len(np.unique(stcids))
+        stcids = np.unique(stcids)
+        nstc = len(stcids)
         if nstc < 3:
             nstc_score += abs(nstc-3)
         else:
             nstc_score += 2*abs(nstc-3)
+        nwords = 0
+        for i in stcids:
+            stc = list_of_sentences[i]
+            nwords += len(stc.list_of_words)
+        if nwords < 50:
+            nword_score += abs(nwords-50)/50.0
+        else:
+            nword_score += 2*abs(nwords-50)/50.0
         
+        
+#         nword_score += abs(nwords-75)/25.0
+#     nword_score /= nlines    
     nstc_score /= nlines
         
     overlap_penalty = 0.0
@@ -116,9 +129,7 @@ def avg_linecost(list_of_lines):
         tgap = (next_startt - cur_endt)/1000.0
         time_gap_penalty += 1.0/tgap
     
-    
-    print 'nstc_score', nstc_score, 'overlap_penalty', overlap_penalty, 'time_gap_penlaty', time_gap_penalty
-    score = nstc_score + 2*overlap_penalty #+ time_gap_penalty
+    score = nword_score + overlap_penalty #+ time_gap_penalty
     
     return score 
         

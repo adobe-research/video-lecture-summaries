@@ -37,6 +37,12 @@ class VisualObject:
         else:
             self.members = [self]
         self.video = None
+        
+    def write_to_html(self, html):
+        html.breakline()
+        html.image(self.imgpath)
+        html.breakline()
+
                    
     @classmethod
     def fromtext(cls, text, start_fid, end_fid):        

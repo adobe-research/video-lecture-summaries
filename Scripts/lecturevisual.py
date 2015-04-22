@@ -336,7 +336,7 @@ def getvisuals(videopath, panoramapath, objdir, scriptpath):
         
     """break sublines"""
     for subline in list_of_sublines:
-        break_subline(subline)
+        break_subline(subline, list_of_sentences)
    
     return [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, list_of_strokes, list_of_chars, list_of_sentences]
      
@@ -347,8 +347,8 @@ def panorama_lines(panorama, list_of_linegroups):
         cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 0), 2)
     return panorama_copy
 
-def break_subline(subline):
-    sb = SublineBreaker(subline)
+def break_subline(subline, list_of_sentences):
+    sb = SublineBreaker(subline, list_of_sentences)
     subline.list_of_subsublines = sb.breaklines()    
         
      
@@ -404,7 +404,7 @@ if __name__ == "__main__":
     
     """break sublines"""
     for subline in list_of_sublines:
-        break_subline(subline)
+        break_subline(subline, list_of_sentences)
     
     
     VisualObject.write_to_file(linedir + "/obj_info.txt", [line.obj for line in list_of_linegroups])
