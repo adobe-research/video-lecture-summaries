@@ -20,6 +20,9 @@ class Sentence:
             self.ref_words = []
             self.ref_names = []
             
+        def write_to_html(self, html):
+            html.write_list_of_words(self.list_of_words)
+            
         def contains_phrase(self, string_phrase):
             phrase_words = string_phrase.split()
             words = []

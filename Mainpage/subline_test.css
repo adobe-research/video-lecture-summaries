@@ -5,6 +5,8 @@ body {
     text-align: center;
     margin: auto;
     align-content: center;
+    line-height: 1.4;
+
 }
 
 #c0_wrapper, #c1c2wrapper {
@@ -35,6 +37,8 @@ body {
     width:100%;
     padding:0px;
     display:none;
+    line-height: 1.4;
+
 }
 
 
@@ -43,7 +47,6 @@ body {
     width: 48%;
     margin: 3px;
     text-align: left;
-    line-height: 1.4;
     font-size: 0.875em;
     vertical-align: middle;
 }

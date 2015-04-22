@@ -10428,11 +10428,11 @@
         },
         {
             "end": 609.24785,
-            "alignedWord": "X^2+1/B sp ADX",
+            "alignedWord": "X^2*1/B sp ADX",
             "start": 608.32993,
             "line_idx": 18,
             "speaker": "narrator",
-            "word": "X^2+1/(b-a)dx."
+            "word": "X^2*1/(b-a)dx."
         },
         {
             "end": 609.66689,

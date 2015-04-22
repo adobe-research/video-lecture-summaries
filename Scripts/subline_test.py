@@ -77,7 +77,7 @@ def write_subline_img(html, subline, figdir):
     util.saveimage(label_img, figdir, label_imgpath)
     
     if len(subline.list_of_sentences) > 0:
-        html.writestring("<img src=\"%s\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
+        html.writestring("<img src=\"%s\" height=\"20px\" id=\"arrow%i_sub%i\" \
                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
 #         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
@@ -97,30 +97,48 @@ def write_subline_stc(html, subline, figdir):
     """single segment"""        
     if (nlines < 2):
         html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
-        html.opendiv(idstring="c2_3")
         html.openp()
         for stc in subline.list_of_sentences:
             html.write_list_of_words(stc.list_of_words, stopwords)
         html.closep()
-        html.closediv() #c2_3
         html.closediv() #line%i_sub%i_c2
         return
-        
    
+
+    list_of_prevobjs = []
+    linegroup = subline.linegroup
+    sub_id = subline.sub_line_id
+    for i in range(0, sub_id): #all previous sublines
+        list_of_prevobjs.append(linegroup.list_of_sublines[i].obj)
+    
+    subsubid = 0
+    list_of_sublineobjs = subline.list_of_sentences[:]
+    for list_of_stcstrokes in subline.list_of_subsublines:
+        list_of_objs = []
+        for obj in list_of_prevobjs:
+            grayobj = obj.copy()
+            grayobj.img = util.fg2gray(grayobj.img, 175)
+            list_of_objs.append(grayobj)
+        for stcstroke in list_of_stcstrokes:
+            list_of_objs.append(stcstroke.obj)
+        obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
+        obj.start_fid = list_of_stcstrokes[0].obj.start_fid
+        subsubid += 1
+        list_of_sublineobjs.append(obj)
+        list_of_prevobjs += list_of_objs
+    
     html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
-    written = 0
-    for i in range(0, nlines):
-        list_of_stcstrokes = subline.list_of_subsublines[i]
-        html.opendiv(idstring="c2_12wrapper")
-        html.opendiv(idstring="c2_2")
-        obj = list_of_stcstrokes[-1].obj_upto_inline(figdir)
-        html.image(obj.imgpath)
-        html.closediv()
-        html.closediv()   
-    html.closediv()     
+    write_by_time(list_of_sublineobjs, html)
+    html.closediv()
     return
 
 
+def write_by_time(list_of_objs, html):
+    list_of_objs.sort(key=lambda x: x.start_fid)
+    for obj in list_of_objs:
+        obj.write_to_html(html)
+    return
+        
 if __name__ == "__main__":
     videopath = sys.argv[1]
     panoramapath = sys.argv[2]
