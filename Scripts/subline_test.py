@@ -77,7 +77,7 @@ def write_subline_img(html, subline, figdir):
     util.saveimage(label_img, figdir, label_imgpath)
     
     if len(subline.list_of_sentences) > 0:
-        html.writestring("<img src=\"%s\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
+        html.writestring("<img src=\"%s\" height=\"20px\" id=\"arrow%i_sub%i\" \
                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
 #         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
