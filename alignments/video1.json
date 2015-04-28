@@ -6034,11 +6034,11 @@
         },
         {
             "end": 311.40476,
-            "alignedWord": "IN",
+            "alignedWord": "AND",
             "start": 311.32494,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "in"
+            "word": "and"
         },
         {
             "end": 311.55442,
@@ -6100,7 +6100,7 @@
             "start": 313.39025,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "equal,"
+            "word": "equal."
         },
         {
             "start": 313.73946,
@@ -6114,7 +6114,7 @@
             "start": 314.1585,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "the"
+            "word": "The"
         },
         {
             "end": 314.50771,
