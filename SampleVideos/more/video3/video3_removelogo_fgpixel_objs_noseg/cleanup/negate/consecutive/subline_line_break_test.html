@@ -7,7 +7,10 @@
 <body>
 <h1>Moment method estimation</h1>
 <h3>Machine Intelligence Wiki</h3>
-    <div id=vid><div id=ytplayer><iframe  width="600px" height="500px" src="https://www.youtube.com/embed/ZZnwwN1YGHs?rel=0" frameborder="0" allowfullscreen></iframe></div></div>
+    <div id=vid><div id=ytplayer><iframe id="thevideo" width="600px" height="500px" frameborder="0" allowfullscreen="1" title="YouTube video player" width="720" height="405" src="https://www.youtube.com/embed/ZZnwwN1YGHs?enablejsapi=1&amp;autoplay=1"></iframe>
+        
+<!--        <iframe id="thevideo" width="600px" height="500px" src="https://www.youtube.com/embed/ZZnwwN1YGHs?autoplay=0&amp;html5=1&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>-->
+        </div></div>
     <div id=summary>
 <div id="c0" class="", width="">
 <p>Hello, welcome. In this short video, let us look at the derivation of the estimators of the parameters of a uniform distribution using the method of moment. Given the uniform distribution f of x equal to one by b minus a, for random variable x between the values of a and b. </p></div>
@@ -24,7 +27,7 @@
 <img src= "subline_linebreak_test\labelline_1_sub0.png" width="" usemap="#" id="" class="">
 </div>
 <div id="line1_sub0_c2" class="c2", width="">
-<p>That is, the value, x is in the interval a comma b. </p></div>
+<p><object id="textlink" onclick="playvideo_at(60)">That is, the value, x is in the interval a comma b. </object></p></div>
 </div>
 <div id="c0" class="", width="">
 <p>Given this uniform distribution, we want to derive estimators for the parameters, a and b using the method of moments. To start with, we derive the first two moments based on the PDF. </p></div>
@@ -344,6 +347,13 @@ function showline13_sub0(){
 	     var cap  = document.getElementById("line13_sub0_c2");
      cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
      }
+    
+    
+function playvideo_at(sec){
+	     var video  = document.getElementById("thevideo");
+         video.src="https://www.youtube.com/embed/ZZnwwN1YGHs?autoplay=1&amp;start=310&amp;end=320"
+}
+
 </script>
 
 </body>
