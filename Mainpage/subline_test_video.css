@@ -1,0 +1,126 @@
+body {
+    font-family: serif;
+    font-size: 24px;
+    padding: 2em;
+    text-align: center;
+    margin: auto;
+    align-content: center;
+    width: 1560px;
+    line-height: 1.4;
+}
+
+#vid {
+    width: 40%;
+    float: left;
+    margin: 20px;
+    position absolute;
+}
+
+#ytplayer {
+    position: fixed;
+    margin-right: 20px;
+}
+
+#summary {
+    width: 45%;
+    float:left;
+    margin-left:20px;
+}
+
+p {
+    width: 100%;
+    text-align: left;
+    line-height: 1.35;
+}
+
+#c1c2wrapper, #c0{
+    text-align: left;
+/*    margin-left: 132px;*/
+/*    margin-right: 132px;*/
+    margin-bottom: 24px;
+}
+
+
+#c0_wrapper, #c1c2wrapper {
+    text-align: left;
+    display: block;
+    vertical-align: middle;
+/*    width: 90%;*/
+}
+
+
+#c1 {
+    display: inline-block;
+/*    text-align: center;*/
+    padding: 3px;
+    background-color: #f9f9f9;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    
+}
+
+.c2 {
+    text-align: left;
+    width:100%;
+    display:none;
+/*    background-color: #e3e3e3;*/
+    border-left: dashed 1px black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#textlink {
+    cursor: pointer;
+    cursor: hand;
+}
+
+
+/*
+#c2_1, #c2_2 {
+    display: inline-block;
+    width: 48%;
+    margin: 3px;
+    text-align: left;
+    line-height: 1.4;
+    font-size: 100%;
+    vertical-align: middle;
+}
+*/
+
+
+#c2_1_lone {
+    display:inline-block;
+    width:80%;
+    text-align: left;
+    font-size: 100%;
+}
+
+
+
+#c2_12wrapper { 
+    vertical-align: middle;
+/*    text-align: center;*/
+}
+
+
+img {
+/*    align-content: center;*/
+/*    max-width: 100%;*/
+    display: inline;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.plus {
+    border: solid 1px black;
+    display: inline-block;
+    width: 20px;
+}
+
+figcaption {
+    font-size: 15pt;
+    border: 1px dashed #747070;
+}
+
