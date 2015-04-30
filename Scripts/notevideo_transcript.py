@@ -53,7 +53,9 @@ if __name__ == "__main__":
    text: \"%s\"\n \
   }\n \
  ]\n \
-}\n" %(time, transcript))
+}" %(time, transcript))
+            if count != nwords:
+                txtfile.write(",\n")
             lastt = text[-1].endt
             text = []
             
