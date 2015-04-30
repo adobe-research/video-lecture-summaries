@@ -14,16 +14,19 @@ body {
     float: left;
     margin: 20px;
     position absolute;
+    margin: 3em;
 }
 
 #ytplayer {
     position: fixed;
+    margin:2em;
+
     
 }
 
 #summary {
     width: 45%;
-    float:right;
+    float:left;
 }
 
 p {
