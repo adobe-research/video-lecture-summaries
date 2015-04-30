@@ -21,7 +21,10 @@ class Sentence:
             self.ref_names = []
             
         def write_to_html(self, html):
-            html.write_list_of_words(self.list_of_words)
+            sec = int(self.startt/1000.0)
+            html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">"%(sec))
+            html.write_sentence(self)
+            html.writestring("</object>")
             
         def contains_phrase(self, string_phrase):
             phrase_words = string_phrase.split()

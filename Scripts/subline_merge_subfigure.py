@@ -44,14 +44,13 @@ def write_plustoggle_script(html, lineid, subid):
     } \
     } \
     });\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
+    
+
      
 def write_stc(html, sentence):
-#     html.opendiv(idstring="c0")
-#     start_fid = sentence.video.ms2fid(sentence.startt)
-#     end_fid = sentence.video.ms2fid(sentence.endt)
-#     html.writestring("<b>%i - %i</b><br>"%(start_fid, end_fid))
+    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">")
     html.write_sentence(sentence, stopwords)
-#     html.closediv()
+    html.writestring("</object>")
     
 def write_subline(html, subline, figdir):
     html.opendiv(idstring="c1c2wrapper")

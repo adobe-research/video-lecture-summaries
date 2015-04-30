@@ -44,24 +44,30 @@ def write_plustoggle_script(html, lineid, subid):
     } \
     } \
     });\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
-     
+
+def write_playvideo_script(html, url):
+    html.writestring("function playvideo_at(sec){\n \
+         var video  = document.getElementById(\"thevideo\");\n \
+         var starturl = \"https://www.youtube.com/embed/%s?autoplay=1&amp;start=\"+sec +\"&amp\"; \n \
+         video.src= starturl\n \
+         }\n" %(url))
+
+ 
 def write_stc(html, sentence):
-#     html.opendiv(idstring="c0")
-#     start_fid = sentence.video.ms2fid(sentence.startt)
-#     end_fid = sentence.video.ms2fid(sentence.endt)
-#     html.writestring("<b>%i - %i</b><br>"%(start_fid, end_fid))
+    sec = int(sentence.startt/1000.0)
+    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">"%(sec))
     html.write_sentence(sentence, stopwords)
-#     html.closediv()
+    html.writestring("</object>")
     
-def write_subline(html, subline, figdir):
+def write_subline(html, subline, figdir, video):
     html.opendiv(idstring="c1c2wrapper")
 #     html.writestring("%i - %i"%(subline.list_of_strokes[0].obj.start_fid, subline.list_of_strokes[-1].obj.end_fid))
-    write_subline_img(html, subline, figdir)
+    write_subline_img(html, subline, figdir, video)
     write_subline_stc(html, subline, figdir)
     html.closediv() #c1c2wrapper
         
         
-def write_subline_img(html, subline, figdir):
+def write_subline_img(html, subline, figdir, video):
     lineid = subline.line_id
     subid = subline.sub_line_id
     
@@ -81,9 +87,12 @@ def write_subline_img(html, subline, figdir):
                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
 #         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
+    startt = subline.obj.start_fid
+    sec = video.fid2sec(startt)
+    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">"%(sec))
     html.image(figdir + "/" + label_imgpath)
-    start_fid = subline.obj.start_fid
-    end_fid  = subline.obj.end_fid
+    html.writestring("</object>")
+
 #     html.writestring("<br>%.2f - %.2f<br>\n"%(start_fid, end_fid))
     html.closediv() #line%i_sub%i
         
@@ -99,7 +108,7 @@ def write_subline_stc(html, subline, figdir):
         html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
         html.openp()
         for stc in subline.list_of_sentences:
-            html.write_list_of_words(stc.list_of_words, stopwords)
+            write_stc(html, stc)
         html.closep()
         html.closediv() #line%i_sub%i_c2
         return
@@ -132,6 +141,13 @@ def write_subline_stc(html, subline, figdir):
     html.closediv()
     return
 
+def insertvideo(html, url):
+    html.opendiv(idstring="vid")
+    html.opendiv(idstring="ytplayer")
+    html.writestring("<iframe id=\"thevideo\" width=\"600px\" height=\"500px\" frameborder=\"0\" allowfullscreen=\"1\" title=\"YouTube video player\" src=\"http://www.youtube.com/embed/%s?enablejsapi=1&amp;autoplay=0\"></iframe>"%(url))
+    html.closediv()
+    html.closediv()
+
 
 def write_by_time(list_of_objs, html):
     list_of_objs.sort(key=lambda x: x.start_fid)
@@ -146,20 +162,9 @@ if __name__ == "__main__":
     scriptpath = sys.argv[4]
     title = sys.argv[5]
     author = sys.argv[6]
-#     frametxt = sys.argv[6]
-#     cursortxt = sys.argv[7]
-
+    url = sys.argv[7]
     
-#     fp = util.list_of_vecs_from_txt(frametxt)
-#     framepos = []
-#     for p in fp:
-#         framepos.append((int(p[0]), int(p[1])))
-#         
-#     cp = util.list_of_vecs_from_txt(cursortxt)
-#     cursorpos = []
-#     for p in cp:
-#         cursorpos.append((int(p[0]), int(p[1])))
-    
+    video = Video(videopath)
     figdir = objdir + "/subline_linebreak_test"
     
     [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, 
@@ -168,12 +173,14 @@ if __name__ == "__main__":
 
 #     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
-    html = WriteHtml(objdir + "/subline_line_break_test.html",title, stylesheet ="../Mainpage/subline_merge_subfigure.css")
+    html = WriteHtml(objdir + "/subline_line_break_test.html",title, stylesheet ="../Mainpage/subline_test_video.css")
 #     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
 
-      
+    insertvideo(html, url)
+    
+    html.opendiv(idstring="summary")
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]
@@ -209,7 +216,7 @@ if __name__ == "__main__":
             html.closediv()
         
         #write subline
-        write_subline(html, subline, figdir)
+        write_subline(html, subline, figdir, video)
         if (len(subline.list_of_sentences) > 0):
             cur_stc_id = subline.list_of_sentences[-1].id+1
     
@@ -223,10 +230,7 @@ if __name__ == "__main__":
 #             html.writestring("(%.2f - %.2f) "%(start_fid, end_fid))
         html.closep()
         html.closediv() #c0
-    
-#     html.opendiv()
-#     html.writestring("<iframe src=\"https://docs.google.com/forms/d/1Gdd7oNVeJm4-gEOG3dNTSocNp77nkgd9ELsDNELPP2Y/viewform?embedded=true\" width=\"780\" height=\"1280\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>")
-#     html.closediv()
+    html.closediv() #summary
             
     html.openscript()
     for i in range(0, len(list_of_sublines)):
@@ -234,5 +238,6 @@ if __name__ == "__main__":
         subid = list_of_sublines[i].sub_line_id
         write_arrowtoggle_script(html, lineid, subid)
         write_showsection_script(html, lineid, subid)
+    write_playvideo_script(html, url)
     html.closescript()
     html.closehtml()
