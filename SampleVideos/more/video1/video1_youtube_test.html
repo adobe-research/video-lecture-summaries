@@ -1,0 +1,66 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><link href="../../../Mainpage/youtube_test_video.css" rel="stylesheet" />
+<title>Proving Trigonometry Formulas from Euler's Formula</title>
+</head>
+<body>
+<h1>Proving Trigonometry Formulas from Euler's Formula</h1>
+<h3>Lee Stemkoski</h3>
+<div id="vid" class="", width="">
+<div id="ytplayer" class="", width="">
+<iframe id="thevideo" width="600px" height="500px" frameborder="0" allowfullscreen="1" title="YouTube video player" src="http://www.youtube.com/embed/xR_aRSVSgdg?enablejsapi=1&amp;autoplay=0"></iframe></div>
+</div>
+<div id="summary" class="", width="">
+<object id="textlink" onclick="playvideo_at(0)">We are going to prove some formulas from trigonometry, directly from Euler's formula, e^(ix) = cos(x)+isin(x). </br>
+</object><object id="textlink" onclick="playvideo_at(11)">First, we are going to prove that sin^2(x)+cos^(x) = 1. </br>
+</object><object id="textlink" onclick="playvideo_at(21)">This can be proven from the Pythagorean theorem and the definitions of the trigonometric functions, but we are going to do it using Euler's formula. </br>
+</object><object id="textlink" onclick="playvideo_at(31)">First, use the fact that e^(ix), we know that's cos(x)+isin(x). </br>
+</object><object id="textlink" onclick="playvideo_at(42)">We also use the fact that, we've got e^(-ix) is e^i(-x) that's the same thing as cos(-x)+isin(-x). </br>
+</object><object id="textlink" onclick="playvideo_at(60)">Furthermore, since cos is an even function, cos(-x) is cos(x), and since sin is an odd function, sin(-x) is negative sin(x). </br>
+</object><object id="textlink" onclick="playvideo_at(73)">We write the negative out in front of the i. </br>
+</object><object id="textlink" onclick="playvideo_at(78)">Next, we are going to multiply together these two equations right here. </br>
+</object><object id="textlink" onclick="playvideo_at(82)">We have e^(ix)*e^(-ix) is equal to (cos(x)+isin(x)) times the quantity (cos(x)-isin(x)). </br>
+</object><object id="textlink" onclick="playvideo_at(100)">Now, on the left hand side, we have the same base. </br>
+</object><object id="textlink" onclick="playvideo_at(106)">These exponents we will add them together, get zero for an exponent, and e^0 is 1. </br>
+</object><object id="textlink" onclick="playvideo_at(111)">On the right hand side, multiplying together the first two terms, we get cos^2(x). </br>
+</object><object id="textlink" onclick="playvideo_at(117)">Multiplying together the outside terms, we get negative icos(x)sin(x). </br>
+</object><object id="textlink" onclick="playvideo_at(125)">Then multiplying together the inside terms, we are going to get a isin(x)cos(x). </br>
+</object><object id="textlink" onclick="playvideo_at(134)">Finally, multiplying together the two last terms, we are going to get a negative i^2 sin^2(x). </br>
+</object><object id="textlink" onclick="playvideo_at(143)">Now, there is some great cancellation which happens, these two terms cancel out, and this negative i^2, i^2 is one, negative negative 1 is positive 1. </br>
+</object><object id="textlink" onclick="playvideo_at(157)">What we are left with is 1 = cos^2(x)+sin^2(x), which was exactly what we hoped to get up above. </br>
+</object><object id="textlink" onclick="playvideo_at(173)">That's just the first way you can use Euler's formula to come up with a more algebraic proof. </br>
+</object><object id="textlink" onclick="playvideo_at(179)">We will prove a few more results similarly. </br>
+</object><object id="textlink" onclick="playvideo_at(182)">For instance, I'd like to prove the Angle Sum formulas. </br>
+</object><object id="textlink" onclick="playvideo_at(188)">I have a hard time remembering these sometimes but that's a great reason to remember where formulas came from, and you can always rederive them for yourself. </br>
+</object><object id="textlink" onclick="playvideo_at(201)">First, say we have e^(ia), that's cos(a)+isin(a). </br>
+</object><object id="textlink" onclick="playvideo_at(207)">Also say we have e^(ib). </br>
+</object><object id="textlink" onclick="playvideo_at(214)">That's cos(b)+isin(b). </br>
+</object><object id="textlink" onclick="playvideo_at(217)">Now, just like before, we'll take these two equations and multiply them together e^(ia)*e^(ib) = (cos(a)+isin(a))*(cos(b)+isin(b)). </br>
+</object><object id="textlink" onclick="playvideo_at(234)">On the left, it's simplified. </br>
+</object><object id="textlink" onclick="playvideo_at(244)">On the right, we'll get cos(a)*cos(b) plus we are going to multiply together the two last terms here. </br>
+</object><object id="textlink" onclick="playvideo_at(258)">i^2 is negative 1. </br>
+</object><object id="textlink" onclick="playvideo_at(260)">So, negative sin(a)sin(b) multiplying the interior terms, in the exterior terms, both are going to have a factor of i, cos(a)sin(b) we are going to write the i on the outside, now factoring that out, we have a sin(a)cos(b). </br>
+</object><object id="textlink" onclick="playvideo_at(287)">Next, I am going to take Euler's formula and apply it directly to e^(i(a+b)). </br>
+</object><object id="textlink" onclick="playvideo_at(293)">In that case we get cos(a+b)+isin(a+b). </br>
+</object><object id="textlink" onclick="playvideo_at(301)">Now, interesting thing, when two complex numbers are equal, their real in their imaginary parts must also be equal, the real part, this first term is cos(a+b) which matches up with this part here. </br>
+</object><object id="textlink" onclick="playvideo_at(321)">And the imaginary part is sin(a+b) which must therefore be equal to this part. </br>
+</object><object id="textlink" onclick="playvideo_at(327)">If we write down these two results, we have the angle sum formulas. </br>
+</object><object id="textlink" onclick="playvideo_at(334)">cos(a+b) is equal to cos(a)cos(b)-sin(a)sin(b). </br>
+</object><object id="textlink" onclick="playvideo_at(344)">And we get the sum formula for sin as well. </br>
+</object><object id="textlink" onclick="playvideo_at(350)">sin(a+b) is equal to cos(a)sin(b)+sin(a)cos(b). </br>
+</object><object id="textlink" onclick="playvideo_at(360)">Furthermore, if you want to get the double angle formulas, that's not too bad, if you let a = x and b = x then you will get cos(2x) that's x+x is equal to cos(x)cos(x) is cos^2(x), sin(x)sin(x) is sin^(x). </br>
+</object><object id="textlink" onclick="playvideo_at(399)">And sin(2x). </br>
+</object><object id="textlink" onclick="playvideo_at(405)">We are going to have cos(x)sin(x)+sin(x)cos(x). </br>
+</object><object id="textlink" onclick="playvideo_at(409)">Both those terms are actually the same, so, you get 2sin(x)cos(x). </br>
+</object><object id="textlink" onclick="playvideo_at(415)">Once more, Euler's formula proves to be a handy tool to have. </br>
+</object></div>
+<script>
+function playvideo_at(sec){
+          var video  = document.getElementById("thevideo");
+          var starturl = "https://www.youtube.com/embed/xR_aRSVSgdg?autoplay=1&amp;start="+sec +"&amp"; 
+          video.src= starturl
+          }
+</script>
+
+</body>
+</html>

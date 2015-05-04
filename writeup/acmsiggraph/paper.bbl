@@ -1,4 +1,120 @@
-\begin{thebibliography}{\protect\citename{Rubin et~al\mbox{.} }2013}
+\begin{thebibliography}{\protect\citename{Monserrat et~al\mbox{.} }2014}
+
+\bibitem[\protect\citename{Barnes et~al\mbox{.} }2010]{barnes2010video}
+{\sc Barnes, C., Goldman, D.~B., Shechtman, E., and Finkelstein, A.}
+\newblock 2010.
+\newblock Video tapestries with continuous temporal zoom.
+\newblock {\em ACM Transactions on Graphics (TOG) 29}, 4, 89.
+
+\bibitem[\protect\citename{Boreczky et~al\mbox{.}
+  }2000]{boreczky2000interactive}
+{\sc Boreczky, J., Girgensohn, A., Golovchinsky, G., and Uchihashi, S.}
+\newblock 2000.
+\newblock An interactive comic book presentation for exploring video.
+\newblock In {\em Proceedings of the SIGCHI conference on Human Factors in
+  Computing Systems}, ACM, 185--192.
+
+\bibitem[\protect\citename{Chi et~al\mbox{.} }2013]{chi2013democut}
+{\sc Chi, P.-Y., Liu, J., Linder, J., Dontcheva, M., Li, W., and Hartmann, B.}
+\newblock 2013.
+\newblock Democut: generating concise instructional videos for physical
+  demonstrations.
+\newblock In {\em Proceedings of the 26th annual ACM symposium on User
+  interface software and technology}, ACM, 141--150.
+
+\bibitem[\protect\citename{Choudary and Liu }2007]{choudary2007summarization}
+{\sc Choudary, C., and Liu, T.}
+\newblock 2007.
+\newblock Summarization of visual content in instructional videos.
+\newblock {\em Multimedia, IEEE Transactions on 9}, 7, 1443--1455.
+
+\bibitem[\protect\citename{Chun et~al\mbox{.} }2006]{chun2006automated}
+{\sc Chun, B.-K., Ryu, D.-S., Hwang, W.-I., and Cho, H.-G.}
+\newblock 2006.
+\newblock An automated procedure for word balloon placement in cinema comics.
+\newblock In {\em Advances in Visual Computing}. Springer, 576--585.
+
+\bibitem[\protect\citename{Ekin et~al\mbox{.} }2003]{ekin2003automatic}
+{\sc Ekin, A., Tekalp, A.~M., and Mehrotra, R.}
+\newblock 2003.
+\newblock Automatic soccer video analysis and summarization.
+\newblock {\em Image Processing, IEEE Transactions on 12}, 7, 796--807.
+
+\bibitem[\protect\citename{Hu et~al\mbox{.} }2015]{hu2015speaker}
+{\sc Hu, Y., Kautz, J., Yu, Y., and Wang, W.}
+\newblock 2015.
+\newblock Speaker-following video subtitles.
+\newblock {\em ACM Transactions on Multimedia Computing, Communications, and
+  Applications (TOMM) 11}, 2, 32.
+
+\bibitem[\protect\citename{Hwang et~al\mbox{.} }2006]{hwang2006cinema}
+{\sc Hwang, W.-I., Lee, P.-J., Chun, B.-K., Ryu, D.-S., and Cho, H.-G.}
+\newblock 2006.
+\newblock Cinema comics: Cartoon generation from video stream.
+\newblock In {\em GRAPP}, 299--304.
+
+\bibitem[\protect\citename{Jackson et~al\mbox{.} }2013]{jackson2013panopticon}
+{\sc Jackson, D., Nicholson, J., Stoeckigt, G., Wrobel, R., Thieme, A., and
+  Olivier, P.}
+\newblock 2013.
+\newblock Panopticon: A parallel video overview system.
+\newblock In {\em proceedings of the 26th annual ACM symposium on User
+  interface software and technology}, ACM, 123--130.
+
+\bibitem[\protect\citename{Kim et~al\mbox{.} }2014a]{kim2014data}
+{\sc Kim, J., Guo, P.~J., Cai, C.~J., Li, S.-W.~D., Gajos, K.~Z., and Miller,
+  R.~C.}
+\newblock 2014.
+\newblock Data-driven interaction techniques for improving navigation of
+  educational videos.
+\newblock In {\em Proceedings of the 27th annual ACM symposium on User
+  interface software and technology}, ACM, 563--572.
+
+\bibitem[\protect\citename{Kim et~al\mbox{.} }2014b]{kim2014crowdsourcing}
+{\sc Kim, J., Nguyen, P.~T., Weir, S., Guo, P.~J., Miller, R.~C., and Gajos,
+  K.~Z.}
+\newblock 2014.
+\newblock Crowdsourcing step-by-step information extraction to enhance existing
+  how-to videos.
+\newblock In {\em Proceedings of the 32nd annual ACM conference on Human
+  factors in computing systems}, ACM, 4017--4026.
+
+\bibitem[\protect\citename{Knuth and Plass }1981]{knuth1981breaking}
+{\sc Knuth, D.~E., and Plass, M.~F.}
+\newblock 1981.
+\newblock Breaking paragraphs into lines.
+\newblock {\em Software: Practice and Experience 11}, 11, 1119--1184.
+
+\bibitem[\protect\citename{Kurlander et~al\mbox{.} }1996]{kurlander1996comic}
+{\sc Kurlander, D., Skelly, T., and Salesin, D.}
+\newblock 1996.
+\newblock Comic chat.
+\newblock In {\em Proceedings of the 23rd annual conference on Computer
+  graphics and interactive techniques}, ACM, 225--236.
+
+\bibitem[\protect\citename{Monserrat et~al\mbox{.}
+  }2013]{monserrat2013notevideo}
+{\sc Monserrat, T.-J. K.~P., Zhao, S., McGee, K., and Pandey, A.~V.}
+\newblock 2013.
+\newblock Notevideo: Facilitating navigation of blackboard-style lecture
+  videos.
+\newblock In {\em Proceedings of the SIGCHI Conference on Human Factors in
+  Computing Systems}, ACM, 1139--1148.
+
+\bibitem[\protect\citename{Monserrat et~al\mbox{.} }2014]{monserrat2014ive}
+{\sc Monserrat, T.-J. K.~P., Li, Y., Zhao, S., and Cao, X.}
+\newblock 2014.
+\newblock L. ive: an integrated interactive video-based learning environment.
+\newblock In {\em Proceedings of the 32nd annual ACM conference on Human
+  factors in computing systems}, ACM, 3399--3402.
+
+\bibitem[\protect\citename{Pavel et~al\mbox{.} }2014]{pavel2014video}
+{\sc Pavel, A., Hartmann, B., and Agrawala, M.}
+\newblock 2014.
+\newblock Video digests: a browsable, skimmable format for informational
+  lecture videos.
+\newblock In {\em Proceedings of the 27th annual ACM symposium on User
+  interface software and technology}, ACM, 573--582.
 
 \bibitem[\protect\citename{Rubin et~al\mbox{.} }2013]{rubin2013content}
 {\sc Rubin, S., Berthouzoz, F., Mysore, G.~J., Li, W., and Agrawala, M.}
@@ -6,5 +122,12 @@
 \newblock Content-based tools for editing audio stories.
 \newblock In {\em Proceedings of the 26th annual ACM symposium on User
   interface software and technology}, ACM, 113--122.
+
+\bibitem[\protect\citename{Uchihashi et~al\mbox{.} }1999]{uchihashi1999video}
+{\sc Uchihashi, S., Foote, J., Girgensohn, A., and Boreczky, J.}
+\newblock 1999.
+\newblock Video manga: generating semantically meaningful video summaries.
+\newblock In {\em Proceedings of the seventh ACM international conference on
+  Multimedia (Part 1)}, ACM, 383--392.
 
 \end{thebibliography}

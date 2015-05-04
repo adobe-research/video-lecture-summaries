@@ -1,0 +1,89 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><link href="../../../Mainpage/youtube_test_video.css" rel="stylesheet" />
+<title>Moment method estimation</title>
+</head>
+<body>
+<h1>Moment method estimation</h1>
+<h3>Machine Intelligence Wiki</h3>
+<div id="vid" class="", width="">
+<div id="ytplayer" class="", width="">
+<iframe id="thevideo" width="600px" height="500px" frameborder="0" allowfullscreen="1" title="YouTube video player" src="http://www.youtube.com/embed/ZZnwwN1YGHs?enablejsapi=1&amp;autoplay=0"></iframe></div>
+</div>
+<div id="summary" class="", width="">
+<object id="textlink" onclick="playvideo_at(0)">Hello, welcome. </br>
+</object><object id="textlink" onclick="playvideo_at(1)">In this short video, let us look at the derivation of the estimators of the parameters of a uniform distribution using the method of moment. </br>
+</object><object id="textlink" onclick="playvideo_at(9)">Given the uniform distribution f(x) equals 1/(b-a), for random variable x between the values of a and b. </br>
+</object><object id="textlink" onclick="playvideo_at(22)">That is, the value, x is in the interval a comma b. </br>
+</object><object id="textlink" onclick="playvideo_at(27)">Given this uniform distribution, we want to derive estimators for the parameters, a and b using the method of moments. </br>
+</object><object id="textlink" onclick="playvideo_at(34)">To start with, we derive the first two moments based on the PDF. </br>
+</object><object id="textlink" onclick="playvideo_at(39)">That is, expectation of x is given by integral a to b, x*f(x)dx. </br>
+</object><object id="textlink" onclick="playvideo_at(50)">Equal to integral a to b, (x*1/(b-a))dx. </br>
+</object><object id="textlink" onclick="playvideo_at(57)">Equal to 1/(b-a)*(x^2/2), and the limits are a to b. </br>
+</object><object id="textlink" onclick="playvideo_at(65)">Equal to (b^2-a^2)/(b-a). </br>
+</object><object id="textlink" onclick="playvideo_at(70)">Since b^2-a^2 equals (b-a)*(b+a), and the denominator is 2(b-a). </br>
+</object><object id="textlink" onclick="playvideo_at(85)">Therefore clearly, we can cancel these (b-a) since a&gtb. </br>
+</object><object id="textlink" onclick="playvideo_at(92)">Therefore, E[x] equal to to the average of a and b, that is, (a+b)/2. </br>
+</object><object id="textlink" onclick="playvideo_at(99)">This is equation one. </br>
+</object><object id="textlink" onclick="playvideo_at(100)">Now we do that with the second moment. </br>
+</object><object id="textlink" onclick="playvideo_at(103)">Expectation of x^2 equal to integral a to b, x^2*f(x)dx. </br>
+</object><object id="textlink" onclick="playvideo_at(112)">It's equal to integral a to b, x^2*(1/(b-a))dx which is equal to 1/(b-a)*(x^3/3), and the limits are a to b. </br>
+</object><object id="textlink" onclick="playvideo_at(131)">Equal to the numerator is b^3-a^3, and the denominator is 3(b-a). </br>
+</object><object id="textlink" onclick="playvideo_at(144)">Since b^3-a^3 equals (b-a)*(b^2+a^2+ab we have the second moment, E[x^2} equals (a^2+b^2+ab)/3. </br>
+</object><object id="textlink" onclick="playvideo_at(159)">This is equation two. </br>
+</object><object id="textlink" onclick="playvideo_at(162)">Now we note the expressions for the sample moment. </br>
+</object><object id="textlink" onclick="playvideo_at(167)">That is the sample first moment is xbar, that is the mean. </br>
+</object><object id="textlink" onclick="playvideo_at(172)">The sample mean equal to the 1/n summation i equals 1 to the n times xi. </br>
+</object><object id="textlink" onclick="playvideo_at(178)">This is equation three. </br>
+</object><object id="textlink" onclick="playvideo_at(180)">The sample second moment designated as xbar with subscript two equal to 1/n, summation i equals 1 to the n times (xi)^2 This is sample second moment. </br>
+</object><object id="textlink" onclick="playvideo_at(197)">Equation four. </br>
+</object><object id="textlink" onclick="playvideo_at(198)">By using equations one to four, that is, E[x] equal to equating it to the sample mean. </br>
+</object><object id="textlink" onclick="playvideo_at(207)">Equating the second moment, E[x^2] to the sample second moment. </br>
+</object><object id="textlink" onclick="playvideo_at(212)">We have (a+b)/2 equals to xbar. </br>
+</object><object id="textlink" onclick="playvideo_at(218)">Note that xbar are the mean, sample mean is given by equation three. </br>
+</object><object id="textlink" onclick="playvideo_at(223)">For simplicity, we use this symbol. </br>
+</object><object id="textlink" onclick="playvideo_at(227)">We also have the E[x^2], that is, second moment defined as (a^2+b^2+ab)/3 equal to the sample second moment, xbar(2), the subscript two. </br>
+</object><object id="textlink" onclick="playvideo_at(244)">Using these two equations, that is, solving the systems of the two equations, we can solve our a and b. </br>
+</object><object id="textlink" onclick="playvideo_at(251)">From equation five, that is, this equation we have a+b equals 2xbar, which basically means that a equals 2xbar, or two times the sample mean minus b. </br>
+</object><object id="textlink" onclick="playvideo_at(267)">By plugging-in this value in the equation six, that is, a equals 2xbar-b in this equation six, we have (2xbar-b)^2+b^2+2(xbar-b)*b equal to three times sample second moment. </br>
+</object><object id="textlink" onclick="playvideo_at(291)">Expanding these terms, we have b^2+4xbar^2, that is square of the mean, minus 4b*xbar+b^2, that is this term. </br>
+</object><object id="textlink" onclick="playvideo_at(304)">Then we have minus b^2, that is this term. </br>
+</object><object id="textlink" onclick="playvideo_at(307)">Also we have plus 2b*xbar equal to 3*xbar(2). </br>
+</object><object id="textlink" onclick="playvideo_at(313)">Upon simplification, we have b^2, that is, this b^2 and this b^2 cancelled each other, we are left with b^2. </br>
+</object><object id="textlink" onclick="playvideo_at(323)">Then we have minus 4b*xbar2b*xbar, which is minus 2b*xbar. </br>
+</object><object id="textlink" onclick="playvideo_at(329)">Then we have 4*xbar^2-3xbar(2) equals 0. </br>
+</object><object id="textlink" onclick="playvideo_at(338)">If you look at this equation, this is basically a quadratic equation in b. </br>
+</object><object id="textlink" onclick="playvideo_at(343)">Therefore, the value of b is given by b equal to minus b, that is, minus the quotient of the linear term, the quotient of the first part of the term. </br>
+</object><object id="textlink" onclick="playvideo_at(355)">That is, minus 2xbar plus or minus square root of (b^2-4ac). </br>
+</object><object id="textlink" onclick="playvideo_at(361)">That is, (2xbar)^2 minus four by one into this value, that is 4xbar^2-3xbar(2), that is the sample second moment. </br>
+</object><object id="textlink" onclick="playvideo_at(377)">This is the 2 times a, which is 2*1. </br>
+</object><object id="textlink" onclick="playvideo_at(386)">Under the assumption both a and b are positives, we have bhat equal to, this should be positive. </br>
+</object><object id="textlink" onclick="playvideo_at(398)">We have bhat equal to xbar+sqrt(4xbar^2-4*4xbar^2+4*3xbar(2)), that is the sample second moment by two. </br>
+</object><object id="textlink" onclick="playvideo_at(417)">Therefore, the bhat is equal to... </br>
+</object><object id="textlink" onclick="playvideo_at(419)">The estimator of b is given by xbar plus... </br>
+</object><object id="textlink" onclick="playvideo_at(424)">This 4 can be taken outside, and it cancels with 2. </br>
+</object><object id="textlink" onclick="playvideo_at(431)">We are left with 3xbar(2)-3xbar^2. </br>
+</object><object id="textlink" onclick="playvideo_at(436)">This equal to sqrt(3*xbar(2)-3xbar^2). </br>
+</object><object id="textlink" onclick="playvideo_at(440)">We have mean squared. </br>
+</object><object id="textlink" onclick="playvideo_at(445)">Therefore, this is the estimator of b. </br>
+</object><object id="textlink" onclick="playvideo_at(448)">While using this relation, that is, a equals 2xbar-b, we also have an estimator, a. </br>
+</object><object id="textlink" onclick="playvideo_at(454)">ahat equals 2xbar-bhat equals xbar-sqrt(3(xbar(2)-xbar^2)). </br>
+</object><object id="textlink" onclick="playvideo_at(465)">You can note that the value within the parenthesis is clearly the variance of the sample. </br>
+</object><object id="textlink" onclick="playvideo_at(476)">That is, the difference between the second moment on square root of the mean, which is basically the variance of the sample. </br>
+</object><object id="textlink" onclick="playvideo_at(482)">Therefore, our uniform distribution variable should be random. </br>
+</object><object id="textlink" onclick="playvideo_at(485)">The estimators of the unknown parameters a and b are given by combinations of mean and standard deviation of the sample. </br>
+</object><object id="textlink" onclick="playvideo_at(493)">That is, ahat equal to the sample mean, xbar-square root of 3 times the standard deviation, S of the sample. </br>
+</object><object id="textlink" onclick="playvideo_at(504)">Similarly, bhat equal to xbar plus square root of three times the standard deviation of the sample. </br>
+</object><object id="textlink" onclick="playvideo_at(513)">Therefore, the estimators of a and b are basically linear combinations of sample mean and sample standard deviation. </br>
+</object><object id="textlink" onclick="playvideo_at(521)">Thanks for watching. </br>
+</object></div>
+<script>
+function playvideo_at(sec){
+          var video  = document.getElementById("thevideo");
+          var starturl = "https://www.youtube.com/embed/ZZnwwN1YGHs?autoplay=1&amp;start="+sec +"&amp"; 
+          video.src= starturl
+          }
+</script>
+
+</body>
+</html>

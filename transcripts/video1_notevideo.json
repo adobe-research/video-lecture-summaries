@@ -1,0 +1,440 @@
+{
+ "data":[
+     {
+     "time": 0,
+     "text": "We are going to prove some formulas from trigonometry,"
+     },
+     {
+     "time": 3,
+     "text": "directly from Euler's formula, e^(ix)"
+     },
+     {
+     "time": 6,
+     "text": "= cos(x)+isin(x). First,"
+     },
+     {
+     "time": 13,
+     "text": "we are going to prove that sin^2(x)+cos^(x)"
+     },
+     {
+     "time": 19,
+     "text": "= 1. This"
+     },
+     {
+     "time": 21,
+     "text": "can be proven from the Pythagorean theorem"
+     },
+     {
+     "time": 24,
+     "text": "and the definitions of the trigonometric functions, but"
+     },
+     {
+     "time": 28,
+     "text": "we are going to do it using Euler's formula. First,"
+     },
+     {
+     "time": 32,
+     "text": "use the fact that e^(ix),"
+     },
+     {
+     "time": 35,
+     "text": "we know that's cos(x)+isin(x)."
+     },
+     {
+     "time": 42,
+     "text": "We also use the fact"
+     },
+     {
+     "time": 44,
+     "text": "that, we've got e^(-ix) is"
+     },
+     {
+     "time": 47,
+     "text": "e^i(-x) that's the"
+     },
+     {
+     "time": 51,
+     "text": "same thing as"
+     },
+     {
+     "time": 55,
+     "text": "cos(-x)+isin(-x)."
+     },
+     {
+     "time": 60,
+     "text": "Furthermore, since cos is an"
+     },
+     {
+     "time": 63,
+     "text": "even function, cos(-x) is cos(x),"
+     },
+     {
+     "time": 66,
+     "text": "and since sin is an odd function,"
+     },
+     {
+     "time": 70,
+     "text": "sin(-x) is negative sin(x)."
+     },
+     {
+     "time": 73,
+     "text": "We write the negative out in front of the i. Next,"
+     },
+     {
+     "time": 78,
+     "text": "we are going to multiply together these two equations right here. We"
+     },
+     {
+     "time": 83,
+     "text": "have e^(ix)*e^(-ix) is equal"
+     },
+     {
+     "time": 88,
+     "text": "to (cos(x)+isin(x))"
+     },
+     {
+     "time": 92,
+     "text": "times"
+     },
+     {
+     "time": 95,
+     "text": "the quantity (cos(x)-isin(x))."
+     },
+     {
+     "time": 100,
+     "text": "Now, on the left"
+     },
+     {
+     "time": 104,
+     "text": "hand side, we have the same base. These exponents"
+     },
+     {
+     "time": 107,
+     "text": "we will add them together, get zero for an exponent, and e^0"
+     },
+     {
+     "time": 110,
+     "text": "is 1. On the right hand side, multiplying"
+     },
+     {
+     "time": 114,
+     "text": "together the first two terms, we get cos^2(x). Multiplying"
+     },
+     {
+     "time": 117,
+     "text": "together the outside terms, we get negative"
+     },
+     {
+     "time": 122,
+     "text": "icos(x)sin(x). Then"
+     },
+     {
+     "time": 126,
+     "text": "multiplying together the inside terms, we are going"
+     },
+     {
+     "time": 129,
+     "text": "to get a isin(x)cos(x)."
+     },
+     {
+     "time": 134,
+     "text": "Finally, multiplying together the two last"
+     },
+     {
+     "time": 136,
+     "text": "terms, we are going to get a negative i^2"
+     },
+     {
+     "time": 140,
+     "text": "sin^2(x). Now,"
+     },
+     {
+     "time": 144,
+     "text": "there is some great cancellation which happens, these"
+     },
+     {
+     "time": 147,
+     "text": "two terms cancel out, and"
+     },
+     {
+     "time": 150,
+     "text": "this negative i^2, i^2 is one,"
+     },
+     {
+     "time": 154,
+     "text": "negative negative 1 is positive 1."
+     },
+     {
+     "time": 157,
+     "text": "What we are left with is 1"
+     },
+     {
+     "time": 161,
+     "text": "= cos^2(x)+sin^2(x), which"
+     },
+     {
+     "time": 165,
+     "text": "was exactly what"
+     },
+     {
+     "time": 169,
+     "text": "we hoped to get up above."
+     },
+     {
+     "time": 173,
+     "text": "That's just the first way you can use Euler's formula"
+     },
+     {
+     "time": 176,
+     "text": "to come up with a more algebraic proof."
+     },
+     {
+     "time": 179,
+     "text": "We will prove a few more results similarly. For"
+     },
+     {
+     "time": 183,
+     "text": "instance, I'd like to prove the Angle Sum"
+     },
+     {
+     "time": 186,
+     "text": "formulas. I have a"
+     },
+     {
+     "time": 191,
+     "text": "hard time remembering these sometimes but that's a great reason"
+     },
+     {
+     "time": 194,
+     "text": "to remember where formulas came from, and you can always rederive"
+     },
+     {
+     "time": 197,
+     "text": "them for yourself. First,"
+     },
+     {
+     "time": 202,
+     "text": "say we have e^(ia), that's"
+     },
+     {
+     "time": 205,
+     "text": "cos(a)+isin(a). Also"
+     },
+     {
+     "time": 211,
+     "text": "say we have"
+     },
+     {
+     "time": 213,
+     "text": "e^(ib). That's cos(b)+isin(b)."
+     },
+     {
+     "time": 217,
+     "text": "Now, just like before,"
+     },
+     {
+     "time": 221,
+     "text": "we'll take these two equations and multiply"
+     },
+     {
+     "time": 223,
+     "text": "them together e^(ia)*e^(ib) ="
+     },
+     {
+     "time": 230,
+     "text": "(cos(a)+isin(a))*(cos(b)+isin(b))."
+     },
+     {
+     "time": 234,
+     "text": "On the left,"
+     },
+     {
+     "time": 241,
+     "text": "it's"
+     },
+     {
+     "time": 243,
+     "text": "simplified. On the"
+     },
+     {
+     "time": 245,
+     "text": "right, we'll get cos(a)*cos(b) plus"
+     },
+     {
+     "time": 251,
+     "text": "we are going"
+     },
+     {
+     "time": 255,
+     "text": "to multiply together the two last terms"
+     },
+     {
+     "time": 258,
+     "text": "here. i^2 is negative 1. So, negative"
+     },
+     {
+     "time": 262,
+     "text": "sin(a)sin(b) multiplying"
+     },
+     {
+     "time": 264,
+     "text": "the interior terms, in"
+     },
+     {
+     "time": 267,
+     "text": "the exterior terms, both are going to have a factor"
+     },
+     {
+     "time": 271,
+     "text": "of i, cos(a)sin(b) we are"
+     },
+     {
+     "time": 276,
+     "text": "going to write the i on the"
+     },
+     {
+     "time": 278,
+     "text": "outside, now factoring that out, we have a sin(a)cos(b)."
+     },
+     {
+     "time": 287,
+     "text": "Next,"
+     },
+     {
+     "time": 288,
+     "text": "I am going to take Euler's formula and apply it directly"
+     },
+     {
+     "time": 292,
+     "text": "to e^(i(a+b)). In that case"
+     },
+     {
+     "time": 296,
+     "text": "we get cos(a+b)+isin(a+b)."
+     },
+     {
+     "time": 301,
+     "text": "Now, interesting thing, when"
+     },
+     {
+     "time": 307,
+     "text": "two complex"
+     },
+     {
+     "time": 309,
+     "text": "numbers are equal, their real in their imaginary parts"
+     },
+     {
+     "time": 312,
+     "text": "must also be equal, the real part, this first term"
+     },
+     {
+     "time": 315,
+     "text": "is cos(a+b) which matches up"
+     },
+     {
+     "time": 319,
+     "text": "with this part here. And the imaginary"
+     },
+     {
+     "time": 322,
+     "text": "part is sin(a+b) which must"
+     },
+     {
+     "time": 326,
+     "text": "therefore be equal to this part. If we write down these"
+     },
+     {
+     "time": 329,
+     "text": "two results, we have the"
+     },
+     {
+     "time": 332,
+     "text": "angle sum formulas. cos(a+b) is"
+     },
+     {
+     "time": 335,
+     "text": "equal to cos(a)cos(b)-sin(a)sin(b)."
+     },
+     {
+     "time": 344,
+     "text": "And we"
+     },
+     {
+     "time": 347,
+     "text": "get the sum formula for sin as well. sin(a+b)"
+     },
+     {
+     "time": 351,
+     "text": "is equal to"
+     },
+     {
+     "time": 356,
+     "text": "cos(a)sin(b)+sin(a)cos(b)."
+     },
+     {
+     "time": 360,
+     "text": "Furthermore, if you"
+     },
+     {
+     "time": 362,
+     "text": "want to"
+     },
+     {
+     "time": 367,
+     "text": "get the double angle formulas,"
+     },
+     {
+     "time": 370,
+     "text": "that's not too bad, if you let a"
+     },
+     {
+     "time": 376,
+     "text": "= x and b ="
+     },
+     {
+     "time": 379,
+     "text": "x then you will get"
+     },
+     {
+     "time": 385,
+     "text": "cos(2x) that's"
+     },
+     {
+     "time": 386,
+     "text": "x+x is equal to cos(x)cos(x)"
+     },
+     {
+     "time": 390,
+     "text": "is cos^2(x), sin(x)sin(x)"
+     },
+     {
+     "time": 395,
+     "text": "is sin^(x)."
+     },
+     {
+     "time": 399,
+     "text": "And sin(2x)."
+     },
+     {
+     "time": 405,
+     "text": "We are"
+     },
+     {
+     "time": 406,
+     "text": "going to have cos(x)sin(x)+sin(x)cos(x). Both"
+     },
+     {
+     "time": 409,
+     "text": "those terms are actually the same, so, you get 2sin(x)cos(x)."
+     },
+     {
+     "time": 415,
+     "text": "Once more, Euler's"
+     },
+     {
+     "time": 418,
+     "text": "formula proves to be a handy tool to have."
+     }
+]
+}

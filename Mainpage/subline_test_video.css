@@ -20,7 +20,6 @@ body {
 #ytplayer {
     position: fixed;
     margin:2em;
-
     
 }
 
@@ -69,6 +68,7 @@ p {
     border-left: dashed 1px black;
     padding-left: 10px;
     padding-right: 10px;
+    margin-left: 1.5em;
 }
 
 #textlink, #imglink {
@@ -133,5 +133,10 @@ img {
 figcaption {
     font-size: 15pt;
     border: 1px dashed #747070;
+}
+
+#expand {
+    margin: 1em;
+    
 }
 

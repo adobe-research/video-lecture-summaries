@@ -27,6 +27,7 @@ if __name__ == "__main__":
     text = []
     count = 0
     nwords = len(list_of_words)
+    txtfile.write("{\n \"data\":[\n")
     
     for word in list_of_words:        
         if not word.issilent:
@@ -42,23 +43,18 @@ if __name__ == "__main__":
                 if i == 0:
                     transcript = transcript + w.original_word
                 else:
-                    transcript = transcript + " " + w.original_word
-            
-             
+                    transcript = transcript + " " + w.original_word           
             txtfile.write("\
-{\n \
- data:[\n \
-  {\n \
-   time: %i,\n \
-   text: \"%s\"\n \
-  }\n \
- ]\n \
-}" %(time, transcript))
+     {\n \
+    \"time\": %i,\n \
+    \"text\": \"%s\"\n \
+    }" %(time, transcript))
             if count != nwords:
                 txtfile.write(",\n")
             lastt = text[-1].endt
             text = []
-            
+    
+    txtfile.write("\n]\n}")
             
     txtfile.close()
     

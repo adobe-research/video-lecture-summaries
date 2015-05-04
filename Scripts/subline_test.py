@@ -52,6 +52,32 @@ def write_playvideo_script(html, url):
          video.src= starturl\n \
          }\n" %(url))
 
+def write_expandall_script(html):
+     html.writestring("function expandall(){\n \
+         var c2s = document.getElementsByClassName(\"c2\");\n \
+         for (var i = 0; i < c2s.length; i++) {\n \
+             c2s[i].style.display = \"inline-block\";\n \
+        }\n \
+        var arrows = document.getElementsByClassName(\"arrow\");\n \
+        for (var i = 0; i < arrows.length; i++) {\n \
+            var src = \"%s\";\n \
+            $(arrows[i]).attr('src', src);\n \
+        }\n \
+    }\n"%(expanded_icon))
+     
+def write_collapseall_script(html):
+     html.writestring("function collapseall(){\n \
+         var c2s = document.getElementsByClassName(\"c2\");\n \
+         for (var i = 0; i < c2s.length; i++) {\n \
+             c2s[i].style.display = \"none\";\n \
+        }\n \
+        var arrows = document.getElementsByClassName(\"arrow\");\n \
+        for (var i = 0; i < arrows.length; i++) {\n \
+            var src = \"%s\";\n \
+            $(arrows[i]).attr('src', src);\n \
+        }\n \
+    }\n"%(collapsed_icon))
+ 
  
 def write_stc(html, sentence):
     sec = int(sentence.startt/1000.0)
@@ -83,7 +109,7 @@ def write_subline_img(html, subline, figdir, video):
     util.saveimage(label_img, figdir, label_imgpath)
     
     if len(subline.list_of_sentences) > 0:
-        html.writestring("<img src=\"%s\" height=\"20px\" id=\"arrow%i_sub%i\" \
+        html.writestring("<img class=\"arrow\" src=\"%s\" height=\"20px\" id=\"arrow%i_sub%i\" \
                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
 #         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
@@ -154,6 +180,7 @@ def write_by_time(list_of_objs, html):
     for obj in list_of_objs:
         obj.write_to_html(html)
     return
+
         
 if __name__ == "__main__":
     videopath = sys.argv[1]
@@ -181,6 +208,8 @@ if __name__ == "__main__":
     insertvideo(html, url)
     
     html.opendiv(idstring="summary")
+    html.writestring("<button id=\"expand\" onclick=\"expandall()\">Expand all transcript</button>")
+    html.writestring("<button id=\"expand\" onclick=\"collapseall()\">Collapse all transcript</button><br>")
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]
@@ -239,5 +268,7 @@ if __name__ == "__main__":
         write_arrowtoggle_script(html, lineid, subid)
         write_showsection_script(html, lineid, subid)
     write_playvideo_script(html, url)
+    write_expandall_script(html)
+    write_collapseall_script(html)
     html.closescript()
     html.closehtml()

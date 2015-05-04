@@ -1,0 +1,580 @@
+{
+ "data":[
+     {
+     "time": 0,
+     "text": "Hello, welcome. In this short video, let us look at the derivation"
+     },
+     {
+     "time": 3,
+     "text": "of the estimators of the parameters of a uniform"
+     },
+     {
+     "time": 6,
+     "text": "distribution using the method of moment."
+     },
+     {
+     "time": 9,
+     "text": "Given the uniform"
+     },
+     {
+     "time": 13,
+     "text": "distribution f(x) equals 1/(b-a),"
+     },
+     {
+     "time": 17,
+     "text": "for random variable x between the"
+     },
+     {
+     "time": 21,
+     "text": "values of a and b. That is, the value, x"
+     },
+     {
+     "time": 24,
+     "text": "is in the interval a comma b. Given"
+     },
+     {
+     "time": 27,
+     "text": "this uniform distribution, we want to derive estimators"
+     },
+     {
+     "time": 31,
+     "text": "for the parameters, a and b using the method of moments. To"
+     },
+     {
+     "time": 34,
+     "text": "start with, we derive the first two"
+     },
+     {
+     "time": 37,
+     "text": "moments based on the PDF. That is, expectation"
+     },
+     {
+     "time": 41,
+     "text": "of x is given by integral"
+     },
+     {
+     "time": 45,
+     "text": "a to b, x*f(x)dx."
+     },
+     {
+     "time": 50,
+     "text": "Equal to integral"
+     },
+     {
+     "time": 54,
+     "text": "a to b, (x*1/(b-a))dx. Equal"
+     },
+     {
+     "time": 58,
+     "text": "to 1/(b-a)*(x^2/2),"
+     },
+     {
+     "time": 62,
+     "text": "and the limits are a to b. Equal"
+     },
+     {
+     "time": 66,
+     "text": "to (b^2-a^2)/(b-a)."
+     },
+     {
+     "time": 70,
+     "text": "Since b^2-a^2"
+     },
+     {
+     "time": 75,
+     "text": "equals (b-a)*(b+a), and"
+     },
+     {
+     "time": 78,
+     "text": "the denominator"
+     },
+     {
+     "time": 83,
+     "text": "is 2(b-a). Therefore"
+     },
+     {
+     "time": 87,
+     "text": "clearly, we can cancel"
+     },
+     {
+     "time": 90,
+     "text": "these (b-a) since a>b. Therefore,"
+     },
+     {
+     "time": 93,
+     "text": "E[x] equal to to the average"
+     },
+     {
+     "time": 96,
+     "text": "of a and b, that is, (a+b)/2. This is"
+     },
+     {
+     "time": 99,
+     "text": "equation one. Now we do that with the second moment."
+     },
+     {
+     "time": 103,
+     "text": "Expectation of x^2 equal"
+     },
+     {
+     "time": 106,
+     "text": "to integral a to b, x^2*f(x)dx."
+     },
+     {
+     "time": 112,
+     "text": "It's equal to"
+     },
+     {
+     "time": 116,
+     "text": "integral a to"
+     },
+     {
+     "time": 118,
+     "text": "b, x^2*(1/(b-a))dx which is equal"
+     },
+     {
+     "time": 121,
+     "text": "to 1/(b-a)*(x^3/3),"
+     },
+     {
+     "time": 125,
+     "text": "and the limits are"
+     },
+     {
+     "time": 128,
+     "text": "a to b. Equal"
+     },
+     {
+     "time": 132,
+     "text": "to the numerator is"
+     },
+     {
+     "time": 136,
+     "text": "b^3-a^3, and"
+     },
+     {
+     "time": 139,
+     "text": "the denominator is"
+     },
+     {
+     "time": 142,
+     "text": "3(b-a). Since b^3-a^3"
+     },
+     {
+     "time": 146,
+     "text": "equals (b-a)*(b^2+a^2+ab we have"
+     },
+     {
+     "time": 151,
+     "text": "the second moment, E[x^2}"
+     },
+     {
+     "time": 155,
+     "text": "equals (a^2+b^2+ab)/3."
+     },
+     {
+     "time": 159,
+     "text": "This is equation two."
+     },
+     {
+     "time": 162,
+     "text": "Now we note the expressions"
+     },
+     {
+     "time": 165,
+     "text": "for the sample moment. That is the sample"
+     },
+     {
+     "time": 168,
+     "text": "first moment is xbar, that is the mean."
+     },
+     {
+     "time": 172,
+     "text": "The sample mean equal to the 1/n summation"
+     },
+     {
+     "time": 175,
+     "text": "i equals 1 to the n times xi. This"
+     },
+     {
+     "time": 178,
+     "text": "is equation three. The sample second moment"
+     },
+     {
+     "time": 182,
+     "text": "designated as xbar"
+     },
+     {
+     "time": 185,
+     "text": "with subscript two equal"
+     },
+     {
+     "time": 188,
+     "text": "to 1/n, summation i equals 1"
+     },
+     {
+     "time": 191,
+     "text": "to the n times (xi)^2 This"
+     },
+     {
+     "time": 194,
+     "text": "is sample second moment. Equation"
+     },
+     {
+     "time": 197,
+     "text": "four. By using equations one to four, that"
+     },
+     {
+     "time": 201,
+     "text": "is, E[x] equal to equating it to"
+     },
+     {
+     "time": 205,
+     "text": "the sample mean. Equating"
+     },
+     {
+     "time": 208,
+     "text": "the second moment, E[x^2] to the sample"
+     },
+     {
+     "time": 211,
+     "text": "second moment. We have (a+b)/2"
+     },
+     {
+     "time": 215,
+     "text": "equals to xbar. Note"
+     },
+     {
+     "time": 218,
+     "text": "that xbar are the mean, sample mean is"
+     },
+     {
+     "time": 221,
+     "text": "given by equation three. For simplicity, we use this"
+     },
+     {
+     "time": 225,
+     "text": "symbol. We also have the"
+     },
+     {
+     "time": 229,
+     "text": "E[x^2], that is, second moment"
+     },
+     {
+     "time": 232,
+     "text": "defined as (a^2+b^2+ab)/3"
+     },
+     {
+     "time": 237,
+     "text": "equal to the sample second moment, xbar(2),"
+     },
+     {
+     "time": 241,
+     "text": "the subscript two. Using"
+     },
+     {
+     "time": 245,
+     "text": "these two equations, that is, solving the systems of the two equations,"
+     },
+     {
+     "time": 249,
+     "text": "we can solve our a and b. From"
+     },
+     {
+     "time": 252,
+     "text": "equation five, that is, this equation"
+     },
+     {
+     "time": 255,
+     "text": "we have a+b equals"
+     },
+     {
+     "time": 258,
+     "text": "2xbar, which basically means that a"
+     },
+     {
+     "time": 261,
+     "text": "equals 2xbar, or two times"
+     },
+     {
+     "time": 264,
+     "text": "the sample mean minus b. By plugging-in"
+     },
+     {
+     "time": 269,
+     "text": "this value in the equation six, that"
+     },
+     {
+     "time": 273,
+     "text": "is, a equals 2xbar-b in this"
+     },
+     {
+     "time": 276,
+     "text": "equation six, we"
+     },
+     {
+     "time": 279,
+     "text": "have"
+     },
+     {
+     "time": 283,
+     "text": "(2xbar-b)^2+b^2+2(xbar-b)*b"
+     },
+     {
+     "time": 287,
+     "text": "equal to three times sample second moment."
+     },
+     {
+     "time": 291,
+     "text": "Expanding these terms, we have b^2+4xbar^2,"
+     },
+     {
+     "time": 295,
+     "text": "that is square of the mean,"
+     },
+     {
+     "time": 298,
+     "text": "minus 4b*xbar+b^2,"
+     },
+     {
+     "time": 302,
+     "text": "that is this term. Then we have minus b^2,"
+     },
+     {
+     "time": 306,
+     "text": "that is this term. Also we have plus"
+     },
+     {
+     "time": 309,
+     "text": "2b*xbar equal to 3*xbar(2)."
+     },
+     {
+     "time": 313,
+     "text": "Upon simplification, we have"
+     },
+     {
+     "time": 316,
+     "text": "b^2, that is, this b^2"
+     },
+     {
+     "time": 319,
+     "text": "and this b^2 cancelled each other, we are left with"
+     },
+     {
+     "time": 322,
+     "text": "b^2. Then we have minus 4b*xbar2b*xbar,"
+     },
+     {
+     "time": 326,
+     "text": "which is minus 2b*xbar. Then"
+     },
+     {
+     "time": 329,
+     "text": "we have 4*xbar^2-3xbar(2)"
+     },
+     {
+     "time": 336,
+     "text": "equals 0. If you look at this equation, this"
+     },
+     {
+     "time": 339,
+     "text": "is basically a quadratic equation in b. Therefore,"
+     },
+     {
+     "time": 343,
+     "text": "the value of b is given by b equal"
+     },
+     {
+     "time": 347,
+     "text": "to minus b, that is, minus the quotient"
+     },
+     {
+     "time": 350,
+     "text": "of the linear term, the"
+     },
+     {
+     "time": 353,
+     "text": "quotient of the first part of the term. That is, minus"
+     },
+     {
+     "time": 357,
+     "text": "2xbar plus or minus square root of (b^2-4ac)."
+     },
+     {
+     "time": 361,
+     "text": "That is, (2xbar)^2"
+     },
+     {
+     "time": 364,
+     "text": "minus four by one"
+     },
+     {
+     "time": 367,
+     "text": "into this value, that is 4xbar^2-3xbar(2),"
+     },
+     {
+     "time": 373,
+     "text": "that is the sample"
+     },
+     {
+     "time": 376,
+     "text": "second moment. This is"
+     },
+     {
+     "time": 383,
+     "text": "the"
+     },
+     {
+     "time": 383,
+     "text": "2 times a, which is 2*1. Under"
+     },
+     {
+     "time": 386,
+     "text": "the assumption both a and b are positives, we"
+     },
+     {
+     "time": 389,
+     "text": "have bhat equal to,"
+     },
+     {
+     "time": 395,
+     "text": "this should be positive."
+     },
+     {
+     "time": 398,
+     "text": "We have bhat"
+     },
+     {
+     "time": 402,
+     "text": "equal to xbar+sqrt(4xbar^2-4*4xbar^2+4*3xbar(2)),"
+     },
+     {
+     "time": 411,
+     "text": "that is the sample"
+     },
+     {
+     "time": 414,
+     "text": "second moment by two. Therefore,"
+     },
+     {
+     "time": 418,
+     "text": "the bhat is equal to... The estimator"
+     },
+     {
+     "time": 421,
+     "text": "of b is given by xbar plus... This"
+     },
+     {
+     "time": 424,
+     "text": "4 can be taken outside, and"
+     },
+     {
+     "time": 428,
+     "text": "it cancels with 2. We"
+     },
+     {
+     "time": 431,
+     "text": "are left with 3xbar(2)-3xbar^2."
+     },
+     {
+     "time": 436,
+     "text": "This equal to sqrt(3*xbar(2)-3xbar^2)."
+     },
+     {
+     "time": 440,
+     "text": "We have mean squared. Therefore,"
+     },
+     {
+     "time": 446,
+     "text": "this is the estimator of b. While using"
+     },
+     {
+     "time": 449,
+     "text": "this relation, that is, a equals 2xbar-b, we"
+     },
+     {
+     "time": 452,
+     "text": "also have an estimator, a. ahat"
+     },
+     {
+     "time": 455,
+     "text": "equals 2xbar-bhat"
+     },
+     {
+     "time": 459,
+     "text": "equals xbar-sqrt(3(xbar(2)-xbar^2))."
+     },
+     {
+     "time": 465,
+     "text": "You can note that"
+     },
+     {
+     "time": 467,
+     "text": "the value within"
+     },
+     {
+     "time": 471,
+     "text": "the parenthesis is clearly the"
+     },
+     {
+     "time": 474,
+     "text": "variance of the sample. That is, the difference"
+     },
+     {
+     "time": 477,
+     "text": "between the second moment on square root of the mean, which is basically"
+     },
+     {
+     "time": 480,
+     "text": "the variance of the sample. Therefore, our uniform distribution"
+     },
+     {
+     "time": 484,
+     "text": "variable should be random. The estimators of the unknown"
+     },
+     {
+     "time": 487,
+     "text": "parameters a and b are given by combinations of"
+     },
+     {
+     "time": 490,
+     "text": "mean and standard deviation of the sample."
+     },
+     {
+     "time": 493,
+     "text": "That is, ahat equal to the sample"
+     },
+     {
+     "time": 497,
+     "text": "mean, xbar-square root of 3 times"
+     },
+     {
+     "time": 500,
+     "text": "the standard deviation, S of the"
+     },
+     {
+     "time": 504,
+     "text": "sample. Similarly,"
+     },
+     {
+     "time": 506,
+     "text": "bhat equal to xbar plus"
+     },
+     {
+     "time": 510,
+     "text": "square root of three times the standard deviation of the sample."
+     },
+     {
+     "time": 513,
+     "text": "Therefore, the estimators of a and b"
+     },
+     {
+     "time": 516,
+     "text": "are basically linear combinations of sample mean"
+     },
+     {
+     "time": 519,
+     "text": "and sample standard deviation. Thanks for watching."
+     }
+]
+}

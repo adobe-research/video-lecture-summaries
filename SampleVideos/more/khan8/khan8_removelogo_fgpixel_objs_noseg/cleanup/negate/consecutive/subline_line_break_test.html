@@ -11,9 +11,9 @@
 <iframe id="thevideo" width="600px" height="500px" frameborder="0" allowfullscreen="1" title="YouTube video player" src="http://www.youtube.com/embed/FcLeaD3UII4?enablejsapi=1&amp;autoplay=0"></iframe></div>
 </div>
 <div id="summary" class="", width="">
-<div id="c1c2wrapper" class="", width="">
+<button id="expand" onclick="expandall()">Expand all transcript</button><button id="expand" onclick="collapseall()">Collapse all transcript</button><br><div id="c1c2wrapper" class="", width="">
 <div id="line0_sub0_c1" class="", width="">
-<img src="../../../../../../../Mainpage/figures/arrow_collapsed_icon.png" height="20px" id="arrow0_sub0"                                     onclick="showline0_sub0()">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon.png" height="20px" id="arrow0_sub0"                                     onclick="showline0_sub0()">
 <object id="textlink" onclick="playvideo_at(0)"><img src= "subline_linebreak_test/labelline_0_sub0.png" width="" usemap="#" id="" class="">
 </object></div>
 <div id="line0_sub0_c2" class="c2", width="">
@@ -32,7 +32,7 @@
 <p><object id="textlink" onclick="playvideo_at(61)">And It's like, oh my god, I have to take the antiderivative of all of this business, evaluate it at the different boundaries, and then I got to take the derivative. </object><object id="textlink" onclick="playvideo_at(69)">No. </object><object id="textlink" onclick="playvideo_at(69)">You just apply the fundamental theorem of calculus, and it's actually a very straightforward and a very fast thing to do. </object><object id="textlink" onclick="playvideo_at(76)">Now let's mix it up a little bit. </object></p></div>
 <div id="c1c2wrapper" class="", width="">
 <div id="line1_sub0_c1" class="", width="">
-<img src="../../../../../../../Mainpage/figures/arrow_collapsed_icon.png" height="20px" id="arrow1_sub0"                                     onclick="showline1_sub0()">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon.png" height="20px" id="arrow1_sub0"                                     onclick="showline1_sub0()">
 <object id="textlink" onclick="playvideo_at(82)"><img src= "subline_linebreak_test/labelline_1_sub0.png" width="" usemap="#" id="" class="">
 </object></div>
 <div id="line1_sub0_c2" class="c2", width="">
@@ -51,7 +51,7 @@
 <p><object id="textlink" onclick="playvideo_at(223)">So there you have it. </object></p></div>
 <div id="c1c2wrapper" class="", width="">
 <div id="line2_sub0_c1" class="", width="">
-<img src="../../../../../../../Mainpage/figures/arrow_collapsed_icon.png" height="20px" id="arrow2_sub0"                                     onclick="showline2_sub0()">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon.png" height="20px" id="arrow2_sub0"                                     onclick="showline2_sub0()">
 <object id="textlink" onclick="playvideo_at(226)"><img src= "subline_linebreak_test/labelline_2_sub0.png" width="" usemap="#" id="" class="">
 </object></div>
 <div id="line2_sub0_c2" class="c2", width="">
@@ -100,6 +100,28 @@ function playvideo_at(sec){
           var starturl = "https://www.youtube.com/embed/FcLeaD3UII4?autoplay=1&amp;start="+sec +"&amp"; 
           video.src= starturl
           }
+function expandall(){
+          var c2s = document.getElementsByClassName("c2");
+          for (var i = 0; i < c2s.length; i++) {
+              c2s[i].style.display = "inline-block";
+         }
+         var arrows = document.getElementsByClassName("arrow");
+         for (var i = 0; i < arrows.length; i++) {
+             var src = "../../../../../../../Mainpage/figures/arrow_expanded_icon.png";
+             $(arrows[i]).attr('src', src);
+         }
+     }
+function collapseall(){
+          var c2s = document.getElementsByClassName("c2");
+          for (var i = 0; i < c2s.length; i++) {
+              c2s[i].style.display = "none";
+         }
+         var arrows = document.getElementsByClassName("arrow");
+         for (var i = 0; i < arrows.length; i++) {
+             var src = "../../../../../../../Mainpage/figures/arrow_collapsed_icon.png";
+             $(arrows[i]).attr('src', src);
+         }
+     }
 </script>
 
 </body>

@@ -12,14 +12,15 @@ import meanshift
 import numpy as np
 from itertools import cycle
 from video import Video
+import lecturevisual
 
 def find_objects(panorama, list_of_objects):
     
     for obj in list_of_objects:
         tl = (obj.tlx, obj.tly)
-        if tl is None:
-            util.showimages([obj.img])
-            continue
+#         if tl is None:
+#             util.showimages([obj.img])
+#             continue
         panorama_copy = panorama.copy()
         cv2.rectangle(panorama_copy, (tl[0], tl[1]), (tl[0]+obj.width, tl[1]+obj.height), (0, 255, 0), 1)
         util.showimages([obj.img, panorama_copy])
@@ -180,6 +181,22 @@ def cluster_pixels_ypos():
 #     plt.savefig(outfile)
 #     plt.close()
 
+def lines():
+    videopath = sys.argv[1]
+    panoramapath = sys.argv[2]
+    objdir = sys.argv[3]
+    scriptpath = sys.argv[4]
+    outfile = objdir + "/panorama_line.png"
+    [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, 
+     list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
+                                                                objdir, scriptpath)
+    panorama_copy = panorama.copy()
+    for line in list_of_linegroups:
+        cv2.rectangle(panorama_copy, (line.obj.tlx-1, line.obj.tly), (line.obj.brx+1, line.obj.bry+1), (0, 0, 0), 1)
+        util.showimages([panorama_copy], "lines")
+    cv2.imwrite(outfile, panorama_copy)
+    
+     
 def objs():
     panoramapath = sys.argv[1]
     objdirpath = sys.argv[2]
@@ -188,13 +205,13 @@ def objs():
     objs_in_panorama = VisualObject.objs_from_file(None, objdirpath)
     print 'num objects', len(objs_in_panorama)
     panorama_copy = panorama.copy()
-    colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100), (255, 200, 200), (0,100,0), (100,0,0), (51, 255, 255)]
+#     colors = [(0,255,0),(255,0,0),(0,0,255),(255,0,255),(100,255,255),(255,255,0),(255, 100, 100), (255, 200, 200), (0,100,0), (100,0,0), (51, 255, 255)]
     for i in range(0, len(objs_in_panorama)):
         obj = objs_in_panorama[i]
         if (obj.img is None):
             continue
         
-        cv2.rectangle(panorama_copy, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0, 0, 255), 1)
+        cv2.rectangle(panorama_copy, (obj.tlx-1, obj.tly-1), (obj.brx+1, obj.bry+1), (0, 0, 0), 1)
 #         col = colors[i%len(colors)]
 #         mask = pf.fgmask(obj.img, 50, 255, True)
 #         fitmask = pf.fit_mask_to_img(panorama_copy, mask, obj.tlx, obj.tly)
@@ -223,7 +240,7 @@ def draw_clusters(panorama, list_of_objs, labels):
 
     
 if __name__ == "__main__":
-    objs()
+    lines()
 #     panoramapath = sys.argv[1]
 #     objdirpath = sys.argv[2]
 #     outfile = sys.argv[3]

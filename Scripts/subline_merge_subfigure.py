@@ -180,8 +180,6 @@ if __name__ == "__main__":
     author = sys.argv[6]
 #     frametxt = sys.argv[6]
 #     cursortxt = sys.argv[7]
-
-    
 #     fp = util.list_of_vecs_from_txt(frametxt)
 #     framepos = []
 #     for p in fp:

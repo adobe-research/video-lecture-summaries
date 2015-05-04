@@ -5,11 +5,13 @@ Release version: 3.71 (18 Aug 1996)
 The top-level auxiliary file: paper.aux
 The style file: acmsiggraph.bst
 Database file #1: paper.bib
+Warning--empty organization in hwang2006cinema
 
 Here's how much of BibTeX's memory you used:
- Cites:                 1 out of 7500
- Fields:               12 out of 125000
- Hash table:        34792 out of 35000
- Strings:             599 out of 30000
- String pool:        4614 out of 750000
+ Cites:                18 out of 7500
+ Fields:              196 out of 125000
+ Hash table:        34771 out of 35000
+ Strings:             699 out of 30000
+ String pool:        8200 out of 750000
  Wizard functions:   2748 out of 10000
+(There was 1 warning)

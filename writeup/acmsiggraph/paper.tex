@@ -11,7 +11,9 @@
 %%% - use ``conference'' for final content accepted to a sponsored event
 %%%   (hint: If you don't know, you should use ``conference.'')
 
+
 \documentclass[tog]{acmsiggraph}
+\usepackage[]{algorithm2e}
 
 %%% Make the ``BibTeX'' word pretty...
 
@@ -30,10 +32,10 @@
 
 \title{SIGGRAPH Content Formatting Instructions}
 
-\author{Stephen N. Spencer\thanks{e-mail:spencer@cs.washington.edu}\\Chair, ACM SIGGRAPH Publications Committee}
-\pdfauthor{Stephen N. Spencer}
+\author{}
+\pdfauthor{}
 
-\keywords{radiosity, global illumination, constant time}
+\keywords{Video summarization, Video navigation, Lecture videos, Blackboard-style lectures}
 
 \begin{document}
 
@@ -49,27 +51,18 @@
 
 \begin{abstract}
 
-In this sample paper, we describe the formatting requirements for
-content accepted to SIGGRAPH-sponsored events. The same format can be
-used for content ranging from a one-page Poster or Talk abstract, to a
-full-length Technical Paper. Please review this document even if you
-have submitted content to a SIGGRAPH-sponsored event in the past, as
-some of the details have changed relative to previous years.
 
 \end{abstract}
 
-\begin{CRcatlist}
-  \CRcat{I.3.3}{Computer Graphics}{Three-Dimensional Graphics and Realism}{Display Algorithms}
-  \CRcat{I.3.7}{Computer Graphics}{Three-Dimensional Graphics and Realism}{Radiosity};
-\end{CRcatlist}
 
 \keywordlist
 
 %% Required for all content. 
 
 \copyrightspace
-
+\input{relatedwork}
 \input{method}
+
 
 \section*{Acknowledgements}
 

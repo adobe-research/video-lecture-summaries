@@ -1,0 +1,49 @@
+body {
+    font-family: serif;
+    font-size: 24px;
+    padding: 2em;
+    text-align: center;
+    margin: auto;
+    align-content: center;
+    width: 1560px;
+    line-height: 1.4;
+}
+
+#vid {
+    width: 40%;
+    float: left;
+    margin: 20px;
+    position absolute;
+    margin: 3em;
+}
+
+#ytplayer {
+    position: fixed;
+    margin:2em;
+    
+}
+
+#summary {
+    width: 45%;
+    float:left;
+    text-align: left;
+}
+
+p {
+    width: 100%;
+    text-align: left;
+    line-height: 1.35;
+}
+
+
+#textlink {
+    cursor: pointer;
+    cursor: hand;
+}
+
+
+#textlink:hover {
+    background-color: #ffff99;
+}
+
+
