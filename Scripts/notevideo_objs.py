@@ -22,7 +22,7 @@ if __name__ == "__main__":
     nobjs = len(list_of_objs)
     for obj in list_of_objs:
         count += 1
-        mask = processframe.fgmask(obj.img, threshold=30, inv=True)
+        mask = processframe.fgmask(obj.img, threshold=200)
         aimg = processframe.alphaimage(obj.img, mask)
 #         util.showimages([aimg])
         util.saveimage(aimg, outdir, obj.imgpath)
