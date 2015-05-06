@@ -248,15 +248,14 @@ if __name__ == "__main__":
         write_subline(html, subline, figdir, video)
         if (len(subline.list_of_sentences) > 0):
             cur_stc_id = subline.list_of_sentences[-1].id+1
-    
-    if (cur_stc_id < len(list_of_sentences) -1):
+    print 'cur_stc_id', cur_stc_id, 'len(list_of_sentences)', len(list_of_sentences)
+    if (cur_stc_id < len(list_of_sentences)):
         html.opendiv(idstring="c0")
         html.openp()
         for i in range(cur_stc_id, len(list_of_sentences)):
             write_stc(html, list_of_sentences[i])
             start_fid = list_of_sentences[i].start_fid
             end_fid = list_of_sentences[i].end_fid
-#             html.writestring("(%.2f - %.2f) "%(start_fid, end_fid))
         html.closep()
         html.closediv() #c0
     html.closediv() #summary

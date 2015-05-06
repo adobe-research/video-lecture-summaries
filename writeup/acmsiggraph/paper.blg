@@ -1,17 +1,4 @@
-This is 8-bit Big BibTeX version 0.99c
-Implementation:  GNU C for Unix
-Release version: 3.71 (18 Aug 1996)
-
-The top-level auxiliary file: paper.aux
-The style file: acmsiggraph.bst
-Database file #1: paper.bib
-Warning--empty organization in hwang2006cinema
-
-Here's how much of BibTeX's memory you used:
- Cites:                18 out of 7500
- Fields:              196 out of 125000
- Hash table:        34771 out of 35000
- Strings:             699 out of 30000
- String pool:        8200 out of 750000
- Wizard functions:   2748 out of 10000
-(There was 1 warning)
+This is BibTeX, Version 0.99dThe top-level auxiliary file: paper.aux
+I found no \bibdata command---while reading file paper.aux
+I found no \bibstyle command---while reading file paper.aux
+(There were 2 error messages)

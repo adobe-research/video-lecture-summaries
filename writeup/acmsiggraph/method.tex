@@ -16,7 +16,7 @@ A \textit{stroke} is defined as the set of foreground pixels that is drawn durin
 We group strokes into hierarchical units: lines and sentence-strokes.  
 A line consists of a set of strokes that \textit{belong together} semantically. For example, a line could be a single row of equations, or a graph including its labels. Figure~\ref{Fig:line_examples} shows examples of lines. The problem of grouping strokes into lines is analogous to the problem of line breaking, also known as word wrapping \cite{knuth1981breaking}. An important difference is that in the traditional word wrapping problem, only a contiguous set of words can be put in the same line. In our case, strokes in a single line can be interspersed by strokes in a different line. This happens, for example, when the instructor goes back and forth between two lines of equations, or between a graph and an equation (Figures~\ref{Fig:line_order}). 
 
-Scoring function description
+Scoring function description.
 
 Pseudo code figure
 \begin{algorithm}[h]

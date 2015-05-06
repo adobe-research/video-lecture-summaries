@@ -193,7 +193,7 @@ def lines():
     panorama_copy = panorama.copy()
     for line in list_of_linegroups:
         cv2.rectangle(panorama_copy, (line.obj.tlx-1, line.obj.tly), (line.obj.brx+1, line.obj.bry+1), (0, 0, 0), 1)
-        util.showimages([panorama_copy], "lines")
+    util.showimages([panorama_copy], "lines")
     cv2.imwrite(outfile, panorama_copy)
     
      
