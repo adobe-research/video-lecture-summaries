@@ -26,13 +26,13 @@ Pseudo code figure
   \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
   \Input{list of strokes ${S}$}
   \Output{list of optimal lines, ${L_{\left\vert{S}\right\vert}}$}
-  $L_{-1} =$ \{\} \tcp{$L_i=$ optimal set of lines upto $i$-th stroke}\;
-  \For{each stroke $s_i \in \mathbf{S}$}{
+  $L_{-1} =$ \string{\string} \tcp{$L_i=$ optimal set of lines upto $i$-th stroke}\;
+    \For{each stroke $s_i \in \mathbf{S}$}{
     \textit{minscore} = $+\infty$\;
     \For{$j \leftarrow -1$ \textbf{to} $i-1$}{
       \For{$n \leftarrow 0$ \textbf{to} $\left\vert{L_j}\right\vert+1$}{
         \tcp{score to merge $s_i$ to $n$-th line of $L_j$}\;
-        \tcp{If $n = \left\vert{L_j}\right\vert+1$, $s_i$ on a new line by itself.}
+        \tcp{If $n = \left\vert{L_j}\right\vert+1$, $s_i$ on a new line by itself.}\;
         \textit{score} $\leftarrow$ line\_score($L_{j}$, $n$)\;
         \If {score \textless minscore}{
           ${optj} = j$\;
