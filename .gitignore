@@ -11,3 +11,4 @@ transcripts/audiofiles/*.wav
 SampleVideos/more/.DS_Store
 Scripts/temp
 Scripts/*.bat
+*Backup-*

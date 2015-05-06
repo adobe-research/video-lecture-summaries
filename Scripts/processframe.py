@@ -204,7 +204,13 @@ def alphaimage(image, mask):
     h, w = image.shape[:2]
     result = np.empty((h, w, 4), dtype=np.uint8)
     result[:, :, 0:3] = image[:,:,0:3]
-    result[:, :, 3] = mask
+#     util.showimages([result], "before copying alpha")
+#     util.showimages([mask], "mask")
+#     print np.amax(mask)
+#     print (mask)
+#     util.showimages([result])
+    result[:, :, 3] = (mask)
+#     util.showimages([result], "after copying alpha")
     return result
     
 

@@ -3,6 +3,7 @@ from video import Video
 from visualobjects import VisualObject
 import util
 import os
+import processframe
 
 if __name__ == "__main__":
     videopath = sys.argv[1]
@@ -21,7 +22,10 @@ if __name__ == "__main__":
     nobjs = len(list_of_objs)
     for obj in list_of_objs:
         count += 1
-        util.saveimage(obj.img, outdir, obj.imgpath)
+        mask = processframe.fgmask(obj.img, threshold=30, inv=True)
+        aimg = processframe.alphaimage(obj.img, mask)
+#         util.showimages([aimg])
+        util.saveimage(aimg, outdir, obj.imgpath)
         h, w = obj.img.shape[0:2]
         startt = video.fid2sec(obj.start_fid)
         outfile.write("\

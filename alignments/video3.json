@@ -7156,11 +7156,11 @@
         },
         {
             "end": 479.08367,
-            "alignedWord": "ON",
+            "alignedWord": "AND",
             "start": 478.81429,
             "line_idx": 0,
             "speaker": "narrator",
-            "word": "on"
+            "word": "and"
         },
         {
             "end": 479.38299,
@@ -7169,14 +7169,6 @@
             "line_idx": 0,
             "speaker": "narrator",
             "word": "square"
-        },
-        {
-            "end": 479.47279,
-            "alignedWord": "ROOT",
-            "start": 479.38299,
-            "line_idx": 0,
-            "speaker": "narrator",
-            "word": "root"
         },
         {
             "end": 479.54263,
