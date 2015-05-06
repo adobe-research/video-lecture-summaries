@@ -1,0 +1,968 @@
+{
+ "data":[
+     {
+     "time": 0,
+     "text": "Hi everyone. This is lesson number twenty-two from a tutorial"
+     },
+     {
+     "time": 3,
+     "text": "path on probability and in this lesson we study"
+     },
+     {
+     "time": 6,
+     "text": "the uniform distribution. If we have a random"
+     },
+     {
+     "time": 9,
+     "text": "variable X that follow a uniform distribution, X"
+     },
+     {
+     "time": 14,
+     "text": "follows the uniform distribution with parameters"
+     },
+     {
+     "time": 17,
+     "text": "a and b. Here a and b are the lower and the"
+     },
+     {
+     "time": 20,
+     "text": "upper limits of the values that the random"
+     },
+     {
+     "time": 23,
+     "text": "variable X can take. A"
+     },
+     {
+     "time": 27,
+     "text": "uniform random variable is equally likely to take"
+     },
+     {
+     "time": 30,
+     "text": "anybody between it's lower limit"
+     },
+     {
+     "time": 33,
+     "text": "and it's upper limit. To explain that, I'm going to"
+     },
+     {
+     "time": 36,
+     "text": "draw this graph."
+     },
+     {
+     "time": 39,
+     "text": "Let's say that's X and then"
+     },
+     {
+     "time": 43,
+     "text": "that's the PDF X. You"
+     },
+     {
+     "time": 46,
+     "text": "said that random variable X takes"
+     },
+     {
+     "time": 50,
+     "text": "value between a and b."
+     },
+     {
+     "time": 54,
+     "text": "Since it's equally likely to"
+     },
+     {
+     "time": 56,
+     "text": "take any value between a and b, it has"
+     },
+     {
+     "time": 59,
+     "text": "a plot PDF. The"
+     },
+     {
+     "time": 63,
+     "text": "PDF is flat. In"
+     },
+     {
+     "time": 67,
+     "text": "other words, it's a constant function. We"
+     },
+     {
+     "time": 70,
+     "text": "know that the area under"
+     },
+     {
+     "time": 73,
+     "text": "the PDF is always equal to"
+     },
+     {
+     "time": 76,
+     "text": "1, so that we have valid probability density"
+     },
+     {
+     "time": 79,
+     "text": "function. That means the area"
+     },
+     {
+     "time": 82,
+     "text": "of this rectangle here should be equal to 1."
+     },
+     {
+     "time": 86,
+     "text": "But we know area is the base times height."
+     },
+     {
+     "time": 89,
+     "text": "We can calculate the length"
+     },
+     {
+     "time": 92,
+     "text": "of that height that we need so that the area under this"
+     },
+     {
+     "time": 95,
+     "text": "curve, the area of the rectangle is equal to 1. This"
+     },
+     {
+     "time": 99,
+     "text": "base of the rectangle has a length of b a. Therefore,"
+     },
+     {
+     "time": 102,
+     "text": "for (b-a)*height should give us"
+     },
+     {
+     "time": 107,
+     "text": "an area equal to 1, which implies that"
+     },
+     {
+     "time": 111,
+     "text": "h should be equal to 1/(b-a)."
+     },
+     {
+     "time": 114,
+     "text": "The value taken by"
+     },
+     {
+     "time": 117,
+     "text": "the PDF after the uniform distribution, from"
+     },
+     {
+     "time": 122,
+     "text": "the lower limit a to the upper limit b is 1/(b-a)."
+     },
+     {
+     "time": 127,
+     "text": "In other words, that's the PDF. The"
+     },
+     {
+     "time": 132,
+     "text": "PDF random variable that follows the uniform distribution a"
+     },
+     {
+     "time": 136,
+     "text": "to b equal 1/(b-a), for"
+     },
+     {
+     "time": 141,
+     "text": "values of X"
+     },
+     {
+     "time": 143,
+     "text": "between a and b. Now"
+     },
+     {
+     "time": 148,
+     "text": "that we have the PDF, we're going to derive the CDF F(x)."
+     },
+     {
+     "time": 153,
+     "text": "Let me actually write it. The CDF is going"
+     },
+     {
+     "time": 156,
+     "text": "to be... I'll show you how to get that."
+     },
+     {
+     "time": 159,
+     "text": "0 if x<a. And it's"
+     },
+     {
+     "time": 163,
+     "text": "equal to (x-a)/(b-a)"
+     },
+     {
+     "time": 167,
+     "text": "if x is between"
+     },
+     {
+     "time": 171,
+     "text": "a and b. It's"
+     },
+     {
+     "time": 174,
+     "text": "1 if x>b."
+     },
+     {
+     "time": 178,
+     "text": "That's the CDF. We"
+     },
+     {
+     "time": 181,
+     "text": "also show that the expected value is"
+     },
+     {
+     "time": 186,
+     "text": "(b+a)/2 or (a+b)/2."
+     },
+     {
+     "time": 190,
+     "text": "That's actually the mid point. So it says, since the"
+     },
+     {
+     "time": 193,
+     "text": "PDF is plot and constant, the"
+     },
+     {
+     "time": 197,
+     "text": "expected value is going to be right at"
+     },
+     {
+     "time": 199,
+     "text": "the middle of lower, between the lower limits and the upper"
+     },
+     {
+     "time": 202,
+     "text": "limit, which is (a+b)/2 or (b+a)/2."
+     },
+     {
+     "time": 207,
+     "text": "The variance of"
+     },
+     {
+     "time": 209,
+     "text": "the random variable X is going to"
+     },
+     {
+     "time": 214,
+     "text": "be equal to (b-a)^2/12."
+     },
+     {
+     "time": 218,
+     "text": "Finally, the MGF,"
+     },
+     {
+     "time": 220,
+     "text": "the moment generating function of a uniform random variable,"
+     },
+     {
+     "time": 224,
+     "text": "is equal to"
+     },
+     {
+     "time": 228,
+     "text": "(e^(bt)-e^(at))/(b-a)t. The rest"
+     },
+     {
+     "time": 231,
+     "text": "of this lesson is going"
+     },
+     {
+     "time": 236,
+     "text": "to be showing"
+     },
+     {
+     "time": 238,
+     "text": "you how to get this CDF,"
+     },
+     {
+     "time": 241,
+     "text": "expected value, variance, and momentarily"
+     },
+     {
+     "time": 245,
+     "text": "function. Let's find the CDF."
+     },
+     {
+     "time": 249,
+     "text": "CDF of a random variable X is equal to"
+     },
+     {
+     "time": 253,
+     "text": "the probability that random"
+     },
+     {
+     "time": 256,
+     "text": "variable X takes a value less than or equal"
+     },
+     {
+     "time": 259,
+     "text": "to little x. Let me actually draw that picture"
+     },
+     {
+     "time": 262,
+     "text": "again so that I can explain things better."
+     },
+     {
+     "time": 266,
+     "text": "We have a here, b, uniform"
+     },
+     {
+     "time": 269,
+     "text": "distribution takes any value between a and b, equally"
+     },
+     {
+     "time": 273,
+     "text": "likely and height or the"
+     },
+     {
+     "time": 276,
+     "text": "density function has a value equal to 1/(b-a)."
+     },
+     {
+     "time": 285,
+     "text": "When"
+     },
+     {
+     "time": 288,
+     "text": "the value of X is less"
+     },
+     {
+     "time": 290,
+     "text": "than the lower limit a, then the CDF"
+     },
+     {
+     "time": 293,
+     "text": "is equal to zero. The reason for that is"
+     },
+     {
+     "time": 297,
+     "text": "there's no chance that the random variable X"
+     },
+     {
+     "time": 300,
+     "text": "can take value less than little"
+     },
+     {
+     "time": 303,
+     "text": "x if, little x is less"
+     },
+     {
+     "time": 306,
+     "text": "than a. That is because X cannot take values"
+     },
+     {
+     "time": 309,
+     "text": "less than a."
+     },
+     {
+     "time": 313,
+     "text": "That's equal to zero. When"
+     },
+     {
+     "time": 317,
+     "text": "X is between a"
+     },
+     {
+     "time": 325,
+     "text": "and b, then the CDF is"
+     },
+     {
+     "time": 329,
+     "text": "the integral from"
+     },
+     {
+     "time": 333,
+     "text": "negative infinity to X of the PDF"
+     },
+     {
+     "time": 337,
+     "text": "F(x) tx, but the"
+     },
+     {
+     "time": 340,
+     "text": "PDF cannot take any value less than a. Instead"
+     },
+     {
+     "time": 344,
+     "text": "of starting from negative infinity, I can set"
+     },
+     {
+     "time": 347,
+     "text": "the lower limit of this integral to be a, so"
+     },
+     {
+     "time": 351,
+     "text": "that I have integral from a to X"
+     },
+     {
+     "time": 354,
+     "text": "of f(x) dX. But"
+     },
+     {
+     "time": 357,
+     "text": "f(x) is 1/(b-a),"
+     },
+     {
+     "time": 362,
+     "text": "for values of X between a and b. This"
+     },
+     {
+     "time": 368,
+     "text": "is 1/(b-a) du."
+     },
+     {
+     "time": 373,
+     "text": "Now, this integral"
+     },
+     {
+     "time": 375,
+     "text": "is equal to u/(b-a),"
+     },
+     {
+     "time": 379,
+     "text": "lower limit a, upper limit X. When"
+     },
+     {
+     "time": 382,
+     "text": "you plug in the upper limit"
+     },
+     {
+     "time": 386,
+     "text": "and the lower limit you get"
+     },
+     {
+     "time": 389,
+     "text": "X/(b-a)-a/(b-a). That is equal to X-a/(b-a)."
+     },
+     {
+     "time": 393,
+     "text": "That's the CDF"
+     },
+     {
+     "time": 397,
+     "text": "for values of X between a and b. It"
+     },
+     {
+     "time": 401,
+     "text": "turns out that the CDF... what's"
+     },
+     {
+     "time": 404,
+     "text": "the CDF at x"
+     },
+     {
+     "time": 407,
+     "text": "is equal to b? The CDF at X equal to b"
+     },
+     {
+     "time": 411,
+     "text": "if f(X,b). Plug in b"
+     },
+     {
+     "time": 414,
+     "text": "in this equation. Then you"
+     },
+     {
+     "time": 417,
+     "text": "have (b-a)/(b-a) equals 1."
+     },
+     {
+     "time": 422,
+     "text": "With that"
+     },
+     {
+     "time": 423,
+     "text": "in mind, we can actually"
+     },
+     {
+     "time": 426,
+     "text": "just write the CDF when X"
+     },
+     {
+     "time": 429,
+     "text": "is greater than b. When X is greater than b, the CDF"
+     },
+     {
+     "time": 433,
+     "text": "is equal to"
+     },
+     {
+     "time": 436,
+     "text": "1. F(x) is equal to 1. I"
+     },
+     {
+     "time": 440,
+     "text": "could have actually found that CDF"
+     },
+     {
+     "time": 443,
+     "text": "in a much easier way than the way I did with"
+     },
+     {
+     "time": 447,
+     "text": "integrals. If this is the point X, the"
+     },
+     {
+     "time": 451,
+     "text": "probability that random variable X"
+     },
+     {
+     "time": 454,
+     "text": "takes a value less than or equal to little x, is equal"
+     },
+     {
+     "time": 457,
+     "text": "to the area of that rectangle. You"
+     },
+     {
+     "time": 461,
+     "text": "really didn't need to do"
+     },
+     {
+     "time": 463,
+     "text": "the integral. If you calculate the area"
+     },
+     {
+     "time": 466,
+     "text": "of that rectangle, the base has a value"
+     },
+     {
+     "time": 470,
+     "text": "of (X-a)*height, which"
+     },
+     {
+     "time": 474,
+     "text": "is 1/(b-a), that"
+     },
+     {
+     "time": 478,
+     "text": "gives you (X-a)/(b-a). Expected"
+     },
+     {
+     "time": 482,
+     "text": "value of the random variable X is"
+     },
+     {
+     "time": 486,
+     "text": "the integral overall the support of the random variable"
+     },
+     {
+     "time": 489,
+     "text": "X. Let's say the support for"
+     },
+     {
+     "time": 493,
+     "text": "X is script X of"
+     },
+     {
+     "time": 497,
+     "text": "X*f(x) dx. We know actually the support is from a"
+     },
+     {
+     "time": 500,
+     "text": "to b, any value from the lower limit to"
+     },
+     {
+     "time": 504,
+     "text": "the upper limit. X*f(x) is"
+     },
+     {
+     "time": 506,
+     "text": "1/(b-a)dx."
+     },
+     {
+     "time": 511,
+     "text": "1/(b-a) is a constant"
+     },
+     {
+     "time": 513,
+     "text": "just like to X, so I can take it outside of the integral and"
+     },
+     {
+     "time": 516,
+     "text": "I have integral a to b, not"
+     },
+     {
+     "time": 520,
+     "text": "X, dx. That's equal to 1/(b-a)-x^2/2,"
+     },
+     {
+     "time": 526,
+     "text": "lower limit"
+     },
+     {
+     "time": 528,
+     "text": "a, the upper limit b. Plug"
+     },
+     {
+     "time": 531,
+     "text": "in the lower limit and the upper"
+     },
+     {
+     "time": 534,
+     "text": "limit here. You would find out this is equal"
+     },
+     {
+     "time": 538,
+     "text": "to 1/(b-a)*(b^2-a^2)/2."
+     },
+     {
+     "time": 543,
+     "text": "b^2-a^2 is the difference"
+     },
+     {
+     "time": 546,
+     "text": "of two squares, which I"
+     },
+     {
+     "time": 551,
+     "text": "can rewrite"
+     },
+     {
+     "time": 554,
+     "text": "as (b-a)*(b+a) then I have"
+     },
+     {
+     "time": 561,
+     "text": "divided"
+     },
+     {
+     "time": 562,
+     "text": "by two. So (b-a) cancels"
+     },
+     {
+     "time": 565,
+     "text": "out (b-a) therefore I am"
+     },
+     {
+     "time": 568,
+     "text": "left with (b+a)/2. The variance of the random"
+     },
+     {
+     "time": 575,
+     "text": "variable X is"
+     },
+     {
+     "time": 579,
+     "text": "the second moment minus"
+     },
+     {
+     "time": 582,
+     "text": "the first moment square. We"
+     },
+     {
+     "time": 586,
+     "text": "know the first moment.First moment is (b+a)/2."
+     },
+     {
+     "time": 590,
+     "text": "We can just find the second moment. And"
+     },
+     {
+     "time": 593,
+     "text": "then we use the first moment that we have here to calculate"
+     },
+     {
+     "time": 596,
+     "text": "the variance. Second moment is the integral from a to b. In"
+     },
+     {
+     "time": 600,
+     "text": "this case of X^2, f(x)"
+     },
+     {
+     "time": 603,
+     "text": "dx. That is equal"
+     },
+     {
+     "time": 606,
+     "text": "to the integral a to b. X^2+1/(b-a)dx. Again, 1/(b-a)"
+     },
+     {
+     "time": 611,
+     "text": "is a constant with respect"
+     },
+     {
+     "time": 615,
+     "text": "to X, so that can be outside of the integral from"
+     },
+     {
+     "time": 619,
+     "text": "a to b, x^2 dx. That"
+     },
+     {
+     "time": 626,
+     "text": "is equal to 1/(b-a)*X^3/3,"
+     },
+     {
+     "time": 631,
+     "text": "evaluated from the"
+     },
+     {
+     "time": 635,
+     "text": "lower limit a to"
+     },
+     {
+     "time": 637,
+     "text": "the upper limit b. This is (b-a)*by..."
+     },
+     {
+     "time": 642,
+     "text": "If you plug in the upper limit and the lower limit, you"
+     },
+     {
+     "time": 645,
+     "text": "get b^3-a^3/3. b^3-a^3"
+     },
+     {
+     "time": 650,
+     "text": "is the difference of two"
+     },
+     {
+     "time": 654,
+     "text": "cubes.The difference of two cubes can"
+     },
+     {
+     "time": 657,
+     "text": "be written as b-a..."
+     },
+     {
+     "time": 663,
+     "text": "revise that from your algebra, if you"
+     },
+     {
+     "time": 666,
+     "text": "don't remember. (b-a)*b^2+ab+a^2/3."
+     },
+     {
+     "time": 673,
+     "text": "Here"
+     },
+     {
+     "time": 676,
+     "text": "again, b-a here cancels"
+     },
+     {
+     "time": 678,
+     "text": "out b-a up here. Therefore we"
+     },
+     {
+     "time": 681,
+     "text": "are left with b^2+a*b+a^2/3. That's"
+     },
+     {
+     "time": 685,
+     "text": "the second moment."
+     },
+     {
+     "time": 691,
+     "text": "To find the variance, I need to subtract"
+     },
+     {
+     "time": 698,
+     "text": "the first moment squared from"
+     },
+     {
+     "time": 701,
+     "text": "the second moment. Second moment"
+     },
+     {
+     "time": 705,
+     "text": "is b^2*ab+ab+a^2/3-the"
+     },
+     {
+     "time": 710,
+     "text": "square of the first moment. The first moment"
+     },
+     {
+     "time": 713,
+     "text": "is (b+a)/2. This is"
+     },
+     {
+     "time": 716,
+     "text": "b^2+a*b+a^2-b^2+2ab+a^2/4."
+     },
+     {
+     "time": 720,
+     "text": "This common"
+     },
+     {
+     "time": 724,
+     "text": "factor is"
+     },
+     {
+     "time": 728,
+     "text": "12. 12/3"
+     },
+     {
+     "time": 734,
+     "text": "is four, so"
+     },
+     {
+     "time": 737,
+     "text": "we have"
+     },
+     {
+     "time": 747,
+     "text": "four times"
+     },
+     {
+     "time": 751,
+     "text": "b^2+a*b+a^2-12/4 is"
+     },
+     {
+     "time": 758,
+     "text": "3."
+     },
+     {
+     "time": 761,
+     "text": "So 3*b^2+2ab+a^2."
+     },
+     {
+     "time": 764,
+     "text": "That is equal to"
+     },
+     {
+     "time": 768,
+     "text": "4b^2+4*ab+4a^2-3b^2-6*ab-3a^2."
+     },
+     {
+     "time": 778,
+     "text": "All quantity divided by twelve."
+     },
+     {
+     "time": 783,
+     "text": "Again, 4b^2-3b^2"
+     },
+     {
+     "time": 787,
+     "text": "is b^2. 4ab-6ab"
+     },
+     {
+     "time": 791,
+     "text": "is -2ab. 4a^2-3a^2+a^2/12."
+     },
+     {
+     "time": 795,
+     "text": "b^2-2ab+b^2 is (b-a)^2/12."
+     },
+     {
+     "time": 802,
+     "text": "That's the"
+     },
+     {
+     "time": 804,
+     "text": "variance of the random"
+     },
+     {
+     "time": 808,
+     "text": "variable X which"
+     },
+     {
+     "time": 812,
+     "text": "follows a uniform distribution between"
+     },
+     {
+     "time": 815,
+     "text": "the lower limit a and the upper limit b. We"
+     },
+     {
+     "time": 820,
+     "text": "found the CDF, expected value,"
+     },
+     {
+     "time": 824,
+     "text": "and variance. We're going to go"
+     },
+     {
+     "time": 826,
+     "text": "ahead and find the moment generating function. The"
+     },
+     {
+     "time": 831,
+     "text": "MGF MX(t)"
+     },
+     {
+     "time": 835,
+     "text": "is the expected value"
+     },
+     {
+     "time": 838,
+     "text": "of e^(tX). That"
+     },
+     {
+     "time": 841,
+     "text": "is equal to the integral over all the support of the random"
+     },
+     {
+     "time": 845,
+     "text": "variable X, which is from a to b and"
+     },
+     {
+     "time": 848,
+     "text": "of e^(tX)f(x)dx, but"
+     },
+     {
+     "time": 852,
+     "text": "f(x) is 1/(b-a)dx."
+     },
+     {
+     "time": 858,
+     "text": "I can again"
+     },
+     {
+     "time": 861,
+     "text": "take 1/(b-a) outside of the integral"
+     },
+     {
+     "time": 865,
+     "text": "and multiply it by the integral a"
+     },
+     {
+     "time": 867,
+     "text": "to b of e^t*Xdx. That"
+     },
+     {
+     "time": 873,
+     "text": "is equal"
+     },
+     {
+     "time": 876,
+     "text": "to 1/(b-a)*(e^tX)/t,"
+     },
+     {
+     "time": 882,
+     "text": "lower limit a, upper"
+     },
+     {
+     "time": 885,
+     "text": "limit b. That's"
+     },
+     {
+     "time": 889,
+     "text": "equal to 1/(b-a)*(e^(tb)-e^(ta))/t."
+     },
+     {
+     "time": 898,
+     "text": "When you rewrite"
+     },
+     {
+     "time": 901,
+     "text": "this, you will find out that the"
+     },
+     {
+     "time": 906,
+     "text": "MGF is (e^(tb)-e^(ta))/((b-a)t)."
+     },
+     {
+     "time": 912,
+     "text": "That's the"
+     },
+     {
+     "time": 915,
+     "text": "MGF of a uniform"
+     },
+     {
+     "time": 918,
+     "text": "random variable."
+     }
+]
+}
