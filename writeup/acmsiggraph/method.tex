@@ -80,7 +80,7 @@ s_1(l) = \alpha_1c_1(l) + \alpha_2c_2(l) + \alpha_3c_3(l) + \alpha_4n_\text{alig
 
 The last two features are properties of relationship between multiple lines, and defines a \textit{goodness} score for a set of lines. 
 \begin{equation}
-s_2(L) = \sum \limits_{l_i,l_j\in L, i\neq j}p_\text{overlap}(l_i, l_j) 
+s_2(L) = -\sum \limits_{l_i,l_j\in L, i\neq j}p_\text{overlap}(l_i, l_j) +\sum \limits_{s_i\in l_m, s_\text{i+1} \in l_\text{n}, m \neq n}t_\text{dist}(s_i, s_{i+1})
 \end{equation}
 
 The final scoring function is a weighted average of the two scores.
@@ -121,9 +121,7 @@ Figure \ref{Fig:line_examples} shows results obtained from our line breaking alg
 \end{figure*}
 
 \subsubsection{Sentence strokes}
-If \textit{lines} represent meaningful segments in the visual domain, sentences represent semantic units in transcripts. We further group strokes within each line into \textit{sentence strokes} using the temporal correspondence between strokes and transcript sentences. 
-
-In summary, we have the following hierarchical grouping of strokes: strokes, sentence-strokes, and lines.
+If \textit{lines} represent meaningful segments in the video frames, sentences represent semantic units in transcripts. We further group strokes within each line into \textit{sentence strokes} using the temporal correspondence between strokes and transcript sentences. In summary, we have the following hierarchical grouping of strokes: strokes, sentence-strokes, and lines.
 
 
 
