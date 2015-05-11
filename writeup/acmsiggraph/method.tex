@@ -23,38 +23,41 @@ The scoring function to determine the optimal set of lines is based on a number 
 
 \textbf{Lines are compact.} Strokes that belong together are arranged in a compact figure. We consider three measures of compactness for a line: overall, horizontal and vertical. 
 \begin{itemize}
+
 \item Overall compactness of a line $l$is measured as 
 \begin{equation}
 c_1(l) = \frac{\sum\limits_{s\in l}area(\{s\})}{area(l)}
 \end{equation}
 where $area(\cdot)$ is the the bounding box area of a set of strokes. 
-\item 
-Intuitively, horizontal compactness is related to the maximum horizontal \textit{gap} between strokes within a line. Figure \ref{Fig:hv_compactness} shows an illustration of the of how gaps between strokes are measured. 
+
+\item Intuitively, horizontal compactness is related to the maximum horizontal \textit{gap} between strokes within a line. Figure \ref{Fig:hv_compactness} shows an illustration of the of how gaps between strokes are measured. 
 First, we define a horizontal projection function of a set of strokes, $S$, as 
 \begin{equation}
-proj_h(x, S}) = \big{|}\{s\in S \small{|} x_\text{min}(s)\le x \le x_\text{max}(s)\}\big{|}
+proj_h(x, S) = \big{|}\{s\in S \small{|} x_\text{min}(s)\le x \le x_\text{max}(s)\}\big{|}
 \label{Eq:projh}
 \end{equation}\\  
 where $x_min(s)$, and $x_max(s)$ are the minimum and maximum $x$-coordinates of the bounding box of $s$ respectively. Then, the maximum horizontal gap of a line $l$ is
 \begin{equation}
-x_\text{gap}(l) = \argmax_{x_i, x_\text{i+1} \in proj_{h}(x,l)\ne 0}} (x_\text{i+1} - x_i)
+x_\text{gap}(l) = \argmax_{x_i, x_\text{i+1} \in proj_{h}(x,l)\ne 0} (x_\text{i+1} - x_i)
 \end{equation}
 and horizontal compactness is defined as:
 \begin{equation}
 c_2(l) = -x_\text{gap}(l)
 \end{equation}
+
 \item Vertical compactness is defined similarly, in terms of a vertical projection function, $proj_{v}$, and the maximum vertical gap, $y_\text{gap}$.
 \begin{equation}
-proj_v(y, S}) = \big{|}\{s\in S \small{|} y_\text{min}(s)\le y \le y_\text{max}(s)\}\big{|}
+proj_v(y, S) = \big{|}\{s\in S \small{|} y_\text{min}(s)\le y \le y_\text{max}(s)\}\big{|}
 \label{Eq:projv}
 \end{equation}
 \begin{equation}
-y_\text{gap}(l) = \argmax_{y_i, y_\text{i+1} \in proj_{v}(y,l)\ne 0}} (y_\text{i+1}
+y_\text{gap}(l) = \argmax_{y_i, y_\text{i+1} \in proj_{v}(y,l)\ne 0} (y_\text{i+1}
 - y_i)
 \end{equation}
 \begin{equation}
 c_3(l) = -y_\text{gap}(l)
 \end{equation}
+
 \end{itemize}
 
 \textbf{Strokes within a line are aligned horizontally.} With the exception of certain elements in graphs or figures, most lines comprising equations or words are written left to right. The strokes in such lines are aligned horizontally. We compute the maximum number of horizontally aligned strokes in each line, using the vertical projection function in Equation (\ref{Eq:projv}).
@@ -94,7 +97,7 @@ Figure \ref{Fig:line_examples} shows results obtained from our line breaking alg
   \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
   \Input{list of strokes ${S}$}
   \Output{list of optimal lines, ${L_{\left\vert{S}\right\vert}}$}
-  $L_{-1} =$ \string{\string} \tcp{$L_i=$ optimal set of lines upto $i$-th stroke}\
+  $L_{-1} =$ \string{\string} \tcp{$L_i=$ optimal set of lines upto $i$-th stroke}
     \For{each stroke $s_i \in \mathbf{S}$}{
     \textit{minscore} = $+\infty$\;
     \For{$j \leftarrow -1$ \textbf{to} $i-1$}{
