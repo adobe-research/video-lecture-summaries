@@ -23,6 +23,12 @@ body {
     
 }
 
+#transcriptbutton {
+    position: fixed;
+    margin-top: 25em;
+    margin-left: 7em;
+}
+
 #summary {
     width: 45%;
     float:left;

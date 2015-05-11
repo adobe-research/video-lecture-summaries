@@ -14,7 +14,8 @@
 
 \documentclass[tog]{acmsiggraph}
 \usepackage[]{algorithm2e}
-
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{argmax}
 %%% Make the ``BibTeX'' word pretty...
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -30,7 +31,7 @@
 \TOGvolume{0}
 \TOGnumber{0}
 
-\title{SIGGRAPH Content Formatting Instructions}
+\title{ScribeVideo: Static, Linear Re-Presentation of  Blackboard-Style Lecture Videos}
 
 \author{}
 \pdfauthor{}
@@ -43,8 +44,8 @@
 %%% the title and author information, and above the body of the content.
 
  \teaser{
-   \includegraphics[height=1.5in]{images/sampleteaser}
-   \caption{Spring Training 2009, Peoria, AZ.}
+   \includegraphics[width=0.9\textwidth]{images/teaser}
+   \caption{ScribeVideo interface}
  }
 
 \maketitle
@@ -60,12 +61,12 @@
 %% Required for all content. 
 
 \copyrightspace
+\input{intro}
 \input{relatedwork}
 \input{method}
 \input{results}
 \input{userstudy}
-
-
+\input{conclusion}
 \section*{Acknowledgements}
 
 

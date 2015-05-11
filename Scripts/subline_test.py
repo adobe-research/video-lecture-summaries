@@ -115,7 +115,7 @@ def write_subline_img(html, subline, figdir, video):
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
     startt = subline.obj.start_fid
     sec = video.fid2sec(startt)
-    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">"%(sec))
+    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);showline%i_sub%i();\">"%(sec, lineid, subid))
     html.image(figdir + "/" + label_imgpath)
     html.writestring("</object>")
 
@@ -168,11 +168,11 @@ def write_subline_stc(html, subline, figdir):
     return
 
 def insertvideo(html, url):
-    html.opendiv(idstring="vid")
+
     html.opendiv(idstring="ytplayer")
-    html.writestring("<iframe id=\"thevideo\" width=\"600px\" height=\"500px\" frameborder=\"0\" allowfullscreen=\"1\" title=\"YouTube video player\" src=\"http://www.youtube.com/embed/%s?enablejsapi=1&amp;autoplay=0\"></iframe>"%(url))
+    html.writestring("<iframe id=\"thevideo\" width=\"600px\" height=\"500px\" frameborder=\"0\" allowfullscreen=\"1\" title=\"YouTube video player\" src=\"http://www.youtube.com/embed/%s?enablejsapi=1&amp;autoplay=0\"></iframe><br>"%(url))
     html.closediv()
-    html.closediv()
+
 
 
 def write_by_time(list_of_objs, html):
@@ -205,11 +205,16 @@ if __name__ == "__main__":
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
 
+    html.opendiv(idstring="vid")
     insertvideo(html, url)
-    
-    html.opendiv(idstring="summary")
+    html.opendiv(idstring="transcriptbutton")
     html.writestring("<button id=\"expand\" onclick=\"expandall()\">Expand all transcript</button>")
     html.writestring("<button id=\"expand\" onclick=\"collapseall()\">Collapse all transcript</button><br>")
+    html.closediv()
+    html.closediv() #vid
+    
+    html.opendiv(idstring="summary")
+
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]
