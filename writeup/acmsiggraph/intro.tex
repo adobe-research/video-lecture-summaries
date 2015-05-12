@@ -5,5 +5,13 @@ Despite the increasingly important and broad role videos are taking in education
 
 Educational videos are different from traditional video contents such as movies. They are usually shorter, more static (less change in scenes), and denser in information, especially textual information. Learning also involves a variety of different interactions with the video. These interactions include: (1) skimming to get a quick overview of the video, (2) searching to find a specific information in the lecture, and (3) re-watching to review specific portions of the video. However, there has been few attempts to adapt video interfaces to support these new types of needs. Exploring the design space of interfaces fitted to the contents and navigation patterns specific to education can facilitate and improve learning experience.
 
-This paper presents ScribeVideo, a static, linear re-presentation of videos to facilitate navigation of blackboard-style lectures. 
+This paper presents ScribeVideo, a readable, tutorial-style re-presentation of videos to facilitate browsing and navigation of blackboard-style lectures. \todo{Advantage of static, tutorial-style.} The key insight of our approach derives from the following characteristics of blackboard-style lectures. 
+\begin{itemize}
+\item \textbf{Lectures present information sequentially.} Concepts are introduced one by one, or an idea is developed progressively (e.g. derivation of an equation, or explanation of a chemical procedure). Information presented in such structured ways lends itself naturally to a linear format.
+\item \textbf{Most of the visual content convey static information.} The dynamic nature of videos means that visuals are also presented progressively (i.e. they are drawn in live-time). However, the resultant visual that actually conveys information is usually static (e.g. graphs, equations, figures as opposed to animation). This, along with the previous point, means there are \textit{chunks} of visual content, where each chunk is more naturally presented in a static manner, but consecutive chunks should be presented sequentially.
+\item \textbf{There is a close correspondence between visual and audio content.} In a video, this correspondence is naturally communicated through the medium of time. Visuals are explained at the same time as they are being drawn. In a static format, this correspondence is displayed in space through layout.
+\end{itemize}
 
+\todo{Explain ScribeNote. ScribeNote interleaves figures (visual chunk) with corresponding texts in a sequential layout.}
+
+\todo{Brief explanation of comparison in user study, and result.}
