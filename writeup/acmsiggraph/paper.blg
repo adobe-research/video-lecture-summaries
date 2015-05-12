@@ -1,5 +1,5 @@
 This is 8-bit Big BibTeX version 0.99c
-Implementation:  GNU C for Unix
+Implementation:  WIN32 Console, BaKoMa TNS bound.
 Release version: 3.71 (18 Aug 1996)
 
 The top-level auxiliary file: paper.aux
