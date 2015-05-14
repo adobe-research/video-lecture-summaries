@@ -12,3 +12,5 @@ SampleVideos/more/.DS_Store
 Scripts/temp
 Scripts/*.bat
 *Backup-*
+*.blg
+*.aux
