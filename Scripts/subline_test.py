@@ -89,7 +89,7 @@ def write_subline(html, subline, figdir, video):
     html.opendiv(idstring="c1c2wrapper")
 #     html.writestring("%i - %i"%(subline.list_of_strokes[0].obj.start_fid, subline.list_of_strokes[-1].obj.end_fid))
     write_subline_img(html, subline, figdir, video)
-    write_subline_stc(html, subline, figdir)
+    write_subline_stc(html, subline, figdir, video)
     html.closediv() #c1c2wrapper
         
         
@@ -122,7 +122,7 @@ def write_subline_img(html, subline, figdir, video):
 #     html.writestring("<br>%.2f - %.2f<br>\n"%(start_fid, end_fid))
     html.closediv() #line%i_sub%i
         
-def write_subline_stc(html, subline, figdir):  
+def write_subline_stc(html, subline, figdir, video):  
     lineid = subline.line_id
     subid = subline.sub_line_id
     nlines = len(subline.list_of_subsublines)
@@ -163,7 +163,7 @@ def write_subline_stc(html, subline, figdir):
         list_of_prevobjs += list_of_objs
     
     html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
-    write_by_time(list_of_sublineobjs, html)
+    write_by_time(list_of_sublineobjs, html, video)
     html.closediv()
     return
 
@@ -175,9 +175,10 @@ def insertvideo(html, url):
 
 
 
-def write_by_time(list_of_objs, html):
+def write_by_time(list_of_objs, html, video):
     list_of_objs.sort(key=lambda x: x.start_fid)
     for obj in list_of_objs:
+        obj.video = video
         obj.write_to_html(html)
     return
 

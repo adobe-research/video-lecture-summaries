@@ -40,7 +40,10 @@ class VisualObject:
         
     def write_to_html(self, html):
         html.breakline()
+        sec = self.video.fid2sec(self.start_fid)
+        html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);\">"%(sec))
         html.image(self.imgpath)
+        html.writestring("</object>")
         html.breakline()
 
                    

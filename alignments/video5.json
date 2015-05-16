@@ -1220,11 +1220,11 @@
         },
         {
             "end": 60.71451,
-            "alignedWord": "PLOT",
+            "alignedWord": "FLAT",
             "start": 60.16576,
             "line_idx": 2,
             "speaker": "narrator",
-            "word": "plot"
+            "word": "flat"
         },
         {
             "start": 60.71451,
@@ -3602,11 +3602,11 @@
         },
         {
             "end": 194.71995,
-            "alignedWord": "PLOT",
+            "alignedWord": "FLAT",
             "start": 194.261,
             "line_idx": 6,
             "speaker": "narrator",
-            "word": "plot"
+            "word": "flat"
         },
         {
             "end": 194.80975,
