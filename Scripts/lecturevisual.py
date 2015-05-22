@@ -263,7 +263,7 @@ def link_stc_to_sublines(list_of_sentences, list_of_sublines):
                 closest_id = i
         closest_subline_ids.append(closest_id)
         stc.subline = closest_subline
-        if (closest_subline is not None and abs(min_dist) >= 0.5*stc_length_fid):
+        if (closest_subline is not None and abs(min_dist) >= 0.75*stc_length_fid):
             closest_subline.list_of_sentences.append(stc)    
     return closest_subline_ids
 

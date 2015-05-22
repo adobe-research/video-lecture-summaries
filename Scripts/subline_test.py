@@ -14,8 +14,8 @@ from video import Video
 from visualobjects import VisualObject
 import label
 
-collapsed_icon = "../../../../../../../Mainpage/figures/arrow_collapsed_icon.png"
-expanded_icon = "../../../../../../../Mainpage/figures/arrow_expanded_icon.png"
+collapsed_icon = "../Mainpage/figures/arrow_collapsed_icon_2.png" #"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+expanded_icon = "../Mainpage/figures/arrow_collapsed_icon_2.png" #"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
 
 stopwords = []
 
@@ -109,14 +109,15 @@ def write_subline_img(html, subline, figdir, video):
     util.saveimage(label_img, figdir, label_imgpath)
     
     if len(subline.list_of_sentences) > 0:
-        html.writestring("<img class=\"arrow\" src=\"%s\" height=\"20px\" id=\"arrow%i_sub%i\" \
+        html.writestring("<img class=\"arrow\" src=\"%s\" height=\"10px\" id=\"arrow%i_sub%i\" \
                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
 #         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
 #                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
     startt = subline.obj.start_fid
     sec = video.fid2sec(startt)
     html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);showline%i_sub%i();\">"%(sec, lineid, subid))
-    html.image(figdir + "/" + label_imgpath)
+    h,w = label_img.shape[0:2]
+    html.image(figdir + "/" + label_imgpath, width=0.5*w, height=0.5*h)
     html.writestring("</object>")
 
 #     html.writestring("<br>%.2f - %.2f<br>\n"%(start_fid, end_fid))
@@ -125,12 +126,14 @@ def write_subline_img(html, subline, figdir, video):
 def write_subline_stc(html, subline, figdir, video):  
     lineid = subline.line_id
     subid = subline.sub_line_id
-    nlines = len(subline.list_of_subsublines)
-    
+    nlines = len(subline.list_of_subsublines)    
     print 'lineid, subid, nlines', lineid, subid, nlines
+    """no sentence"""
+    if nlines == 0 or len(subline.list_of_sentences) == 0:
+        return
 
     """single segment"""        
-    if (nlines < 2):
+    if (nlines == 1 and len(subline.list_of_sentences) > 0):
         html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
         html.openp()
         for stc in subline.list_of_sentences:
@@ -138,29 +141,28 @@ def write_subline_stc(html, subline, figdir, video):
         html.closep()
         html.closediv() #line%i_sub%i_c2
         return
-   
 
-    list_of_prevobjs = []
-    linegroup = subline.linegroup
-    sub_id = subline.sub_line_id
-    for i in range(0, sub_id): #all previous sublines
-        list_of_prevobjs.append(linegroup.list_of_sublines[i].obj)
-    
-    subsubid = 0
+#     list_of_prevobjs = []
+#     linegroup = subline.linegroup
+#     sub_id = subline.sub_line_id
+#     for i in range(0, sub_id): #all previous sublines
+#         list_of_prevobjs.append(linegroup.list_of_sublines[i].obj)
+#     
+#     subsubid = 0
     list_of_sublineobjs = subline.list_of_sentences[:]
-    for list_of_stcstrokes in subline.list_of_subsublines:
-        list_of_objs = []
-        for obj in list_of_prevobjs:
-            grayobj = obj.copy()
-            grayobj.img = util.fg2gray(grayobj.img, 175)
-            list_of_objs.append(grayobj)
-        for stcstroke in list_of_stcstrokes:
-            list_of_objs.append(stcstroke.obj)
-        obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
-        obj.start_fid = list_of_stcstrokes[0].obj.start_fid
-        subsubid += 1
-        list_of_sublineobjs.append(obj)
-        list_of_prevobjs += list_of_objs
+#     for list_of_stcstrokes in subline.list_of_subsublines:
+#         list_of_objs = []
+#         for obj in list_of_prevobjs:
+#             grayobj = obj.copy()
+#             grayobj.img = util.fg2gray(grayobj.img, 175)
+#             list_of_objs.append(grayobj)
+#         for stcstroke in list_of_stcstrokes:
+#             list_of_objs.append(stcstroke.obj)
+#         obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
+#         obj.start_fid = list_of_stcstrokes[0].obj.start_fid
+#         subsubid += 1
+#         list_of_sublineobjs.append(obj)
+#         list_of_prevobjs += list_of_objs
     
     html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
     write_by_time(list_of_sublineobjs, html, video)
@@ -191,9 +193,12 @@ if __name__ == "__main__":
     title = sys.argv[5]
     author = sys.argv[6]
     url = sys.argv[7]
+    outdir = sys.argv[8]
     
+    if not os.path.exists(os.path.abspath(outdir)):
+        os.makedirs(os.path.abspath(outdir))
     video = Video(videopath)
-    figdir = objdir + "/subline_linebreak_test"
+    figdir = outdir + "/subline_linebreak_test"
     
     [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, 
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
@@ -201,21 +206,23 @@ if __name__ == "__main__":
 
 #     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
-    html = WriteHtml(objdir + "/subline_line_break_test.html",title, stylesheet ="../Mainpage/subline_test_video.css")
+    html = WriteHtml(outdir + "/subline_line_break_test.html",title, stylesheet =outdir+"/../Mainpage/subline_test_video.css")
 #     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
 
     html.opendiv(idstring="vid")
     insertvideo(html, url)
+    html.closediv() #vid
+
+    
+    html.opendiv(idstring="summary")
+    
     html.opendiv(idstring="transcriptbutton")
     html.writestring("<button id=\"expand\" onclick=\"expandall()\">Expand all transcript</button>")
     html.writestring("<button id=\"expand\" onclick=\"collapseall()\">Collapse all transcript</button><br>")
     html.closediv()
-    html.closediv() #vid
     
-    html.opendiv(idstring="summary")
-
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]
@@ -238,10 +245,10 @@ if __name__ == "__main__":
             stc = list_of_sentences[cur_stc_id]
             html.opendiv(idstring="c0")
             html.openp()
-            while(stc.stcstroke is None and stc.start_fid < subline.obj.end_fid):
+            while(stc.stcstroke is None and stc.end_fid < subline.obj.end_fid):
                 write_stc(html, stc)
-                start_fid = stc.start_fid
-                end_fid = stc.end_fid
+#                 start_fid = stc.start_fid
+#                 end_fid = stc.end_fid
 #                 html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
                 cur_stc_id += 1
                 if (cur_stc_id >= len(list_of_sentences)):

@@ -51,13 +51,8 @@ class WriteHtml:
 #         self.breakline()
         self.numfigs += 1
 
-    def image(self, filename, width="", mapname="", idstring="", classstring=""):
-        img = cv2.imread(filename)
-        h, w = img.shape[0:2]
-        if (w >= h):
-            self.htmlfile.write("<img src= \"%s\" width=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, mapname, idstring, classstring))
-        else:
-            self.htmlfile.write("<img src= \"%s\" height=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, mapname, idstring, classstring))
+    def image(self, filename, width="", height="", mapname="", idstring="", classstring=""):
+        self.htmlfile.write("<img src= \"%s\" width=\"%s\" height=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, height, mapname, idstring, classstring))
 
     def breakline(self):
         self.htmlfile.write("</br>\n")
