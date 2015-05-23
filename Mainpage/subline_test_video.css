@@ -1,6 +1,6 @@
 body {
     font-family: serif;
-    font-size: 24px;
+    font-size: 11.5pt;
     padding: 2em;
     text-align: center;
     margin: auto;
@@ -23,11 +23,7 @@ body {
     
 }
 
-#transcriptbutton {
-    position: fixed;
-    margin-top: 25em;
-    margin-left: 7em;
-}
+
 
 #summary {
     width: 45%;
@@ -77,40 +73,18 @@ p {
     margin-left: 1.5em;
 }
 
-#textlink, #imglink {
+.textlink {
     cursor: pointer;
     cursor: hand;
 }
 
-
-#textlink:hover {
-    background-color: #ffff99;
+.textlink:hover {
+    border: 2px solid #adff99;
 }
 
 img:hover {
-    border: 2px solid #ffff99;
+    border: 2px solid #adff99;
 }
-
-/*
-#c2_1, #c2_2 {
-    display: inline-block;
-    width: 48%;
-    margin: 3px;
-    text-align: left;
-    line-height: 1.4;
-    font-size: 100%;
-    vertical-align: middle;
-}
-*/
-
-
-#c2_1_lone {
-    display:inline-block;
-    width:80%;
-    text-align: left;
-    font-size: 100%;
-}
-
 
 
 #c2_12wrapper { 
@@ -120,21 +94,23 @@ img:hover {
 
 
 img {
-/*    align-content: center;*/
-/*    max-width: 100%;*/
     display: inline;
     vertical-align: middle;
+    padding: 3px;
     margin-bottom: 10px;
     margin-top: 10px;
     margin-right: 10px;
     border: 2px solid #f9f9f9;
 }
 
-.plus {
-    border: solid 1px black;
-    display: inline-block;
-    width: 20px;
+.arrow {
+    margin-left: -24px;
 }
+
+.arrow:hover {
+    border: 2px solid #747070;
+}
+
 
 figcaption {
     font-size: 15pt;

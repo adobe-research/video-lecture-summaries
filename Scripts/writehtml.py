@@ -19,14 +19,14 @@ class WriteHtml:
         self.htmlfile = open(filename, 'w')
         self.numfigs = 0
         self.htmlfile.write("<html>\n")
-        self.htmlfile.write("<head>\n")
-        self.htmlfile.write("<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>")
+        self.htmlfile.write("\t<head>\n")
+        self.htmlfile.write("\t<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\n")
         if stylesheet is not None:
-            self.htmlfile.write("<link href=\"" )
+            self.htmlfile.write("\t<link href=\"" )
             stylesheet = os.path.abspath(stylesheet)
             self.htmlfile.write(os.path.relpath(stylesheet, self.filedir))
             self.htmlfile.write("\" rel=\"stylesheet\" />\n")
-        self.htmlfile.write("<title>"+title+"</title>\n")
+        self.htmlfile.write("\t<title>"+title+"</title>\n")
         if not script:
             self.openbody()
         
@@ -51,8 +51,8 @@ class WriteHtml:
 #         self.breakline()
         self.numfigs += 1
 
-    def image(self, filename, width="", height="", mapname="", idstring="", classstring=""):
-        self.htmlfile.write("<img src= \"%s\" width=\"%s\" height=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, height, mapname, idstring, classstring))
+    def image(self, filename, width="", height="", mapname="", idstring="", class_string=""):
+        self.htmlfile.write("<img src= \"%s\" width=\"%s\" height=\"%s\" usemap=\"#%s\" id=\"%s\" class=\"%s\">\n" % (self.relpath(filename), width, height, mapname, idstring, class_string))
 
     def breakline(self):
         self.htmlfile.write("</br>\n")
