@@ -14,26 +14,26 @@ from video import Video
 from visualobjects import VisualObject
 import label
 
-collapsed_icon = "../Mainpage/figures/arrow_collapsed_icon_2.png" #"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
-expanded_icon = "../Mainpage/figures/arrow_collapsed_icon_2.png" #"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+collapsed_icon ="../Mainpage/figures/arrow_collapsed_icon_2.png" #"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" ##
+expanded_icon = "../Mainpage/figures/arrow_collapsed_icon_2.png"#"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"# #
 
 stopwords = []
 
 def write_showsection_script(html, lineid, subid):
-    html.writestring("function showline%i_sub%i(){\n\t \
-    var cap  = document.getElementById(\"line%i_sub%i_c2\");\n \
-    cap.style.display == \"inline-block\" ? cap.style.display = \"none\" : cap.style.display = \"inline-block\";\n \
-    }\n"%(lineid, subid, lineid, subid))
+    html.writestring("function showline%i_sub%i(){\n"
+    "\tvar cap  = document.getElementById(\"line%i_sub%i_c2\");\n"
+    "\tcap.style.display == \"inline-block\" ? cap.style.display = \"none\" : cap.style.display = \"inline-block\";\n"
+    "}\n\n"%(lineid, subid, lineid, subid))
 
 def write_arrowtoggle_script(html, lineid, subid):
-    html.writestring("$('#arrow%i_sub%i').on({\n \
-    \t'click': function() {\n \
-     \t\t var src = ($(this).attr('src') === \"%s\")\n \
-            ? \"%s\"\n \
-            : \"%s\";\n \
-         $(this).attr('src', src);\n \
-        }\n \
-    });\n"%(lineid, subid, collapsed_icon, expanded_icon, collapsed_icon))
+    html.writestring("$('#arrow%i_sub%i').on({\n"
+    "\t'click': function() {\n "
+    "\t\t var src = ($(this).attr('src') === \"%s\")\n"
+    "\t\t? \"%s\"\n"
+    "\t\t: \"%s\";\n"
+    "\t\t$(this).attr('src', src);\n"
+    "\t}\n"
+    "});\n\n"%(lineid, subid, collapsed_icon, expanded_icon, collapsed_icon))
     
 def write_plustoggle_script(html, lineid, subid):
     html.writestring("$('#arrow%i_sub%i').on({\n \
@@ -43,51 +43,46 @@ def write_plustoggle_script(html, lineid, subid):
     else { $(\"#arrow%i_sub%i\").text(\"-\" );\
     } \
     } \
-    });\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
+    });\n\n"%(lineid, subid, lineid, subid, lineid, subid, lineid, subid))
 
 def write_playvideo_script(html, url):
-    html.writestring("function playvideo_at(sec){\n \
-         var video  = document.getElementById(\"thevideo\");\n \
-         var starturl = \"https://www.youtube.com/embed/%s?autoplay=1&amp;start=\"+sec +\"&amp\"; \n \
-         video.src= starturl\n \
-         }\n" %(url))
+    html.writestring("function playvideo_at(sec){\n"
+    "\tplayer.seekTo(sec, true);\n"
+    "\tplayer.playVideo();\n"
+    "}\n\n")
 
 def write_expandall_script(html):
-     html.writestring("function expandall(){\n \
-         var c2s = document.getElementsByClassName(\"c2\");\n \
-         for (var i = 0; i < c2s.length; i++) {\n \
-             c2s[i].style.display = \"inline-block\";\n \
-        }\n \
-        var arrows = document.getElementsByClassName(\"arrow\");\n \
-        for (var i = 0; i < arrows.length; i++) {\n \
-            var src = \"%s\";\n \
-            $(arrows[i]).attr('src', src);\n \
-        }\n \
-    }\n"%(expanded_icon))
+    html.writestring("function expandall(){\n"
+         "\tvar c2s = document.getElementsByClassName(\"c2\");\n"
+         "\tfor (var i = 0; i < c2s.length; i++) {\n"
+        "\t\tc2s[i].style.display = \"inline-block\";\n"
+        "\t}\n"
+        "\tvar arrows = document.getElementsByClassName(\"arrow\");\n"
+        "\tfor (var i = 0; i < arrows.length; i++) {\n"
+        "\t\tvar src = \"%s\";\n"
+        "\t\t$(arrows[i]).attr('src', src);\n"
+        "\t}\n"
+        "}\n"%(expanded_icon))
      
 def write_collapseall_script(html):
-     html.writestring("function collapseall(){\n \
-         var c2s = document.getElementsByClassName(\"c2\");\n \
-         for (var i = 0; i < c2s.length; i++) {\n \
-             c2s[i].style.display = \"none\";\n \
-        }\n \
-        var arrows = document.getElementsByClassName(\"arrow\");\n \
-        for (var i = 0; i < arrows.length; i++) {\n \
-            var src = \"%s\";\n \
-            $(arrows[i]).attr('src', src);\n \
-        }\n \
-    }\n"%(collapsed_icon))
+    html.writestring("function collapseall(){\n"
+         "\tvar c2s = document.getElementsByClassName(\"c2\");\n"
+         "\tfor (var i = 0; i < c2s.length; i++) {\n"
+         "\t\tc2s[i].style.display = \"none\";\n"
+         "\t}\n"
+        "\tvar arrows = document.getElementsByClassName(\"arrow\");\n"
+        "\tfor (var i = 0; i < arrows.length; i++) {\n"
+        "\t\tvar src = \"%s\";\n"
+        "\t\t$(arrows[i]).attr('src', src);\n"
+        "\t}\n"
+        "}\n"%(collapsed_icon))
  
  
 def write_stc(html, sentence):
-    sec = int(sentence.startt/1000.0)
-    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">"%(sec))
-    html.write_sentence(sentence, stopwords)
-    html.writestring("</object>")
+    sentence.write_to_html(html)
     
 def write_subline(html, subline, figdir, video):
     html.opendiv(idstring="c1c2wrapper")
-#     html.writestring("%i - %i"%(subline.list_of_strokes[0].obj.start_fid, subline.list_of_strokes[-1].obj.end_fid))
     write_subline_img(html, subline, figdir, video)
     write_subline_stc(html, subline, figdir, video)
     html.closediv() #c1c2wrapper
@@ -97,7 +92,7 @@ def write_subline_img(html, subline, figdir, video):
     lineid = subline.line_id
     subid = subline.sub_line_id
     
-    html.opendiv(idstring="line%i_sub%i_c1"%(lineid, subid))
+    html.opendiv(idstring="line%i_sub%i_c1"%(lineid, subid), class_string="c1")
     upto_subline_objs = subline.linegroup.obj_upto_subline(subline.sub_line_id)
     subline_obj = VisualObject.group(upto_subline_objs, figdir, "line%i_sub%i.png"%(subline.linegroup.line_id, subline.sub_line_id))
     
@@ -111,14 +106,15 @@ def write_subline_img(html, subline, figdir, video):
     if len(subline.list_of_sentences) > 0:
         html.writestring("<img class=\"arrow\" src=\"%s\" height=\"10px\" id=\"arrow%i_sub%i\" \
                                     onclick=\"showline%i_sub%i()\">\n"%(collapsed_icon, lineid, subid, lineid, subid))
-#         html.writestring("<div class=\"plus\" border=\"1px\" height=\"20px\" id=\"arrow%i_sub%i\" \
-#                                     onclick=\"showline%i_sub%i()\"> + </div>\n"%(lineid, subid, lineid, subid))
-    startt = subline.obj.start_fid
-    sec = video.fid2sec(startt)
-    html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);showline%i_sub%i();\">"%(sec, lineid, subid))
+    startt = video.fid2sec(subline.obj.start_fid)
+    endt = video.fid2sec(subline.obj.end_fid)
+    html.writestring("<object onclick=\"playvideo_at(%i);showline%i_sub%i();\">"%(startt, lineid, subid))
     h,w = label_img.shape[0:2]
-    html.image(figdir + "/" + label_imgpath, width=0.5*w, height=0.5*h)
-    html.writestring("</object>")
+    imgpath = html.relpath(figdir +"/" + label_imgpath)
+    html.writestring("<img src= \"%s\" width=\"%s\" height=\"%s\" class=\"textlink\" startt=\"%s\" endt=\"%s\" />\n" % (imgpath, 0.75*w, 0.75*h, startt, endt))
+    html.writestring("</object>\n")
+#     html.image(figdir + "/" + label_imgpath, width=0.75*w, height=0.75*h, class_string="textlink")
+#     html.writestring("</div>")
 
 #     html.writestring("<br>%.2f - %.2f<br>\n"%(start_fid, end_fid))
     html.closediv() #line%i_sub%i
@@ -169,14 +165,55 @@ def write_subline_stc(html, subline, figdir, video):
     html.closediv()
     return
 
-def insertvideo(html, url):
+def write_insertvideo_script(html, url):
+    html.writestring("var tag = document.createElement('script');\n"
+    "tag.src = \"https://www.youtube.com/iframe_api\";\n"
+    "var firstScriptTag = document.getElementsByTagName('script')[0];\n"
+    "firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);\n\n"
+    "var player;\n"
+    "var videotime;\n"
+    "function onYouTubeIframeAPIReady() {\n"
+    "\t\tplayer = new YT.Player('player', {\n"
+    "\t\theight: '320',\n"
+    "\t\twidth: '570',\n"
+    "\t\tvideoId: '%s',\n"
+    "\t\tevents: {\n"
+    "\t\t\t'onReady': onPlayerReady,\n"
+#     "\t\t\t'onStateChange': onPlayerStateChange\n"
+    "\t\t}\n"
+    "\t});\n"
+    "}\n\n" % (url))
+    
+    write_onready_script(html)
+    
 
-    html.opendiv(idstring="ytplayer")
-    html.writestring("<iframe id=\"thevideo\" width=\"600px\" height=\"500px\" frameborder=\"0\" allowfullscreen=\"1\" title=\"YouTube video player\" src=\"http://www.youtube.com/embed/%s?enablejsapi=1&amp;autoplay=0\"></iframe><br>"%(url))
-    html.closediv()
+def write_onready_script(html):
+    html.writestring("function onPlayerReady(event) {\n"
+    "\tfunction updateTime() {\n"
+    "\t\tvideotime = player.getCurrentTime();\n"
+    "\t\thighlightCurrent();\n"
+    "\t}\n"
+    "\ttimeupdate = setInterval(updateTime, 1000);\n"
+    "}\n\n")
+    
+    write_highlight_current_script(html)
+    
+def write_highlight_current_script(html):
+    html.writestring("function highlightCurrent(){\n"
+    "\tvar links = document.getElementsByClassName(\"textlink\");\n"
+    "\tfor (var i = 0; i < links.length; i++) {\n"
+    "\t\tvar startt = links[i].getAttribute(\"startt\");\n"
+    "\t\tvar endt = links[i].getAttribute(\"endt\");\n"
+    "\t\tif (startt < videotime && videotime < endt) {\n"
+    "\t\t\tlinks[i].style.backgroundColor = \"#ff72b0\";\n"
+    "\t\t} else {\n"
+    "\t\t\tlinks[i].style.backgroundColor = '#ffffff';\n"
+    "\t\t}\n"
+    "\t}\n"
+    "};\n\n");
 
-
-
+    
+    
 def write_by_time(list_of_objs, html, video):
     list_of_objs.sort(key=lambda x: x.start_fid)
     for obj in list_of_objs:
@@ -193,7 +230,7 @@ if __name__ == "__main__":
     title = sys.argv[5]
     author = sys.argv[6]
     url = sys.argv[7]
-    outdir = sys.argv[8]
+    outdir = objdir #sys.argv[8]
     
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
@@ -203,16 +240,19 @@ if __name__ == "__main__":
     [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, 
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
-
-#     resolve_reference(list_of_sentences, list_of_sublines, framepos, cursorpos)
      
-    html = WriteHtml(outdir + "/subline_line_break_test.html",title, stylesheet =outdir+"/../Mainpage/subline_test_video.css")
-#     html.writestring("<h3>The following is a summary of a lecture video. You may click on the '+' buttons next to the figures in order to expand further details.</h3>")
+    html = WriteHtml(outdir + "/subline_line_break_test.html",title, stylesheet =outdir+"../Mainpage/subline_test_video.css")
+
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
 
+    videostring="player"
     html.opendiv(idstring="vid")
-    insertvideo(html, url)
+    html.opendiv(idstring="ytplayer")
+    html.writestring("\t")
+    html.opendiv(idstring=videostring)
+    html.closediv() #player
+    html.closediv() #ytplayer
     html.closediv() #vid
 
     
@@ -274,6 +314,7 @@ if __name__ == "__main__":
     html.closediv() #summary
             
     html.openscript()
+    write_insertvideo_script(html, url)
     for i in range(0, len(list_of_sublines)):
         lineid = list_of_sublines[i].line_id
         subid = list_of_sublines[i].sub_line_id

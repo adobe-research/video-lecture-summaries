@@ -21,8 +21,9 @@ class Sentence:
             self.ref_names = []
             
         def write_to_html(self, html):
-            sec = int(self.startt/1000.0)
-            html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i)\">"%(sec))
+            startt = int(self.startt/1000.0)
+            endt = int(self.endt/1000.0)
+            html.writestring("<object class=\"textlink\" startt=\"%s\" endt=\"%s\" onclick=\"playvideo_at(%i)\">"%(startt, endt, startt))
             html.write_sentence(self)
             html.writestring("</object>")
             
