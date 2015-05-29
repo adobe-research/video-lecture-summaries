@@ -157,7 +157,7 @@ def subtractlogo(frame, logo, color=None):
     return frame_copy 
 
 def fgmask(image, threshold=200, var_threshold=255, inv=False):
-    """Mask all above things threshold, below threshold if inv=True"""
+    """Mask all below things threshold, above threshold if inv=True"""
 #     if (threshold is None): 
 #         threshold = 225
 #     if (var_threshold is None):
@@ -172,8 +172,10 @@ def fgmask(image, threshold=200, var_threshold=255, inv=False):
     
     ret, lum_mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)    
     mask = cv2.bitwise_or(var_mask, lum_mask)
+#     util.showimages([mask])
     if (inv):
         mask = cv2.bitwise_not(mask)
+#         util.showimages([mask], "inv=True")
     return mask
 
 

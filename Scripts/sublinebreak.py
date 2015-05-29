@@ -99,7 +99,7 @@ def avg_linecost(list_of_lines, list_of_sentences):
             stc = list_of_sentences[i]
             nwords += len(stc.list_of_words)
         if nwords < 50:
-            nword_score += abs(nwords-50)/50.0
+            nword_score += 2*abs(nwords-50)/50.0
         else:
             nword_score += 2*abs(nwords-50)/50.0
         

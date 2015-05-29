@@ -240,7 +240,7 @@ def break_penalty(list_of_objs, line_ids):
             obj2 = list_of_objs[i+1]
             xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
             break_penalty += 1.0/tdist
-            break_peanlty = 0.0
+#             break_peanlty = 0.0
     return break_penalty
         
     

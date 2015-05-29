@@ -40,10 +40,11 @@ class VisualObject:
         
     def write_to_html(self, html):
         html.breakline()
-#         sec = self.video.fid2sec(self.start_fid)
-#         html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);\">"%(sec))
-#         html.image(self.imgpath)
-#         html.writestring("</object>")
+        startt = self.video.fid2sec(self.start_fid)
+        endt = self.video.fid2sec(self.end_fid)
+        html.writestring("<object id=\"textlink\" startt = \"%i\" endt=\"%i\" onclick=\"playvideo_at(%i);\">"%(startt, endt, startt))
+        html.image(self.imgpath)
+        html.writestring("</object>")
         html.breakline()
 
                    
@@ -209,6 +210,7 @@ class VisualObject:
             objh, objw = obj.img.shape[:2]
             resize_img[new_tly:new_tly + objh, new_tlx:new_tlx + objw] = obj.img
             mask = pf.fgmask(resize_img, threshold=225, var_threshold=100)
+#             util.showimages([resize_img, mask])
             idx = mask != 0
             groupimg[idx] = resize_img[idx]
             if (debug and (debug_i == 0)):
@@ -271,7 +273,7 @@ class VisualObject:
         for i in range(0, len(obj_info)):
             info = obj_info[i]
             imgpath = os.path.basename(str(info[6]))
-#             print objdir + "/" + imgpath
+            print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
 #             print objdir + "/" + imgpath
             objh, objw = objimg.shape[:2]
