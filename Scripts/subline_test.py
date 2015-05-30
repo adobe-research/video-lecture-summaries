@@ -230,7 +230,7 @@ if __name__ == "__main__":
     title = sys.argv[5]
     author = sys.argv[6]
     url = sys.argv[7]
-    outdir = objdir #sys.argv[8]
+    outdir = sys.argv[8]#objdir #
     
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
@@ -241,7 +241,7 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
      
-    html = WriteHtml(outdir + "/subline_line_break_test.html",title, stylesheet =outdir+"../Mainpage/subline_test_video.css")
+    html = WriteHtml(outdir + "/subline_line_break_test.html",title, stylesheet =outdir+"/../Mainpage/subline_test_video.css")
 
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
