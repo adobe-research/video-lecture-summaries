@@ -240,7 +240,8 @@ def draw_clusters(panorama, list_of_objs, labels):
 
     
 if __name__ == "__main__":
-    lines()
+    objs()
+#     lines()
 #     panoramapath = sys.argv[1]
 #     objdirpath = sys.argv[2]
 #     outfile = sys.argv[3]

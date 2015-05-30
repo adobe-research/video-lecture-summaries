@@ -43,7 +43,7 @@ class LineBreaker:
             curline_idx = self.best_line_id[i-1][i-1]
             print '========================best cut up to object', i,'================================'
             self.totalcost[i] = float("inf")
-            for j in range(-1, i):
+            for j in range(max(-1,i-15), i):
                 print 'j = ', j
                 newline = self.list_of_objs[j+1:i+1]
                 panorama_copy = self.panorama.copy()
@@ -240,7 +240,7 @@ def break_penalty(list_of_objs, line_ids):
             obj2 = list_of_objs[i+1]
             xdist, ydist, tdist = VisualObject.break_penalty(obj1, obj2)
             break_penalty += 1.0/tdist
-            break_peanlty = 0.0
+#             break_peanlty = 0.0
     return break_penalty
         
     
@@ -382,15 +382,15 @@ if __name__ == "__main__":
     print 'number of objects', len(list_of_objs)
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-    outfilename = "04_20_2ypenalty_no_tpenalty"
-    outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outfilename = "score_test"
+#     outvideo = cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
 #     util.showimages([result])
     util.saveimage(result, objdirpath, outfilename + ".png")
-    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/line_ids_2ypenalty_no_tpenalty.txt")
+    util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/score_test.txt")
     
-    outvideo.release()
+#     outvideo.release()
     
     

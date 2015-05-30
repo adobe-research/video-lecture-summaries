@@ -14,8 +14,8 @@ from video import Video
 from visualobjects import VisualObject
 import label
 
-collapsed_icon ="../Mainpage/figures/arrow_collapsed_icon_2.png" #"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" ##
-expanded_icon = "../Mainpage/figures/arrow_collapsed_icon_2.png"#"../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"# #
+collapsed_icon ="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"../Mainpage/figures/arrow_collapsed_icon_2.png" # ##
+expanded_icon ="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"../Mainpage/figures/arrow_collapsed_icon_2.png"#
 
 stopwords = []
 
@@ -138,27 +138,27 @@ def write_subline_stc(html, subline, figdir, video):
         html.closediv() #line%i_sub%i_c2
         return
 
-#     list_of_prevobjs = []
-#     linegroup = subline.linegroup
-#     sub_id = subline.sub_line_id
-#     for i in range(0, sub_id): #all previous sublines
-#         list_of_prevobjs.append(linegroup.list_of_sublines[i].obj)
-#     
-#     subsubid = 0
+    list_of_prevobjs = []
+    linegroup = subline.linegroup
+    sub_id = subline.sub_line_id
+    for i in range(0, sub_id): #all previous sublines
+        list_of_prevobjs.append(linegroup.list_of_sublines[i].obj)
+     
+    subsubid = 0
     list_of_sublineobjs = subline.list_of_sentences[:]
-#     for list_of_stcstrokes in subline.list_of_subsublines:
-#         list_of_objs = []
-#         for obj in list_of_prevobjs:
-#             grayobj = obj.copy()
-#             grayobj.img = util.fg2gray(grayobj.img, 175)
-#             list_of_objs.append(grayobj)
-#         for stcstroke in list_of_stcstrokes:
-#             list_of_objs.append(stcstroke.obj)
-#         obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
-#         obj.start_fid = list_of_stcstrokes[0].obj.start_fid
-#         subsubid += 1
-#         list_of_sublineobjs.append(obj)
-#         list_of_prevobjs += list_of_objs
+    for list_of_stcstrokes in subline.list_of_subsublines:
+        list_of_objs = []
+        for obj in list_of_prevobjs:
+            grayobj = obj.copy()
+            grayobj.img = util.fg2gray(grayobj.img, 175)
+            list_of_objs.append(grayobj)
+        for stcstroke in list_of_stcstrokes:
+            list_of_objs.append(stcstroke.obj)
+        obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
+        obj.start_fid = list_of_stcstrokes[0].obj.start_fid
+        subsubid += 1
+        list_of_sublineobjs.append(obj)
+        list_of_prevobjs += list_of_objs
     
     html.opendiv(idstring="line%i_sub%i_c2"%(lineid, subid), class_string="c2")
     write_by_time(list_of_sublineobjs, html, video)
@@ -241,7 +241,7 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
      
-    html = WriteHtml(outdir + "/subline_line_break_test.html",title, stylesheet =outdir+"/../Mainpage/subline_test_video.css")
+    html = WriteHtml(outdir + "/find_example.html",title, stylesheet =outdir+"../../../../../../../Mainpage/subline_test_video.css")
 
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
@@ -283,19 +283,20 @@ if __name__ == "__main__":
         
         else: #subline.list_of_sentences == 0
             stc = list_of_sentences[cur_stc_id]
-            html.opendiv(idstring="c0")
-            html.openp()
-            while(stc.stcstroke is None and stc.end_fid < subline.obj.end_fid):
-                write_stc(html, stc)
-#                 start_fid = stc.start_fid
-#                 end_fid = stc.end_fid
-#                 html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
-                cur_stc_id += 1
-                if (cur_stc_id >= len(list_of_sentences)):
-                    break
-                stc = list_of_sentences[cur_stc_id]
-            html.closep()
-            html.closediv()
+            if (stc.stcstroke is None and stc.end_fid < subline.obj.end_fid):
+                html.opendiv(idstring="c0")
+                html.openp()
+                while(stc.stcstroke is None and stc.end_fid < subline.obj.end_fid):
+                    write_stc(html, stc)
+    #                 start_fid = stc.start_fid
+    #                 end_fid = stc.end_fid
+    #                 html.writestring("(%.2f - %.2f)"%(start_fid, end_fid))
+                    cur_stc_id += 1
+                    if (cur_stc_id >= len(list_of_sentences)):
+                        break
+                    stc = list_of_sentences[cur_stc_id]
+                html.closep()
+                html.closediv()
         
         #write subline
         write_subline(html, subline, figdir, video)
