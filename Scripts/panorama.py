@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
     countdiffs = []
     for i in range(0, len(counts)-1):
-        diff = counts[i+1] - counts[i]
+        diff = abs(counts[i+1] - counts[i])
         countdiffs.append(diff)
 
     fid = 0
@@ -72,9 +72,14 @@ if __name__ == "__main__":
     capture = False
     keyframes_fid = []
     for diff in countdiffs:
-        if diff > thres:
-            keyframes_fid.append(fid-2*video.fps)
+        if diff > thres and not capture:
+            keyframes_fid.append(fid)
+            capture = True
+        elif diff <= thres:
+            capture = False
         fid += 1
+    if len(keyframes_fid) == 0:
+        keyframes_fid.append(fid-2*video.fps)
      
     framedir = video.videoname + "_panorama"
     if not os.path.exists(os.path.abspath(framedir)):
