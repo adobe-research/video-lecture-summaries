@@ -46,45 +46,35 @@ def new_obj_panorama():
     cv2.imwrite(framedir + "\\panorama_new.png", panorama)
     cv2.imshow("panorama", panorama)
     cv2.waitKey(0)
+ 
     
-def scroll_stitch_panorama():
-    """written on 10/13/2014
-    Capture keyframes after scroll event -- when framediff > thres,
-    Remove logo from keyframes
-    Stitch keyframes """
+if __name__ == "__main__":
+    """written on 6/26/2015"""
+
     videopath = sys.argv[1]
-    framedifftxt = sys.argv[2]
-#     logopath = sys.argv[3]
+    numfgpixtxt = sys.argv[2]
     if (len(sys.argv) == 4):
         thres = int(sys.argv[3])
     else:
         thres = 1000
     
     video = Video(videopath)
-    counts = framediff.getcounts(framedifftxt)
-#     counts = util.smooth(np.array(counts), window_len = int(video.fps))
-#     plt.plot(counts)
-#     plt.show()
-#     logos = util.get_logos(logopath)
-# 
-#     
+    numfgpix = util.stringlist_from_txt(numfgpixtxt)
+    counts = util.strings2ints(numfgpix)
+
+    countdiffs = []
+    for i in range(0, len(counts)-1):
+        diff = counts[i+1] - counts[i]
+        countdiffs.append(diff)
+
     fid = 0
     last_unmoved_fid = 0
     capture = False
     keyframes_fid = []
-    for count in counts:
-#         print 'count', count
-        if count < thres:
-            last_unmoved_fid = fid
-        if count >= thres and not capture:
-            capture = True
-            keyframes_fid.append(max(0, last_unmoved_fid))
-            print 'last_unmoved', last_unmoved_fid
-        elif count < thres and capture:
-            capture = False
+    for diff in countdiffs:
+        if diff > thres:
+            keyframes_fid.append(fid-2*video.fps)
         fid += 1
-    keyframes_fid.append(fid-2*video.fps)
-#     print 'fid-video.fps', fid-2*video.fps
      
     framedir = video.videoname + "_panorama"
     if not os.path.exists(os.path.abspath(framedir)):
@@ -100,7 +90,4 @@ def scroll_stitch_panorama():
     panorama = pf.panorama(list_of_keyframes)
     cv2.imwrite(framedir + "/panorama.png", panorama)
 
-    
-if __name__ == "__main__":
-    scroll_stitch_panorama()
     
