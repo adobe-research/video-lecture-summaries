@@ -25,7 +25,7 @@ class LineBreaker:
         for i in range(0, self.nobjs):
             for j in range(i, self.nobjs):
                 self.linecost[i][j] = LineBreaker.getlinecost(self.list_of_objs[i:j+1])
-                print 'self.linecost[',i,'][',j,']=', self.linecost[i][j]
+#                 print 'self.linecost[',i,'][',j,']=', self.linecost[i][j]
                 panorama = self.panorama.copy()
                 visualize_line(panorama, list_of_objs[i:j+1])
                 util.showimages([panorama])
@@ -40,10 +40,10 @@ class LineBreaker:
         self.visualize_current_state(myresult,0)
                 
         for i in range(1, self.nobjs): #deciding best cut up to stroke i
-            print '========================best cut up to object', i,'================================'
+            print 'processing stroke %i' %i
             self.totalcost[i] = float("inf")
             for j in range(-1, i):
-                print 'j = ', j
+#                 print 'j = ', j
                 newline = self.list_of_objs[j+1:i+1]
                 panorama_copy = self.panorama.copy()
                 if j == -1:
@@ -54,7 +54,7 @@ class LineBreaker:
                         self.cuts[i] = j
                         for k in range(0, i+1):
                             self.best_line_id[i][k] = 0
-                        print "All strokes in single segment cost: ", self.totalcost[i]
+#                         print "All strokes in single segment cost: ", self.totalcost[i]
 #                         self.visualize_current_state(panorama_copy, i)                    
                 else:
                     """get best segmentation up to stroke j"""
@@ -87,8 +87,8 @@ class LineBreaker:
                             for k in range(j+1, i+1):
                                 self.best_line_id[i][k] = prevline_idx    
                                 
-                    if (merged):
-                        print "merged to line", merged_to_line, 'cost', self.totalcost[i], 'result:', self.best_line_id[i]         
+#                     if (merged):
+#                         print "merged to line", merged_to_line, 'cost', self.totalcost[i], 'result:', self.best_line_id[i]         
                             
                     """cost to separate newline"""
                     templines = self.getcutlines(j)
@@ -97,20 +97,20 @@ class LineBreaker:
 #                     visualize_lines(panorama_copy, templines)
 #                     util.showimages([panorama_copy], "weighted_avg")
                     cost_from_cut_j = weighted_avg_linecost(templines)
-                    print 'cost to separate newline', cost_from_cut_j
+#                     print 'cost to separate newline', cost_from_cut_j
                     if (cost_from_cut_j < self.totalcost[i]):
                         self.totalcost[i] = cost_from_cut_j
                         self.cuts[i] = j
                         self.best_line_id[i][0:j+1] = self.best_line_id[j][0:j+1]
                         for k in range(j+1, i+1):
                             self.best_line_id[i][k] = len(prevlines) 
-                        print 'separating line at j =', j, 'cost', cost_from_cut_j, 'result:', self.best_line_id[i]
+#                         print 'separating line at j =', j, 'cost', cost_from_cut_j, 'result:', self.best_line_id[i]
             panorama_copy = self.panorama.copy()
             self.visualize_current_state(panorama_copy, i)
                            
     def getcutlines(self, index):
         line_ids = self.best_line_id[index][0:index+1]
-        print 'best line_ids up to stroke', index, ":", line_ids
+#         print 'best line_ids up to stroke', index, ":", line_ids
         nlines = len(np.unique(line_ids))
         mylines = [[] for x in range(0, nlines)]
         objid = 0
@@ -130,8 +130,8 @@ class LineBreaker:
     def visualize_current_state(self, panorama, index, outvideo=None):
         lines = self.getcutlines(index)
         visualize_lines(panorama, lines)
-        print 'current segmentation', self.best_line_id[index][0:index + 1]
-        print 'total cost', self.totalcost[index]
+#         print 'current segmentation', self.best_line_id[index][0:index + 1]
+#         print 'total cost', self.totalcost[index]
         cv2.imshow("current state", panorama)        
         cv2.waitKey(1)
         if self.outvideo is not None:
@@ -152,7 +152,7 @@ class LineBreaker:
         xproj_cost = -.10 * xproj_cost
         cost =  yproj_cost + xproj_cost + compact_cost
         cost = -1.0 * cost 
-        print 'yproj_cost', yproj_cost, 'xproj_cost', xproj_cost, 'compact_cost', compact_cost, 'cost', cost 
+#         print 'yproj_cost', yproj_cost, 'xproj_cost', xproj_cost, 'compact_cost', compact_cost, 'cost', cost 
         return cost
                
 def weighted_avg_linecost(list_of_lines):
@@ -165,7 +165,7 @@ def weighted_avg_linecost(list_of_lines):
     sum_strokecost = 0.0
     max_xprojcost = -1.0
     for line in list_of_lines:
-        print "line", idx, ":"
+#         print "line", idx, ":"
         numfgpixel = len(line)#VisualObject.fgpixel_count(line)
     
         yprojcost = y_projection_score(line)
@@ -201,7 +201,7 @@ def weighted_avg_linecost(list_of_lines):
         sum_compactcost = sum_compactcost + (numfgpixel * compactcost)
         
         sum_numfgpixel += numfgpixel
-        print 'yinline', yinline, 'yproj', yprojcost, 'ymaxgap', ymaxgap, 'strokecost', strokecost, 'xproj', xprojcost, 'compact', compactcost, 'maxgap', maxgap
+#         print 'yinline', yinline, 'yproj', yprojcost, 'ymaxgap', ymaxgap, 'strokecost', strokecost, 'xproj', xprojcost, 'compact', compactcost, 'maxgap', maxgap
         idx += 1
         
 #     sum_num_strokes = 0.0
@@ -215,20 +215,20 @@ def weighted_avg_linecost(list_of_lines):
         
     avg_xprojcost = sum_xprojcost/len(list_of_lines)
     avg_compactcost = sum_compactcost/sum_numfgpixel
-    print 'len(list_of_lines)', len(list_of_lines)
-    print 'sum_compact_cost', sum_compactcost
-    print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
+#     print 'len(list_of_lines)', len(list_of_lines)
+#     print 'sum_compact_cost', sum_compactcost
+#     print 'total yprojcost', sum_yprojcost, 'sumstrokecost', sum_strokecost, 'sum_yprojgap', sum_yprojgapcost, 'sum xprojcost', sum_xprojcost, 'avg compactcost', avg_compactcost, 'overlap_penalty', overlap_penalty
     sum_cost = -1.0 * (sum_yprojcost + sum_strokecost - sum_yprojgapcost - sum_xprojcost + avg_compactcost - overlap_penalty)
     return sum_cost
     
     
-def visualize_line(panorama, list_of_objs, color=(0,255,0)):
+def visualize_line(panorama, list_of_objs, color=(255,0,0)):
     if len(list_of_objs) == 0:
         return
     tlx, tly, brx, bry = VisualObject.bbox(list_of_objs)
     cv2.rectangle(panorama, (tlx, tly), (brx, bry), color, 2)
-    for obj in list_of_objs:
-        cv2.rectangle(panorama, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0,0,255), 1)
+#     for obj in list_of_objs:
+#         cv2.rectangle(panorama, (obj.tlx, obj.tly), (obj.brx, obj.bry), (0,0,255), 1)
  
 def visualize_lines(panorama, lines):
     for line in lines:

@@ -132,7 +132,7 @@ def removetemplate(gray_img, gray_obj, M):
 def subtractlogo(frame, logo, color=None):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
-    topleft = find_object_exact_inside(frame, logo, 0.36)
+    topleft = find_object_exact_inside(frame, logo, 0.60)
     frame_copy = frame.copy()
     if  topleft == None:
 #         util.showimages([frame], "no logo")

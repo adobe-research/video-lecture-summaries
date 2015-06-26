@@ -142,7 +142,7 @@ class Video:
     def negate(self, outfile=None):
         cap = cv2.VideoCapture(self.filepath)
         if outfile==None:
-            outfile = self.videoname + "_neagte.avi"
+            outfile = self.videoname + "_negate.avi"
         fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
         out = cv2.VideoWriter(outfile, int(fourcc), self.fps, (self.width, self.height))
         while(cap.isOpened()):          
@@ -155,7 +155,7 @@ class Video:
         cap.release()
         out.release()
         newoutfile = self.videoname + "_negate.mp4"
-        os.rename(outfile, newoutfile)
+#         os.rename(outfile, newoutfile)
         return newoutfile    
    
     def cut(self, ms_start, ms_end, outfile=None):

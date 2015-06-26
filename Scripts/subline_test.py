@@ -14,8 +14,8 @@ from video import Video
 from visualobjects import VisualObject
 import label
 
-collapsed_icon ="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"../Mainpage/figures/arrow_collapsed_icon_2.png" # ##
-expanded_icon ="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"../Mainpage/figures/arrow_collapsed_icon_2.png"#
+collapsed_icon ="../Mainpage/figures/arrow_collapsed_icon_2.png" # ##../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"
+expanded_icon ="../Mainpage/figures/arrow_collapsed_icon_2.png"#../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"
 
 stopwords = []
 
@@ -230,18 +230,18 @@ if __name__ == "__main__":
     title = sys.argv[5]
     author = sys.argv[6]
     url = sys.argv[7]
-    outdir = sys.argv[8]#objdir #
+    outdir = sys.argv[8] #objdir
     
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
     video = Video(videopath)
-    figdir = outdir + "/subline_linebreak_test"
+    figdir = outdir + "/figs"
     
     [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, 
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
      
-    html = WriteHtml(outdir + "/find_example.html",title, stylesheet =outdir+"../../../../../../../Mainpage/subline_test_video.css")
+    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"/../Mainpage/subline_test_video.css")
 
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
