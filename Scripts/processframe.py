@@ -132,7 +132,7 @@ def removetemplate(gray_img, gray_obj, M):
 def subtractlogo(frame, logo, color=None):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
-    topleft = find_object_exact_inside(frame, logo, 0.60)
+    topleft = find_object_exact_inside(frame, logo, 0.90)
     frame_copy = frame.copy()
     if  topleft == None:
 #         util.showimages([frame], "no logo")
@@ -602,8 +602,8 @@ def removebg_khan(gray_frame):
     return dest
 
 def numfgpix_thresh(gray, fgthres):
-    ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY) #for black background
-#     ret, threshimg = cv2.threshold(gray, fgthres, 255, cv2.THRESH_BINARY_INV) #for white background
+    ret, threshimg = cv2.threshold(gray, fgthres, 50, cv2.THRESH_BINARY) #for black background
+#     ret, threshimg = cv2.threshold(gray, fgthres, 225, cv2.THRESH_BINARY_INV) #for white background
     numfg = np.count_nonzero(threshimg)
     logging.debug("#fg pix %i", numfg)
 #     util.showimages([threshimg], "processframe::numfgpix_thres")

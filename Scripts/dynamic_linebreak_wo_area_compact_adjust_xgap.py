@@ -1,3 +1,4 @@
+
 '''
 Created on Dec 18, 2014
 
@@ -43,7 +44,7 @@ class LineBreaker:
             curline_idx = self.best_line_id[i-1][i-1]
             print 'processing stroke', i,'of', self.nobjs
             self.totalcost[i] = float("inf")
-            for j in range(max(-1,i-30), i):
+            for j in range(max(-1, i-30), i):
                 print 'j = ', j
                 newline = self.list_of_objs[j+1:i+1]
                 panorama_copy = self.panorama.copy()
@@ -262,7 +263,7 @@ def visualize_lines(panorama, lines):
         visualize_line(panorama, line)
     return panorama
 
-def visualize_obj(panorama, list_of_obj, color=(255,0,255), width=1):
+def visualize_obj(panorama, list_of_obj, color=(255,0,0), width=1):
     tlx, tly, brx, bry = VisualObject.bbox(list_of_obj)
     cv2.rectangle(panorama, (tlx, tly), (brx, bry), color, width)
 
@@ -388,7 +389,7 @@ if __name__ == "__main__":
 
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
     outfilename = "linebreak_wo_area_compact_adjust_xgap"
-    outvideo = None #cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
+    outvideo =  cv2.VideoWriter(objdirpath + "/" + outfilename + ".avi", int(fourcc), int(2), (w, h))
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
@@ -396,6 +397,4 @@ if __name__ == "__main__":
     util.saveimage(result, objdirpath, outfilename + ".png")
     util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/linebreak_wo_area_compact_adjust_xgap_ids.txt")
     
-#     outvideo.release()
-    
-    
+

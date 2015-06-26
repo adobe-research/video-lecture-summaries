@@ -24,10 +24,13 @@ def compute(videoprocessor, videoprocessor2, diffthres=25):
             break
         diff = cv2.absdiff(nextframe, prevframe)  
         diff = util.grayimage(diff)
-        ret, thresdiff = cv2.threshold(diff, 0, 255, cv2.THRESH_BINARY)  
+        ret, thresdiff = cv2.threshold(diff, 50, 255, cv2.THRESH_BINARY)  
 #         util.showimages([diff, thresdiff])    
         counts[index] = np.count_nonzero(thresdiff)
         print counts[index]
+# 
+#         if counts[index] > 1000:
+#             util.showimages([prevframe, nextframe, thresdiff], "%i"%counts[index])
 #         print 'counts', counts[index-1]
 #         util.showimages([myframe], "myframe")
 #         util.showimages([prevframe, nextframe, diff], "prevframe, nextframe, diff")

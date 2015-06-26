@@ -1,3 +1,4 @@
+
 '''
 Created on Dec 18, 2014
 
@@ -395,6 +396,4 @@ if __name__ == "__main__":
     util.saveimage(result, objdirpath, outfilename + ".png")
     util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/linebreak_wo_xgap_ids.txt")
     
-#     outvideo.release()
-    
-    
+

@@ -42,8 +42,9 @@ class VisualObject:
         html.breakline()
         startt = self.video.fid2sec(self.start_fid)
         endt = self.video.fid2sec(self.end_fid)
-        html.writestring("<object class=\"textlink\" onclick=\"playvideo_at(%i);\">"%(startt))
 
+        html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);\">"%(startt))
+        
         h,w = self.img.shape[0:2]
         imgpath = html.relpath(self.imgpath)
         html.writestring("<img src= \"%s\" width=\"%s\" height=\"%s\" class=\"textlink\" startt=\"%s\" endt=\"%s\" />\n" % (imgpath, 0.75*w, 0.75*h, startt, endt))

@@ -241,7 +241,8 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
      
-    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"/../Mainpage/subline_test_video.css")
+
+    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"../../../../../../../Mainpage/subline_test_video.css")
 
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)

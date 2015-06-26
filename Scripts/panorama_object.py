@@ -211,7 +211,7 @@ def objs():
         if (obj.img is None):
             continue
         
-        cv2.rectangle(panorama_copy, (obj.tlx-1, obj.tly-1), (obj.brx+1, obj.bry+1), (0, 0, 0), 1)
+        cv2.rectangle(panorama_copy, (obj.tlx-1, obj.tly-1), (obj.brx+1, obj.bry+1), (255, 255,255), 1)
 #         col = colors[i%len(colors)]
 #         mask = pf.fgmask(obj.img, 50, 255, True)
 #         fitmask = pf.fit_mask_to_img(panorama_copy, mask, obj.tlx, obj.tly)
