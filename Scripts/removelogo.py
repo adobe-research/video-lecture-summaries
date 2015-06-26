@@ -65,7 +65,7 @@ if __name__ == "__main__":
     extension = os.path.splitext(target)[1]
     logos = util.get_logos(logodir)    
     
-    if (".mp4" in extension or ".avi" in extension ):
+    if (".mp4" in extension or ".avi" in extension or ".mov" in extension):
         video = Video(target)
         fromvideo(video, logos, (0,0,0))
     else:    
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         
         for i in range(0, len(images)):
             img = images[i]
-            outimg = fillcolor(img, logos, (0,0,0))
+            outimg = fillcolor(img, logos, (255,255,255))
             cv2.imwrite(processed_path+"\\"+ imagefiles[i], outimg)
             
             

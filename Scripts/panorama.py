@@ -62,9 +62,9 @@ def scroll_stitch_panorama():
     
     video = Video(videopath)
     counts = framediff.getcounts(framedifftxt)
-    counts = util.smooth(np.array(counts), window_len = int(video.fps))
-    plt.plot(counts)
-    plt.show()
+#     counts = util.smooth(np.array(counts), window_len = int(video.fps))
+#     plt.plot(counts)
+#     plt.show()
 #     logos = util.get_logos(logopath)
 # 
 #     

@@ -11,6 +11,6 @@ import util
 if __name__ == "__main__":     
     videoname = sys.argv[1]
     outdir = sys.argv[2]
-    fnumbers = [100,200,300]
+    fnumbers = [5010, 5015]
     pv = ProcessVideo(videoname)
     pv.captureframes(fnumbers, outdir)

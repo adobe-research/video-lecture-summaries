@@ -315,7 +315,7 @@ def getvisuals(videopath, panoramapath, objdir, scriptpath):
     """sublines"""
     sublinedir = objdir + "/sublines_15_03_18"
     stcstrokesdir = objdir + "/stcstrokes_15_03_18"
-    linetxt = objdir + "/line_ids.txt"
+    linetxt = objdir + "/linebreak_wo_area_compact_adjust_xgap_ids.txt"
     list_of_words = pjson.get_words(scriptpath)
     list_of_stcs = pjson.get_sentences(list_of_words)
     list_of_sentences = []

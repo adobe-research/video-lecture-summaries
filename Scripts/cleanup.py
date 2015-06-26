@@ -18,7 +18,7 @@ def remove_duplicate_pixels(visobj, panorama_fg, cleanupdir):
         panorama_fg: all objects that can still appear in panorama 
         visobj: current visobj to be cleaned """
     obj_mask = pf.fgmask(visobj.img, 25, 150, True)
-    util.showimages([visobj.img, obj_mask])
+#     util.showimages([visobj.img, obj_mask])
     print visobj.tlx, visobj.tly, visobj.brx, visobj.bry
 #     cv2.rectangle(panorama_fg, (3, 3), (100, 100), (255,255,255), 2)
 

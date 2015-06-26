@@ -248,7 +248,7 @@ def segment_main():
     
     panoramapath = sys.argv[3]
     panorama = cv2.imread(panoramapath)
-    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs_noseg_5")
+    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs_noseg_7")
              
 
 if __name__ == "__main__":  
