@@ -78,8 +78,7 @@ if __name__ == "__main__":
         elif diff <= thres:
             capture = False
         fid += 1
-    if len(keyframes_fid) == 0:
-        keyframes_fid.append(fid-2*video.fps)
+    keyframes_fid.append(fid-2*video.fps)
      
     framedir = video.videoname + "_panorama"
     if not os.path.exists(os.path.abspath(framedir)):
