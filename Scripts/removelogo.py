@@ -12,7 +12,7 @@ def fillcolor(img, logos, color):
     outimg = img.copy()
     for logo in logos:
         hlogo, wlogo = logo.shape[0:2]
-        topleft = pf.find_object_exact_inside(outimg, logo)        
+        topleft = pf.find_object_exact_inside(outimg, logo, 0.85)        
         if (topleft is None):
             continue
         else:
@@ -20,6 +20,9 @@ def fillcolor(img, logos, color):
             tly = topleft[1] 
         brx = tlx + wlogo
         bry = tly + hlogo        
+        img_copy = img.copy()
+        cv2.rectangle(img_copy, topleft, (brx,bry), 255, 2)
+#         util.showimages([img_copy], "logo detected")
 
         outimg[tly:bry, tlx:brx, 0] = color[0]
         outimg[tly:bry, tlx:brx, 1] = color[1]
@@ -68,16 +71,21 @@ if __name__ == "__main__":
     if (".mp4" in extension or ".avi" in extension or ".mov" in extension):
         video = Video(target)
         fromvideo(video, logos, (0,0,0))
+    elif (".png" in extension):
+        img = cv2.imread(target)
+        fillcolor(img, logos, (0,0,0))
     else:    
         imagefiles, images = util.get_capture_imgs(target)
-        processed_path = outdir + "\\removelogo"
+        print len(images)
+        processed_path = outdir + "/removelogo"
         if not os.path.exists(processed_path):
             os.makedirs(processed_path)
         
         for i in range(0, len(images)):
+            print imagefiles[i]
             img = images[i]
-            outimg = fillcolor(img, logos, (255,255,255))
-            cv2.imwrite(processed_path+"\\"+ imagefiles[i], outimg)
+            outimg = fillcolor(img, logos, (0,0,0))
+            cv2.imwrite(processed_path+"/"+ imagefiles[i], outimg)
             
             
             

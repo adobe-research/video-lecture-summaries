@@ -31,7 +31,7 @@ if __name__ == "__main__":
             dx = topleft[0] - prev[0]
             dy = topleft[1] - prev[1]
             if (dx != 0 or dy != 0):
-                scrollid_txt.write("%i"%fid)
+                scrollid_txt.write("%i\n"%fid)
         fid += 1        
         prev = topleft
         

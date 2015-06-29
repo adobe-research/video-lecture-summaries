@@ -13,6 +13,8 @@ import math
 from nltk.tbl import template 
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+BLACK_BG_THRESHOLD = 100
+WHITE_BG_THRESHOLD = 225
 
 def xcut(img, x):
     h, w = img.shape[:2]
@@ -157,7 +159,7 @@ def subtractlogo(frame, logo, color=None):
     return frame_copy 
 
 def fgmask(image, threshold=200, var_threshold=255, inv=False):
-    """Mask all below things threshold, above threshold if inv=True"""
+    """Mask all below threshold, above threshold if inv=True"""
 #     if (threshold is None): 
 #         threshold = 225
 #     if (var_threshold is None):
@@ -718,6 +720,25 @@ def panorama(list_of_frames):
 def writetext(img, text, bottomleft, fontscale=10.0, color=(0, 0, 0)):
     cv2.putText(img, text, bottomleft, cv2.FONT_HERSHEY_PLAIN, fontscale, color)
     return img
+
+
+def get_diff_objimg(prev_frame, cur_frame):
+    if (prev_frame is None):
+        diff_frame = cur_frame
+    else:
+        diff_frame= cv2.absdiff(cur_frame, prev_frame)
+#     obj_frame = diff_frame
+    obj_frame = cv2.min(cur_frame, diff_frame) 
+    obj_mask = fgmask(obj_frame, BLACK_BG_THRESHOLD, 225, True)
+    obj_bbox = fgbbox(obj_mask)
+       
+    if (obj_bbox[0] < 0 ):
+        return None
+    obj_crop = cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
+    util.showimages([prev_frame, cur_frame], "prev & cur frame")
+    util.showimages([obj_mask, obj_crop], "object")
+    return obj_crop
+
 
 if __name__ == "__main__":
     src = cv2.imread("udacity1_capture.png", 0)  # 3 channel BGR image

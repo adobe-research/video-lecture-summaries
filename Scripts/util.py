@@ -22,14 +22,11 @@ def get_images(framedir, fids):
         filename = framedir + "/capture_"        
         filename = filename + ("%06i" % fid) + "_fid.png"
         img = cv2.imread(filename)
-
         if (img is None):
             print 'Warning %s not found' %filename
-#         h, w = img.shape[:2]
-#         img = img[0:h, 5:w,:]
-        
         images.append(img)
         filenames.append(filename)
+        
     return images, filenames
         
 def get_logos(dirname):
@@ -62,8 +59,10 @@ def get_imgs(dirname, name=None, ext=".png"):
                 imagefiles.append(filename)
                 images.append(cv2.imread(filename))
         elif name in filename and ext in filename:
+            print 'here', dirname + "/" + filename
             imagefiles.append(filename)
-            images.append(cv2.imread(filename))
+            img = cv2.imread(dirname + "/" + filename)
+            images.append(img)
     return imagefiles, images
 
 def grayimage(img):
@@ -245,7 +244,11 @@ def saveimage(img, outdir, filename):
 #     print 'util.saveimage', (outdir+"/" +filename)
     
 
-    
+def diff(data):
+    diffdata = []
+    for i in range(0, len(data)-1):
+        diffdata.append(abs(data[i+1]-data[i]))
+    return diffdata
 
 def smooth(x,window_len=11,window='hanning'):
     """smooth the data using a window with requested size.  
