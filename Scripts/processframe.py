@@ -158,7 +158,7 @@ def subtractlogo(frame, logo, color=None):
 #     util.showimages([frame, frame_copy], "processframe:subtractlogo")
     return frame_copy 
 
-def fgmask(image, threshold=200, var_threshold=255, inv=False):
+def fgmask(image, threshold=WHITE_BG_THRESHOLD, var_threshold=255, inv=False):
     """Mask all below threshold, above threshold if inv=True"""
 #     if (threshold is None): 
 #         threshold = 225
@@ -722,22 +722,25 @@ def writetext(img, text, bottomleft, fontscale=10.0, color=(0, 0, 0)):
     return img
 
 
-def get_diff_objimg(prev_frame, cur_frame):
-    if (prev_frame is None):
-        diff_frame = cur_frame
-    else:
-        diff_frame= cv2.absdiff(cur_frame, prev_frame)
-#     obj_frame = diff_frame
-    obj_frame = cv2.min(cur_frame, diff_frame) 
-    obj_mask = fgmask(obj_frame, BLACK_BG_THRESHOLD, 225, True)
-    obj_bbox = fgbbox(obj_mask)
-       
-    if (obj_bbox[0] < 0 ):
-        return None
-    obj_crop = cropimage(obj_frame, obj_bbox[0], obj_bbox[1], obj_bbox[2], obj_bbox[3])
-    util.showimages([prev_frame, cur_frame], "prev & cur frame")
-    util.showimages([obj_mask, obj_crop], "object")
-    return obj_crop
+def get_diff_objimg(start_img, end_img, x1,y1, x2,y2):
+    if (start_img is None):
+        return end_img
+
+    curx = x2 - x1
+    cury = y2 - y1
+    curh, curw = end_img.shape[:2]
+    diff_img = end_img.copy()
+    
+    endimg_overlap = diff_img[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] 
+    startimg_overlap = start_img[max(0, cury):min(curh, curh+cury), max(0, curx):min(curw+curx, curw)]
+    cur_overlaph, cur_overlapw = endimg_overlap.shape[:2]
+    pre_overlaph, pre_overlapw = startimg_overlap.shape[:2]
+        
+    if (cur_overlaph == 0 or cur_overlapw == 0):
+        return end_img
+    
+    diff_img[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(endimg_overlap, startimg_overlap)
+    return diff_img
 
 
 if __name__ == "__main__":

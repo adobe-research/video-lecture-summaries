@@ -18,17 +18,16 @@ from numpy import obj2sctype
 
 
 class VisualObject:
-    def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx, bry, istext=False, text=None, isgroup=False, members=None):
+    def __init__(self, img, imgpath, start_fid, end_fid, tlx, tly, brx=-1, bry=-1, istext=False, text=None, isgroup=False, members=None):
         self.img = img
         self.imgpath = imgpath
         self.start_fid = start_fid
         self.end_fid = end_fid
         self.tlx = tlx
         self.tly = tly
-        self.brx = brx
-        self.bry = bry
-        self.width = brx - tlx+1
-        self.height = bry - tly+1
+        self.height, self.width = self.img.shape[:2]
+        self.brx = tlx + self.width
+        self.bry = tly + self.height
         self.istext = istext
         self.text = text
         self.isgroup = isgroup
