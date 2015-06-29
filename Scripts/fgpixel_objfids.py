@@ -66,45 +66,40 @@ def read_obj_fids(txt):
     
     
 if __name__ == "__main__":    
-    tempdir = sys.argv[1] 
-    obj_fids_txt = sys.argv[2]
-    obj_fids = read_obj_fids(obj_fids_txt)
-    get_object_images(tempdir, obj_fids)
-    
-#     video = Video(sys.argv[1])
-#     fgpixel_txt = sys.argv[2]
-#     tempdir = video.videoname + "_temp"
-#     print 'video.fps', video.fps
-# 
-#     numfg = fgpixel.read_fgpixel(fgpixel_txt)
-#     numfg = np.array(numfg)
-#     index = plateaus(numfg, int(video.fps/4), 1)
-#     util.write_ints(index, video.videoname + "_frameids_w_zero_slope.txt")
-#     
-#     index = end_of_plateaus(index)
-#     
-#     obj_fids = []
-#     cap_fids = []
-#     prev_fg = 0
-#     prev_id = -1
-#     for i in index:
-#         cur_fg = numfg[i]
-#         fg_diff = cur_fg - prev_fg
-#         if (fg_diff > 100):
-#             obj_fids.append((prev_id, i))
-#             cap_fids.append(prev_id)
-#             cap_fids.append(i)
-#         prev_id = i
-#         prev_fg = cur_fg
-#     video.capture_keyframes_fid(cap_fids, tempdir)
-#     
-#     """write object times"""
-#     outfile = video.videoname + "_fgpixel_obj_fids.txt"
-#     frameids = open(outfile, "w")
-#     for fids in obj_fids:
-#         frameids.write("%i\t%i\n" %(fids[0], fids[1]))
-#     frameids.close()
-    
+    video = Video(sys.argv[1])
+    fgpixel_txt = sys.argv[2]
+    tempdir = video.videoname + "_temp"
+    print 'video.fps', video.fps
+ 
+    numfg = fgpixel.read_fgpixel(fgpixel_txt)
+    numfg = np.array(numfg)
+    index = plateaus(numfg, int(video.fps/4), 1)
+    util.write_ints(index, video.videoname + "_frameids_w_zero_slope.txt")
+     
+    index = end_of_plateaus(index)
+     
+    obj_fids = []
+    cap_fids = []
+    prev_fg = 0
+    prev_id = -1
+    for i in index:
+        cur_fg = numfg[i]
+        fg_diff = cur_fg - prev_fg
+        if (fg_diff > 100):
+            obj_fids.append((prev_id, i))
+            cap_fids.append(prev_id)
+            cap_fids.append(i)
+        prev_id = i
+        prev_fg = cur_fg
+    video.capture_keyframes_fid(cap_fids, tempdir)
+     
+    """write object times"""
+    outfile = video.videoname + "_fgpixel_obj_fids.txt"
+    frameids = open(outfile, "w")
+    for fids in obj_fids:
+        frameids.write("%i\t%i\n" %(fids[0], fids[1]))
+    frameids.close()
+      
 #     get_object_images(tempdir, obj_fids)
     
 #     start_fids = []
