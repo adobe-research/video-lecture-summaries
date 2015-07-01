@@ -1,0 +1,4572 @@
+{
+    "words": [
+        {
+            "start": 0.01247,
+            "end": 0.93039,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 1.02018,
+            "alignedWord": "WE",
+            "start": 0.93039,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "We"
+        },
+        {
+            "end": 1.12993,
+            "alignedWord": "WERE",
+            "start": 1.02018,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "were"
+        },
+        {
+            "end": 1.24966,
+            "alignedWord": "GOING",
+            "start": 1.12993,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "end": 1.3195,
+            "alignedWord": "TO",
+            "start": 1.24966,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 1.47914,
+            "alignedWord": "LOOK",
+            "start": 1.3195,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "look"
+        },
+        {
+            "end": 1.57891,
+            "alignedWord": "AT",
+            "start": 1.47914,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "end": 1.86825,
+            "alignedWord": "SOMETHING",
+            "start": 1.57891,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "something"
+        },
+        {
+            "end": 2.04785,
+            "alignedWord": "THAT'S",
+            "start": 1.86825,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "that's"
+        },
+        {
+            "end": 2.26735,
+            "alignedWord": "LIKE",
+            "start": 2.04785,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "end": 2.78617,
+            "alignedWord": "THEVENIN",
+            "start": 2.26735,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Thevenin"
+        },
+        {
+            "end": 3.31497,
+            "alignedWord": "EQUIVALENT",
+            "start": 2.78617,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "start": 3.31497,
+            "end": 3.33492,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 3.5644,
+            "alignedWord": "ONLY",
+            "start": 3.33492,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "only"
+        },
+        {
+            "end": 3.73401,
+            "alignedWord": "IT'S",
+            "start": 3.5644,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "it's"
+        },
+        {
+            "end": 4.06327,
+            "alignedWord": "CALLED",
+            "start": 3.73401,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "called"
+        },
+        {
+            "end": 4.16304,
+            "alignedWord": "THE",
+            "start": 4.06327,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 4.99116,
+            "alignedWord": "NORTON",
+            "start": 4.16304,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Norton"
+        },
+        {
+            "start": 4.99116,
+            "end": 5.09093,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 5.50998,
+            "alignedWord": "EQUIVALENT",
+            "start": 5.09093,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "end": 5.91905,
+            "alignedWord": "CIRCUIT",
+            "start": 5.50998,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "circuit."
+        },
+        {
+            "start": 5.91905,
+            "end": 8.31361,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 8.8424,
+            "alignedWord": "NORTON",
+            "start": 8.31361,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "Norton"
+        },
+        {
+            "start": 8.8424,
+            "end": 8.96213,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 9.45102,
+            "alignedWord": "EQUIVALENT",
+            "start": 8.96213,
+            "line_idx": 0,
+            "speaker": "narrator",
+            "word": "equivalent."
+        },
+        {
+            "start": 9.45102,
+            "end": 16.36531,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 16.56485,
+            "alignedWord": "AND",
+            "start": 16.36531,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 16.78435,
+            "alignedWord": "JUST",
+            "start": 16.56485,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "just"
+        },
+        {
+            "end": 16.93401,
+            "alignedWord": "AS",
+            "start": 16.78435,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "as"
+        },
+        {
+            "end": 16.9839,
+            "alignedWord": "A",
+            "start": 16.93401,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 17.8619,
+            "alignedWord": "REMINDER",
+            "start": 16.9839,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "reminder,"
+        },
+        {
+            "end": 18.27098,
+            "alignedWord": "LET'S",
+            "start": 17.8619,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "start": 18.27098,
+            "end": 18.41066,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 18.63016,
+            "alignedWord": "LOOK",
+            "start": 18.41066,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "look"
+        },
+        {
+            "end": 18.77982,
+            "alignedWord": "AT",
+            "start": 18.63016,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "at"
+        },
+        {
+            "start": 18.77982,
+            "end": 18.95941,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 20.01701,
+            "alignedWord": "ONE",
+            "start": 18.95941,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "one"
+        },
+        {
+            "end": 20.35624,
+            "alignedWord": "PORT",
+            "start": 20.01701,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "port."
+        },
+        {
+            "start": 20.35624,
+            "end": 22.93039,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 23.1,
+            "alignedWord": "IT",
+            "start": 22.93039,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "It"
+        },
+        {
+            "end": 23.48912,
+            "alignedWord": "LOOKS",
+            "start": 23.1,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "looks"
+        },
+        {
+            "start": 23.48912,
+            "end": 23.539,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 23.64875,
+            "alignedWord": "LIKE",
+            "start": 23.539,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "start": 23.64875,
+            "end": 23.70862,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 23.95805,
+            "alignedWord": "THESE",
+            "start": 23.70862,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "these"
+        },
+        {
+            "end": 24.33719,
+            "alignedWord": "TWO",
+            "start": 23.95805,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "two"
+        },
+        {
+            "start": 24.33719,
+            "end": 25.51451,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 25.76395,
+            "alignedWord": "LINES",
+            "start": 25.51451,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "lines"
+        },
+        {
+            "end": 26.14308,
+            "alignedWord": "COMING",
+            "start": 25.76395,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "coming"
+        },
+        {
+            "end": 26.63197,
+            "alignedWord": "IN",
+            "start": 26.14308,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "in,"
+        },
+        {
+            "end": 27.05102,
+            "alignedWord": "CURRENT",
+            "start": 26.63197,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "start": 27.05102,
+            "end": 27.09093,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 27.83923,
+            "alignedWord": "I",
+            "start": 27.09093,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "I,"
+        },
+        {
+            "start": 27.83923,
+            "end": 29.16621,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 29.92449,
+            "alignedWord": "VOLTAGE",
+            "start": 29.16621,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "start": 29.92449,
+            "end": 30.23379,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 30.72268,
+            "alignedWord": "HERE",
+            "start": 30.23379,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "here."
+        },
+        {
+            "start": 30.72268,
+            "end": 31.69048,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 32.25918,
+            "alignedWord": "AND",
+            "start": 31.69048,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 32.31905,
+            "alignedWord": "WE",
+            "start": 32.25918,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 32.46871,
+            "alignedWord": "WERE",
+            "start": 32.31905,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "were"
+        },
+        {
+            "end": 32.61837,
+            "alignedWord": "GOING",
+            "start": 32.46871,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "end": 32.67823,
+            "alignedWord": "TO",
+            "start": 32.61837,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 33.07732,
+            "alignedWord": "LET",
+            "start": 32.67823,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "let"
+        },
+        {
+            "end": 34.13492,
+            "alignedWord": "V0",
+            "start": 33.07732,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "V0"
+        },
+        {
+            "start": 34.13492,
+            "end": 34.73356,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 35.27234,
+            "alignedWord": "BE",
+            "start": 34.73356,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 35.27234,
+            "end": 36.11043,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 36.27007,
+            "alignedWord": "THE",
+            "start": 36.11043,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 37.27778,
+            "alignedWord": "VOLTAGE",
+            "start": 36.27007,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "start": 37.27778,
+            "end": 37.65692,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 38.37528,
+            "alignedWord": "WHEN",
+            "start": 37.65692,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "when"
+        },
+        {
+            "start": 38.37528,
+            "end": 40.01156,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 40.70998,
+            "alignedWord": "I",
+            "start": 40.01156,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "I"
+        },
+        {
+            "start": 40.70998,
+            "end": 41.02925,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 41.76757,
+            "alignedWord": "EQUALS",
+            "start": 41.02925,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "equals"
+        },
+        {
+            "end": 42.45601,
+            "alignedWord": "ZERO",
+            "start": 41.76757,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "zero"
+        },
+        {
+            "start": 42.45601,
+            "end": 43.41383,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 43.98254,
+            "alignedWord": "AND",
+            "start": 43.41383,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 44.84059,
+            "alignedWord": "I0",
+            "start": 43.98254,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "I0"
+        },
+        {
+            "start": 44.84059,
+            "end": 46.32721,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 46.80612,
+            "alignedWord": "BE",
+            "start": 46.32721,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "end": 46.83605,
+            "alignedWord": "-I",
+            "start": 46.80612,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "-I,"
+        },
+        {
+            "start": 46.83605,
+            "end": 47.40476,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 47.73401,
+            "alignedWord": "WHEN",
+            "start": 47.40476,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "when"
+        },
+        {
+            "end": 47.79388,
+            "alignedWord": "V",
+            "start": 47.73401,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "V"
+        },
+        {
+            "end": 48.29274,
+            "alignedWord": "IS",
+            "start": 47.79388,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "start": 48.29274,
+            "end": 49.11088,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 49.77937,
+            "alignedWord": "EQUAL",
+            "start": 49.11088,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "equal"
+        },
+        {
+            "start": 49.77937,
+            "end": 51.17619,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 51.93447,
+            "alignedWord": "TO",
+            "start": 51.17619,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 53.31134,
+            "alignedWord": "ZERO",
+            "start": 51.93447,
+            "line_idx": 1,
+            "speaker": "narrator",
+            "word": "zero."
+        },
+        {
+            "start": 53.31134,
+            "end": 54.30907,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 54.62834,
+            "alignedWord": "AND",
+            "start": 54.30907,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 54.74807,
+            "alignedWord": "WE",
+            "start": 54.62834,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 55.40658,
+            "alignedWord": "DEFINED",
+            "start": 54.74807,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "defined"
+        },
+        {
+            "end": 56.26463,
+            "alignedWord": "R0",
+            "start": 55.40658,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "R0"
+        },
+        {
+            "end": 56.46417,
+            "alignedWord": "TO",
+            "start": 56.26463,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 57.00295,
+            "alignedWord": "BE",
+            "start": 56.46417,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 57.00295,
+            "end": 58.42971,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 59.2678,
+            "alignedWord": "I0",
+            "start": 58.42971,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "I0"
+        },
+        {
+            "end": 59.78662,
+            "alignedWord": "OVER",
+            "start": 59.2678,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "over"
+        },
+        {
+            "end": 60.25556,
+            "alignedWord": "V0",
+            "start": 59.78662,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "V0."
+        },
+        {
+            "start": 60.25556,
+            "end": 61.98163,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 62.32086,
+            "alignedWord": "OK",
+            "start": 61.98163,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "OK."
+        },
+        {
+            "start": 62.32086,
+            "end": 62.71995,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 62.85964,
+            "alignedWord": "SO",
+            "start": 62.71995,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "end": 63.0093,
+            "alignedWord": "NOW",
+            "start": 62.85964,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "now"
+        },
+        {
+            "end": 63.139,
+            "alignedWord": "FOR",
+            "start": 63.0093,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "for"
+        },
+        {
+            "end": 63.25873,
+            "alignedWord": "THE",
+            "start": 63.139,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 63.64785,
+            "alignedWord": "NORTON",
+            "start": 63.25873,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "Norton"
+        },
+        {
+            "end": 64.11678,
+            "alignedWord": "EQUIVALENT",
+            "start": 63.64785,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "end": 64.43605,
+            "alignedWord": "LET'S",
+            "start": 64.11678,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "end": 65.08458,
+            "alignedWord": "AGAIN",
+            "start": 64.43605,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "again"
+        },
+        {
+            "start": 65.08458,
+            "end": 66.21202,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 66.64104,
+            "alignedWord": "MAKE",
+            "start": 66.21202,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "make"
+        },
+        {
+            "end": 66.76077,
+            "alignedWord": "A",
+            "start": 66.64104,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 67.19977,
+            "alignedWord": "SIMPLE",
+            "start": 66.76077,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "simple"
+        },
+        {
+            "end": 67.74853,
+            "alignedWord": "CIRCUIT",
+            "start": 67.19977,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 67.95805,
+            "alignedWord": "THAT",
+            "start": 67.74853,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 68.0678,
+            "alignedWord": "WE",
+            "start": 67.95805,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 68.2873,
+            "alignedWord": "DON'T",
+            "start": 68.0678,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "don't"
+        },
+        {
+            "end": 68.92585,
+            "alignedWord": "UNDERSTAND",
+            "start": 68.2873,
+            "line_idx": 2,
+            "speaker": "narrator",
+            "word": "understand."
+        },
+        {
+            "end": 69.10544,
+            "alignedWord": "THIS",
+            "start": 68.92585,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "This"
+        },
+        {
+            "end": 69.38481,
+            "alignedWord": "TIME",
+            "start": 69.10544,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "time"
+        },
+        {
+            "end": 69.51451,
+            "alignedWord": "IT'S",
+            "start": 69.38481,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "it's"
+        },
+        {
+            "end": 69.63424,
+            "alignedWord": "GOING",
+            "start": 69.51451,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "end": 69.6941,
+            "alignedWord": "TO",
+            "start": 69.63424,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 69.84376,
+            "alignedWord": "BE",
+            "start": 69.6941,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "end": 70.40249,
+            "alignedWord": "ONE",
+            "start": 69.84376,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "one"
+        },
+        {
+            "start": 70.40249,
+            "end": 71.42018,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 71.64966,
+            "alignedWord": "WITH",
+            "start": 71.42018,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "start": 71.64966,
+            "end": 71.74943,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 71.86916,
+            "alignedWord": "A",
+            "start": 71.74943,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "start": 71.86916,
+            "end": 72.07868,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 72.38798,
+            "alignedWord": "CURRENT",
+            "start": 72.07868,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "end": 73.25601,
+            "alignedWord": "SOURCE",
+            "start": 72.38798,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "source"
+        },
+        {
+            "start": 73.25601,
+            "end": 74.74263,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 74.94218,
+            "alignedWord": "IN",
+            "start": 74.74263,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 75.97982,
+            "alignedWord": "PARALLEL",
+            "start": 74.94218,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "parallel"
+        },
+        {
+            "start": 75.97982,
+            "end": 76.07959,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 76.28912,
+            "alignedWord": "WITH",
+            "start": 76.07959,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "end": 76.35896,
+            "alignedWord": "A",
+            "start": 76.28912,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 76.74807,
+            "alignedWord": "RESISTOR",
+            "start": 76.35896,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "resistor."
+        },
+        {
+            "start": 76.74807,
+            "end": 77.66599,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 78.07506,
+            "alignedWord": "THE",
+            "start": 77.66599,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "The"
+        },
+        {
+            "end": 78.46417,
+            "alignedWord": "THEVENIN",
+            "start": 78.07506,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "Thevenin"
+        },
+        {
+            "end": 79.08277,
+            "alignedWord": "WAS",
+            "start": 78.46417,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "was"
+        },
+        {
+            "end": 79.12268,
+            "alignedWord": "A",
+            "start": 79.08277,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 79.5517,
+            "alignedWord": "VOLTAGE",
+            "start": 79.12268,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "end": 79.96077,
+            "alignedWord": "SOURCE",
+            "start": 79.5517,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "source"
+        },
+        {
+            "end": 80.10045,
+            "alignedWord": "IN",
+            "start": 79.96077,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 80.55941,
+            "alignedWord": "SERIES",
+            "start": 80.10045,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "series"
+        },
+        {
+            "end": 80.62925,
+            "alignedWord": "OF",
+            "start": 80.55941,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "end": 80.69909,
+            "alignedWord": "THE",
+            "start": 80.62925,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 81.33764,
+            "alignedWord": "RESISTOR",
+            "start": 80.69909,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "resistor."
+        },
+        {
+            "start": 81.33764,
+            "end": 82.09592,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 82.6746,
+            "alignedWord": "NORTON",
+            "start": 82.09592,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "Norton"
+        },
+        {
+            "end": 82.82426,
+            "alignedWord": "IS",
+            "start": 82.6746,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 82.86417,
+            "alignedWord": "A",
+            "start": 82.82426,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 83.24331,
+            "alignedWord": "CURRENT",
+            "start": 82.86417,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "end": 83.85193,
+            "alignedWord": "SOURCE",
+            "start": 83.24331,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "source"
+        },
+        {
+            "start": 83.85193,
+            "end": 84.14127,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 84.4805,
+            "alignedWord": "IN",
+            "start": 84.14127,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "start": 84.4805,
+            "end": 84.52041,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 85.14898,
+            "alignedWord": "PARALLEL",
+            "start": 84.52041,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "parallel"
+        },
+        {
+            "end": 85.26871,
+            "alignedWord": "WITH",
+            "start": 85.14898,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "end": 85.33855,
+            "alignedWord": "THE",
+            "start": 85.26871,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 85.86735,
+            "alignedWord": "RESISTOR",
+            "start": 85.33855,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "resistor."
+        },
+        {
+            "start": 85.86735,
+            "end": 86.86508,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 87.56349,
+            "alignedWord": "AND",
+            "start": 86.86508,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 87.62336,
+            "alignedWord": "WE",
+            "start": 87.56349,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "start": 87.62336,
+            "end": 87.65329,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 87.92268,
+            "alignedWord": "WILL",
+            "start": 87.65329,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "will"
+        },
+        {
+            "start": 87.92268,
+            "end": 88.8805,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 89.11995,
+            "alignedWord": "CALL",
+            "start": 88.8805,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "call"
+        },
+        {
+            "end": 89.3195,
+            "alignedWord": "THIS",
+            "start": 89.11995,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 89.65873,
+            "alignedWord": "GUY",
+            "start": 89.3195,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "guy"
+        },
+        {
+            "start": 89.65873,
+            "end": 89.7585,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 89.92812,
+            "alignedWord": "I'",
+            "start": 89.7585,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "'I?'"
+        },
+        {
+            "end": 90.89592,
+            "alignedWord": "AND",
+            "start": 89.92812,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 90.89592,
+            "end": 90.97574,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 91.37483,
+            "alignedWord": "THIS",
+            "start": 90.97574,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 91.70408,
+            "alignedWord": "GUY",
+            "start": 91.37483,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "guy"
+        },
+        {
+            "start": 91.70408,
+            "end": 92.04331,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 92.51224,
+            "alignedWord": "R'",
+            "start": 92.04331,
+            "line_idx": 3,
+            "speaker": "narrator",
+            "word": "'R?'"
+        },
+        {
+            "start": 92.51224,
+            "end": 92.622,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 92.7517,
+            "alignedWord": "AND",
+            "start": 92.622,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "start": 92.7517,
+            "end": 92.86145,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 92.93129,
+            "alignedWord": "WE",
+            "start": 92.86145,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 93.31043,
+            "alignedWord": "DRAW",
+            "start": 92.93129,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "draw"
+        },
+        {
+            "start": 93.31043,
+            "end": 95.60522,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 96.06417,
+            "alignedWord": "A",
+            "start": 95.60522,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "start": 96.06417,
+            "end": 99.15714,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 100.17483,
+            "alignedWord": "BOX",
+            "start": 99.15714,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "box"
+        },
+        {
+            "start": 100.17483,
+            "end": 103.09819,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 103.25782,
+            "alignedWord": "LIKE",
+            "start": 103.09819,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "start": 103.25782,
+            "end": 103.34762,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 103.90635,
+            "alignedWord": "THIS",
+            "start": 103.34762,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "this."
+        },
+        {
+            "start": 103.90635,
+            "end": 105.70227,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 105.97166,
+            "alignedWord": "WE",
+            "start": 105.70227,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "We"
+        },
+        {
+            "end": 106.24104,
+            "alignedWord": "ARE",
+            "start": 105.97166,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 106.69002,
+            "alignedWord": "AGAIN",
+            "start": 106.24104,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "again"
+        },
+        {
+            "end": 107.43832,
+            "alignedWord": "INTERESTED",
+            "start": 106.69002,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "interested"
+        },
+        {
+            "end": 107.74762,
+            "alignedWord": "IN",
+            "start": 107.43832,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 107.92721,
+            "alignedWord": "THE",
+            "start": 107.74762,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 108.55578,
+            "alignedWord": "I",
+            "start": 107.92721,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "I,"
+        },
+        {
+            "start": 108.55578,
+            "end": 111.10998,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 111.89819,
+            "alignedWord": "RELATIONSHIP",
+            "start": 111.10998,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "relationship"
+        },
+        {
+            "start": 111.89819,
+            "end": 111.9381,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 112.85601,
+            "alignedWord": "BETWEEN",
+            "start": 111.9381,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "between"
+        },
+        {
+            "start": 112.85601,
+            "end": 114.18299,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 114.42245,
+            "alignedWord": "THIS",
+            "start": 114.18299,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "start": 114.42245,
+            "end": 114.46236,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 114.82154,
+            "alignedWord": "VOLTAGE",
+            "start": 114.46236,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "end": 115.24059,
+            "alignedWord": "DIFFERENCE",
+            "start": 114.82154,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "difference"
+        },
+        {
+            "end": 115.42018,
+            "alignedWord": "IN",
+            "start": 115.24059,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 115.62971,
+            "alignedWord": "THAT",
+            "start": 115.42018,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "start": 115.62971,
+            "end": 115.65964,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 116.12857,
+            "alignedWord": "CURRENT",
+            "start": 115.65964,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "current."
+        },
+        {
+            "start": 116.12857,
+            "end": 117.91451,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 118.36349,
+            "alignedWord": "NOW",
+            "start": 117.91451,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "Now,"
+        },
+        {
+            "start": 118.36349,
+            "end": 118.81247,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 118.95215,
+            "alignedWord": "FOR",
+            "start": 118.81247,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "for"
+        },
+        {
+            "end": 119.1517,
+            "alignedWord": "THIS",
+            "start": 118.95215,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 119.60068,
+            "alignedWord": "CIRCUIT",
+            "start": 119.1517,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 119.70045,
+            "alignedWord": "WE",
+            "start": 119.60068,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 119.88005,
+            "alignedWord": "CAN",
+            "start": 119.70045,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 120.13946,
+            "alignedWord": "ASK",
+            "start": 119.88005,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "ask"
+        },
+        {
+            "end": 120.87778,
+            "alignedWord": "OURSELVES",
+            "start": 120.13946,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "ourselves"
+        },
+        {
+            "end": 121.29683,
+            "alignedWord": "WHAT",
+            "start": 120.87778,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "what"
+        },
+        {
+            "end": 121.73583,
+            "alignedWord": "ARE",
+            "start": 121.29683,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "are"
+        },
+        {
+            "end": 123.26236,
+            "alignedWord": "VO",
+            "start": 121.73583,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "VO"
+        },
+        {
+            "start": 123.26236,
+            "end": 123.78118,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 123.87098,
+            "alignedWord": "AND",
+            "start": 123.78118,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 123.87098,
+            "end": 124.05057,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 124.5195,
+            "alignedWord": "IO",
+            "start": 124.05057,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "IO?"
+        },
+        {
+            "start": 124.5195,
+            "end": 124.93855,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 125.46735,
+            "alignedWord": "SO",
+            "start": 124.93855,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "start": 125.46735,
+            "end": 125.71678,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 126.17574,
+            "alignedWord": "WHAT'S",
+            "start": 125.71678,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "What's"
+        },
+        {
+            "start": 126.17574,
+            "end": 126.37528,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 127.53265,
+            "alignedWord": "VO",
+            "start": 126.37528,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "VO?"
+        },
+        {
+            "end": 127.62245,
+            "alignedWord": "WE",
+            "start": 127.53265,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "We"
+        },
+        {
+            "end": 127.78209,
+            "alignedWord": "WANT",
+            "start": 127.62245,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "want"
+        },
+        {
+            "end": 128.12132,
+            "alignedWord": "TO",
+            "start": 127.78209,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 128.34082,
+            "alignedWord": "ASK",
+            "start": 128.12132,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "ask"
+        },
+        {
+            "end": 128.42063,
+            "alignedWord": "THE",
+            "start": 128.34082,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 128.84966,
+            "alignedWord": "QUESTION",
+            "start": 128.42063,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "question"
+        },
+        {
+            "end": 129.05918,
+            "alignedWord": "IF",
+            "start": 128.84966,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "if"
+        },
+        {
+            "end": 129.14898,
+            "alignedWord": "WE",
+            "start": 129.05918,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 129.38844,
+            "alignedWord": "DON'T",
+            "start": 129.14898,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "don't"
+        },
+        {
+            "start": 129.38844,
+            "end": 129.48821,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 129.77755,
+            "alignedWord": "ADD",
+            "start": 129.48821,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "add"
+        },
+        {
+            "end": 129.94717,
+            "alignedWord": "ANY",
+            "start": 129.77755,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "any"
+        },
+        {
+            "end": 130.33628,
+            "alignedWord": "WIRES",
+            "start": 129.94717,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "wires"
+        },
+        {
+            "end": 130.39615,
+            "alignedWord": "TO",
+            "start": 130.33628,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 130.58571,
+            "alignedWord": "THIS",
+            "start": 130.39615,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "this,"
+        },
+        {
+            "end": 130.79524,
+            "alignedWord": "WHAT'S",
+            "start": 130.58571,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "what's"
+        },
+        {
+            "end": 130.88503,
+            "alignedWord": "THE",
+            "start": 130.79524,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 131.36395,
+            "alignedWord": "VOLTAGE",
+            "start": 130.88503,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "end": 131.70317,
+            "alignedWord": "DIFFERENCE",
+            "start": 131.36395,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "difference"
+        },
+        {
+            "end": 132.02245,
+            "alignedWord": "BETWEEN",
+            "start": 131.70317,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "between"
+        },
+        {
+            "end": 132.24195,
+            "alignedWord": "HERE",
+            "start": 132.02245,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "end": 132.3517,
+            "alignedWord": "AND",
+            "start": 132.24195,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 132.661,
+            "alignedWord": "HERE",
+            "start": 132.3517,
+            "line_idx": 4,
+            "speaker": "narrator",
+            "word": "here?"
+        },
+        {
+            "start": 132.661,
+            "end": 133.89819,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 134.18753,
+            "alignedWord": "TO",
+            "start": 133.89819,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "To"
+        },
+        {
+            "end": 134.84603,
+            "alignedWord": "FIGURE",
+            "start": 134.18753,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "figure"
+        },
+        {
+            "end": 135.04558,
+            "alignedWord": "THAT",
+            "start": 134.84603,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 135.2551,
+            "alignedWord": "OUT",
+            "start": 135.04558,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "out"
+        },
+        {
+            "end": 135.35488,
+            "alignedWord": "WE",
+            "start": 135.2551,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 135.48458,
+            "alignedWord": "HAD",
+            "start": 135.35488,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "had"
+        },
+        {
+            "end": 135.58435,
+            "alignedWord": "TO",
+            "start": 135.48458,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 135.93356,
+            "alignedWord": "FIGURE",
+            "start": 135.58435,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "figure"
+        },
+        {
+            "end": 136.16304,
+            "alignedWord": "OUT",
+            "start": 135.93356,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "out"
+        },
+        {
+            "start": 136.16304,
+            "end": 136.24286,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 136.33265,
+            "alignedWord": "THE",
+            "start": 136.24286,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 136.8415,
+            "alignedWord": "CURRENT",
+            "start": 136.33265,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "start": 136.8415,
+            "end": 137.20068,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 137.29048,
+            "alignedWord": "AND",
+            "start": 137.20068,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 137.38027,
+            "alignedWord": "THE",
+            "start": 137.29048,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 138.10862,
+            "alignedWord": "RESISTANCE",
+            "start": 137.38027,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "resistance,"
+        },
+        {
+            "start": 138.10862,
+            "end": 138.69728,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 139.10635,
+            "alignedWord": "IT",
+            "start": 138.69728,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "it"
+        },
+        {
+            "end": 139.3458,
+            "alignedWord": "LOOKS",
+            "start": 139.10635,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "looks"
+        },
+        {
+            "end": 139.59524,
+            "alignedWord": "LIKE",
+            "start": 139.3458,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "start": 139.59524,
+            "end": 139.62517,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 140.61293,
+            "alignedWord": "VO",
+            "start": 139.62517,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "VO,"
+        },
+        {
+            "end": 140.7127,
+            "alignedWord": "THE",
+            "start": 140.61293,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 141.26145,
+            "alignedWord": "VOLTAGE",
+            "start": 140.7127,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "start": 141.26145,
+            "end": 141.28141,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 141.89002,
+            "alignedWord": "DIFFERENCE",
+            "start": 141.28141,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "difference"
+        },
+        {
+            "start": 141.89002,
+            "end": 142.92766,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 143.60612,
+            "alignedWord": "ACROSS",
+            "start": 142.92766,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "across"
+        },
+        {
+            "end": 144.08503,
+            "alignedWord": "HERE",
+            "start": 143.60612,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "start": 144.08503,
+            "end": 144.34444,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 144.56395,
+            "alignedWord": "IS",
+            "start": 144.34444,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 144.91315,
+            "alignedWord": "GOING",
+            "start": 144.56395,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "end": 145.07279,
+            "alignedWord": "TO",
+            "start": 144.91315,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 145.35215,
+            "alignedWord": "BE",
+            "start": 145.07279,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 145.35215,
+            "end": 145.422,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 145.56168,
+            "alignedWord": "IR'",
+            "start": 145.422,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "'I?R?'"
+        },
+        {
+            "end": 146.00068,
+            "alignedWord": "EQUALS",
+            "start": 145.56168,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "equals"
+        },
+        {
+            "end": 146.30998,
+            "alignedWord": "IR",
+            "start": 146.00068,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "IR."
+        },
+        {
+            "start": 146.30998,
+            "end": 146.6093,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 148.12585,
+            "alignedWord": "THAT'S",
+            "start": 146.6093,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "That's"
+        },
+        {
+            "end": 148.65465,
+            "alignedWord": "THE",
+            "start": 148.12585,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "start": 148.65465,
+            "end": 152.78526,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 153.56349,
+            "alignedWord": "VOLTAGE",
+            "start": 152.78526,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "voltage"
+        },
+        {
+            "end": 153.92268,
+            "alignedWord": "ACROSS",
+            "start": 153.56349,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "across"
+        },
+        {
+            "end": 154.15215,
+            "alignedWord": "HERE",
+            "start": 153.92268,
+            "line_idx": 5,
+            "speaker": "narrator",
+            "word": "here."
+        },
+        {
+            "start": 154.15215,
+            "end": 155.49909,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 155.90816,
+            "alignedWord": "AND",
+            "start": 155.49909,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 156.0678,
+            "alignedWord": "THE",
+            "start": 155.90816,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "start": 156.0678,
+            "end": 156.14762,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 156.80612,
+            "alignedWord": "CURRENT",
+            "start": 156.14762,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "current."
+        },
+        {
+            "start": 156.80612,
+            "end": 157.1254,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 157.40476,
+            "alignedWord": "SO",
+            "start": 157.1254,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "end": 157.67415,
+            "alignedWord": "LET'S",
+            "start": 157.40476,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "let's"
+        },
+        {
+            "end": 157.90363,
+            "alignedWord": "THINK",
+            "start": 157.67415,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "think"
+        },
+        {
+            "end": 158.18299,
+            "alignedWord": "ABOUT",
+            "start": 157.90363,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "about"
+        },
+        {
+            "end": 158.38254,
+            "alignedWord": "WHAT",
+            "start": 158.18299,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "what"
+        },
+        {
+            "start": 158.38254,
+            "end": 158.4424,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 159.05102,
+            "alignedWord": "IO",
+            "start": 158.4424,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "IO"
+        },
+        {
+            "end": 159.48005,
+            "alignedWord": "IS",
+            "start": 159.05102,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "is."
+        },
+        {
+            "end": 160.0288,
+            "alignedWord": "REMEMBER",
+            "start": 159.48005,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "Remember"
+        },
+        {
+            "start": 160.0288,
+            "end": 161.01655,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 161.13628,
+            "alignedWord": "TO",
+            "start": 161.01655,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 161.29592,
+            "alignedWord": "DO",
+            "start": 161.13628,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "do"
+        },
+        {
+            "end": 161.53537,
+            "alignedWord": "THAT",
+            "start": 161.29592,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 161.67506,
+            "alignedWord": "WE",
+            "start": 161.53537,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "start": 161.67506,
+            "end": 162.0542,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 162.24376,
+            "alignedWord": "FIGURE",
+            "start": 162.0542,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "figure"
+        },
+        {
+            "end": 162.33356,
+            "alignedWord": "OUT",
+            "start": 162.24376,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "out"
+        },
+        {
+            "end": 162.39342,
+            "alignedWord": "THE",
+            "start": 162.33356,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 162.72268,
+            "alignedWord": "SHORT",
+            "start": 162.39342,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "short"
+        },
+        {
+            "end": 163.12177,
+            "alignedWord": "CIRCUIT",
+            "start": 162.72268,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 163.461,
+            "alignedWord": "CURRENT",
+            "start": 163.12177,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "current."
+        },
+        {
+            "end": 163.8102,
+            "alignedWord": "SO",
+            "start": 163.461,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "So,"
+        },
+        {
+            "start": 163.8102,
+            "end": 163.88005,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 164.15941,
+            "alignedWord": "IF",
+            "start": 163.88005,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "if"
+        },
+        {
+            "start": 164.15941,
+            "end": 165.02744,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 165.23696,
+            "alignedWord": "WE",
+            "start": 165.02744,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 165.64603,
+            "alignedWord": "JUST",
+            "start": 165.23696,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "just"
+        },
+        {
+            "end": 166.13492,
+            "alignedWord": "CONNECTED",
+            "start": 165.64603,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "connected"
+        },
+        {
+            "end": 166.48413,
+            "alignedWord": "THOSE",
+            "start": 166.13492,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "those"
+        },
+        {
+            "end": 167.07279,
+            "alignedWord": "WIRES",
+            "start": 166.48413,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "wires"
+        },
+        {
+            "end": 167.2424,
+            "alignedWord": "UP",
+            "start": 167.07279,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "up"
+        },
+        {
+            "start": 167.2424,
+            "end": 168.04059,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 168.16032,
+            "alignedWord": "WE",
+            "start": 168.04059,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 168.25011,
+            "alignedWord": "WOULD",
+            "start": 168.16032,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "would"
+        },
+        {
+            "end": 168.47959,
+            "alignedWord": "ASK",
+            "start": 168.25011,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "ask"
+        },
+        {
+            "end": 169.12812,
+            "alignedWord": "OURSELVES",
+            "start": 168.47959,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "ourselves,"
+        },
+        {
+            "start": 169.12812,
+            "end": 170.50499,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 170.75442,
+            "alignedWord": "WHAT'S",
+            "start": 170.50499,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "'What's"
+        },
+        {
+            "start": 170.75442,
+            "end": 170.77438,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 170.87415,
+            "alignedWord": "THE",
+            "start": 170.77438,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 171.37302,
+            "alignedWord": "CURRENT'",
+            "start": 170.87415,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "current?'."
+        },
+        {
+            "end": 171.70227,
+            "alignedWord": "WELL",
+            "start": 171.37302,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "Well,"
+        },
+        {
+            "end": 171.83197,
+            "alignedWord": "THERE",
+            "start": 171.70227,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "there"
+        },
+        {
+            "end": 171.96168,
+            "alignedWord": "WE",
+            "start": 171.83197,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 172.1712,
+            "alignedWord": "JUST",
+            "start": 171.96168,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "just"
+        },
+        {
+            "end": 172.34082,
+            "alignedWord": "HAVE",
+            "start": 172.1712,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 172.59025,
+            "alignedWord": "THIS",
+            "start": 172.34082,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 172.87959,
+            "alignedWord": "LOOP",
+            "start": 172.59025,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "loop"
+        },
+        {
+            "start": 172.87959,
+            "end": 173.5381,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 173.90726,
+            "alignedWord": "HERE",
+            "start": 173.5381,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "start": 173.90726,
+            "end": 174.06689,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 175.14444,
+            "alignedWord": "AND",
+            "start": 174.06689,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 175.85283,
+            "alignedWord": "I0",
+            "start": 175.14444,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "I0"
+        },
+        {
+            "end": 176.19206,
+            "alignedWord": "IS",
+            "start": 175.85283,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 176.30181,
+            "alignedWord": "-I",
+            "start": 176.19206,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "-I"
+        },
+        {
+            "end": 176.51134,
+            "alignedWord": "AND",
+            "start": 176.30181,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 176.51134,
+            "end": 176.65102,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 177.13991,
+            "alignedWord": "-I",
+            "start": 176.65102,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "-I"
+        },
+        {
+            "start": 177.13991,
+            "end": 177.68866,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 178.69637,
+            "alignedWord": "IS",
+            "start": 177.68866,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 178.89592,
+            "alignedWord": "PRETTY",
+            "start": 178.69637,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "pretty"
+        },
+        {
+            "end": 179.37483,
+            "alignedWord": "CLEARLY",
+            "start": 178.89592,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "clearly"
+        },
+        {
+            "start": 179.37483,
+            "end": 179.43469,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 179.61429,
+            "alignedWord": "I'",
+            "start": 179.43469,
+            "line_idx": 6,
+            "speaker": "narrator",
+            "word": "'I?'"
+        },
+        {
+            "start": 179.61429,
+            "end": 179.73401,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 180.06327,
+            "alignedWord": "SO",
+            "start": 179.73401,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "So"
+        },
+        {
+            "start": 180.06327,
+            "end": 180.61202,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 180.76168,
+            "alignedWord": "THIS",
+            "start": 180.61202,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "start": 180.76168,
+            "end": 181.62971,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 181.8093,
+            "alignedWord": "IS",
+            "start": 181.62971,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "start": 181.8093,
+            "end": 181.91905,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 182.09864,
+            "alignedWord": "GOING",
+            "start": 181.91905,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "end": 182.95669,
+            "alignedWord": "TO",
+            "start": 182.09864,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "start": 182.95669,
+            "end": 182.97664,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 183.00658,
+            "alignedWord": "I'",
+            "start": 182.97664,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "'I?'."
+        },
+        {
+            "start": 183.00658,
+            "end": 188.43424,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 188.76349,
+            "alignedWord": "OK",
+            "start": 188.43424,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "OK,"
+        },
+        {
+            "start": 188.76349,
+            "end": 188.84331,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 189.32222,
+            "alignedWord": "IF",
+            "start": 188.84331,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "if"
+        },
+        {
+            "end": 189.65147,
+            "alignedWord": "WE",
+            "start": 189.32222,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "start": 189.65147,
+            "end": 189.69138,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 190.17029,
+            "alignedWord": "SOLVE",
+            "start": 189.69138,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "solve"
+        },
+        {
+            "start": 190.17029,
+            "end": 190.19025,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 190.44966,
+            "alignedWord": "HERE",
+            "start": 190.19025,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "end": 190.58934,
+            "alignedWord": "WE",
+            "start": 190.44966,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 190.87868,
+            "alignedWord": "FIGURE",
+            "start": 190.58934,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "figure"
+        },
+        {
+            "end": 191.07823,
+            "alignedWord": "OUT",
+            "start": 190.87868,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "out"
+        },
+        {
+            "end": 191.18798,
+            "alignedWord": "I'",
+            "start": 191.07823,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "'I?'"
+        },
+        {
+            "start": 191.18798,
+            "end": 191.23787,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 191.44739,
+            "alignedWord": "IS",
+            "start": 191.23787,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 191.76667,
+            "alignedWord": "EQUAL",
+            "start": 191.44739,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "equal"
+        },
+        {
+            "end": 192.24558,
+            "alignedWord": "TO",
+            "start": 191.76667,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "start": 192.24558,
+            "end": 192.29546,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 192.99388,
+            "alignedWord": "I",
+            "start": 192.29546,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "I"
+        },
+        {
+            "start": 192.99388,
+            "end": 193.63243,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 193.8619,
+            "alignedWord": "AND",
+            "start": 193.63243,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "start": 193.8619,
+            "end": 194.01156,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 194.30091,
+            "alignedWord": "R'",
+            "start": 194.01156,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "'R?'"
+        },
+        {
+            "start": 194.30091,
+            "end": 194.38073,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 194.63016,
+            "alignedWord": "IS",
+            "start": 194.38073,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 195.10907,
+            "alignedWord": "GOING",
+            "start": 194.63016,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "start": 195.10907,
+            "end": 198.05238,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 198.28186,
+            "alignedWord": "TO",
+            "start": 198.05238,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 198.71088,
+            "alignedWord": "BE",
+            "start": 198.28186,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 198.71088,
+            "end": 199.27959,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 199.61882,
+            "alignedWord": "THE",
+            "start": 199.27959,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 200.11769,
+            "alignedWord": "VO/IO",
+            "start": 199.61882,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "VO/IO."
+        },
+        {
+            "start": 200.11769,
+            "end": 200.16757,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 200.79615,
+            "alignedWord": "OK",
+            "start": 200.16757,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "OK"
+        },
+        {
+            "start": 200.79615,
+            "end": 202.17302,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 202.96122,
+            "alignedWord": "INTERESTING",
+            "start": 202.17302,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "interesting."
+        },
+        {
+            "start": 202.96122,
+            "end": 203.01111,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 203.37029,
+            "alignedWord": "THAT",
+            "start": 203.01111,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "That"
+        },
+        {
+            "start": 203.37029,
+            "end": 203.46009,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 203.99887,
+            "alignedWord": "TELLS",
+            "start": 203.46009,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "tells"
+        },
+        {
+            "start": 203.99887,
+            "end": 204.0288,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 204.29819,
+            "alignedWord": "US",
+            "start": 204.0288,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "us"
+        },
+        {
+            "start": 204.29819,
+            "end": 204.76712,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 205.20612,
+            "alignedWord": "THAT",
+            "start": 204.76712,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "start": 205.20612,
+            "end": 205.82472,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 206.0542,
+            "alignedWord": "IF",
+            "start": 205.82472,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "if"
+        },
+        {
+            "end": 206.35351,
+            "alignedWord": "WE",
+            "start": 206.0542,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 206.58299,
+            "alignedWord": "HAVE",
+            "start": 206.35351,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 206.61293,
+            "alignedWord": "A",
+            "start": 206.58299,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 207.22154,
+            "alignedWord": "CIRCUIT",
+            "start": 206.61293,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 207.38118,
+            "alignedWord": "WHERE",
+            "start": 207.22154,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "where"
+        },
+        {
+            "end": 207.50091,
+            "alignedWord": "WE",
+            "start": 207.38118,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 207.5907,
+            "alignedWord": "HAVE",
+            "start": 207.50091,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "end": 208.38889,
+            "alignedWord": "SPECIFIED",
+            "start": 207.5907,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "specified"
+        },
+        {
+            "end": 208.52857,
+            "alignedWord": "WHAT",
+            "start": 208.38889,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "what"
+        },
+        {
+            "end": 208.59841,
+            "alignedWord": "THE",
+            "start": 208.52857,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 209.02744,
+            "alignedWord": "VO",
+            "start": 208.59841,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "VO"
+        },
+        {
+            "end": 209.15714,
+            "alignedWord": "AND",
+            "start": 209.02744,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 209.3068,
+            "alignedWord": "THE",
+            "start": 209.15714,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 209.9254,
+            "alignedWord": "IO",
+            "start": 209.3068,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "IO"
+        },
+        {
+            "start": 209.9254,
+            "end": 210.44422,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 210.63379,
+            "alignedWord": "NEED",
+            "start": 210.44422,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "need"
+        },
+        {
+            "end": 210.81338,
+            "alignedWord": "TO",
+            "start": 210.63379,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 211.22245,
+            "alignedWord": "BE",
+            "start": 210.81338,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "be,"
+        },
+        {
+            "start": 211.22245,
+            "end": 211.93084,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 212.37982,
+            "alignedWord": "THEN",
+            "start": 211.93084,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "then"
+        },
+        {
+            "start": 212.37982,
+            "end": 212.61927,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 213.37755,
+            "alignedWord": "ANOTHER",
+            "start": 212.61927,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "another"
+        },
+        {
+            "end": 213.81655,
+            "alignedWord": "CIRCUIT",
+            "start": 213.37755,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 213.94626,
+            "alignedWord": "THAT",
+            "start": 213.81655,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 214.18571,
+            "alignedWord": "HAS",
+            "start": 213.94626,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "has"
+        },
+        {
+            "end": 214.38526,
+            "alignedWord": "THAT",
+            "start": 214.18571,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 214.88413,
+            "alignedWord": "EQUIVALENT",
+            "start": 214.38526,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "end": 215.50272,
+            "alignedWord": "BEHAVIOR",
+            "start": 214.88413,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "behavior"
+        },
+        {
+            "end": 215.61247,
+            "alignedWord": "IS",
+            "start": 215.50272,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 215.67234,
+            "alignedWord": "THE",
+            "start": 215.61247,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 215.87188,
+            "alignedWord": "ONE",
+            "start": 215.67234,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "one"
+        },
+        {
+            "end": 215.97166,
+            "alignedWord": "THAT",
+            "start": 215.87188,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 216.1712,
+            "alignedWord": "LOOKS",
+            "start": 215.97166,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "looks"
+        },
+        {
+            "end": 216.40068,
+            "alignedWord": "LIKE",
+            "start": 216.1712,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "end": 216.86961,
+            "alignedWord": "THIS",
+            "start": 216.40068,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "start": 216.86961,
+            "end": 217.51814,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 218.05692,
+            "alignedWord": "WHERE",
+            "start": 217.51814,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "where"
+        },
+        {
+            "start": 218.05692,
+            "end": 218.42608,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 218.58571,
+            "alignedWord": "WE",
+            "start": 218.42608,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 218.96485,
+            "alignedWord": "HAVE",
+            "start": 218.58571,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "start": 218.96485,
+            "end": 219.86281,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 220.25193,
+            "alignedWord": "OUR",
+            "start": 219.86281,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "our"
+        },
+        {
+            "start": 220.25193,
+            "end": 221.13991,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 222.55669,
+            "alignedWord": "CURRENT",
+            "start": 221.13991,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "start": 222.55669,
+            "end": 226.28821,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 226.71723,
+            "alignedWord": "SOURCE",
+            "start": 226.28821,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "source,"
+        },
+        {
+            "end": 227.01655,
+            "alignedWord": "THE",
+            "start": 226.71723,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "start": 227.01655,
+            "end": 227.3059,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 227.60522,
+            "alignedWord": "CURRENT",
+            "start": 227.3059,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "current"
+        },
+        {
+            "end": 228.32358,
+            "alignedWord": "SOURCE",
+            "start": 227.60522,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "source"
+        },
+        {
+            "start": 228.32358,
+            "end": 231.00748,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 232.03515,
+            "alignedWord": "HERE",
+            "start": 231.00748,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "here"
+        },
+        {
+            "start": 232.03515,
+            "end": 233.29229,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 233.49184,
+            "alignedWord": "AND",
+            "start": 233.29229,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 233.72132,
+            "alignedWord": "IT'S",
+            "start": 233.49184,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "it's"
+        },
+        {
+            "start": 233.72132,
+            "end": 233.76122,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 234.11043,
+            "alignedWord": "GOING",
+            "start": 233.76122,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "end": 234.28005,
+            "alignedWord": "TO",
+            "start": 234.11043,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 234.69909,
+            "alignedWord": "BE",
+            "start": 234.28005,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 234.69909,
+            "end": 234.97846,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 235.59705,
+            "alignedWord": "IO",
+            "start": 234.97846,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "IO"
+        },
+        {
+            "start": 235.59705,
+            "end": 235.67687,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 236.28549,
+            "alignedWord": "AMPS",
+            "start": 235.67687,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "amps"
+        },
+        {
+            "start": 236.28549,
+            "end": 237.90181,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 238.08141,
+            "alignedWord": "AND",
+            "start": 237.90181,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 238.70998,
+            "alignedWord": "THEN",
+            "start": 238.08141,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "then"
+        },
+        {
+            "start": 238.70998,
+            "end": 239.04921,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 239.2288,
+            "alignedWord": "IN",
+            "start": 239.04921,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "in"
+        },
+        {
+            "end": 239.74762,
+            "alignedWord": "PARALLEL",
+            "start": 239.2288,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "parallel"
+        },
+        {
+            "end": 239.83741,
+            "alignedWord": "WITH",
+            "start": 239.74762,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "end": 239.92721,
+            "alignedWord": "THE",
+            "start": 239.83741,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 240.64558,
+            "alignedWord": "RESISTOR",
+            "start": 239.92721,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "resistor,"
+        },
+        {
+            "start": 240.64558,
+            "end": 241.83288,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 242.10227,
+            "alignedWord": "THE",
+            "start": 241.83288,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 242.90045,
+            "alignedWord": "RESISTER",
+            "start": 242.10227,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "resister"
+        },
+        {
+            "start": 242.90045,
+            "end": 244.68639,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 244.88594,
+            "alignedWord": "IS",
+            "start": 244.68639,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 245.50454,
+            "alignedWord": "GOING",
+            "start": 244.88594,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "going"
+        },
+        {
+            "start": 245.50454,
+            "end": 245.74399,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 246.45238,
+            "alignedWord": "TO",
+            "start": 245.74399,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "start": 246.45238,
+            "end": 246.47234,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 246.68186,
+            "alignedWord": "BE",
+            "start": 246.47234,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "be"
+        },
+        {
+            "start": 246.68186,
+            "end": 246.72177,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 246.80159,
+            "alignedWord": "THE",
+            "start": 246.72177,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "start": 246.80159,
+            "end": 246.90136,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 247.08095,
+            "alignedWord": "VO/IO",
+            "start": 246.90136,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "VO/IO"
+        },
+        {
+            "start": 247.08095,
+            "end": 247.78934,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 248.22834,
+            "alignedWord": "OR",
+            "start": 247.78934,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "or"
+        },
+        {
+            "start": 248.22834,
+            "end": 248.98662,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 249.08639,
+            "alignedWord": "RO",
+            "start": 248.98662,
+            "line_idx": 7,
+            "speaker": "narrator",
+            "word": "RO."
+        },
+        {
+            "start": 249.08639,
+            "end": 249.64512,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 249.92449,
+            "alignedWord": "AND",
+            "start": 249.64512,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 250.42336,
+            "alignedWord": "THIS",
+            "start": 249.92449,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "start": 250.42336,
+            "end": 251.09184,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 251.55079,
+            "alignedWord": "BOX",
+            "start": 251.09184,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "box,"
+        },
+        {
+            "end": 251.8102,
+            "alignedWord": "THIS",
+            "start": 251.55079,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 252.09955,
+            "alignedWord": "ONE",
+            "start": 251.8102,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "one"
+        },
+        {
+            "start": 252.09955,
+            "end": 252.12948,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 252.4288,
+            "alignedWord": "BOARD",
+            "start": 252.12948,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "board"
+        },
+        {
+            "start": 252.4288,
+            "end": 257.27778,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 257.5771,
+            "alignedWord": "IS",
+            "start": 257.27778,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 257.63696,
+            "alignedWord": "A",
+            "start": 257.5771,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 257.95624,
+            "alignedWord": "WAY",
+            "start": 257.63696,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "way"
+        },
+        {
+            "end": 258.07596,
+            "alignedWord": "TO",
+            "start": 257.95624,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 258.86417,
+            "alignedWord": "SUMMARIZE",
+            "start": 258.07596,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "summarize"
+        },
+        {
+            "end": 258.99388,
+            "alignedWord": "THE",
+            "start": 258.86417,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 259.58254,
+            "alignedWord": "BEHAVIOR",
+            "start": 258.99388,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "behavior"
+        },
+        {
+            "end": 259.69229,
+            "alignedWord": "OF",
+            "start": 259.58254,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "of"
+        },
+        {
+            "start": 259.69229,
+            "end": 259.79206,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 260.02154,
+            "alignedWord": "ANY",
+            "start": 259.79206,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "any"
+        },
+        {
+            "end": 260.64014,
+            "alignedWord": "CIRCUITS",
+            "start": 260.02154,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "circuits."
+        },
+        {
+            "end": 260.89955,
+            "alignedWord": "FOR",
+            "start": 260.64014,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "For"
+        },
+        {
+            "end": 261.11905,
+            "alignedWord": "ANY",
+            "start": 260.89955,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "any"
+        },
+        {
+            "end": 261.578,
+            "alignedWord": "CIRCUIT",
+            "start": 261.11905,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 261.72766,
+            "alignedWord": "WITH",
+            "start": 261.578,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "with"
+        },
+        {
+            "start": 261.72766,
+            "end": 261.76757,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 262.1068,
+            "alignedWord": "LINEAR",
+            "start": 261.76757,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "linear"
+        },
+        {
+            "end": 262.64558,
+            "alignedWord": "COMPONENTS",
+            "start": 262.1068,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "components"
+        },
+        {
+            "start": 262.64558,
+            "end": 262.68549,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 262.80522,
+            "alignedWord": "THAT",
+            "start": 262.68549,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 263.23424,
+            "alignedWord": "ALLOWS",
+            "start": 262.80522,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "allows"
+        },
+        {
+            "end": 263.39388,
+            "alignedWord": "US",
+            "start": 263.23424,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "us"
+        },
+        {
+            "end": 263.48367,
+            "alignedWord": "TO",
+            "start": 263.39388,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 264.09229,
+            "alignedWord": "COMPUTE",
+            "start": 263.48367,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "compute"
+        },
+        {
+            "start": 264.09229,
+            "end": 264.84059,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 265.48912,
+            "alignedWord": "VO",
+            "start": 264.84059,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "VO"
+        },
+        {
+            "start": 265.48912,
+            "end": 265.65873,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 265.978,
+            "alignedWord": "AND",
+            "start": 265.65873,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "and"
+        },
+        {
+            "end": 266.64649,
+            "alignedWord": "IO",
+            "start": 265.978,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "IO,"
+        },
+        {
+            "start": 266.64649,
+            "end": 267.10544,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 267.23515,
+            "alignedWord": "WE",
+            "start": 267.10544,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "we"
+        },
+        {
+            "end": 267.38481,
+            "alignedWord": "CAN",
+            "start": 267.23515,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "can"
+        },
+        {
+            "end": 267.59433,
+            "alignedWord": "MAKE",
+            "start": 267.38481,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "make"
+        },
+        {
+            "end": 267.66417,
+            "alignedWord": "AN",
+            "start": 267.59433,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "an"
+        },
+        {
+            "end": 268.13311,
+            "alignedWord": "EQUIVALENT",
+            "start": 267.66417,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "end": 268.58209,
+            "alignedWord": "CIRCUIT",
+            "start": 268.13311,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "end": 268.74172,
+            "alignedWord": "THAT",
+            "start": 268.58209,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "that"
+        },
+        {
+            "end": 268.9712,
+            "alignedWord": "LOOKS",
+            "start": 268.74172,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "looks"
+        },
+        {
+            "end": 269.21066,
+            "alignedWord": "LIKE",
+            "start": 268.9712,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "like"
+        },
+        {
+            "end": 269.56984,
+            "alignedWord": "THIS",
+            "start": 269.21066,
+            "line_idx": 8,
+            "speaker": "narrator",
+            "word": "this."
+        },
+        {
+            "start": 269.56984,
+            "end": 269.74943,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 269.88912,
+            "alignedWord": "AND",
+            "start": 269.74943,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "And"
+        },
+        {
+            "end": 270.04875,
+            "alignedWord": "THIS",
+            "start": 269.88912,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "this"
+        },
+        {
+            "end": 270.14853,
+            "alignedWord": "IS",
+            "start": 270.04875,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "is"
+        },
+        {
+            "end": 270.36803,
+            "alignedWord": "CALLED",
+            "start": 270.14853,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "called"
+        },
+        {
+            "end": 270.4678,
+            "alignedWord": "THE",
+            "start": 270.36803,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "the"
+        },
+        {
+            "end": 271.07642,
+            "alignedWord": "NORTON",
+            "start": 270.4678,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "Norton"
+        },
+        {
+            "end": 271.58526,
+            "alignedWord": "EQUIVALENT",
+            "start": 271.07642,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "end": 271.91451,
+            "alignedWord": "CIRCUIT",
+            "start": 271.58526,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "circuit."
+        },
+        {
+            "start": 271.91451,
+            "end": 272.73265,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 272.90227,
+            "alignedWord": "WE",
+            "start": 272.73265,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "We"
+        },
+        {
+            "end": 273.03197,
+            "alignedWord": "HAVE",
+            "start": 272.90227,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "have"
+        },
+        {
+            "start": 273.03197,
+            "end": 273.20159,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 273.27143,
+            "alignedWord": "TWO",
+            "start": 273.20159,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "two"
+        },
+        {
+            "end": 273.74036,
+            "alignedWord": "DIFFERENT",
+            "start": 273.27143,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "different"
+        },
+        {
+            "end": 273.97982,
+            "alignedWord": "VERY",
+            "start": 273.74036,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "very"
+        },
+        {
+            "end": 274.35896,
+            "alignedWord": "SIMPLE",
+            "start": 273.97982,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "simple"
+        },
+        {
+            "end": 274.76803,
+            "alignedWord": "WAYS",
+            "start": 274.35896,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "ways"
+        },
+        {
+            "end": 274.82789,
+            "alignedWord": "TO",
+            "start": 274.76803,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 275.51633,
+            "alignedWord": "DESCRIBE",
+            "start": 274.82789,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "describe"
+        },
+        {
+            "start": 275.51633,
+            "end": 275.76576,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 275.88549,
+            "alignedWord": "AN",
+            "start": 275.76576,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "an"
+        },
+        {
+            "end": 276.39433,
+            "alignedWord": "EQUIVALENT",
+            "start": 275.88549,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "equivalent"
+        },
+        {
+            "end": 276.81338,
+            "alignedWord": "CIRCUIT",
+            "start": 276.39433,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "circuit"
+        },
+        {
+            "start": 276.81338,
+            "end": 276.93311,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "end": 277.26236,
+            "alignedWord": "TO",
+            "start": 276.93311,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "to"
+        },
+        {
+            "end": 277.37211,
+            "alignedWord": "A",
+            "start": 277.26236,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "a"
+        },
+        {
+            "end": 277.63152,
+            "alignedWord": "VERY",
+            "start": 277.37211,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "very"
+        },
+        {
+            "end": 278.15034,
+            "alignedWord": "COMPLICATED",
+            "start": 277.63152,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "complicated"
+        },
+        {
+            "end": 278.43968,
+            "alignedWord": "CIRCUIT",
+            "start": 278.15034,
+            "line_idx": 9,
+            "speaker": "narrator",
+            "word": "circuit."
+        },
+        {
+            "start": 278.43968,
+            "end": 280.90408,
+            "word": "{p}",
+            "alignedWord": "sp"
+        }
+    ]
+}
