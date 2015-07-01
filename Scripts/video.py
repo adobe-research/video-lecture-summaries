@@ -194,6 +194,15 @@ class Video:
     
     def ms2fid(self, ms):
         return int(ms/1000.0*self.fps)
+    
+    def capture_frame(self, fid):
+        cap = cv2.VideoCapture(self.filepath)
+        cap.set(1, fid)
+        ret, frame = cap.read()
+        if (frame == None):
+            return None
+        else:
+            return frame
             
     def capture_keyframes_fid(self, fnumbers, outdir= "./temp"):
         if len(fnumbers) == 0:
@@ -203,12 +212,12 @@ class Video:
             
         keyframes = []
         cap = cv2.VideoCapture(self.filepath)
-        fid = 0
-        while(cap.isOpened()):
+        for fid in fnumbers:
+            cap.set(1, fid)
             ret, frame = cap.read()
             if (frame == None):
-                break
-            if (fid in fnumbers):   
+                break;
+            else:
                 filename = outdir + "/capture_"        
                 filename = filename + ("%06i" % fid) + "_fid.png"
                 if not os.path.isfile(os.path.abspath(filename)):
@@ -216,7 +225,21 @@ class Video:
                     cv2.imwrite(filename, frame)
 #                 util.showimages([frame], "fid: %i"%fid)
                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid, self))
-            fid += 1            
+        
+#         fid = 0
+#         while(cap.isOpened()):
+#             ret, frame = cap.read()
+#             if (frame == None):
+#                 break
+#             if (fid in fnumbers):   
+#                 filename = outdir + "/capture_"        
+#                 filename = filename + ("%06i" % fid) + "_fid.png"
+#                 if not os.path.isfile(os.path.abspath(filename)):
+#                     print 'writing', os.path.abspath(filename)
+#                     cv2.imwrite(filename, frame)
+# #                 util.showimages([frame], "fid: %i"%fid)
+#                 keyframes.append(Keyframe(filename, frame, self.fid2ms(fid), fid, self))
+#             fid += 1            
         
         cap.release()
         if (len(keyframes) != len(fnumbers)):

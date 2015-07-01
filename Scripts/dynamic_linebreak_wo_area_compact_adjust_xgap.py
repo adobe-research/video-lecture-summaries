@@ -207,7 +207,7 @@ def weighted_avg_linecost(list_of_lines):
         maxgap = xprojcost
         xprojcost = 0.01 * xprojcost
         xprojcost = math.pow(xprojcost, 2.0)
-        xprojcost = 0.5 * xprojcost
+        xprojcost = 1.0 * xprojcost
         sum_xprojcost += xprojcost
         
         compactcost = bbox_fill_ratio(line)
@@ -393,8 +393,9 @@ if __name__ == "__main__":
     mybreaker = LineBreaker(list_of_objs, panorama, outvideo)
     lines = mybreaker.breaklines()
     result = visualize_lines(panorama, lines)
-#     util.showimages([result])
+    util.showimages([result])
     util.saveimage(result, objdirpath, outfilename + ".png")
     util.write_ints(mybreaker.best_line_id[-1], objdirpath + "/linebreak_wo_area_compact_adjust_xgap_ids.txt")
+    outvideo.release()
     
 

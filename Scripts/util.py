@@ -59,9 +59,9 @@ def get_imgs(dirname, name=None, ext=".png"):
                 imagefiles.append(filename)
                 images.append(cv2.imread(filename))
         elif name in filename and ext in filename:
-            print 'here', dirname + "/" + filename
+            print 'here', dirname + "\\" + filename
             imagefiles.append(filename)
-            img = cv2.imread(dirname + "/" + filename)
+            img = cv2.imread(dirname + "\\" + filename)
             images.append(img)
     return imagefiles, images
 
@@ -240,7 +240,7 @@ def saveimage(img, outdir, filename):
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
 #     if not os.path.isfile(os.path.abspath(outdir + "/" + filename)):
-    cv2.imwrite(outdir + "/" + filename, img)
+    cv2.imwrite(outdir + "\\" + filename, img)
 #     print 'util.saveimage', (outdir+"/" +filename)
     
 

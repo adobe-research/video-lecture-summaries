@@ -6233,30 +6233,6 @@
             "alignedWord": "sp"
         },
         {
-            "end": 391.55261,
-            "alignedWord": "[INAUDIBLE",
-            "start": 391.11361,
-            "line_idx": 10,
-            "speaker": "narrator",
-            "word": "[inaudible"
-        },
-        {
-            "end": 392.22109,
-            "alignedWord": "0631]",
-            "start": 391.55261,
-            "line_idx": 10,
-            "speaker": "narrator",
-            "word": "06:31]"
-        },
-        {
-            "end": 392.64014,
-            "alignedWord": "CURRENTS",
-            "start": 392.22109,
-            "line_idx": 10,
-            "speaker": "narrator",
-            "word": "...currents"
-        },
-        {
             "end": 392.95941,
             "alignedWord": "INTO",
             "start": 392.64014,

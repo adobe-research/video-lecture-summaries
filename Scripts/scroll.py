@@ -19,6 +19,8 @@ def write_scroll_coord(video, panorama):
         if (frame == None):
             break
         topleft = pf.find_object_exact_inside(panorama, frame, threshold=0)
+        if topleft is None:
+            topleft = (-1, -1)
         scrolltxt.write("%i\t%i\n"%(topleft[0], topleft[1]))
     
     scrolltxt.close()

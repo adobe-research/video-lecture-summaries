@@ -12,8 +12,10 @@ def fillcolor(img, logos, color):
     outimg = img.copy()
     for logo in logos:
         hlogo, wlogo = logo.shape[0:2]
-        topleft = pf.find_object_exact_inside(outimg, logo, 0.85)        
+        topleft = pf.find_object_exact_inside(outimg, logo, 0.80)        
         if (topleft is None):
+            img_copy = img.copy()
+            util.showimages([img_copy], "no logo")
             continue
         else:
             tlx = topleft[0]
@@ -22,7 +24,7 @@ def fillcolor(img, logos, color):
         bry = tly + hlogo        
         img_copy = img.copy()
         cv2.rectangle(img_copy, topleft, (brx,bry), 255, 2)
-#         util.showimages([img_copy], "logo detected")
+        util.showimages([img_copy], "logo detected")
 
         outimg[tly:bry, tlx:brx, 0] = color[0]
         outimg[tly:bry, tlx:brx, 1] = color[1]
@@ -64,7 +66,7 @@ if __name__ == "__main__":
     """Removes logo from video or image"""
     target = sys.argv[1]
     logodir = sys.argv[2]
-    outdir = sys.argv[3]
+    outdir = target
     extension = os.path.splitext(target)[1]
     logos = util.get_logos(logodir)    
     
@@ -77,7 +79,7 @@ if __name__ == "__main__":
     else:    
         imagefiles, images = util.get_capture_imgs(target)
         print len(images)
-        processed_path = outdir + "/removelogo"
+        processed_path = outdir + "\\removelogo"
         if not os.path.exists(processed_path):
             os.makedirs(processed_path)
         
@@ -85,7 +87,7 @@ if __name__ == "__main__":
             print imagefiles[i]
             img = images[i]
             outimg = fillcolor(img, logos, (0,0,0))
-            cv2.imwrite(processed_path+"/"+ imagefiles[i], outimg)
+            cv2.imwrite(processed_path+"\\"+ imagefiles[i], outimg)
             
             
             

@@ -133,8 +133,24 @@ class ProcessVideo:
 
         while(index < self.numframes):
             ret, frame = cap.read()
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            gray = util.grayimage(frame)
             counts[index] = pf.numfgpix_thresh(gray, fgthres)
+            index += 1
+        cap.release()
+        return counts   
+    
+    def countfgpix_white(self, fgthres):
+        """Return number of foreground pixels"""    
+        cap = cv2.VideoCapture(self.video)    
+        counts = np.empty(self.numframes)
+        index = 0
+
+        while(index < self.numframes):
+            ret, frame = cap.read()
+            if ret is False:
+                break
+            gray = util.grayimage(frame)
+            counts[index] = pf.numfgpix_thresh(gray, fgthres, False)
             index += 1
         cap.release()
         return counts    

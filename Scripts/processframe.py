@@ -13,7 +13,8 @@ import math
 from nltk.tbl import template 
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
-BLACK_BG_THRESHOLD = 100
+BLACK_BG_THRESHOLD = 30
+BLACK_BG_VAR_THRESHOLD = 255
 WHITE_BG_THRESHOLD = 225
 
 def xcut(img, x):
@@ -166,16 +167,16 @@ def fgmask(image, threshold=WHITE_BG_THRESHOLD, var_threshold=255, inv=False):
 #         var_threshold = 255
 #     if (inv is None):
 #         inv = False
-    var = np.var(image, 2, dtype=np.uint8)    
-    ret, var_mask = cv2.threshold(var, var_threshold, 255, cv2.THRESH_BINARY)       
-    # cv2.imshow("var_mask", var_mask)
+#     var = np.var(image, 2, dtype=np.uint8)    
+#     ret, var_mask = cv2.threshold(var, var_threshold, 255, cv2.THRESH_BINARY)       
     # cv2.waitKey(0)
     img2gray = util.grayimage(image)
-    
-    ret, lum_mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)    
-    mask = cv2.bitwise_or(var_mask, lum_mask)
+    ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY)    
+#     mask = cv2.bitwise_or(var_mask, lum_mask)
+#     util.showimages([var_mask, lum_mask], "var mask")
+
 #     util.showimages([mask])
-    if (inv):
+    if (inv == False):
         mask = cv2.bitwise_not(mask)
 #         util.showimages([mask], "inv=True")
     return mask
@@ -603,10 +604,11 @@ def removebg_khan(gray_frame):
     dest[gray_frame >= 100] = 0
     return dest
 
-def numfgpix_thresh(gray, fgthres):
-    ret, threshimg = cv2.threshold(gray, fgthres, 50, cv2.THRESH_BINARY) #for black background
+def numfgpix_thresh(gray, fgthres, inv=True):
+    mask = fgmask(gray, fgthres, 255, inv)
+#     ret, threshimg = cv2.threshold(gray, fgthres, 50, cv2.THRESH_BINARY) #for black background
 #     ret, threshimg = cv2.threshold(gray, fgthres, 225, cv2.THRESH_BINARY_INV) #for white background
-    numfg = np.count_nonzero(threshimg)
+    numfg = np.count_nonzero(mask)
     logging.debug("#fg pix %i", numfg)
 #     util.showimages([threshimg], "processframe::numfgpix_thres")
     return numfg
@@ -740,6 +742,7 @@ def get_diff_objimg(start_img, end_img, x1,y1, x2,y2):
         return end_img
     
     diff_img[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(endimg_overlap, startimg_overlap)
+    diff_img = cv2.min(end_img, diff_img) 
     return diff_img
 
 

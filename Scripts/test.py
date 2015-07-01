@@ -19,6 +19,7 @@ from visualobjects import VisualObject
 import lectureplot as lecplot
 import linebreak
 import fgpixel_segmentation as fgpixel
+import fgpixel_objfids as fgobj
 
 
 
@@ -400,9 +401,22 @@ def test_y_cut_at_gap():
         list_of_cut_objs = list_of_cut_objs + VisualObject.y_cut_at_gap(obj, outdir)
     VisualObject.write_to_file(outdir + "/obj_info.txt", list_of_cut_objs)
 
+def test_numfg_objfids():
+    video = Video(sys.argv[1])
+    fgpixel_txt = sys.argv[2]
+    numfg = fgpixel.read_fgpixel(fgpixel_txt)
+    numfg = np.array(numfg)
+    index = fgobj.plateaus(numfg, int(2*video.fps), 1)
+    index = fgobj.end_of_plateaus(index)
+#     print 'len', len(index)
+    fgobj.plot_plateaus(numfg, index, video)
     
 if __name__ == "__main__":
+
+
     test_x_cut_at_gap()
+#     test_numfg_objfids()
+    
     
     
        

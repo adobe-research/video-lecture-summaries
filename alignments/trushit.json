@@ -7,22 +7,6 @@
             "alignedWord": "sp"
         },
         {
-            "end": 1.04014,
-            "alignedWord": "TRUSHIT",
-            "start": 0.83061,
-            "line_idx": 0,
-            "speaker": "narrator",
-            "word": "Trushit"
-        },
-        {
-            "end": 1.25964,
-            "alignedWord": "VAISHNAV",
-            "start": 1.04014,
-            "line_idx": 0,
-            "speaker": "narrator",
-            "word": "Vaishnav"
-        },
-        {
             "end": 1.32948,
             "alignedWord": "IN",
             "start": 1.25964,

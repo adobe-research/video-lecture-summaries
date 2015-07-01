@@ -93,7 +93,7 @@ def get_words(aligned_json):
         if ("{" in line):
             word = parse_word(fp)
             word.stc_idx = stc_idx
-            if ('.' in word.original_word or '?' in word.original_word):
+            if ('.' in word.original_word or ('?\'' not in word.original_word and '?' in word.original_word)):
                 stc_idx += 1
             if (not word.issilent):
                 list_of_words.append(word)
@@ -108,7 +108,8 @@ def parse_word(fp):
     startt = -1.0
     endt = -1.0
     
-    line = fp.readline()    
+    line = fp.readline()   
+#     print line 
     while (line != None):
         if ("\"end\":" in line):
             temp = line.split(':')

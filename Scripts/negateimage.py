@@ -14,6 +14,7 @@ if __name__ == "__main__":
     for filename in filelist:
         if ".png" in filename:
             imagefiles.append(filename)
+        
             
     processed_path = dir_path + "/negate"
     if not os.path.exists(processed_path):

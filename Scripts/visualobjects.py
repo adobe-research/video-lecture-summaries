@@ -26,8 +26,8 @@ class VisualObject:
         self.tlx = tlx
         self.tly = tly
         self.height, self.width = self.img.shape[:2]
-        self.brx = tlx + self.width
-        self.bry = tly + self.height
+        self.brx = tlx + self.width-1
+        self.bry = tly + self.height-1
         self.istext = istext
         self.text = text
         self.isgroup = isgroup

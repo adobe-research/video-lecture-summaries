@@ -17,7 +17,7 @@ def remove_duplicate_pixels(visobj, panorama_fg, cleanupdir):
     """objects appear only once, related to first time that they appear
         panorama_fg: all objects that can still appear in panorama 
         visobj: current visobj to be cleaned """
-    obj_mask = pf.fgmask(visobj.img, 25, 150, True)
+    obj_mask = pf.fgmask(visobj.img, pf.BLACK_BG_THRESHOLD, 225, True)
 #     util.showimages([visobj.img, obj_mask])
     print visobj.tlx, visobj.tly, visobj.brx, visobj.bry
 #     cv2.rectangle(panorama_fg, (3, 3), (100, 100), (255,255,255), 2)
@@ -95,8 +95,8 @@ def main_remove_duplicate_pixels():
     visobjs = VisualObject.objs_from_file(None, objdir)
     print '# objs before cleanup', len(visobjs)
     panorama = cv2.imread(panorama_path)
-    panorama_fg = pf.fgmask(panorama, 10, 150, True)
-#     util.showimages([panorama, panorama_fg])
+    panorama_fg = pf.fgmask(panorama, pf.BLACK_BG_THRESHOLD, 255, True)
+    util.showimages([panorama, panorama_fg])
 
     list_of_new_visobjs = []
     for visobj in visobjs:
@@ -187,8 +187,8 @@ def main_group_color_time_space():
     VisualObject.write_to_file(groupdir + "/obj_info.txt", grouped_objs)
         
 if __name__ == "__main__":
-#     main_remove_duplicate_pixels()
-    main_group_consecutive_objs()
+    main_remove_duplicate_pixels()
+#     main_group_consecutive_objs()
 #     main_group_overlapping()
         
         

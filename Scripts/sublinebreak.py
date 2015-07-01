@@ -127,7 +127,7 @@ def avg_linecost(list_of_lines, list_of_sentences):
         next_startstroke = nextline[0].list_of_strokes[0]
         next_startt = next_startstroke.video.fid2ms(next_startstroke.obj.start_fid)
         tgap = (next_startt - cur_endt)/1000.0
-        time_gap_penalty += 1.0/tgap
+        time_gap_penalty += 1.0/(tgap+1.0)
     
     score = nword_score + overlap_penalty #+ time_gap_penalty
     

@@ -111,7 +111,7 @@ def write_subline_img(html, subline, figdir, video):
     html.writestring("<object onclick=\"playvideo_at(%i);showline%i_sub%i();\">"%(startt, lineid, subid))
     h,w = label_img.shape[0:2]
     imgpath = html.relpath(figdir +"/" + label_imgpath)
-    html.writestring("<img src= \"%s\" width=\"%s\" height=\"%s\" class=\"textlink\" startt=\"%s\" endt=\"%s\" />\n" % (imgpath, 0.75*w, 0.75*h, startt, endt))
+    html.writestring("<img src= \"%s\" width=\"%s\" height=\"%s\" class=\"textlink\" startt=\"%s\" endt=\"%s\" />\n" % (imgpath, w, h, startt, endt))
     html.writestring("</object>\n")
 #     html.image(figdir + "/" + label_imgpath, width=0.75*w, height=0.75*h, class_string="textlink")
 #     html.writestring("</div>")
@@ -242,7 +242,7 @@ if __name__ == "__main__":
                                                                 objdir, scriptpath)
      
 
-    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"../../../../../../../Mainpage/subline_test_video.css")
+    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"../Mainpage/subline_test_video.css")
 
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
