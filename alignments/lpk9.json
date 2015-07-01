@@ -1394,7 +1394,7 @@
             "start": 92.04331,
             "line_idx": 3,
             "speaker": "narrator",
-            "word": "'R?'"
+            "word": "'R?'."
         },
         {
             "start": 92.51224,
@@ -1726,7 +1726,7 @@
             "start": 120.87778,
             "line_idx": 4,
             "speaker": "narrator",
-            "word": "what"
+            "word": "'What"
         },
         {
             "end": 121.73583,
@@ -1770,7 +1770,7 @@
             "start": 124.05057,
             "line_idx": 4,
             "speaker": "narrator",
-            "word": "IO?"
+            "word": "IO?'."
         },
         {
             "start": 124.5195,
@@ -1868,7 +1868,7 @@
             "start": 128.84966,
             "line_idx": 4,
             "speaker": "narrator",
-            "word": "if"
+            "word": "'If"
         },
         {
             "end": 129.14898,
@@ -1994,7 +1994,7 @@
             "start": 132.3517,
             "line_idx": 4,
             "speaker": "narrator",
-            "word": "here?"
+            "word": "here?'."
         },
         {
             "start": 132.661,
