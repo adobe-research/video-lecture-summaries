@@ -1,0 +1,21 @@
+
+
+Woman: We were going to look at something that's like Thevenin equivalent only it's called the Norton equivalent circuit, Norton equivalent.
+
+And just as a reminder, let's look at one port, lines coming in, current I, voltage here and we were going to let V0 be the voltage when I equals zero and I0 be -I, when V is equal to zero.
+
+And we defined R0 to be I0 over V0. OK now for the Norton equivalent let's again...we'll make a simple circuit that we don't understand.
+
+This time it's going to be one with a current source in parallel with a resistor. The Thevenin was a voltage source in series of the resistor; Norton is a current source in parallel with the resistor and will call this guy 'I?' and this guy 'R?'
+
+And we draw a box like this, and we are again interested in the I, relationship between this voltage difference in that current. Now, for this circuit we can ask ourselves what are VO and IO, what's VO? We want to ask the question if we don't add any wires to this.
+
+What's the voltage difference between here and here? To figure that out we had to figure out the current and the resistance, it looks like VO, the voltage difference across here is going to be 'I?' or question mark, equals IR, that's the voltage across here.
+
+And the current, just think about what IO is remember to do that we figure out the short circuit current, if we just connected those wires up we would ask ourselves, "What's the current?" well, there we just have this loop here and I always -I and -I is pretty clearly 'I?'
+
+So this is going to 'I?'. OK, if we solve here we figure out 'I?' is equal to I and 'R?' is going to be the O or IO. OK interesting that tells us that if we have a circuit where we have specified what the VO and the IO need to be, then another circuit that has that equivalent behavior is the one that looks like this where we have our current source, the current source here and it's going to be IO amps and then in parallel with the resistor, the resister is going to be the VO or IO or RO.
+
+And this box, this one board is a way to summarize the behavior of any circuits. For any circuit with linear components that allows us to compute VO and IO; we can make an equivalent circuit that looks like this.
+
+And this is called the Norton equivalent circuit; we have two different very simple ways to describe an equivalent circuit to a very complicated circuit.

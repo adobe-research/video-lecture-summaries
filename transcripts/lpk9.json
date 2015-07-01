@@ -1,0 +1,42 @@
+[
+    {
+        "line": "We were going to look at something that's like Thevenin equivalent only it's called the Norton equivalent circuit. Norton equivalent.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "And just as a reminder, let's look at one port. It looks like these two lines coming in, current I, voltage here. And we were going to let V0 be the voltage when I equals zero and I0 be -I, when V is equal to zero.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "And we defined R0 to be I0 over V0. OK. So, now for the Norton equivalent let's again make a simple circuit that we don't understand.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "This time it's going to be one with a current source in parallel with a resistor. The Thevenin was a voltage source in series of the resistor. Norton is a current source in parallel with the resistor. And we will call this guy 'I?' and this guy 'R?'.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "And we draw a box like this. We are again interested in the I, relationship between this voltage difference in that current. Now, for this circuit we can ask ourselves 'What are VO and IO?'. So, What's VO? We want to ask the question 'If we don't add any wires to this, what's the voltage difference between here and here?'.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "To figure that out we had to figure out the current and the resistance, it looks like VO, the voltage difference across here is going to be 'I?R?' equals IR. That's the voltage across here.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "And the current. So let's think about what IO is. Remember to do that we figure out the short circuit current. So, if we just connected those wires up we would ask ourselves, 'What's the current?'. Well, there we just have this loop here and I0 is -I and -I is pretty clearly 'I?'",
+        "speaker": "narrator"
+    },
+    {
+        "line": "So this is going to 'I?'. OK, if we solve here we figure out 'I?' is equal to I and 'R?' is going to be the VO/IO. OK interesting. That tells us that if we have a circuit where we have specified what the VO and the IO need to be, then another circuit that has that equivalent behavior is the one that looks like this where we have our current source, the current source here and it's going to be IO amps and then in parallel with the resistor, the resister is going to be the VO/IO or RO.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "And this box, this one board is a way to summarize the behavior of any circuits. For any circuit with linear components that allows us to compute VO and IO, we can make an equivalent circuit that looks like this.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "And this is called the Norton equivalent circuit. We have two different very simple ways to describe an equivalent circuit to a very complicated circuit.",
+        "speaker": "narrator"
+    }
+]

@@ -1,0 +1,78 @@
+[
+    {
+        "line": "Now we're going to start thinking about circuits, which offer us a very different kind of system of primitives and combinations. We can think of a circuit as a network of components. I'm going to draw an example circuit here. I'm not going to be specific yet, about what the components are. So I'm just going to draw them as boxes. We'll put one here, and one here, and one over here.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "We can connect them up, like this. We'll put another object down here, another component, and another component. Let's connect them all up downstairs, like this. We'll let this guy flow into this one and send a little branch over here. So here's a circuit. It has five components.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "What we're going to do, when we think about the circuit, is to think about two important things. In the circuit there are currents and voltages. Currents all have a direction. Each component is going to have a current, which goes through it, and a voltage, which is across it. So each component has a current through--these are the words we use when we talk about it--and a voltage across.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "You're maybe used to thinking about a current as flowing in a particular direction. We're at this point just going to, in some sense, arbitrarily label the directions of our currents. Later, when we solve, we can figure out whether they're positive or negative. Let's start labeling our diagram.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "I already put the arrows in, which was maybe a little bit premature, but there's a current flowing through this component. I'm going to call it I1, I-current 1. There's a voltage across the component which goes in the direction of the current, and we're going to call that V1. So that component has an I1 and a V1.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "We'll call this I2 and the voltage here V2. We'll call this I3, then the voltage here V3, V4, I4, V5, and I5. I'm going to make these dots a little bit bigger just to indicate that these wires are connected together. So there's our circuit diagram. We've shown the components in the circuit. We've shown currents through the components and voltages across. That was for components.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Let me just write this here, so we keep this straight. For components, that's what we have. Now we're going to have something called a node, which is basically where two or more wires meet. In this circuit, let's figure out where the nodes are, and we'll label them. Here's a place where a bunch of wires meet. I'm actually going to get a new color. I'm going to get this red.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "I'm going to say this is node 1. It sometimes confuses people, what a node is. It's not really that spot. It's, in some sense, this whole bit of wire that goes here, and down here, and over here, and down here. We assume that it's basically all at the same voltage level, compared to other things, so that this wire is essentially...all got the same voltage on it, the same potential.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That's one node, the red node. Let's find another node. See this node here, we'll call it N2. It's really all this wire here, and this wire over here, and this wire over here. Finally, we have one more node. We'll call it N3. Just for fun, we'll color it purple. So this node down here is N3.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "It's all these wires, which are connected together--all this, and all this, and all this over here, is really all one node. Back to blue. We now have components and we have nodes, which where two or more wires meet. Now we can write down the fundamental laws of circuits and how they behave. There's two of them. There's Kirchhoff's current law.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Kirchhoff's current law, known to its friends as KCL, says that, 'The sum of the currents [inaudible 06:31] ...currents into a node is zero.' Let's see what this means in our picture. Again, one important thing is, we're going to have to treat all these...When we write out KCL equations--they'll give us a bunch of equations--when we write them out, we have to treat the arrows in a uniform way.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "But we can pick whether going in is positive or going out is positive. I'm going to pick 'going out' as positive. I'm going to take this node, N1. I'm going to say that I1+I2+I3 has to equal 0. That's what KCL says about node 1. These currents are all flowing in the same direction. Well, they aren't really.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "What this tells us is that probably one of these, at least, is going to have to be negative, but somehow those three currents have to sum up to zero. We have them all positive signs, because they're all going out of N1. So that's the KCL for N1. Now, let's look at node 2. Node 2, we have two currents going out, I4 and I5. So I'm going to say I4+I5. We have one current coming in.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That is the current that's flowing through this component. This current coming in is I2. To give it a different sign, -I2 is equal to 0. That's KCL for that node. Finally, we have this one more node down here, this crazy big old node. What we see, for this node, all the currents are flowing into it, which means they should all get a negative sign.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Of course, if they all have a negative sign it doesn't really matter, but just to keep the convention up I'll do that. So I have -I1 -I4, I'm just going along the bottom, -I5 -I3 equal 0. In any circuit, if you label all the nodes and then you sum up the currents in the node, and say at that node the current sum to zero, that will be all the ways that you can apply Kirchhoff's current law.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "There's one more law. It's Kirchhoff's voltage law, known as KVL. That says, 'The sum of voltages around any loop is zero'. If you look at a circuit, there's lots of different loops. We'll just pick a particular loop and see what the KVL is for that loop. I'm going to make this loop be orange. Let's think about a particular loop that goes around this way.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Imagine that we start here, and we go through V1 and down here, and over this way, and back up here, and through this component, and back around to here. So there's a loop and I went around it in that direction. The direction doesn't really matter, but it'll help us keep some things straight. I went through this component in the positive direction.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "The voltage difference here is V1, so I have V1. Then I went around this one backwards. I went against its voltage direction. So I have V1-V5. Again, I went backwards through this one. So I have -V2 and that has to equal zero. There are lots of different KVL equations that you can write down for any given circuit.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Later, in the very last one of these mini lectures, we'll talk about how to not have to worry in detail about exactly which KVL equations to use. We'll come up with a systematic way to go. But the KVL equations are all true. Any loop that you go around has to have the voltages sum to zero.",
+        "speaker": "narrator"
+    }
+]
