@@ -319,14 +319,12 @@ class Video:
         cap = cv2.VideoCapture(self.filepath)
         fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
         out = cv2.VideoWriter(outvideo, int(fourcc), int(self.fps), ((brx + 1 - tlx), (bry + 1 - tly)))
-        print (brx + 1 - tlx), (bry + 1 - tly)
         cap.set(1, start_fid)
         for i in range(start_fid, end_fid):
             ret, frame = cap.read()
             if (not ret):
                 break
             cropframe = pf.cropimage(frame, tlx, tly, brx, bry)
-            print cropframe.shape[:2]
             out.write(cropframe)
         cap.release()
         out.release()
