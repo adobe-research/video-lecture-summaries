@@ -22,10 +22,11 @@ if __name__ == "__main__":
     
     video = Video(videopath)
     for subline in list_of_sublines:
-        obj = subline.obj
+        subobj = subline.obj
+        lineobj = subline.linegroup.obj
         filename, ext = os.path.splitext(subline.obj.imgpath)
         outvideo = filename + ".avi"
-        video.crop(obj.tlx, obj.tly, obj.brx, obj.bry, obj.start_fid, obj.end_fid, outvideo)
+        video.crop(lineobj.tlx, lineobj.tly, lineobj.brx, lineobj.bry, subobj.start_fid, subobj.end_fid, outvideo)
         
     list_of_subline_objs = [subline.obj for subline in list_of_sublines]
     sublinedir = list_of_sublines[0].objdir
