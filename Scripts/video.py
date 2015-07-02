@@ -287,32 +287,11 @@ class Video:
         return keyframes
     
     def getframe_ms(self, t):
-        cap = cv2.VideoCapture(self.filepath)
-        frame_t = 0.0
-        tol = 1000.0/self.fps
-        while(cap.isOpened()):          
-            ret, frame = cap.read()
-            if (ret == True):
-                if(abs(t - frame_t) < tol):
-                    cap.release()
-                    return frame
-                frame_t += 1000.0/self.fps
-            else:
-                break
-        cap.release()
-        return
+        fid = self.ms2fid(t)
+        return self.captureframe(fid)
     
     def getframe_fid(self, fid):
-        cap = cv2.VideoCapture(self.filepath)
-        frameid = 0
-        while(cap.isOpened()):
-            ret, frame = cap.read()
-            if (frameid == fid):
-                return frame
-            elif frameid > fid:
-                break
-        cap.release()
-        return
+        return self.captureframe(fid)
     
     def highlight_new(self):
         """Highlight new part in each frame using absdiff with previous frame"""
@@ -334,5 +313,25 @@ class Video:
                 break
         cap.release()
         cv2.destroyAllWindows()
+        
+        
+    def crop(self, tlx, tly, brx, bry, start_fid, end_fid, outvideo):
+        cap = cv2.VideoCapture(self.filepath)
+        fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
+        out = cv2.VideoWriter(outvideo, int(fourcc), int(self.fps), ((brx + 1 - tlx), (bry + 1 - tly)))
+        print (brx + 1 - tlx), (bry + 1 - tly)
+        cap.set(1, start_fid)
+        for i in range(start_fid, end_fid):
+            ret, frame = cap.read()
+            if (not ret):
+                break
+            cropframe = pf.cropimage(frame, tlx, tly, brx, bry)
+            print cropframe.shape[:2]
+            out.write(cropframe)
+        cap.release()
+        out.release()
+        
+        
+ 
 
     

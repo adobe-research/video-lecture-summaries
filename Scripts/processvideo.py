@@ -163,7 +163,8 @@ class ProcessVideo:
         for val in fgpixfile:
             fgpix.append((int(val)))
         return fgpix
-
+    
+ 
     def printfgpix(self, counts, txtfilename=None):
         """Print and plot number of foreground pixels per frame"""
         txtfilename = self.videoname + "_numfgpix.txt"        
