@@ -317,8 +317,8 @@ class Video:
         
     def crop(self, tlx, tly, brx, bry, start_fid, end_fid, outvideo):
         cap = cv2.VideoCapture(self.filepath)
-        fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
-        out = cv2.VideoWriter(outvideo, int(fourcc), int(self.fps), ((brx + 1 - tlx), (bry + 1 - tly)))
+        fourcc1 = int(cv2.cv.CV_FOURCC('m', 'p', '4', 'v'))
+        out = cv2.VideoWriter(outvideo, int(fourcc1), int(self.fps), ((brx + 1 - tlx), (bry + 1 - tly)))
         cap.set(1, start_fid)
         for i in range(start_fid, end_fid):
             ret, frame = cap.read()
