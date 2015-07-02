@@ -1,0 +1,14 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+3	2028	29	16	543	152	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_000003_002028.png
+2028	2417	67	81	138	143	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_002028_002417.png
+2417	2877	36	82	150	140	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_002417_002877.png
+2877	3151	22	73	187	160	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_002877_003151.png
+3151	3534	143	62	169	141	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_003151_003534.png
+3534	4235	109	186	119	203	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_003534_004235.png
+4235	4622	119	183	188	205	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_004235_004622.png
+4622	4821	112	222	133	236	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_004622_004821.png
+5021	5545	141	219	163	232	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_005021_005545.png
+5545	6634	109	216	188	271	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_005545_006634.png
+6634	6942	94	322	120	345	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_006634_006942.png
+6942	7502	76	299	215	368	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_006942_007502.png
+7502	8142	63	286	205	384	..\..\Desktop\lpkVideos\9\lec_fgpix_objs\/cleanup/obj_007502_008142.png
