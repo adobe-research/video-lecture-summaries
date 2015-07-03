@@ -25,9 +25,9 @@ if __name__ == "__main__":
         subobj = subline.obj
         lineobj = subline.linegroup.obj
         filename, ext = os.path.splitext(subline.obj.imgpath)
-        outvideo = filename + ".avi"
+        outvideo = filename + ".mp4"
         video.crop(lineobj.tlx, lineobj.tly, lineobj.brx, lineobj.bry, subobj.start_fid, subobj.end_fid, outvideo)
         
     list_of_subline_objs = [subline.obj for subline in list_of_sublines]
     sublinedir = list_of_sublines[0].objdir
-    VisualObject.write_to_file(sublinedir + "/obj_info.txt", list_of_sublines)
+    VisualObject.write_to_file(sublinedir + "/obj_info.txt", list_of_subline_objs)
