@@ -385,7 +385,7 @@ def test_numfgframe():
         
 def test_x_cut_at_gap():
     objdir = sys.argv[1]
-    outdir = objdir + "/xcut"
+    outdir = objdir + "/xcut/"
     list_of_objs = VisualObject.objs_from_file(None, objdir, None)
     list_of_cut_objs = []
     for obj in list_of_objs:

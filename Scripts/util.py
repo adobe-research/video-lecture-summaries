@@ -240,7 +240,7 @@ def saveimage(img, outdir, filename):
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
 #     if not os.path.isfile(os.path.abspath(outdir + "/" + filename)):
-    cv2.imwrite(outdir + "\\" + filename, img)
+    cv2.imwrite(outdir + "/" + filename, img)
 #     print 'util.saveimage', (outdir+"/" +filename)
     
 

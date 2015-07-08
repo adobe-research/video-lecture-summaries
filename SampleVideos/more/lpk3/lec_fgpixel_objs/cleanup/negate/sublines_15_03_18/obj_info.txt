@@ -1,1 +1,0 @@
-start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename

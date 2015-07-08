@@ -52,8 +52,8 @@ def plot_plateaus(numfg, index, video=None):
     plt.xlabel("frames")
     plt.ylabel("pixels")
     plt.xlim(0, len(numfg))
-    plt.show()
     plt.savefig(video.videoname + "_fid_indices.png")
+    plt.show()
     plt.close()
     
 def get_obj_fids(end_of_plateau_fids, nufg):
@@ -112,22 +112,27 @@ if __name__ == "__main__":
     numfg = np.array(numfg)
     index = plateaus(numfg, int(video.fps), 1)
     index = end_of_plateaus(index)
-    plot_plateaus(numfg, index, video)
-      
+    
+    print 'numframes', video.numframes -1, 'numfg', len(numfg)  
+    
     obj_fids = []
     cap_fids = []
     prev_fg = 0
     prev_id = -1
+    last_id = video.numframes-1
+    cap_fids.append(prev_id)
     for i in index:
         cur_fg = numfg[i]
         fg_diff = cur_fg - prev_fg
-        if (fg_diff > 5):
+        if (fg_diff > 0):
             obj_fids.append((prev_id, i))
-            cap_fids.append(prev_id)
             cap_fids.append(i)
             prev_id = i
             prev_fg = cur_fg
-    
+    obj_fids.append((prev_id, last_id))
+    cap_fids.append(last_id)
+    plot_plateaus(numfg, cap_fids, video)
+
     """write object times"""
     outfile = video.videoname + "_fgpixel_obj_fids.txt"
     frameids = open(outfile, "w")

@@ -14,8 +14,8 @@ from video import Video
 from visualobjects import VisualObject
 import label
 
-collapsed_icon ="../Mainpage/figures/arrow_collapsed_icon_2.png" # ##../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"
-expanded_icon ="../Mainpage/figures/arrow_collapsed_icon_2.png"#../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"
+collapsed_icon ="../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#""../Mainpage/figures/arrow_collapsed_icon_2.png" # ##
+expanded_icon ="../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"#"../Mainpage/figures/arrow_collapsed_icon_2.png"#
 
 stopwords = []
 
@@ -242,22 +242,22 @@ if __name__ == "__main__":
                                                                 objdir, scriptpath)
      
 
-    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"../Mainpage/subline_test_video.css")
+    html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =outdir+"../../../../../../Mainpage/subline_test_video.css")
 
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
 
-    videostring="player"
-    html.opendiv(idstring="vid")
-    html.opendiv(idstring="ytplayer")
-    html.writestring("\t")
-    html.opendiv(idstring=videostring)
-    html.closediv() #player
-    html.closediv() #ytplayer
-    html.closediv() #vid
+#     videostring="player"
+#     html.opendiv(idstring="vid")
+#     html.opendiv(idstring="ytplayer")
+#     html.writestring("\t")
+#     html.opendiv(idstring=videostring)
+#     html.closediv() #player
+#     html.closediv() #ytplayer
+#     html.closediv() #vid
 
     
-    html.opendiv(idstring="summary")
+    html.opendiv(idstring="summary1")
     
     html.opendiv(idstring="transcriptbutton")
     html.writestring("<button id=\"expand\" onclick=\"expandall()\">Expand all transcript</button>")

@@ -30,22 +30,42 @@ body {
     float:left;
 }
 
+#summary1 {
+    display: inline-block;
+    width: 45%;
+    float: center;
+}
+
+video {
+    vertical-align: middle;
+}
+
 p {
     width: 100%;
     text-align: left;
     line-height: 1.35;
+    margin-bottom: 1px;
+    margin-top: 5px;
+}
+
+.sec-title {
+    font-size: 18pt;
+    margin-top: 20pt;
+    margin-bottom: 0px;
+    border-bottom: solid 1px #ccc;
+    text-align: left;
 }
 
 #c1c2wrapper, #c0{
-    text-align: left;
+    text-align: middle;
 /*    margin-left: 132px;*/
 /*    margin-right: 132px;*/
-    margin-bottom: 24px;
+/*    margin-bottom: 24px;*/
 }
 
 
 #c0_wrapper, #c1c2wrapper {
-    text-align: left;
+    text-align: middle;
     display: block;
     vertical-align: middle;
 /*    width: 90%;*/
@@ -121,4 +141,3 @@ figcaption {
     margin: 1em;
     
 }
-

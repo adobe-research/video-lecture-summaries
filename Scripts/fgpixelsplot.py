@@ -6,13 +6,13 @@ import util
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import processframe as pf
 
 if __name__ == "__main__":     
     print "Count and print/plot foreground pixels"
     video = sys.argv[1]
-    fgthresh = float(sys.argv[2])
     pv = processvideo.ProcessVideo(video)  
-    counts = pv.countfgpix_white(fgthresh)
+    counts = pv.countfgpix_white(pf.WHITE_BG_THRESHOLD)
     pv.printfgpix(counts)
         
         # Subsample and smooth

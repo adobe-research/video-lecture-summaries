@@ -12,7 +12,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "We made the circuit it was great, it was the divider, we found that we had...ops! 5 ohms, what am I doing? Terrible...not 5 ohms, it is 5 volts. OK, 5 volts, that's what I was doing I said I'm going to add something out of the circuit.",
+        "line": "We made the circuit it was great, it was the divider, we found that we had. Oops! 5 ohms. What am I doing? Terrible. Not 5 ohms, it is 5 volts. OK, 5 volts, that's what I was doing I said I'm going to add something out of the circuit.",
         "speaker": "narrator"
     },
     {
@@ -56,7 +56,7 @@
         "speaker": "narrator"
     },
     {
-        "line": "There is an equivalent way to see resistors in parallel and I applied our formula that it is the product of the two resistances divided by the sum, that's why I got 2\u00bd ohm resistor here as the equivalent resistance to these two parallel 5 ohm resistors.",
+        "line": "There is an equivalent way to see resistors in parallel and I applied our formula that it is the product of the two resistances divided by the sum, that's why I got 2.5 ohm resistor here as the equivalent resistance to these two parallel 5 ohm resistors.",
         "speaker": "narrator"
     },
     {
