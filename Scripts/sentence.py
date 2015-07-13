@@ -17,13 +17,18 @@ class Sentence:
             self.start_fid = self.video.ms2fid(self.startt)
             self.end_fid = self.video.ms2fid(self.endt)
             self.subline = None
+            self.subline_video = None
             self.ref_words = []
             self.ref_names = []
             
         def write_to_html(self, html):
             startt = int(self.startt/1000.0)
             endt = int(self.endt/1000.0)
-            html.writestring("<object class=\"textlink\" startt=\"%s\" endt=\"%s\" onclick=\"playvideo_at(%i)\">"%(startt, endt, startt))
+            subid = self.subline_video.sub_line_id
+            lineid = self.subline_video.line_id
+            video_startt = startt - self.subline_video.video_startt
+            print video_startt
+            html.writestring("<object class=\"textlink\" startt=\"%s\" endt=\"%s\" onclick=\"play_video%i_sub%i_at(%i)\">"%(startt, endt, lineid, subid, video_startt))
             html.write_sentence(self)
             html.writestring("</object>")
             

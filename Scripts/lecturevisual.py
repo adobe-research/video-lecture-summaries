@@ -15,6 +15,8 @@ from sentence import Sentence
 import cv2
 import label
 from sublinebreak import SublineBreaker
+from moviepy.editor import *
+import moviepy.video.fx.all as vfx
 
 class Character:
     def __init__(self, charobj):
@@ -107,6 +109,7 @@ class SubLine:
         self.line_id = line_id
         self.sub_line_id = sub_line_id     
         self.list_of_sentences = []   
+        self.list_of_video_sentences = []
         self.list_of_stcstrokes = []
         self.linegroup = None
         self.obj_in_line = None
@@ -167,6 +170,29 @@ class SubLine:
                     list_of_imgobjs.append(grayobj)
         self.obj_in_line = VisualObject.group(list_of_imgobjs, self.objdir, imgname="inline%06i_%06i.png" % (self.line_id, self.sub_line_id))
 
+    def write_video(self, videodir, myvideo):
+        lineid = self.line_id
+        subid = self.sub_line_id
+        filename = "line%i_sub%i"%(lineid, subid)
+        imgobj_startt = self.obj.start_fid
+        imgobj_endt = self.obj.end_fid
+        if len(self.list_of_video_sentences) > 0:
+            stc_startt = self.list_of_video_sentences[0].start_fid
+            stc_endt = self.list_of_video_sentences[-1].end_fid
+        else:
+            stc_startt = float("inf")
+            stc_endt = -1
+        self.video_startt = myvideo.fid2sec(min(stc_startt, imgobj_startt))
+        self.video_endt = myvideo.fid2sec(max(stc_endt, imgobj_endt)) + 1.0
+    
+        subclip = VideoFileClip(myvideo.filepath).subclip(self.video_startt, self.video_endt)
+        clipsrc = videodir + "/" + filename + ".mp4"
+        subclip.write_videofile(clipsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
+        
+        subclip_crop = vfx.crop(subclip, self.linegroup.obj.tlx, self.linegroup.obj.tly, self.linegroup.obj.brx, self.linegroup.obj.bry)
+        cropsrc = videodir + "/" + filename +"_crop.mp4"
+        subclip_crop.write_videofile(cropsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
+    
 
 class LineGroup:
     def __init__(self, list_of_sublines, line_id, linedir):
@@ -237,6 +263,7 @@ def get_sublines(list_of_strokes, linetxt, list_of_sentences, sublinedir, stcstr
             start_i = i + 1
    
     link_stc_to_sublines(list_of_sentences, list_of_sublines)    
+    link_stc_to_subline_videos(list_of_sentences, list_of_sublines)
     for subline in list_of_sublines:
         subline.link_stcstrokes(stcstrokesdir)
                  
@@ -266,6 +293,30 @@ def link_stc_to_sublines(list_of_sentences, list_of_sublines):
         if (closest_subline is not None and abs(min_dist) >= 0.75*stc_length_fid):
             closest_subline.list_of_sentences.append(stc)    
     return closest_subline_ids
+
+def link_stc_to_subline_videos(list_of_sentences, list_of_sublines):
+    """sentence is associated with a single subline"""
+    for subline in list_of_sublines:
+        del subline.list_of_video_sentences[:]
+    
+    n_sublines = len(list_of_sublines)
+    closest_subline_ids = []
+    for stc in list_of_sentences:
+        closest_subline = None
+        closest_id = -1
+        min_dist = float("inf")
+        for i in range(0, n_sublines):
+            subline = list_of_sublines[i]
+            dist = VisualObject.obj_stc_distance(subline.obj, stc.list_of_words, stc.video)
+            if (dist < min_dist):
+                min_dist = dist
+                closest_subline = list_of_sublines[i]
+                closest_id = i
+        closest_subline_ids.append(closest_id)
+        stc.subline_video = closest_subline
+        closest_subline.list_of_video_sentences.append(stc)    
+    return closest_subline_ids    
+
 
 def get_linegroups(list_of_sublines, linetxt, linedir):
     line_ids = util.stringlist_from_txt(linetxt)
@@ -337,8 +388,12 @@ def getvisuals(videopath, panoramapath, objdir, scriptpath):
     """break sublines"""
     for subline in list_of_sublines:
         break_subline(subline, list_of_sentences)
+        
+    
    
     return [panorama, list_of_linegroups, list_of_sublines, list_of_stcstrokes, list_of_strokes, list_of_chars, list_of_sentences]
+
+    
      
 def panorama_lines(panorama, list_of_linegroups):
     panorama_copy = panorama.copy()
@@ -378,8 +433,8 @@ if __name__ == "__main__":
         list_of_sentences.append(Sentence(stc, video, stcid))
         stcid += 1
     
-    sublinedir = objdir + "/sublines_15_03_18"
-    stcstrokesdir = objdir + "/stcstrokes_15_03_18"
+    sublinedir = objdir + "/sublines"
+    stcstrokesdir = objdir + "/stcstrokes"
     if not os.path.exists(os.path.abspath(sublinedir)):
         os.makedirs(os.path.abspath(sublinedir))
     if not os.path.exists(os.path.abspath(stcstrokesdir)):
@@ -396,7 +451,7 @@ if __name__ == "__main__":
 
 
     """lines and sublines_inline"""
-    linedir = objdir + "/linegroups_15_03_18"
+    linedir = objdir + "/linegroups"
     if not os.path.exists(os.path.abspath(linedir)):
         os.makedirs(os.path.abspath(linedir))
 
