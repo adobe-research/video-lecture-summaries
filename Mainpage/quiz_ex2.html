@@ -1,0 +1,47 @@
+<html>
+    <head> 
+        <title>Quiz Example 2</title>
+        <link href="quiz.css" rel="stylesheet" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        
+    </head>
+    
+    <body>
+        <h1>Basic trigonometry</h1>
+        <div id="ytplayer1" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/Jsiy4TxgIME?enablejsapi=1&amp;autoplay=0&amp;start=0&amp;end=433"></iframe><br></div>
+        </div>
+        <div id="quizimage1" class="quizimage", width="">
+            <img src="figures/quiz2_ex1.PNG" width="560">
+        </div>
+        <div id="quiz1" class="quiz">
+            <form id="quiz1form" action="#" method="get">
+                sin(x): <input id="answer1-1"><br>
+                cos(x): <input id="answer1-2"><br>
+                tan(x): <input id="answer1-3"><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="quiz1submit" class="quizsubmit"></div>
+    
+        <div id="ytplayer4" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/Jsiy4TxgIME?enablejsapi=1&amp;autoplay=0&amp;start=433&amp;"></iframe><br></div>
+        </div>
+
+    
+    <script type="text/javascript" language="javascript">
+        window.onload = init;
+        function init() {
+            document.getElementById("quiz1form").onsubmit = answer1;
+
+        }
+        
+        function answer1(){
+            document.getElementById('quiz1submit').innerHTML = "sin(x) = 4/5 <br> cos(x) = 3/5 <br> tan(x) = 4/3<br> <b>Go on to the next part of the video.</b>";
+            return false;
+        }
+    </script>
+    
+    </body>
+
+</html>

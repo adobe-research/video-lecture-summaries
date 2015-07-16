@@ -1,0 +1,17 @@
+body {
+    font-family: serif;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.35;
+    margin: 30px;
+}
+
+div {
+    margin: 10px;
+    vertical-align: top;
+}
+
+input {
+    margin: 10px;
+}
+

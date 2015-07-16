@@ -1,0 +1,93 @@
+<html>
+    <head> 
+        <title>Quiz Example 1</title>
+        <link href="quiz.css" rel="stylesheet" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        
+    </head>
+    
+    <body>
+        <h1>Compound probability of independent events</h1>
+        <div id="ytplayer1" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/xSc4oLA9e8o?enablejsapi=1&amp;autoplay=0&amp;start=0&amp;end=27"></iframe><br></div>
+        </div>
+        <div id="quizimage1" class="quizimage", width="">
+            <img src="figures/quiz_ex1.PNG" width="560">
+        </div>
+        <div id="quiz1" class="quiz">
+            <form id="quiz1form" action="#" method="get">
+                P(H) = <input type="text" id="answer1"> 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="quiz1submit" class="quizsubmit"></div>
+    
+        <div id="ytplayer2" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/xSc4oLA9e8o?enablejsapi=1&amp;autoplay=0&amp;start=27&amp;end=98"></iframe><br></div>
+        </div>
+        <div id="quizimage2" class="quizimage", width="">
+            <img src="figures/quiz_ex2.PNG" width="560">
+        </div>
+
+        <div id="quiz2" class="quiz">
+            <form id="quiz2form" action="#" method="get">
+                List all possibilites:<br> <textarea id="answer2" cols="40" rows="5" ></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="quiz2submit" class="quizsubmit"></div>
+    
+        <div id="ytplayer3" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/xSc4oLA9e8o?enablejsapi=1&amp;autoplay=0&amp;start=98&amp;end=166"></iframe><br></div>
+        </div>
+        <div id="quizimage3" class="quizimage", width="">
+            <img src="figures/quiz_ex3.PNG" width="560">
+        </div>
+
+        <div id="quiz3" class="quiz">
+            <form id="quiz3form" action="#" method="get">
+                Finish the sentence. If A and B are independent events P(A and B) = <input type="text" id="answer3"> 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="quiz3submit" class="quizsubmit"></div>
+    
+        <div id="ytplayer4" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/xSc4oLA9e8o?enablejsapi=1&amp;autoplay=0&amp;start=166&amp;"></iframe><br></div>
+        </div>
+
+    
+    <script type="text/javascript" language="javascript">
+        window.onload = init;
+        function init() {
+            document.getElementById("quiz1form").onsubmit = answer1;
+            document.getElementById("quiz2form").onsubmit = answer2;
+            document.getElementById("quiz3form").onsubmit = answer3;
+        }
+        
+        function answer1(){
+            var ans = document.getElementById('answer1').value;
+            ans = eval(ans);
+            if (ans == 0.5) {
+                document.getElementById('quiz1submit').innerHTML = "You are right! Go on to the next part of the video.";
+            } else {
+                document.getElementById('quiz1submit').innerHTML = ans + " is incorrect. Try again. Hint: What are the possibilities involved in flipping a coin?"
+            }
+            
+            return false;
+        }
+        
+        function answer2() {
+            document.getElementById('quiz2submit').innerHTML = "<b>Here are some answers by your fellow students:</b><br><textarea cols='40' rows='5' readonly>(Head, Tail)\n(Tail, Head)\n(Head, Head)\n(Tail, Tail)\n</textarea> <textarea cols='40' rows='5' readonly>HT, TT, HH, TH</textarea><br><b>Go on to the next part of the video and compare your answer.</b>";
+            return false;            
+        }
+        
+         function answer3() {
+            document.getElementById('quiz3submit').innerHTML = "<b>Here are some answers by your fellow students:</b><br><textarea cols='40' rows='1' readonly>P(A)*P(B)</textarea> <textarea cols='40' rows='1' readonly>P(B)*P(A|B)</textarea><br><b>The answer is: P(A)*P(B).<br></b> Go on to the next part of the video";
+            return false;            
+        }
+    </script>
+    
+    </body>
+
+</html>
