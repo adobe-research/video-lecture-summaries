@@ -276,7 +276,7 @@ class VisualObject:
         for i in range(0, len(obj_info)):
             info = obj_info[i]
             imgpath = os.path.basename(str(info[6]))
-            print objdir + "/" + imgpath
+#             print objdir + "/" + imgpath
             objimg = cv2.imread(objdir + "/" + imgpath)
 #             print objdir + "/" + imgpath
             objh, objw = objimg.shape[:2]

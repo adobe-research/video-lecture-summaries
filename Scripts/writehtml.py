@@ -23,8 +23,9 @@ class WriteHtml:
         self.htmlfile.write("\t<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\n")
         if stylesheet is not None:
             self.htmlfile.write("\t<link href=\"" )
-            stylesheet = os.path.abspath(stylesheet)
-            self.htmlfile.write(os.path.relpath(stylesheet, self.filedir))
+#             stylesheet = os.path.abspath(stylesheet)
+#             self.htmlfile.write(os.path.relpath(stylesheet, self.filedir))
+            self.htmlfile.write(stylesheet)
             self.htmlfile.write("\" rel=\"stylesheet\" />\n")
         self.htmlfile.write("\t<title>"+title+"</title>\n")
         if not script:
