@@ -12,7 +12,7 @@ if __name__ == "__main__":
     print "Count and print/plot foreground pixels"
     video = sys.argv[1]
     pv = processvideo.ProcessVideo(video)  
-    counts = pv.countfgpix_white(pf.WHITE_BG_THRESHOLD)
+    counts = pv.countfgpix(pf.BLACK_BG_THRESHOLD)
     pv.printfgpix(counts)
         
         # Subsample and smooth

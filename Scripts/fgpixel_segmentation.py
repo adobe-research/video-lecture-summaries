@@ -173,7 +173,7 @@ def getobjects(video, object_fids, panorama, objdir):
         curx = curx-prevx
         cury = cury-prevy
         """curx,cury: relative position compared to prev frame"""
-        print 'i',  keyframe.frame_path, curx, cury
+        print 'prev_id, cur_id:', prev_id, cur_id, curx, cury
 
         if fid_count != 0 and (curx != 0 or cury != 0):
 #             util.showimages([prevframe, keyframe.frame], "prevframe curframe %i %i" %(curx, cury))
@@ -205,7 +205,7 @@ def getobjects(video, object_fids, panorama, objdir):
         
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
         obj_frame = cv2.min(keyframe.frame, diff_frame) 
-        obj_mask = pf.fgmask(obj_frame, 100, 225, True)
+        obj_mask = pf.fgmask(obj_frame, pf.BLACK_BG_THRESHOLD, 225, True)
 #         util.showimages([obj_frame, obj_mask], "obj_mask")
         obj_bbox = pf.fgbbox(obj_mask)
 #         util.showimages([prevframe, keyframe.frame, diff_frame, obj_frame])
@@ -248,7 +248,7 @@ def segment_main():
     
     panoramapath = sys.argv[3]
     panorama = cv2.imread(panoramapath)
-    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs_noseg_7")
+    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs_noseg")
              
 
 if __name__ == "__main__":  

@@ -111,7 +111,9 @@ if __name__ == "__main__":
     numfg = fgpixel.read_fgpixel(fgpixel_txt)
     numfg = np.array(numfg)
     index = plateaus(numfg, int(video.fps), 1)
+    plot_plateaus(numfg, index, video)
     index = end_of_plateaus(index)
+   
     
     print 'numframes', video.numframes -1, 'numfg', len(numfg)  
     

@@ -12,7 +12,7 @@ import meanshift
 import numpy as np
 from itertools import cycle
 from video import Video
-import lecturevisual
+# import lecturevisual
 
 def find_objects(panorama, list_of_objects):
     

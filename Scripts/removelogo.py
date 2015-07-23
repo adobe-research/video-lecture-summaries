@@ -75,7 +75,8 @@ if __name__ == "__main__":
         fromvideo(video, logos, (0,0,0))
     elif (".png" in extension):
         img = cv2.imread(target)
-        fillcolor(img, logos, (0,0,0))
+        outimg = fillcolor(img, logos, (0,0,0))
+        
     else:    
         imagefiles, images = util.get_capture_imgs(target)
         print len(images)
