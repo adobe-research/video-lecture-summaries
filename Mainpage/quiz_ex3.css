@@ -1,0 +1,269 @@
+body {
+    align-content: center;
+    margin: 100px;
+}
+div {
+    margin: 20px;
+}
+
+.image {
+    position: relative; 
+    width: 100%; /* for IE 6 */
+}
+
+#p1 {
+    color: white;
+    position: absolute; 
+    top: 108px; 
+    left: 870px; 
+    width: 100%; 
+    font-size: 20px;
+}
+
+#p2 {
+    color: yellow;
+    position: absolute; 
+    top: 140px; 
+    left: 1000px; 
+    width: 100%; 
+    font-size: 40px;
+}
+
+#p3 {
+    color: #00a529;
+    position: absolute; 
+    top: 298px; 
+    left: 654px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p4 {
+    color: #ff4545;
+    position: absolute; 
+    top: 298px; 
+    left: 845px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p5 {
+    color: yellow;
+    position: absolute; 
+    top: 685px; 
+    left: 485px; 
+    width: 100%; 
+    font-size: 50px;
+}
+
+#p6 {
+    color: yellow;
+    position: absolute; 
+    top: 685px; 
+    left: 714px; 
+    width: 100%; 
+    font-size: 50px;
+}
+
+#p7 {
+    color: #00a529;
+    position: absolute; 
+    top: 385px; 
+    left: 625px; 
+    width: 100%; 
+    font-size: 30px;
+}
+
+#p8 {
+    color: #00a529;
+    position: absolute; 
+    top: 486px; 
+    left: 616px; 
+    width: 100%; 
+    font-size: 30px;
+}
+
+#p9 {
+    color: #00a529;
+    position: absolute; 
+    top: 577px; 
+    left: 403px; 
+    width: 100%; 
+    font-size: 40px;
+}
+
+#p10 {
+    color: #00a529;
+    position: absolute; 
+    top: 564px; 
+    left: 626px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p11 {
+    color: #00a529;
+    position: absolute; 
+    top: 586px; 
+    left: 824px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-1 {
+    color: #1dd100;
+    position: absolute; 
+    top: 0px; 
+    left: 80px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-2 {
+    color: #ffba00;
+    position: absolute; 
+    top: 260px; 
+    left: 635px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-3 {
+    color: #ffba00;
+    position: absolute; 
+    top: 60px; 
+    left: 70px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-4 {
+    color: #ffba00;
+    position: absolute; 
+    top: 200px; 
+    left: 300px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-5 {
+    color: #f0f;
+    position: absolute; 
+    top: 110px; 
+    left: 175px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-6 {
+    color: #f0f;
+    position: absolute; 
+    top: 200px; 
+    left: 430px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-7 {
+    color: #ffba00;
+    position: absolute; 
+    top: 200px; 
+    left: 650px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-8 {
+    color: #ffba00;
+    position: absolute; 
+    top: 200px; 
+    left: 910px; 
+    width: 100%; 
+    font-size: 35px;
+}
+
+#p2-9 {
+    color: #34a02a;
+    position: absolute; 
+    top: 20px; 
+    left: 1100px; 
+    width: 100%; 
+    font-size: 50px;
+}
+
+#testimage {
+    position: absolute; 
+    top: 20px; 
+    left: 1100px; 
+}
+
+#p3-1 {
+    position: absolute; 
+    top: 306px; 
+    left: 1165px; 
+    margin: 0px;
+    text-align: right;
+}
+
+#p3-2 {
+    color: #bc3126;
+    position: absolute;
+    top: 15px;
+    left: 200px;
+    font-size: 45px;
+    margin: 0px;
+    
+}
+
+#p3-3 {
+    color: white;
+    position: absolute;
+    top: 770px;
+    left: 530px;
+    font-size: 55px;
+    margin: 0px;
+    
+}
+
+span{ 
+    background: rgba(54, 53, 53, 0.75);
+    padding-left: 3px;
+    padding-right: 3px;
+}  
+
+.TKCursorDragHorizontal {
+	cursor: pointer;
+	cursor: move;
+	cursor: col-resize;
+}
+
+
+/* TKToggle */
+
+.TKToggle {
+	color: #46f;
+	border-bottom: 1px dashed #46f;
+	cursor: pointer;
+}
+
+
+/* TKAdjustableNumber */
+
+.TKAdjustableNumber {
+	position:relative;
+	border-bottom: 1px dashed #f00;
+}
+
+.TKAdjustableNumberHover {
+}
+
+.TKAdjustableNumberDown {
+	border-bottom: 1px dashed #f00;
+}
+
+.TKAdjustableNumberHelp {
+	position:absolute;
+	color: #00f;
+	font: 9px "Helvetica-Neue", "Arial", sans-serif;
+}
+

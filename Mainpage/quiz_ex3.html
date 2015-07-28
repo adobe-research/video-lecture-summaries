@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Quiz Example 3 - 3 Pointers vs. Free Throw</title>
+        <script type="text/javascript" src="js/tangle/Tangle.js"></script>
+        <script type="text/javascript" src="js/tangle/TangleKit/mootools.js"></script>
+        <script type="text/javascript" src="js/tangle/TangleKit/sprintf.js"></script>
+	    <script type="text/javascript" src="js/tangle/TangleKit/BVTouchable.js"></script>
+	    <script type="text/javascript" src="js/tangle/TangleKit/TangleKit.js"></script>
+        <link rel="stylesheet" href="quiz_ex3.css" type="text/css">
+
+        <script type="text/javascript">
+            function setUpTangle () {
+                var element1 = document.getElementById("example1");
+                var tangle1 = new Tangle(element1, {
+                    initialize: function () {
+                        this.threep = 0.7;
+                    },
+                    update: function () {
+                        this.threeppercentage = this.threep;
+                        this.remainpercentage = 1 - this.threep;
+                        this.timeshundred = this.threep*100;
+                        this.inarow = (this.threep)*(this.threep)*(this.threep);
+                    }
+                });
+                
+                var element2 = document.getElementById("example2");
+                var tangle2 = new Tangle(element2, {
+                    initialize: function () {
+                        this.policypay = 1.0;
+                        this.policypremium = 500;
+                        this.policyterm = 20;
+                    },
+                    update: function () {
+                        this.policypay2 = this.policypay*1000000;
+                        this.totalpremium = this.policypremium * this.policyterm;
+                        this.policyratio = this.totalpremium / this.policypay2 * 100;
+                    }
+                });
+                
+                var element3 = document.getElementById("example3");
+                var tangle3 = new Tangle(element3, {
+                    initialize: function () {
+                        this.year = 200000;    
+                    },
+                    update: function () {
+                        this.seconds = this.year * 2880 / 4540000000;
+                        var linediv = document.getElementById("p3-1");
+                        var line = document.getElementById("p3-1-img");
+                        line.width = 454*this.seconds/2880;/*this.year/200000.0;*/
+                        line.height = 6;
+                        var orig_left = 1165;
+                        var newtop = orig_left - line.width + 13;
+                        linediv.style.left = newtop;
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <!-------------------------------------------------------------------------------------------->
+    <body onload="setUpTangle();">
+        <h3>There are three examples shown below. The top view is the original lecture video, and the bottom view shows an interactive screenshot. You can play with the numbers underlined with red-dashes by dragging your cursor, and see other numbers/visuals change.</h3>
+        <h1>Three pointer vs Free throwing Probablity</h1>
+        
+        <div id="ytplayer1" class="ytplayer", width="">
+            <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/PddbEVNMgTY?enablejsapi=1&amp;autoplay=0&amp;start=0&amp;end=330"></iframe><br></div>
+        
+        <div class="image" id="example1">
+            <img src="figures/quiz3_ex1.png" alt="">
+            <h3 id="p1"><span data-var="threep" class="TKAdjustableNumber" data-step="0.01" data-format="%.2f" data-min="0.0" data-max="1.0"></span></h3>
+            <h3 id="p2"><span data-var="threeppercentage" data-format="percent"></span></h3>
+            <h3 id="p3"><span data-var="threeppercentage" data-format="percent"></span></h3>
+            <h3 id="p4"><span data-var="remainpercentage" data-format="percent"></span></h3>
+            <h3 id="p5"><span data-format="%.2f" data-var="inarow"></span></h3>
+            <h3 id="p6"><span data-format="percent" data-var="inarow"></span></h3>
+            <h3 id="p7"><span data-var="threeppercentage" data-format="percent">&times</span> <span data-var="threeppercentage" data-format="percent"></span></h3>
+            <h3 id="p8"><span data-var="threeppercentage" data-format="percent">&times</span> <span data-var="threeppercentage" data-format="percent">&times</span><span data-var="threeppercentage" data-format="percent"></span></h3>
+            <h3 id="p9"><span data-var="threeppercentage" data-format="percent"></span></h3>
+            <h3 id="p10"><span data-var="timeshundred" data-format="%.0f"></span></h3>
+            <h3 id="p11"><span data-var="threeppercentage" data-format="%.2f"></span></h3>       
+        </div><br>
+        
+    <!-------------------------------------------------------------------------------------------->
+        <h1>Term Life Insurance and Death Probability</h1>
+        <div id="ytplayer2" class="ytplayer", width="">
+                <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/NSSoMafbBqQ?enablejsapi=1&amp;autoplay=0&amp;start=0&amp;end=260"></iframe><br></div>
+        
+        <div class="image" id="example2">
+            <img src="figures/quiz3_ex2.png" alt="">
+            <h3 id="p2-1"><span data-var="policypay" class="TKAdjustableNumber" data-step="0.5" data-format="%.1f" data-min="1.0" data-max="10.0"></span>million</h3>   
+            <h3 id="p2-3"><span data-var="policypremium" class="TKAdjustableNumber" data-step="100" data-format="%.0f" data-min="100" data-max="1000"></span>/year</h3>   
+            <h3 id="p2-4"><span data-var="policypremium" data-format="%.0f" ></span></h3>   
+            <h3 id="p2-2"><span data-var="policypay2" data-format="%.0f"></span></h3> 
+            <h3 id="p2-5"><span data-var="policyterm" class="TKAdjustableNumber" data-step="1" data-format="%.0f" data-min="1" data-max="50"> </span>years </h3> 
+            <h3 id="p2-6"><span data-var="policyterm" data-format="%.0f"> </span></h3> 
+            <h3 id="p2-7"><span data-var="totalpremium" data-format="%.0f"> </span></h3> 
+            <h3 id="p2-8"><span data-var="policyratio" data-format="%.1f"> </span></h3> 
+            <h3 id="p2-9"><span data-var="policyratio" data-format="%.2f"> %</span></h3> 
+        </div>
+  
+    <!--------------------------------------------------------------------------------------------> 
+        <h1>Comparing Earth's History to a Basketball Game</h1>
+        <div id="ytplayer3" class="ytplayer", width="">
+                <iframe width="560" height="315" frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/13E90TAtZ30?enablejsapi=1&amp;autoplay=0&amp;start=0&amp;end=380"></iframe><br></div>
+        
+        <div class="image" id="example3">
+            <img src="figures/quiz3_ex3.png" alt="">
+            <div id="p3-1"><img id="p3-1-img" src="figures/line.png" width="13px"></div>
+            <h3 id="p3-2"><span data-var="year" class="TKAdjustableNumber" data-format="%.0f" data-step="1000000", data-min="10000" data-max="4540000000">years</span> </h3>
+            <h3 id="p3-3"><span data-var="seconds" data-format="%.2f"> seconds</span></h3>
+        </div>
+
+    </body>
+</html>

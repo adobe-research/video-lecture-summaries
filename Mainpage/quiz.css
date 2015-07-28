@@ -3,7 +3,10 @@ body {
     font-size: 24px;
     text-align: center;
     line-height: 1.35;
-    margin: 30px;
+    width: 1000px;
+    align-content: center;
+    padding: auto;
+    margin: auto;
 }
 
 div {
