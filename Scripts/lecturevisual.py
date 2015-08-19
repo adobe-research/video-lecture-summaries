@@ -17,6 +17,7 @@ import label
 from sublinebreak import SublineBreaker
 from moviepy.editor import *
 import moviepy.video.fx.all as vfx
+import videoclips
 
 class Character:
     def __init__(self, charobj):
@@ -184,11 +185,15 @@ class SubLine:
             stc_endt = -1
         self.video_startt = myvideo.fid2sec(min(stc_startt, imgobj_startt))
         self.video_endt = myvideo.fid2sec(max(stc_endt, imgobj_endt)) + 1.0
+        self.video_endt = min(myvideo.endt/1000.0, self.video_endt)
+        print 'startt', self.video_startt, 'endt', self.video_endt
     
         subclip = VideoFileClip(myvideo.filepath).subclip(self.video_startt, self.video_endt)
+        subclip = videoclips.colormask(subclip, self.obj.tlx, self.obj.tly, self.obj.brx, self.obj.bry)
         clipsrc = videodir + "/" + filename + ".mp4"
         subclip.write_videofile(clipsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
         
+        print 'tlx, tly, brx, bry', self.linegroup.obj.tlx, self.linegroup.obj.tly, self.linegroup.obj.brx, self.linegroup.obj.bry
         subclip_crop = vfx.crop(subclip, self.linegroup.obj.tlx, self.linegroup.obj.tly, self.linegroup.obj.brx, self.linegroup.obj.bry)
         cropsrc = videodir + "/" + filename +"_crop.mp4"
         subclip_crop.write_videofile(cropsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...

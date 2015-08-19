@@ -15,11 +15,16 @@ from visualobjects import VisualObject
 import label
 from moviepy.editor import *
 import moviepy.video.fx.all as vfx
+import videoclips
+import processframe as pf
 
 collapsed_icon = ""
 expanded_icon =""
 zoomin_icon = ""
 zoomout_icon =""
+expand_icon =""
+collapse_icon=""
+pause_icon=""
 stopwords = []
 
 def write_showsection_script(html, lineid, subid):
@@ -141,7 +146,8 @@ def write_subline_img(html, subline, figdir, clipdir, myvideo):
     util.saveimage(clipposter, figdir, clippath)
     
     croppath = filename + "_crop_poster.png"
-    util.saveimage(subline_obj.img, figdir, croppath )
+    cropimage = 255-subline_obj.img
+    util.saveimage(cropimage, figdir, croppath )
     
     html.opendiv(idstring="line%i_sub%i_c1"%(lineid, subid), class_string="c1")
     if len(subline.list_of_sentences) > 0:
@@ -257,9 +263,38 @@ def write_insertvideo_script(html, url):
     
 
 def write_onready_script(html):
+    write_video_event_script(html)
     write_update_time_script(html)
     write_highlight_current_script(html)
     html.writestring("$(document).ready(setInterval(updateTime, 1000)) ; \n" )
+
+def write_video_event_script(html):
+    html.writestring("var videos = document.getElementsByTagName(\"video\");\n"
+                     "\tfor (var i = 0; i < videos.length; i++) {\n"
+                     "\t\tvar vid = videos[i];\n"
+                     "\t\tvid.addEventListener(\"play\", stopOtherVideos, false);\n"
+                     "\t\tvid.addEventListener(\"ended\", startNextVideo, false);\n"
+                     "\t}\n\n"
+                     "function stopOtherVideos(event) {\n"
+                     "\tvar vids = document.getElementsByTagName(\"video\");\n"
+                     "\tfor (var i = 0; i < vids.length; i++) {\n"
+                     "\t\tvar vid = vids[i];\n"
+                     "\t\tif (vid != event.currentTarget && !vid.paused) {\n"
+                     "\t\tvid.pause();\n"
+                     "\t\t}\n"
+                     "\t}\n"
+                     "}\n\n"
+                     "function startNextVideo(event) {\n"
+                     "\tvar vids = document.getElementsByTagName(\"video\");\n"
+                     "\tfor (var i = 0; i < vids.length; i++) {\n"
+                     "\t\tvar vid = vids[i];\n"
+                     "\t\tif (vid == event.currentTarget && i < vids.length-1) {\n"
+                     "\t\t\tvids[i+1].play();\n"
+                     "\t\t\tbreak;\n"
+                     "\t\t}\n"
+                     "\t}\n"
+                     "}\n\n"
+    )
 
 def write_update_time_script(html):
     html.writestring("function updateTime() {\n"
@@ -289,12 +324,12 @@ def write_highlight_current_script(html):
         "\t\t\t\tcolored.push(i);\n"
         "\t\t}\n"
         "\t\t}\n"
-        "\t}"
-        "\tfor (var i = 0; i < links.length; i++) {\n"
-        "\t\tlinks[i].style.backgroundColor = '#ffffff';\n"
+        "\t}\n"
+         "for (var i = 0; i < links.length; i++) {\n"
+         "\t\tlinks[i].style.backgroundColor = '';\n"
         "\t}\n"
         "\tfor (var i = 0; i < colored.length; i++) {\n"
-        "\t\tlinks[colored[i]].style.backgroundColor = '#72a8ff'\n"
+        "\t\tlinks[colored[i]].style.backgroundColor = '#34d300'\n"
         "\t}\n"
         "};\n");
 
@@ -315,9 +350,9 @@ if __name__ == "__main__":
     scriptpath = sys.argv[4]
     title = sys.argv[5]
     author = sys.argv[6]
-    outdir = objdir #sys.argv[7] #objdir
     maindir = sys.argv[7] 
-    
+    outdir = sys.argv[8] #objdir
+     
     maindir = os.path.relpath(maindir, outdir)
     print maindir
     
@@ -325,6 +360,9 @@ if __name__ == "__main__":
     expanded_icon = maindir + "/figures/" + "arrow_expanded_icon.png"
     zoomin_icon =  maindir + "/figures/" + "zoom_in.png"
     zoomout_icon =  maindir + "/figures/" + "zoom_out.png"
+    expand_icon = maindir +"/figures/" + "expand_all.png"
+    collapse_icon = maindir +"/figures/" +"collapse_all.png"
+    pause_icon = maindir+"/figures/" + "pause_all.png"
     
     if not os.path.exists(os.path.abspath(outdir)):
         os.makedirs(os.path.abspath(outdir))
@@ -342,8 +380,10 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
      
-    for subline in list_of_sublines:
-        subline.write_video(clipdir, video)
+    videoclips.write_subline_clips(clipdir, list_of_sublines, video)
+#     prev_video_endt = 0
+#     for subline in list_of_sublines:
+#         subline.write_video(clipdir, video)
      
     stylepath = maindir + "/visual_transcript.css"
     html = WriteHtml(outdir + "/visual_transcript.html",title, stylesheet =stylepath)
@@ -351,12 +391,13 @@ if __name__ == "__main__":
     html.writestring("<h1>%s</h1>\n"%title)
     html.writestring("<h3>%s</h3>\n"%author)
 
-    html.opendiv(idstring="transcriptbutton")
-    html.writestring("<button id=\"expand\" onclick=\"expandall()\">Expand all transcript</button>")
-    html.writestring("<button id=\"expand\" onclick=\"collapseall()\">Collapse all transcript</button><br>")
+    html.opendiv(class_string="transcriptbutton")
+    html.writestring("<input id=\"expand\" onclick=\"expandall()\" type=\"image\" src=\"%s\"><br>"%expand_icon)
+    html.writestring("<input id=\"collapse\" onclick=\"collapseall()\"type=\"image\" src=\"%s\"><br>"%collapse_icon)
+    html.writestring("<input id=\"pause\" onclick=\"pauseall()\"type=\"image\" src=\"%s\"><br>"%pause_icon)
     html.closediv()
 
-    html.opendiv(idstring="summary")
+    html.opendiv(class_string="summary")
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]

@@ -1,4 +1,6 @@
 body {
+    background-image: url("../../video-lecture-summaries/Mainpage/figures/blackboard_bg.jpg");
+    color:#ffffff;
     font-family: serif;
     font-size: 24px;
     padding: 2em;
@@ -6,38 +8,13 @@ body {
     margin: auto;
     align-content: center;
     line-height: 1.35;
-    max-width: 1000px;
+    max-width: 1200px;
     min-width: 520px;
 }
 
-button {
-	background-color:#79bbff;
-	-moz-border-radius:0px;
-	-webkit-border-radius:0px;
-	border-radius:0px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:serif;
-	font-size:24px;
-	padding:6px 24px;
-	text-decoration:none;
-}
 
-button:hover {
-	background-color:#258df5;
-}
-
-button:active {
-	position:relative;
-	top:1px;
-}
-
-#summary {
-    display: inline-block;
-    width: 100%;
-    float: center;
+.summary {
+    width: 1000px;
 }
 
 
@@ -89,7 +66,7 @@ p {
     width:100%;
     display:none;
 /*    background-color: #e3e3e3;*/
-    border-left: dashed 2px #0165ce;
+    border-left: dashed 2px #34d300;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 1.5em;
@@ -101,7 +78,7 @@ p {
 }
 
 .textlink:hover {
-    color: #134ce2;
+    color: #34d300;
 }
 
 
@@ -137,7 +114,16 @@ figcaption {
     border: 1px dashed #747070;
 }
 
-#expand {
+input {
     margin: 1em;
-    
+    width: 150px;
 }
+
+
+
+.transcriptbutton {
+    float: right;
+    height: 100%;
+    width: 200px;
+}
+

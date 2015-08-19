@@ -93,7 +93,7 @@ class WriteHtml:
         self.htmlfile.write("</td>\n")
 
     def opendiv(self, idstring="", class_string="", width=""):
-        self.htmlfile.write("<div id=\"%s\" class=\"%s\", width=\"%s\">\n" % (idstring, class_string, width)) 
+        self.htmlfile.write("<div id=\"%s\" class=\"%s\" width=\"%s\">\n" % (idstring, class_string, width)) 
         
     def closediv(self):
         self.htmlfile.write("</div>\n")

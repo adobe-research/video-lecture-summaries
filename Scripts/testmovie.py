@@ -6,21 +6,30 @@ Created on Jul 2, 2015
 from moviepy.editor import *
 import sys
 import moviepy.video.fx.all as vfx
+from video import Video
+import numpy as np
+import util
+    
+    
     
 if __name__ == "__main__":
-    videopath = sys.argv[1]
-    audiopath = sys.argv[2]
-    outpath = sys.argv[3]
-    video = VideoFileClip(videopath).subclip(30,60)
-    audio = VideoFileClip(audiopath).subclip(30,60)
-    auido = audio.audio.to_audiofile("test-short.ogg", write_logfile=True)
-    video.set_audio("test-short.ogg")
-    # Make the text. Many more options are available.
-#     txt_clip = ( TextClip("My Holidays 2013",fontsize=70,color='white')
-#                  .set_position('center')
-#                  .set_duration(10) )
+    input1 = sys.argv[1]
+    input2 = sys.argv[2]
+    output = sys.argv[3]
     
-#     video.set_audio(audio)
-    video.volumex(1.5)
-#     video.write_videofile(outpath)
-    video.write_videofile(outpath, codec='libtheora', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
+    myvideo1 = Video(input1)
+    video1 = VideoFileClip(input1).subclip(0, 10)
+    video2 = VideoFileClip(input2).subclip(0,10)
+    
+    bwvideo = vfx.blackwhite(video1)
+    bwvideo_crop = vfx.crop(bwvideo, 0, 0, 300, 300)
+     
+#     bwvideo_crop.write_videofile(myvideo1.videoname + "_bw_crop.mp4", codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) 
+        
+#     bwvideo_crop.set_position((300,300))
+#     
+#     print 'video pos', video2.pos
+#     print 'bwvideo', bwvideo_crop.pos
+    newvideo = CompositeVideoClip([video2, bwvideo_crop.set_position((300,300))])
+    
+    newvideo.write_videofile(output, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
