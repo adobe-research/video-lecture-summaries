@@ -1,0 +1,15 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+-1	122	26	26	33	26	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_-00001_000122.png
+122	2159	5	14	232	141	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_000122_002159.png
+2159	2825	84	78	207	166	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_002159_002825.png
+2825	3857	101	26	341	75	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_002825_003857.png
+3857	5384	218	13	605	224	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_003857_005384.png
+5384	5998	386	97	504	126	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_005384_005998.png
+5998	7250	429	3	467	144	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_005998_007250.png
+7250	9419	337	99	635	206	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_007250_009419.png
+9419	9530	138	81	138	88	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_009419_009530.png
+9530	9850	138	69	160	84	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_009530_009850.png
+9850	11892	8	241	209	376	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_009850_011892.png
+11892	13743	302	259	515	350	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_011892_013743.png
+13743	16000	305	254	515	454	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_013743_016000.png
+16000	16673	306	319	578	361	..\..\Desktop\lpkVideos\2\lec_negate_fgpixel_objs\obj_016000_016673.png

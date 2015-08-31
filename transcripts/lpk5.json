@@ -1,0 +1,62 @@
+[
+    {
+        "line": "So we just looked at what happens when you see resistors in series and in parallel, and thought about how they could be seen as equivalent resistances. Another thing to think about when you see resistances as in series or parallel is that you can think of them as dividers. First we'll think about a voltage divider. A voltage divider is made with two resistors in series. Imagine that I have a resistor on one, and a resistor on two here. I have a voltage V1 across R1 and a voltage V2 across R2. At this point we can I think be ready to believe that this current I, is going to be the same as this current I.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "We got a node in there, above that node. What we're going to be interested in is thinking about, you can also think about this big voltage, which is the voltage difference from the top to the bottom of this thing. This is a voltage divider set up. What do I know about what's going on here?",
+        "speaker": "narrator"
+    },
+    {
+        "line": "I know that V, the voltage across the whole thing is, I know V=IR. Let's understand the V, and the I, and the R. We believe that there's one current going through here. That is the same through both components, so V=I. The R here we already saw, is equivalent to R1+R2.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That's from understanding resistors and series, V=I(R1+R2). That means the current. I'm thinking we can solve now for the current. Small 'i'. The current here is V/(R1+R2). We know that V1 is R1 I, that's V1. We can think of V1 also as being equal to R1 times that expression for current and I'm just going to rewrite it little more nicely.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "V*R1/(R1+R2). This is the voltage divider relationship. It says that the voltage drop across this first resistor is R1/(R1+R2) times the original voltage. The amount of voltage drop across the first resistor is proportional to the R1/(R1+R2). Let's just see this in an example, just to make it totally concrete.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Imagine that we have a particular case with a 5 ohm resistor, and a 10 ohm resistor. We're interested in knowing the voltage drop here, and here. If we put our equations in here, we say what's the voltage drop across here? It's V*5/(5+10), so it's V/3. That's, again, if this total voltage difference is V, then the voltage difference here is V/3 and the voltage difference here is 2V/3. Now that they add up to V and they're in proportion to the resistances. That's voltage divider.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That's reasonably easy. Slightly trickier, but pretty interesting is a current divider. A current divider, as you might anticipate, is made with resistors in parallel. Let's make some resistors in parallel. I have fun drawing resistors.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Resistors in parallel. I have some current I coming in this way. I have I1 and I2. I have a voltage. You can probably believe that these voltages are the same and the voltage across here is also the same. This guy has resistance R1 and this guy has resistance R2.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Let's see if we can understand the algebra of this and figure out how the current gets divided between the current through the first resistor and the current through the second resistor. Again, we can use what we know about resistors in parallel, we get V=I*R1R2/(R1+R2). That's what we know about the whole arrangement.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Now, if we want to think about I1, I1=V/R1. If we write that out, we get that it's I*R1 R2/(R1+R2) divided by R1. That's equal to I*R2/(R1+R2).",
+        "speaker": "narrator"
+    },
+    {
+        "line": "This is pretty cool. This is a divider and we get a similar kind of proportionality relationship here, but the current through resistor one is proportional to R2/(R1+R2). That comes out a little bit differently.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Again, let's see what that means concretely with particular values. Let's draw that same picture again. Like this.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "We've got some current I here and V here. Now, if this is 5 ohms, let's say, and this is 10 ohms, what this tells us is that the current through here is going to be two-thirds of I and the current going through here is going to be one-third of I.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That makes sense because this resistor sometimes is more difficult to go through. Less of the current takes that path. This resistor is easy to go through. More of the current goes through.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "What's important is that the proportionalities stay nice and linear in the way that we like. Voltage divider, current divider, these are useful common patterns.",
+        "speaker": "narrator"
+    }
+]

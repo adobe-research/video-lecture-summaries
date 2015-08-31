@@ -1,0 +1,827 @@
+<html>
+	<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link href="../../../../../../../Mainpage/subline_test_video.css" rel="stylesheet" />
+	<title>Green's Theorem Proof Part 1</title>
+</head>
+<body>
+<h1>Green's Theorem Proof Part 1</h1>
+<h3>Khan Academy</h3>
+<!--
+<div id="vid" class="", width="">
+<div id="ytplayer" class="", width="">
+	<div id="player" class="", width="">
+</div>
+</div>
+</div>
+-->
+<div id="summary" class="", width="">
+<div id="transcriptbutton" class="", width="">
+<button id="expand" onclick="expandall()">Expand all transcript</button><button id="expand" onclick="collapseall()">Collapse all transcript</button><br></div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="0" endt="4" onclick="playvideo_at(0)">Let's say we have a path in the xy plane. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow0_sub0"                                     onclick="showline0_sub0()">
+<object onclick="playvideo_at(2);showline0_sub0();"><img src= "subline_linebreak_test/labelline_0_sub0.png" width="222.75" height="194.25" class="textlink" startt="2" endt="28" />
+</object>
+</div>
+<div id="line0_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="4" endt="11" onclick="playvideo_at(4)">That's my y-axis, that is my x-axis, in my path will look like this. </object><object class="textlink" startt="11" endt="22" onclick="playvideo_at(11)">Let's say it looks like that; trying to draw a bit of an arbitrary path, and let's say we go in a counter clockwise direction like that along our path. </object><object class="textlink" startt="23" endt="28" onclick="playvideo_at(23)">And we could call this path-- so we're going in a counter clockwise direction --we could call that path c. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="29" endt="31" onclick="playvideo_at(29)">And let's say we also have a vector field. </object><object class="textlink" startt="31" endt="35" onclick="playvideo_at(31)">And our vector field is going to be a little unusual; I'll call it p. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line1_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow1_sub0"                                     onclick="showline1_sub0()">
+<object onclick="playvideo_at(34);showline1_sub0();"><img src= "subline_linebreak_test/labelline_1_sub0.png" width="203.25" height="42.75" class="textlink" startt="34" endt="48" />
+</object>
+</div>
+<div id="line1_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="36" endt="37" onclick="playvideo_at(36)">p of xy. </object><object class="textlink" startt="37" endt="43" onclick="playvideo_at(37)">It only has an i component, or all of its vectors are only multiples of the i-unit vector. </object><object class="textlink" startt="43" endt="48" onclick="playvideo_at(43)">So it's capital P of xy times the unit vector i. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="48" endt="60" onclick="playvideo_at(48)">There is no j component, so if you have to visualize this vector field, all of the vectors, they're all multiples of the i-unit vector. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub1_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow0_sub1"                                     onclick="showline0_sub1()">
+<object onclick="playvideo_at(52);showline0_sub1();"><img src= "subline_linebreak_test/labelline_0_sub1.png" width="232.5" height="194.25" class="textlink" startt="52" endt="69" />
+</object>
+</div>
+<div id="line0_sub1_c2" class="c2", width="">
+<p><object class="textlink" startt="60" endt="63" onclick="playvideo_at(60)">Or they could be negative multiples, so they could also go in that direction. </object><object class="textlink" startt="63" endt="66" onclick="playvideo_at(63)">But they don't go diagonal or they don't go up. </object><object class="textlink" startt="66" endt="69" onclick="playvideo_at(66)">They all go left to right or right to left. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="69" endt="72" onclick="playvideo_at(69)">That's what this vector field would look like. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line2_sub0_c1" class="c1", width="">
+<object onclick="playvideo_at(75);showline2_sub0();"><img src= "subline_linebreak_test/labelline_2_sub0.png" width="84.75" height="65.25" class="textlink" startt="75" endt="86" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="72" endt="89" onclick="playvideo_at(72)">Now what I'm interested in doing is figuring out the line integral over a closed loop-- the closed loop c, or the closed path c --of p dot dr, which is just our standard kind of way of solving for a line integral. </object><object class="textlink" startt="89" endt="91" onclick="playvideo_at(89)">And we've seen what dr is in the past. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line1_sub1_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow1_sub1"                                     onclick="showline1_sub1()">
+<object onclick="playvideo_at(91);showline1_sub1();"><img src= "subline_linebreak_test/labelline_1_sub1.png" width="432.75" height="42.75" class="textlink" startt="91" endt="99" />
+</object>
+</div>
+<div id="line1_sub1_c2" class="c2", width="">
+<p><object class="textlink" startt="92" endt="100" onclick="playvideo_at(92)">dr is equal to dx times i plus dy times the j-unit vector. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="100" endt="105" onclick="playvideo_at(100)">And you might say, isn't it dx, dt times dt? </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line3_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow3_sub0"                                     onclick="showline3_sub0()">
+<object onclick="playvideo_at(106);showline3_sub0();"><img src= "subline_linebreak_test/labelline_3_sub0.png" width="269.25" height="51.75" class="textlink" startt="106" endt="118" />
+</object>
+</div>
+<div id="line3_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="105" endt="116" onclick="playvideo_at(105)">Let me write that can't dr be written as dx, dt times dti plus dy, dt times dtj? </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="116" endt="123" onclick="playvideo_at(116)">And it could, but if you imagine these differentials could cancel out, and you're just left with the dx and a dy, and we've seen that multiple times. </object><object class="textlink" startt="123" endt="130" onclick="playvideo_at(123)">And I'm going to leave it in this form because hopefully, if we're careful, we won't have to deal with the third parameter, t. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line1_sub2_c1" class="c1", width="">
+<object onclick="playvideo_at(134);showline1_sub2();"><img src= "subline_linebreak_test/labelline_1_sub2.png" width="432.75" height="42.75" class="textlink" startt="134" endt="135" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="130" endt="135" onclick="playvideo_at(130)">So let's just look at it in this form right here with just the dx's and the dy's. </object><object class="textlink" startt="136" endt="144" onclick="playvideo_at(136)">So this integral can be rewritten as the line integral, the curve c-- actually let me do it over down here. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line4_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow4_sub0"                                     onclick="showline4_sub0()">
+<object onclick="playvideo_at(145);showline4_sub0();"><img src= "subline_linebreak_test/labelline_4_sub0.png" width="133.5" height="74.25" class="textlink" startt="145" endt="169" />
+</object>
+</div>
+<div id="line4_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="145" endt="151" onclick="playvideo_at(145)">The line integral over the path of the curve c of p dot dr. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="152" endt="179" onclick="playvideo_at(152)">So we take the product of each of the coefficients, let's say the coefficient of the i component, so we get p-- I'll do that in green, actually do that purple color --so we get p of xy times dx plus-- well there's no 0 times j times dy; 0 times dy id just going to be 0 --so this our line integral simplified to this right here. </object><object class="textlink" startt="179" endt="185" onclick="playvideo_at(179)">This is equal to this original integral up here, so we're literally just taking the line integral around this path. </object><object class="textlink" startt="186" endt="194" onclick="playvideo_at(186)">Now I said that we play our cards right, we're not going to have to deal with the third variable, t; that we might be able just solve this integral only in terms of x. </object><object class="textlink" startt="195" endt="196" onclick="playvideo_at(195)">And so let's see if we can do that. </object><object class="textlink" startt="196" endt="199" onclick="playvideo_at(196)">So let's look at our minimum and maximum x points. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub2_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow0_sub2"                                     onclick="showline0_sub2()">
+<object onclick="playvideo_at(199);showline0_sub2();"><img src= "subline_linebreak_test/labelline_0_sub2.png" width="232.5" height="206.25" class="textlink" startt="199" endt="260" />
+</object>
+</div>
+<div id="line0_sub2_c2" class="c2", width="">
+</br>
+<object id="textlink" startt = "199" endt="222" onclick="playvideo_at(199);"><img src= "subline_linebreak_test/line0_upto_sub2_subsub0.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="199" endt="201" onclick="playvideo_at(199)">That looks like our minimum x point. </object><object class="textlink" startt="202" endt="203" onclick="playvideo_at(202)">Let's call that a. </object><object class="textlink" startt="204" endt="209" onclick="playvideo_at(204)">Let's call that our maximum x point; let's call that b. </object><object class="textlink" startt="209" endt="214" onclick="playvideo_at(209)">What we could do is we can break up this curve into two functions of x. </object><object class="textlink" startt="214" endt="216" onclick="playvideo_at(214)">y is functions of x. </object><object class="textlink" startt="216" endt="220" onclick="playvideo_at(216)">So this bottom one right here we could call as y1 of x. </object><object class="textlink" startt="220" endt="230" onclick="playvideo_at(220)">This is just a standard curve; you know when we were just dealing with standard calculus, this is just you can imagine this is f of x and it's a function of x. </object><object class="textlink" startt="230" endt="234" onclick="playvideo_at(230)">And this is y2 of x. </object></br>
+<object id="textlink" startt = "231" endt="260" onclick="playvideo_at(231);"><img src= "subline_linebreak_test/line0_upto_sub2_subsub1.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="235" endt="236" onclick="playvideo_at(235)">Just like that. </object><object class="textlink" startt="236" endt="259" onclick="playvideo_at(236)">So you can imagine two paths; one path defined by y1 of x-- let me do that in a different color; magenta --one path defined by y1 of x as we go from x is equal to a to x is equal to b, and then another path defined by y2 of x as we go from x is equal to b to x is equal to a. </object><object class="textlink" startt="259" endt="260" onclick="playvideo_at(259)">That is our curve. </object></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="261" endt="279" onclick="playvideo_at(261)">So what we could do is, we could rewrite this integral-- which is the same thing as that integral --as this is equal to the integral-- we'll first do this first path --of x going from a to b of p of x. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line4_sub1_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow4_sub1"                                     onclick="showline4_sub1()">
+<object onclick="playvideo_at(268);showline4_sub1();"><img src= "subline_linebreak_test/labelline_4_sub1.png" width="378.75" height="91.5" class="textlink" startt="268" endt="302" />
+</object>
+</div>
+<div id="line4_sub1_c2" class="c2", width="">
+<p><object class="textlink" startt="280" endt="285" onclick="playvideo_at(280)">And I could to say p of x and y, but we know along this path y is a function of x. </object><object class="textlink" startt="285" endt="291" onclick="playvideo_at(285)">So we say x and y1 of x. </object><object class="textlink" startt="291" endt="296" onclick="playvideo_at(291)">Wherever we see a y we substitute it with a y1 of x, dx. </object><object class="textlink" startt="297" endt="302" onclick="playvideo_at(297)">So that covers that first path; I'll do it in the same color. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub3_c1" class="c1", width="">
+<object onclick="playvideo_at(302);showline0_sub3();"><img src= "subline_linebreak_test/labelline_0_sub3.png" width="232.5" height="206.25" class="textlink" startt="302" endt="304" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="302" endt="304" onclick="playvideo_at(302)">We could imagine this is c1. </object><object class="textlink" startt="304" endt="310" onclick="playvideo_at(304)">This is kind of the first half of our curve-- well it's not exactly the half --but that takes us right from that point to that point. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line4_sub2_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow4_sub2"                                     onclick="showline4_sub2()">
+<object onclick="playvideo_at(306);showline4_sub2();"><img src= "subline_linebreak_test/labelline_4_sub2.png" width="615.75" height="139.5" class="textlink" startt="306" endt="354" />
+</object>
+</div>
+<div id="line4_sub2_c2" class="c2", width="">
+</br>
+<object id="textlink" startt = "306" endt="337" onclick="playvideo_at(306);"><img src= "subline_linebreak_test/line4_upto_sub2_subsub0.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="311" endt="313" onclick="playvideo_at(311)">And then we want to complete the circle. </object><object class="textlink" startt="313" endt="316" onclick="playvideo_at(313)">Maybe I'll do that, and I'll do that in yellow. </object><object class="textlink" startt="316" endt="337" onclick="playvideo_at(316)">That's going to be equal to-- sorry we're going to have to add these two --plus the integral from x is equal to b to x is equal to a of-- do it in that same color --of p of x. </object><object class="textlink" startt="337" endt="340" onclick="playvideo_at(337)">And now y is going to be y2 of x. </object><object class="textlink" startt="340" endt="343" onclick="playvideo_at(340)">Wherever you see a y, you can substitute with y2 of x along this curve. </object></br>
+<object id="textlink" startt = "344" endt="354" onclick="playvideo_at(344);"><img src= "subline_linebreak_test/line4_upto_sub2_subsub1.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="344" endt="348" onclick="playvideo_at(344)">y2 of x, dx. </object><object class="textlink" startt="349" endt="353" onclick="playvideo_at(349)">This is already getting interesting and you might already see where I'm going with this. </object><object class="textlink" startt="353" endt="354" onclick="playvideo_at(353)">So this is the curve c2. </object></div>
+</div>
+<div id="c0" class="", width="">
+<p></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub4_c1" class="c1", width="">
+<object onclick="playvideo_at(356);showline0_sub4();"><img src= "subline_linebreak_test/labelline_0_sub4.png" width="232.5" height="206.25" class="textlink" startt="356" endt="359" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="357" endt="361" onclick="playvideo_at(357)">I think you appreciate if you take the union of c1 and c2, we've got our whole curve. </object><object class="textlink" startt="362" endt="365" onclick="playvideo_at(362)">So let's see if we can simplify this integral a little bit. </object><object class="textlink" startt="365" endt="369" onclick="playvideo_at(365)">Well one thing we want to do, we might want to make their end points the same. </object><object class="textlink" startt="369" endt="373" onclick="playvideo_at(369)">So if you swap a and b here, it just turns the integral negative. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line4_sub3_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow4_sub3"                                     onclick="showline4_sub3()">
+<object onclick="playvideo_at(373);showline4_sub3();"><img src= "subline_linebreak_test/labelline_4_sub3.png" width="615.75" height="150.75" class="textlink" startt="373" endt="379" />
+</object>
+</div>
+<div id="line4_sub3_c2" class="c2", width="">
+<p><object class="textlink" startt="373" endt="379" onclick="playvideo_at(373)">So you make this into a b, that into an a, and then make that plus sign into a minus sign. </object></p></div>
+</div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line5_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow5_sub0"                                     onclick="showline5_sub0()">
+<object onclick="playvideo_at(383);showline5_sub0();"><img src= "subline_linebreak_test/labelline_5_sub0.png" width="445.5" height="90.0" class="textlink" startt="383" endt="438" />
+</object>
+</div>
+<div id="line5_sub0_c2" class="c2", width="">
+<object class="textlink" startt="380" endt="406" onclick="playvideo_at(380)">And now we can rewrite this whole thing as being equal to the integral from a to b of this thing, of p of x and y1 of x minus this thing, minus p of x and y2 of x, and then all of that times dx. </object></br>
+<object id="textlink" startt = "383" endt="408" onclick="playvideo_at(383);"><img src= "subline_linebreak_test/line5_upto_sub0_subsub0.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="406" endt="408" onclick="playvideo_at(406)">I'll write it in a third color. </object><object class="textlink" startt="408" endt="418" onclick="playvideo_at(408)">Now, I'm going to do something a little bit arbitrary, but I think you'll appreciate why I did this by the end of this video, and it's just a very simple operation. </object></br>
+<object id="textlink" startt = "409" endt="438" onclick="playvideo_at(409);"><img src= "subline_linebreak_test/line5_upto_sub0_subsub1.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="418" endt="419" onclick="playvideo_at(418)">What I'm going to do is I'm going to swap these two. </object><object class="textlink" startt="419" endt="425" onclick="playvideo_at(419)">So I'm essentially going to multiply this whole thing by negative 1, or essentially multiply and divide by negative 1. </object><object class="textlink" startt="425" endt="432" onclick="playvideo_at(425)">So I can multiply this by negative 1 and then multiply the outside by negative 1, and I will not have changed the integral; I'm multiplying by negative 1 twice. </object></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="433" endt="442" onclick="playvideo_at(433)">So if I swap these two things, if I multiply the inside times negative 1, so this is going to be equal to-- do the outside of the integral, a to b. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line6_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow6_sub0"                                     onclick="showline6_sub0()">
+<object onclick="playvideo_at(439);showline6_sub0();"><img src= "subline_linebreak_test/labelline_6_sub0.png" width="275.25" height="88.5" class="textlink" startt="439" endt="479" />
+</object>
+</div>
+<div id="line6_sub0_c2" class="c2", width="">
+</br>
+<object id="textlink" startt = "439" endt="456" onclick="playvideo_at(439);"><img src= "subline_linebreak_test/line6_upto_sub0_subsub0.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="442" endt="450" onclick="playvideo_at(442)">If I multiply the inside-- I'll do a dx out here --if I multiply the inside of the integral by negative 1, these two guys switch. </object><object class="textlink" startt="450" endt="455" onclick="playvideo_at(450)">So it becomes p of x of y2 of x. </object><object class="textlink" startt="456" endt="466" onclick="playvideo_at(456)">And then you're going to have minus p of x and y1 of x. </object></br>
+<object id="textlink" startt = "457" endt="479" onclick="playvideo_at(457);"><img src= "subline_linebreak_test/line6_upto_sub0_subsub1.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="466" endt="467" onclick="playvideo_at(466)">My handwriting's getting a little messy. </object><object class="textlink" startt="468" endt="470" onclick="playvideo_at(468)">But I can't just multiply just the inside by minus 1. </object><object class="textlink" startt="470" endt="476" onclick="playvideo_at(470)">I don't want to change the integral, so I multiplied the inside by minus 1, let me multiply the outside by minus 1. </object><object class="textlink" startt="476" endt="480" onclick="playvideo_at(476)">And since I multiplied by minus 1 twice, these two things are equivalent. </object></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="480" endt="484" onclick="playvideo_at(480)">Or you could say this is the negative of that. </object><object class="textlink" startt="484" endt="488" onclick="playvideo_at(484)">Either way, I think you appreciate that I haven't changed the integral at all, numerically. </object><object class="textlink" startt="488" endt="490" onclick="playvideo_at(488)">I multiplied the inside and the outside by minus 1. </object><object class="textlink" startt="491" endt="500" onclick="playvideo_at(491)">And now the next step I'm going to do, it might look a little bit foreign to you, but I think you'll appreciate it. </object><object class="textlink" startt="500" endt="504" onclick="playvideo_at(500)">It might be obvious to you if you've recently done some double integrals. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line7_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow7_sub0"                                     onclick="showline7_sub0()">
+<object onclick="playvideo_at(502);showline7_sub0();"><img src= "subline_linebreak_test/labelline_7_sub0.png" width="332.25" height="107.25" class="textlink" startt="502" endt="542" />
+</object>
+</div>
+<div id="line7_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="504" endt="538" onclick="playvideo_at(504)">So this thing can be rewritten as minus the integral from a to b of-- and let me do a new color --of the function p of x, y evaluated at y2 of x minus-- and let me make it very clear; this is y is equal to y2 of x --minus this function evaluated at y is equal to y1 of x. </object><object class="textlink" startt="539" endt="542" onclick="playvideo_at(539)">And of course all of that times dx. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line6_sub1_c1" class="c1", width="">
+<object onclick="playvideo_at(548);showline6_sub1();"><img src= "subline_linebreak_test/labelline_6_sub1.png" width="275.25" height="88.5" class="textlink" startt="548" endt="551" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="543" endt="552" onclick="playvideo_at(543)">This statement and what we saw right here-- this statement right here --are completely identical. </object><object class="textlink" startt="552" endt="567" onclick="playvideo_at(552)">And then if we assume that a partial derivative of capital P with respect to y exists, hopefully you'll realize-- and I'll focus on this a little bit because I don't want to confuse you on this step. </object><object class="textlink" startt="567" endt="569" onclick="playvideo_at(567)">Let me write the outside of this integral. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line7_sub1_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow7_sub1"                                     onclick="showline7_sub1()">
+<object onclick="playvideo_at(569);showline7_sub1();"><img src= "subline_linebreak_test/labelline_7_sub1.png" width="696.0" height="176.25" class="textlink" startt="569" endt="690" />
+</object>
+</div>
+<div id="line7_sub1_c2" class="c2", width="">
+</br>
+<object id="textlink" startt = "569" endt="610" onclick="playvideo_at(569);"><img src= "subline_linebreak_test/line7_upto_sub1_subsub0.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="569" endt="581" onclick="playvideo_at(569)">So this is going to be equal to-- and this is kind of a neat outcome, and we're starting to build up to a very neat outcome, which will probably have to take the next video to do --so we do the outside dx. </object><object class="textlink" startt="582" endt="590" onclick="playvideo_at(582)">If we assume that capital P has a partial derivative, this right here is the exact same thing. </object><object class="textlink" startt="591" endt="609" onclick="playvideo_at(591)">This right here is the exact same thing as the partial derivative of P with respect to y, dy, the antiderivative of that from y1 of x to y2 of x. </object><object class="textlink" startt="610" endt="614" onclick="playvideo_at(610)">I want to make you feel comfortable that these two things are equivalent. </object><object class="textlink" startt="614" endt="619" onclick="playvideo_at(614)">And to realize they're equivalent, you'll probably just have to start here and then go to that. </object></br>
+<object id="textlink" startt = "617" endt="690" onclick="playvideo_at(617);"><img src= "subline_linebreak_test/line7_upto_sub1_subsub1.png" width="" height="" usemap="#" id="" class="">
+</object></br>
+<object class="textlink" startt="619" endt="634" onclick="playvideo_at(619)">We're used to seeing this; we're used to seeing a double integral like this, and then the very first step we say, OK to solve this double integral we start on the inside integral right there, and we say, OK let's take the antiderivative of this with respect to y. </object><object class="textlink" startt="634" endt="641" onclick="playvideo_at(634)">So if you take the antiderivative of the partial of p with respect to y, you're going to end up with p. </object><object class="textlink" startt="641" endt="652" onclick="playvideo_at(641)">And since this is a definite integral, the boundaries are going to be in terms of x, you're going to evaluate that from y is equal to y2 of x, and you're going to subtract from that y is equal to y1 of x. </object><object class="textlink" startt="652" endt="656" onclick="playvideo_at(652)">Normally we start with something like this, and we go to something like this. </object><object class="textlink" startt="656" endt="664" onclick="playvideo_at(656)">This is kind of unusual that we started, we kind of solved, we started with the solution of the definite integral, and then we slowly built back to the definite integral. </object><object class="textlink" startt="665" endt="670" onclick="playvideo_at(665)">So hopefully you realize that this is true, that this is just we're kind of going in a reverse direction than we normally do. </object><object class="textlink" startt="671" endt="674" onclick="playvideo_at(671)">And if you do realize that, then we've just established a pretty neat outcome. </object><object class="textlink" startt="674" endt="676" onclick="playvideo_at(674)">Because what is this right here? </object><object class="textlink" startt="677" endt="680" onclick="playvideo_at(677)">Let me go back, let me see if I can fit everything. </object><object class="textlink" startt="681" endt="691" onclick="playvideo_at(681)">I have some function-- and I'm assuming that the partial of P with respect to y exists --but I have some function defined over the xy plane. </object></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="691" endt="694" onclick="playvideo_at(691)">You know, you could imagine we're dealing in three dimensions now. </object><object class="textlink" startt="695" endt="697" onclick="playvideo_at(695)">We'll draw a little bit neater. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line8_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow8_sub0"                                     onclick="showline8_sub0()">
+<object onclick="playvideo_at(697);showline8_sub0();"><img src= "subline_linebreak_test/labelline_8_sub0.png" width="188.25" height="186.75" class="textlink" startt="697" endt="736" />
+</object>
+</div>
+<div id="line8_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="698" endt="709" onclick="playvideo_at(698)">So that's y, that's x, that's z, so this, you could imagine, is some surface; it just happens to be the partial of P with respect to x. </object><object class="textlink" startt="710" endt="715" onclick="playvideo_at(710)">So it's some surface on the xy plane like that. </object><object class="textlink" startt="715" endt="716" onclick="playvideo_at(715)">And what are we doing? </object><object class="textlink" startt="717" endt="722" onclick="playvideo_at(717)">We're taking the double integral under that surface, around this region. </object><object class="textlink" startt="722" endt="728" onclick="playvideo_at(722)">The region's boundaries in terms of y are defined by y2 and y1 of x. </object><object class="textlink" startt="728" endt="730" onclick="playvideo_at(728)">So you literally have that curve. </object><object class="textlink" startt="731" endt="736" onclick="playvideo_at(731)">That's y2 on top, y1 on the bottom. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="736" endt="741" onclick="playvideo_at(736)">And so we're essentially taking the volume above. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub5_c1" class="c1", width="">
+<object onclick="playvideo_at(742);showline0_sub5();"><img src= "subline_linebreak_test/labelline_0_sub5.png" width="232.5" height="206.25" class="textlink" startt="742" endt="747" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="742" endt="756" onclick="playvideo_at(742)">So if you imagine with the base is-- the whole floor of this is going to be the area inside of this curve, and then the height is going to be the function partial of P with respect to y. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line8_sub1_c1" class="c1", width="">
+<object onclick="playvideo_at(757);showline8_sub1();"><img src= "subline_linebreak_test/labelline_8_sub1.png" width="188.25" height="186.75" class="textlink" startt="757" endt="761" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="756" endt="765" onclick="playvideo_at(756)">It's going to be a little hard for me to draw, but this is essentially some type of a volume, if you want to visualize it that way. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub6_c1" class="c1", width="">
+<object onclick="playvideo_at(771);showline0_sub6();"><img src= "subline_linebreak_test/labelline_0_sub6.png" width="232.5" height="206.25" class="textlink" startt="771" endt="773" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="765" endt="776" onclick="playvideo_at(765)">But the really neat outcome here is if you call this region r, we've just simplified this line integral. </object><object class="textlink" startt="776" endt="777" onclick="playvideo_at(776)">And this was a special one. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line1_sub3_c1" class="c1", width="">
+<object onclick="playvideo_at(778);showline1_sub3();"><img src= "subline_linebreak_test/labelline_1_sub3.png" width="432.75" height="42.75" class="textlink" startt="778" endt="778" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="777" endt="790" onclick="playvideo_at(777)">It only had an x-component, the vector field, but we've just simplified this line integral to being equivalent to-- maybe I should write this line integral because that's what's the really neat outcome. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line4_sub4_c1" class="c1", width="">
+<object onclick="playvideo_at(792);showline4_sub4();"><img src= "subline_linebreak_test/labelline_4_sub4.png" width="624.75" height="150.75" class="textlink" startt="792" endt="792" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="790" endt="795" onclick="playvideo_at(790)">We've just established that this thing right here, which is the same as our original one, so let me write that. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line9_sub0_c1" class="c1", width="">
+<object onclick="playvideo_at(794);showline9_sub0();"><img src= "subline_linebreak_test/labelline_9_sub0.png" width="228.0" height="82.5" class="textlink" startt="794" endt="808" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line0_sub7_c1" class="c1", width="">
+<object onclick="playvideo_at(811);showline0_sub7();"><img src= "subline_linebreak_test/labelline_0_sub7.png" width="232.5" height="206.25" class="textlink" startt="811" endt="813" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="797" endt="820" onclick="playvideo_at(797)">The closed line integral around the curve c of p of xy, dx, we've just established that that's the same thing as the double integral over the region r-- this is the region r --of the partial of P with respect to y. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line9_sub1_c1" class="c1", width="">
+<object onclick="playvideo_at(816);showline9_sub1();"><img src= "subline_linebreak_test/labelline_9_sub1.png" width="352.5" height="82.5" class="textlink" startt="816" endt="830" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="821" endt="834" onclick="playvideo_at(821)">And we could write dy, dx, or we could write da, whatever you want to write, but this is the double integral over that region. </object><object class="textlink" startt="835" endt="845" onclick="playvideo_at(835)">The neat thing here is using a vector field that only had an x-component, we were able to connect its line integral to the double integral over region-- oh, and I forgot something very important. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line7_sub2_c1" class="c1", width="">
+<object onclick="playvideo_at(846);showline7_sub2();"><img src= "subline_linebreak_test/labelline_7_sub2.png" width="696.0" height="176.25" class="textlink" startt="846" endt="847" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="846" endt="847" onclick="playvideo_at(846)">We had a negative sign out here. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line9_sub2_c1" class="c1", width="">
+<object onclick="playvideo_at(848);showline9_sub2();"><img src= "subline_linebreak_test/labelline_9_sub2.png" width="352.5" height="82.5" class="textlink" startt="848" endt="848" />
+</object>
+</div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="847" endt="849" onclick="playvideo_at(847)">So this was a minus sign out here. </object><object class="textlink" startt="849" endt="853" onclick="playvideo_at(849)">Or we could even put the minus in here, but I think you get the general idea. </object><object class="textlink" startt="853" endt="860" onclick="playvideo_at(853)">In the next video, I'm going to do the same exact thing with the vector field that only has vectors in the y-direction. </object><object class="textlink" startt="860" endt="863" onclick="playvideo_at(860)">And then we'll connect the two and we'll end up with Green's theorem. </object></p></div>
+</div>
+<script>
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+var videotime;
+function onYouTubeIframeAPIReady() {
+		player = new YT.Player('player', {
+		height: '320',
+		width: '570',
+		videoId: 'l5zJvZKfMYE',
+		events: {
+			'onReady': onPlayerReady,
+		}
+	});
+}
+
+function onPlayerReady(event) {
+	function updateTime() {
+		videotime = player.getCurrentTime();
+		highlightCurrent();
+	}
+	timeupdate = setInterval(updateTime, 1000);
+}
+
+function highlightCurrent(){
+	var links = document.getElementsByClassName("textlink");
+	for (var i = 0; i < links.length; i++) {
+		var startt = links[i].getAttribute("startt");
+		var endt = links[i].getAttribute("endt");
+		if (startt < videotime && videotime < endt) {
+			links[i].style.backgroundColor = "#ff72b0";
+		} else {
+			links[i].style.backgroundColor = '#ffffff';
+		}
+	}
+};
+
+$('#arrow0_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub0(){
+	var cap  = document.getElementById("line0_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow1_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline1_sub0(){
+	var cap  = document.getElementById("line1_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub1(){
+	var cap  = document.getElementById("line0_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow2_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline2_sub0(){
+	var cap  = document.getElementById("line2_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow1_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline1_sub1(){
+	var cap  = document.getElementById("line1_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow3_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline3_sub0(){
+	var cap  = document.getElementById("line3_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow1_sub2').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline1_sub2(){
+	var cap  = document.getElementById("line1_sub2_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow4_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline4_sub0(){
+	var cap  = document.getElementById("line4_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub2').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub2(){
+	var cap  = document.getElementById("line0_sub2_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow4_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline4_sub1(){
+	var cap  = document.getElementById("line4_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub3').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub3(){
+	var cap  = document.getElementById("line0_sub3_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow4_sub2').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline4_sub2(){
+	var cap  = document.getElementById("line4_sub2_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub4').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub4(){
+	var cap  = document.getElementById("line0_sub4_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow4_sub3').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline4_sub3(){
+	var cap  = document.getElementById("line4_sub3_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow5_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline5_sub0(){
+	var cap  = document.getElementById("line5_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow6_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline6_sub0(){
+	var cap  = document.getElementById("line6_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow7_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline7_sub0(){
+	var cap  = document.getElementById("line7_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow6_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline6_sub1(){
+	var cap  = document.getElementById("line6_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow7_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline7_sub1(){
+	var cap  = document.getElementById("line7_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow8_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline8_sub0(){
+	var cap  = document.getElementById("line8_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub5').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub5(){
+	var cap  = document.getElementById("line0_sub5_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow8_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline8_sub1(){
+	var cap  = document.getElementById("line8_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub6').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub6(){
+	var cap  = document.getElementById("line0_sub6_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow1_sub3').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline1_sub3(){
+	var cap  = document.getElementById("line1_sub3_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow4_sub4').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline4_sub4(){
+	var cap  = document.getElementById("line4_sub4_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow9_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline9_sub0(){
+	var cap  = document.getElementById("line9_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow0_sub7').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub7(){
+	var cap  = document.getElementById("line0_sub7_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow9_sub1').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline9_sub1(){
+	var cap  = document.getElementById("line9_sub1_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow7_sub2').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline7_sub2(){
+	var cap  = document.getElementById("line7_sub2_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow9_sub2').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline9_sub2(){
+	var cap  = document.getElementById("line9_sub2_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+function playvideo_at(sec){
+	player.seekTo(sec, true);
+	player.playVideo();
+}
+
+function expandall(){
+	var c2s = document.getElementsByClassName("c2");
+	for (var i = 0; i < c2s.length; i++) {
+		c2s[i].style.display = "inline-block";
+	}
+	var arrows = document.getElementsByClassName("arrow");
+	for (var i = 0; i < arrows.length; i++) {
+		var src = "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(arrows[i]).attr('src', src);
+	}
+}
+function collapseall(){
+	var c2s = document.getElementsByClassName("c2");
+	for (var i = 0; i < c2s.length; i++) {
+		c2s[i].style.display = "none";
+	}
+	var arrows = document.getElementsByClassName("arrow");
+	for (var i = 0; i < arrows.length; i++) {
+		var src = "../../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(arrows[i]).attr('src', src);
+	}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+[
+    {
+        "line": "Now we'll look at another op-amp configuration called an inverting amplifier. This will be about the inverting amplifier. We'll draw a picture of what it looks like, terminal, make it a terminal. We're going to have a reference voltage coming in here now, to the positive terminal, an input voltage coming in via a resistor, and feedback also through a resistor like this. We'll call this resistor R1, this resistor R2. This is the input voltage. This is the output voltage. Again, we're going to talk about the supply voltages, so we'll label them. This is the arrangement of an inverting amplifier. Let's understand what's going on here. Again, we're going to concentrate on this divider. You see, this arrangement here is a voltage divider. It goes like this.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Here we have Vi, R1, R2 and Vo. Again, because it's an op-amp, we have this other node up here which is not merely connected in the sense of current flow, but we know that they have to have equal voltage. The voltage up here is VR. That's our reference voltage. Because that's the reference voltage, we know that this node here has to have that same reference voltage.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Let's understand this divider in terms of knowing that the current flowing through it is the same. Here, we can say that VR-Vi/R1, that's the current flowing through here. The current flowing through here is Vo-VR/R2, and we know that they have to be equal because there's nowhere else for the current to go right here at this node in the op-amp.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "If we rearrange terms a little bit, we'll end up with Vo-VR=-R2/R1*(Vi-VR). So what does this mean? It says that the difference between the output voltage and the reference voltage, Vo-VR, whatever this difference is, is negative. It's flipped. Actually, let me just put parenthesis here so we don't get confused.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "-R2/R1 times the difference between the input voltage and the reference voltage. Again, let's try to understand this through examples. Here are some examples. In our examples, we're going to assume that R1=R2. Of course, they don't have to be and the interesting case is an amplifier that's actually using different values of R1 and R2, so that you can get different kinds of ratios here.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "For right now, we're going to look at R1=R2. Let's look at the two-sided supply case. VCC equals, let's say, (+10) volts-VEE equals (-10) volts. My pen acts like that sometimes. VR=0 volts. Done that. Now, what happens? Let's see what happens. If the input voltage=+4 volts, then the output voltage is going to be (-4) volts. Why is that?",
+        "speaker": "narrator"
+    },
+    {
+        "line": "If R1 and R2 are equal, this is 1. Our reference voltage was 0, we just have Vo=-Vi. Similarly, if this is (-3) volts, let's say, then Vo is going to be (+3) volts. That's pretty easy. It's easy to see how by changing the ratio, changing the values of R1 and R2 with respect to one another, we can also scale the value up or down at the same time that we're flipping the sum.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Let's look at a different example now with a one-sided supply. Let's imagine that VCC=+10 volts, that (-VEE)=0 volts, and that our reference voltage=+5. This is like the case that we considered when we looked at the non-inverting amplifier. Our reference voltage is kind of halfway between our positive and negative supplies. Now, what happens if we put in an input of 4 volts?",
+        "speaker": "narrator"
+    },
+    {
+        "line": "If we put in 4 volts as input, really the quantity that we're kind of interested in over here is Vi-VR. Vi-VR=-1. Now, if these two resistors are equal, that's just multiplying it by 1 and this is negating it. This quantity is 1. We're saying that Vo-VR=1. That means Vo=6. Again, a way to see this is that the (+4) compared to 5 is (-1), and (+6) compared to 5 is (+1).",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Similarly, if the input is (+7) volts, then Vi-VR=2. We multiply it by 1, negate it, that's (-2). Then if this is (-5), what does Vo have to be so that this quantity is equal to (-2)? The answer is (+3) volts. Some of those, we can say that we're inverting it around this reference-voltage volume, VR. Remember that we always have to respect the balance on VCC and VEE. So this is how to make an inverting amplifier.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Now, one thing that's important to notice is that in an inverting amplifier, we can actually scale the voltage up or down in volume as we flip the sign. In a non-inverting amplifier, we can only scale the voltage up. That's an important difference in the abilities between an inverting and a non-inverting amplifier.",
+        "speaker": "narrator"
+    }
+]

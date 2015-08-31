@@ -1,0 +1,30 @@
+We've seen how to use op-amps to scale the values of voltages. Now, we'll see that we can use them to add and subtract as well. Let's look at an adder. It's sometimes known as a summer. An adder is equal to a summer, but not a winter. Good. Adder, summer. Let's imagine that we have the following arrangements. There's an op-amp.
+In the plus terminal, we actually have two voltages coming in through resistors. I have this guy and another one. That's a node here. We'll call this V1 and V2. We're going to assume that all the resistances are equal while we do this. You can do fun things with unequal resistances too, but this will be enough to start with. We'll have feedback through a resistor. Like this.
+
+This will be Ros and Ros. We could do this with respect to a general reference voltage just to make the algebra easier. For the moment I'm going to assume that the voltage here is 0, so that this is to sum voltage, which is 0.
+
+Again, the analysis, just like we did for the inverting and uninverting amplifiers-- e could do it with a reference voltage but we'll let 0 be the reference voltage for now. If we look carefully at this, what we can see is that we have two resistor dividers. There's one that goes around like this and another that goes around like this.
+
+We can draw those two dividers and then couple them in the way that we've been coupling them via the ideal-op-amp assumption. Let's start with the one involving the inputs. We have a node, a resistor, and we have a node. Actually, they all look the same anyway. Once we enable them, they become different.
+
+There's one that has V1 here and V2 over here. These have resistance R. That's one divider. Then we have another divider. Let's label this, Vo. It has 0, and sum voltage and Vo. Again, from the ideal-op-amp assumption, we know that whatever is going on, these guys have the same voltage. Fix up my drawing a little bit here. Blue there and this is resistor R and resistor R.
+
+First, we can figure out the voltage up here. We know that if this is V1 and this is V2 and these two resistors are equal--only in that case, if they're equal--then the voltage here is going to be the midpoint between V1 and V2. That's going to be V1+V2/2, that'll be the voltage here. Because these guys are hooked together this way, we know the voltage here is the same. We get V1+V2/2.
+
+Traditionally, I shouldn't be doing this in green. I'll start in green now. Now, what can we figure out about Vo? One thing we can do is look at the voltage difference here. The voltage drop across here is V1+V2/2. The voltage drop across here is going to have to be equal because the resistors are equal. We can do this, where we get V1+V2/2.
+
+If this is V1+V2/2 and this is V1+V2/2 and this is 0 down here, what we have done is between here and here, we've gone up by V1+V2. So Vo has to be V1+V2. Vo=V1+V2. What we've done is made something that adds up two voltages. Now, remember that the addition is always subject to the constraints of the source, of the suppliable digits. I haven't drawn them in here.
+
+If this V1+V2 would be too big to construct out of the VCC and VEE, then it's going to be clipped. One more thing, let's look at a subtractor. Again, we draw an op-amp, plus, minus. This time, we're going to have one voltage coming here like this to the plus terminal and go up here to 0.
+
+Again, we could do this with the general reference voltage, but for simplicity in this analysis, we'll put a 0 here. This is V2 and a little bit V1 coming on the other terminal, V1. We'll have a feedback through a resistor, like this. Again, for simplicity but not necessity, you can always make it more general.
+
+We'll assume that all these resistors have the same resistance R, R, R. Probably the Vo here. That's a substractor. Let's understand how it works. Again, when we look at it, we see that it has the structure of two resistor dividers, where the two middles are connected together via the op-amp constraint. We'll start with this top divider up here.
+
+This top divider has V2 on one side, an intermediate node and 0 volts over here, and the resistors are equal, R, R. The bottom one has the same setup, like this. This input over here, we have V1, R, R and Vo. They're coupled together, so that these guys have the same voltage. What do we know?
+
+If this is V2 and that's 0 and these two resistors are equal and it's a divider, then we know that the voltage here has to be V2/2. The voltage of this node has to be V2/2. We know we can think of the voltage drop across here as V2/2-V1. The voltage drop here. Again, it has to be the same, because the current is the same when the resistance is the same.
+
+The voltage difference here has to be V2/2-V1. What's the voltage drop from here to here? Well, it's the sum of these. It's V2-2V1. That's the difference in voltage between here and here. That means that the node voltage here at Vo has to be equal to V2-V1. If the difference between Vo and V1 is V2-2V1, then Vo has to just be V2-V1.
+
+Here we've seen how we can subtract two voltages using an op-amp. Op-amps are pretty useful. Again, remember that the subtraction is subject to the availability of the value that we want, given the supply voltages that the op-amp has.

@@ -17,3 +17,4 @@ Scripts/*.bat
 *.aux
 *.log
 *.docx
+venv/*

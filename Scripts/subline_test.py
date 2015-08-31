@@ -17,6 +17,7 @@ from moviepy.editor import *
 import moviepy.video.fx.all as vfx
 import videoclips
 import processframe as pf
+import scroll
 
 collapsed_icon = ""
 expanded_icon =""
@@ -67,6 +68,21 @@ def write_videocontrol_script(html, lineid, subid):
     "\t}\n"
     "})\n\n" %(lineid, subid, lineid, subid))    
 
+def write_playvideo_script(html):
+    html.writestring("function playVideoAt(sec) {\n"
+    "\tvar vids = document.getElementsByTagName(\"video\");\n"
+    "\tfor (var i = 0; i < vids.length; i++) {\n"
+    "\t\tvar vid = vids[i];\n"
+    "\t\tvar vstart = vid.getAttribute(\"startt\");\n"
+    "\t\tvar vend = vid.getAttribute(\"endt\");\n"
+    "\t\tif (vstart <= sec && sec < vend) {\n"
+    "\t\t\tvar offset = sec - vstart;\n"
+    "\t\t\tvid.currentTime = offset;\n"
+    "\t\t\tvid.play();\n"
+    "\t\t\tbreak;\n"
+    "\t\t}\n"
+    "\t}\n"
+    "}")
 
 def write_arrowtoggle_script(html, lineid, subid):
     html.writestring("$('#arrow%i_sub%i').on({\n"
@@ -87,14 +103,6 @@ def write_zoomtoggle_script(html, lineid, subid):
     "\t\t$(this).attr('src', src);\n"
     "\t}\n"
     "});\n\n"%(lineid, subid, zoomout_icon, zoomin_icon, zoomout_icon))
-
-
-def write_playvideo_script(html, lineid, subid):
-    html.writestring("function play_video%i_sub%i_at(sec){\n"
-    "\tvar video = document.getElementById('video%i_sub%i');\n"
-    "\tvideo.currentTime = sec;\n"
-    "\tvideo.play();\n"
-    "}\n\n" %(lineid, subid, lineid, subid))
 
 def write_expandall_script(html):
     html.writestring("function expandall(){\n"
@@ -121,6 +129,18 @@ def write_collapseall_script(html):
         "\t\t$(arrows[i]).attr('src', src);\n"
         "\t}\n"
         "}\n"%(collapsed_icon))
+    
+def write_pauseall_script(html):
+    html.writestring("function pauseall(){\n"
+    "\tvar vids = document.getElementsByTagName(\"video\");\n"
+    "\tfor (var i = 0; i < vids.length; i++) {\n"
+    "\t\tvar vid = vids[i];\n"
+    "\t\tvid.pause();\n"
+    "\t}\n"
+    "}\n")
+    
+def write_resume_play(html):
+    html.writestring()    
  
  
 def write_stc(html, sentence):
@@ -138,17 +158,22 @@ def write_subline_img(html, subline, figdir, clipdir, myvideo):
     subid = subline.sub_line_id
     filename = "line%i_sub%i"%(lineid, subid)
     
-    upto_subline_objs = subline.linegroup.obj_upto_subline(subline.sub_line_id)
-    subline_obj = VisualObject.group(upto_subline_objs, figdir, filename+".png")
-    
+    """make poster image for full screen video"""
     clippath =  filename +"_poster.png"
     clipposter = myvideo.capture_frame(subline.obj.end_fid)
     util.saveimage(clipposter, figdir, clippath)
     
+    """make poster image for cropped screen video
+    Previous objs in line: gray
+    Current objs in line: color
+    Next objs in line: invisible"""
+        
+    upto_subline_objs = subline.linegroup.obj_highlight_subline(subline.sub_line_id)
+    subline_obj = VisualObject.group(upto_subline_objs, figdir, filename+".png")
     croppath = filename + "_crop_poster.png"
     cropimage = 255-subline_obj.img
     util.saveimage(cropimage, figdir, croppath )
-    
+#     
     html.opendiv(idstring="line%i_sub%i_c1"%(lineid, subid), class_string="c1")
     if len(subline.list_of_sentences) > 0:
         html.writestring("<img class=\"arrow\" src=\"%s\" height=\"30px\" id=\"arrow%i_sub%i\" \
@@ -158,48 +183,17 @@ def write_subline_img(html, subline, figdir, clipdir, myvideo):
                                 onclick=\"zoomvideo%i_sub%i()\">\n"%(zoomout_icon, lineid, subid, lineid, subid))
     
     cropsrc = clipdir + "/" + filename + "_crop.mp4"
-    html.writestring("<video id=\"video%i_sub%i\" startt=\"%i\" poster=\"%s\" zoomed=\"true\" >\n \
+    html.writestring("<video id=\"video%i_sub%i\" startt=\"%i\" endt=\"%i\" poster=\"%s\" zoomed=\"true\" >\n \
                                 <source src = \"%s\" type=\"video/mp4\">\n \
-                                </video>\n"%(lineid, subid, subline.video_startt, os.path.relpath(figdir + "/" + croppath, html.filedir), os.path.relpath(cropsrc, html.filedir)))
+                                </video>\n"%(lineid, subid, subline.video_startt, subline.video_endt, os.path.relpath(figdir + "/" + croppath, html.filedir), os.path.relpath(cropsrc, html.filedir)))
         
     html.closediv() #line%i_sub%i
-    
-#     """make subclip and cropped subclip""" 
-#     img_startt = subline.obj.start_fid
-#     img_endt = subline.obj.end_fid
-#     if len(subline.list_of_video_sentences) > 0:
-#         stc_startt = subline.list_of_video_sentences[0].start_fid
-#         stc_endt = subline.list_of_video_sentences[-1].end_fid
-#     else:
-#         stc_startt = float("inf")
-#         stc_endt = -1
-#     startt = myvideo.fid2sec(min(stc_startt, img_startt))
-#     endt = myvideo.fid2sec(max(stc_endt, img_endt))
-#     
-#     print myvideo.filepath
-#     subclip = VideoFileClip(myvideo.filepath).subclip(startt, endt)
-# #     audioclip = AudioFileClip(audiopath).subclip(startt, endt)
-# #     subclip.set_audio(audioclip)
-# #     subclip.volumex(1.5)
-# #     subclip.preview()
-#     subclip_crop = vfx.crop(subclip, subline.linegroup.obj.tlx, subline.linegroup.obj.tly, subline.linegroup.obj.brx, subline.linegroup.obj.bry)
-#     
-#     
-#     clipsrc = clipdir + "/" + filename + ".mp4"
-#     cropsrc = clipdir + "/" + filename + "_crop.mp4"
-#     subclip = CompositeVideoClip([subclip, audioclip]) 
-#     subclip_crop = CompositeVideoClip([subclip_crop, audioclip])
-#     subclip_crop.write_videofile(cropsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
-#     subclip.write_videofile(clipsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
-    
-   
+       
         
 def write_subline_stc(html, subline, figdir, video):  
     lineid = subline.line_id
     subid = subline.sub_line_id
     nlines = len(subline.list_of_subsublines)    
-    print 'lineid, subid, nlines', lineid, subid, nlines
-    """no sentence"""
     if nlines == 0 or len(subline.list_of_sentences) == 0:
         return
 
@@ -230,6 +224,8 @@ def write_subline_stc(html, subline, figdir, video):
         for stcstroke in list_of_stcstrokes:
             list_of_objs.append(stcstroke.obj)
         obj = VisualObject.group(list_of_objs, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
+        obj.img = 255- obj.img
+        util.saveimage(obj.img, figdir, "line%i_upto_sub%i_subsub%i.png"%(subline.line_id, subline.sub_line_id, subsubid))
         obj.start_fid = list_of_stcstrokes[0].obj.start_fid
         subsubid += 1
         list_of_sublineobjs.append(obj)
@@ -270,11 +266,11 @@ def write_onready_script(html):
 
 def write_video_event_script(html):
     html.writestring("var videos = document.getElementsByTagName(\"video\");\n"
-                     "\tfor (var i = 0; i < videos.length; i++) {\n"
-                     "\t\tvar vid = videos[i];\n"
-                     "\t\tvid.addEventListener(\"play\", stopOtherVideos, false);\n"
-                     "\t\tvid.addEventListener(\"ended\", startNextVideo, false);\n"
-                     "\t}\n\n"
+                     "for (var i = 0; i < videos.length; i++) {\n"
+                     "\tvar vid = videos[i];\n"
+                     "\tvid.addEventListener(\"play\", stopOtherVideos, false);\n"
+                     "\tvid.addEventListener(\"ended\", startNextVideo, false);\n"
+                     "}\n\n"
                      "function stopOtherVideos(event) {\n"
                      "\tvar vids = document.getElementsByTagName(\"video\");\n"
                      "\tfor (var i = 0; i < vids.length; i++) {\n"
@@ -341,7 +337,6 @@ def write_by_time(list_of_objs, html, video):
         obj.video = video
         obj.write_to_html(html)
     return
-
         
 if __name__ == "__main__":
     videopath = sys.argv[1]
@@ -352,9 +347,10 @@ if __name__ == "__main__":
     author = sys.argv[6]
     maindir = sys.argv[7] 
     outdir = sys.argv[8] #objdir
+    scrolltxt = sys.argv[9]
      
     maindir = os.path.relpath(maindir, outdir)
-    print maindir
+    scroll_coords = scroll.read_scroll_coord(scrolltxt)
     
     collapsed_icon = maindir + "/figures/" + "arrow_collapsed_icon.png"
     expanded_icon = maindir + "/figures/" + "arrow_expanded_icon.png"
@@ -380,7 +376,7 @@ if __name__ == "__main__":
      list_of_strokes, list_of_chars, list_of_sentences] = lecturevisual.getvisuals(videopath, panoramapath, 
                                                                 objdir, scriptpath)
      
-    videoclips.write_subline_clips(clipdir, list_of_sublines, video)
+    videoclips.write_subline_clips(clipdir, figdir,  list_of_sublines, video, scroll_coords)
 #     prev_video_endt = 0
 #     for subline in list_of_sublines:
 #         subline.write_video(clipdir, video)
@@ -398,6 +394,7 @@ if __name__ == "__main__":
     html.closediv()
 
     html.opendiv(class_string="summary")
+    
     cur_stc_id = 0
     for sublinei in range(0, len(list_of_sublines)):
         subline = list_of_sublines[sublinei]
@@ -458,9 +455,10 @@ if __name__ == "__main__":
         write_showsection_script(html, lineid, subid)
         write_zoomvideo_script(html, lineid, subid, os.path.relpath(clipdir,outdir), os.path.relpath(figdir,outdir))
         write_videocontrol_script(html, lineid, subid)
-        write_playvideo_script(html, lineid, subid)
+    write_playvideo_script(html)
     write_expandall_script(html)
     write_collapseall_script(html)
+    write_pauseall_script(html)
     html.closescript()
     
     html.closehtml()

@@ -1,0 +1,4 @@
+start_fid 	 end_fid 	 tlx 	 tly 	 brx 	 bry	 filename
+122	9850	5	3	635	206	../SampleVideos/more/lpk4/lec_negate_fgpixel_objs/cleanup/negate//sublines_15_03_18/line000000_000000.png
+9850	11892	8	241	209	370	../SampleVideos/more/lpk4/lec_negate_fgpixel_objs/cleanup/negate//sublines_15_03_18/line000001_000000.png
+11892	16673	302	254	578	453	../SampleVideos/more/lpk4/lec_negate_fgpixel_objs/cleanup/negate//sublines_15_03_18/line000002_000000.png

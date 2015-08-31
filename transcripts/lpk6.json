@@ -1,0 +1,70 @@
+[
+    {
+        "line": "We just saw a model of an op-amp as a voltage-controlled voltage-source. Now we're going to look at an even simpler model. We'll call this the ideal-op-amp model. The voltage-controlled voltage-source was an abstraction of the real circuitry inside an op-amp. This ideal model will be an abstraction even of the voltage-controlled voltage-source. It's really only going to apply when we have an op-amp hooked up in some sort of feedback configuration. For right now, we'll just study the simple feedback configuration. We've seen this already. We have an input voltage. We have this voltage, which  back around from the output. We have Vo. So that's our basic op-amp model, hooked up in feedback.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "The ideal op-amp model--let's see what we can say about the ideal op-amp model. Let's go here and look at the voltage-controlled voltage-source model again. We have Vo=K/1+K*Vi. What we can see is that as K goes to 0. Well, let's actually look at (V+)-(V-). Here's (V+)-(V-). Those are the voltages at the two input terminals of the op-amp.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That's equal to Vi-K/1+K Vi. It's pretty clear that as K goes to infinity, (V+)-(V-) goes to 0. Our ideal abstraction is going to be. What we can take from this is that we're going to think of K getting big. The ideal model is that (V+)=(V-). That is to say that the two voltages on the two input terminals in the op-amp are kept equal.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "That's the abstraction that we're going to make in how the op-amp works. It's only sensible if the op-amp is hooked up in some kind of a negative feedback configuration. Now, what else can we say? Just to remind ourselves of what's going on-- the current I+, there's no current flowing in here. We know that I+=0.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "There's another current here. We'll call it (I-). There's no current flowing into here either. We know that I-=0. That current is equal to 0. That doesn't mean that there's no current around here. For instance, there can be a current here. We'll call it Io. You think of this thing as a voltage source.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Let's talk also about the supplies. The fact is that this is a voltage source. It has to be hooked up to some source of voltage. We're going to use special names for these voltage levels. There's VCC and -VEE. We're going to hook this op-amp up to two voltages that we happen to have around. They're the biggest and smallest voltages that we have available. This is positive and negative.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "You can think of a current flowing, in some sense, through here like this. Current can flow into this voltage source. It will supply whatever current is necessary. There can also be current. If there's current here, then there's current going out this way. No current here. No current here. There's current here, but it's not connected to the input terminals. That's the ideal op-amp model.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Let's talk a little bit more about VCC and VEE. If there's a voltage supply, this is the biggest voltage we have or the smallest voltage we have. Another constraint is that VCC. Let me make this constraint blue. Go back to blue. VCC is going to be bigger than Vo, which is going to be bigger than (-VEE). No matter what we do. And we'll try a bunch of different things.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "No matter what we do, the output voltage has to be in between the two supply voltages. That's a no-brainer there. Let's go and look at a simple thing that we can do with this ideal op-amp. Let's go back to our circuit with a battery. There's a battery, and the light bulbs.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "I'm not a great drawer of light bulbs, but I'll make a light bulb here with a light coming out of it, and another light bulb here with some light coming out of it. We'll hook it up to. There we go. Then, remember, we had a circuit where we took something off here. We had a switch. Before, what we did was, we connected it straight to another light bulb over here.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "We found that by adding an extra light here, it actually drags this, made this bulb dimmer and the top one brighter. This one was dimmer, too. But let's hook it up via an op-amp. We're going to put an op-amp here. This is the positive terminal, negative terminal, op-amp, and the feedback configurations. This comes around like this.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Over here, we'll add another light bulb, and then we'll let this hook back into our ground. Now, what happens? Well, if we close this switch. We'll close the switch. We close the switch, then whatever voltage is established here. Let's label this thing a little bit better. Imagine that this may have some V volts here. These two light bulbs have the same resistance.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "When the switch is open, then the voltage here at this node is going to be V/2. If you think of this as the voltage with respect to this, we'll call that 0. We'll call the node voltage here V. Node voltage here, 0-- ground. Then this is going to be V/2. If we close this circuit, what we're saying is that we're going to put a voltage of V/2 here on the input to the op-amp.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Now we apply the ideal op-amp model. What we know is if this is the voltage V/2, then our model is that (V+)=(V-), so (V+)=(V-). That means the voltage on this node is also going to be V/2. This is going to be V/2. This is still 0 down here. Therefore, this light bulb is going to glow as brightly as the others. To make the nodes in the circuit clear, I'm going to color them in.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "We'll start with this node. There's a node that goes here and to here. That's one node in this circuit. There's another node. We will make it plum. That's the ground node. It's all of this and this. This, going all the way over here to this side of the light bulb, that's the ground node. We can make an orange node, which is this V/2 coming over here.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "If we close the switch, then it goes all the way over to here. Then there's one more node, which is the other side of the op-amp. We'll make that a turquoise node, other side of the op-amp. What's important about what's going on here is that there's no current flowing from the orange to the light blue node.",
+        "speaker": "narrator"
+    },
+    {
+        "line": "Therefore, whatever is happening over here with the light blue can't affect what's happening over here on the orange side. This light bulb can't drag down the voltage over here. That's a really important feature of op-amps. If we hook this thing up this way, all our lamps will glow equally bright.",
+        "speaker": "narrator"
+    }
+]

@@ -186,14 +186,14 @@ class SubLine:
         self.video_startt = myvideo.fid2sec(min(stc_startt, imgobj_startt))
         self.video_endt = myvideo.fid2sec(max(stc_endt, imgobj_endt)) + 1.0
         self.video_endt = min(myvideo.endt/1000.0, self.video_endt)
-        print 'startt', self.video_startt, 'endt', self.video_endt
+#         print 'startt', self.video_startt, 'endt', self.video_endt
     
         subclip = VideoFileClip(myvideo.filepath).subclip(self.video_startt, self.video_endt)
         subclip = videoclips.colormask(subclip, self.obj.tlx, self.obj.tly, self.obj.brx, self.obj.bry)
         clipsrc = videodir + "/" + filename + ".mp4"
         subclip.write_videofile(clipsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
         
-        print 'tlx, tly, brx, bry', self.linegroup.obj.tlx, self.linegroup.obj.tly, self.linegroup.obj.brx, self.linegroup.obj.bry
+#         print 'tlx, tly, brx, bry', self.linegroup.obj.tlx, self.linegroup.obj.tly, self.linegroup.obj.brx, self.linegroup.obj.bry
         subclip_crop = vfx.crop(subclip, self.linegroup.obj.tlx, self.linegroup.obj.tly, self.linegroup.obj.brx, self.linegroup.obj.bry)
         cropsrc = videodir + "/" + filename +"_crop.mp4"
         subclip_crop.write_videofile(cropsrc, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True) # Many options...
@@ -220,7 +220,17 @@ class LineGroup:
             list_of_objs.append(grayobj)
         list_of_objs.append(self.list_of_sublines[subline_id].obj)
         return list_of_objs
-        
+    
+    def obj_highlight_subline(self, subline_id):    
+        list_of_objs = []
+        for i in range(0, len(self.list_of_sublines)):
+            obj = self.list_of_sublines[i].obj.copy()
+            if i < subline_id:
+                obj.img = util.fg2gray(obj.img, 175)
+            elif i > subline_id:
+                obj.img = np.ones(obj.img.shape)*255
+            list_of_objs.append(obj)
+        return list_of_objs
     
 def link_char_strokes(list_of_chars, list_of_strokes):
     for char in list_of_chars:
@@ -275,10 +285,11 @@ def get_sublines(list_of_strokes, linetxt, list_of_sentences, sublinedir, stcstr
     return list_of_sublines
 
 def link_stc_to_sublines(list_of_sentences, list_of_sublines):
-    """sentence is associated with a subline, or none"""
+    """sentence is associated with a subline, or none
+    IF more than 75% of sentence overlaps with drawing time, it is linked with subline"""
     for subline in list_of_sublines:
         del subline.list_of_sentences[:]
-    
+        
     n_sublines = len(list_of_sublines)
     closest_subline_ids = []
     for stc in list_of_sentences:
@@ -294,17 +305,24 @@ def link_stc_to_sublines(list_of_sentences, list_of_sublines):
                 closest_subline = list_of_sublines[i]
                 closest_id = i
         closest_subline_ids.append(closest_id)
-        stc.subline = closest_subline
         if (closest_subline is not None and abs(min_dist) >= 0.75*stc_length_fid):
             closest_subline.list_of_sentences.append(stc)    
+            stc.subline = closest_subline
+            stc.subline_index = closest_id
+        
     return closest_subline_ids
 
 def link_stc_to_subline_videos(list_of_sentences, list_of_sublines):
-    """sentence is associated with a single subline"""
+    """A sentence is associated with a single subline video. 
+    All sentences that end after current video start and end before next video starts"""
+    
+    """Clear"""
     for subline in list_of_sublines:
         del subline.list_of_video_sentences[:]
     
     n_sublines = len(list_of_sublines)
+    
+    
     closest_subline_ids = []
     for stc in list_of_sentences:
         closest_subline = None

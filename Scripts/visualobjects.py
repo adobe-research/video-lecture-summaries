@@ -42,7 +42,7 @@ class VisualObject:
         startt = self.video.fid2sec(self.start_fid)
         endt = self.video.fid2sec(self.end_fid)
 
-        html.writestring("<object id=\"textlink\" onclick=\"playvideo_at(%i);\">"%(startt))
+        html.writestring("<object id=\"textlink\" onclick=\"playVideoAt(%i);\">"%(startt))
         
         h,w = self.img.shape[0:2]
         imgpath = html.relpath(self.imgpath)

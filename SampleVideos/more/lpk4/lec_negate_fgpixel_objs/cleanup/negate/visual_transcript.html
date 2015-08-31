@@ -1,0 +1,182 @@
+<html>
+	<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link href="../../../../../../Mainpage/subline_test_video.css" rel="stylesheet" />
+	<title>Adder and Subtractor</title>
+</head>
+<body>
+<h1>Adder and Subtractor</h1>
+<h3>Leslise Pack Kaelbling</h3>
+<div id="summary1" class="", width="">
+<div id="transcriptbutton" class="", width="">
+<button id="expand" onclick="expandall()">Expand all transcript</button><button id="expand" onclick="collapseall()">Collapse all transcript</button><br></div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="1" endt="4" onclick="playvideo_at(1)">We've seen how to use op-amps to scale the values of voltages. </object><object class="textlink" startt="4" endt="7" onclick="playvideo_at(4)">Now, we'll see that we can use them to add and subtract as well. </object></p></div>
+<div class="sec-title">Adder (Summer)</div>
+    
+    <div id="c1c2wrapper" class="", width="">
+<div id="line0_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow0_sub0"                                     onclick="showline0_sub0()">
+    
+<!--
+<object onclick="playvideo_at(4);showline0_sub0();"><img src= "figs/labelline_0_sub0.png" width="631" height="204" class="textlink" startt="4" endt="328" />
+</object>
+-->
+    <video id="video1" poster="figs/labelline_0_sub0.png" controls>
+        <source src="clips/line000000_000000_crop.mp4" type="video/mp4">
+    </video>
+    
+</div>
+<div id="line0_sub0_c2" class="c2", width="">
+</br>
+<object id="textlink" onclick="playvideo_at(4);"><img src= "figs/line0_upto_sub0_subsub0.png" width="170.25" height="114.75" class="textlink" startt="4" endt="128" />
+</object></br>
+<object class="textlink" startt="8" endt="10" onclick="playvideo_at(8)">Let's look at an adder. </object><object class="textlink" startt="10" endt="12" onclick="playvideo_at(10)">It's sometimes known as a summer. </object><object class="textlink" startt="15" endt="19" onclick="playvideo_at(15)">An adder is equal to a summer, but not a winter. </object><object class="textlink" startt="19" endt="20" onclick="playvideo_at(19)">Good. </object><object class="textlink" startt="20" endt="21" onclick="playvideo_at(20)">Adder, summer. </object><object class="textlink" startt="21" endt="25" onclick="playvideo_at(21)">Let's imagine that we have the following arrangements. </object><object class="textlink" startt="26" endt="27" onclick="playvideo_at(26)">There's an op-amp. </object><object class="textlink" startt="28" endt="36" onclick="playvideo_at(28)">In the plus terminal, we actually have two voltages coming in through resistors. </object><object class="textlink" startt="37" endt="41" onclick="playvideo_at(37)">I have this guy and another one. </object><object class="textlink" startt="43" endt="45" onclick="playvideo_at(43)">That's a node here. </object><object class="textlink" startt="45" endt="49" onclick="playvideo_at(45)">We'll call this V1 and V2. </object><object class="textlink" startt="52" endt="56" onclick="playvideo_at(52)">We're going to assume that all the resistances are equal while we do this. </object><object class="textlink" startt="56" endt="60" onclick="playvideo_at(56)">You can do fun things with unequal resistances too, but this will be enough to start with. </object><object class="textlink" startt="61" endt="65" onclick="playvideo_at(61)">We'll have feedback through a resistor. </object><object class="textlink" startt="65" endt="66" onclick="playvideo_at(65)">Like this. </object><object class="textlink" startt="74" endt="81" onclick="playvideo_at(74)">This will be Ros and Ros. </object><object class="textlink" startt="82" endt="88" onclick="playvideo_at(82)">We could do this with respect to a general reference voltage just to make the algebra easier. </object><object class="textlink" startt="88" endt="94" onclick="playvideo_at(88)">For the moment I'm going to assume that the voltage here is 0, so that this is to sum voltage, which is 0. </object><object class="textlink" startt="96" endt="107" onclick="playvideo_at(96)">Again, the analysis, just like we did for the inverting and uninverting amplifiers--we could do it with a reference voltage but we'll let 0 be the reference voltage for now. </object><object class="textlink" startt="107" endt="112" onclick="playvideo_at(107)">If we look carefully at this, what we can see is that we have two resistor dividers. </object><object class="textlink" startt="112" endt="118" onclick="playvideo_at(112)">There's one that goes around like this and another that goes around like this. </object><object class="textlink" startt="118" endt="125" onclick="playvideo_at(118)">We can draw those two dividers and then couple them in the way that we've been coupling them via the ideal-op-amp assumption. </object><object class="textlink" startt="126" endt="129" onclick="playvideo_at(126)">Let's start with the one involving the inputs. </object></br>
+<object id="textlink" onclick="playvideo_at(128);"><img src= "figs/line0_upto_sub0_subsub1.png" width="429.0" height="123.0" class="textlink" startt="128" endt="241" />
+</object></br>
+<object class="textlink" startt="129" endt="133" onclick="playvideo_at(129)">We have a node, a resistor, and we have a node. </object><object class="textlink" startt="133" endt="135" onclick="playvideo_at(133)">Actually, they all look the same anyway. </object><object class="textlink" startt="137" endt="138" onclick="playvideo_at(137)">Once we enable them, they become different. </object><object class="textlink" startt="139" endt="145" onclick="playvideo_at(139)">There's one that has V1 here and V2 over here. </object><object class="textlink" startt="146" endt="148" onclick="playvideo_at(146)">These have resistance R. </object><object class="textlink" startt="150" endt="152" onclick="playvideo_at(150)">That's one divider. </object><object class="textlink" startt="152" endt="160" onclick="playvideo_at(152)">Then we have another divider. </object><object class="textlink" startt="160" endt="162" onclick="playvideo_at(160)">Let's label this, Vo. </object><object class="textlink" startt="164" endt="170" onclick="playvideo_at(164)">It has 0, and sum voltage and Vo. </object><object class="textlink" startt="171" endt="179" onclick="playvideo_at(171)">Again, from the ideal-op-amp assumption, we know that whatever is going on, these guys have the same voltage. </object><object class="textlink" startt="182" endt="183" onclick="playvideo_at(182)">Fix up my drawing a little bit here. </object><object class="textlink" startt="183" endt="191" onclick="playvideo_at(183)">Blue there and this is resistor R and resistor R. </object><object class="textlink" startt="192" endt="204" onclick="playvideo_at(192)">First, we can figure out the voltage up here. </object><object class="textlink" startt="204" endt="219" onclick="playvideo_at(204)">We know that if this is V1 and this is V2 and these two resistors are equal-- only in that case, if they're equal-- then the voltage here is going to be the midpoint between V1 and V2. </object><object class="textlink" startt="220" endt="231" onclick="playvideo_at(220)">That's going to be V1+V2/2, that'll be the voltage here. </object><object class="textlink" startt="231" endt="236" onclick="playvideo_at(231)">Because these guys are hooked together this way, we know the voltage here is the same. </object><object class="textlink" startt="236" endt="238" onclick="playvideo_at(236)">We get V1+V2/2. </object><object class="textlink" startt="239" endt="244" onclick="playvideo_at(239)">Traditionally, I shouldn't be doing this in green. </object></br>
+<object id="textlink" onclick="playvideo_at(241);"><img src= "figs/line0_upto_sub0_subsub2.png" width="473.25" height="153.0" class="textlink" startt="241" endt="328" />
+</object></br>
+<object class="textlink" startt="244" endt="246" onclick="playvideo_at(244)">I'll start in green now. </object><object class="textlink" startt="246" endt="248" onclick="playvideo_at(246)">Now, what can we figure out about Vo? </object><object class="textlink" startt="249" endt="253" onclick="playvideo_at(249)">One thing we can do is look at the voltage difference here. </object><object class="textlink" startt="253" endt="260" onclick="playvideo_at(253)">The voltage drop across here is V1+V2/2. </object><object class="textlink" startt="264" endt="274" onclick="playvideo_at(264)">The voltage drop across here is going to have to be equal because the resistors are equal. </object><object class="textlink" startt="274" endt="279" onclick="playvideo_at(274)">We can do this, where we get V1+V2/2. </object><object class="textlink" startt="280" endt="293" onclick="playvideo_at(280)">If this is V1+V2/2 and this is V1+V2/2 and this is 0 down here, what we have done is between here and here, we've gone up by V1+V2. </object><object class="textlink" startt="294" endt="300" onclick="playvideo_at(294)">So Vo has to be V1+V2. </object><object class="textlink" startt="302" endt="305" onclick="playvideo_at(302)">Vo=V1+V2. </object><object class="textlink" startt="305" endt="309" onclick="playvideo_at(305)">What we've done is made something that adds up two voltages. </object><object class="textlink" startt="310" endt="318" onclick="playvideo_at(310)">Now, remember that the addition is always subject to the constraints of the source, of the suppliable digits. </object><object class="textlink" startt="318" endt="320" onclick="playvideo_at(318)">I haven't drawn them in here. </object><object class="textlink" startt="320" endt="328" onclick="playvideo_at(320)">If this V1+V2 would be too big to construct out of the VCC and VEE, then it's going to be clipped. </object></div>
+</div>
+<div class="sec-title">Subtractor</div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line1_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow1_sub0"                                     onclick="showline1_sub0()">
+<object onclick="playvideo_at(328);showline1_sub0();"><img src= "figs/labelline_1_sub0.png" width="202" height="130" class="textlink" startt="328" endt="396" />
+</object>
+</div>
+<div id="line1_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="330" endt="332" onclick="playvideo_at(330)">One more thing, let's look at a subtractor. </object><object class="textlink" startt="337" endt="345" onclick="playvideo_at(337)">Again, we draw an op-amp, plus, minus. </object><object class="textlink" startt="346" endt="358" onclick="playvideo_at(346)">This time, we're going to have one voltage coming here like this to the plus terminal and go up here to 0. </object><object class="textlink" startt="358" endt="364" onclick="playvideo_at(358)">Again, we could do this with the general reference voltage, but for simplicity in this analysis, we'll put a 0 here. </object><object class="textlink" startt="364" endt="372" onclick="playvideo_at(364)">This is V2 and a little bit V1 coming on the other terminal, V1. </object><object class="textlink" startt="372" endt="376" onclick="playvideo_at(372)">We'll have a feedback through a resistor, like this. </object><object class="textlink" startt="380" endt="385" onclick="playvideo_at(380)">Again, for simplicity but not necessity, you can always make it more general. </object><object class="textlink" startt="385" endt="391" onclick="playvideo_at(385)">We'll assume that all these resistors have the same resistance R, R, R. </object><object class="textlink" startt="391" endt="393" onclick="playvideo_at(391)">Probably the Vo here. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="395" endt="396" onclick="playvideo_at(395)">That's a substractor. </object><object class="textlink" startt="396" endt="397" onclick="playvideo_at(396)">Let's understand how it works. </object><object class="textlink" startt="398" endt="408" onclick="playvideo_at(398)">Again, when we look at it, we see that it has the structure of two resistor dividers, where the two middles are connected together via the op-amp constraint. </object></p></div>
+<div id="c1c2wrapper" class="", width="">
+<div id="line2_sub0_c1" class="c1", width="">
+<img class="arrow" src="../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png" height="10px" id="arrow2_sub0"                                     onclick="showline2_sub0()">
+<object onclick="playvideo_at(396);showline2_sub0();"><img src= "figs/labelline_2_sub0.png" width="277" height="200" class="textlink" startt="396" endt="555" />
+</object>
+</div>
+<div id="line2_sub0_c2" class="c2", width="">
+<p><object class="textlink" startt="410" endt="414" onclick="playvideo_at(410)">We'll start with this top divider up here. </object><object class="textlink" startt="421" endt="432" onclick="playvideo_at(421)">This top divider has V2 on one side, an intermediate node and 0 volts over here, and the resistors are equal, R, R. </object><object class="textlink" startt="434" endt="441" onclick="playvideo_at(434)">The bottom one has the same setup, like this. </object><object class="textlink" startt="443" endt="453" onclick="playvideo_at(443)">This input over here, we have V1, R, R and Vo. </object><object class="textlink" startt="454" endt="460" onclick="playvideo_at(454)">They're coupled together, so that these guys have the same voltage. </object><object class="textlink" startt="460" endt="461" onclick="playvideo_at(460)">What do we know? </object><object class="textlink" startt="463" endt="473" onclick="playvideo_at(463)">If this is V2 and that's 0 and these two resistors are equal and it's a divider, then we know that the voltage here has to be V2/2. </object><object class="textlink" startt="474" endt="478" onclick="playvideo_at(474)">The voltage of this node has to be V2/2. </object><object class="textlink" startt="481" endt="489" onclick="playvideo_at(481)">We know we can think of the voltage drop across here as V2/2-V1. </object><object class="textlink" startt="490" endt="496" onclick="playvideo_at(490)">The voltage drop here. </object><object class="textlink" startt="497" endt="501" onclick="playvideo_at(497)">Again, it has to be the same, because the current is the same when the resistance is the same. </object><object class="textlink" startt="501" endt="506" onclick="playvideo_at(501)">The voltage difference here has to be V2/2-V1. </object><object class="textlink" startt="508" endt="517" onclick="playvideo_at(508)">What's the voltage drop from here to here? </object><object class="textlink" startt="517" endt="522" onclick="playvideo_at(517)">Well, it's the sum of these. </object><object class="textlink" startt="522" endt="525" onclick="playvideo_at(522)">It's V2-2V1. </object><object class="textlink" startt="527" endt="530" onclick="playvideo_at(527)">That's the difference in voltage between here and here. </object><object class="textlink" startt="531" endt="540" onclick="playvideo_at(531)">That means that the node voltage here at Vo has to be equal to V2-V1. </object><object class="textlink" startt="541" endt="551" onclick="playvideo_at(541)">If the difference between Vo and V1 is V2-2V1, then Vo has to just be V2-V1. </object><object class="textlink" startt="552" endt="556" onclick="playvideo_at(552)">Here we've seen how we can subtract two voltages using an op-amp. </object></p></div>
+</div>
+<div id="c0" class="", width="">
+<p><object class="textlink" startt="557" endt="558" onclick="playvideo_at(557)">Op-amps are pretty useful. </object><object class="textlink" startt="558" endt="567" onclick="playvideo_at(558)">Again, remember that the subtraction is subject to the availability of the value that we want, given the supply voltages that the op-amp has. </object></p></div>
+</div>
+<script>
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+var videotime;
+function onYouTubeIframeAPIReady() {
+		player = new YT.Player('player', {
+		height: '320',
+		width: '570',
+		videoId: 'xxx',
+		events: {
+			'onReady': onPlayerReady,
+		}
+	});
+}
+
+function onPlayerReady(event) {
+	function updateTime() {
+		videotime = player.getCurrentTime();
+		highlightCurrent();
+	}
+	timeupdate = setInterval(updateTime, 1000);
+}
+
+function highlightCurrent(){
+	var links = document.getElementsByClassName("textlink");
+	for (var i = 0; i < links.length; i++) {
+		var startt = links[i].getAttribute("startt");
+		var endt = links[i].getAttribute("endt");
+		if (startt < videotime && videotime < endt) {
+			links[i].style.backgroundColor = "#ff72b0";
+		} else {
+			links[i].style.backgroundColor = '#ffffff';
+		}
+	}
+};
+
+$('#arrow0_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline0_sub0(){
+	var cap  = document.getElementById("line0_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+    
+    var cap = document.getElementById("video1");
+    cap.src = "clips/line000000_000000.mp4";
+    
+}
+
+$('#arrow1_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline1_sub0(){
+	var cap  = document.getElementById("line1_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+$('#arrow2_sub0').on({
+	'click': function() {
+ 		 var src = ($(this).attr('src') === "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png")
+		? "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png"
+		: "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(this).attr('src', src);
+	}
+});
+
+function showline2_sub0(){
+	var cap  = document.getElementById("line2_sub0_c2");
+	cap.style.display == "inline-block" ? cap.style.display = "none" : cap.style.display = "inline-block";
+}
+
+function playvideo_at(sec){
+	player.seekTo(sec, true);
+	player.playVideo();
+}
+
+function expandall(){
+	var c2s = document.getElementsByClassName("c2");
+	for (var i = 0; i < c2s.length; i++) {
+		c2s[i].style.display = "inline-block";
+	}
+	var arrows = document.getElementsByClassName("arrow");
+	for (var i = 0; i < arrows.length; i++) {
+		var src = "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(arrows[i]).attr('src', src);
+	}
+}
+function collapseall(){
+	var c2s = document.getElementsByClassName("c2");
+	for (var i = 0; i < c2s.length; i++) {
+		c2s[i].style.display = "none";
+	}
+	var arrows = document.getElementsByClassName("arrow");
+	for (var i = 0; i < arrows.length; i++) {
+		var src = "../../../../../../Mainpage/figures/arrow_collapsed_icon_2.png";
+		$(arrows[i]).attr('src', src);
+	}
+}
+</script>
+
+</body>
+</html>
