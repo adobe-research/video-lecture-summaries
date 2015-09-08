@@ -125,7 +125,7 @@ class ProcessVideo:
         cap.release()
         return
        
-    def countfgpix(self, fgthres):
+    def countfgpix(self, is_black, fgthres):
         """Return number of foreground pixels"""    
         cap = cv2.VideoCapture(self.video)    
         counts = np.empty(self.numframes)
@@ -133,8 +133,7 @@ class ProcessVideo:
 
         while(index < self.numframes):
             ret, frame = cap.read()
-            gray = util.grayimage(frame)
-            counts[index] = pf.numfgpix_thresh(gray, fgthres)
+            counts[index] = pf.numfgpix_thresh(frame, is_black, fgthres)
             index += 1
         cap.release()
         return counts   
@@ -231,16 +230,14 @@ class ProcessVideo:
 
     def captureframes(self, fnumbers, outdir= "./"):
         cap = cv2.VideoCapture(self.video)
-        fid = 0
-        while(cap.isOpened()):
-            ret, frame = cap.read()
+        for fid in fnumbers:
+            cap.set(1, fid)
+            ret,frame = cap.read()
             if (frame == None):
-                break
-            if (fid in fnumbers):
-                filename = outdir + "capture_"        
-                filename = filename + ("%06i" % fid) + ".png"
-                cv2.imwrite(filename, frame)               
-            fid += 1
+                continue;
+            else:                      
+                filename = "capture_" + ("%06i" % fid) + ".png"
+                util.saveimage(frame, outdir, filename)
         cap.release()
         return
     

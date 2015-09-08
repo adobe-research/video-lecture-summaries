@@ -132,55 +132,41 @@ def removetemplate(gray_img, gray_obj, M):
     
     return diff
 
-def subtractlogo(frame, logo, color=None):
+def subtractlogo(frame, logo, is_black, bgcolor):
     gray_logo = util.grayimage(logo)
     wlogo, hlogo = gray_logo.shape[::-1]
-    topleft = find_object_exact_inside(frame, logo, 0.80)
+    topleft = find_object_exact_inside(frame, logo, 0.90)
     frame_copy = frame.copy()
     if  topleft == None:
-#         util.showimages([frame], "no logo")
         return frame_copy
     else:
-#         print 'logo detected'
+        print 'logo detected'
         tlx = topleft[0]
         tly = topleft[1]
     brx = tlx + wlogo
     bry = tly + hlogo
-    if color is None:
-        frame_copy[tly:bry, tlx:brx] = cv2.absdiff(frame[tly:bry, tlx:brx], logo)
+
+    if (is_black):
+        thres = BLACK_BG_THRESHOLD
     else:
-        logomask = fgmask(logo, 5, 255, True)
-        logomask = expandmask(logomask,3)
-        
-#         logomask = cv2.bitwise_not(logomask)
-        logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
+        thres = WHITE_BG_THRESHOLD
+    logomask = fgmask(logo, is_black, thres)
+    logomask = expandmask(logomask,3)      
+    logomask = fit_mask_to_img(frame_copy, logomask, tlx, tly)
 #         util.showimages([logomask], "logomask")
-        frame_copy[logomask != 0] = color
-#     util.showimages([frame, frame_copy], "processframe:subtractlogo")
+    frame_copy[logomask != 0] = bgcolor
     return frame_copy 
 
-def fgmask(image, threshold=WHITE_BG_THRESHOLD, var_threshold=255, inv=False):
-    """Mask all below threshold, above threshold if inv=True"""
-#     if (threshold is None): 
-#         threshold = 225
-#     if (var_threshold is None):
-#         var_threshold = 255
-#     if (inv is None):
-#         inv = False
-#     var = np.var(image, 2, dtype=np.uint8)    
-#     ret, var_mask = cv2.threshold(var, var_threshold, 255, cv2.THRESH_BINARY)       
-    # cv2.waitKey(0)
+def fgmask(image, is_black=True, threshold=BLACK_BG_THRESHOLD, var_threshold=255):
+    """Mask background 0, forground 255"""
     img2gray = util.grayimage(image)
-    ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY)    
-#     mask = cv2.bitwise_or(var_mask, lum_mask)
-#     util.showimages([var_mask, lum_mask], "var mask")
-
-#     util.showimages([mask])
-    if (inv == False):
-        mask = cv2.bitwise_not(mask)
-#         util.showimages([mask], "inv=True")
+    if is_black: 
+        """src(x,y) <= thres becomes 0"""
+        ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY)  
+    else: 
+        """src(x,y) > thresh becomes 0"""
+        ret, mask = cv2.threshold(img2gray, threshold, 255, cv2.THRESH_BINARY_INV)  
     return mask
-
 
 
 def fgbbox(mask):   
@@ -412,7 +398,6 @@ def find_object_exact_inside(img, template, threshold=0.20):
     bottom_right = (top_left[0] + w, top_left[1] + h)
     """threshold khan = 0.75, tecmath = 0.25 """   
 #     print max_val
-
 #     img_copy = img.copy()
 #     cv2.rectangle(img_copy, top_left, bottom_right, 255, 2)
 #     util.showimages([img_copy], "max loc")
@@ -604,8 +589,9 @@ def removebg_khan(gray_frame):
     dest[gray_frame >= 100] = 0
     return dest
 
-def numfgpix_thresh(gray, fgthres, inv=True):
-    mask = fgmask(gray, fgthres, 255, inv)
+def numfgpix_thresh(gray, is_black=True, fgthres=BLACK_BG_THRESHOLD):
+    mask = fgmask(gray, is_black, fgthres, 255)
+    util.showimages([mask], "fg")
 #     ret, threshimg = cv2.threshold(gray, fgthres, 50, cv2.THRESH_BINARY) #for black background
 #     ret, threshimg = cv2.threshold(gray, fgthres, 225, cv2.THRESH_BINARY_INV) #for white background
     numfg = np.count_nonzero(mask)
@@ -667,7 +653,7 @@ def calculate_size(size_image1, size_image2, H):
   offset = (min_row, min_col)
   return (size, offset)
 
-def stitch_images(previmage, curimage):  
+def stitch_images(previmage, curimage, is_black=True):  
   if (previmage == None):
     return curimage
   
@@ -696,8 +682,14 @@ def stitch_images(previmage, curimage):
   xoff = int(offset[0])
   yoff = int(offset[1])
 #   print 'xoff, yoff', xoff-1, yoff-1
-  M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])      
-  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue=(0, 0, 0, 0), borderMode=cv2.BORDER_CONSTANT)        
+  M0 = np.array([[1.0, 0.0, -(xoff - 1)], [0.0, 1.0, -(yoff - 1)], [0.0, 0.0, 1.0]])   
+  
+  if (is_black):
+      borderValue=(0,0,0,0)
+  else:
+      borderValue=(255,255,255,0)
+         
+  previmage_warp = cv2.warpPerspective(previmage, M0, (int(warpsize[0]), int(warpsize[1])), borderValue, borderMode=cv2.BORDER_CONSTANT)        
   
   # util.showimages([curimage_warp, previmage_warp])
   
@@ -709,13 +701,13 @@ def stitch_images(previmage, curimage):
 #   util.showimages([merged], "merged")
   return merged
   
-def panorama(list_of_frames):
+def panorama(list_of_frames, is_black=True):
   previmage = list_of_frames[0].frame
   for i in range(1, len(list_of_frames)):
     print "%i of %i" % (i, len(list_of_frames))
     curimage = list_of_frames[i].frame
-#     util.showimages([previmage], "pf::panorama, previmage")
-    previmage = stitch_images(previmage, curimage)    
+    previmage = stitch_images(previmage, curimage, is_black)
+    #     util.showimages([previmage], "pf::panorama, previmage")    
   return previmage
 
     

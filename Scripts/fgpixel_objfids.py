@@ -16,6 +16,15 @@ import scroll
 
 def plateaus(numfg, win, thres):
     diff_numfg = util.diff(numfg)
+    t = np.linspace(0, len(diff_numfg), len(diff_numfg))
+#     plt.plot(t, diff_numfg)
+#     plt.title("Difference of Num FG pixels")
+#     plt.xlabel("frames")
+#     plt.ylabel("pixels")
+#     plt.xlim(0, len(numfg))
+#     plt.savefig(video.videoname + "numfg_diffs.pdf")
+#     plt.show()
+#     plt.close()
     index = []
     for i in xrange(0, len(diff_numfg)-win):
         windata = diff_numfg[i:i+win]
@@ -25,15 +34,27 @@ def plateaus(numfg, win, thres):
     
     return index
 
-def end_of_plateaus(plateaus):
-    index = []
-    for i in range(0, len(plateaus)-1):
-        cur=plateaus[i]
-        next = plateaus[i+1]
-        if (next - cur != 1):
-            index.append(cur)
-    index.append(plateaus[-1])
-    return index
+def end_of_plateaus(numfg, plateaus, thres):
+    obj_fids = []
+    prev_i = -1
+    prev_fg = -1
+    start_fid = [prev_fg]
+    end_fid = []
+    
+    for i in range(0, len(plateaus)):
+        cur_i=plateaus[i]
+        cur_fg = numfg[cur_i]
+        if (abs(cur_fg - prev_fg) > thres):
+            """beginning of a plateau = end of drawing"""
+            end_fid.append(cur_i)
+            if (prev_i >= 0):
+                start_fid.append(prev_i)
+            prev_fg = cur_fg
+        prev_i = cur_i
+    
+    for i in range(0, len(start_fid)):
+        obj_fids.append((start_fid[i], end_fid[i]))
+    return obj_fids
 
 def plot_plateaus(numfg, index, video=None):
     t = np.linspace(0, len(numfg), len(numfg))        
@@ -52,7 +73,22 @@ def plot_plateaus(numfg, index, video=None):
     plt.xlabel("frames")
     plt.ylabel("pixels")
     plt.xlim(0, len(numfg))
-    plt.savefig(video.videoname + "_fid_indices.png")
+    plt.savefig(video.videoname + "_end_of_plateau_indices.pdf")
+    plt.show()
+    plt.close()
+    
+def plot_obj_indices(numfg, indexpairs, video=None):
+    t = np.linspace(1, len(numfg), len(numfg))        
+    plt.plot(t, numfg)
+    begin = [pair[0] for pair in indexpairs]
+    end = [pair[1] for pair in indexpairs]
+    plt.scatter(begin, numfg[begin], c='red')
+    plt.scatter(end, numfg[end], c='blue') 
+    plt.title("Object Begin and End Indices")
+    plt.xlabel("Frames")
+    plt.ylabel("Pixels")
+    plt.xlim(0, len(numfg))
+    plt.savefig(video.videoname + "_obj_indices.pdf")
     plt.show()
     plt.close()
     
@@ -110,30 +146,14 @@ if __name__ == "__main__":
   
     numfg = fgpixel.read_fgpixel(fgpixel_txt)
     numfg = np.array(numfg)
-    index = plateaus(numfg, int(video.fps), 1)
-    plot_plateaus(numfg, index, video)
-    index = end_of_plateaus(index)
-   
     
-    print 'numframes', video.numframes -1, 'numfg', len(numfg)  
-    
-    obj_fids = []
-    cap_fids = []
-    prev_fg = 0
-    prev_id = -1
-    last_id = video.numframes-1
-    cap_fids.append(prev_id)
-    for i in index:
-        cur_fg = numfg[i]
-        fg_diff = cur_fg - prev_fg
-        if (fg_diff > 0):
-            obj_fids.append((prev_id, i))
-            cap_fids.append(i)
-            prev_id = i
-            prev_fg = cur_fg
-    obj_fids.append((prev_id, last_id))
-    cap_fids.append(last_id)
-    plot_plateaus(numfg, cap_fids, video)
+    """get index of end of plateaus"""  
+    winsize =  int(video.fps) #1sec
+    flat_thres = 5 
+    p_index = plateaus(numfg, int(video.fps), flat_thres)
+    sec_thres = 200
+    obj_fids = end_of_plateaus(numfg, p_index, sec_thres)  
+    plot_obj_indices(numfg, obj_fids, video)
 
     """write object times"""
     outfile = video.videoname + "_fgpixel_obj_fids.txt"
@@ -143,7 +163,8 @@ if __name__ == "__main__":
     frameids.close() 
     
     tempdir = video.videoname+"_temp"
-    video.capture_keyframes_fid(cap_fids, tempdir)
+    for i in range(0, len(obj_fids)):
+        video.capture_keyframes_fid(obj_fids[i], tempdir)
 
 
         

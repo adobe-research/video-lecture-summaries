@@ -17,17 +17,11 @@ def remove_duplicate_pixels(visobj, panorama_fg, cleanupdir):
     """objects appear only once, related to first time that they appear
         panorama_fg: all objects that can still appear in panorama 
         visobj: current visobj to be cleaned """
-    obj_mask = pf.fgmask(visobj.img, pf.BLACK_BG_THRESHOLD, 225, True)
-#     util.showimages([visobj.img, obj_mask])
-    print visobj.tlx, visobj.tly, visobj.brx, visobj.bry
-#     cv2.rectangle(panorama_fg, (3, 3), (100, 100), (255,255,255), 2)
-
-#     cv2.rectangle(panorama_fg, (visobj.tlx, visobj.tly), (visobj.brx, visobj.bry), (255,255,255), 2)
-#     util.showimages([panorama_fg], "panorama foreground")
-    
+    obj_mask = pf.fgmask(visobj.img, True, pf.BLACK_BG_THRESHOLD, 225)
     panorama_fg_crop = panorama_fg[visobj.tly:visobj.bry+1, visobj.tlx:visobj.brx+1]
-    print 'obj_mask.shape', obj_mask.shape, 'panorama_fg_crop.shape', panorama_fg_crop.shape
     new_mask = cv2.bitwise_and(obj_mask, panorama_fg_crop)
+    util.showimages([visobj.img, obj_mask, new_mask], "obj")
+
     new_bbox = pf.fgbbox(new_mask)
     
     if new_bbox[0] < 0:
@@ -95,7 +89,7 @@ def main_remove_duplicate_pixels():
     visobjs = VisualObject.objs_from_file(None, objdir)
     print '# objs before cleanup', len(visobjs)
     panorama = cv2.imread(panorama_path)
-    panorama_fg = pf.fgmask(panorama, pf.BLACK_BG_THRESHOLD, 255, True)
+    panorama_fg = pf.fgmask(panorama, True, pf.BLACK_BG_THRESHOLD, 255)
     util.showimages([panorama, panorama_fg])
 
     list_of_new_visobjs = []

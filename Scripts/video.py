@@ -216,6 +216,7 @@ class Video:
             cap.set(1, fid)
             ret, frame = cap.read()
             if (frame == None):
+                print fid, "None frame"
                 break;
             else:
                 filename = outdir + "/capture_"        

@@ -9,6 +9,7 @@ import removelogo
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+from scipy.signal._peak_finding import argrelextrema
 
 
 def new_obj_panorama():
@@ -46,52 +47,68 @@ def new_obj_panorama():
     cv2.imwrite(framedir + "\\panorama_new.png", panorama)
     cv2.imshow("panorama", panorama)
     cv2.waitKey(0)
+    
+def plot_keyframes(numfg, indices):
+    t = np.linspace(1, len(numfg), len(numfg))        
+    plt.plot(t, numfg)
+    plt.scatter(indices, numfg[indices], c='red')
+    plt.title("Panorama Keyframes")
+    plt.xlabel("Frames")
+    plt.ylabel("Pixels")
+    plt.xlim(0, len(numfg))
+    plt.savefig(video.videoname + "_panorama_keyframes.pdf")
+    plt.show()
+    plt.close()
  
     
 if __name__ == "__main__":
-    """written on 6/26/2015"""
 
     videopath = sys.argv[1]
     numfgpixtxt = sys.argv[2]
-    if (len(sys.argv) == 4):
-        thres = int(sys.argv[3])
+    is_black = int(sys.argv[3])    
+    if (len(sys.argv) == 5):
+        thres = int(sys.argv[4])
     else:
-        thres = 1000
+        thres = -3000
     
     video = Video(videopath)
     numfgpix = util.stringlist_from_txt(numfgpixtxt)
     counts = util.strings2ints(numfgpix)
-
+    
+    if (is_black == 1):
+        is_black = True
+    else:
+        is_black = False
+    
+        
     countdiffs = []
     for i in range(0, len(counts)-1):
-        diff = abs(counts[i+1] - counts[i])
+        diff = counts[i+1] - counts[i]
         countdiffs.append(diff)
-
     fid = 0
     last_unmoved_fid = 0
     capture = False
-    keyframes_fid = []
+    keyframes_fid = [0]
     for diff in countdiffs:
-        if diff > thres and not capture:
-            keyframes_fid.append(fid)
+        if diff < thres and not capture:
+            keyframes_fid.append(max(0, fid-2))
             capture = True
         elif diff <= thres:
             capture = False
         fid += 1
+    print fid-2*video.fps
     keyframes_fid.append(fid-2*video.fps)
      
     framedir = video.videoname + "_panorama"
     if not os.path.exists(os.path.abspath(framedir)):
         os.makedirs(os.path.abspath(framedir))
     panorama_keyframes = framedir + "/panorama_fids.txt"
-#     panorama_keyframes = util.stringlist_from_txt(panorama_keyframes)
-#     keyframes_fid = util.strings2ints(panorama_keyframes)
     
     util.write_ints(keyframes_fid, panorama_keyframes)
     list_of_keyframes = video.capture_keyframes_fid(keyframes_fid, framedir)
 #     list_of_keyframes = Keyframe.get_keyframes(framedir)
-    
-    panorama = pf.panorama(list_of_keyframes)
+    print "stitch panorama"
+    panorama = pf.panorama(list_of_keyframes, is_black)
     cv2.imwrite(framedir + "/panorama.png", panorama)
 
     

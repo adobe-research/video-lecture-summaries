@@ -127,7 +127,7 @@ def capture_object_keyframes(object_fids, video):
     keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
     return keyframes
     
-def getobjects(video, object_fids, panorama, objdir):
+def getobjects(video, object_fids, panorama, is_black, objdir):
     print 'video.fps', video.fps
     if not os.path.exists(os.path.abspath(objdir)):
         os.makedirs(os.path.abspath(objdir))
@@ -139,8 +139,7 @@ def getobjects(video, object_fids, panorama, objdir):
         end_fids.append(fids[1])
     
     start_keyframes = video.capture_keyframes_fid(start_fids, video.videoname + "_temp")
-    end_keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp")
-# 
+    end_keyframes = video.capture_keyframes_fid(end_fids, video.videoname + "_temp") 
 #     end_images, end_filenames = util.get_images(video.videoname + "_temp/", end_fids) 
 #     end_keyframes = []
 #     for i in range(0, len(end_images)):
@@ -205,7 +204,11 @@ def getobjects(video, object_fids, panorama, objdir):
         
         diff_frame[max(0,-cury):min(curh-cury, curh), max(0, -curx):min(curw-curx, curw)] = cv2.absdiff(curframe_overlap, prevframe_overlap)
         obj_frame = cv2.min(keyframe.frame, diff_frame) 
-        obj_mask = pf.fgmask(obj_frame, pf.BLACK_BG_THRESHOLD, 225, True)
+        if is_black:
+            obj_mask = pf.fgmask(obj_frame, is_black, pf.BLACK_BG_THRESHOLD)
+        else:
+            obj_mask = pf.fgmask(obj_frame, is_black, pf.WHITE_BG_THRESHOLD)
+            
 #         util.showimages([obj_frame, obj_mask], "obj_mask")
         obj_bbox = pf.fgbbox(obj_mask)
 #         util.showimages([prevframe, keyframe.frame, diff_frame, obj_frame])
@@ -242,13 +245,18 @@ def segment_main():
     videopath = sys.argv[1]
     video = Video(videopath)
     
-    
     objfidspath = sys.argv[2]
     object_fids = read_obj_fids(objfidspath)
     
     panoramapath = sys.argv[3]
     panorama = cv2.imread(panoramapath)
-    getobjects(video, object_fids, panorama, video.videoname + "_fgpixel_objs_noseg")
+    
+    is_black = int(sys.argv[4])
+    if is_black == 0:
+        is_black = False
+    else:
+        is_black = True
+    getobjects(video, object_fids, panorama, is_black, video.videoname + "_fgpixel_objs_noseg")
              
 
 if __name__ == "__main__":  

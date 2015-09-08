@@ -38,7 +38,7 @@ def fillblack(img, logos):
 def fillwhite(img, logos):
     return fillcolor(img, logos (255, 255, 255))
 
-def fromvideo(video, logos, color):
+def fromvideo(video, logos, is_black, bgcolor):
     cap = cv2.VideoCapture(video.filepath)
     outvideo = video.videoname+"_removelogo.avi"
     fourcc = cv2.cv.CV_FOURCC('D', 'I', 'V', 'X')
@@ -53,7 +53,7 @@ def fromvideo(video, logos, color):
             break
 #         util.showimages([frame], "before logo subtraction")
         for i in range(0, len(logos)):
-            frame = pf.subtractlogo(frame, logos[i], color)
+            frame = pf.subtractlogo(frame, logos[i], is_black, bgcolor)
 #         util.showimages([frame], "after, logo subtraction")
         out.write(frame)
     cap.release()
@@ -61,21 +61,28 @@ def fromvideo(video, logos, color):
     print 'output: ', outvideo
         
 
-if __name__ == "__main__":
-    
+if __name__ == "__main__":    
     """Removes logo from video or image"""
     target = sys.argv[1]
     logodir = sys.argv[2]
-    outdir = target
+    is_black = int(sys.argv[3])
+    outdir = os.path.dirname(target)
     extension = os.path.splitext(target)[1]
     logos = util.get_logos(logodir)    
     
+    if is_black == 1:
+        is_black = True
+        bgcolor = (0,0,0)
+    else:
+        is_black = False
+        bgcolor = (255,255,255)
+    
     if (".mp4" in extension or ".avi" in extension or ".mov" in extension):
         video = Video(target)
-        fromvideo(video, logos, (0,0,0))
+        fromvideo(video, logos, is_black, bgcolor)
     elif (".png" in extension):
         img = cv2.imread(target)
-        outimg = fillcolor(img, logos, (0,0,0))
+        outimg = fillcolor(img, logos, bgcolor)
         
     else:    
         imagefiles, images = util.get_capture_imgs(target)
@@ -87,7 +94,7 @@ if __name__ == "__main__":
         for i in range(0, len(images)):
             print imagefiles[i]
             img = images[i]
-            outimg = fillcolor(img, logos, (0,0,0))
+            outimg = fillcolor(img, logos, bgcolor)
             cv2.imwrite(processed_path+"\\"+ imagefiles[i], outimg)
             
             

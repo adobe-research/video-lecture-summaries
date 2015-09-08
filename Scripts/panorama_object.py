@@ -219,8 +219,9 @@ def objs():
 #         temp = panorama_copy.copy()
 #         panorama_copy[idx] = col
 #         panorama_copy = cv2.min(temp, panorama_copy)
+        util.showimages([panorama_copy], outfile)
     cv2.imwrite(outfile, panorama_copy)
-    util.showimages([panorama_copy], outfile)
+    
 #     util.showimages([panorama], "objects")
 #     cv2.imwrite(outfile, panorama)
         
